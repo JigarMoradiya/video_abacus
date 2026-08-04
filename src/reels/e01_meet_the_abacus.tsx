@@ -9,51 +9,30 @@
 // tools/align_by_matching.py. Worst measured drift vs the audio is 0.50 s.
 
 import React from "react";
-import {
-  AbsoluteFill,
-  Audio,
-  Sequence,
-  interpolate,
-  staticFile,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
 import phrasesJson from "../data/e01.phrases.json";
 import { makeTrack, planBeats, sec, type TPhrase } from "../lib/timing";
-import { World } from "../components/World";
-import { PartArrow, type Pt } from "../components/PartArrow";
-import { BeadWorth, SumBreakdown } from "../components/BeadWorth";
-import { Tooltip, tooltipWidth, tooltipLines, cardHeight } from "../components/Tooltip";
 import { LINE_TOOLTIP, LINE_HIGHLIGHT, LINE_COUNT } from "../data/lineMap";
+import { TOUR_SHORT } from "../data/tour";
+import { tooltipColor } from "../components/Tooltip";
 import { NextUpCard } from "../components/Outro";
 import { LandscapeFreeMode, StoreFlow, DownloadCta } from "../components/AppShowcase";
-import { HeadlinePill, BrandBadge, PoweredBy } from "../components/Brand";
 import {
   CountingRun,
   CountingFingers,
   MissingStep,
   HistoryTimeline,
 } from "../components/HookProps";
-import { WORLDS, type WorldKind } from "../data/theme";
-import { Abacus, type RodState } from "../components/Abacus";
-import { Caption } from "../components/Caption";
-import { FingerHand } from "../components/FingerHand";
+import { type RodState } from "../components/Abacus";
 import { Card, Chip, StickerText } from "../components/Sticker";
 import { bob, pulse } from "../lib/motion";
-import { TYPE } from "../lib/fonts";
+import { SceneStage, type SfxCue } from "../stage/SceneStage";
+import { firstPhraseWhere } from "../stage/clock";
+import type { CardSpec, Highlight, Scene as BaseScene } from "../stage/types";
 import {
-  ABACUS_INNER_H,
   BAND,
-  BEAD_H,
-  BEAM_H,
   FPS,
-  FRAME_LW,
-  H,
-  HEAVEN_H,
   PLACE_COLORS,
-  PLACE_NAMES,
   ROD_DIM,
-  ROD_PITCH,
   THEME,
   W,
 } from "../data/tokens";
@@ -142,65 +121,15 @@ const LABELS: Record<number, string> = {
 
 // ---------------------------------------------------------------- scene state
 
-type Highlight = "frame" | "rods" | "beam" | "top" | "bottom" | null;
-
+/** Stand-ins for the abacus in the hook, where the script is not about the abacus yet. */
 type StageProp = "abacus" | "counting" | "fingers" | "missingstep" | "calculator";
 
-interface Scene {
-  world: WorldKind;
-  /** What is actually on stage. The abacus is a prop, not furniture: it must not be on
-   *  screen before line 4 names it. */
+/** The shared scene vocabulary plus the three things only this episode has: the finger
+ *  rules card, the your-turn prompt, and the decimals chip on the 13-rod view. */
+interface Scene extends BaseScene {
   stage: StageProp;
-  rods: RodState[];
-  highlight: Highlight;
-  scale: number;
-  /** headline shown in the headline band */
-  headline?: string;
-  /** label chips beside the stage */
-  sideLabel?: { text: string; color: string };
-  hand?: { digit: "thumb" | "index"; direction: "up" | "down"; rod: number; heaven: boolean };
-  counter?: string;
-  count?: "upper" | "lower" | "active" | null;
-  /** Show the bead being valued next to what it is worth. */
-  beadWorth?: { which: "upper" | "lower"; worth: number };
-  /** Answers and prompts sit ABOVE the abacus; part labels sit beside it. */
-  labelPos?: "side" | "above";
-  closeBeat?: "show" | "tap" | "move" | "play" | "store" | "next";
-  /** Rod this line is about; 0 = ones = RIGHTMOST. Drives the arrow target and which
-   *  side the tooltip sits on, so the pointer is always short and unambiguous. */
-  targetRod?: number;
-  /** Force the panel to one side. The finger beats need it: the hand reaches in from the
-   *  right of the ones rod, so a panel auto-placed on the right sits on top of it. */
-  panelSide?: "left" | "right";
-  /** "aboveRod" centres the card over its target rod and points the arrow straight down.
-   *  Used where the line names a COLUMN rather than a part — "this is the ones column" —
-   *  which has no anatomical highlight, so a side card had nothing to attach to. */
-  panelPlace?: "side" | "aboveRod";
-  /** Text under the target rod, naming it. The 13-rod view needs it: the whole point is
-   *  WHICH rod is the ones column, and that cannot be shown by a card alone. */
-  centreNote?: string;
-  /** Beads keep moving for the whole line. "It has colorful beads that slide up and down
-   *  on rods" was showing ONE static value, i.e. beads that do not slide. */
-  liveBeads?: boolean;
-  /** Rich reveal for the your-turn answer: how many of each bead, and the sum. */
-  sumBreakdown?: { upper: number; lower: number };
-  /** Light these rods one after another across the line. "Every time you move left, the
-   *  value becomes ten times bigger" is about the MOVE, so the frame has to keep moving
-   *  left — a single lit rod stated the rule without demonstrating it. */
-  sweepRods?: number[];
-  /** Mark a whole SECTION as a band — frame-top to beam, or beam to frame-bottom. The two
-   *  lines that name a section are about the region, so the region is what gets marked. */
-  band?: "top" | "bottom";
-  /** Mark a whole ROD as a vertical band, top of the frame to the bottom. "This is the ones
-   *  column / unit's place" is about the column, so the column is what gets marked — a
-   *  single lit bead did not say "this whole rod". */
-  rodBand?: number;
-  /** Draw a box around this many rods, counted from the ones rod. Used by the capacity
-   *  lines, which talk about a GROUP of columns rather than a single bead. */
-  boxRods?: number;
   question?: boolean;
   rulesCard?: boolean;
-  closing?: boolean;
   decimals?: boolean;
 }
 
@@ -552,6 +481,11 @@ const sceneFor = (p: number): Scene => {
     closing: true,
     closeBeat:
       p <= 72 ? "show" : p === 73 ? "tap" : p === 74 ? "move" : p === 75 ? "play" : p <= 77 ? "store" : "next",
+    // the store beat pulls the world back so the phone and the CTA carry the frame, and
+    // carries no caption — they ARE the message, and the phonics outro leaves the caption
+    // band empty for exactly that reason
+    worldWash: p === 76 || p === 77 ? 0.55 : undefined,
+    noCaption: p === 76 || p === 77,
   };
 };
 
@@ -563,8 +497,8 @@ const sceneFor = (p: number): Scene => {
  * praise. Kept quiet so nothing competes with the narration — at 0.42/0.5/0.45 the clap
  * pushed the mix to 0.0 dB peak, i.e. clipping.
  */
-const SFX_CUES: { frame: number; file: string; len: number; vol: number }[] = (() => {
-  const cues: { frame: number; file: string; len: number; vol: number }[] = [];
+const SFX_CUES: SfxCue[] = (() => {
+  const cues: SfxCue[] = [];
   const valuesOf = (i: number) => sceneFor(i).rods.map((r) => r.value).join(",");
 
   // THE reveal. Line 3 is "This is an abacus." and it is the first frame the abacus
@@ -605,887 +539,190 @@ const SFX_CUES: { frame: number; file: string; len: number; vol: number }[] = ((
   return cues;
 })();
 
-const currentPhrase = (frame: number): number => {
-  let idx = 0;
-  for (const p of PHRASES) {
-    if (sec(p.start, FPS) <= frame) idx = p.index;
-    else break;
-  }
-  return idx;
+/** The app's own Free Mode tour supplies the wording and the colour for every part this
+ *  episode names, so the card cannot drift from what the app calls things. */
+const cardFor = (p: number): CardSpec | undefined => {
+  const step = LINE_TOOLTIP[p];
+  if (step === undefined) return undefined;
+  const segs = TOUR_SHORT[step];
+  if (!segs) return undefined;
+  return { key: step, segs, color: tooltipColor(step) };
 };
 
-/** Smoothly ramp a numeric scene field across the phrase boundary so nothing snaps. */
-const smooth = (frame: number, pick: (s: Scene) => number): number => {
-  const i = currentPhrase(frame);
-  const startF = sec(PHRASES[i].start, FPS);
-  const prev = i > 0 ? pick(sceneFor(i - 1)) : pick(sceneFor(0));
-  const now = pick(sceneFor(i));
-  return interpolate(frame, [startF, startF + 10], [prev, now], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-};
+/** first frame of the store beat, so its flow runs once across both its lines and then
+ *  holds on the finished state instead of starting over */
+const STORE_START = (() => {
+  const i = firstPhraseWhere(PHRASES, (j) => sceneFor(j).closeBeat === "store");
+  return i < 0 ? 0 : sec(PHRASES[i].start, FPS);
+})();
 
-/** The one panel look: white card, dark text, the term itself in the app's colour. */
-const InfoCard: React.FC<{ text: string; color: string }> = ({ text, color }) => (
-  <div
-    style={{
-      display: "block",
-      background: "#FFFFFF",
-      borderRadius: 34,
-      padding: "22px 30px",
-      boxShadow: "0 10px 0 rgba(0,0,0,0.22)",
-      fontFamily: TYPE.family,
-      fontSize: TYPE.tooltip.size,
-      fontWeight: TYPE.tooltip.strong,
-      lineHeight: 1.32,
-      color,
-      whiteSpace: "pre-wrap",
-      textAlign: "center",
-      boxSizing: "border-box",
-    }}
-  >
-    {text}
-  </div>
-);
+/** The abacus is not on stage until line 3 names it. */
+const ABACUS_FIRST_FRAME = sec(PHRASES[3].start, FPS);
 
-const StageLabel: React.FC<{
-  text: string;
-  color: string;
-  frame: number;
-  /** left edge of the abacus, so the label can never sit on top of it */
-  limit: number;
-  pos: "side" | "above" | "aboveRod";
-  /** the SAME coordinates the arrow starts from. The label used to compute its own top
-   *  while the arrow used the panel slot, so the arrow's origin dot floated off the card. */
-  x: number;
-  y: number;
-  w: number;
-}> = ({ text, color, frame, limit, pos, x, y, w }) => {
-  const gap = limit - 56 - 36;
-  // "aboveRod" always uses the supplied panel coordinates — that is the whole point of it
-  const beside = pos === "aboveRod" || (pos === "side" && gap >= 330);
-  if (pos === "above") {
-    // answers and prompts read better over the abacus than off to one side
-    return (
-      <div
-        style={{
-          position: "absolute",
-          left: 0,
-          width: W,
-          top: BAND.stageTop - 120 + bob(frame, FPS, 7, 3.6),
-          textAlign: "center",
-        }}
-      >
-        <Card bg={color} radius={40}>
-          <StickerText
-            size={/\d/.test(text) && text.replace(/\s/g, "").length <= 7 ? 104 : 46}
-            style={{ display: "block", textAlign: "center" }}
-          >
-            {text}
-          </StickerText>
-        </Card>
-      </div>
-    );
-  }
-  // Same white info card as the tooltip. Labels used to be a solid coloured Card with
-  // white sticker text, so the two panels doing the same job looked like two different
-  // systems on adjacent lines.
-  return (
-    <div
-      style={{
-        position: "absolute",
-        // the panel coordinates the arrow also uses — never a second set of its own
-        left: beside ? x : 0,
-        width: beside ? w : W,
-        textAlign: "center",
-        top: beside ? y : BAND.stageTop - 96 + bob(frame, FPS, 6, 3.4),
-      }}
-    >
-      <InfoCard text={text} color={color} />
-    </div>
-  );
-};
-
-export const E01MeetTheAbacus: React.FC = () => {
-  const frame = useCurrentFrame();
-  const { width } = useVideoConfig();
-  const p = currentPhrase(frame);
-  const scene = sceneFor(p);
-  const world = WORLDS[scene.world];
-  const scale = smooth(frame, (s) => s.scale);
-
-  // Each rod is told where it is coming FROM, so only the beads the next number needs
-  // actually travel. Previously every bead interpolated from its opposite position, so
-  // the whole abacus re-seated itself on every change — visible as a constant reset.
-  const phraseStart = sec(PHRASES[p].start, FPS);
-  const prevScene = p > 0 ? sceneFor(p - 1) : scene;
-  const sameRig = prevScene.rods.length === scene.rods.length && prevScene.stage === scene.stage;
-  let rods: RodState[] = scene.rods.map((r, i) => ({
-    ...r,
-    from: sameRig ? prevScene.rods[i]?.value ?? r.value : r.value,
-  }));
-
-  // The summary line steps left one rod at a time, so the rule is shown, not just said.
-  if (scene.sweepRods) {
-    const seq = scene.sweepRods;
-    // local progress: beatProgress is declared further down, and reordering the hooks
-    // around it is how a render broke before
-    const pEnd = sec(PHRASES[p].end, FPS);
-    const frac = Math.max(
-      0,
-      Math.min(0.999, (frame - phraseStart) / Math.max(1, pEnd - phraseStart))
-    );
-    const which = Math.min(seq.length - 1, Math.floor(frac * seq.length));
-    const litRod = seq[which];
-    rods = rods.map((r, i) => ({
-      ...r,
-      focus: i === litRod ? 1 : ROD_DIM,
-      value: i === litRod ? 1 : 0,
-      from: i === litRod ? 0 : 0,
-    }));
-  }
-
-  // Beads that actually slide, for the line that says they slide. Each rod steps to a new
-  // value every STEP frames and travels there, so the whole abacus is in motion.
-  const STEP = 14;
-  const liveSettle = scene.liveBeads
-    ? ((frame - phraseStart) % STEP) / (STEP - 1)
-    : 1;
-  if (scene.liveBeads) {
-    const k = Math.floor(Math.max(0, frame - phraseStart) / STEP);
-    const wave = (i: number, n: number) => {
-      // a different, non-repeating pattern per rod so it never looks like a counter
-      const seq = [0, 3, 5, 8, 4, 9, 2, 6, 1, 7];
-      return seq[(n * (i + 2) + i * 3) % seq.length];
-    };
-    rods = rods.map((r, i) => ({
-      ...r,
-      from: wave(i, Math.max(0, k)),
-      value: wave(i, Math.max(0, k) + 1),
-    }));
-  }
-  const settle = interpolate(frame, [phraseStart, phraseStart + 10], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-
-  // Every spoken line must change something on screen, and several lines carry no new
-  // bead content ("the beam is very important", "so how many numbers can we make?").
-  // Those lines got a new caption and nothing else, which is the one thing the caption
-  // is explicitly not allowed to be. The rig now acknowledges each new line with a
-  // short settle-bounce, so the change is real without inventing wrong content.
-  const linePop = interpolate(
-    frame,
-    [phraseStart, phraseStart + 5, phraseStart + 13],
-    [1, 1.022, 1],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-  );
-
-  // first frame of the store beat, so its flow runs once across both its lines and then
-  // holds on the finished state instead of starting over
-  const storeStart = (() => {
-    for (let i = 0; i < PHRASES.length; i++) {
-      if (sceneFor(i).closeBeat === "store") return sec(PHRASES[i].start, FPS);
-    }
-    return 0;
-  })();
-
-  // fraction through the current phrase, for props that animate across a whole line
-  const phraseEnd = sec(PHRASES[p].end, FPS);
-  const beatProgress = interpolate(frame, [phraseStart, phraseEnd], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-
-  // The abacus springs in on the frame it is first named, and stays put after.
-  const abacusFirstFrame = sec(PHRASES[3].start, FPS);
-  const reveal =
-    frame < abacusFirstFrame
-      ? 1
-      : interpolate(frame, [abacusFirstFrame, abacusFirstFrame + 12], [0.7, 1], {
-          extrapolateLeft: "clamp",
-          extrapolateRight: "clamp",
-        });
-
-  const abacusW = (scene.rods.length * ROD_PITCH + FRAME_LW * 2) * scale;
-  const abacusH = (ABACUS_INNER_H + FRAME_LW * 2) * scale;
-  const stageMidY = (BAND.stageTop + BAND.stageBottom) / 2;
-  const left = (width - abacusW) / 2;
-  const top = stageMidY - abacusH / 2 + bob(frame, FPS, 6, 5);
-
-  // ---- where the explanation panel goes, and what the arrow points at ----
-  // Rule: the panel sits on the SAME SIDE as the bead being discussed, so the arrow is
-  // short and unambiguous. A panel pinned to the left while the subject was the rightmost
-  // rod meant the pointer crossed the whole abacus.
-  const targetRod = scene.targetRod ?? Math.floor(scene.rods.length / 2);
-  const tCol = scene.rods.length - 1 - targetRod;
-  const tRodX = left + FRAME_LW * scale + (tCol + 0.5) * ROD_PITCH * scale;
-  const panelRight =
-    scene.panelSide ? scene.panelSide === "right" : tRodX > W / 2;
-  // A tip belongs to a RUN of lines, not to one line. Lines 14-17 are all about the beam,
-  // so the beam tip must sit still across all four; keying it to the line made it vanish
-  // and re-pop at a different slot on every sentence. `tip.start` is the line that
-  // introduced it, and everything about the panel is keyed to that instead of to `p`.
-  const tip = (() => {
-    const none = { step: undefined as number | undefined, start: p };
-    // back up to the nearest line that HAS a tooltip, carrying across lines still about
-    // the same part; a line about no part at all ends the run
-    let i = p;
-    while (i >= 0 && LINE_TOOLTIP[i] === undefined) {
-      if (LINE_HIGHLIGHT[i] === undefined) return none;
-      i--;
-    }
-    if (i < 0) return none;
-    const step = LINE_TOOLTIP[i];
-    const part = LINE_HIGHLIGHT[i];
-    for (let j = i + 1; j <= p; j++) {
-      if (LINE_HIGHLIGHT[j] !== part) return none;
-    }
-    // Then keep going back to the FIRST line of this tooltip's run. Without this the walk
-    // stopped at `p` itself whenever `p` had its own entry, so lines 9 and 10 — both
-    // tooltip 0 — reported different starts and the same card jumped between slots.
-    let s = i;
-    while (s > 0 && LINE_TOOLTIP[s - 1] === step) s--;
-    return { step, start: s };
-  })();
-
-  // width fits whichever card is actually showing — it used to be sized for a tooltip
-  // even on lines that only have a label, so those cards were the wrong width
-  const panelW =
-    scene.sumBreakdown
-      ? 520 // the SumBreakdown card's own fixed width — it was sized from an empty label
-      : tip.step !== undefined
-      ? tooltipWidth(tip.step)
-      : (() => {
-          const s = scene.sideLabel?.text ?? "";
-          const longest = Math.max(...s.split("\n").map((l) => l.length), 6);
-          return Math.round(
-            Math.min(500, Math.max(240, longest * TYPE.tooltip.size * 0.58 + 84))
-          );
-        })();
-  const aboveRod = scene.panelPlace === "aboveRod";
-  const panelX = aboveRod
-    ? Math.max(40, Math.min(W - 40 - panelW, tRodX - panelW / 2))
-    : panelRight
-    ? W - 60 - panelW
-    : 60;
-  // Three vertical slots, cycled by RUN so consecutive sections differ but a single tip
-  // never moves while it is on screen.
-  // the card's real height, so the arrow can start ON its edge instead of near it
-  const cardH = cardHeight(
-    tip.step !== undefined
-      ? tooltipLines(tip.step)
-      : (scene.sideLabel?.text ?? "").split("\n").length
-  );
-  const panelY = aboveRod
-    // high enough that the card clears the abacus and the arrow has room to be seen —
-    // at -150 the card overlapped the frame and the arrow was a stub
-    ? BAND.stageTop - 168 + bob(frame, FPS, 6, 3.8)
-    : BAND.stageTop + (RUN_SLOT[tip.start] ?? 190) + bob(frame, FPS, 6, 3.8);
-  // pop and arrow-draw progress measured from the run's first frame, so neither restarts
-  const runStart = sec(PHRASES[tip.start].start, FPS);
-  const runProgress = interpolate(frame, [runStart, runStart + 34], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-
-  // The section band: full inner width, frame-top to beam, or beam to frame-bottom.
-  const bandRect = (() => {
-    if (!scene.band) return null;
-    const innerLeft = left + FRAME_LW * scale;
-    const innerTop = top + FRAME_LW * scale;
-    const bw = scene.rods.length * ROD_PITCH * scale;
-    if (scene.band === "top") {
-      return { x: innerLeft, y: innerTop, w: bw, h: HEAVEN_H * scale };
-    }
-    return {
-      x: innerLeft,
-      y: innerTop + (HEAVEN_H + BEAM_H) * scale,
-      w: bw,
-      h: (ABACUS_INNER_H - HEAVEN_H - BEAM_H) * scale,
-    };
-  })();
-
-  // A whole-rod band: one column, full inner height.
-  const rodBandRect = (() => {
-    if (scene.rodBand === undefined) return null;
-    const n = scene.rods.length;
-    const col = n - 1 - scene.rodBand;
-    const innerLeft = left + FRAME_LW * scale;
-    const innerTop = top + FRAME_LW * scale;
-    return {
-      x: innerLeft + col * ROD_PITCH * scale + 3,
-      y: innerTop - 4,
-      w: ROD_PITCH * scale - 6,
-      h: ABACUS_INNER_H * scale + 8,
-    };
-  })();
-
-  // Box round the group of rods a capacity line is talking about.
-  const box = (() => {
-    if (!scene.boxRods) return null;
-    const n = scene.rods.length;
-    const innerLeft = left + FRAME_LW * scale;
-    const x0 = innerLeft + (n - scene.boxRods) * ROD_PITCH * scale - 6;
-    const x1 = innerLeft + n * ROD_PITCH * scale + 6;
-    const y0 = top + FRAME_LW * scale - 6;
-    const y1 = top + (FRAME_LW + ABACUS_INNER_H) * scale + 6;
-    return { x: x0, y: y0, w: x1 - x0, h: y1 - y0 };
-  })();
-
-  const arrowTarget: Pt | null = (() => {
-    // a whole-rod band is the target when there is one — aim at its top edge
-    if (rodBandRect) {
-      return { x: rodBandRect.x + rodBandRect.w / 2, y: rodBandRect.y + 14 };
-    }
-    // a whole-section band is the target when there is one — aim at its near edge
-    if (bandRect) {
-      return panelRight
-        ? { x: bandRect.x + bandRect.w - 10, y: bandRect.y + bandRect.h / 2 }
-        : { x: bandRect.x + 10, y: bandRect.y + bandRect.h / 2 };
-    }
-    // a card sitting over its rod points straight down at that rod's top bead
-    if (aboveRod) {
-      return { x: tRodX, y: top + (FRAME_LW + BEAD_H * 0.4) * scale };
-    }
-    // a boxed group is the target when there is one — aim at the near edge
-    if (box) {
-      return panelRight
-        ? { x: box.x + box.w + 4, y: box.y + box.h * 0.5 }
-        : { x: box.x - 4, y: box.y + box.h * 0.5 };
-    }
-    const innerTop = top + FRAME_LW * scale;
-    const val = scene.rods[targetRod]?.value ?? 0;
-    const yOf = (v: number) => innerTop + v * scale;
-    switch (scene.highlight) {
-      case "frame":
-        return { x: panelRight ? left + abacusW - 12 : left + 12, y: top + abacusH * 0.8 };
-      case "beam":
-        return { x: tRodX, y: yOf(HEAVEN_H + BEAM_H / 2) };
-      case "rods":
-        return { x: tRodX, y: yOf(HEAVEN_H - BEAD_H * 0.3) };
-      case "top":
-        // the heaven bead's actual position: down at the beam when the rod reads 5+
-        return { x: tRodX, y: yOf(val >= 5 ? HEAVEN_H - BEAD_H / 2 : BEAD_H / 2) };
-      case "bottom": {
-        // the topmost earth bead, up against the beam when any are raised
-        const up = val % 5;
-        const slot = up > 0 ? 0.5 : 1.5;
-        return { x: tRodX, y: yOf(HEAVEN_H + BEAM_H + BEAD_H * slot) };
-      }
-      default:
-        return null;
-    }
-  })();
-
-  // stage-space position of the ones rod, for the hand
-  const onesCx =
-    left + FRAME_LW * scale + (scene.rods.length - 0.5) * ROD_PITCH * scale;
-
-  return (
-    <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      <World kind={scene.world} />
-      {/* the store beat pulls the world back so the phone and the CTA carry the frame */}
-      {scene.closeBeat === "store" && (
-        <AbsoluteFill style={{ background: "rgba(255,255,255,0.55)" }} />
-      )}
-      <BrandBadge />
-      <PoweredBy />
-
-      {/* HEADLINE band — a pill, so it reads on both bright and dark worlds */}
-      {scene.headline && (
-        <div
-          style={{
-            position: "absolute",
-            top: 30,
-            width: W,
-            textAlign: "center",
-            transform: `scale(${pulse(frame, FPS, 0.012, 3)})`,
-          }}
-        >
-          <HeadlinePill
-            text={scene.headline}
-            fill={world.pill}
-            ink={world.pill === "#FFFFFF" ? world.ink : "#FFFFFF"}
-            size={scene.headline.includes("\n") ? 54 : 62}
+export const E01MeetTheAbacus: React.FC = () => (
+  <SceneStage<Scene>
+    phrases={PHRASES}
+    track={track}
+    sceneFor={sceneFor}
+    narration="audio/e001_about_abacus/about_abacus.mp3"
+    sfx={SFX_CUES}
+    abacusFirstFrame={ABACUS_FIRST_FRAME}
+    cardFor={cardFor}
+    // A card belongs to a run of lines about the SAME PART, which is what LINE_HIGHLIGHT
+    // records — generated from the spoken text, so it cannot drift out of step by hand.
+    subjectFor={(i) => LINE_HIGHLIGHT[i]}
+    renderProp={(stage, _scene, ctx) => (
+      <>
+        {stage === "counting" && (
+          <CountingRun
+            frame={ctx.frame - ctx.phraseStart}
+            fps={FPS}
+            progress={ctx.beatProgress}
           />
-        </div>
-      )}
-
-      {/* Centred, not top-right: at top-right it sat underneath the brand badge, which is
-          pinned there in every episode. */}
-      {scene.counter && (
-        <div
-          style={{
-            position: "absolute",
-            top: 52,
-            left: 0,
-            width: W,
-            textAlign: "center",
-          }}
-        >
-          <Chip label={scene.counter} color={world.accent} size={54} />
-        </div>
-      )}
-
-      {/* STAGE. The abacus is one prop among several and only mounts once the script
-          names it, so its arrival on line 4 is an actual reveal. */}
-      {scene.stage === "abacus" && !scene.closing && (
-        <div
-          style={{
-            position: "absolute",
-            left,
-            top,
-            // spring in on the reveal frame, then a small bounce on every new line
-            transform: `scale(${reveal * linePop})`,
-            transformOrigin: "center",
-          }}
-        >
-          <Abacus
-            rods={rods}
-            settle={scene.liveBeads ? liveSettle : settle}
-            highlight={scene.highlight}
-            scale={scale}
-            count={scene.count ?? null}
+        )}
+        {stage === "fingers" && (
+          <CountingFingers frame={ctx.frame - ctx.phraseStart} fps={FPS} />
+        )}
+        {stage === "missingstep" && (
+          <MissingStep frame={ctx.frame - ctx.phraseStart} fps={FPS} />
+        )}
+        {stage === "calculator" && (
+          <HistoryTimeline
+            frame={ctx.frame - ctx.phraseStart}
+            fps={FPS}
+            progress={ctx.beatProgress}
           />
-        </div>
-      )}
-
-      {scene.stage !== "abacus" && (
+        )}
+      </>
+    )}
+    renderUnder={(scene, ctx) =>
+      scene.decimals && (
         <div
           style={{
             position: "absolute",
-            left: 0,
-            top: BAND.stageTop,
-            width: W,
-            height: BAND.stageBottom - BAND.stageTop,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          {scene.stage === "counting" && (
-            <CountingRun frame={frame - phraseStart} fps={FPS} progress={beatProgress} />
-          )}
-          {scene.stage === "fingers" && (
-            <CountingFingers frame={frame - phraseStart} fps={FPS} />
-          )}
-          {scene.stage === "missingstep" && (
-            <MissingStep frame={frame - phraseStart} fps={FPS} />
-          )}
-          {scene.stage === "calculator" && (
-            <HistoryTimeline
-              frame={frame - phraseStart}
-              fps={FPS}
-              progress={beatProgress}
-            />
-          )}
-        </div>
-      )}
-
-      {/* names the target rod, directly under it */}
-      {scene.centreNote && (
-        <div
-          style={{
-            position: "absolute",
-            left: tRodX - 230,
-            top: top + abacusH + 18,
-            width: 460,
-            textAlign: "center",
-          }}
-        >
-          <Chip label={scene.centreNote} color={PLACE_COLORS[0]} size={34} />
-        </div>
-      )}
-
-      {scene.decimals && (
-        <div
-          style={{
-            position: "absolute",
-            left: left + abacusW * 0.54,
-            top: top + abacusH + 16,
-            width: abacusW * 0.46,
+            left: ctx.box.left + ctx.box.w * 0.54,
+            top: ctx.box.top + ctx.box.h + 16,
+            width: ctx.box.w * 0.46,
             textAlign: "center",
           }}
         >
           <Chip label="Decimals" color={PLACE_COLORS[4]} size={38} />
         </div>
-      )}
-
-      {/* the hand, over the ones rod */}
-      {scene.hand && (
-        <svg
-          width={W}
-          height={H}
-          style={{ position: "absolute", inset: 0, overflow: "visible" }}
-        >
-          {(() => {
-            // The arrow spans the bead's REAL travel and stays inside its own section:
-            //   upper bead  — parked high, down to the beam   (HEAVEN_H - BEAD_H)
-            //   lower beads — one slot, toward or away from it (BEAD_H)
-            // Anchored at the START of the move, not its middle.
-            const innerTop = top + FRAME_LW * scale;
-            const goingUp = scene.hand.direction === "up";
-            const travel = (scene.hand.heaven ? HEAVEN_H - BEAD_H : BEAD_H) * scale;
-            const anchorY = scene.hand.heaven
-              ? goingUp
-                ? innerTop + (HEAVEN_H - BEAD_H / 2) * scale
-                : innerTop + (BEAD_H / 2) * scale
-              : goingUp
-              ? innerTop + (HEAVEN_H + BEAM_H + BEAD_H * 1.5) * scale
-              : innerTop + (HEAVEN_H + BEAM_H + BEAD_H * 0.5) * scale;
-            return (
-              <FingerHand
-                digit={scene.hand.digit}
-                direction={scene.hand.direction}
-                scale={scale * 0.82}
-                x={onesCx}
-                y={anchorY}
-                len={travel}
-              />
-            );
-          })()}
-        </svg>
-      )}
-
-      {/* Arrow from the panel to the exact bead/part the line is about. The target used
-          to be hardcoded to column 1, so on "the upper bead is worth five" it pointed at
-          a rod in the middle of the abacus instead of the ones rod on the right. */}
-      {/* the whole-rod band */}
-      {rodBandRect && (
-        <svg width={W} height={H} style={{ position: "absolute", inset: 0 }}>
-          <rect
-            x={rodBandRect.x}
-            y={rodBandRect.y}
-            width={rodBandRect.w}
-            height={rodBandRect.h}
-            rx={18}
-            fill={PLACE_COLORS[0]}
-            opacity={
-              0.15 *
-              interpolate(runProgress, [0, 0.25], [0, 1], {
-                extrapolateLeft: "clamp",
-                extrapolateRight: "clamp",
-              })
-            }
-          />
-          <rect
-            x={rodBandRect.x}
-            y={rodBandRect.y}
-            width={rodBandRect.w}
-            height={rodBandRect.h}
-            rx={18}
-            fill="none"
-            stroke={PLACE_COLORS[0]}
-            strokeWidth={7}
-            strokeDasharray="22 14"
-            strokeDashoffset={-(frame % 36)}
-            opacity={interpolate(runProgress, [0, 0.25], [0, 1], {
-              extrapolateLeft: "clamp",
-              extrapolateRight: "clamp",
-            })}
-          />
-        </svg>
-      )}
-
-      {/* the whole-section band */}
-      {bandRect && (
-        <svg width={W} height={H} style={{ position: "absolute", inset: 0 }}>
-          <rect x={bandRect.x} y={bandRect.y} width={bandRect.w} height={bandRect.h} rx={16}
-            fill={world.accent}
-            opacity={0.18 * interpolate(runProgress, [0, 0.25], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}
-          />
-          <rect x={bandRect.x} y={bandRect.y} width={bandRect.w} height={bandRect.h} rx={16}
-            fill="none" stroke={world.accent} strokeWidth={7} strokeDasharray="24 15"
-            strokeDashoffset={-(frame % 39)}
-            opacity={interpolate(runProgress, [0, 0.25], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}
-          />
-        </svg>
-      )}
-
-      {/* the group box for the capacity lines */}
-      {box && (
-        <svg
-          width={W}
-          height={H}
-          style={{ position: "absolute", inset: 0, pointerEvents: "none" }}
-        >
-          <rect
-            x={box.x}
-            y={box.y}
-            width={box.w}
-            height={box.h}
-            rx={22}
-            fill="none"
-            stroke={world.accent}
-            strokeWidth={8}
-            strokeDasharray="26 16"
-            strokeDashoffset={-(frame % 42)}
-            opacity={interpolate(beatProgress, [0, 0.2], [0, 1], {
-              extrapolateLeft: "clamp",
-              extrapolateRight: "clamp",
-            })}
-          />
-        </svg>
-      )}
-
-      {(scene.highlight || box || aboveRod || bandRect || rodBandRect) &&
-        (scene.sideLabel || scene.beadWorth || tip.step !== undefined) && (() => {
-        const to = arrowTarget;
-        if (!to) return null;
-        // ALWAYS the centre of the card's top or bottom edge — top when the target is
-        // above the card, bottom when it is below.
-        // The origin sits exactly ON that edge so the stroke is flush with the card —
-        // offsetting it outward left a visible gap, and there is no dot to bridge it.
-        const cardCx = panelX + panelW / 2;
-        const cardCy = panelY + cardH / 2;
-        const exitTop = to.y < cardCy;
-        const from: Pt = { x: cardCx, y: exitTop ? panelY : panelY + cardH };
-        // Guard rather than eyeball: the arrow's origin must lie inside the card it comes
-        // out of. Every positioning bug this episode shipped was an origin computed from
-        // one coordinate system while the card used another, and each one was found by a
-        // human watching the video. This fails the render instead.
-        const SLACK = 12; // the origin may sit on, or just outside, the card's edge
-        if (
-          from.x < panelX - SLACK ||
-          from.x > panelX + panelW + SLACK ||
-          from.y < panelY - SLACK ||
-          from.y > panelY + cardH + SLACK
-        ) {
-          throw new Error(
-            `arrow origin (${from.x.toFixed(0)},${from.y.toFixed(0)}) is outside its card ` +
-              `[${panelX.toFixed(0)},${panelY.toFixed(0)} ${panelW}x${cardH}] on line ${p}`
-          );
-        }
-        return (
-          <svg
-            width={W}
-            height={H}
-            style={{ position: "absolute", inset: 0, overflow: "visible" }}
+      )
+    }
+    renderOver={(scene, ctx) => (
+      <>
+        {/* "Your turn" is part of the same prompt as the answer, so it sits ABOVE the
+            abacus too, not off to the left */}
+        {scene.question && (
+          <div
+            style={{
+              position: "absolute",
+              left: 0,
+              width: W,
+              top: BAND.stageTop - 132,
+              textAlign: "center",
+              transform: `scale(${pulse(ctx.frame, FPS, 0.05, 1.2)})`,
+            }}
           >
-            <PartArrow
-              from={from}
-              to={to}
-              progress={runProgress}
-              color={world.accent}
-              // Bow AWAY from the card. PartArrow offsets the control point along
-              // (-dy, dx)/len, so its y-component is dx/len; matching the bow's sign to dx
-              // pushes the arc downward out of a bottom exit, and flipping it does the same
-              // upward for a top exit. Signing it any other way curved the arc back across
-              // the card, which is what made it read as starting from the side.
-              bow={
-                (exitTop ? -1 : 1) *
-                Math.sign(to.x - from.x || 1) *
-                (aboveRod ? 70 : 120)
-              }
-              frame={frame - phraseStart}
-              fps={FPS}
-            />
-          </svg>
-        );
-      })()}
+            <Card bg={PLACE_COLORS[0]}>
+              <StickerText size={104}>Your turn  ?</StickerText>
+            </Card>
+          </div>
+        )}
 
-      {/* the app's own tour tooltip for this line, when there is one */}
-      {tip.step !== undefined && (
-        <div
-          style={{
-            position: "absolute",
-            left: panelX,
-            top: panelY,
-            width: panelW,
-          }}
-        >
-          <Tooltip
-            step={tip.step}
-            progress={runProgress}
-            width={panelW}
+        {scene.rulesCard && (
+          <div style={{ position: "absolute", left: 96, top: BAND.stageTop + 60 }}>
+            <Card bg={THEME.c800} radius={40}>
+              <StickerText size={40} style={{ display: "block", lineHeight: 1.5 }}>
+                {"add lower  ·  thumb up\nadd upper  ·  index down\ntake lower ·  index down\ntake upper ·  thumb up"}
+              </StickerText>
+            </Card>
+          </div>
+        )}
 
-          />
-        </div>
-      )}
-
-      {scene.sumBreakdown && (
-        <div
-          style={{
-            position: "absolute",
-            left: panelX,
-            top: BAND.stageTop + 20 + bob(frame, FPS, 6, 3.8),
-            width: panelW,
-            textAlign: "center",
-          }}
-        >
-          <SumBreakdown
-            upper={scene.sumBreakdown.upper}
-            lower={scene.sumBreakdown.lower}
-            progress={beatProgress}
-          />
-        </div>
-      )}
-
-      {scene.beadWorth && tip.step === undefined && (
-        <div
-          style={{
-            position: "absolute",
-            left: panelX,
-            top: BAND.stageTop + 150 + bob(frame, FPS, 7, 3.6),
-            width: panelW,
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <BeadWorth
-            which={scene.beadWorth.which}
-            worth={scene.beadWorth.worth}
-            progress={beatProgress}
-          />
-        </div>
-      )}
-
-      {scene.sideLabel && tip.step === undefined && (
-        <StageLabel
-          text={scene.sideLabel.text}
-          color={scene.sideLabel.color}
-          frame={frame}
-          limit={left}
-          pos={
-            scene.panelPlace === "aboveRod" ? "aboveRod" : scene.labelPos ?? "side"
-          }
-          x={panelX}
-          y={panelY}
-          w={panelW}
-        />
-      )}
-
-      {/* "Your turn" is part of the same prompt as the answer, so it sits ABOVE the
-          abacus too, not off to the left */}
-      {scene.question && (
-        <div
-          style={{
-            position: "absolute",
-            left: 0,
-            width: W,
-            top: BAND.stageTop - 132,
-            textAlign: "center",
-            transform: `scale(${pulse(frame, FPS, 0.05, 1.2)})`,
-          }}
-        >
-          <Card bg={PLACE_COLORS[0]}>
-            <StickerText size={104}>Your turn  ?</StickerText>
-          </Card>
-        </div>
-      )}
-
-      {scene.rulesCard && (
-        <div style={{ position: "absolute", left: 96, top: BAND.stageTop + 60 }}>
-          <Card bg={THEME.c800} radius={40}>
-            <StickerText size={40} style={{ display: "block", lineHeight: 1.5 }}>
-              {"add lower  ·  thumb up\nadd upper  ·  index down\ntake lower ·  index down\ntake upper ·  thumb up"}
-            </StickerText>
-          </Card>
-        </div>
-      )}
-
-      {scene.closing && scene.closeBeat && (
-        // Fixed slots, not a centred flex row: the row re-centred every time the card
-        // beside the phone changed width, so the phone slid left and right between
-        // "Free Mode is free for everyone" and "Tap any bead".
-        <div
-          style={{
-            position: "absolute",
-            top: BAND.stageTop - 90,
-            left: 0,
-            width: W,
-            height: BAND.stageBottom - BAND.stageTop + 140,
-          }}
-        >
-          {scene.closeBeat === "next" ? (
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <NextUpCard progress={beatProgress} />
-            </div>
-          ) : (
-            <>
-              {/* the store flow is the subject here, not the app screen. Its frame is
-                  measured from the FIRST store line, not the current phrase: lines 76 and 77
-                  are both store beats, so keying it to phraseStart restarted the whole
-                  search-and-download animation half way through. */}
-              {scene.closeBeat === "store" ? (
-                <div style={{ position: "absolute", left: 300, top: 20 }}>
-                  <StoreFlow frame={frame - storeStart} fps={FPS} height={760} />
-                </div>
-              ) : (
-                <div
-                  style={{
-                    position: "absolute",
-                    left: 120,
-                    top: 150 + bob(frame, FPS, 8, 4),
-                  }}
-                >
-                  <LandscapeFreeMode
-                    frame={frame - phraseStart}
-                    fps={FPS}
-                    beat={scene.closeBeat as "show" | "tap" | "move" | "play"}
-                    value={scene.closeBeat === "move" || scene.closeBeat === "play" ? 8 : 5}
-                    width={940}
-                  />
-                </div>
-              )}
-              {scene.closeBeat === "store" ? (
-                <div style={{ position: "absolute", left: 1090, top: 90 }}>
-                  <DownloadCta progress={beatProgress} />
-                </div>
-              ) : (
-                <div style={{ position: "absolute", left: 1130, top: 300, width: 680 }}>
-                <Card bg="rgba(255,255,255,0.96)" radius={44}>
-                  <StickerText
-                    size={54}
-                    color="#1F3B4D"
-                    style={{ display: "block", textAlign: "left", textShadow: "none" }}
+        {scene.closing && scene.closeBeat && (
+          // Fixed slots, not a centred flex row: the row re-centred every time the card
+          // beside the phone changed width, so the phone slid left and right between
+          // "Free Mode is free for everyone" and "Tap any bead".
+          <div
+            style={{
+              position: "absolute",
+              top: BAND.stageTop - 90,
+              left: 0,
+              width: W,
+              height: BAND.stageBottom - BAND.stageTop + 140,
+            }}
+          >
+            {scene.closeBeat === "next" ? (
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <NextUpCard progress={ctx.beatProgress} />
+              </div>
+            ) : (
+              <>
+                {/* the store flow is the subject here, not the app screen. Its frame is
+                    measured from the FIRST store line: lines 76 and 77 are both store
+                    beats, so keying it to the phrase restarted the whole
+                    search-and-download animation half way through. */}
+                {scene.closeBeat === "store" ? (
+                  <div style={{ position: "absolute", left: 300, top: 20 }}>
+                    <StoreFlow frame={ctx.frame - STORE_START} fps={FPS} height={760} />
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: 120,
+                      top: 150 + bob(ctx.frame, FPS, 8, 4),
+                    }}
                   >
-                    {scene.closeBeat === "show"
-                      ? "Free Mode\nis free for everyone"
-                      : scene.closeBeat === "tap"
-                      ? "Tap any bead"
-                      : scene.closeBeat === "move"
-                      ? "Move them yourself"
-                      : "Learn by playing"}
-                  </StickerText>
-                </Card>
-                </div>
-              )}
-            </>
-          )}
-        </div>
-      )}
-
-      {/* The download beat carries no caption: the phone and the CTA are the message, and
-          the phonics outro leaves the caption band empty for exactly that reason. */}
-      {scene.closeBeat !== "store" && (
-        <Caption track={track} frame={frame} ink={world.ink} accent={world.accent} />
-      )}
-
-      {/* SFX. The app's own sound files were copied into public/audio/sfx early on and
-          then never actually played — the whole video shipped silent apart from narration.
-          A bead click on every line where a bead really moves, the app's correct-answer
-          chime on each reveal, and its clap over the close. */}
-      {SFX_CUES.map((c, i) => (
-        <Sequence key={i} from={c.frame} durationInFrames={c.len}>
-          <Audio src={staticFile(`audio/sfx/${c.file}`)} volume={c.vol} />
-        </Sequence>
-      ))}
-
-      {/* Folder is e001_about_abacus — the episode-numbered scheme. A wrong path here
-          renders SILENT with no error, so the approved mp4 (rendered before the rename)
-          still has audio while a fresh render would not. */}
-      <Audio src={staticFile("audio/e001_about_abacus/about_abacus.mp3")} />
-    </AbsoluteFill>
-  );
-};
+                    <LandscapeFreeMode
+                      frame={ctx.frame - ctx.phraseStart}
+                      fps={FPS}
+                      beat={scene.closeBeat as "show" | "tap" | "move" | "play"}
+                      value={
+                        scene.closeBeat === "move" || scene.closeBeat === "play" ? 8 : 5
+                      }
+                      width={940}
+                    />
+                  </div>
+                )}
+                {scene.closeBeat === "store" ? (
+                  <div style={{ position: "absolute", left: 1090, top: 90 }}>
+                    <DownloadCta progress={ctx.beatProgress} />
+                  </div>
+                ) : (
+                  <div style={{ position: "absolute", left: 1130, top: 300, width: 680 }}>
+                    <Card bg="rgba(255,255,255,0.96)" radius={44}>
+                      <StickerText
+                        size={54}
+                        color="#1F3B4D"
+                        style={{ display: "block", textAlign: "left", textShadow: "none" }}
+                      >
+                        {scene.closeBeat === "show"
+                          ? "Free Mode\nis free for everyone"
+                          : scene.closeBeat === "tap"
+                          ? "Tap any bead"
+                          : scene.closeBeat === "move"
+                          ? "Move them yourself"
+                          : "Learn by playing"}
+                      </StickerText>
+                    </Card>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+        )}
+      </>
+    )}
+  />
+);

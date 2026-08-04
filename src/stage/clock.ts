@@ -156,6 +156,28 @@ export const applyLiveBeads = (
 };
 
 /**
+ * Vertical slot per card RUN, cycled by run order rather than by line number.
+ *
+ * Keying it to `start % slots.length` let two consecutive runs land on the same height —
+ * E01's rods card and beam card both came out at 330 — so the card appeared not to move at
+ * all between two different parts. Returns phrase index -> slot Y for each run's first line.
+ */
+export const runSlotMap = (
+  n: number,
+  cardAt: (i: number) => number | undefined,
+  slots: number[]
+): Record<number, number> => {
+  const starts: number[] = [];
+  let prev: number | undefined;
+  for (let i = 0; i < n; i++) {
+    const key = cardAt(i);
+    if (key !== undefined && key !== prev) starts.push(i);
+    if (key !== undefined) prev = key;
+  }
+  return Object.fromEntries(starts.map((s, k) => [s, slots[k % slots.length]]));
+};
+
+/**
  * A teaching card belongs to a RUN of lines, not to one line. Several consecutive lines
  * can all be about the beam, and the card must sit still across all of them — keying it to
  * the line made it vanish and re-pop at a different slot on every sentence.
