@@ -1,0 +1,74 @@
+# E02 · Numbers 0 to 9 — narration, one continuous take.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+#
+# Warm, playful, unhurried. Short sentences — let each one land before the next.
+# APP NAME NOT CONFIRMED: line 41 says "Abacus Kids". Check the live store title first,
+# because this is one take and changing it later means re-recording everything.
+
+# --- 1 · HOOK ---
+Last time, we met the abacus.
+Today we make numbers with it.
+Every number from zero all the way up to nine.
+And you only need one rod.
+
+# --- 2 · ZERO ---
+Let's start with nothing at all. Zero.
+Zero means no beads are touching the beam.
+Push them all away, and the rod says zero.
+
+# --- 3 · ONE TO FOUR ---
+# Count the runs clearly and evenly — the aligner needs to hear each number separately.
+Now push one lower bead up to the beam.
+That is one.
+Push one more. Count them. One, two.
+That is two.
+One more again. One, two, three.
+That is three.
+And one more. One, two, three, four.
+That is four.
+
+# --- 4 · THE WALL ---
+# Line 17: a little puzzled on "but there are none left". This is the problem beat.
+Now let's try to make five.
+Push another lower bead up... but there are none left.
+Four is as high as the lower beads can go.
+So how do we make five?
+
+# --- 5 · THE UPPER BEAD IS FIVE ---
+# Line 20 is the reveal. Slow down and let it arrive.
+Look above the beam. The upper bead.
+It has been waiting up there the whole time.
+Send the lower beads back down...
+...and bring the upper bead down with your index finger.
+One upper bead, and the rod says five.
+That single bead is worth five all on its own.
+
+# --- 6 · SIX TO NINE ---
+Now five is easy to build on.
+Five, and one lower bead up. That is six.
+Five, and two lower beads. Seven.
+Five, and three. Eight.
+Five, and all four. Nine.
+Nine is the biggest number one rod can show.
+
+# --- 7 · THE READING RULE ---
+Reading a rod is always the same two steps.
+Is the upper bead down? Then that is five.
+Then count the lower beads touching the beam.
+Add them together, and that is your number.
+
+# --- 8 · YOUR TURN ---
+# HOLD THREE FULL SECONDS OF SILENCE after the next line. Do not cut it short.
+Your turn. What number is this rod showing?
+It is three. Three lower beads up, and the upper bead still resting.
+Nice work.
+
+# --- 9 · CLOSE ---
+# No app-module talk here. These videos teach the ABACUS; the app's modules get their own
+# videos later. So the practice line points at the child's own abacus, not at Free Mode.
+# Four beats: practice -> like & subscribe -> download -> next video. The like ask comes
+# straight after the praise, while the viewer is feeling good, and promises no schedule.
+Now try it yourself. Make every number from zero to nine.
+If you liked this, tap like and subscribe for more.
+Search for Abacus Kids on the Apple App Store, or on Google Play.
+In the next video, we add two numbers together on the abacus.

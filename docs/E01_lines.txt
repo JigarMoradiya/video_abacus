@@ -1,0 +1,104 @@
+# E01 · Meet the Abacus — TRANSCRIPT OF THE RECORDED TAKE
+# This file matches public/audio/about_abacus/about_abacus.mp3 (259.47 s).
+# It replaces the pre-recording draft: the take was delivered as a tighter paraphrase
+# in shorter sentences, so the script was rewritten to match the audio, not the reverse.
+# The audio is the source of truth. Do not edit these lines without re-recording.
+
+# --- 1 · HOOK ---
+Can your child count all the way to one hundred, but ask, what's seven plus eight?
+Out come the fingers!
+There's a little step missing, and this is the tool that helps.
+This is an abacus.
+By the end of this video, you'll know every part of it.
+
+# --- 2 · WHAT AN ABACUS IS ---
+An abacus is a counting tool.
+It has colorful beads that slide up and down on rods.
+People used abacuses to solve maths problems long before calculators were invented.
+
+# --- 3 · THE OUTSIDE: FRAME, RODS, BEAM ---
+Let's look at the outside first.
+This outside part is called the frame.
+It holds everything together.
+These long lines are called rods.
+Some people also call them columns.
+They mean the same thing.
+Right across the middle is the beam.
+Some people call it the bar.
+
+# --- 4 · THE TWO HALVES ---
+The beam is very important.
+It splits the abacus into two parts.
+Everything above the beam is the top section.
+Everything below the beam is the bottom section.
+Look at the top.
+Each rod has one upper bead.
+Now look at the bottom.
+Each rod has four lower beads.
+Sometimes people call them heaven beads and earth beads.
+But don't worry, upper and lower are the names we'll use.
+
+# --- 5 · WHERE TO START ---
+# NOTE: "we always start" is a false rule on a 13-rod abacus. Lines 49-51 correct it
+# 60 s later. See E01_meet_the_abacus.md for the on-screen mitigation.
+Now look at the rod on the far right.
+This is the ones column.
+This is where we always start.
+
+# --- 6 · WHAT EACH BEAD IS WORTH ---
+Each lower bead is worth one.
+The upper bead is worth five.
+One little bead, worth five.
+That's the clever part of an abacus.
+Now move one rod to the left.
+Everything becomes ten times bigger.
+Each lower bead is now worth ten.
+The upper bead is worth fifty.
+Move one more rod left.
+Now each lower bead is worth one hundred.
+The upper bead is worth five hundred.
+Every time you move left, the value becomes ten times bigger.
+
+# --- 7 · HOW MUCH IT HOLDS ---
+So how many numbers can we make?
+One rod can show any number from zero to nine.
+Two rods can show zero to ninety-nine.
+Three rods can show zero to nine hundred and ninety-nine.
+And bigger abacuses can show even bigger numbers.
+
+# --- 7a · BIG ABACUS, SMALL ABACUS ---
+Here's something interesting.
+The abacus in our app has thirteen rods.
+On a big abacus like that, the ones column is in the middle.
+The rods on the right are used for decimals.
+But on a small abacus like this one, we simply start on the far right.
+
+# --- 8 · THE TWO FINGERS ---
+Now let's learn the finger trick.
+You only need two fingers.
+Your thumb and your index finger.
+To add lower beads, push them up with your thumb.
+To add the upper bead, pull it down with your index finger.
+To subtract lower beads, push them down with your index finger.
+To subtract the upper bead, push it back up with your thumb.
+Just two fingers, four easy rules.
+That's it.
+
+# --- 9 · READ YOUR FIRST NUMBER ---
+Let's read an abacus together.
+The upper bead is down. That's five.
+Three lower beads are up. That's three more.
+Five plus three. Eight.
+
+# --- 10 · YOUR TURN ---
+# The recall gap is real in the take: ~3.3 s of silence at 226.7-230.0.
+Your turn. What number is this showing?
+It's seven. One upper bead and two lower beads.
+Great job.
+
+# --- 11 · CLOSE ---
+Everything you learn today is inside our app in free mode.
+Tap every bead. Move them yourself. Learn by playing.
+Search for abacus kids on the Apple App Store or Google Play.
+Download it free.
+See you in the next video, where we'll place our very first number on the abacus.
