@@ -37,6 +37,41 @@ def norm(text: str) -> str:
     return re.sub(r"[^a-z0-9]", "", text.lower())
 
 
+# Whisper writes spoken numbers as DIGITS ("that is 4"), while the script says them as
+# words on purpose — EPISODE_RULES.md §3.6, because the caption reads better and because
+# a number word can carry a word timestamp. Under norm() alone "four" and "4" share no
+# characters, so every counting beat failed to match: measured on E02's take, 1 of 51
+# number-words matched, and the script as a whole only reached 81.7%.
+#
+# That matters more here than a percentage suggests. The number words ARE the beats where
+# beads move, and the your-turn answer ("It is three") lands right after 2.5 s of
+# deliberate silence — miss it and its onset gets interpolated across the pause, putting
+# the answer on screen while the child is still being asked.
+#
+# Both sides collapse to the digit form. Kept to what narration actually says: units,
+# teens, tens, and the two scale words. Exact whole-token keys only, so "ones" (as in the
+# ones rod) and "fourth" pass through untouched.
+_UNITS = "zero one two three four five six seven eight nine".split()
+_TEENS = ("ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen "
+          "nineteen").split()
+_TENS = "twenty thirty forty fifty sixty seventy eighty ninety".split()
+
+NUM_WORDS: dict[str, str] = {w: str(i) for i, w in enumerate(_UNITS)}
+NUM_WORDS.update({w: str(10 + i) for i, w in enumerate(_TEENS)})
+NUM_WORDS.update({w: str(20 + 10 * i) for i, w in enumerate(_TENS)})
+NUM_WORDS.update({"hundred": "100", "thousand": "1000"})
+
+
+def canon(text: str) -> str:
+    """Normalise for MATCHING: norm(), then number words to digits.
+
+    Deliberately separate from norm(), which also decides whether a token is a word at
+    all. Folding the two would change what gets filtered out, not just what matches.
+    """
+    n = norm(text)
+    return NUM_WORDS.get(n, n)
+
+
 def read_lines(path: Path) -> list[str]:
     out = []
     for raw in path.read_text(encoding="utf-8").splitlines():
@@ -81,8 +116,8 @@ def transcribe_words(audio: Path, model_name: str, lang: str) -> list[dict]:
 
 def align(script_words: list[str], asr: list[dict]) -> list[dict | None]:
     """Return, per script word, the matched ASR word dict (or None)."""
-    a = [norm(w) for w in script_words]
-    b = [norm(w["word"]) for w in asr]
+    a = [canon(w) for w in script_words]
+    b = [canon(w["word"]) for w in asr]
     matched: list[dict | None] = [None] * len(a)
     for blk in difflib.SequenceMatcher(a=a, b=b, autojunk=False).get_matching_blocks():
         for k in range(blk.size):
