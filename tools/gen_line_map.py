@@ -13,6 +13,9 @@ so line 70 inherited the anatomy tooltip. Anchor on the words that make a line u
 
 Usage:  python3 tools/gen_line_map.py [phrases.json]
 Then:   python3 tools/check_line_sync.py
+E01 tooling: it writes src/data/lineMap.ts, which only E01 reads. E02 keeps its card
+table in src/data/e02Cards.ts and asserts it at render time (`assertCards`).
+
 """
 from __future__ import annotations
 

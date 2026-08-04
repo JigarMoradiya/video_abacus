@@ -125,13 +125,13 @@ export const Ladder: React.FC<{
   );
 };
 
-export type BirdMood = "climb" | "shrug" | "ride" | "cheer";
+export type BirdMood = "climb" | "shrug" | "cheer";
 
 /**
  * The episode's signature gag (EPISODE_RULES.md §1.2 — every episode needs one moment a
  * child would repeat out loud). She climbs one rung per bead; at four she looks up for a
- * fifth rung, finds nothing, and shrugs at camera; then the upper bead arrives and she
- * rides it down.
+ * fifth rung, finds nothing, and shrugs at camera. She is off stage while the upper bead
+ * solves the problem, and comes back to cheer when the child gets the answer right.
  */
 export const Ladybird: React.FC<{
   box: AbacusBox;
@@ -139,19 +139,19 @@ export const Ladybird: React.FC<{
   rung: number;
   mood: BirdMood;
   x: number;
-  /** for "ride" and "cheer": an explicit Y, instead of sitting on a rung */
-  rideY?: number;
+  /** for "cheer": an explicit Y, instead of sitting on a rung */
+  perchY?: number;
   frame: number;
   fps: number;
-}> = ({ box, rung, mood, x, rideY, frame, fps }) => {
+}> = ({ box, rung, mood, x, perchY, frame, fps }) => {
   const s = box.scale;
   const t = frame / fps;
   const r = 26 * s;
 
-  // "ride" and "cheer" both sit somewhere that is not a rung, so an explicit Y wins
+  // cheering, she is on the frame rather than a rung, so an explicit Y wins
   const y =
-    (mood === "ride" || mood === "cheer") && rideY !== undefined
-      ? rideY
+    mood === "cheer" && perchY !== undefined
+      ? perchY
       : rung >= 1
       ? rungY(box, rung) - r - 8 * s
       : rungY(box, 1) + r * 1.4;

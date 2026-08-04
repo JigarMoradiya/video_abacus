@@ -10,7 +10,7 @@
 
 import React from "react";
 import phrasesJson from "../data/e01.phrases.json";
-import { makeTrack, planBeats, sec, type TPhrase } from "../lib/timing";
+import { makeTrack, sec, type TPhrase } from "../lib/timing";
 import { LINE_TOOLTIP, LINE_HIGHLIGHT, LINE_COUNT } from "../data/lineMap";
 import { TOUR_SHORT } from "../data/tour";
 import { tooltipColor } from "../components/Tooltip";
@@ -42,22 +42,6 @@ export const E01_DURATION = sec(AUDIO_SEC, FPS); // 7784
 
 const PHRASES = phrasesJson as unknown as TPhrase[];
 const track = makeTrack(PHRASES, AUDIO_SEC, FPS);
-
-export const E01_BEATS = planBeats(track, [
-  { id: "hook", from: 0, to: 4 },
-  { id: "what", from: 5, to: 7 },
-  { id: "outside", from: 8, to: 15 },
-  { id: "halves", from: 16, to: 25 },
-  { id: "start", from: 26, to: 28 },
-  { id: "values", from: 29, to: 40 },
-  { id: "capacity", from: 41, to: 45 },
-  { id: "bigsmall", from: 46, to: 50 },
-  { id: "fingers", from: 51, to: 59 },
-  { id: "read", from: 60, to: 66 },
-  { id: "yourturn", from: 67, to: 71 },
-  { id: "close", from: 72, to: 78 },
-]);
-
 
 // ---------------------------------------------------------------- line-by-line labels
 //

@@ -316,3 +316,42 @@ Beyond the contact sheet, check these at 1:1 on real frames:
 
 Sources: `BackgroundImage.swift` · `KidsActionButton.swift` · `ColumnView.swift` · `ColorPresets.swift` ·
 `AbacusDimensions.swift` · `DimensionsUtils.swift` · `AppTheme.swift` · `AbacusWithDecimalView.swift`
+
+
+---
+
+## §8c · What E02 added (2026-08-04)
+
+**The structure.** The Scene interpreter is shared now (`src/stage/`): `types.ts` is the scene
+vocabulary, `geometry.ts` the pixel arithmetic, `clock.ts` the frame→state functions,
+`SceneStage.tsx` the renderer. An episode writes `sceneFor(phrase)` plus its own props and
+passes them through render slots (`renderProp`, `renderUnder`, `renderOver`) so episode content
+cannot reorder the annotation layers. E01 was ported onto it and reproduces all 79 of its
+phrase stills byte-for-byte.
+
+**A highlight DIMS the other half — so never highlight the half that is empty.** §6 said don't
+dim the half holding the moving bead; E02 found the sharper version. On "look above the beam"
+the rod holds four, so the four raised lower beads got dimmed to 0.15 — and the upper bead is
+*parked*, i.e. grey — so the frame had no bright element at all and read as an **empty
+abacus**, at exactly the moment the child needs to remember there are four. Use a section
+`band` when the line names a region: it marks without quieting anything.
+
+**A white headline pill needs dark ink.** `HeadlinePill` takes `world.ink` when the pill is
+white. Two new worlds had white or near-white ink for their captions and a white pill, so their
+headlines rendered white-on-white — blank. Any new world with light ink must set a coloured pill.
+
+**A card directly above its target should not draw an arrow.** At `aboveRod` the card sits
+~60 px above the rod band, and a 60 px arrow with a 70 px bow renders as a curl that reads as a
+rendering glitch. Put the card beside the rod instead, on the same side, and the arrow has room
+to be an arrow.
+
+**Check what a world's own features do to each other.** The reveal world had one big star and
+drifting clouds; the clouds sweep the whole upper band, and a white cloud over a pale-yellow
+star is nothing at all. The star was invisible in every frame.
+
+**Props must have something to stand on.** The ladybird works on the ladder and on the abacus
+frame. Beside the bare frame she was a 60 px speck with no context, and on one line the hand
+covered her completely. Leaving her off stage for that section was also the better arc.
+
+**Bands are not advisory.** A card placed under the abacus started at 827 px against a caption
+top of 860. Measure against `BAND` rather than eyeballing "below the abacus".

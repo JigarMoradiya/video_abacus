@@ -15,14 +15,16 @@ from __future__ import annotations
 
 import json
 import subprocess
+import os
 import sys
 from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageDraw
 
-OUT = Path("/private/tmp/claude-501/-Users-jigarmoradiya-Documents-newProject-eng-iOS/"
-           "e004bf36-5957-4ce9-a560-6e28971bc7fb/scratchpad/l3/read")
+# Was an absolute path into a DIFFERENT project's scratchpad, so this wrote its output
+# where nobody here would look for it. Relative to the repo, overridable.
+OUT = Path(os.environ.get("READ_LINES_OUT", "out/read_lines"))
 
 
 def main() -> int:

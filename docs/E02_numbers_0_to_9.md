@@ -8,6 +8,11 @@ Read `EPISODE_RULES.md` before building this. Format 16:9, 1920×1080.
 
 **Length: 42 spoken lines, 318 words ≈ 2:31** at 145 wpm. One continuous human take.
 
+> **BUILT — see "As recorded" below.** The take runs **167.7 s** and is a natural paraphrase
+> of this script, so the reel is built from `E02_spoken.txt` (44 lines → **53 phrases**), not
+> from this table. Three things written here turned out to be wrong and are corrected in
+> place: the beat count, the one-rod staging, and `refine_phrase_onsets.py`.
+
 - **Follows from E01's close:** *"next video, we'll place our very first number on the abacus."*
 - **Leads to E03:** adding two numbers together.
 - **CTA line (never reuse):** *"Now try it yourself. Make every number from zero to nine."*
@@ -46,9 +51,12 @@ E01 already said those are the same beads and that we would use upper and lower.
 
 ## Abacus config
 
-**One rod, large.** This episode is about a single rod, so the abacus is **1 rod at PUSH scale**
-for the teaching sections — every bead readable, nothing else on screen to divide attention.
-Widen to 5 rods only for the closing Free Mode shot.
+**Five rods, ones rod lit — NOT one rod.** "One rod, large" does not exist at this aspect: the
+stage band is 620 px, so a single rod is **199 × 620** — a sliver with ~860 px of dead space
+each side. Five rods at `BASE` (1.15) with the other four dimmed keeps beads 110 px wide, and
+it makes *"we only need one rod"* a visible choice rather than a claim. `PUSH` is unused here;
+the rig never changes scale, because a rig that resizes between sections reads as a second
+abacus.
 
 Soroban only: 1 upper + 4 lower. Value shown always matches the words, in every frame.
 
@@ -159,8 +167,14 @@ abacus instead. The rod counting itself 0→9 also doubles as the recap the epis
 
 - One human take, all 42 lines, from `E02_lines.txt`. No TTS.
 - **Hold three full seconds** after line 36. The recall beat is the point.
-- `tools/align_by_matching.py`, then **`tools/refine_phrase_onsets.py`** — lines 10, 12, 14 and
-  37 all contain counted runs ("one, two, three, four"), and alignment collapses repeats.
+- `tools/align_by_matching.py` only. **Do NOT run `tools/refine_phrase_onsets.py`** — it is
+  phonics legacy and reads `src/data/letterPhrases.json` and `src/data/letters.ts`, neither of
+  which exists in this project; it would crash. It is also unnecessary: the aligner splits on
+  sentence boundaries, so each counted run ("One, two, three.") is its **own phrase** and the
+  bead numbering comes from progress within that phrase.
+- The fix that actually mattered was `canon()` in the aligner: Whisper writes spoken numbers as
+  digits, so `"four"` never matched `"4"` and **1 of 51** number-words aligned. Folding both to
+  the digit form took the take to **313/313**.
 - SFX: the app's `abacus_move.mp3` on every real bead move, `option_correct_ans.mp3` on lines 24
   and 37, `clap.mp3` under line 38, and a bead click per number on line 39's 0→9 count. **A new sting for line 20** (the upper bead's reveal) —
   synthesise a second one in `make_reveal_sfx.py`, don't reuse E01's.
@@ -173,3 +187,54 @@ abacus instead. The rod counting itself 0→9 also doubles as the recap the epis
    down; both happen, and neither bead crosses the beam.
 3. **The upper bead never moves during lines 27–30** — only lower beads do.
 4. **Read the caption against the card in the same frame**, for all 42 lines.
+
+
+---
+
+## As recorded (built 2026-08-04)
+
+The narrator read the script naturally rather than literally, which is the right call for a
+warm take — but it means the phrase table above is not what is on screen. `E02_lines.txt` stays
+as the approved script; **`E02_spoken.txt` is the alignment input and the authority for scenes**.
+
+| Written | Spoken |
+|---|---|
+| "Last time, we met the abacus." + "Today we make numbers with it." | merged; "we're going to make" |
+| "And you only need one rod." | "and **we** only need one rod" |
+| "Push one more. **Count them.** One, two." | "Push one more. One, two." — **"Count them." was never said** |
+| "Now let's **try to** make five." | "Now let's make five." |
+| "…but there are none left." | "**Oh,** there aren't any left." |
+| "That **single** bead is worth five all **on its own**." | "That **one little** bead is worth five all **by itself**." |
+| "Reading a rod is always the same **two steps**." | "Reading a rod is always the same." |
+| "Is the upper bead down? Then that is five." | "**First,** is the upper bead down? **If it is,** that's five." |
+| "…and the upper bead still resting." | "Three lower beads **are touching the beam**. The upper bead is still **up**." |
+| "Now try it yourself." | "Now **it's your turn**," |
+| — | **"Download it free."** added |
+| "In the next video, we add…" | "**See you** in the next video, where we'll add…" |
+
+**44 lines → 53 phrases.** The splits are a gift: each counted run is its own beat, and "Send
+the lower beads back down." separates from "Now bring the upper bead down", so the 4 → 5 move
+clears the lower beads *before* the upper bead lands — legal by construction.
+
+The recall gap survived the take: phrase 43 ends at 135.16 s, the answer starts at 137.52 s.
+
+### Corrections found by rendering it
+
+Each of these was invisible in the code and obvious in a still, which is why the check is
+"read the card against the caption in the same frame":
+
+- **`dawn` and `board` had white headline pills under white ink** — `HeadlinePill` takes
+  `world.ink` on a white pill, so both headlines rendered white-on-white, i.e. blank.
+- **The "5 + n" strip crossed the caption band.** Under the abacus it began at 827 px against a
+  caption top of 860. It sits above the abacus now, in the big number's slot.
+- **`workshop`'s surface reached 799 px**, inside the 220–840 stage band. Matched to `bench` at
+  0.78.
+- **The `sky` world's clouds erased its star.** A white cloud drifting over a pale-yellow star
+  is nothing at all, and the clouds sweep the whole upper band. An open sky with one star is
+  also what a reveal wants.
+- **Phrases 24–26 and 46 dimmed the half holding the value.** "Look above the beam" with four
+  beads up dims those four to 0.15, and the parked upper bead is grey anyway, so the frame had
+  no bright element and read as an *empty* abacus at the exact moment the four mattered. A
+  section **band** marks the region without quieting anything (DESIGN_SYSTEM §6).
+- **`sumBreakdown` on the answer rendered "0 upper beads = 0"** — a row about a bead that is
+  not there.

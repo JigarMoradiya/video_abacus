@@ -26,7 +26,6 @@ import { bob } from "../lib/motion";
 import { KID_FONT } from "../lib/fonts";
 import { SceneStage, type SfxCue } from "../stage/SceneStage";
 import { firstPhraseWhere } from "../stage/clock";
-import { upperBeadY } from "../stage/geometry";
 import type { CardSpec, Scene as BaseScene } from "../stage/types";
 import { WORLDS } from "../data/theme";
 import { BAND, FPS, H, PLACE_COLORS, ROD_DIM, W } from "../data/tokens";
@@ -91,7 +90,10 @@ const sceneFor = (p: number): Scene => {
       // "and we only need one rod" is about the whole column, so mark the whole column
       rodBand: p === 3 ? 0 : undefined,
       targetRod: 0,
-      panelPlace: p === 3 ? "aboveRod" : undefined,
+      // NOT aboveRod: the card would sit ~60 px above the rod band and the arrow came out
+      // as a short curl that read as a glitch. Beside it, on the same side as the rod, the
+      // arrow has room to be an arrow.
+      panelSide: p === 3 ? "right" : undefined,
     };
   }
 
@@ -190,8 +192,10 @@ const sceneFor = (p: number): Scene => {
       scale: BASE,
       targetRod: 0,
       panelSide: "right",
-      // she rides the upper bead down — the bead is the subject, so she travels with it
-      bird: p >= 28 ? "ride" : undefined,
+      // No ladybird in this section. She belongs to the ladder, and beside the bare frame
+      // she rendered as a 60 px speck with nothing to stand on — at p28 the hand covered
+      // her outright. Leaving her off stage is also the better arc: she climbs, she shrugs
+      // at the wall, the upper bead solves it without her, and she comes back to cheer.
       hand:
         p === 28
           ? { digit: "index", direction: "down", rod: 0, heaven: true }
@@ -227,7 +231,6 @@ const sceneFor = (p: number): Scene => {
       // no headline here: the card at this phrase is the app's own "One rod · 0 to 9",
       // and the two sat on top of each other saying the same thing
       rodBand: p === 36 ? 0 : undefined,
-      panelPlace: p === 36 ? "aboveRod" : undefined,
     };
   }
 
@@ -418,19 +421,11 @@ export const E02Numbers0To9: React.FC = () => (
                 mood={scene.bird}
                 // riding the bead means riding it on the ROD, not out on the ladder
                 // beside the frame, not on it: onesCx + 74 landed her on the woodwork
-                x={
-                  scene.bird === "ride"
-                    ? ctx.box.left + ctx.box.w + 46
-                    : scene.bird === "cheer"
-                    ? ctx.box.left + 78
-                    : ctx.box.left - 132
-                }
-                rideY={
-                  scene.bird === "ride"
-                    ? upperBeadY(ctx.box, true) - 26 * ctx.box.scale
-                    : scene.bird === "cheer"
-                    ? ctx.box.top - 24 * ctx.box.scale
-                    : undefined
+                // cheering, she perches on the abacus frame; climbing or shrugging, she is
+                // on the ladder
+                x={scene.bird === "cheer" ? ctx.box.left + 78 : ctx.box.left - 132}
+                perchY={
+                  scene.bird === "cheer" ? ctx.box.top - 24 * ctx.box.scale : undefined
                 }
                 frame={ctx.frame}
                 fps={FPS}
