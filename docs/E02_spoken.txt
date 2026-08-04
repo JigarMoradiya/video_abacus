@@ -1,0 +1,80 @@
+# E02 · Numbers 0 to 9 — AS RECORDED. This is the alignment input.
+#
+# E02_lines.txt is the APPROVED SCRIPT and stays untouched (EPISODE_RULES.md §3.1).
+# This file is what the narrator actually said in the take, which is a natural
+# paraphrase of it rather than a literal read — about twenty lines differ, one line
+# was never spoken ("Count them."), and two were added ("Download it free.", plus a
+# "See you in the next video" open on the last line).
+#
+# Scenes are keyed to PHRASES, and phrases come from THIS file, so a difference here
+# is a difference in what appears on screen. The delta table is in
+# E02_numbers_0_to_9.md under "As recorded".
+#
+# Numbers stay WORDS (EPISODE_RULES.md §3.6). Whisper writes them as digits; the
+# aligner's canon() folds both to the same form, so "nine" matches "9".
+#
+# 44 lines -> 53 phrases. Do not renumber scenes off the line count.
+
+# --- 1 · HOOK ---
+Last time we met the abacus.
+Today we're going to make numbers with it.
+Every number from zero all the way to nine.
+And we only need one rod.
+
+# --- 2 · ZERO ---
+Let's start with nothing at all. Zero.
+Zero means no beads are touching the beam.
+Push them all away, the rod says zero.
+
+# --- 3 · ONE TO FOUR ---
+Now push one lower bead up to the beam.
+That is one.
+Push one more. One, two.
+That is two.
+One more again. One, two, three.
+That is three.
+One more. One, two, three, four.
+That is four.
+
+# --- 4 · THE WALL ---
+Now let's make five.
+Push another lower bead up. Oh, there aren't any left.
+Four is as high as the lower beads can go.
+So how do we make five?
+
+# --- 5 · THE UPPER BEAD IS FIVE ---
+Look above the beam. The upper bead.
+It has been waiting there the whole time.
+Send the lower beads back down.
+Now bring the upper bead down with your index finger.
+One upper bead, the rod says five.
+That one little bead is worth five all by itself.
+
+# --- 6 · SIX TO NINE ---
+Now five is easy to build on.
+Five and one lower bead, that's six.
+Five and two lower beads, seven.
+Five and three, eight.
+Five and four, nine.
+Nine is the biggest number one rod can show.
+
+# --- 7 · THE READING RULE ---
+Reading a rod is always the same.
+First, is the upper bead down? If it is, that's five.
+Then count the lower beads touching the beam.
+Add them together, that's your number.
+
+# --- 8 · YOUR TURN ---
+# ~2.4 s of deliberate silence sits between the question and the answer. It survives
+# because the aligner runs with vad_filter off.
+Your turn. What number is this rod showing?
+It's three. Three lower beads are touching the beam.
+The upper bead is still up.
+Nice work.
+
+# --- 9 · CLOSE ---
+Now it's your turn, make every number from zero to nine.
+If you liked this, tap like and subscribe for more.
+Search for abacus kids on the Apple App Store or Google Play.
+Download it free.
+See you in the next video, where we'll add two numbers together on the abacus.

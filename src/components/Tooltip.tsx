@@ -47,9 +47,15 @@ const STEP_COLOR: string[] = [
 
 export const tooltipColor = (step: number): string => STEP_COLOR[step] ?? "#334155";
 
+// ---------------------------------------------------------------------------------------
+// The card knows how to render SEGMENTS. Only the wrappers at the bottom of this file know
+// about the app's tour, so an episode can supply its own wording — E02 teaches numbers on
+// one rod, and the tour has no step for "the upper bead is worth five all by itself".
+// The five places the tour DOES have wording for still come from it, by reference.
+// ---------------------------------------------------------------------------------------
+
 /** Width the card needs for its own text, so a two-word label is a two-word card. */
-export const tooltipWidth = (step: number): number => {
-  const segs = TOUR_SHORT[step];
+export const segsWidth = (segs: Seg[] | undefined): number => {
   if (!segs) return 300;
   const longest = Math.max(
     ...segs
@@ -67,6 +73,17 @@ export const tooltipWidth = (step: number): number => {
   );
 };
 
+/** Lines of text a set of segments renders on. */
+export const segsLines = (segs: Seg[] | undefined): number =>
+  segs
+    ? segs
+        .map((s) => s.text)
+        .join("")
+        .split("\n").length
+    : 1;
+
+export const tooltipWidth = (step: number): number => segsWidth(TOUR_SHORT[step]);
+
 const textShadow = `${TYPE.tooltip.size * 0.035}px ${TYPE.tooltip.size * 0.035}px 0 rgba(0,0,0,0.35)`;
 
 /** Height the card will occupy, so callers can anchor an arrow to its real edge. */
@@ -74,14 +91,7 @@ export const cardHeight = (lines: number): number =>
   Math.round(48 + lines * TYPE.tooltip.size * 1.75);
 
 /** Lines of text a tooltip renders on. */
-export const tooltipLines = (step: number): number => {
-  const segs = TOUR_SHORT[step];
-  if (!segs) return 1;
-  return segs
-    .map((s) => s.text)
-    .join("")
-    .split("\n").length;
-};
+export const tooltipLines = (step: number): number => segsLines(TOUR_SHORT[step]);
 
 /** Shared card shell, so labels and tooltips are one component and cannot diverge again. */
 export const TeachCard: React.FC<{
@@ -139,17 +149,15 @@ export const TeachCard: React.FC<{
   );
 };
 
-export const Tooltip: React.FC<{
-  step: number;
+/** The teaching card, driven by content. Episode-agnostic. */
+export const SegPanel: React.FC<{
+  segs: Seg[];
+  color: string;
   progress: number;
   width?: number;
-}> = ({ step, progress, width }) => {
-  const segs: Seg[] | undefined = TOUR_SHORT[step];
-  if (!segs) return null;
-  const color = tooltipColor(step);
-
+}> = ({ segs, color, progress, width }) => {
   return (
-    <TeachCard color={color} progress={progress} width={width ?? tooltipWidth(step)}>
+    <TeachCard color={color} progress={progress} width={width ?? segsWidth(segs)}>
       {segs.map((s, i) =>
         s.kind === "strong" ? (
           // emphasis survives on a saturated card as an inset pill, not a hue change
@@ -180,5 +188,23 @@ export const Tooltip: React.FC<{
         )
       )}
     </TeachCard>
+  );
+};
+
+/** One step of the app's own Free Mode tour, so the app's wording governs where it has any. */
+export const Tooltip: React.FC<{
+  step: number;
+  progress: number;
+  width?: number;
+}> = ({ step, progress, width }) => {
+  const segs: Seg[] | undefined = TOUR_SHORT[step];
+  if (!segs) return null;
+  return (
+    <SegPanel
+      segs={segs}
+      color={tooltipColor(step)}
+      progress={progress}
+      width={width ?? tooltipWidth(step)}
+    />
   );
 };
