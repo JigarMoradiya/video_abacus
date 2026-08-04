@@ -155,6 +155,68 @@ export const applyLiveBeads = (
   };
 };
 
+// ---------------------------------------------------------------- word-anchored timing
+//
+// Everything used to happen at the PHRASE boundary, so a bead had finished moving about a
+// third of a second in — before the words that command it. On "Push one more" the move was
+// already over; on "One, two" all the badges appeared at once, which says "two", not
+// "one, two". The phrases JSON carries a per-word start time, so the move can land on the
+// word that asks for it.
+//
+// Scoped to the phrase, always. "one" and "two" recur all over this episode, so a global
+// word search would find the wrong instance.
+
+const bare = (w: string): string => w.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+/** Number words, in the digit form the aligner canonicalises to. Mirrors canon() in
+ *  tools/align_by_matching.py — the two must agree or a badge lands on the wrong word. */
+const NUM_WORD: Record<string, number> = {
+  zero: 0, one: 1, two: 2, three: 3, four: 4,
+  five: 5, six: 6, seven: 7, eight: 8, nine: 9,
+  "0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9,
+};
+
+/**
+ * Absolute frame of the nth occurrence of a word WITHIN this phrase, or null.
+ *
+ * `"$last"` resolves to the phrase's final word. An instruction has to be obeyed AFTER it
+ * is spoken, and anchoring to a word inside the sentence is not enough: "push" is the first
+ * word of "Push one more", so anchoring there still moved the bead as the line began.
+ */
+export const wordFrameIn = (
+  phrase: TPhrase,
+  needle: string,
+  fps: number,
+  nth = 0
+): number | null => {
+  if (needle === "$last") {
+    const w = phrase.words[phrase.words.length - 1];
+    return w ? sec(w.start, fps) : null;
+  }
+  const target = bare(needle);
+  let seen = 0;
+  for (const w of phrase.words) {
+    if (bare(w.word) === target) {
+      if (seen === nth) return sec(w.start, fps);
+      seen++;
+    }
+  }
+  return null;
+};
+
+/** Absolute frames of every number word in this phrase, in spoken order. */
+export const numberWordFrames = (phrase: TPhrase, fps: number): number[] =>
+  phrase.words
+    .filter((w) => NUM_WORD[bare(w.word)] !== undefined)
+    .map((w) => sec(w.start, fps));
+
+/**
+ * How many counted items have been SAID by this frame. Drives the badge reveal, so the
+ * count on screen never runs ahead of the voice.
+ */
+export const spokenCount = (phrase: TPhrase, frame: number, fps: number): number =>
+  numberWordFrames(phrase, fps).filter((f) => f <= frame).length;
+
 /**
  * Step one rod through `from`..`to` across the line, holding each value for an equal share
  * and travelling into it. Returns its own settle so the beads move rather than teleport.

@@ -78,8 +78,24 @@ ones*, not E01's in a new order.
 
 ## 4. Non-negotiables in the build
 
+- **NO CONTENT MAY OVERLAY ANY OTHER CONTENT.** Not a card over the abacus, not a card over
+  the hand, not a chip inside a headline pill, not an arrow passing behind the card it comes
+  out of. Enforced at render: every placed element declares a box (`boxesFor`), SceneStage
+  adds its own, and `guardOverlap` fails the render on any intersection — including sampling
+  the arrow's path. Turn it on for every new episode. Checking 53 frames by eye does not work;
+  this was found by the user, on five separate frames, after I had checked them all.
 - **Bead moves must be physically legal.** Only beads whose state changes may move. A rod never
   re-seats itself to show the next number. Arrows never cross the beam.
+- **The picture must not run ahead of the voice.** An instruction is obeyed AFTER it is spoken:
+  set `moveOn: "$last"` so the bead travels on the line's final word, and the pointer sits on
+  the bead beforehand so the child sees WHICH bead is about to move. A counted run reveals one
+  badge per spoken number (`countOnNumbers`) — all of them at once says "four", not
+  "one, two, three, four". Props that stand for the count (a ladder, a tally) follow
+  `ctx.settle`, not the phrase boundary.
+- **Point at the thing that moves.** `handAnchor` takes the value the rod is coming FROM, so
+  the arrow lands on the bead that is about to travel rather than on a fixed slot.
+- **Teach only this episode's idea.** E02 is about READING a rod, so nothing on screen writes
+  `5 + 3 = 8` — that is E03's lesson. Show the number the rod reads.
 - **Frame 0 is the thumbnail.** A finished image, nothing mid-spring.
 - **Bands:** headline 0–200 · stage 220–840 · caption 860–1010. Nothing crosses.
 - **One abacus instance, one world instance**, driven by the absolute frame. Never remount —

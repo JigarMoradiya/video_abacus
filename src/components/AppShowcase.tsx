@@ -156,18 +156,35 @@ export const LandscapeFreeMode: React.FC<{
 };
 
 /** Search → the app's row → detail page → GET → downloading → OPEN. */
-export const StoreFlow: React.FC<{ frame: number; fps: number; height?: number }> = ({
-  frame,
-  fps,
-  height = 760,
-}) => {
+/**
+ * The frame at which the original timing reaches OPEN, i.e. the flow's natural length.
+ * Every keyframe below is expressed against this, so passing `span` stretches or squeezes
+ * the whole sequence to whatever the episode's beat actually is.
+ */
+const FLOW_REF = 136;
+
+export const StoreFlow: React.FC<{
+  frame: number;
+  fps: number;
+  height?: number;
+  /**
+   * How many frames the store beat lasts. The keyframes here were tuned to E01's 181-frame
+   * window; dropped into E02's 159 the search phase lasted under a second and the
+   * screenshot strip never finished scrolling. Given the real window, the flow lands on
+   * OPEN exactly as the beat ends and every stage gets a readable share.
+   */
+  span?: number;
+}> = ({ frame: rawFrame, fps, height = 760, span }) => {
   const W = Math.round(height * 0.49);
   const BEZ = 12;
   const SW = W - BEZ * 2;
+  // Scale time, not the keyframes: one factor keeps every stage in proportion.
+  const rate = span ? FLOW_REF / span : 1;
+  const frame = rawFrame * rate;
   const DETAIL_AT = 62;
   const inDetail = frame >= DETAIL_AT;
   const d = frame - DETAIL_AT;
-  const pop = spring({ frame, fps, config: { damping: 14 } });
+  const pop = spring({ frame: rawFrame, fps, config: { damping: 14 } });
 
   const typed = APP_NAME.slice(
     0,

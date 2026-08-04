@@ -26,7 +26,7 @@ import { BeadWorth, SumBreakdown } from "../components/BeadWorth";
 import { BrandBadge, HeadlinePill, PoweredBy } from "../components/Brand";
 import { Caption } from "../components/Caption";
 import { FingerHand } from "../components/FingerHand";
-import { PartArrow } from "../components/PartArrow";
+import { PartArrow, samplePath } from "../components/PartArrow";
 import { Chip } from "../components/Sticker";
 import { SegPanel, cardHeight, segsLines, segsWidth } from "../components/Tooltip";
 import { WORLDS } from "../data/theme";
@@ -46,8 +46,10 @@ import { sec, type Track, type TPhrase } from "../lib/timing";
 import {
   abacusBox,
   beamY,
+  contains,
   groupBox,
   handAnchor,
+  intersects,
   lowerBeadY,
   rodBand as rodBandRect,
   rodX,
@@ -55,6 +57,7 @@ import {
   upperBeadY,
   type AbacusBox,
   type Pt,
+  type Rect,
 } from "./geometry";
 import {
   applyLiveBeads,
@@ -65,9 +68,19 @@ import {
   runSlotMap,
   runStartFor,
   smoothField,
+  spokenCount,
+  wordFrameIn,
 } from "./clock";
 import { StageLabel } from "./cards";
 import type { CardSpec, Scene } from "./types";
+
+/** A box that must not be covered by, or cover, any other content. */
+export interface GuardBox {
+  label: string;
+  r: Rect;
+  /** The hand reaches in to touch a bead, so it is allowed to sit over the abacus. */
+  mayTouchAbacus?: boolean;
+}
 
 export interface SfxCue {
   frame: number;
@@ -85,6 +98,9 @@ export interface StageCtx {
   box: AbacusBox;
   /** 0..1 through the current phrase */
   beatProgress: number;
+  /** 0..1 bead travel for this frame. A prop that stands for the count must follow this,
+   *  or it announces the move before the beads make it. */
+  settle: number;
   /** absolute frame the phrase starts on — pass `frame - phraseStart` to prop components */
   phraseStart: number;
   /** centre X of the rod this line is about, and of the ones rod */
@@ -117,6 +133,16 @@ export interface SceneStageProps<S extends Scene> {
   renderUnder?: (scene: S, ctx: StageCtx) => React.ReactNode;
   /** Episode extras OVER everything but the caption (quiz cards, close compositions). */
   renderOver?: (scene: S, ctx: StageCtx) => React.ReactNode;
+  /**
+   * Boxes the episode's own slots occupy, so the overlap check can see them. SceneStage
+   * cannot measure what it does not draw.
+   */
+  boxesFor?: (scene: S, ctx: StageCtx) => GuardBox[];
+  /**
+   * Fail the render if any two pieces of content overlap (EPISODE_RULES.md §4). Opt-in:
+   * E01 is approved and frozen, and enabling it there would change an accepted episode.
+   */
+  guardOverlap?: boolean;
 }
 
 const DEFAULT_SLOTS = [120, 265, 195, 345];
@@ -134,12 +160,21 @@ export const SceneStage = <S extends Scene>({
   renderProp,
   renderUnder,
   renderOver,
+  boxesFor,
+  guardOverlap,
 }: SceneStageProps<S>) => {
   const frame = useCurrentFrame();
   const { width } = useVideoConfig();
-  const { p, startF: phraseStart, endF: phraseEnd, beatProgress, settle, linePop } =
+  const { p, startF: phraseStart, endF: phraseEnd, beatProgress, linePop } =
     clockAt(phrases, frame, FPS);
   const scene = sceneFor(p);
+  // Bead travel begins on the word that commands it, not at the line's start.
+  const moveF =
+    (scene.moveOn ? wordFrameIn(phrases[p], scene.moveOn, FPS) : null) ?? phraseStart;
+  const settle = interpolate(frame, [moveF, moveF + 10], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
   const world = WORLDS[scene.world];
   const scale = smoothField(phrases, frame, FPS, sceneFor, (s) => s.scale);
 
@@ -278,11 +313,71 @@ export const SceneStage = <S extends Scene>({
     p,
     box,
     beatProgress,
+    settle,
     phraseStart,
     tRodX,
     onesCx,
     panel: { x: panelX, y: panelY, w: panelW, h: cardH },
   };
+
+  // ---- everything that carries content, and must not be covered ----
+  // The abacus is listed separately: bands, arrows and the hand legitimately sit over it,
+  // but a CARD never may.
+  const guardBoxes: GuardBox[] = (() => {
+    if (!guardOverlap) return [];
+    const out: GuardBox[] = [];
+    if (scene.headline) {
+      // the pill is centred and sized from its text; a generous box is the safe direction
+      const w = Math.min(W - 120, scene.headline.length * 34 + 160);
+      out.push({ label: "headline", r: { x: (W - w) / 2, y: 30, w, h: 96 } });
+    }
+    if (scene.counter) {
+      const w = scene.counter.length * 34 + 90;
+      out.push({
+        label: "counter",
+        r: { x: (W - w) / 2, y: scene.headline ? 128 : 52, w, h: 72 },
+      });
+    }
+    if (card) out.push({ label: "card", r: { x: panelX, y: panelY, w: panelW, h: cardH } });
+    if (scene.sideLabel && !card) {
+      out.push({ label: "label", r: { x: panelX, y: panelY, w: panelW, h: cardH } });
+    }
+    if (scene.hand) {
+      // FingerHand reaches in from the right of its rod, with its digit chip above it
+      const hx = rodX(box, scene.hand.rod);
+      const { y } = handAnchor(box, scene.hand.heaven, scene.hand.direction, rods[scene.hand.rod]?.from ?? 0);
+      out.push({
+        label: "hand",
+        r: { x: hx - 20, y: y - 150 * scale, w: 420 * scale, h: 300 * scale },
+        mayTouchAbacus: true,
+      });
+    }
+    return [...out, ...(boxesFor ? boxesFor(scene, ctx) : [])];
+  })();
+
+  if (guardOverlap) {
+    const abacusRect: Rect = { x: left, y: top, w: abacusW, h: abacusH };
+    for (let i = 0; i < guardBoxes.length; i++) {
+      const a = guardBoxes[i];
+      if (!a.mayTouchAbacus && intersects(a.r, abacusRect, -6)) {
+        throw new Error(
+          `"${a.label}" overlaps the abacus on phrase ${p} — ` +
+            `[${a.r.x.toFixed(0)},${a.r.y.toFixed(0)} ${a.r.w.toFixed(0)}x${a.r.h.toFixed(0)}] ` +
+            `vs [${left.toFixed(0)},${top.toFixed(0)} ${abacusW.toFixed(0)}x${abacusH.toFixed(0)}]`
+        );
+      }
+      for (let j = i + 1; j < guardBoxes.length; j++) {
+        const b = guardBoxes[j];
+        if (intersects(a.r, b.r, -6)) {
+          throw new Error(
+            `"${a.label}" and "${b.label}" overlap on phrase ${p} — ` +
+              `[${a.r.x.toFixed(0)},${a.r.y.toFixed(0)} ${a.r.w.toFixed(0)}x${a.r.h.toFixed(0)}] ` +
+              `vs [${b.r.x.toFixed(0)},${b.r.y.toFixed(0)} ${b.r.w.toFixed(0)}x${b.r.h.toFixed(0)}]`
+          );
+        }
+      }
+    }
+  }
 
   const dashRamp = (from: number, to: number) =>
     interpolate(runProgress, [from, to], [0, 1], {
@@ -320,9 +415,17 @@ export const SceneStage = <S extends Scene>({
       )}
 
       {/* Centred, not top-right: at top-right it sat underneath the brand badge. */}
+      {/* Below the pill when there is one. Both sat at ~30-52 and rendered as one card
+          nested inside another; the headline band (0-200) has room for both stacked. */}
       {scene.counter && (
         <div
-          style={{ position: "absolute", top: 52, left: 0, width: W, textAlign: "center" }}
+          style={{
+            position: "absolute",
+            top: scene.headline ? 128 : 52,
+            left: 0,
+            width: W,
+            textAlign: "center",
+          }}
         >
           <Chip label={scene.counter} color={world.accent} size={54} />
         </div>
@@ -346,6 +449,9 @@ export const SceneStage = <S extends Scene>({
             highlight={scene.highlight}
             scale={scale}
             count={scene.count ?? null}
+            countLimit={
+              scene.countOnNumbers ? spokenCount(phrases[p], frame, FPS) : undefined
+            }
           />
         </div>
       )}
@@ -392,7 +498,12 @@ export const SceneStage = <S extends Scene>({
           style={{ position: "absolute", inset: 0, overflow: "visible" }}
         >
           {(() => {
-            const { y, len } = handAnchor(box, scene.hand.heaven, scene.hand.direction);
+            const { y, len } = handAnchor(
+              box,
+              scene.hand.heaven,
+              scene.hand.direction,
+              rods[scene.hand.rod]?.from ?? 0
+            );
             return (
               <FingerHand
                 digit={scene.hand.digit}
@@ -487,6 +598,7 @@ export const SceneStage = <S extends Scene>({
           const cardCy = panelY + cardH / 2;
           const exitTop = to.y < cardCy;
           const from: Pt = { x: cardCx, y: exitTop ? panelY : panelY + cardH };
+          const cardBox: Rect = { x: panelX, y: panelY, w: panelW, h: cardH };
           // Guard rather than eyeball: the arrow's origin must lie inside the card it comes
           // out of. Every positioning bug this series shipped was an origin computed from
           // one coordinate system while the card used another, and every one was found by a
@@ -503,6 +615,45 @@ export const SceneStage = <S extends Scene>({
                 `[${panelX.toFixed(0)},${panelY.toFixed(0)} ${panelW}x${cardH}] on line ${p}`
             );
           }
+          // Bow AWAY from the card. PartArrow offsets the control point along (-dy, dx)/len,
+          // so its y-component is dx/len; matching the bow's sign to dx pushes the arc out
+          // of a bottom exit, and flipping it does the same upward for a top exit. Signing
+          // it any other way curves the arc back across the card.
+          const dir = (exitTop ? -1 : 1) * Math.sign(to.x - from.x || 1);
+          // A target roughly LEVEL with the card gives a nearly horizontal chord, so a
+          // modest bow arcs out and straight back through the card — visible as an arrow
+          // that appears cut off behind it. The swing has to clear the card's own half
+          // width, so scale the bow to the card rather than using one constant.
+          const base = aboveRod ? 70 : 120;
+          // Gated on the no-overlap regime. E01 is approved and shipped with the flat bow —
+          // enlarging it there changed 18 of its 79 frames, which is a change to an accepted
+          // episode rather than a fix to this one.
+          const level = guardOverlap && Math.abs(to.y - cardCy) < cardH;
+          const bow = dir * (level ? Math.max(base, panelW * 0.55 + 60) : base);
+
+          // The path must not pass through the card it comes out of, or through anything
+          // else on screen. Checked here rather than by eye: this is the failure the user
+          // found at "four is as high as the lower beads can go".
+          if (guardOverlap) {
+            const path = samplePath(from, to, bow);
+            for (const pt of path.slice(3, -1)) {
+              if (contains(cardBox, pt, -10)) {
+                throw new Error(
+                  `arrow path re-enters its own card on phrase ${p} ` +
+                    `(bow ${bow.toFixed(0)}, card ${panelW}x${cardH}) — increase the bow ` +
+                    `or move the card`
+                );
+              }
+              for (const g of guardBoxes) {
+                if (g.label !== "card" && contains(g.r, pt, -6)) {
+                  throw new Error(
+                    `arrow path crosses "${g.label}" on phrase ${p} — move the card or the prop`
+                  );
+                }
+              }
+            }
+          }
+
           return (
             <svg
               width={W}
@@ -514,16 +665,7 @@ export const SceneStage = <S extends Scene>({
                 to={to}
                 progress={runProgress}
                 color={world.accent}
-                // Bow AWAY from the card. PartArrow offsets the control point along
-                // (-dy, dx)/len, so its y-component is dx/len; matching the bow's sign to
-                // dx pushes the arc out of a bottom exit, and flipping it does the same
-                // upward for a top exit. Signing it any other way curved the arc back
-                // across the card, which read as an arrow starting from the side.
-                bow={
-                  (exitTop ? -1 : 1) *
-                  Math.sign(to.x - from.x || 1) *
-                  (aboveRod ? 70 : 120)
-                }
+                bow={bow}
                 frame={frame - phraseStart}
                 fps={FPS}
               />

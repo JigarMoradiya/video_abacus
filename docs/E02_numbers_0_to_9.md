@@ -238,3 +238,34 @@ Each of these was invisible in the code and obvious in a still, which is why the
   section **band** marks the region without quieting anything (DESIGN_SYSTEM §6).
 - **`sumBreakdown` on the answer rendered "0 upper beads = 0"** — a row about a bead that is
   not there.
+
+
+---
+
+## Review pass (2026-08-04) — every point, and where it applied
+
+The user reviewed the first cut frame by frame. Each item was fixed at the mechanism and
+applied everywhere it occurs, not only on the frame it was spotted:
+
+| Reported | Cause | Applied at |
+|---|---|---|
+| "0–9" three times, two cards nested | headline pill (y 30) and counter chip (y 52) overlap by design; the tour card said it a third time | mechanism: chip drops to y 128 under a pill. p2 keeps only the app's card |
+| number card touching the abacus | 36 px between the stage band top and the abacus — nowhere near a 100 pt number | the number moved into the headline band (0–200). p5, 9, 12, 15, 18, 29, 32–35, 44 |
+| arrow crossing the hand and its chip | cards forced to the same side the hand reaches in from | cards dropped at p8 and p28 — the hand's own chip already said "thumb" / "index finger" |
+| bead moves before the words | every value change fired at the phrase boundary | `moveOn: "$last"` — the bead travels on the line's final word. p8, 10, 13, 16, 27, 28 |
+| "one, two" but both beads already numbered | `count: "active"` badged every raised bead at once | `countOnNumbers` reveals one badge per spoken number. p11, 14, 17, 45 |
+| arrow on the wrong bead | `handAnchor` used a fixed slot | it takes the value the rod comes FROM. p8, 10, 13, 16 |
+| arrow cut off behind its own card | a level target makes the arc bow out and straight back through the card | bow scales to the card's width, and the sampled path is asserted |
+| no SFX on "there aren't any left" | only bead clicks and chimes existed | full pass, ~90 cues. New synthesised `nope`, `boing`, `bell`, `tick` |
+| store flow not playing search / detail / GET | **`closeBeat` was "store" on p48 too**, so `STORE_START` pointed ten seconds early and the flow was already past the search when the phone appeared | p48 has no closeBeat; `StoreFlow` takes `span` and scales to the real 159-frame beat |
+| `5 + 3 = 8` in a numbers episode | wrong lesson — addition is E03 | the number the rod reads. p32–35 and the rule board |
+| "apply everywhere, not just the frame I sent" | — | the overlap guard now fails the render on ANY intersection, across all 53 phrases |
+
+**The guard earned its keep immediately:** on its first run it failed on a card overhanging the
+abacus by 13 px at p6 — a card whose natural 560 px width simply does not fit the 527 px beside
+the abacus. Two cards were reworded to fit rather than squeezed, because `cardHeight` counts
+newlines and not wrapped lines, so a narrower CSS width would have put the arrow's origin at the
+wrong height.
+
+**A fix that had to be un-done:** enlarging the arrow bow for level targets changed 18 of E01's
+79 frames. E01 is approved, so the new bow is gated on `guardOverlap`, which only E02 sets.

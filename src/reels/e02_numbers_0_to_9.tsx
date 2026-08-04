@@ -25,7 +25,7 @@ import { Card, StickerText } from "../components/Sticker";
 import { bob } from "../lib/motion";
 import { KID_FONT } from "../lib/fonts";
 import { SceneStage, type SfxCue } from "../stage/SceneStage";
-import { firstPhraseWhere } from "../stage/clock";
+import { firstPhraseWhere, numberWordFrames, wordFrameIn } from "../stage/clock";
 import type { CardSpec, Scene as BaseScene } from "../stage/types";
 import { WORLDS } from "../data/theme";
 import { BAND, FPS, H, PLACE_COLORS, ROD_DIM, W } from "../data/tokens";
@@ -43,6 +43,9 @@ assertCards((p) => PHRASES[p]?.text ?? "");
 interface Scene extends BaseScene {
   /** rungs lit — the count so far, 0..4 */
   ladder?: number;
+  /** rungs lit BEFORE this line's move. The ladder stands for the count, so it must climb
+   *  with the bead rather than before it. */
+  ladderFrom?: number;
   /** flash the empty air above rung four */
   ceiling?: boolean;
   bird?: BirdMood;
@@ -52,8 +55,6 @@ interface Scene extends BaseScene {
   rule?: { filled: number; sum?: string };
   /** big number over the abacus — the answer the line just gave */
   big?: string;
-  /** the "5 + n" strip for the six-to-nine section */
-  sum?: string;
   /** the your-turn prompt, held over the deliberate silence in the take */
   question?: boolean;
 }
@@ -62,6 +63,18 @@ interface Scene extends BaseScene {
 // without crossing it. This episode stays at one scale throughout: it is about a single
 // rod, and a rig that changes size between sections reads as a different abacus.
 const BASE = 1.15;
+
+// The number card lives in the headline band (0-200). 92 pt of Fredoka in a Card with
+// 18 px padding and a 6 px depth layer is ~166 px tall, so at y=20 it ends at ~186 and
+// crosses nothing. The overlap guard checks this rather than trusting the arithmetic.
+const BIG_TOP = 20;
+const BIG_SIZE = 92;
+const BIG_H = 166;
+const bigW = (text: string) => Math.max(150, text.length * BIG_SIZE * 0.66 + 80);
+
+/** Where the ladder stands, and how wide it is — the guard needs both. */
+const LADDER_DX = -132;
+const LADDER_W = 190;
 
 /** Five rods with the ones rod lit and the rest quiet. The episode is about ONE rod, and
  *  the four beside it are what make "we only need one" a visible choice rather than a
@@ -84,9 +97,10 @@ const sceneFor = (p: number): Scene => {
       rods: rig(0, { spotlight: p >= 3 }),
       highlight: null,
       scale: BASE,
-      headline:
-        p === 0 ? "Last time…" : p === 1 ? "Today: numbers!" : p === 2 ? "0 to 9" : undefined,
-      counter: p === 2 ? "0 – 9" : undefined,
+      // p2 said "0 to 9" three times over: headline pill, counter chip and the app's own
+      // "One rod · 0 to 9" card, with the pill and chip stacked into one another. The card
+      // is the app's wording, so it keeps it and the other two go.
+      headline: p === 0 ? "Last time…" : p === 1 ? "Today: numbers!" : undefined,
       // "and we only need one rod" is about the whole column, so mark the whole column
       rodBand: p === 3 ? 0 : undefined,
       targetRod: 0,
@@ -132,19 +146,28 @@ const sceneFor = (p: number): Scene => {
       world: "ladder",
       stage: "abacus",
       rods: rig(value),
-      highlight: p === 8 ? "bottom" : null,
+      highlight: null,
       scale: BASE,
       targetRod: 0,
       panelSide: "right", // the ladder stands to the LEFT of the abacus
       ladder: value,
+      ladderFrom: pushing ? value - 1 : undefined,
       bird: "climb",
       birdRung: value,
       count: counting ? "active" : null,
+      // reveal the badges one per spoken number: both up from frame 0 says "two"
+      countOnNumbers: counting,
       big: saying ? String(value) : undefined,
-      // thumb pushes a lower bead UP — the app's own rule (tour step 14)
+      // Thumb pushes a lower bead UP — the app's own rule (tour step 14). The pointer is on
+      // screen from the start of the line and the bead travels on the word that asks for
+      // it, so the child sees WHICH bead is about to move before it moves.
       hand: pushing
         ? { digit: "thumb", direction: "up", rod: 0, heaven: false }
         : undefined,
+      // The LAST word, not a word inside the line: "push" is the first word of "Push one
+      // more", so anchoring there still moved the bead as the line began. The bead now
+      // arrives just before the next line names the number it made.
+      moveOn: pushing ? "$last" : undefined,
     };
   }
 
@@ -200,6 +223,8 @@ const sceneFor = (p: number): Scene => {
         p === 28
           ? { digit: "index", direction: "down", rod: 0, heaven: true }
           : undefined,
+      // 27 "send the lower beads back DOWN" · 28 "bring the upper bead DOWN"
+      moveOn: p === 27 || p === 28 ? "down" : undefined,
       big: p === 29 ? "5" : undefined,
       beadWorth: p === 30 ? { which: "upper", worth: 5 } : undefined,
       headline: p === 24 ? "Look above the beam" : undefined,
@@ -210,12 +235,7 @@ const sceneFor = (p: number): Scene => {
   if (p <= 36) {
     const VALUE: Record<number, number> = { 31: 5, 32: 6, 33: 7, 34: 8, 35: 9, 36: 9 };
     const value = VALUE[p] ?? 5;
-    const SUM: Record<number, string> = {
-      32: "5 + 1 = 6",
-      33: "5 + 2 = 7",
-      34: "5 + 3 = 8",
-      35: "5 + 4 = 9",
-    };
+    const BIG: Record<number, string> = { 32: "6", 33: "7", 34: "8", 35: "9" };
     return {
       world: "workshop",
       stage: "abacus",
@@ -226,7 +246,10 @@ const sceneFor = (p: number): Scene => {
       scale: BASE,
       targetRod: 0,
       panelSide: "right",
-      sum: SUM[p],
+      // The NUMBER the rod reads, never "5 + 3 = 8". This episode teaches reading a rod;
+      // writing it as a sum makes it an addition lesson, which is E03. The take agrees —
+      // it says "five AND three, eight".
+      big: BIG[p],
       count: p >= 32 && p <= 35 ? "active" : null,
       // no headline here: the card at this phrase is the app's own "One rod · 0 to 9",
       // and the two sat on top of each other saying the same thing
@@ -247,9 +270,11 @@ const sceneFor = (p: number): Scene => {
       panelSide: "right",
       rule: {
         filled: p <= 37 ? 0 : p <= 39 ? 1 : 2,
-        sum: p === 41 ? "5 + 3 = 8" : undefined,
+        // the number the rod reads — "add them together" is shown by the badges, not
+        // written as an equation
+        sum: p === 41 ? "8" : undefined,
       },
-      count: p === 40 ? "active" : null,
+      count: p === 40 || p === 41 ? "active" : null,
       headline: p === 37 ? "Reading a rod" : undefined,
     };
   }
@@ -273,6 +298,7 @@ const sceneFor = (p: number): Scene => {
       // No sumBreakdown: with no upper bead it rendered a "0 upper beads = 0" row, which
       // is a line about a bead that is not there. The numbered beads carry the three.
       count: p === 45 ? "active" : null,
+      countOnNumbers: p === 45,
       headline: p === 47 ? "Nice work!  ⭐" : undefined,
       // she perches on the frame to cheer — the payoff for the shrug at the wall. Without
       // the ladder she needs something to sit on, or she floats in empty space.
@@ -295,7 +321,14 @@ const sceneFor = (p: number): Scene => {
     // "make every number from zero to nine" IS every number from zero to nine
     rodRamp: p === 48 ? { rod: 0, from: 0, to: 9 } : undefined,
     closing: p >= 49,
-    closeBeat: p === 49 ? "subscribe" : p <= 51 ? "store" : "next",
+    // p48 must have NO closeBeat. It had one ("store", via `p <= 51`) even though `closing`
+    // is false there, so the store composition did not render — but STORE_START and
+    // STORE_FRAMES both found p48 and stretched the flow across 453 frames starting ten
+    // seconds early. By the time the phone actually appeared the search and the typing had
+    // already happened off screen, which is why the store beat looked like it skipped
+    // straight to the detail page.
+    closeBeat:
+      p === 48 ? undefined : p === 49 ? "subscribe" : p <= 51 ? "store" : "next",
     worldWash: p === 50 || p === 51 ? 0.55 : undefined,
     noCaption: p === 50 || p === 51,
     headline: p === 48 ? "Your turn — 0 to 9" : undefined,
@@ -305,6 +338,18 @@ const sceneFor = (p: number): Scene => {
 // ---------------------------------------------------------------- rendering
 
 const cardFor = (p: number): CardSpec | undefined => E02_CARDS[p];
+
+const STORE_START = (() => {
+  const i = firstPhraseWhere(PHRASES, (j) => sceneFor(j).closeBeat === "store");
+  return i < 0 ? 0 : sec(PHRASES[i].start, FPS);
+})();
+
+/** How long the store beat actually lasts — every phrase whose closeBeat is "store". */
+const STORE_FRAMES = (() => {
+  const idx = PHRASES.map((x) => x.index).filter((i) => sceneFor(i).closeBeat === "store");
+  if (!idx.length) return 181;
+  return sec(PHRASES[idx[idx.length - 1]].end, FPS) - STORE_START;
+})();
 
 /**
  * Sound, derived from the script rather than hand-placed: a bead click wherever the rod's
@@ -316,65 +361,89 @@ const cardFor = (p: number): CardSpec | undefined => E02_CARDS[p];
  */
 const SFX_CUES: SfxCue[] = (() => {
   const cues: SfxCue[] = [];
-  const valueOf = (i: number) => sceneFor(i).rods[0].value;
+  const at = (i: number) => sec(PHRASES[i].start, FPS);
+  const add = (frame: number, file: string, len: number, vol: number) =>
+    cues.push({ frame: Math.max(0, Math.round(frame)), file, len, vol });
+  /** The frame a word is spoken on, inside its own phrase. */
+  const on = (i: number, word: string) => wordFrameIn(PHRASES[i], word, FPS) ?? at(i);
 
+  // ---- beads: a click wherever the rod's value really changes, ON the word that moves it,
+  // not at the line boundary. The bead and its click land together because both read the
+  // same anchor.
+  const valueOf = (i: number) => sceneFor(i).rods[0].value;
   for (let i = 1; i < PHRASES.length; i++) {
-    const at = sec(PHRASES[i].start, FPS);
-    if (valueOf(i) !== valueOf(i - 1)) {
-      cues.push({ frame: at, file: "abacus_move.mp3", len: 30, vol: 0.32 });
-    }
+    if (valueOf(i) === valueOf(i - 1)) continue;
+    const mv = sceneFor(i).moveOn;
+    add(mv ? on(i, mv) : at(i), "abacus_move.mp3", 30, 0.32);
   }
 
-  // 24 "Look above the beam" — the reveal this episode turns on. Early, so the descent
-  // leads into the word rather than trailing after it.
-  cues.push({
-    frame: Math.max(0, sec(PHRASES[24].start, FPS) - 12),
-    file: "reveal5.mp3",
-    len: 64,
-    vol: 0.46,
-  });
+  // ---- counting out loud: a tick per spoken number, so the badges are heard as well as
+  // seen (phrases 11, 14, 17 and the answer at 45)
+  for (const i of [11, 14, 17, 45]) {
+    for (const f of numberWordFrames(PHRASES[i], FPS)) add(f, "tick.mp3", 12, 0.3);
+  }
 
-  // a swish whenever a new teaching card arrives
+  // ---- zero: the app's own reset, which is exactly "nothing on the rod"
+  add(on(5, "zero"), "abacus_reset.mp3", 40, 0.3);
+
+  // ---- the wall. The hand reaches for a bead that is not there, and then the joke lands.
+  add(on(20, "push"), "swipe.mp3", 16, 0.26);
+  // NOT option_wrong_ans: the child has done nothing wrong, the abacus has run out of beads
+  add(on(21, "oh"), "nope.mp3", 34, 0.42);
+  add(at(23), "boing.mp3", 24, 0.34); // "So how do we make five?" — left unresolved
+
+  // ---- the reveal this episode turns on. Early, so the descent leads into the word.
+  add(at(24) - 12, "reveal5.mp3", 64, 0.46);
+
+  // ---- five arrives
+  add(on(29, "five"), "option_correct_ans.mp3", 60, 0.34);
+
+  // ---- nine is the ceiling
+  add(on(36, "biggest"), "play_win.mp3", 70, 0.3);
+
+  // ---- the rule assembling: a tick as each step lands, then the answer
+  add(at(38), "tick.mp3", 14, 0.34);
+  add(at(40), "tick.mp3", 14, 0.34);
+  add(on(41, "add"), "option_correct_ans.mp3", 60, 0.3);
+
+  // ---- your turn. The prompt gets a sting; the 2.4 s recall gap gets NOTHING — that
+  // silence is where the child answers out loud, and filling it talks over them.
+  add(at(42), "boing.mp3", 24, 0.3);
+  add(on(44, "three"), "option_correct_ans.mp3", 60, 0.34);
+  add(at(47), "clap.mp3", 90, 0.28);
+
+  // ---- a card arriving
   let prevKey: number | undefined;
   for (let i = 0; i < PHRASES.length; i++) {
     const key = E02_CARDS[i]?.key;
-    if (key !== undefined && key !== prevKey) {
-      cues.push({ frame: sec(PHRASES[i].start, FPS), file: "swipe.mp3", len: 14, vol: 0.22 });
-    }
+    if (key !== undefined && key !== prevKey) add(at(i), "swipe.mp3", 14, 0.22);
     if (key !== undefined) prevKey = key;
   }
 
-  // 29 the rod reads five · 44 the answer · 47 praise
-  for (const i of [29, 44]) {
-    cues.push({
-      frame: sec(PHRASES[i].start, FPS),
-      file: "option_correct_ans.mp3",
-      len: 60,
-      vol: 0.34,
-    });
-  }
-  cues.push({ frame: sec(PHRASES[47].start, FPS), file: "option_correct_ans.mp3", len: 60, vol: 0.34 });
-  cues.push({ frame: sec(PHRASES[47].start, FPS) + 10, file: "clap.mp3", len: 90, vol: 0.28 });
+  // ---- the closing count: one click per number as the rod runs 0 to 9
+  const span48 = sec(PHRASES[48].end, FPS) - at(48);
+  for (let k = 1; k <= 9; k++) add(at(48) + (span48 * k) / 10, "abacus_move.mp3", 22, 0.26);
 
-  // one click per number across the closing 0 -> 9 count
-  const p48 = PHRASES[48];
-  const from = sec(p48.start, FPS);
-  const span = sec(p48.end, FPS) - from;
-  for (let k = 1; k <= 9; k++) {
-    cues.push({
-      frame: from + Math.round((span * k) / 10),
-      file: "abacus_move.mp3",
-      len: 22,
-      vol: 0.26,
-    });
-  }
+  // ---- like and subscribe: both controls are tapped, and the bell actually rings
+  const p49 = at(49);
+  const len49 = sec(PHRASES[49].end, FPS) - p49;
+  add(p49 + len49 * 0.14, "btn_click.mp3", 20, 0.3);
+  add(p49 + len49 * 0.42, "btn_click.mp3", 20, 0.3);
+  add(p49 + len49 * 0.58, "bell.mp3", 46, 0.34);
+
+  // ---- the store flow taps, at the frames StoreFlow actually draws them. Its keyframes are
+  // in reference time (tap row 50, tap GET 92), so scale them by the real beat length the
+  // same way the component does.
+  const rate = STORE_FRAMES / 136;
+  add(STORE_START + 50 * rate, "btn_click.mp3", 20, 0.28);
+  add(STORE_START + 92 * rate, "btn_click.mp3", 20, 0.3);
+  add(STORE_START + 136 * rate - 8, "play_win.mp3", 60, 0.26);
+
+  // ---- the send-off
+  add(at(52), "swipe.mp3", 16, 0.24);
   return cues;
 })();
 
-const STORE_START = (() => {
-  const i = firstPhraseWhere(PHRASES, (j) => sceneFor(j).closeBeat === "store");
-  return i < 0 ? 0 : sec(PHRASES[i].start, FPS);
-})();
 
 export const E02Numbers0To9: React.FC = () => (
   <SceneStage<Scene>
@@ -392,6 +461,35 @@ export const E02Numbers0To9: React.FC = () => (
     subjectFor={() => undefined}
     // Four heights, so two consecutive cards never arrive at the same place.
     runSlots={[150, 300, 210, 360]}
+    // Every piece of content this episode draws itself, so the overlap check can see it.
+    // SceneStage measures only what it draws.
+    boxesFor={(scene, ctx) => {
+      const out = [];
+      if (scene.ladder !== undefined || scene.bird) {
+        out.push({
+          label: "ladder",
+          r: {
+            x: ctx.box.left + LADDER_DX - LADDER_W / 2,
+            y: ctx.box.top,
+            w: LADDER_W,
+            h: ctx.box.h,
+          },
+        });
+      }
+      if (scene.big) {
+        const w = bigW(scene.big);
+        out.push({ label: "number", r: { x: (W - w) / 2, y: BIG_TOP, w, h: BIG_H } });
+      }
+      if (scene.rule) {
+        // RuleBoard: two 486-wide slots plus the answer, at left 96
+        out.push({ label: "rule", r: { x: 96, y: BAND.stageTop + 30, w: 486, h: 330 } });
+      }
+      if (scene.question) {
+        out.push({ label: "prompt", r: { x: W / 2 - 300, y: BAND.stageTop - 132, w: 600, h: 150 } });
+      }
+      return out;
+    }}
+    guardOverlap
     renderUnder={(scene, ctx) => (
       <>
         {/* The ladder stands to the LEFT of the abacus, which is why every card in the
@@ -406,9 +504,14 @@ export const E02Numbers0To9: React.FC = () => (
             {scene.ladder !== undefined && (
               <Ladder
                 box={ctx.box}
-                lit={scene.ladder}
+                // climbs with the bead, not ahead of it
+                lit={
+                  scene.ladderFrom !== undefined && ctx.settle < 0.5
+                    ? scene.ladderFrom
+                    : scene.ladder
+                }
                 progress={1}
-                x={ctx.box.left - 132}
+                x={ctx.box.left + LADDER_DX}
                 showCeiling={scene.ceiling}
                 frame={ctx.frame}
                 fps={FPS}
@@ -417,13 +520,19 @@ export const E02Numbers0To9: React.FC = () => (
             {scene.bird && (
               <Ladybird
                 box={ctx.box}
-                rung={scene.birdRung ?? 0}
+                rung={
+                  scene.ladderFrom !== undefined && ctx.settle < 0.5
+                    ? scene.ladderFrom
+                    : scene.birdRung ?? 0
+                }
                 mood={scene.bird}
                 // riding the bead means riding it on the ROD, not out on the ladder
                 // beside the frame, not on it: onesCx + 74 landed her on the woodwork
                 // cheering, she perches on the abacus frame; climbing or shrugging, she is
                 // on the ladder
-                x={scene.bird === "cheer" ? ctx.box.left + 78 : ctx.box.left - 132}
+                x={
+                  scene.bird === "cheer" ? ctx.box.left + 78 : ctx.box.left + LADDER_DX
+                }
                 perchY={
                   scene.bird === "cheer" ? ctx.box.top - 24 * ctx.box.scale : undefined
                 }
@@ -434,42 +543,27 @@ export const E02Numbers0To9: React.FC = () => (
           </svg>
         )}
 
-        {/* The "5 + n" strip, ABOVE the abacus. Below it, the card started at 827 px and
-            ran into the caption band at 860 — nothing may cross a band boundary
-            (EPISODE_RULES.md §4). It shares the big number's slot; the two never appear on
-            the same line. */}
-        {scene.sum && (
-          <div
-            style={{
-              position: "absolute",
-              left: 0,
-              width: W,
-              top: BAND.stageTop - 126 + bob(ctx.frame, FPS, 7, 3.6),
-              textAlign: "center",
-            }}
-          >
-            <Card bg={WORLDS[scene.world].accent} radius={30}>
-              <StickerText size={72}>{scene.sum}</StickerText>
-            </Card>
-          </div>
-        )}
+
       </>
     )}
     renderOver={(scene, ctx) => (
       <>
-        {/* the answer the line just gave, over the abacus rather than off to one side */}
+        {/* The number the rod now reads. In the HEADLINE band, not just above the abacus:
+            between the stage band top (220) and the abacus (256) there are 36 px, so a
+            100 pt number there overlapped the frame. Sized to sit inside 0-200 without
+            crossing the boundary. */}
         {scene.big && (
           <div
             style={{
               position: "absolute",
               left: 0,
               width: W,
-              top: BAND.stageTop - 126 + bob(ctx.frame, FPS, 7, 3.6),
+              top: BIG_TOP + bob(ctx.frame, FPS, 5, 3.6),
               textAlign: "center",
             }}
           >
-            <Card bg={PLACE_COLORS[0]} radius={40}>
-              <StickerText size={112}>{scene.big}</StickerText>
+            <Card bg={PLACE_COLORS[0]} radius={36}>
+              <StickerText size={BIG_SIZE}>{scene.big}</StickerText>
             </Card>
           </div>
         )}
@@ -538,7 +632,14 @@ export const E02Numbers0To9: React.FC = () => (
             {scene.closeBeat === "store" && (
               <>
                 <div style={{ position: "absolute", left: 300, top: 20 }}>
-                  <StoreFlow frame={ctx.frame - STORE_START} fps={FPS} height={760} />
+                  <StoreFlow
+                    frame={ctx.frame - STORE_START}
+                    fps={FPS}
+                    height={760}
+                    // the real length of the store beat, so search, detail and the GET tap
+                    // each get a readable share and the flow lands on OPEN as it ends
+                    span={STORE_FRAMES}
+                  />
                 </div>
                 <div style={{ position: "absolute", left: 1090, top: 90 }}>
                   <DownloadCta progress={ctx.beatProgress} />

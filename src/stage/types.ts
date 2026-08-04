@@ -66,6 +66,20 @@ export interface Scene {
   /** Box this many rods, counted from the ones rod — for lines about a GROUP of columns. */
   boxRods?: number;
 
+  /**
+   * Move the beads on this WORD of the line rather than at the line's start. An instruction
+   * ("push one more") must be obeyed after it is spoken, not before it — and the pointer is
+   * on screen from the start, so the child sees what is about to move first.
+   *
+   * Use `"$last"` for the line's final word, which is what an instruction usually wants.
+   */
+  moveOn?: string;
+  /**
+   * Reveal the count badges one per spoken number instead of all at once. "One, two." with
+   * both badges up from the first frame says "two".
+   */
+  countOnNumbers?: boolean;
+
   /** Beads keep moving for the whole line, for a line that says they slide. */
   liveBeads?: boolean;
   /** Light these rods one after another across the line, so a rule about moving left is

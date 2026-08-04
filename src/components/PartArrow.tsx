@@ -15,7 +15,7 @@ export interface Pt {
 }
 
 /** Quadratic bezier, bowed perpendicular to the chord so it never reads as a plain line. */
-const curve = (a: Pt, b: Pt, bow: number) => {
+export const curve = (a: Pt, b: Pt, bow: number) => {
   const mx = (a.x + b.x) / 2;
   const my = (a.y + b.y) / 2;
   const dx = b.x - a.x;
@@ -27,12 +27,20 @@ const curve = (a: Pt, b: Pt, bow: number) => {
   return { cx: mx + px * bow, cy: my + py * bow };
 };
 
-const pointOnCurve = (a: Pt, c: Pt, b: Pt, t: number): Pt => {
+export const pointOnCurve = (a: Pt, c: Pt, b: Pt, t: number): Pt => {
   const u = 1 - t;
   return {
     x: u * u * a.x + 2 * u * t * c.x + t * t * b.x,
     y: u * u * a.y + 2 * u * t * c.y + t * t * b.y,
   };
+};
+
+/** Sample the path the arrow will draw, for the render-time check that it does not pass
+ *  through anything — including the card it comes out of. */
+export const samplePath = (from: Pt, to: Pt, bow: number, n = 28): Pt[] => {
+  const { cx, cy } = curve(from, to, bow);
+  const c = { x: cx, y: cy };
+  return Array.from({ length: n + 1 }, (_, i) => pointOnCurve(from, c, to, i / n));
 };
 
 export const PartArrow: React.FC<{

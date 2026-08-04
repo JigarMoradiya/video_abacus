@@ -48,6 +48,9 @@ export interface AbacusProps {
    *  are). "active" labels only the beads currently up, with what each contributes —
    *  which is what "one upper bead and two lower beads" needs. */
   count?: "upper" | "lower" | "active" | null;
+  /** Show only the first N lower badges. Counting out loud reveals them one per spoken
+   *  number — all four appearing at once says "four", not "one, two, three, four". */
+  countLimit?: number;
 }
 
 /** Hexagonal bead: flat top and bottom, pointed sides. */
@@ -98,6 +101,7 @@ export const Abacus: React.FC<AbacusProps> = ({
   highlight = null,
   scale = 1,
   count = null,
+  countLimit,
 }) => {
   // Rod count comes from the data: section 7a widens to 13 rods and must stay the same
   // component instance rather than mounting a second abacus.
@@ -226,7 +230,8 @@ export const Abacus: React.FC<AbacusProps> = ({
                   return (
                     <g key={b}>
                       <Bead x={x} y={y} on={isUp} shadow={focus === 1} />
-                      {(count === "lower" || (count === "active" && isUp)) && (
+                      {(count === "lower" || (count === "active" && isUp)) &&
+                        (countLimit === undefined || b + 1 <= countLimit) && (
                         <text
                           x={cx}
                           y={y + BEAD_H * 0.72}

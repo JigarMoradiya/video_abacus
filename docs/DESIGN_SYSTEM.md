@@ -355,3 +355,45 @@ covered her completely. Leaving her off stage for that section was also the bett
 
 **Bands are not advisory.** A card placed under the abacus started at 827 px against a caption
 top of 860. Measure against `BAND` rather than eyeballing "below the abacus".
+
+
+---
+
+## §8d · The review pass on E02, and what it changed
+
+Ten defects, found by watching the render rather than reading the code. Every one existed in
+more than one place, which is the real lesson: **fix the mechanism, then apply it everywhere.**
+
+**Overlap is now a render error, not a judgement.** `SceneStage` takes `boxesFor` (the boxes an
+episode's own slots occupy) and `guardOverlap`, and throws on any intersection between content,
+between content and the abacus, or between the arrow's sampled path and anything at all. It
+caught a card overhanging the frame by 13 px on the first run — a card whose natural width
+(560) simply did not fit the 527 px beside the abacus. Two cards were reworded to fit rather
+than squeezed narrower: `cardHeight` counts newlines, not wrapped lines, so forcing a narrower
+CSS width would have left the arrow's origin computed from the wrong height.
+
+**Timing was all keyed to phrase boundaries, so the picture ran ahead of the voice.** Beads
+finished moving a third of a second into a line — before the words that command them. Now
+`moveOn` anchors travel to a word, and `"$last"` means the line's final word, because anchoring
+to a word *inside* the sentence is not enough: "push" is the first word of "Push one more".
+`countOnNumbers` reveals count badges one per spoken number. Props that represent the count
+(the ladder, the ladybird) read `ctx.settle` so they climb with the bead.
+
+**An arrow needs room to be an arrow.** A card sitting ~60 px above its target draws a 60 px
+curl that reads as a rendering glitch — put the card beside the target instead. And when the
+target is roughly LEVEL with the card, a modest bow arcs out and straight back through the
+card, so the bow scales to the card's own width. Both are gated on `guardOverlap`: E01 shipped
+with the flat bow, and enlarging it there changed 18 of its 79 frames — a change to an accepted
+episode, not a fix to the current one.
+
+**Hard-coded frame numbers do not survive a second episode.** `StoreFlow`'s keyframes were
+tuned to E01's 181-frame beat; in E02's 159 the search phase lasted under a second and the
+screenshot strip never finished. It takes `span` now and scales time by one factor, so every
+stage keeps its proportion and the flow lands on OPEN exactly as the beat ends.
+
+**Don't teach next episode's lesson.** The 6–9 section wrote `5 + 3 = 8`, turning a
+reading lesson into arithmetic. The take says "five AND three, eight" — so the screen shows
+the number the rod reads.
+
+**Two cards, one idea.** Both finger lines had a tour card saying what the hand's own chip
+already said, and the card physically collided with the hand every time. The cards went.

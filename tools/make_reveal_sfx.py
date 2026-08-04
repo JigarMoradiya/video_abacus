@@ -6,6 +6,14 @@ Produces:
                lands on a major chord, with a short wooden knock at the top so it sounds
                like an object arriving rather than a generic UI ding.
   swipe.wav    a short air-swish for a card or arrow entering.
+  nope.wav     "Oh, there aren't any left." A soft comedic deflate — two notes sliding DOWN
+               with a breathy fall. The app's option_wrong_ans.mp3 was the obvious reuse and
+               is wrong: it means "you got that wrong", and here the child has done nothing
+               wrong at all — the abacus has simply run out of beads.
+  boing.wav    the ladybird's shrug, and the held "So how do we make five?" — a springy
+               question mark, up then unresolved.
+  bell.wav     the subscribe bell, rung once.
+  tick.wav     a small wooden tick for a rule step landing, or a badge appearing.
   reveal5.wav  E02's upper-bead reveal — "look above the beam". A DIFFERENT sting from
                reveal.wav on purpose (EPISODE_RULES.md §2: reused furniture is what makes
                episodes feel like one reskinned three times). Where reveal.wav rises and
@@ -140,6 +148,62 @@ def make_reveal5() -> None:
     write(OUT / "reveal5.wav", buf)
 
 
+def make_nope() -> None:
+    """Two notes falling, with a breathy sag under them. Comic, not corrective."""
+    total = 0.9
+    buf = [0.0] * int(total * SR)
+    for f, at, amp in [(392.0, 0.0, 0.42), (311.13, 0.16, 0.46)]:
+        bead_tone(f, 0.5, at, amp, buf)
+    # a slow downward glide underneath — the "deflating" part
+    n = int(0.55 * SR)
+    start = int(0.14 * SR)
+    ph = 0.0
+    for i in range(n):
+        x = i / n
+        f = 300.0 * (1.0 - 0.45 * x)
+        ph += 2 * math.pi * f / SR
+        env = math.sin(math.pi * x) ** 1.4
+        j = start + i
+        if j < len(buf):
+            buf[j] += math.sin(ph) * env * 0.22
+    write(OUT / "nope.wav", buf)
+
+
+def make_boing() -> None:
+    """A springy question: pitch bends UP and stops without resolving."""
+    total = 0.7
+    buf = [0.0] * int(total * SR)
+    n = int(0.42 * SR)
+    ph = 0.0
+    for i in range(n):
+        x = i / n
+        # up a fifth and a bit, with a wobble on top so it reads as a spring
+        f = 330.0 * (1.0 + 0.62 * x) * (1.0 + 0.05 * math.sin(x * 34))
+        ph += 2 * math.pi * f / SR
+        env = (1.0 - x) ** 0.7 * min(1.0, x * 26)
+        buf[i] += math.sin(ph) * env * 0.5
+        buf[i] += math.sin(ph * 2.01) * env * 0.12
+    write(OUT / "boing.wav", buf)
+
+
+def make_bell() -> None:
+    """One notification bell: a struck high tone with a shimmer tail."""
+    total = 1.1
+    buf = [0.0] * int(total * SR)
+    for f, amp in [(1318.5, 0.5), (1975.5, 0.22), (2637.0, 0.12)]:
+        bead_tone(f, 0.95, 0.0, amp, buf)
+    shimmer(0.5, 0.1, 0.14, buf)
+    write(OUT / "bell.wav", buf)
+
+
+def make_tick() -> None:
+    """A small wooden tick — a rule step landing, or a badge arriving."""
+    total = 0.14
+    buf = [0.0] * int(total * SR)
+    bead_tone(880.0, 0.12, 0.0, 0.5, buf)
+    write(OUT / "tick.wav", buf)
+
+
 def make_swipe() -> None:
     total = 0.34
     buf = [0.0] * int(total * SR)
@@ -159,4 +223,8 @@ if __name__ == "__main__":
     print("synthesising:")
     make_reveal()
     make_reveal5()
+    make_nope()
+    make_boing()
+    make_bell()
+    make_tick()
     make_swipe()

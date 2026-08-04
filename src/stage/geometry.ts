@@ -144,20 +144,42 @@ export const groupBox = (box: AbacusBox, count: number): Rect => {
  * drawn from an arbitrary offset crossed the beam — which shows a move the abacus cannot
  * make. The upper bead's travel is its whole section minus its own height; a lower bead
  * moves exactly one slot.
+ *
+ * `fromValue` is what the rod reads BEFORE the move, and it decides WHICH bead the arrow
+ * lands on. Without it the anchor was a fixed slot, so on 3 → 4 the arrow pointed at beads
+ * that were already raised instead of the one still waiting to move. Bead b (0-indexed
+ * from the beam) sits at centre slot b + 0.5 when raised and b + 1.5 when parked, so the
+ * next bead to go up is the one parked at (fromValue % 5) + 1.5.
+ *
+ * A DOWN move keeps the topmost raised bead (slot 0.5): those gestures clear a whole group
+ * with one sweep, and the sweep starts at the top of the group.
  */
 export const handAnchor = (
   box: AbacusBox,
   heaven: boolean,
-  direction: "up" | "down"
+  direction: "up" | "down",
+  fromValue = 0
 ): { y: number; len: number } => {
   const up = direction === "up";
   const len = (heaven ? HEAVEN_H - BEAD_H : BEAD_H) * box.scale;
   const y = heaven
-    ? up
-      ? upperBeadY(box, true)
-      : upperBeadY(box, false)
+    ? upperBeadY(box, up)
     : up
-    ? lowerBeadY(box, 1.5)
+    ? lowerBeadY(box, (fromValue % 5) + 1.5)
     : lowerBeadY(box, 0.5);
   return { y, len };
 };
+
+// ---------------------------------------------------------------- overlap arithmetic
+//
+// EPISODE_RULES.md §4: no content may overlay any other content. Checked at render rather
+// than by eye, because 53 frames per episode is exactly the volume where eyeballing fails.
+
+export const intersects = (a: Rect, b: Rect, pad = 0): boolean =>
+  a.x - pad < b.x + b.w &&
+  b.x - pad < a.x + a.w &&
+  a.y - pad < b.y + b.h &&
+  b.y - pad < a.y + a.h;
+
+export const contains = (r: Rect, p: Pt, pad = 0): boolean =>
+  p.x >= r.x - pad && p.x <= r.x + r.w + pad && p.y >= r.y - pad && p.y <= r.y + r.h + pad;
