@@ -1482,7 +1482,10 @@ export const E01MeetTheAbacus: React.FC = () => {
         </Sequence>
       ))}
 
-      <Audio src={staticFile("audio/about_abacus/about_abacus.mp3")} />
+      {/* Folder is e001_about_abacus — the episode-numbered scheme. A wrong path here
+          renders SILENT with no error, so the approved mp4 (rendered before the rename)
+          still has audio while a fresh render would not. */}
+      <Audio src={staticFile("audio/e001_about_abacus/about_abacus.mp3")} />
     </AbsoluteFill>
   );
 };
