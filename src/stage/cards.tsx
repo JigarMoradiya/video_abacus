@@ -55,14 +55,16 @@ export const StageLabel: React.FC<{
   // "aboveRod" always uses the supplied panel coordinates — that is the whole point of it
   const beside = pos === "aboveRod" || (pos === "side" && gap >= 330);
   if (pos === "above") {
-    // answers and prompts read better over the abacus than off to one side
+    // Answers and prompts read better over the abacus than off to one side — but in the
+    // HEADLINE band (0-200), not just above the frame. At PUSH scale the abacus top is at
+    // ~216, so a 170 px answer card at stageTop-120 overlapped it by 55 px.
     return (
       <div
         style={{
           position: "absolute",
           left: 0,
           width: W,
-          top: BAND.stageTop - 120 + bob(frame, FPS, 7, 3.6),
+          top: 24 + bob(frame, FPS, 5, 3.6),
           textAlign: "center",
         }}
       >

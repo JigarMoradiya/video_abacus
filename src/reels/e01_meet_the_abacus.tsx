@@ -343,6 +343,11 @@ const sceneFor = (p: number): Scene => {
         highlight: null,
         scale: BASE,
         sideLabel: lab(p, PLACE_COLORS[0]),
+        // "we simply start on the far right" — so the subject is the ones rod, and the card
+        // belongs on its side. Left unset, the target defaulted to the MIDDLE rod, which sits
+        // one pixel off the screen centre.
+        targetRod: 0,
+        panelSide: "right",
       };
     const rods = wide13();
     const decimalLine = /used for decimals/i.test(PHRASES[p].text);
@@ -366,7 +371,10 @@ const sceneFor = (p: number): Scene => {
       rodBand: decimalLine ? undefined : 6, // the centre rod IS the ones column
 
       boxRods: decimalLine ? 6 : undefined, // box the six rods right of the ones rod
-      centreNote: p >= 48 ? "Unit place · ones rod" : undefined,
+      // Only on the line that NAMES the unit place. At p49 the subject is the decimal rods,
+      // and both chips landed under the abacus on top of one another — the unit-place label
+      // was still there from `p >= 48` while the Decimals chip arrived.
+      centreNote: p === 48 ? "Unit place · ones rod" : undefined,
       sideLabel: lab(p, p >= 48 ? PLACE_COLORS[2] : THEME.c800),
       decimals: p >= 49,
     };
@@ -579,6 +587,34 @@ export const E01MeetTheAbacus: React.FC = () => (
         )}
       </>
     )}
+    // The boxes E01 draws itself. Enabled so the overlap check covers this episode too —
+    // the user found the decimals/unit-place collision by eye, which is exactly what this
+    // is for. `arrowClearance` is deliberately NOT set: E01's arrows shipped as approved.
+    guardOverlap
+    boxesFor={(scene, ctx) => {
+      const out = [];
+      if (scene.decimals) {
+        out.push({
+          label: "decimals",
+          r: {
+            x: ctx.box.left + ctx.box.w * 0.54,
+            y: ctx.box.top + ctx.box.h + 16,
+            w: ctx.box.w * 0.46,
+            h: 64,
+          },
+        });
+      }
+      if (scene.question) {
+        out.push({
+          label: "prompt",
+          r: { x: W / 2 - 330, y: 22, w: 660, h: 170 },
+        });
+      }
+      if (scene.rulesCard) {
+        out.push({ label: "rules", r: { x: 40, y: BAND.stageTop + 60, w: 510, h: 300 } });
+      }
+      return out;
+    }}
     renderUnder={(scene, ctx) =>
       scene.decimals && (
         <div
@@ -604,7 +640,9 @@ export const E01MeetTheAbacus: React.FC = () => (
               position: "absolute",
               left: 0,
               width: W,
-              top: BAND.stageTop - 132,
+              // headline band: at PUSH scale stageTop-132 put its bottom edge 26 px inside
+              // the abacus
+              top: 22,
               textAlign: "center",
               transform: `scale(${pulse(ctx.frame, FPS, 0.05, 1.2)})`,
             }}
@@ -616,7 +654,7 @@ export const E01MeetTheAbacus: React.FC = () => (
         )}
 
         {scene.rulesCard && (
-          <div style={{ position: "absolute", left: 96, top: BAND.stageTop + 60 }}>
+          <div style={{ position: "absolute", left: 40, top: BAND.stageTop + 60 }}>
             <Card bg={THEME.c800} radius={40}>
               <StickerText size={40} style={{ display: "block", lineHeight: 1.5 }}>
                 {"add lower  ·  thumb up\nadd upper  ·  index down\ntake lower ·  index down\ntake upper ·  thumb up"}

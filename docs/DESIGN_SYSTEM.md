@@ -456,3 +456,58 @@ Neither guard can catch this, because both check structure and neither checks me
 rule is a rule: **resize by wrapping, never by editing the wording.** If a card genuinely cannot
 wrap, the card is too long for a card and the sentence needs rethinking — with the narration in
 front of you, not the pixel budget.
+
+
+---
+
+## §8h · The overlap guard, turned on for E01 (2026-08-04)
+
+The user found two chips stacked under the abacus on E01's decimals line. Rather than fix that
+one frame, `guardOverlap` was switched on for E01 as well — and it found **four more overlaps in
+the approved episode**, none of which anyone had noticed:
+
+| phrase | what overlapped | fix |
+|---|---|---|
+| 49 | "Unit place · ones rod" chip still on screen when the "Decimals" chip arrived | the unit-place label belongs only to the line that names it (`p === 48`) |
+| 29 | the app's 560 px tour card overhung the frame by 13 px | card placement now slides out until it clears the abacus, instead of a fixed 60 px margin |
+| 55 | same card, 52 px over the frame at PUSH scale | as above — PUSH leaves 560 px and that card is 552, so it sits close to the canvas edge |
+| 58 | the finger-rules list overhung the frame by ~30 px | moved from `left: 96` to `left: 40` |
+| 61-68 | answer and prompt cards overlapped the abacus top by up to 55 px | into the headline band (0-200), the same fix E02 already had |
+
+Two lessons worth more than the fixes:
+
+**A guard checking the wrong rectangle is worse than no guard.** `StageLabel` renders in one of
+two completely different places depending on `labelPos`, and the guard was registering the side
+slot in both cases — so the "above" labels reported as clear while overlapping by 55 px. Register
+the box the element actually renders in.
+
+**`arrowClearance` is a separate flag from `guardOverlap` on purpose.** E01 wants the *check*
+without the arrow-bow geometry change, which alters 18 of its frames. Coupling the two would have
+forced a visual change on an approved episode in order to gain a check.
+
+**At PUSH scale there is no room above or beside the abacus.** 800 px wide leaves 560 px each
+side and ~216 px of headroom; the app's widest tour card is 552 and an answer card is 170 tall.
+Anything that has to sit next to a PUSH-scale abacus is a tight fit by construction — plan for
+the headline band, not for the space above the frame.
+
+
+## §8i · Decide a card's SIDE from a stable box, never the live one
+
+The user saw a card start on the right and slide to the left mid-line. Cause: the side comes from
+`tRodX > W / 2`, and with no `targetRod` set the default is the MIDDLE rod — which on a 5-rod
+abacus at BASE lands at **x = 959** against a screen centre of **960**. E01's line 50 is also the
+one place the rig changes (13 rods at 0.78 to 5 rods at 1.15), and `scale` ramps across the
+boundary, so that rod walked across the centre line and the side flipped while the card was on
+screen.
+
+Two fixes, and the general one matters more:
+
+- The side is now computed from a box built with the phrase's **own target scale and no bob** —
+  never the live, mid-ramp box. Anything that decides *where* a thing lives must be stable for as
+  long as that thing is visible; the same reasoning as `runSlotMap`, which exists because a card
+  jumping between vertical slots looked like it had never moved at all.
+- That line is about the far-right rod, so it now says `targetRod: 0` and `panelSide: "right"`
+  instead of relying on a default that happens to be one pixel from the threshold.
+
+Verified by measuring the card's pixel extent at 2, 8, 20 and 60 frames into the phrase: 1456-1856
+at all four, with no pixels on the left.

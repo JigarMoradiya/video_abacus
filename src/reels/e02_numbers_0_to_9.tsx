@@ -490,6 +490,7 @@ export const E02Numbers0To9: React.FC = () => (
       return out;
     }}
     guardOverlap
+    arrowClearance
     renderUnder={(scene, ctx) => (
       <>
         {/* The ladder stands to the LEFT of the abacus, which is why every card in the

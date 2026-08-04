@@ -143,6 +143,12 @@ export interface SceneStageProps<S extends Scene> {
    * E01 is approved and frozen, and enabling it there would change an accepted episode.
    */
   guardOverlap?: boolean;
+  /**
+   * Widen the arrow's bow when its target sits roughly level with the card, so the arc
+   * cannot pass back through the card. Separate from `guardOverlap` because E01 shipped with
+   * the flat bow and wants the check without the change.
+   */
+  arrowClearance?: boolean;
 }
 
 const DEFAULT_SLOTS = [120, 265, 195, 345];
@@ -162,6 +168,7 @@ export const SceneStage = <S extends Scene>({
   renderOver,
   boxesFor,
   guardOverlap,
+  arrowClearance,
 }: SceneStageProps<S>) => {
   const frame = useCurrentFrame();
   const { width } = useVideoConfig();
@@ -217,7 +224,15 @@ export const SceneStage = <S extends Scene>({
   // pointer crossed the whole abacus.
   const targetRod = scene.targetRod ?? Math.floor(scene.rods.length / 2);
   const tRodX = rodX(box, targetRod);
-  const panelRight = scene.panelSide ? scene.panelSide === "right" : tRodX > W / 2;
+  // The SIDE is decided from the phrase's own target scale with no bob — never from the live
+  // box. `scale` ramps across a phrase boundary, and where the target rod sits near the
+  // screen centre (E01's default middle rod lands at x=959 against a centre of 960) the ramp
+  // walks it across the threshold and the card jumps from one side to the other while it is
+  // on screen. A card must not move while the viewer is reading it.
+  const sideBox = abacusBox(scene.rods.length, scene.scale, width, 0, FPS);
+  const panelRight = scene.panelSide
+    ? scene.panelSide === "right"
+    : rodX(sideBox, targetRod) > W / 2;
 
   const cardKeyAt = React.useCallback(
     (i: number) => (cardFor ? cardFor(i)?.key : undefined),
@@ -244,11 +259,29 @@ export const SceneStage = <S extends Scene>({
         );
       })();
   const aboveRod = scene.panelPlace === "aboveRod";
-  const panelX = aboveRod
+  const panelXRaw = aboveRod
     ? Math.max(40, Math.min(W - 40 - panelW, tRodX - panelW / 2))
     : panelRight
     ? W - 60 - panelW
     : 60;
+  // A fixed 60 px margin assumes the card fits the gap beside the abacus. The app's own
+  // tour cards cap at 560 px and the gap is 527, so those overhung the frame by 13 px —
+  // twice, once in each episode. Slide the card out until it clears, and only as far as the
+  // canvas edge allows.
+  // Tight on purpose. E01's finger section runs the abacus at PUSH scale, leaving 560 px
+  // each side, and the app's "Add upper · index finger · down" card is 552 — so the only way
+  // to clear the frame at all is to sit close to the canvas edge. The alternatives were
+  // shrinking the close-up (bead detail is the whole point of that section) or cutting the
+  // app's own wording, and neither is worth 20 px of margin. E01 previously overlapped the
+  // frame here by 52 px.
+  const CLEAR = 4;
+  const EDGE = 4;
+  const panelX =
+    !guardOverlap || aboveRod
+      ? panelXRaw
+      : panelRight
+      ? Math.min(W - EDGE - panelW, Math.max(panelXRaw, left + abacusW + CLEAR))
+      : Math.max(EDGE, Math.min(panelXRaw, left - CLEAR - panelW));
   // the card's real height, so the arrow can start ON its edge instead of near it
   const cardH = cardHeight(
     card ? segsLines(card.segs) : (scene.sideLabel?.text ?? "").split("\n").length
@@ -339,8 +372,26 @@ export const SceneStage = <S extends Scene>({
       });
     }
     if (card) out.push({ label: "card", r: { x: panelX, y: panelY, w: panelW, h: cardH } });
+    if (scene.centreNote) {
+      const w = Math.max(200, scene.centreNote.length * 19 + 70);
+      out.push({
+        label: "centreNote",
+        r: { x: tRodX - w / 2, y: top + abacusH + 18, w, h: 62 },
+      });
+    }
     if (scene.sideLabel && !card) {
-      out.push({ label: "label", r: { x: panelX, y: panelY, w: panelW, h: cardH } });
+      const above = !aboveRod && (scene.labelPos ?? "side") === "above";
+      if (above) {
+        // it renders centred in the headline band, not at the side slot — checking the side
+        // slot would have been a check of the wrong rectangle
+        const t = scene.sideLabel.text;
+        const big = /\d/.test(t) && t.replace(/\s/g, "").length <= 7;
+        const size = big ? 104 : 46;
+        const w = Math.max(160, t.length * size * 0.6 + 80);
+        out.push({ label: "label", r: { x: (W - w) / 2, y: 24, w, h: size * 1.35 + 40 } });
+      } else {
+        out.push({ label: "label", r: { x: panelX, y: panelY, w: panelW, h: cardH } });
+      }
     }
     if (scene.hand) {
       // FingerHand reaches in from the right of its rod, with its digit chip above it
@@ -625,10 +676,9 @@ export const SceneStage = <S extends Scene>({
           // that appears cut off behind it. The swing has to clear the card's own half
           // width, so scale the bow to the card rather than using one constant.
           const base = aboveRod ? 70 : 120;
-          // Gated on the no-overlap regime. E01 is approved and shipped with the flat bow —
-          // enlarging it there changed 18 of its 79 frames, which is a change to an accepted
-          // episode rather than a fix to this one.
-          const level = guardOverlap && Math.abs(to.y - cardCy) < cardH;
+          // Separate flag from guardOverlap on purpose: E01 wants the overlap CHECK but not
+          // this geometry change, which altered 18 of its 79 approved frames.
+          const level = arrowClearance && Math.abs(to.y - cardCy) < cardH;
           const bow = dir * (level ? Math.max(base, panelW * 0.55 + 60) : base);
 
           // The path must not pass through the card it comes out of, or through anything
