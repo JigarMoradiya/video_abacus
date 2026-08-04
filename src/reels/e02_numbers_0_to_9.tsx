@@ -502,7 +502,7 @@ export const E02Numbers0To9: React.FC = () => (
         // a row in the card band for 4:5, a column beside the abacus for 16:9
         out.push(
           L.portrait && L.cardBand
-            ? { label: "rule", r: { x: 20, y: L.cardBand.top, w: L.W - 40, h: 130 } }
+            ? { label: "rule", r: { x: (L.W - 640) / 2, y: L.cardBand.top, w: 640, h: 232 } }
             : { label: "rule", r: { x: 96, y: L.band.stageTop + 30, w: 486, h: 330 } }
         );
       }
@@ -521,6 +521,12 @@ export const E02Numbers0To9: React.FC = () => (
     // sections. Asked for per-line, the scale would jump each time the ladder appeared, and a
     // rig that changes size reads as a different abacus.
     sideRoom={() => PORTRAIT_ROOM}
+    // Reserved for the whole episode above; occupied only where a prop really is, so a line
+    // with neither ladder nor hand centres the abacus instead of hanging to one side.
+    stageShift={(scene) => ({
+      left: scene.ladder !== undefined || scene.bird ? PORTRAIT_ROOM.left : 0,
+      right: scene.hand ? PORTRAIT_ROOM.right : 0,
+    })}
     renderUnder={(scene, ctx) => (
       <>
         {/* The ladder stands to the LEFT of the abacus, which is why every card in the
@@ -638,12 +644,14 @@ export const E02Numbers0To9: React.FC = () => (
               progress={ctx.beatProgress}
               accent={WORLDS[scene.world].accent}
               sum={scene.rule.sum}
-              horizontal={ctx.layout.portrait}
+              compact={ctx.layout.portrait}
             />
           </div>
         )}
 
-        {scene.closing && (
+        {scene.closing && (() => {
+          const pt = ctx.layout.portrait;
+          return (
           <div
             style={{
               position: "absolute",
@@ -655,14 +663,32 @@ export const E02Numbers0To9: React.FC = () => (
           >
             {scene.closeBeat === "subscribe" && (
               <>
-                <div style={{ position: "absolute", left: 200, top: 150 }}>
+                <div
+                  style={{
+                    position: "absolute",
+                    left: pt ? 0 : 200,
+                    top: pt ? 40 : 150,
+                    width: pt ? ctx.layout.W : undefined,
+                    display: pt ? "flex" : undefined,
+                    justifyContent: pt ? "center" : undefined,
+                  }}
+                >
                   <SubscribeCard
                     progress={ctx.beatProgress}
                     frame={ctx.frame - ctx.phraseStart}
                     fps={FPS}
                   />
                 </div>
-                <div style={{ position: "absolute", left: 900, top: 190, width: 840 }}>
+                <div
+                  style={{
+                    position: "absolute",
+                    left: pt ? 0 : 900,
+                    top: pt ? 430 : 190,
+                    width: pt ? ctx.layout.W : 840,
+                    display: pt ? "flex" : undefined,
+                    justifyContent: pt ? "center" : undefined,
+                  }}
+                >
                   <Card bg="rgba(255,255,255,0.96)" radius={44}>
                     <StickerText
                       size={54}
@@ -678,17 +704,37 @@ export const E02Numbers0To9: React.FC = () => (
 
             {scene.closeBeat === "store" && (
               <>
-                <div style={{ position: "absolute", left: 300, top: 20 }}>
+                {/* VERTICAL in portrait — phone on top, CTA stacked under it and centred, the
+                    arrangement the phonics series uses for its 4:5 cut. Side by side at 1080
+                    wide put the whole CTA column off the frame. */}
+                <div
+                  style={{
+                    position: "absolute",
+                    left: pt ? (ctx.layout.W - 245) / 2 : 300,
+                    top: pt ? 6 : 20,
+                  }}
+                >
                   <StoreFlow
                     frame={ctx.frame - STORE_START}
                     fps={FPS}
-                    height={760}
+                    height={pt ? 500 : 760}
                     // the real length of the store beat, so search, detail and the GET tap
                     // each get a readable share and the flow lands on OPEN as it ends
                     span={STORE_FRAMES}
                   />
                 </div>
-                <div style={{ position: "absolute", left: 1090, top: 90 }}>
+                <div
+                  style={{
+                    position: "absolute",
+                    left: pt ? 0 : 1090,
+                    top: pt ? 530 : 90,
+                    width: pt ? ctx.layout.W : undefined,
+                    display: pt ? "flex" : undefined,
+                    justifyContent: pt ? "center" : undefined,
+                    transform: pt ? "scale(0.82)" : undefined,
+                    transformOrigin: "top center",
+                  }}
+                >
                   <DownloadCta progress={ctx.beatProgress} />
                 </div>
               </>
@@ -732,7 +778,8 @@ export const E02Numbers0To9: React.FC = () => (
               </div>
             )}
           </div>
-        )}
+          );
+        })()}
       </>
     )}
   />

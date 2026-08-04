@@ -150,6 +150,12 @@ export interface SceneStageProps<S extends Scene> {
    * fitted smaller and shifted off centre to make the room.
    */
   sideRoom?: (scene: S) => SideRoom;
+  /**
+   * Room actually occupied on THIS line. Separate from `sideRoom`, which is reserved for a
+   * whole section so the scale never changes: a line with nothing beside the abacus should
+   * still be centred, and using one figure for both left it hanging off to one side.
+   */
+  stageShift?: (scene: S) => SideRoom;
 }
 
 const DEFAULT_SLOTS = [120, 265, 195, 345];
@@ -171,6 +177,7 @@ export const SceneStage = <S extends Scene>({
   guardOverlap,
   arrowClearance,
   sideRoom,
+  stageShift,
 }: SceneStageProps<S>) => {
   const frame = useCurrentFrame();
   const { width, height } = useVideoConfig();
@@ -189,6 +196,7 @@ export const SceneStage = <S extends Scene>({
   });
   const world = WORLDS[scene.world];
   const room = sideRoom ? sideRoom(scene) : NO_ROOM;
+  const shift = stageShift ? stageShift(scene) : room;
   const scale = fitScale(
     L,
     scene.rods.length,
@@ -233,7 +241,7 @@ export const SceneStage = <S extends Scene>({
     frame,
     FPS,
     L.band,
-    stageOffsetX(L, room)
+    stageOffsetX(L, shift)
   );
   const { left, top, w: abacusW, h: abacusH } = box;
 
@@ -255,7 +263,7 @@ export const SceneStage = <S extends Scene>({
     0,
     FPS,
     L.band,
-    stageOffsetX(L, room)
+    stageOffsetX(L, shift)
   );
   const panelRight = scene.panelSide
     ? scene.panelSide === "right"
@@ -336,8 +344,14 @@ export const SceneStage = <S extends Scene>({
   const gbox = scene.boxRods ? groupBox(box, scene.boxRods) : null;
 
   const arrowTarget: Pt | null = (() => {
-    // a whole-rod band is the target when there is one — aim at its top edge
-    if (rodBand) return { x: rodBand.x + rodBand.w / 2, y: rodBand.y + 14 };
+    // A whole-rod band. In the card band the arrow rises from below, and aiming at the band's
+    // centre put the head on top of the beads it is pointing out — so it stops just LEFT of the
+    // band instead. At 16:9 the approved behaviour is kept.
+    if (rodBand) {
+      return inCardBand
+        ? { x: rodBand.x - 6, y: rodBand.y + rodBand.h * 0.5 }
+        : { x: rodBand.x + rodBand.w / 2, y: rodBand.y + 14 };
+    }
     // a whole-section band — aim at its near edge
     if (bandRect) {
       return panelRight
@@ -346,8 +360,10 @@ export const SceneStage = <S extends Scene>({
     }
     // a card sitting over its rod points straight down at that rod's top bead
     if (aboveRod) return { x: tRodX, y: box.innerTop + BEAD_H * 0.4 * scale };
-    // a boxed group — aim at the near edge
+    // a boxed group of rods — the near edge at 16:9, the left edge from the card band so the
+    // head does not land on the beads
     if (gbox) {
+      if (inCardBand) return { x: gbox.x - 6, y: gbox.y + gbox.h * 0.5 };
       return panelRight
         ? { x: gbox.x + gbox.w + 4, y: gbox.y + gbox.h * 0.5 }
         : { x: gbox.x - 4, y: gbox.y + gbox.h * 0.5 };
@@ -394,6 +410,24 @@ export const SceneStage = <S extends Scene>({
   const guardBoxes: GuardBox[] = (() => {
     if (!guardOverlap) return [];
     const out: GuardBox[] = [];
+    // The badge and the credit are content: they were placed at absolute coordinates tuned to
+    // 1920, and in the 4:5 cut the badge landed off the frame entirely while the credit sat
+    // under the headline pill. Registering them is what makes that impossible rather than
+    // something to notice later.
+    out.push(
+      L.portrait
+        ? { label: "badge", r: { x: L.W - 26 - 238, y: L.H - 4 - 69, w: 238, h: 69 } }
+        : { label: "badge", r: { x: L.W - 320, y: 30, w: 290, h: 84 } }
+    );
+    out.push({
+      label: "credit",
+      r: {
+        x: L.portrait ? 26 : 44,
+        y: L.H - (L.portrait ? 12 : 26) - 40,
+        w: 250,
+        h: 40,
+      },
+    });
     if (scene.headline) {
       // the pill is centred and sized from its text; a generous box is the safe direction
       const w = Math.min(L.W - 60, scene.headline.length * 34 + 160);
@@ -453,11 +487,33 @@ export const SceneStage = <S extends Scene>({
       // FingerHand reaches in from the right of its rod, with its digit chip above it
       const hx = rodX(box, scene.hand.rod);
       const { y } = handAnchor(box, scene.hand.heaven, scene.hand.direction, rods[scene.hand.rod]?.from ?? 0);
-      // measured from a render: the hand reaches ~330 px per unit of scale beyond the rod it
-      // is touching, with its digit chip a little above
+      // TWO boxes, read off FingerHand's own transforms, because one rect around both is
+      // wrong enough to matter: it reported the hand sitting in the badge's corner on a line
+      // where only the far-left chip was that high. A guard box larger than its artwork is a
+      // guard that fails on frames that are fine.
+      const dir = scene.hand.direction === "up" ? -1 : 1;
+      // fist: translate(120, dir*26), path x 12..244, y -96..132
       out.push({
         label: "hand",
-        r: { x: hx - 20, y: y - 150 * scale, w: 350 * scale, h: 300 * scale },
+        r: {
+          x: hx + 132 * scale,
+          y: y + (dir * 26 - 96) * scale,
+          w: 232 * scale,
+          h: 228 * scale,
+        },
+        mayTouchAbacus: true,
+      });
+      // digit chip: translate(dir>0?214:120, dir*26 + (dir>0?186:-150)), rect 216x64
+      const chipCx = (dir > 0 ? 214 : 120) * scale;
+      const chipCy = (dir * 26 + (dir > 0 ? 186 : -150)) * scale;
+      out.push({
+        label: "handChip",
+        r: {
+          x: hx + chipCx - 108 * scale,
+          y: y + chipCy - 32 * scale,
+          w: 216 * scale,
+          h: 64 * scale,
+        },
         mayTouchAbacus: true,
       });
     }
@@ -510,7 +566,7 @@ export const SceneStage = <S extends Scene>({
       {scene.worldWash !== undefined && (
         <AbsoluteFill style={{ background: `rgba(255,255,255,${scene.worldWash})` }} />
       )}
-      <BrandBadge />
+      <BrandBadge portrait={L.portrait} />
       <PoweredBy portrait={L.portrait} />
 
       {/* HEADLINE band — a pill, so it reads on both bright and dark worlds */}
@@ -586,6 +642,9 @@ export const SceneStage = <S extends Scene>({
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            // Props are drawn at absolute sizes designed for a 1920 frame — E01's history
+            // timeline is ~1400 px wide — so in portrait they are fitted rather than clipped.
+            transform: L.propScale === 1 ? undefined : `scale(${L.propScale})`,
           }}
         >
           {renderProp(scene.stage, scene, ctx)}
@@ -855,6 +914,7 @@ export const SceneStage = <S extends Scene>({
           color={scene.sideLabel.color}
           frame={frame}
           layout={L}
+          inBand={inCardBand}
           limit={left}
           pos={aboveRod ? "aboveRod" : scene.labelPos ?? "side"}
           x={panelX}

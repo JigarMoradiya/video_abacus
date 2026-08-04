@@ -156,7 +156,10 @@ export const FingerHand: React.FC<{
 
       {/* name it in words too — the app's tooltip does the same, and a parent copying the
           technique needs no ambiguity */}
-      <g transform={`translate(214,${dir * 26 + (dir > 0 ? 186 : -150)})`}>
+      {/* On an UPWARD move the chip sits high above the bead — 208 px up from the anchor — and
+          at PUSH scale that put its corner into the brand badge. Shifted left for those; it
+          sits over the abacus instead, which the hand is allowed to do. */}
+      <g transform={`translate(${dir > 0 ? 214 : 120},${dir * 26 + (dir > 0 ? 186 : -150)})`}>
         <rect x={-108} y={-32} width={216} height={64} rx={32} fill="#D81B60" />
         <text
           x={0}

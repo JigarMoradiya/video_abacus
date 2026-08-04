@@ -52,10 +52,15 @@ export const StageLabel: React.FC<{
   y: number;
   w: number;
   layout: Layout;
-}> = ({ text, color, frame, limit, pos, x, y, w, layout }) => {
+  /** the layout puts panels in a band of their own, so the supplied box is already right */
+  inBand?: boolean;
+}> = ({ text, color, frame, limit, pos, x, y, w, layout, inBand }) => {
   const gap = limit - 56 - 36;
-  // "aboveRod" always uses the supplied panel coordinates — that is the whole point of it
-  const beside = pos === "aboveRod" || (pos === "side" && gap >= 330);
+  // "aboveRod" always uses the supplied panel coordinates — that is the whole point of it.
+  // `inBand` likewise: in portrait the panel box IS the card band, centred and sized to the
+  // text. Without it the narrow-gap fallback below applied on every portrait line and drew a
+  // card the full width of the frame.
+  const beside = pos === "aboveRod" || inBand || (pos === "side" && gap >= 330);
   if (pos === "above") {
     // Answers and prompts read better over the abacus than off to one side — but in the
     // HEADLINE band (0-200), not just above the frame. At PUSH scale the abacus top is at

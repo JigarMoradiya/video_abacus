@@ -137,7 +137,18 @@ export const SubscribeCard: React.FC<{ progress: number; frame: number; fps: num
   );
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 30, alignItems: "flex-start" }}>
+    // position: relative — the tap ripple below is absolutely positioned with inset 0, and
+    // without a positioned ancestor here it resolved against the close container instead, so
+    // the ripple drew itself in the corner of the frame rather than on the control.
+    <div
+      style={{
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        gap: 30,
+        alignItems: "flex-start",
+      }}
+    >
       <Pill label="Like" bg="#2E7D32" pop={thumbIn}>
         <svg width={64} height={64} viewBox="0 0 64 64">
           <path

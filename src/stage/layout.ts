@@ -42,6 +42,12 @@ export interface Layout {
   /** Caption sizing — a 1360 px caption has no margin at all in a 1080 frame. */
   captionMaxW: number;
   captionSize: number;
+  /**
+   * Scale for the non-abacus stage props. They are drawn at absolute sizes designed for a
+   * 1920 frame — E01's history timeline is ~1400 px wide — so in portrait they must be fitted
+   * or they run off the edge.
+   */
+  propScale: number;
 }
 
 // 4:5 is 1080x1350. The extra 270 px over a 1080-tall frame buys the card band; everything
@@ -54,8 +60,9 @@ const PORTRAIT_BANDS: Bands = {
   headlineBottom: 195,
   stageTop: 210,
   stageBottom: 930,
-  captionTop: 1200,
-  captionBottom: 1340,
+  captionTop: 1185,
+  // the last 64 px are the brand strip: badge right, credit left, out of everything's way
+  captionBottom: 1282,
 };
 
 export const layoutFor = (W: number, H: number): Layout => {
@@ -71,6 +78,7 @@ export const layoutFor = (W: number, H: number): Layout => {
       edge: 4,
       captionMaxW: W - 260,
       captionSize: 0, // 0 = keep the type scale's own size
+      propScale: 1,
     };
   }
   return {
@@ -78,12 +86,14 @@ export const layoutFor = (W: number, H: number): Layout => {
     H,
     portrait: true,
     band: PORTRAIT_BANDS,
-    cardBand: { top: 945, height: 240 },
+    cardBand: { top: 930, height: 240 },
     // full width less margins: a portrait card is wide and short rather than narrow and tall
     cardMaxW: W - 120,
     edge: 30,
     captionMaxW: W - 90,
     captionSize: 38,
+    // the widest prop is ~1400 px; (1080 - 2*30) / 1400
+    propScale: 0.72,
   };
 };
 

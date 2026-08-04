@@ -25,16 +25,16 @@ const Slot: React.FC<{
       background: fill > 0.5 ? "rgba(255,255,255,0.96)" : "rgba(255,255,255,0.12)",
       border: `4px ${fill > 0.5 ? "solid" : "dashed"} rgba(255,255,255,0.6)`,
       borderRadius: 30,
-      padding: "16px 24px",
+      padding: wide ? "10px 22px" : "16px 24px",
       transform: `scale(${0.94 + fill * 0.06})`,
-      width: wide ? 452 : 486,
+      width: wide ? 640 : 486,
       boxSizing: "border-box",
     }}
   >
     <div
       style={{
-        width: 52,
-        height: 52,
+        width: wide ? 40 : 52,
+        height: wide ? 40 : 52,
         flexShrink: 0,
         borderRadius: 999,
         background: fill > 0.5 ? accent : "rgba(255,255,255,0.25)",
@@ -53,7 +53,7 @@ const Slot: React.FC<{
       style={{
         fontFamily: KID_FONT,
         fontWeight: 700,
-        fontSize: 33,
+        fontSize: wide ? 26 : 33,
         lineHeight: 1.25,
         color: fill > 0.5 ? "#0F3B3A" : "rgba(255,255,255,0.5)",
         textAlign: "left",
@@ -73,11 +73,12 @@ export const RuleBoard: React.FC<{
   /** show the worked sum under the two steps */
   sum?: string;
   /**
-   * Lay the steps in a ROW. The 4:5 cut has no room beside the abacus, so the board sits in
-   * the card band under it — 240 px tall, which a stacked pair of slots overflows.
+   * Compact form for the 4:5 cut, where the board sits in the 240 px card band under the
+   * abacus. Still a column — a row of two 452 px slots plus the answer reached the frame edge
+   * and left the answer looking detached — just smaller.
    */
-  horizontal?: boolean;
-}> = ({ filled, progress, accent, sum, horizontal }) => {
+  compact?: boolean;
+}> = ({ filled, progress, accent, sum, compact }) => {
   const arriving = interpolate(progress, [0, 0.35], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
@@ -86,9 +87,9 @@ export const RuleBoard: React.FC<{
     <div
       style={{
         display: "flex",
-        flexDirection: horizontal ? "row" : "column",
-        gap: horizontal ? 16 : 22,
-        alignItems: horizontal ? "center" : "flex-start",
+        flexDirection: "column",
+        gap: compact ? 8 : 22,
+        alignItems: compact ? "center" : "flex-start",
         justifyContent: "center",
       }}
     >
@@ -97,14 +98,14 @@ export const RuleBoard: React.FC<{
         text={"upper bead down\n= five"}
         fill={filled > 1 ? 1 : filled === 1 ? arriving : 0}
         accent={accent}
-        wide={horizontal}
+        wide={compact}
       />
       <Slot
         n={2}
         text={"count the lower beads\ntouching the beam"}
         fill={filled > 2 ? 1 : filled === 2 ? arriving : 0}
         accent={accent}
-        wide={horizontal}
+        wide={compact}
       />
       {sum && (
         <div
@@ -113,7 +114,7 @@ export const RuleBoard: React.FC<{
             flexShrink: 0,
             fontFamily: KID_FONT,
             fontWeight: 700,
-            fontSize: 64,
+            fontSize: compact ? 44 : 64,
             color: accent,
             textShadow: "3px 3px 0 rgba(0,0,0,0.35)",
             opacity: arriving,

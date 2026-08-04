@@ -41,15 +41,22 @@ export const HeadlinePill: React.FC<{
 );
 
 /**
- * Corner badge — the app's REAL icon plus its name. It was a hand-drawn abacus glyph,
- * which did not match the product the video is advertising.
+ * Corner badge. Top-right at 16:9. In portrait it moves to the BOTTOM-right brand strip and
+ * shrinks: it used to be positioned at left: 1560, off the frame entirely in a 1080-wide cut,
+ * and simply putting it top-right instead collided with the centred headline pill — at 1080
+ * there is no room for both on the same line.
  */
-export const BrandBadge: React.FC<{ x?: number; y?: number }> = ({ x = 1560, y = 30 }) => (
+export const BrandBadge: React.FC<{ y?: number; portrait?: boolean }> = ({
+  y = 30,
+  portrait,
+}) => (
   <div
     style={{
       position: "absolute",
-      left: x,
-      top: y,
+      right: portrait ? 26 : 30,
+      ...(portrait ? { bottom: 4 } : { top: y }),
+      transform: portrait ? "scale(0.82)" : undefined,
+      transformOrigin: "bottom right",
       display: "flex",
       alignItems: "center",
       gap: 14,
@@ -87,8 +94,11 @@ export const PoweredBy: React.FC<{ portrait?: boolean }> = ({ portrait }) => (
   <div
     style={{
       position: "absolute",
-      left: portrait ? 30 : 44,
-      ...(portrait ? { top: 26 } : { bottom: 26 }),
+      left: portrait ? 26 : 44,
+      // Bottom in both cuts. Top-left in portrait put it under the centred headline pill, which
+      // is wide enough to reach x=170; the caption band is shortened instead so the credit has
+      // its own strip at the very bottom.
+      bottom: portrait ? 12 : 26,
       display: "flex",
       alignItems: "center",
       gap: 9,

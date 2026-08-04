@@ -113,7 +113,10 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
             const speed = 13 + i * 5;
             const x = ((rand(i + 7) * W + t * speed) % (W + 560)) - 280;
             const y = H * (0.07 + rand(i + 23) * 0.25);
-            const s = 0.7 + rand(i + 55) * 0.75;
+            // Cloud lobes are absolute px, tuned against a 1920 frame. Left alone in the
+            // 1080-wide 4:5 cut they filled a third of the sky and swallowed the headline.
+            const fit = H > W ? 0.58 : 1;
+            const s = (0.7 + rand(i + 55) * 0.75) * fit;
             const lobeCount = 4 + Math.floor(rand(i + 71) * 3); // 4-6
 
             const lobes = Array.from({ length: lobeCount }, (_, k) => {

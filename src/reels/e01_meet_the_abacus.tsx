@@ -736,14 +736,14 @@ export const E01MeetTheAbacus: React.FC = () => (
                   <div
                     style={{
                       position: "absolute",
-                      left: pt ? 40 : 300,
-                      top: pt ? 40 : 20,
+                      left: pt ? (ctx.layout.W - 245) / 2 : 300,
+                      top: pt ? 6 : 20,
                     }}
                   >
                     <StoreFlow
                       frame={ctx.frame - STORE_START}
                       fps={FPS}
-                      height={pt ? 620 : 760}
+                      height={pt ? 500 : 760}
                     />
                   </div>
                 ) : (
@@ -751,7 +751,7 @@ export const E01MeetTheAbacus: React.FC = () => (
                     style={{
                       position: "absolute",
                       left: pt ? 40 : 120,
-                      top: (pt ? 30 : 150) + bob(ctx.frame, FPS, 8, 4),
+                      top: (pt ? 96 : 150) + bob(ctx.frame, FPS, 8, 4),
                     }}
                   >
                     <LandscapeFreeMode
@@ -769,10 +769,16 @@ export const E01MeetTheAbacus: React.FC = () => (
                   <div
                     style={{
                       position: "absolute",
-                      left: pt ? 380 : 1090,
-                      top: pt ? 150 : 90,
-                      transform: pt ? "scale(0.86)" : undefined,
-                      transformOrigin: "top left",
+                      // VERTICAL in portrait: phone on top, CTA under it and centred, the
+                      // arrangement the phonics series uses for its own 4:5 cut. Side by side
+                      // at 1080 wide pushed the CTA column off the frame.
+                      left: pt ? 0 : 1090,
+                      top: pt ? 530 : 90,
+                      width: pt ? ctx.layout.W : undefined,
+                      display: pt ? "flex" : undefined,
+                      justifyContent: pt ? "center" : undefined,
+                      transform: pt ? "scale(0.82)" : undefined,
+                      transformOrigin: "top center",
                     }}
                   >
                     <DownloadCta progress={ctx.beatProgress} />
@@ -781,9 +787,13 @@ export const E01MeetTheAbacus: React.FC = () => (
                   <div
                     style={{
                       position: "absolute",
-                      left: pt ? 70 : 1130,
-                      top: pt ? 590 : 300,
-                      width: pt ? 940 : 680,
+                      left: pt ? 0 : 1130,
+                      top: pt ? 640 : 300,
+                      width: pt ? ctx.layout.W : 680,
+                      // the Card is inline-block, so width + textAlign left it against the
+                      // left edge of its box instead of centred in the frame
+                      display: pt ? "flex" : undefined,
+                      justifyContent: pt ? "center" : undefined,
                     }}
                   >
                     <Card bg="rgba(255,255,255,0.96)" radius={44}>
