@@ -6,6 +6,12 @@ Produces:
                lands on a major chord, with a short wooden knock at the top so it sounds
                like an object arriving rather than a generic UI ding.
   swipe.wav    a short air-swish for a card or arrow entering.
+  reveal5.wav  E02's upper-bead reveal — "look above the beam". A DIFFERENT sting from
+               reveal.wav on purpose (EPISODE_RULES.md §2: reused furniture is what makes
+               episodes feel like one reskinned three times). Where reveal.wav rises and
+               arpeggiates upward because an object is arriving, this one descends onto a
+               single sustained note, because the bead comes DOWN and lands as one thing
+               worth five.
 
 Why synthesised: the same reason the music bed is (see tools/make_music.py). A stock sting
 carries licensing risk and a fingerprint match; something built here does not. It also lets
@@ -116,6 +122,24 @@ def make_reveal() -> None:
     write(OUT / "reveal.wav", buf)
 
 
+def make_reveal5() -> None:
+    """The upper bead's reveal. It has been waiting above the beam the whole time, so the
+    sting descends — a bell-like shimmer overhead, then four notes stepping DOWN onto a
+    held fifth, which is the interval the bead is worth."""
+    total = 1.7
+    buf = [0.0] * int(total * SR)
+    # a soft overhead shimmer first: the bead is already up there
+    shimmer(0.5, 0.0, 0.13, buf)
+    # G5 - F5 - E5 - down to G4, i.e. arriving ON the five rather than climbing to it
+    for step, (f, at) in enumerate(
+        [(783.99, 0.22), (698.46, 0.34), (659.25, 0.46), (391.995, 0.62)]
+    ):
+        bead_tone(f, 0.45 if step < 3 else 1.0, at, 0.30 if step < 3 else 0.55, buf)
+    # the held fifth under the landing — the "worth five all by itself" chord
+    bead_tone(587.33, 0.9, 0.64, 0.26, buf)
+    write(OUT / "reveal5.wav", buf)
+
+
 def make_swipe() -> None:
     total = 0.34
     buf = [0.0] * int(total * SR)
@@ -134,4 +158,5 @@ if __name__ == "__main__":
     OUT.mkdir(parents=True, exist_ok=True)
     print("synthesising:")
     make_reveal()
+    make_reveal5()
     make_swipe()

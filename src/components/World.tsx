@@ -167,15 +167,22 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
 
         {/* heaven / earth split — the beam's own metaphor, used while the two
             sections are being named */}
-        {kind === "heavenearth" && (
+        {w.horizon && w.ground && (
           <g>
-            <rect x={0} y={H * 0.46} width={W} height={H * 0.54} fill={w.ground} opacity={0.92} />
-            <rect x={0} y={H * 0.455} width={W} height={12} fill="#FFF" opacity={0.5} />
+            <rect
+              x={0}
+              y={H * w.horizon.at}
+              width={W}
+              height={H * w.horizon.h}
+              fill={w.ground}
+              opacity={0.92}
+            />
+            <rect x={0} y={H * (w.horizon.at - 0.005)} width={W} height={12} fill="#FFF" opacity={0.5} />
           </g>
         )}
 
-        {/* small-vs-big divider */}
-        {kind === "compare" && (
+        {/* two things side by side */}
+        {w.divider && (
           <line
             x1={W * 0.5}
             y1={0}
@@ -188,21 +195,130 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
           />
         )}
 
-        {/* workbench surface for the finger close-up */}
-        {kind === "bench" && w.ground && (
+        {/* a surface to work on */}
+        {w.surface && w.ground && (
           <g>
-            <rect x={0} y={H * 0.78} width={W} height={H * 0.22} fill={w.ground} />
-            <rect x={0} y={H * 0.78} width={W} height={10} fill="#DDA15E" />
+            <rect x={0} y={H * w.surface.at} width={W} height={H * w.surface.h} fill={w.ground} />
+            <rect x={0} y={H * w.surface.at} width={W} height={10} fill={w.surface.edge} />
           </g>
         )}
 
-        {/* chalkboard tray */}
-        {kind === "chalk" && (
+        {/* board + tray */}
+        {w.slate && (
           <g>
             <rect x={70} y={70} width={W - 140} height={H - 260} rx={18} fill="#000" opacity={0.14} />
-            <rect x={0} y={H * 0.82} width={W} height={H * 0.18} fill="#6D4326" />
+            <rect x={0} y={H * 0.82} width={W} height={H * 0.18} fill={w.slate.tray} />
           </g>
         )}
+
+        {/* Still water. The zero world: the pond is flat because nothing has been counted
+            yet, so the only motion is the ripples and a lily pad turning. */}
+        {w.water && (
+          <g>
+            <rect
+              x={0}
+              y={H * w.water.at}
+              width={W}
+              height={H * (1 - w.water.at) + 2}
+              fill="#2C3E70"
+              opacity={0.55}
+            />
+            <rect x={0} y={H * w.water.at} width={W} height={5} fill="#FFF" opacity={0.35} />
+            {/* reflection bands, widening with distance so the surface reads as flat */}
+            {Array.from({ length: 7 }, (_, i) => {
+              const y = H * w.water!.at + 26 + i * 44;
+              const phase = Math.sin(t * 0.7 + i * 0.9);
+              const half = (W * (0.1 + i * 0.055)) / 2;
+              return (
+                <rect
+                  key={`rf${i}`}
+                  x={W * 0.5 - half + phase * 22}
+                  y={y}
+                  width={half * 2}
+                  height={7}
+                  rx={3.5}
+                  fill="#FFE0C0"
+                  opacity={0.16 + 0.05 * Math.cos(t * 0.9 + i)}
+                />
+              );
+            })}
+            {/* lily pads: a notched disc each, drifting a few px and rocking */}
+            {[
+              { x: 0.14, y: 0.10, r: 52 },
+              { x: 0.83, y: 0.20, r: 44 },
+              { x: 0.30, y: 0.42, r: 38 },
+              { x: 0.68, y: 0.52, r: 58 },
+            ].map((pad, i) => {
+              const cx = W * pad.x + Math.sin(t * 0.35 + i * 1.7) * 9;
+              const cy = H * w.water!.at + (H * (1 - w.water!.at)) * pad.y;
+              const rock = Math.sin(t * 0.5 + i) * 4;
+              return (
+                <g key={`lp${i}`} transform={`rotate(${rock} ${cx} ${cy})`}>
+                  <ellipse cx={cx} cy={cy + 5} rx={pad.r} ry={pad.r * 0.34} fill="#0E2044" opacity={0.35} />
+                  <ellipse cx={cx} cy={cy} rx={pad.r} ry={pad.r * 0.36} fill="#3E7D3A" />
+                  <ellipse cx={cx} cy={cy - 3} rx={pad.r * 0.9} ry={pad.r * 0.3} fill="#57A050" />
+                  {/* the notch every lily pad has */}
+                  <path
+                    d={`M ${cx} ${cy} L ${cx + pad.r * 0.85} ${cy - pad.r * 0.13} L ${cx + pad.r * 0.85} ${cy + pad.r * 0.13} Z`}
+                    fill="#2C3E70"
+                    opacity={0.5}
+                  />
+                </g>
+              );
+            })}
+          </g>
+        )}
+
+        {/* ONE big star, for the one bead that is worth five on its own. Slow: the reveal
+            is the subject and a fast sparkle would compete with it. */}
+        {w.starburst && (
+          <g transform={`translate(${W * 0.5} ${H * 0.3})`} opacity={0.9}>
+            <g transform={`rotate(${t * 6})`}>
+              {Array.from({ length: 12 }, (_, i) => (
+                <rect
+                  key={`ray${i}`}
+                  x={-4}
+                  y={-260}
+                  width={8}
+                  height={130 + (i % 2) * 60}
+                  rx={4}
+                  fill="#FFF3B0"
+                  opacity={0.35}
+                  transform={`rotate(${i * 30})`}
+                />
+              ))}
+            </g>
+            <g transform={`scale(${1 + Math.sin(t * 1.1) * 0.05})`}>
+              <circle r={96} fill="#FFF3B0" opacity={0.28} />
+              <circle r={62} fill="url(#sunG)" />
+            </g>
+          </g>
+        )}
+
+        {/* Balloons going up — a send-off, not a party. Each drifts at its own rate and
+            they wrap, so the close never runs out of them. */}
+        {w.balloons &&
+          Array.from({ length: 11 }, (_, i) => {
+            const x = W * (0.05 + rand(i + 5) * 0.9) + Math.sin(t * 0.5 + i) * 26;
+            const speed = 42 + rand(i + 11) * 46;
+            const y = H + 120 - ((t * speed + rand(i + 23) * (H + 240)) % (H + 240));
+            const r = 34 + rand(i + 31) * 16;
+            const col = ["#EF5350", "#FFCA28", "#42A5F5", "#66BB6A", "#AB47BC", "#FF7043"][i % 6];
+            return (
+              <g key={`bl${i}`} transform={`rotate(${Math.sin(t * 0.6 + i) * 5} ${x} ${y})`}>
+                <path
+                  d={`M ${x} ${y + r * 1.15} Q ${x + 7} ${y + r * 1.7} ${x} ${y + r * 2.3}`}
+                  stroke="#7A4B2A"
+                  strokeWidth={2.5}
+                  fill="none"
+                  opacity={0.7}
+                />
+                <ellipse cx={x} cy={y} rx={r} ry={r * 1.14} fill={col} />
+                <ellipse cx={x - r * 0.32} cy={y - r * 0.38} rx={r * 0.24} ry={r * 0.3} fill="#FFF" opacity={0.45} />
+                <path d={`M ${x - 6} ${y + r * 1.1} L ${x + 6} ${y + r * 1.1} L ${x} ${y + r * 1.26} Z`} fill={col} />
+              </g>
+            );
+          })}
 
         {w.confetti &&
           Array.from({ length: 70 }, (_, i) => {
