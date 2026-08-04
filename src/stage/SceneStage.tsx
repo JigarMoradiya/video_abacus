@@ -58,6 +58,7 @@ import {
 } from "./geometry";
 import {
   applyLiveBeads,
+  applyRodRamp,
   applySweep,
   clockAt,
   rodsWithFrom,
@@ -155,6 +156,11 @@ export const SceneStage = <S extends Scene>({
     const live = applyLiveBeads(rods, frame, phraseStart);
     rods = live.rods;
     liveSettle = live.settle;
+  }
+  if (scene.rodRamp) {
+    const ramp = applyRodRamp(rods, scene.rodRamp, frame, phraseStart, phraseEnd);
+    rods = ramp.rods;
+    liveSettle = ramp.settle;
   }
 
   // The abacus springs in on the frame it is first named, and stays put after.
@@ -336,7 +342,7 @@ export const SceneStage = <S extends Scene>({
         >
           <Abacus
             rods={rods}
-            settle={scene.liveBeads ? liveSettle : settle}
+            settle={scene.liveBeads || scene.rodRamp ? liveSettle : settle}
             highlight={scene.highlight}
             scale={scale}
             count={scene.count ?? null}

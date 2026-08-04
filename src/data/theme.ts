@@ -197,10 +197,12 @@ export const WORLDS: Record<WorldKind, WorldTheme> = {
   dawn: {
     sky: ["#3B4A85", "#F6B99B"],
     ink: "#FFFFFF",
-    pill: "#FFFFFF",
+    // NOT white: HeadlinePill uses world.ink on a white pill, and this world's ink is
+    // white for the caption over a dark sky — a white pill made the headline invisible.
+    pill: "#E2562C",
     accent: "#FF8F5E",
     stars: true,
-    water: { at: 0.66 },
+    water: { at: 0.62 },
   },
   ladder: {
     sky: ["#A8E86B", "#E6FFD0"],
@@ -223,7 +225,9 @@ export const WORLDS: Record<WorldKind, WorldTheme> = {
     ink: "#08344F",
     pill: "#FFFFFF",
     accent: "#FF8F00",
-    clouds: true,
+    // NO clouds. They drift across the whole upper band, and a white cloud passing over a
+    // pale-yellow star erased the one thing this world exists to show. An open sky with a
+    // single star is also what the reveal wants: nothing else to look at.
     starburst: true,
   },
   workshop: {
@@ -232,12 +236,13 @@ export const WORLDS: Record<WorldKind, WorldTheme> = {
     ink: "#4A2600",
     pill: "#FFFFFF",
     accent: "#00838F",
-    surface: { at: 0.74, h: 0.26, edge: "#C98A5B" },
+    surface: { at: 0.78, h: 0.22, edge: "#C98A5B" },
   },
   board: {
     sky: ["#0F3B3A", "#1E6F66"],
     ink: "#EAFFFB",
-    pill: "#FFFFFF",
+    // near-white ink, so the pill cannot be white either
+    pill: "#0A6B5F",
     accent: "#FFD166",
     slate: { tray: "#3E2A18" },
   },

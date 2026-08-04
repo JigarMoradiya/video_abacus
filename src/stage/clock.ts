@@ -156,6 +156,33 @@ export const applyLiveBeads = (
 };
 
 /**
+ * Step one rod through `from`..`to` across the line, holding each value for an equal share
+ * and travelling into it. Returns its own settle so the beads move rather than teleport.
+ */
+export const applyRodRamp = (
+  rods: RodState[],
+  spec: { rod: number; from: number; to: number },
+  frame: number,
+  startF: number,
+  endF: number
+): { rods: RodState[]; settle: number } => {
+  const steps = Math.max(1, spec.to - spec.from + 1);
+  const span = Math.max(1, endF - startF);
+  const frac = Math.max(0, Math.min(0.9999, (frame - startF) / span));
+  const k = Math.floor(frac * steps);
+  const value = spec.from + k;
+  // travel over the first 60% of each step, then hold — a held value is what makes it
+  // readable as a number rather than a blur
+  const within = frac * steps - k;
+  return {
+    rods: rods.map((r, i) =>
+      i === spec.rod ? { ...r, from: spec.from + Math.max(0, k - 1), value } : r
+    ),
+    settle: Math.max(0, Math.min(1, within / 0.6)),
+  };
+};
+
+/**
  * Vertical slot per card RUN, cycled by run order rather than by line number.
  *
  * Keying it to `start % slots.length` let two consecutive runs land on the same height —

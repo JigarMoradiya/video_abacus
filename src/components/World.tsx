@@ -244,10 +244,10 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
             })}
             {/* lily pads: a notched disc each, drifting a few px and rocking */}
             {[
-              { x: 0.14, y: 0.10, r: 52 },
-              { x: 0.83, y: 0.20, r: 44 },
-              { x: 0.30, y: 0.42, r: 38 },
-              { x: 0.68, y: 0.52, r: 58 },
+              { x: 0.10, y: 0.12, r: 84 },
+              { x: 0.88, y: 0.26, r: 72 },
+              { x: 0.22, y: 0.58, r: 64 },
+              { x: 0.78, y: 0.68, r: 96 },
             ].map((pad, i) => {
               const cx = W * pad.x + Math.sin(t * 0.35 + i * 1.7) * 9;
               const cy = H * w.water!.at + (H * (1 - w.water!.at)) * pad.y;
@@ -272,7 +272,8 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
         {/* ONE big star, for the one bead that is worth five on its own. Slow: the reveal
             is the subject and a fast sparkle would compete with it. */}
         {w.starburst && (
-          <g transform={`translate(${W * 0.5} ${H * 0.3})`} opacity={0.9}>
+          // off-centre on purpose: at mid-frame it sat behind the abacus
+          <g transform={`translate(${W * 0.17} ${H * 0.26})`} opacity={0.9}>
             <g transform={`rotate(${t * 6})`}>
               {Array.from({ length: 12 }, (_, i) => (
                 <rect
@@ -282,8 +283,8 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
                   width={8}
                   height={130 + (i % 2) * 60}
                   rx={4}
-                  fill="#FFF3B0"
-                  opacity={0.35}
+                  fill="#FFD54F"
+                  opacity={0.4}
                   transform={`rotate(${i * 30})`}
                 />
               ))}

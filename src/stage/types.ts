@@ -71,6 +71,10 @@ export interface Scene {
   /** Light these rods one after another across the line, so a rule about moving left is
    *  demonstrated rather than only stated. */
   sweepRods?: number[];
+  /** Step one rod through a range of values across the line, one value per beat, with the
+   *  beads actually travelling between them. "Make every number from zero to nine" has to
+   *  BE every number from zero to nine, not a card that says so. */
+  rodRamp?: { rod: number; from: number; to: number };
 
   /** Pull the world back behind a foreground that has to carry the frame. 0..1 */
   worldWash?: number;
