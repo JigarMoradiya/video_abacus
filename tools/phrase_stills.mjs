@@ -14,6 +14,11 @@
 //      `--png` matters here: jpeg is fine to look at, but its encoder is not
 //      bit-stable enough to diff.
 //
+// KNOWN FLAKE: frames containing the store screenshots (<Img> from public/brand/shots)
+// depend on async image decoding, so they can differ between otherwise identical renders —
+// E01's p77 does. Re-render the single frame a couple of times before believing a diff:
+//   node tools/phrase_stills.mjs --id meet-the-abacus --phrases ... --out /tmp/x --png --only 77
+//
 // Usage:
 //   node tools/phrase_stills.mjs --id meet-the-abacus --phrases src/data/e01.phrases.json \
 //        --out out/e01_base --png [--offset 20] [--only 3,4,5]
