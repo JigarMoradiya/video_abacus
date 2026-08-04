@@ -15,9 +15,9 @@
 // who cannot yet read the whole sentence can still see that it is about "beam" or "five".
 
 import React from "react";
-import { BAND, W } from "../data/tokens";
 import { TYPE } from "../lib/fonts";
 import type { Track } from "../lib/timing";
+import type { Layout } from "../stage/layout";
 
 const SAID = "#243B53";
 const COMING = "#AFBECB"; // same hue, dropped in contrast — it reads as "not yet"
@@ -46,7 +46,8 @@ export const Caption: React.FC<{
   accent: string;
   /** Extra words this episode wants coloured, beyond the shared vocabulary. */
   keywords?: string[];
-}> = ({ track, frame, accent, keywords }) => {
+  layout: Layout;
+}> = ({ track, frame, accent, keywords, layout }) => {
   const active = track.activeAt(frame);
   if (!active) return null;
   const { phrase, wordIdx } = active;
@@ -56,14 +57,15 @@ export const Caption: React.FC<{
     <div
       style={{
         position: "absolute",
-        top: BAND.captionTop,
+        top: layout.band.captionTop,
         left: 0,
-        width: W,
-        height: BAND.captionBottom - BAND.captionTop,
+        width: layout.W,
+        height: layout.band.captionBottom - layout.band.captionTop,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "0 130px",
+        // a 1360 px caption has no side margin at all in a 1080 frame
+        padding: layout.portrait ? "0 34px" : "0 130px",
         boxSizing: "border-box",
       }}
     >
@@ -71,12 +73,12 @@ export const Caption: React.FC<{
         style={{
           background: "rgba(255,255,255,0.94)",
           borderRadius: 999,
-          padding: "16px 48px",
+          padding: layout.portrait ? "14px 30px" : "16px 48px",
           maxWidth: "100%",
           textAlign: "center",
           boxShadow: "0 8px 0 rgba(0,0,0,0.16)",
           fontFamily: TYPE.family,
-          fontSize: TYPE.caption.size,
+          fontSize: layout.captionSize || TYPE.caption.size,
           fontWeight: TYPE.caption.weight,
           lineHeight: 1.25,
           color: SAID,

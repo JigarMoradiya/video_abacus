@@ -591,6 +591,10 @@ export const E01MeetTheAbacus: React.FC = () => (
     // the user found the decimals/unit-place collision by eye, which is exactly what this
     // is for. `arrowClearance` is deliberately NOT set: E01's arrows shipped as approved.
     guardOverlap
+    // Portrait: the pushing hand reaches in from the right of the ones rod and needs room the
+    // 1080 frame does not otherwise have. Reserved for every PUSH-scale line — fingers, reading
+    // and the quiz — not just the lines with a hand, so the rig does not resize mid-section.
+    sideRoom={(scene) => (scene.scale === PUSH ? { left: 0, right: 350 } : { left: 0, right: 0 })}
     boxesFor={(scene, ctx) => {
       const out = [];
       if (scene.decimals) {
@@ -598,7 +602,7 @@ export const E01MeetTheAbacus: React.FC = () => (
           label: "decimals",
           r: {
             x: ctx.box.left + ctx.box.w * 0.54,
-            y: ctx.box.top + ctx.box.h + 16,
+            y: ctx.layout.portrait ? ctx.box.top - 74 : ctx.box.top + ctx.box.h + 16,
             w: ctx.box.w * 0.46,
             h: 64,
           },
@@ -607,11 +611,18 @@ export const E01MeetTheAbacus: React.FC = () => (
       if (scene.question) {
         out.push({
           label: "prompt",
-          r: { x: W / 2 - 330, y: 22, w: 660, h: 170 },
+          r: { x: ctx.layout.W / 2 - 330, y: 22, w: 660, h: 170 },
         });
       }
       if (scene.rulesCard) {
-        out.push({ label: "rules", r: { x: 40, y: BAND.stageTop + 60, w: 510, h: 300 } });
+        out.push(
+          ctx.layout.portrait && ctx.layout.cardBand
+            ? {
+                label: "rules",
+                r: { x: (ctx.layout.W - 400) / 2, y: ctx.layout.cardBand.top + 8, w: 400, h: 224 },
+              }
+            : { label: "rules", r: { x: 40, y: ctx.layout.band.stageTop + 60, w: 510, h: 300 } }
+        );
       }
       return out;
     }}
@@ -621,7 +632,11 @@ export const E01MeetTheAbacus: React.FC = () => (
           style={{
             position: "absolute",
             left: ctx.box.left + ctx.box.w * 0.54,
-            top: ctx.box.top + ctx.box.h + 16,
+            // above the abacus in portrait: the teaching card sits in the band below and its
+            // arrow travels up through the space under the frame
+            top: ctx.layout.portrait
+              ? ctx.box.top - 74
+              : ctx.box.top + ctx.box.h + 16,
             width: ctx.box.w * 0.46,
             textAlign: "center",
           }}
@@ -639,7 +654,7 @@ export const E01MeetTheAbacus: React.FC = () => (
             style={{
               position: "absolute",
               left: 0,
-              width: W,
+              width: ctx.layout.W,
               // headline band: at PUSH scale stageTop-132 put its bottom edge 26 px inside
               // the abacus
               top: 22,
@@ -654,26 +669,46 @@ export const E01MeetTheAbacus: React.FC = () => (
         )}
 
         {scene.rulesCard && (
-          <div style={{ position: "absolute", left: 40, top: BAND.stageTop + 60 }}>
+          <div
+            style={
+              ctx.layout.portrait && ctx.layout.cardBand
+                ? {
+                    // four lines do not fit beside a portrait abacus, and there is only 79 px
+                    // above it — so the list goes in the card band, smaller
+                    position: "absolute",
+                    left: 0,
+                    width: ctx.layout.W,
+                    top: ctx.layout.cardBand.top + 8,
+                    display: "flex",
+                    justifyContent: "center",
+                  }
+                : { position: "absolute", left: 40, top: ctx.layout.band.stageTop + 60 }
+            }
+          >
             <Card bg={THEME.c800} radius={40}>
-              <StickerText size={40} style={{ display: "block", lineHeight: 1.5 }}>
+              <StickerText
+                size={ctx.layout.portrait ? 30 : 40}
+                style={{ display: "block", lineHeight: 1.5 }}
+              >
                 {"add lower  ·  thumb up\nadd upper  ·  index down\ntake lower ·  index down\ntake upper ·  thumb up"}
               </StickerText>
             </Card>
           </div>
         )}
 
-        {scene.closing && scene.closeBeat && (
+        {scene.closing && scene.closeBeat && (() => {
+          const pt = ctx.layout.portrait;
+          return (
           // Fixed slots, not a centred flex row: the row re-centred every time the card
           // beside the phone changed width, so the phone slid left and right between
           // "Free Mode is free for everyone" and "Tap any bead".
           <div
             style={{
               position: "absolute",
-              top: BAND.stageTop - 90,
+              top: ctx.layout.band.stageTop - 90,
               left: 0,
-              width: W,
-              height: BAND.stageBottom - BAND.stageTop + 140,
+              width: ctx.layout.W,
+              height: ctx.layout.band.stageBottom - ctx.layout.band.stageTop + 140,
             }}
           >
             {scene.closeBeat === "next" ? (
@@ -694,16 +729,29 @@ export const E01MeetTheAbacus: React.FC = () => (
                     measured from the FIRST store line: lines 76 and 77 are both store
                     beats, so keying it to the phrase restarted the whole
                     search-and-download animation half way through. */}
+                {/* PORTRAIT stacks what 16:9 sets side by side. At 1080 wide the phone alone
+                    is 940 and its caption card sat at x=1130 — completely off the frame, so
+                    every close line lost its text. */}
                 {scene.closeBeat === "store" ? (
-                  <div style={{ position: "absolute", left: 300, top: 20 }}>
-                    <StoreFlow frame={ctx.frame - STORE_START} fps={FPS} height={760} />
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: pt ? 40 : 300,
+                      top: pt ? 40 : 20,
+                    }}
+                  >
+                    <StoreFlow
+                      frame={ctx.frame - STORE_START}
+                      fps={FPS}
+                      height={pt ? 620 : 760}
+                    />
                   </div>
                 ) : (
                   <div
                     style={{
                       position: "absolute",
-                      left: 120,
-                      top: 150 + bob(ctx.frame, FPS, 8, 4),
+                      left: pt ? 40 : 120,
+                      top: (pt ? 30 : 150) + bob(ctx.frame, FPS, 8, 4),
                     }}
                   >
                     <LandscapeFreeMode
@@ -713,21 +761,40 @@ export const E01MeetTheAbacus: React.FC = () => (
                       value={
                         scene.closeBeat === "move" || scene.closeBeat === "play" ? 8 : 5
                       }
-                      width={940}
+                      width={pt ? 1000 : 940}
                     />
                   </div>
                 )}
                 {scene.closeBeat === "store" ? (
-                  <div style={{ position: "absolute", left: 1090, top: 90 }}>
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: pt ? 380 : 1090,
+                      top: pt ? 150 : 90,
+                      transform: pt ? "scale(0.86)" : undefined,
+                      transformOrigin: "top left",
+                    }}
+                  >
                     <DownloadCta progress={ctx.beatProgress} />
                   </div>
                 ) : (
-                  <div style={{ position: "absolute", left: 1130, top: 300, width: 680 }}>
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: pt ? 70 : 1130,
+                      top: pt ? 590 : 300,
+                      width: pt ? 940 : 680,
+                    }}
+                  >
                     <Card bg="rgba(255,255,255,0.96)" radius={44}>
                       <StickerText
-                        size={54}
+                        size={pt ? 46 : 54}
                         color="#1F3B4D"
-                        style={{ display: "block", textAlign: "left", textShadow: "none" }}
+                        style={{
+                          display: "block",
+                          textAlign: pt ? "center" : "left",
+                          textShadow: "none",
+                        }}
                       >
                         {scene.closeBeat === "show"
                           ? "Free Mode\nis free for everyone"
@@ -743,7 +810,8 @@ export const E01MeetTheAbacus: React.FC = () => (
               </>
             )}
           </div>
-        )}
+          );
+        })()}
       </>
     )}
   />

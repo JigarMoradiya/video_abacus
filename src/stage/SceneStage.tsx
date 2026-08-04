@@ -31,15 +31,7 @@ import { Chip } from "../components/Sticker";
 import { SegPanel, cardHeight, segsLines, segsWidth } from "../components/Tooltip";
 import { WORLDS } from "../data/theme";
 import { World } from "../components/World";
-import {
-  BAND,
-  BEAD_H,
-  FPS,
-  H,
-  HEAVEN_H,
-  PLACE_COLORS,
-  W,
-} from "../data/tokens";
+import { BEAD_H, FPS, HEAVEN_H, PLACE_COLORS } from "../data/tokens";
 import { bob, pulse } from "../lib/motion";
 import { TYPE } from "../lib/fonts";
 import { sec, type Track, type TPhrase } from "../lib/timing";
@@ -72,6 +64,7 @@ import {
   wordFrameIn,
 } from "./clock";
 import { StageLabel } from "./cards";
+import { fitScale, layoutFor, stageOffsetX, NO_ROOM, type Layout, type SideRoom } from "./layout";
 import type { CardSpec, Scene } from "./types";
 
 /** A box that must not be covered by, or cover, any other content. */
@@ -108,6 +101,8 @@ export interface StageCtx {
   onesCx: number;
   /** the card box, so an episode extra can line up with it instead of guessing */
   panel: { x: number; y: number; w: number; h: number };
+  /** the aspect-specific layout, so an episode's own slots can arrange for both cuts */
+  layout: Layout;
 }
 
 export interface SceneStageProps<S extends Scene> {
@@ -149,6 +144,12 @@ export interface SceneStageProps<S extends Scene> {
    * the flat bow and wants the check without the change.
    */
   arrowClearance?: boolean;
+  /**
+   * Space the episode needs BESIDE the abacus for a prop of its own (E02's ladder). Used only
+   * in portrait, where the margins are otherwise too narrow to hold anything: the abacus is
+   * fitted smaller and shifted off centre to make the room.
+   */
+  sideRoom?: (scene: S) => SideRoom;
 }
 
 const DEFAULT_SLOTS = [120, 265, 195, 345];
@@ -169,9 +170,13 @@ export const SceneStage = <S extends Scene>({
   boxesFor,
   guardOverlap,
   arrowClearance,
+  sideRoom,
 }: SceneStageProps<S>) => {
   const frame = useCurrentFrame();
-  const { width } = useVideoConfig();
+  const { width, height } = useVideoConfig();
+  // The layout comes from the canvas the composition was registered at, so one reel serves
+  // both cuts. Nothing below reads W/H or BAND directly.
+  const L = layoutFor(width, height);
   const { p, startF: phraseStart, endF: phraseEnd, beatProgress, linePop } =
     clockAt(phrases, frame, FPS);
   const scene = sceneFor(p);
@@ -183,7 +188,13 @@ export const SceneStage = <S extends Scene>({
     extrapolateRight: "clamp",
   });
   const world = WORLDS[scene.world];
-  const scale = smoothField(phrases, frame, FPS, sceneFor, (s) => s.scale);
+  const room = sideRoom ? sideRoom(scene) : NO_ROOM;
+  const scale = fitScale(
+    L,
+    scene.rods.length,
+    smoothField(phrases, frame, FPS, sceneFor, (s) => s.scale),
+    room
+  );
 
   // ---- rods: only the beads the next number needs may travel ----
   const prevScene = p > 0 ? sceneFor(p - 1) : scene;
@@ -215,7 +226,15 @@ export const SceneStage = <S extends Scene>({
           extrapolateRight: "clamp",
         });
 
-  const box = abacusBox(scene.rods.length, scale, width, frame, FPS);
+  const box = abacusBox(
+    scene.rods.length,
+    scale,
+    width,
+    frame,
+    FPS,
+    L.band,
+    stageOffsetX(L, room)
+  );
   const { left, top, w: abacusW, h: abacusH } = box;
 
   // ---- where the card goes, and what the arrow points at ----
@@ -229,10 +248,18 @@ export const SceneStage = <S extends Scene>({
   // screen centre (E01's default middle rod lands at x=959 against a centre of 960) the ramp
   // walks it across the threshold and the card jumps from one side to the other while it is
   // on screen. A card must not move while the viewer is reading it.
-  const sideBox = abacusBox(scene.rods.length, scene.scale, width, 0, FPS);
+  const sideBox = abacusBox(
+    scene.rods.length,
+    fitScale(L, scene.rods.length, scene.scale, room),
+    width,
+    0,
+    FPS,
+    L.band,
+    stageOffsetX(L, room)
+  );
   const panelRight = scene.panelSide
     ? scene.panelSide === "right"
-    : rodX(sideBox, targetRod) > W / 2;
+    : rodX(sideBox, targetRod) > L.W / 2;
 
   const cardKeyAt = React.useCallback(
     (i: number) => (cardFor ? cardFor(i)?.key : undefined),
@@ -259,10 +286,14 @@ export const SceneStage = <S extends Scene>({
         );
       })();
   const aboveRod = scene.panelPlace === "aboveRod";
+  // PORTRAIT: there is no "beside". The abacus fills nearly the whole 1080 width, so a card
+  // sits in its own band under the stage, centred, and the arrow points UP into the beads.
+  // `aboveRod` collapses into the same place — its whole purpose was to escape a side slot.
+  const inCardBand = L.portrait && L.cardBand !== null;
   const panelXRaw = aboveRod
-    ? Math.max(40, Math.min(W - 40 - panelW, tRodX - panelW / 2))
+    ? Math.max(40, Math.min(L.W - 40 - panelW, tRodX - panelW / 2))
     : panelRight
-    ? W - 60 - panelW
+    ? L.W - 60 - panelW
     : 60;
   // A fixed 60 px margin assumes the card fits the gap beside the abacus. The app's own
   // tour cards cap at 560 px and the gap is 527, so those overhung the frame by 13 px —
@@ -276,20 +307,23 @@ export const SceneStage = <S extends Scene>({
   // frame here by 52 px.
   const CLEAR = 4;
   const EDGE = 4;
-  const panelX =
-    !guardOverlap || aboveRod
-      ? panelXRaw
-      : panelRight
-      ? Math.min(W - EDGE - panelW, Math.max(panelXRaw, left + abacusW + CLEAR))
-      : Math.max(EDGE, Math.min(panelXRaw, left - CLEAR - panelW));
+  const panelX = inCardBand
+    ? (L.W - panelW) / 2
+    : !guardOverlap || aboveRod
+    ? panelXRaw
+    : panelRight
+    ? Math.min(L.W - EDGE - panelW, Math.max(panelXRaw, left + abacusW + CLEAR))
+    : Math.max(EDGE, Math.min(panelXRaw, left - CLEAR - panelW));
   // the card's real height, so the arrow can start ON its edge instead of near it
   const cardH = cardHeight(
     card ? segsLines(card.segs) : (scene.sideLabel?.text ?? "").split("\n").length
   );
-  const panelY = aboveRod
+  const panelY = inCardBand
+    ? L.cardBand!.top + Math.max(0, (L.cardBand!.height - cardH) / 2) + bob(frame, FPS, 4, 3.8)
+    : aboveRod
     // high enough that the card clears the abacus and the arrow has room to be seen
-    ? BAND.stageTop - 168 + bob(frame, FPS, 6, 3.8)
-    : BAND.stageTop + (run ? slotOf[run.start] ?? 190 : 190) + bob(frame, FPS, 6, 3.8);
+    ? L.band.stageTop - 168 + bob(frame, FPS, 6, 3.8)
+    : L.band.stageTop + (run ? slotOf[run.start] ?? 190 : 190) + bob(frame, FPS, 6, 3.8);
   // pop and arrow-draw progress measured from the RUN's first frame, so neither restarts
   const runStart = sec(phrases[run?.start ?? p].start, FPS);
   const runProgress = interpolate(frame, [runStart, runStart + 34], [0, 1], {
@@ -351,6 +385,7 @@ export const SceneStage = <S extends Scene>({
     tRodX,
     onesCx,
     panel: { x: panelX, y: panelY, w: panelW, h: cardH },
+    layout: L,
   };
 
   // ---- everything that carries content, and must not be covered ----
@@ -361,14 +396,14 @@ export const SceneStage = <S extends Scene>({
     const out: GuardBox[] = [];
     if (scene.headline) {
       // the pill is centred and sized from its text; a generous box is the safe direction
-      const w = Math.min(W - 120, scene.headline.length * 34 + 160);
-      out.push({ label: "headline", r: { x: (W - w) / 2, y: 30, w, h: 96 } });
+      const w = Math.min(L.W - 60, scene.headline.length * 34 + 160);
+      out.push({ label: "headline", r: { x: (L.W - w) / 2, y: 30, w, h: 96 } });
     }
     if (scene.counter) {
       const w = scene.counter.length * 34 + 90;
       out.push({
         label: "counter",
-        r: { x: (W - w) / 2, y: scene.headline ? 128 : 52, w, h: 72 },
+        r: { x: (L.W - w) / 2, y: scene.headline ? 128 : 52, w, h: 72 },
       });
     }
     if (card) out.push({ label: "card", r: { x: panelX, y: panelY, w: panelW, h: cardH } });
@@ -376,7 +411,12 @@ export const SceneStage = <S extends Scene>({
       const w = Math.max(200, scene.centreNote.length * 19 + 70);
       out.push({
         label: "centreNote",
-        r: { x: tRodX - w / 2, y: top + abacusH + 18, w, h: 62 },
+        r: {
+          x: Math.max(10, Math.min(L.W - 470, tRodX - 230)) + (460 - w) / 2,
+          y: L.portrait ? top - 74 : top + abacusH + 18,
+          w,
+          h: 62,
+        },
       });
     }
     if (scene.sideLabel && !card) {
@@ -388,18 +428,36 @@ export const SceneStage = <S extends Scene>({
         const big = /\d/.test(t) && t.replace(/\s/g, "").length <= 7;
         const size = big ? 104 : 46;
         const w = Math.max(160, t.length * size * 0.6 + 80);
-        out.push({ label: "label", r: { x: (W - w) / 2, y: 24, w, h: size * 1.35 + 40 } });
+        out.push({ label: "label", r: { x: (L.W - w) / 2, y: 24, w, h: size * 1.35 + 40 } });
       } else {
         out.push({ label: "label", r: { x: panelX, y: panelY, w: panelW, h: cardH } });
       }
+    }
+    if (scene.sumBreakdown) {
+      out.push({
+        label: "sum",
+        r: inCardBand
+          ? { x: (L.W - 520) / 2, y: L.cardBand!.top + 6, w: 520, h: 210 }
+          : { x: panelX, y: L.band.stageTop + 20, w: 520, h: 210 },
+      });
+    }
+    if (scene.beadWorth && !card) {
+      out.push({
+        label: "beadWorth",
+        r: inCardBand
+          ? { x: (L.W - 420) / 2, y: L.cardBand!.top + 30, w: 420, h: 150 }
+          : { x: panelX, y: L.band.stageTop + 150, w: panelW, h: 150 },
+      });
     }
     if (scene.hand) {
       // FingerHand reaches in from the right of its rod, with its digit chip above it
       const hx = rodX(box, scene.hand.rod);
       const { y } = handAnchor(box, scene.hand.heaven, scene.hand.direction, rods[scene.hand.rod]?.from ?? 0);
+      // measured from a render: the hand reaches ~330 px per unit of scale beyond the rod it
+      // is touching, with its digit chip a little above
       out.push({
         label: "hand",
-        r: { x: hx - 20, y: y - 150 * scale, w: 420 * scale, h: 300 * scale },
+        r: { x: hx - 20, y: y - 150 * scale, w: 350 * scale, h: 300 * scale },
         mayTouchAbacus: true,
       });
     }
@@ -408,6 +466,16 @@ export const SceneStage = <S extends Scene>({
 
   if (guardOverlap) {
     const abacusRect: Rect = { x: left, y: top, w: abacusW, h: abacusH };
+    // Nothing may run off the canvas. The 4:5 cut clipped the pushing hand at the right edge
+    // and no overlap check could see it — an element half outside the frame overlaps nothing.
+    for (const g of guardBoxes) {
+      if (g.r.x < -12 || g.r.x + g.r.w > L.W + 12) {
+        throw new Error(
+          `"${g.label}" runs off the frame on phrase ${p} — ` +
+            `x ${g.r.x.toFixed(0)}..${(g.r.x + g.r.w).toFixed(0)} in a ${L.W}px frame`
+        );
+      }
+    }
     for (let i = 0; i < guardBoxes.length; i++) {
       const a = guardBoxes[i];
       if (!a.mayTouchAbacus && intersects(a.r, abacusRect, -6)) {
@@ -443,7 +511,7 @@ export const SceneStage = <S extends Scene>({
         <AbsoluteFill style={{ background: `rgba(255,255,255,${scene.worldWash})` }} />
       )}
       <BrandBadge />
-      <PoweredBy />
+      <PoweredBy portrait={L.portrait} />
 
       {/* HEADLINE band — a pill, so it reads on both bright and dark worlds */}
       {scene.headline && (
@@ -451,7 +519,7 @@ export const SceneStage = <S extends Scene>({
           style={{
             position: "absolute",
             top: 30,
-            width: W,
+            width: L.W,
             textAlign: "center",
             transform: `scale(${pulse(frame, FPS, 0.012, 3)})`,
           }}
@@ -474,7 +542,7 @@ export const SceneStage = <S extends Scene>({
             position: "absolute",
             top: scene.headline ? 128 : 52,
             left: 0,
-            width: W,
+            width: L.W,
             textAlign: "center",
           }}
         >
@@ -512,9 +580,9 @@ export const SceneStage = <S extends Scene>({
           style={{
             position: "absolute",
             left: 0,
-            top: BAND.stageTop,
-            width: W,
-            height: BAND.stageBottom - BAND.stageTop,
+            top: L.band.stageTop,
+            width: L.W,
+            height: L.band.stageBottom - L.band.stageTop,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -525,12 +593,14 @@ export const SceneStage = <S extends Scene>({
       )}
 
       {/* names the target rod, directly under it */}
+      {/* Under the abacus at 16:9. ABOVE it in portrait, where the teaching card sits in the
+          band below and its arrow travels up through exactly that space. */}
       {scene.centreNote && (
         <div
           style={{
             position: "absolute",
-            left: tRodX - 230,
-            top: top + abacusH + 18,
+            left: Math.max(10, Math.min(L.W - 470, tRodX - 230)),
+            top: L.portrait ? top - 74 : top + abacusH + 18,
             width: 460,
             textAlign: "center",
           }}
@@ -544,8 +614,8 @@ export const SceneStage = <S extends Scene>({
       {/* the hand, over the ones rod */}
       {scene.hand && (
         <svg
-          width={W}
-          height={H}
+          width={L.W}
+          height={L.H}
           style={{ position: "absolute", inset: 0, overflow: "visible" }}
         >
           {(() => {
@@ -571,7 +641,7 @@ export const SceneStage = <S extends Scene>({
 
       {/* the whole-rod band */}
       {rodBand && (
-        <svg width={W} height={H} style={{ position: "absolute", inset: 0 }}>
+        <svg width={L.W} height={L.H} style={{ position: "absolute", inset: 0 }}>
           <rect
             x={rodBand.x}
             y={rodBand.y}
@@ -599,7 +669,7 @@ export const SceneStage = <S extends Scene>({
 
       {/* the whole-section band */}
       {bandRect && (
-        <svg width={W} height={H} style={{ position: "absolute", inset: 0 }}>
+        <svg width={L.W} height={L.H} style={{ position: "absolute", inset: 0 }}>
           <rect x={bandRect.x} y={bandRect.y} width={bandRect.w} height={bandRect.h} rx={16}
             fill={world.accent} opacity={0.18 * dashRamp(0, 0.25)}
           />
@@ -613,8 +683,8 @@ export const SceneStage = <S extends Scene>({
       {/* the group box for the capacity lines */}
       {gbox && (
         <svg
-          width={W}
-          height={H}
+          width={L.W}
+          height={L.H}
           style={{ position: "absolute", inset: 0, pointerEvents: "none" }}
         >
           <rect
@@ -671,6 +741,9 @@ export const SceneStage = <S extends Scene>({
           // of a bottom exit, and flipping it does the same upward for a top exit. Signing
           // it any other way curves the arc back across the card.
           const dir = (exitTop ? -1 : 1) * Math.sign(to.x - from.x || 1);
+          // In the card band the card is centred under the abacus, so a bow scaled to the
+          // card's width would swing right off the frame; the chord is near-vertical and
+          // already clears the card.
           // A target roughly LEVEL with the card gives a nearly horizontal chord, so a
           // modest bow arcs out and straight back through the card — visible as an arrow
           // that appears cut off behind it. The swing has to clear the card's own half
@@ -678,7 +751,7 @@ export const SceneStage = <S extends Scene>({
           const base = aboveRod ? 70 : 120;
           // Separate flag from guardOverlap on purpose: E01 wants the overlap CHECK but not
           // this geometry change, which altered 18 of its 79 approved frames.
-          const level = arrowClearance && Math.abs(to.y - cardCy) < cardH;
+          const level = arrowClearance && !inCardBand && Math.abs(to.y - cardCy) < cardH;
           const bow = dir * (level ? Math.max(base, panelW * 0.55 + 60) : base);
 
           // The path must not pass through the card it comes out of, or through anything
@@ -706,8 +779,8 @@ export const SceneStage = <S extends Scene>({
 
           return (
             <svg
-              width={W}
-              height={H}
+              width={L.W}
+              height={L.H}
               style={{ position: "absolute", inset: 0, overflow: "visible" }}
             >
               <PartArrow
@@ -739,9 +812,11 @@ export const SceneStage = <S extends Scene>({
         <div
           style={{
             position: "absolute",
-            left: panelX,
-            top: BAND.stageTop + 20 + bob(frame, FPS, 6, 3.8),
-            width: panelW,
+            left: inCardBand ? (L.W - 520) / 2 : panelX,
+            top: inCardBand
+              ? L.cardBand!.top + 6
+              : L.band.stageTop + 20 + bob(frame, FPS, 6, 3.8),
+            width: 520,
             textAlign: "center",
           }}
         >
@@ -757,9 +832,11 @@ export const SceneStage = <S extends Scene>({
         <div
           style={{
             position: "absolute",
-            left: panelX,
-            top: BAND.stageTop + 150 + bob(frame, FPS, 7, 3.6),
-            width: panelW,
+            left: inCardBand ? 0 : panelX,
+            top: inCardBand
+              ? L.cardBand!.top + 30
+              : L.band.stageTop + 150 + bob(frame, FPS, 7, 3.6),
+            width: inCardBand ? L.W : panelW,
             display: "flex",
             justifyContent: "center",
           }}
@@ -777,6 +854,7 @@ export const SceneStage = <S extends Scene>({
           text={scene.sideLabel.text}
           color={scene.sideLabel.color}
           frame={frame}
+          layout={L}
           limit={left}
           pos={aboveRod ? "aboveRod" : scene.labelPos ?? "side"}
           x={panelX}
@@ -788,7 +866,13 @@ export const SceneStage = <S extends Scene>({
       {renderOver?.(scene, ctx)}
 
       {!scene.noCaption && (
-        <Caption track={track} frame={frame} ink={world.ink} accent={world.accent} />
+        <Caption
+          track={track}
+          frame={frame}
+          ink={world.ink}
+          accent={world.accent}
+          layout={L}
+        />
       )}
 
       {/* SFX on every real event: a bead click where beads actually move, the app's chime

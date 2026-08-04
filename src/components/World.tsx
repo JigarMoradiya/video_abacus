@@ -272,8 +272,12 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
         {/* ONE big star, for the one bead that is worth five on its own. Slow: the reveal
             is the subject and a fast sparkle would compete with it. */}
         {w.starburst && (
-          // off-centre on purpose: at mid-frame it sat behind the abacus
-          <g transform={`translate(${W * 0.17} ${H * 0.26})`} opacity={0.9}>
+          // Off-centre on purpose: at mid-frame it sat behind the abacus. In portrait the
+          // abacus spans most of the width, so the only clear space is ABOVE it.
+          <g
+            transform={`translate(${W * (H > W ? 0.2 : 0.17)} ${H * (H > W ? 0.11 : 0.26)})`}
+            opacity={0.9}
+          >
             <g transform={`rotate(${t * 6})`}>
               {Array.from({ length: 12 }, (_, i) => (
                 <rect

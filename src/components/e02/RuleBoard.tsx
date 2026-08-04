@@ -15,7 +15,8 @@ const Slot: React.FC<{
   /** 0 = empty outline, 1 = filled */
   fill: number;
   accent: string;
-}> = ({ n, text, fill, accent }) => (
+  wide?: boolean;
+}> = ({ n, text, fill, accent, wide }) => (
   <div
     style={{
       display: "flex",
@@ -26,7 +27,7 @@ const Slot: React.FC<{
       borderRadius: 30,
       padding: "16px 24px",
       transform: `scale(${0.94 + fill * 0.06})`,
-      width: 486,
+      width: wide ? 452 : 486,
       boxSizing: "border-box",
     }}
   >
@@ -71,29 +72,45 @@ export const RuleBoard: React.FC<{
   accent: string;
   /** show the worked sum under the two steps */
   sum?: string;
-}> = ({ filled, progress, accent, sum }) => {
+  /**
+   * Lay the steps in a ROW. The 4:5 cut has no room beside the abacus, so the board sits in
+   * the card band under it — 240 px tall, which a stacked pair of slots overflows.
+   */
+  horizontal?: boolean;
+}> = ({ filled, progress, accent, sum, horizontal }) => {
   const arriving = interpolate(progress, [0, 0.35], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 22, alignItems: "flex-start" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: horizontal ? "row" : "column",
+        gap: horizontal ? 16 : 22,
+        alignItems: horizontal ? "center" : "flex-start",
+        justifyContent: "center",
+      }}
+    >
       <Slot
         n={1}
         text={"upper bead down\n= five"}
         fill={filled > 1 ? 1 : filled === 1 ? arriving : 0}
         accent={accent}
+        wide={horizontal}
       />
       <Slot
         n={2}
         text={"count the lower beads\ntouching the beam"}
         fill={filled > 2 ? 1 : filled === 2 ? arriving : 0}
         accent={accent}
+        wide={horizontal}
       />
       {sum && (
         <div
           style={{
             alignSelf: "center",
+            flexShrink: 0,
             fontFamily: KID_FONT,
             fontWeight: 700,
             fontSize: 64,

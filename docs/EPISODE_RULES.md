@@ -76,6 +76,33 @@ ones*, not E01's in a new order.
 
 ---
 
+## 3a. Every episode ships two cuts
+
+**16:9 for YouTube, 4:5 for Facebook and Instagram — from the SAME reel.** One component,
+registered twice in `src/reels/index.ts` at 1920x1080 and 1080x1350. The phrase table, worlds,
+audio, SFX and teaching are identical; only the arrangement differs, and that lives in
+`src/stage/layout.ts`. A second reel file per aspect drifts the moment either is edited — the
+phonics series settled this (`oo` and `oo-4x5` are one component).
+
+What changes in 4:5:
+
+| 16:9 | 4:5 |
+|---|---|
+| card sits BESIDE the part it names | no "beside" exists — cards go in a band under the stage, arrow pointing up |
+| abacus centred, ~530 px each side | fitted to the width, shifted off centre to reserve room for props |
+| answers/prompts above the abacus | headline band (there are only ~40-80 px above a portrait abacus) |
+| phone and CTA side by side | stacked |
+| credit bottom-left | top-left — the caption band reaches to 1340 |
+
+**`sideRoom` is per-episode and asymmetric.** E02 needs ~165 px for the ladder on the left and
+~280 for the pushing hand on the right; one figure for both either clips the hand off the frame
+or wastes a third of the width. Reserve it on EVERY line of a section, not only the lines that
+use it, or the abacus resizes mid-section.
+
+**Check both cuts before calling it done.** `tools/phrase_stills.mjs --id <id>-4x5` runs the same
+guards. Nothing may run off the frame either — an element half outside the canvas overlaps
+nothing, so the overlap check alone cannot see it.
+
 ## 4. Non-negotiables in the build
 
 - **NO CONTENT MAY OVERLAY ANY OTHER CONTENT.** Not a card over the abacus, not a card over

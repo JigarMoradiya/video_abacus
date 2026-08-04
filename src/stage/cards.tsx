@@ -5,10 +5,11 @@
 // adjacent lines. They share a shell now.
 
 import React from "react";
-import { BAND, FPS, W } from "../data/tokens";
+import { FPS } from "../data/tokens";
 import { bob } from "../lib/motion";
 import { TYPE } from "../lib/fonts";
 import { Card, StickerText } from "../components/Sticker";
+import type { Layout } from "./layout";
 
 /** The one plain panel look: white card, dark text in the part's colour. */
 export const InfoCard: React.FC<{ text: string; color: string }> = ({ text, color }) => (
@@ -50,7 +51,8 @@ export const StageLabel: React.FC<{
   x: number;
   y: number;
   w: number;
-}> = ({ text, color, frame, limit, pos, x, y, w }) => {
+  layout: Layout;
+}> = ({ text, color, frame, limit, pos, x, y, w, layout }) => {
   const gap = limit - 56 - 36;
   // "aboveRod" always uses the supplied panel coordinates — that is the whole point of it
   const beside = pos === "aboveRod" || (pos === "side" && gap >= 330);
@@ -63,7 +65,7 @@ export const StageLabel: React.FC<{
         style={{
           position: "absolute",
           left: 0,
-          width: W,
+          width: layout.W,
           top: 24 + bob(frame, FPS, 5, 3.6),
           textAlign: "center",
         }}
@@ -85,9 +87,9 @@ export const StageLabel: React.FC<{
         position: "absolute",
         // the panel coordinates the arrow also uses — never a second set of its own
         left: beside ? x : 0,
-        width: beside ? w : W,
+        width: beside ? w : layout.W,
         textAlign: "center",
-        top: beside ? y : BAND.stageTop - 96 + bob(frame, FPS, 6, 3.4),
+        top: beside ? y : layout.band.stageTop - 96 + bob(frame, FPS, 6, 3.4),
       }}
     >
       <InfoCard text={text} color={color} />

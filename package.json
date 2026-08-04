@@ -5,7 +5,11 @@
   "private": true,
   "scripts": {
     "studio": "remotion studio",
-    "render:e01": "remotion render meet-the-abacus out/e01_meet_the_abacus.mp4"
+    "render:e01": "remotion render meet-the-abacus out/e01_meet_the_abacus/e01_meet_the_abacus_16x9.mp4",
+    "render:e01:4x5": "remotion render meet-the-abacus-4x5 out/e01_meet_the_abacus/e01_meet_the_abacus_4x5.mp4",
+    "render:e02": "remotion render numbers-0-to-9 out/e02_numbers_0_to_9/e02_numbers_0_to_9_16x9.mp4",
+    "render:e02:4x5": "remotion render numbers-0-to-9-4x5 out/e02_numbers_0_to_9/e02_numbers_0_to_9_4x5.mp4",
+    "render:all": "npm run render:e01 && npm run render:e01:4x5 && npm run render:e02 && npm run render:e02:4x5"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

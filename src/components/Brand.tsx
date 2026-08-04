@@ -81,13 +81,14 @@ export const BrandBadge: React.FC<{ x?: number; y?: number }> = ({ x = 1560, y =
   </div>
 );
 
-/** Publisher credit, bottom-left, out of the caption band. */
-export const PoweredBy: React.FC = () => (
+/** Publisher credit. Bottom-left at 16:9; TOP-left in portrait, where the caption band reaches
+ *  to 1340 and a bottom-pinned credit sat inside it. */
+export const PoweredBy: React.FC<{ portrait?: boolean }> = ({ portrait }) => (
   <div
     style={{
       position: "absolute",
-      left: 44,
-      bottom: 26,
+      left: portrait ? 30 : 44,
+      ...(portrait ? { top: 26 } : { bottom: 26 }),
       display: "flex",
       alignItems: "center",
       gap: 9,

@@ -72,9 +72,25 @@ const BIG_SIZE = 92;
 const BIG_H = 166;
 const bigW = (text: string) => Math.max(150, text.length * BIG_SIZE * 0.66 + 80);
 
-/** Where the ladder stands, and how wide it is — the guard needs both. */
-const LADDER_DX = -132;
-const LADDER_W = 190;
+/**
+ * Where the ladder stands, relative to the abacus's left edge, and how wide it really is.
+ * A fixed -132 was tuned to the 16:9 abacus; in the narrower 4:5 rig it put the ladder's left
+ * rail 32 px off the frame.
+ */
+const ladderCx = (boxLeft: number, portrait: boolean) => boxLeft - (portrait ? 85 : 132);
+const LADDER_W = 140;
+
+/**
+ * Room reserved either side of the abacus in the 4:5 cut. The hand is the wider of the two:
+ * it reaches in from the right of the ones rod and extends about 330 px per unit of scale, so
+ * at 165/280 the fitted scale lands near 0.95 and neither prop touches the frame edge.
+ */
+const PORTRAIT_ROOM = { left: 165, right: 280 };
+
+/** The your-turn prompt: above the abacus at 16:9, in the headline band at 4:5 where the stage
+ *  band starts at 210 and the abacus is only 40 px below it. */
+const promptTop = (L: { portrait: boolean; band: { stageTop: number } }) =>
+  L.portrait ? 30 : L.band.stageTop - 132;
 
 /** Five rods with the ones rod lit and the rest quiet. The episode is about ONE rod, and
  *  the four beside it are what make "we only need one" a visible choice rather than a
@@ -464,12 +480,14 @@ export const E02Numbers0To9: React.FC = () => (
     // Every piece of content this episode draws itself, so the overlap check can see it.
     // SceneStage measures only what it draws.
     boxesFor={(scene, ctx) => {
+      const L = ctx.layout;
       const out = [];
       if (scene.ladder !== undefined || scene.bird) {
         out.push({
           label: "ladder",
           r: {
-            x: ctx.box.left + LADDER_DX - LADDER_W / 2,
+            // the rung numbers hang further left than the rails, so the box is off-centre
+            x: ladderCx(ctx.box.left, L.portrait) - 80,
             y: ctx.box.top,
             w: LADDER_W,
             h: ctx.box.h,
@@ -478,19 +496,31 @@ export const E02Numbers0To9: React.FC = () => (
       }
       if (scene.big) {
         const w = bigW(scene.big);
-        out.push({ label: "number", r: { x: (W - w) / 2, y: BIG_TOP, w, h: BIG_H } });
+        out.push({ label: "number", r: { x: (L.W - w) / 2, y: BIG_TOP, w, h: BIG_H } });
       }
       if (scene.rule) {
-        // RuleBoard: two 486-wide slots plus the answer, at left 96
-        out.push({ label: "rule", r: { x: 96, y: BAND.stageTop + 30, w: 486, h: 330 } });
+        // a row in the card band for 4:5, a column beside the abacus for 16:9
+        out.push(
+          L.portrait && L.cardBand
+            ? { label: "rule", r: { x: 20, y: L.cardBand.top, w: L.W - 40, h: 130 } }
+            : { label: "rule", r: { x: 96, y: L.band.stageTop + 30, w: 486, h: 330 } }
+        );
       }
       if (scene.question) {
-        out.push({ label: "prompt", r: { x: W / 2 - 300, y: BAND.stageTop - 132, w: 600, h: 150 } });
+        out.push({
+          label: "prompt",
+          r: { x: L.W / 2 - 300, y: promptTop(L), w: 600, h: 150 },
+        });
       }
       return out;
     }}
     guardOverlap
     arrowClearance
+    // Portrait needs room on BOTH sides — the ladder on the left, the pushing hand on the
+    // right — and it is the SAME room on every line, so the abacus never resizes between
+    // sections. Asked for per-line, the scale would jump each time the ladder appeared, and a
+    // rig that changes size reads as a different abacus.
+    sideRoom={() => PORTRAIT_ROOM}
     renderUnder={(scene, ctx) => (
       <>
         {/* The ladder stands to the LEFT of the abacus, which is why every card in the
@@ -512,7 +542,7 @@ export const E02Numbers0To9: React.FC = () => (
                     : scene.ladder
                 }
                 progress={1}
-                x={ctx.box.left + LADDER_DX}
+                x={ladderCx(ctx.box.left, ctx.layout.portrait)}
                 showCeiling={scene.ceiling}
                 frame={ctx.frame}
                 fps={FPS}
@@ -532,7 +562,9 @@ export const E02Numbers0To9: React.FC = () => (
                 // cheering, she perches on the abacus frame; climbing or shrugging, she is
                 // on the ladder
                 x={
-                  scene.bird === "cheer" ? ctx.box.left + 78 : ctx.box.left + LADDER_DX
+                  scene.bird === "cheer"
+                    ? ctx.box.left + 78
+                    : ladderCx(ctx.box.left, ctx.layout.portrait)
                 }
                 perchY={
                   scene.bird === "cheer" ? ctx.box.top - 24 * ctx.box.scale : undefined
@@ -558,7 +590,7 @@ export const E02Numbers0To9: React.FC = () => (
             style={{
               position: "absolute",
               left: 0,
-              width: W,
+              width: ctx.layout.W,
               top: BIG_TOP + bob(ctx.frame, FPS, 5, 3.6),
               textAlign: "center",
             }}
@@ -574,8 +606,8 @@ export const E02Numbers0To9: React.FC = () => (
             style={{
               position: "absolute",
               left: 0,
-              width: W,
-              top: BAND.stageTop - 132,
+              width: ctx.layout.W,
+              top: promptTop(ctx.layout),
               textAlign: "center",
             }}
           >
@@ -587,12 +619,26 @@ export const E02Numbers0To9: React.FC = () => (
 
         {/* the rule, assembled step by step on the board */}
         {scene.rule && (
-          <div style={{ position: "absolute", left: 96, top: BAND.stageTop + 30 }}>
+          <div
+            style={
+              ctx.layout.portrait && ctx.layout.cardBand
+                ? {
+                    position: "absolute",
+                    left: 0,
+                    width: ctx.layout.W,
+                    top: ctx.layout.cardBand.top,
+                    display: "flex",
+                    justifyContent: "center",
+                  }
+                : { position: "absolute", left: 96, top: ctx.layout.band.stageTop + 30 }
+            }
+          >
             <RuleBoard
               filled={scene.rule.filled}
               progress={ctx.beatProgress}
               accent={WORLDS[scene.world].accent}
               sum={scene.rule.sum}
+              horizontal={ctx.layout.portrait}
             />
           </div>
         )}
@@ -601,10 +647,10 @@ export const E02Numbers0To9: React.FC = () => (
           <div
             style={{
               position: "absolute",
-              top: BAND.stageTop - 90,
+              top: ctx.layout.band.stageTop - 90,
               left: 0,
-              width: W,
-              height: BAND.stageBottom - BAND.stageTop + 140,
+              width: ctx.layout.W,
+              height: ctx.layout.band.stageBottom - ctx.layout.band.stageTop + 140,
             }}
           >
             {scene.closeBeat === "subscribe" && (

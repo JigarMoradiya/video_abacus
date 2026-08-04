@@ -13,6 +13,10 @@ export interface ReelEntry {
   height?: number;
 }
 
+// Each episode ships twice: 16:9 for YouTube and 4:5 for Facebook and Instagram. The SAME
+// component, registered at two sizes — the phrase table, worlds, audio and teaching are
+// identical and only the arrangement differs (src/stage/layout.ts). A second reel file per
+// aspect would drift the moment either was edited; the phonics series learned that first.
 export const REELS: ReelEntry[] = [
   {
     id: "meet-the-abacus",
@@ -22,10 +26,24 @@ export const REELS: ReelEntry[] = [
     height: H,
   },
   {
+    id: "meet-the-abacus-4x5",
+    component: E01MeetTheAbacus,
+    durationInFrames: E01_DURATION,
+    width: 1080,
+    height: 1350,
+  },
+  {
     id: "numbers-0-to-9",
     component: E02Numbers0To9,
     durationInFrames: E02_DURATION,
     width: W,
     height: H,
+  },
+  {
+    id: "numbers-0-to-9-4x5",
+    component: E02Numbers0To9,
+    durationInFrames: E02_DURATION,
+    width: 1080,
+    height: 1350,
   },
 ];

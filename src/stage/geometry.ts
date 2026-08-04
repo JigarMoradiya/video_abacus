@@ -53,12 +53,16 @@ export const abacusBox = (
   scale: number,
   canvasW: number,
   frame: number,
-  fps: number
+  fps: number,
+  /** stage band to centre in. Defaults to the 16:9 band. */
+  band: { stageTop: number; stageBottom: number } = BAND,
+  /** shift off centre, to leave room for a prop beside the abacus (portrait) */
+  offsetX = 0
 ): AbacusBox => {
   const w = (rodCount * ROD_PITCH + FRAME_LW * 2) * scale;
   const h = (ABACUS_INNER_H + FRAME_LW * 2) * scale;
-  const stageMidY = (BAND.stageTop + BAND.stageBottom) / 2;
-  const left = (canvasW - w) / 2;
+  const stageMidY = (band.stageTop + band.stageBottom) / 2;
+  const left = (canvasW - w) / 2 + offsetX;
   const top = stageMidY - h / 2 + bob(frame, fps, 6, 5);
   return {
     left,
