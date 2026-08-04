@@ -211,11 +211,23 @@ export const numberWordFrames = (phrase: TPhrase, fps: number): number[] =>
     .map((w) => sec(w.start, fps));
 
 /**
- * How many counted items have been SAID by this frame. Drives the badge reveal, so the
+ * The highest number VALUE spoken so far in this phrase. Drives the badge reveal, so the
  * count on screen never runs ahead of the voice.
+ *
+ * The value, not the count of number words — that distinction matters. "One, two, three."
+ * names each step, so counting occurrences happens to work; "Three lower beads are touching
+ * the beam." names the TOTAL in one word, and counting occurrences gave exactly one badge on
+ * a rod holding three beads.
  */
-export const spokenCount = (phrase: TPhrase, frame: number, fps: number): number =>
-  numberWordFrames(phrase, fps).filter((f) => f <= frame).length;
+export const spokenCount = (phrase: TPhrase, frame: number, fps: number): number => {
+  let n = 0;
+  for (const w of phrase.words) {
+    if (sec(w.start, fps) > frame) break;
+    const v = NUM_WORD[bare(w.word)];
+    if (v !== undefined) n = Math.max(n, v);
+  }
+  return n;
+};
 
 /**
  * Step one rod through `from`..`to` across the line, holding each value for an equal share

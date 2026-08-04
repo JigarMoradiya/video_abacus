@@ -86,6 +86,9 @@ ones*, not E01's in a new order.
   this was found by the user, on five separate frames, after I had checked them all.
 - **Bead moves must be physically legal.** Only beads whose state changes may move. A rod never
   re-seats itself to show the next number. Arrows never cross the beam.
+- **Captions have three states.** Already said, being said, not yet said — the unspoken tail is
+  faded so the eye reads only as far as the voice. Teaching words get their own colour in every
+  state. Keep the keyword list short; highlighting half a sentence highlights nothing.
 - **The picture must not run ahead of the voice.** An instruction is obeyed AFTER it is spoken:
   set `moveOn: "$last"` so the bead travels on the line's final word, and the pointer sits on
   the bead beforehand so the child sees WHICH bead is about to move. A counted run reveals one

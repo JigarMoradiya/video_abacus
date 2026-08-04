@@ -397,3 +397,42 @@ the number the rod reads.
 
 **Two cards, one idea.** Both finger lines had a tour card saying what the hand's own chip
 already said, and the card physically collided with the hand every time. The cards went.
+
+
+---
+
+## §8e · The caption has three states, not two (2026-08-04)
+
+The first version drew every word that had **not been spoken yet** in the same full-strength
+ink as the words already said, with one accent pill marking the current word. So the whole
+sentence competed for attention and the pill was doing all the work of showing where the voice
+had reached.
+
+```
+already said   #243B53   full ink
+being said     world.accent pill, white text     (the karaoke beat)
+not yet said   #AFBECB   same hue, dropped contrast
+```
+
+On top of that, the words carrying the LESSON get their own colour in every state — `#C2410C`,
+the bead orange, so a keyword in the caption ties to the thing on screen — and a little extra
+weight. A child who cannot yet read the whole sentence can still see that it is about "beam"
+or "five".
+
+The keyword list is deliberately short (`Caption.tsx`): the instrument's vocabulary and the
+numbers. Highlight half a sentence and nothing is highlighted. Episodes can add their own via
+the `keywords` prop.
+
+**Applied to E01 as well**, so the two episodes match. That re-baselined E01's stills oracle —
+67 of 79 frames changed. Before accepting the new baseline, the region **above** the caption
+band was compared frame by frame and came back 79/79 identical, which is what proves the change
+is confined to the captions and nothing else drifted. Do that check whenever a deliberate
+visual change forces a re-baseline: a new baseline that hides an unrelated regression is worse
+than no baseline at all.
+
+## §8f · Reveal a count by VALUE, not by how many number words were said
+
+`countOnNumbers` first counted *occurrences* of number words in the phrase. That works for
+"One, two, three." — each step is named — and fails for "Three lower beads are touching the
+beam.", which names the total in one word and so showed exactly **one** badge on a rod holding
+three. It now takes the highest number VALUE spoken so far, which is right in both cases.
