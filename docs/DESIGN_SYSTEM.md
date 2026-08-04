@@ -436,3 +436,23 @@ than no baseline at all.
 "One, two, three." — each step is named — and fails for "Three lower beads are touching the
 beam.", which names the total in one word and so showed exactly **one** badge on a rod holding
 three. It now takes the highest number VALUE spoken so far, which is right in both cases.
+
+
+---
+
+## §8g · Fitting a card must never change what it says
+
+A card that does not fit the space beside the abacus gets a **line break**, not fewer words.
+
+`"no beads touching the beam"` (26 chars, 560 px) did not fit the 527 px gap, so I shortened it
+to `"no beads on the beam"` — which is false. Beads are never *on* the beam; they touch it. The
+overlap guard was satisfied, `assertCards` was satisfied (the line does contain "beam"), and the
+episode taught something wrong. The user caught it.
+
+Wrapping to `"Zero / no beads touching / the beam"` is 449 px wide and 226 px tall, clears the
+abacus by 98 px, and says the right thing.
+
+Neither guard can catch this, because both check structure and neither checks meaning. So the
+rule is a rule: **resize by wrapping, never by editing the wording.** If a card genuinely cannot
+wrap, the card is too long for a card and the sentence needs rethinking — with the narration in
+front of you, not the pixel budget.

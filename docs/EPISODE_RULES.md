@@ -86,6 +86,9 @@ ones*, not E01's in a new order.
   this was found by the user, on five separate frames, after I had checked them all.
 - **Bead moves must be physically legal.** Only beads whose state changes may move. A rod never
   re-seats itself to show the next number. Arrows never cross the beam.
+- **Resize a card by WRAPPING, never by cutting words.** Shortening "no beads touching the beam"
+  to "no beads on the beam" to save 100 px made it false — beads touch the beam, they are never
+  on it. No guard can catch this; both check structure, neither checks meaning.
 - **Captions have three states.** Already said, being said, not yet said — the unspoken tail is
   faded so the eye reads only as far as the voice. Teaching words get their own colour in every
   state. Keep the keyword list short; highlighting half a sentence highlights nothing.

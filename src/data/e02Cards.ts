@@ -13,6 +13,11 @@
 // "Lower Beads", "Upper Beads". The rest are ours, because the tour has no step for "one
 // little bead is worth five all by itself", which is the whole point of this episode.
 //
+// FITTING A CARD MUST NEVER CHANGE WHAT IT SAYS. When a card is wider than the space beside
+// the abacus, add a line break — do not drop words. "no beads touching the beam" was cut to
+// "no beads on the beam" to save 100 px, and that is simply false: beads are never on the
+// beam, they touch it. Wrapping costs a line of height and nothing else.
+//
 // `key` groups consecutive phrases into one card RUN so the card sits still while it is on
 // screen instead of re-popping at a new slot on every sentence. Tour cards use the step
 // number as their key; ours start at 100 so the two can never collide.
@@ -33,9 +38,13 @@ const fromTour = (step: number): CardSpec => ({
 const ours = (key: number, color: string, segs: Seg[]): CardSpec => ({ key, segs, color });
 
 const OWN = {
+  // "no beads ON the beam" was wrong and was my own doing: the card originally read
+  // "no beads touching the beam", and I shortened it to fit the 527 px beside the abacus,
+  // which changed the meaning. Beads are never on the beam — they touch it. It wraps to
+  // three lines instead, which fits without altering a word.
   zero: ours(100, TOUR_INK.beam, [
     { kind: "strong", text: "Zero" },
-    { kind: "plain", text: "\nno beads on the beam" },
+    { kind: "plain", text: "\nno beads touching\nthe beam" },
   ]),
   worthFive: ours(101, TOUR_INK.topSection, [
     { kind: "plain", text: "one upper bead\n= " },
