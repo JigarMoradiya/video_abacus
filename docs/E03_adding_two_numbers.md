@@ -283,3 +283,53 @@ teaser. New wording throughout, and it promises no schedule.
 3. **Every starting number is MADE on screen**, never assumed. That is the point of the rewrite.
 4. **The upper bead never moves while lower beads are being added** (sections 7-9).
 5. Read the caption against the card in the same frame, for all 59 lines, in **both cuts**.
+
+
+---
+
+## As built (2026-08-06)
+
+Take: **246.1 s**, 70 lines → **71 phrases**, word match **544/544**. Alignment input is
+`E03_spoken.txt`; the take follows the script closely and mostly RESTRUCTURES rather than
+rewords ("Now we add two, so push two more lower beads up" → "Now, add two by pushing two more
+lower beads up"), with several long lines delivered as two.
+
+⚠ **The three-second recall gap was not held** — only **0.84 s** separates "Try five plus two on
+your own abacus" from the answer. The visuals hold the question as long as they can, but the
+voice answers almost immediately. Fixing it needs that line re-recorded.
+
+### Its own abacus
+
+`RIG_SEA` — teal beads on driftwood, where E01 and E02 share orange-on-brown. The palette is a
+per-episode prop on `Abacus` with `RIG_WOOD` as the default, so the earlier episodes render
+byte-identically (verified by A/B against the previous commit, not by assumption).
+
+The first pass put **sand beads on a near-white panel** and the unset beads all but vanished
+into it. The panel is cool and the beads warm now: an abacus has to show the beads it is NOT
+using as clearly as the ones it is.
+
+### What the guard caught, in order
+
+Every one of these was a real defect the render refused to produce:
+
+| phrase | what |
+|---|---|
+| 9, 27 | the finger cards duplicated the hand's own chip AND collided with it — dropped, exactly as in E02 |
+| 10, 58, 63, 65 | `big` and `sum` both wanted the headline band; the sum already contains the answer |
+| 4, 21 | teaching cards landed on the plus character |
+| 9 | the hand and the plus character reached for the same bead from the same side |
+| 62 | the card sat on top of the bouncing plus |
+
+The last three only surfaced **after** registering the plus character as a guard box. Before
+that the guard could not see it — the same blind spot that let E01's badge sit off-frame.
+
+Two rules came out of it: **the hand and the plus character never share a line** (two pushers
+is a muddle as well as a collision), and **the plus appears only when it acts** — standing idle
+it occupied the right-hand card slot on every line of the episode.
+
+### Verification
+
+- 71/71 phrases pass overlap, frame-bounds and arrow-path checks, in **both** cuts.
+- 0 STALE, 0 FROZEN. One QUIET (`Make one on your rod`, diff 0.94) — one bead rising plus its
+  number card, which is genuinely a small change for a short line.
+- 7384 frames, audio present, peak **−1.5 dB**, both cuts.

@@ -29,7 +29,7 @@ import { FingerHand } from "../components/FingerHand";
 import { PartArrow, samplePath } from "../components/PartArrow";
 import { Chip } from "../components/Sticker";
 import { SegPanel, cardHeight, segsLines, segsWidth } from "../components/Tooltip";
-import { WORLDS } from "../data/theme";
+import { WORLDS, type RigPalette } from "../data/theme";
 import { World } from "../components/World";
 import { BEAD_H, FPS, HEAVEN_H, PLACE_COLORS } from "../data/tokens";
 import { bob, pulse } from "../lib/motion";
@@ -147,6 +147,8 @@ export interface SceneStageProps<S extends Scene> {
    * the flat bow and wants the check without the change.
    */
   arrowClearance?: boolean;
+  /** Colours for the abacus. Each episode gets its own; omitted means E01/E02's wood rig. */
+  palette?: RigPalette;
   /**
    * Space the episode needs BESIDE the abacus for a prop of its own (E02's ladder). Used only
    * in portrait, where the margins are otherwise too narrow to hold anything: the abacus is
@@ -179,6 +181,7 @@ export const SceneStage = <S extends Scene>({
   boxesFor,
   guardOverlap,
   arrowClearance,
+  palette,
   sideRoom,
   stageShift,
 }: SceneStageProps<S>) => {
@@ -648,6 +651,7 @@ export const SceneStage = <S extends Scene>({
             settle={scene.liveBeads || scene.rodRamp ? liveSettle : settle}
             highlight={scene.highlight}
             scale={scale}
+            palette={palette}
             count={scene.count ?? null}
             countLimit={
               scene.countOnNumbers ? spokenCount(phrases[p], frame, FPS) : undefined

@@ -3,6 +3,7 @@
 import React from "react";
 import { E01MeetTheAbacus, E01_DURATION } from "./e01_meet_the_abacus";
 import { E02Numbers0To9, E02_DURATION } from "./e02_numbers_0_to_9";
+import { E03AddingTwoNumbers, E03_DURATION } from "./e03_adding_two_numbers";
 import { W, H } from "../data/tokens";
 
 export interface ReelEntry {
@@ -43,6 +44,20 @@ export const REELS: ReelEntry[] = [
     id: "numbers-0-to-9-4x5",
     component: E02Numbers0To9,
     durationInFrames: E02_DURATION,
+    width: 1080,
+    height: 1350,
+  },
+  {
+    id: "adding-two-numbers",
+    component: E03AddingTwoNumbers,
+    durationInFrames: E03_DURATION,
+    width: W,
+    height: H,
+  },
+  {
+    id: "adding-two-numbers-4x5",
+    component: E03AddingTwoNumbers,
+    durationInFrames: E03_DURATION,
     width: 1080,
     height: 1350,
   },

@@ -7,7 +7,7 @@
 
 import React from "react";
 import { interpolate } from "remotion";
-import { BEAD, BEAD_HEX, RIG } from "../data/theme";
+import { BEAD_HEX, RIG_WOOD, type RigPalette } from "../data/theme";
 import { KID_FONT } from "../lib/fonts";
 import {
   ABACUS_INNER_H,
@@ -47,6 +47,8 @@ export interface AbacusProps {
    *  "upper" / "lower" label EVERY bead in that half (used while counting how many there
    *  are). "active" labels only the beads currently up, with what each contributes —
    *  which is what "one upper bead and two lower beads" needs. */
+  /** Colours for the frame and the beads. Defaults to the wood rig E01 and E02 use. */
+  palette?: RigPalette;
   count?: "upper" | "lower" | "active" | null;
   /** Show only the first N lower badges. Counting out loud reveals them one per spoken
    *  number — all four appearing at once says "four", not "one, two, three, four". */
@@ -67,18 +69,19 @@ const hexPath = (x: number, y: number, w: number, h: number): string => {
   ].join(" ");
 };
 
-const Bead: React.FC<{ x: number; y: number; on: boolean; shadow?: boolean }> = ({
-  x,
-  y,
-  on,
-  shadow = true,
-}) => (
+const Bead: React.FC<{
+  x: number;
+  y: number;
+  on: boolean;
+  shadow?: boolean;
+  palette?: RigPalette;
+}> = ({ x, y, on, shadow = true, palette: P = RIG_WOOD }) => (
   <g>
     {shadow && <path d={hexPath(x + 3, y + 6, BEAD_W, BEAD_H)} fill="#000" opacity={0.26} />}
     <path
       d={hexPath(x, y, BEAD_W, BEAD_H)}
       fill={`url(#${on ? "beadOn" : "beadOff"})`}
-      stroke={on ? BEAD.onEdge : BEAD.offEdge}
+      stroke={on ? P.onEdge : P.offEdge}
       strokeWidth={3}
       strokeLinejoin="round"
     />
@@ -102,6 +105,7 @@ export const Abacus: React.FC<AbacusProps> = ({
   scale = 1,
   count = null,
   countLimit,
+  palette: P = RIG_WOOD,
 }) => {
   // Rod count comes from the data: section 7a widens to 13 rods and must stay the same
   // component instance rather than mounting a second abacus.
@@ -130,17 +134,17 @@ export const Abacus: React.FC<AbacusProps> = ({
     >
       <defs>
         <linearGradient id="beadOn" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor={BEAD.onTop} />
-          <stop offset="100%" stopColor={BEAD.onBottom} />
+          <stop offset="0%" stopColor={P.onTop} />
+          <stop offset="100%" stopColor={P.onBottom} />
         </linearGradient>
         <linearGradient id="beadOff" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor={BEAD.offTop} />
-          <stop offset="100%" stopColor={BEAD.offBottom} />
+          <stop offset="0%" stopColor={P.offTop} />
+          <stop offset="100%" stopColor={P.offBottom} />
         </linearGradient>
         <linearGradient id="woodG" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor={RIG.woodLight} />
-          <stop offset="55%" stopColor={RIG.wood} />
-          <stop offset="100%" stopColor={RIG.woodDark} />
+          <stop offset="0%" stopColor={P.woodLight} />
+          <stop offset="55%" stopColor={P.wood} />
+          <stop offset="100%" stopColor={P.woodDark} />
         </linearGradient>
       </defs>
 
@@ -155,8 +159,8 @@ export const Abacus: React.FC<AbacusProps> = ({
           width={w - FRAME_LW * 1.1}
           height={h - FRAME_LW * 1.1}
           rx={FRAME_RADIUS}
-          fill={RIG.panel}
-          stroke={RIG.panelEdge}
+          fill={P.panel}
+          stroke={P.panelEdge}
           strokeWidth={4}
         />
       </g>
@@ -193,12 +197,12 @@ export const Abacus: React.FC<AbacusProps> = ({
                 width={12}
                 height={innerH + FRAME_LW * 1.1}
                 rx={6}
-                fill={RIG.rod}
+                fill={P.rod}
                 opacity={dimFor("rods")}
               />
 
               <g opacity={dimFor("top")}>
-                <Bead x={x} y={heavenY} on={heavenOn} shadow={focus === 1} />
+                <Bead x={x} y={heavenY} on={heavenOn} shadow={focus === 1} palette={P} />
                 {(count === "upper" || (count === "active" && heavenOn)) && (
                   <text
                     x={cx}
@@ -229,7 +233,7 @@ export const Abacus: React.FC<AbacusProps> = ({
                   ]);
                   return (
                     <g key={b}>
-                      <Bead x={x} y={y} on={isUp} shadow={focus === 1} />
+                      <Bead x={x} y={y} on={isUp} shadow={focus === 1} palette={P} />
                       {(count === "lower" || (count === "active" && isUp)) &&
                         (countLimit === undefined || b + 1 <= countLimit) && (
                         <text
@@ -303,7 +307,7 @@ export const Abacus: React.FC<AbacusProps> = ({
             width={innerW + FRAME_LW}
             height={BEAM_H}
             rx={BEAM_H / 2}
-            fill={RIG.beam}
+            fill={P.beam}
           />
           <rect
             x={-FRAME_LW * 0.5}

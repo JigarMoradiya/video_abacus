@@ -41,6 +41,58 @@ export const BEAD = {
   offEdge: "#6C7D87",
 } as const;
 
+// ---------------------------------------------------------------- per-episode rigs
+//
+// The abacus itself changes colour per episode. E01 and E02 share one look — orange beads on
+// brown wood — and a third episode in the same livery is the "one episode reskinned" problem
+// (EPISODE_RULES §2) applied to the one object that is on screen the whole time.
+//
+// `RIG_WOOD` is exactly the E01/E02 values above, so an episode that asks for nothing renders
+// byte-identically to before.
+
+export interface RigPalette {
+  woodLight: string;
+  wood: string;
+  woodDark: string;
+  panel: string;
+  panelEdge: string;
+  rod: string;
+  beam: string;
+  onTop: string;
+  onBottom: string;
+  onEdge: string;
+  offTop: string;
+  offBottom: string;
+  offEdge: string;
+}
+
+export const RIG_WOOD: RigPalette = { ...RIG, ...BEAD };
+
+/**
+ * E03 · driftwood and sea glass. The on/off states also swap temperature — cool beads on warm
+ * sand, where the wood rig has warm beads on cool grey — so the two read as different
+ * instruments rather than a recolour, and the states stay separable in greyscale
+ * (DESIGN_SYSTEM §9), which is the check the app's pale poligon_cyan failed.
+ */
+export const RIG_SEA: RigPalette = {
+  woodLight: "#A9C0CC",
+  wood: "#7E9AA8",
+  woodDark: "#4E6875",
+  // The panel is COOL and the off beads WARM. The first pass had sand beads (#E4D7C2) on a
+  // near-white panel (#FFFBF2) and the unset beads all but disappeared into it — an abacus has
+  // to show the beads it is NOT using as clearly as the ones it is.
+  panel: "#E9F2F4",
+  panelEdge: "#B9CFD6",
+  rod: "#C2AE90",
+  beam: "#3E5560",
+  onTop: "#34D3D3",
+  onBottom: "#0E9AA0",
+  onEdge: "#05666E",
+  offTop: "#DCC6A4",
+  offBottom: "#B99C74",
+  offEdge: "#7E6647",
+};
+
 // ---------------------------------------------------------------- worlds
 
 /** Every beat gets its own world, so no two stretches of the video look alike. */
@@ -66,7 +118,18 @@ export type WorldKind =
   | "workshop" // warm bench — building on five
   | "board" // deep teal board — the reading rule
   | "askrose" // deep rose field — the quiz, deliberately not E01's violet
-  | "balloons"; // sunset with balloons — the close, not E01's confetti meadow
+  | "balloons" // sunset with balloons — the close, not E01's confetti meadow
+  // --- E03 · adding two numbers. A seaside day: a third place after E01's fields and
+  // workbenches and E02's pond, garden and open sky. "Collecting things into one bucket" is
+  // what adding IS. ---
+  | "harbour" // morning teal water, masts — the hook
+  | "sandpit" // warm sand, what adding means
+  | "pebbles" // cool grey-blue shingle — one plus two
+  | "shells" // pale coral, scattered shells — two plus two
+  | "slatecliff" // dark wet slate — the lower-bead rule
+  | "goldenhour" // rich low gold — the upper bead is five
+  | "rockpool" // deep turquoise — five plus one, five plus four, any number
+  | "sunsetsea"; // pink and orange dusk — your turn and the close
 
 export interface WorldTheme {
   sky: [string, string];
@@ -262,5 +325,71 @@ export const WORLDS: Record<WorldKind, WorldTheme> = {
     accent: "#6A1B9A",
     hills: true,
     balloons: true,
+  },
+
+  // ---------------------------------------------------------------- E03 · seaside
+  harbour: {
+    sky: ["#2E6E7E", "#9FD8DE"],
+    ground: "#1F4E5A",
+    ink: "#FFFFFF",
+    pill: "#0E7C86",
+    accent: "#FFB703",
+    clouds: true,
+    horizon: { at: 0.68, h: 0.32 },
+  },
+  sandpit: {
+    sky: ["#FFE9C4", "#FFF7E6"],
+    ground: "#E3C48D",
+    ink: "#5A3E1B",
+    pill: "#FFFFFF",
+    accent: "#E07A2F",
+    sun: true,
+    surface: { at: 0.72, h: 0.28, edge: "#F0DDB4" },
+  },
+  pebbles: {
+    sky: ["#4E6E80", "#A8C3D1"],
+    ground: "#6E8494",
+    ink: "#12303C",
+    pill: "#FFFFFF",
+    accent: "#0E9AA0",
+    hills: true,
+  },
+  shells: {
+    sky: ["#FFB9A6", "#FFE3D9"],
+    ink: "#7A3B2E",
+    pill: "#FFFFFF",
+    accent: "#D2593F",
+  },
+  slatecliff: {
+    sky: ["#2B3A42", "#465A66"],
+    ink: "#EAF4F7",
+    pill: "#12303C",
+    accent: "#7FE3FF",
+    slate: { tray: "#1B262C" },
+  },
+  goldenhour: {
+    sky: ["#F2A03D", "#FFE0A3"],
+    ground: "#B4651E",
+    ink: "#4A2408",
+    pill: "#FFFFFF",
+    accent: "#0E7C86",
+    sun: true,
+    hills: true,
+  },
+  rockpool: {
+    sky: ["#0C6E77", "#3FB3B8"],
+    ink: "#EAFEFF",
+    pill: "#08525A",
+    accent: "#FFB703",
+    water: { at: 0.64 },
+  },
+  sunsetsea: {
+    sky: ["#F2726F", "#FFD1A1"],
+    ground: "#8A4A3C",
+    ink: "#4A1B18",
+    pill: "#FFFFFF",
+    accent: "#0E7C86",
+    hills: true,
+    horizon: { at: 0.7, h: 0.3 },
   },
 };
