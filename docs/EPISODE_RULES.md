@@ -3,7 +3,7 @@
 What every Abacus episode must be, written after Episode 1. Read this before scripting or
 building anything. It is short on purpose.
 
-Companions: `../../VIDEO_SERIES_PLAN.md` (the 47-episode map) · `DESIGN_SYSTEM.md` (how it
+Companions: `VIDEO_SERIES_PLAN.md` (the 47-episode map) · `DESIGN_SYSTEM.md` (how it
 looks, plus §8a/§8b for the bugs and process lessons E01 paid for).
 
 ---
