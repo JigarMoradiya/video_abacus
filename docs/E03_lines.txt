@@ -53,6 +53,15 @@ And five plus four.
 Push all four lower beads up.
 Five plus four is nine.
 
+# --- 7b · FROM ANY NUMBER ---
+# The point of this section: the first number does not have to be five.
+It works from any number, not just five.
+Six plus three.
+Six is already on the rod, so push three more lower beads up.
+That is nine.
+Now seven plus one.
+Push one more lower bead up. That is eight.
+
 # --- 8 · YOUR TURN ---
 # HOLD THREE FULL SECONDS OF SILENCE after the next line. Do not cut it short.
 Your turn. Five plus two.
@@ -64,7 +73,7 @@ Nice work.
 # Curious, not worried. This is a door being opened, not a problem.
 One more thing.
 Sometimes there is no room left for more lower beads.
-That is a trick for next time.
+There is a clever trick for that, and we will learn it soon.
 
 # --- 10 · CLOSE ---
 # Four beats: practice -> like & subscribe -> download -> next video. No schedule promised.
@@ -72,4 +81,4 @@ Now try it yourself. Add two small numbers on your abacus.
 If you liked this, tap like and subscribe for more.
 Search for abacus kids on the Apple App Store or Google Play.
 Download it free.
-See you in the next video, where we learn the trick for when the beads run out.
+See you in the next video, where we put bigger numbers on the abacus.

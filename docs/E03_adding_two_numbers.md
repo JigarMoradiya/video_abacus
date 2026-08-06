@@ -6,7 +6,8 @@ the abacus."*
 Read `EPISODE_RULES.md` before building this. Format 16:9 **and** 4:5, one reel, two
 registry entries.
 
-**Length: 45 spoken lines, ~330 words ≈ 2:40** at 145 wpm. One continuous human take.
+**Length: 52 spoken lines, 334 words ≈ 2:21** at 145 wpm, ≈ **2:24** with the recall gap.
+56 phrases.
 
 ---
 
@@ -40,10 +41,28 @@ toward the beam"*, *"push it DOWN to add 5"* (`Level2Content.swift:313, 330`). W
 / lower** for the beads, because E01 promised the child exactly that — *"upper and lower are
 the names we'll use"* — even though Level 2's UI says earth/heaven.
 
-**The boundary is the app's own, and it is the next episode.** Chapters 1–4 are `.direct`;
+**The boundary is the app's own, and it is SHOWN but not taught.** Chapters 1–4 are `.direct`;
 6–10 are `.formula`. Chapter 6 opens: *"Try 1+4. Can't just add 4 earth (only 3 free!)"*
-(`Level2Content.swift:382`). That is E04's hook, and this episode ends by pointing at it
-without teaching it — EPISODE_RULES §3.8, never teach a partial rule as a rule.
+(`Level2Content.swift:382`). This episode ends by pointing at that without teaching it —
+EPISODE_RULES §3.8, never teach a partial rule as a rule.
+
+**But the trick is NOT the next episode.** The app's own Level 1 order is Meet the Abacus →
+Numbers 1 to 4 → Number 5 & Beyond → **Place Value** → **Numbers to 99**
+(`Level1HomeView.swift:18-24`), and only then Level 2's addition. Place value comes before any
+formula, and it has to: the big-friend complement (+9 = +10 − 1) carries onto the tens rod, so
+a child who has never set a two-digit number cannot follow it.
+
+E02's recorded take already promises *"we'll add two numbers together"*, so addition stays here
+at E03. Two-digit and three-digit numbers become **E04**, and the small-friend trick **E05**:
+
+| ep | content | app source |
+|---|---|---|
+| E03 | adding two numbers, direct only | L2 Ch 1-2 |
+| **E04** | **tens and hundreds — setting and reading bigger numbers** | **L1 Lesson 4 + 5** |
+| E05 | the small-friend trick, when the lower beads run out | L2 Ch 5-6 |
+
+So line 47 says the trick is coming *soon*, not next, and the closing teaser points at bigger
+numbers.
 
 ---
 
@@ -159,7 +178,22 @@ App Chapter 2, steps 3-4.
 | 33 | Push all four lower beads up. | Four rise together. |
 | 34 | Five plus four is nine. | Big `9`. `MAX 9` stamp — callback to E02. |
 
-## 8 · YOUR TURN (2:06–2:22) · `sunsetsea`
+## 7b · FROM ANY NUMBER (2:06–2:24) · `rockpool`
+
+The generalising beat. Everything before it starts from five, which would leave a child
+thinking the upper bead has to be the FIRST thing. Both pairs are in the app's own Chapter 2
+practice pool (`Level2Content.swift:263` generates 6+1, 6+2, **6+3**, **7+1**, 7+2, 8+1).
+
+| # | Voiceover | On screen |
+|---|---|---|
+| 35 | It works from any number, not just five. | The `5` card fades; a `?` takes its place. |
+| 36 | Six plus three. | Rod set to 6 — upper bead down, one lower up. Card `6 + 3`. |
+| 37 | Six is already on the rod, so push three more lower beads up. | `+` pushes three; they number 2-3-4. |
+| 38 | That is nine. | Big `9`. Bucket: 9. |
+| 39 | Now seven plus one. | Rod resets to 7. Card `7 + 1`. |
+| 40 | Push one more lower bead up. That is eight. | One bead rises. Big `8`. |
+
+## 8 · YOUR TURN (2:24–2:40) · `sunsetsea`
 
 `5 + 2` — from the app's own Chapter 2 practice pool.
 
@@ -176,9 +210,9 @@ The app's own Chapter 6 opening, shown and **not** taught.
 
 | # | Voiceover | On screen |
 |---|---|---|
-| 39 | One more thing. | Rod set to 1. |
-| 40 | Sometimes there is no room left for more lower beads. | `1 + 4` card; the `+` pushes and **bounces off** — only three free. **(the gag)** |
-| 41 | That is a trick for next time. | A `?` over the rod; the `+` shrugs at camera. |
+| 45 | One more thing. | Rod set to 1. |
+| 46 | Sometimes there is no room left for more lower beads. | `1 + 4` card; the `+` pushes and **bounces off** — only three free. **(the gag)** |
+| 47 | There is a clever trick for that, and we will learn it soon. | A `?` over the rod; the `+` shrugs at camera. |
 
 ## 10 · CLOSE (2:32–2:52) · `sunsetsea`
 
@@ -187,7 +221,7 @@ The app's own Chapter 6 opening, shown and **not** taught.
 | 42 | Now try it yourself. Add two small numbers on your abacus. | The rod works through `1+1`, `2+2`, `5+3`, beads moving. No phone. |
 | 43 | If you liked this, tap like and subscribe for more. | `SubscribeCard`. |
 | 44 | Search for abacus kids on the Apple App Store or Google Play. | Store flow → detail → GET. No caption. |
-| 45 | See you in the next video, where we learn the trick for when the beads run out. | `NextUpCard`: `1 + 4` with a `?`. |
+| 52 | See you in the next video, where we put bigger numbers on the abacus. | `NextUpCard`: a two-rod abacus showing `2 4`. |
 
 **Close is the four beats** (EPISODE_RULES §3.9): practice → like & subscribe → download →
 teaser. The practice line is new wording, and it promises no schedule.
