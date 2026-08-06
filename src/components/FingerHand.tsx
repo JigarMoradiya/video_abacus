@@ -34,7 +34,11 @@ export const FingerHand: React.FC<{
    *  84px regardless, so "pull the upper bead down" drew a line straight through the beam
    *  and into the lower section — a move no bead can make. */
   len: number;
-}> = ({ digit, direction, x, y, opacity = 1, scale = 1, len }) => {
+  /** Hand-local x nudge for the digit chip. The chip is TEXT and must stay on the frame:
+   *  with the abacus pinned to the centre in portrait, the right-reaching hand can carry
+   *  the chip past the frame edge — the stage clamps it back over the fist/abacus. */
+  chipShiftX?: number;
+}> = ({ digit, direction, x, y, opacity = 1, scale = 1, len, chipShiftX = 0 }) => {
   const dir = direction === "up" ? -1 : 1;
   // the head has to fit inside the travel, and the whole thing must not exceed it
   const arrowLen = Math.max(18, len / scale - 34);
@@ -159,7 +163,7 @@ export const FingerHand: React.FC<{
       {/* On an UPWARD move the chip sits high above the bead — 208 px up from the anchor — and
           at PUSH scale that put its corner into the brand badge. Shifted left for those; it
           sits over the abacus instead, which the hand is allowed to do. */}
-      <g transform={`translate(${dir > 0 ? 214 : 120},${dir * 26 + (dir > 0 ? 186 : -150)})`}>
+      <g transform={`translate(${(dir > 0 ? 214 : 120) + chipShiftX},${dir * 26 + (dir > 0 ? 186 : -150)})`}>
         <rect x={-108} y={-32} width={216} height={64} rx={32} fill="#D81B60" />
         <text
           x={0}

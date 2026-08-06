@@ -131,10 +131,11 @@ export const fitScale = (
 };
 
 /**
- * How far to shift the abacus off centre, so the room reserved on each side is actually there.
- * Asymmetric because the two things that need room are different sizes: E02 has a ladder on the
- * left (~165) and the pushing hand on the right (~280), and reserving one figure for both
- * either clipped the hand off the frame or wasted a third of the width.
+ * ZERO in both cuts (user call): the abacus sits at the frame centre and NEVER moves between
+ * lines — only the beads change. It used to shift off centre on lines that had a prop beside
+ * it (E02's ladder/hand), which read as the whole abacus jumping around the frame. The props
+ * live with the clearance a centred abacus leaves (the reserved side room still shrinks the
+ * fitted scale); a pushing hand may run to the frame edge, which reads naturally — it reaches
+ * in from off-screen anyway.
  */
-export const stageOffsetX = (layout: Layout, room: SideRoom = NO_ROOM): number =>
-  layout.portrait ? (room.left - room.right) / 2 : 0;
+export const stageOffsetX = (_layout: Layout, _room: SideRoom = NO_ROOM): number => 0;

@@ -73,6 +73,9 @@ export interface GuardBox {
   r: Rect;
   /** The hand reaches in to touch a bead, so it is allowed to sit over the abacus. */
   mayTouchAbacus?: boolean;
+  /** The hand's forearm comes in from off-screen: with the abacus pinned to the frame
+   *  centre (user call), its far side may cross the frame edge — that reads naturally. */
+  mayExitFrame?: boolean;
 }
 
 export interface SfxCue {
@@ -407,6 +410,14 @@ export const SceneStage = <S extends Scene>({
   // ---- everything that carries content, and must not be covered ----
   // The abacus is listed separately: bands, arrows and the hand legitimately sit over it,
   // but a CARD never may.
+  // The digit chip is TEXT: unlike the hand it may not leave the frame. How far its
+  // guard box would poke past the right edge at this line's scale (0 when it fits).
+  const chipOverhang = (hx: number, direction: "up" | "down") => {
+    const d = direction === "up" ? -1 : 1;
+    const cx = (d > 0 ? 214 : 120) * scale;
+    return Math.max(0, hx + cx + 108 * scale - (L.W - 16));
+  };
+
   const guardBoxes: GuardBox[] = (() => {
     if (!guardOverlap) return [];
     const out: GuardBox[] = [];
@@ -486,6 +497,7 @@ export const SceneStage = <S extends Scene>({
     if (scene.hand) {
       // FingerHand reaches in from the right of its rod, with its digit chip above it
       const hx = rodX(box, scene.hand.rod);
+      const chipOver = chipOverhang(hx, scene.hand.direction);
       const { y } = handAnchor(box, scene.hand.heaven, scene.hand.direction, rods[scene.hand.rod]?.from ?? 0);
       // TWO boxes, read off FingerHand's own transforms, because one rect around both is
       // wrong enough to matter: it reported the hand sitting in the badge's corner on a line
@@ -502,9 +514,10 @@ export const SceneStage = <S extends Scene>({
           h: 228 * scale,
         },
         mayTouchAbacus: true,
+        mayExitFrame: true,
       });
       // digit chip: translate(dir>0?214:120, dir*26 + (dir>0?186:-150)), rect 216x64
-      const chipCx = (dir > 0 ? 214 : 120) * scale;
+      const chipCx = (dir > 0 ? 214 : 120) * scale - chipOver;
       const chipCy = (dir * 26 + (dir > 0 ? 186 : -150)) * scale;
       out.push({
         label: "handChip",
@@ -525,7 +538,7 @@ export const SceneStage = <S extends Scene>({
     // Nothing may run off the canvas. The 4:5 cut clipped the pushing hand at the right edge
     // and no overlap check could see it — an element half outside the frame overlaps nothing.
     for (const g of guardBoxes) {
-      if (g.r.x < -12 || g.r.x + g.r.w > L.W + 12) {
+      if (!g.mayExitFrame && (g.r.x < -12 || g.r.x + g.r.w > L.W + 12)) {
         throw new Error(
           `"${g.label}" runs off the frame on phrase ${p} — ` +
             `x ${g.r.x.toFixed(0)}..${(g.r.x + g.r.w).toFixed(0)} in a ${L.W}px frame`
@@ -584,7 +597,19 @@ export const SceneStage = <S extends Scene>({
             text={scene.headline}
             fill={world.pill}
             ink={world.pill === "#FFFFFF" ? world.ink : "#FFFFFF"}
-            size={scene.headline.includes("\n") ? 54 : 62}
+            // Portrait: smaller pill (user call) that also clears the badge, now in the
+            // top-right corner in both cuts — a centred 640px pill ends at x=860, the
+            // scaled badge starts at ~880.
+            size={
+              L.portrait
+                ? scene.headline.includes("\n")
+                  ? 40
+                  : 44
+                : scene.headline.includes("\n")
+                  ? 54
+                  : 62
+            }
+            maxWidth={L.portrait ? 640 : 1500}
           />
         </div>
       )}
@@ -647,7 +672,12 @@ export const SceneStage = <S extends Scene>({
             transform: L.propScale === 1 ? undefined : `scale(${L.propScale})`,
           }}
         >
-          {renderProp(scene.stage, scene, ctx)}
+          {/* flexShrink 0: flexbox SHRANK the 1460px prop to the 1080 container, so its inner
+              drawing overflowed to the right from the left edge and propScale (which scales
+              about the container centre) left it exactly half off-frame — the E01 timeline's
+              calculator was cut at the right edge. Unshrunk, the child centres symmetrically
+              and the scale pulls the whole prop inside the frame. */}
+          <div style={{ flexShrink: 0 }}>{renderProp(scene.stage, scene, ctx)}</div>
         </div>
       )}
 
@@ -692,6 +722,7 @@ export const SceneStage = <S extends Scene>({
                 x={onesCx}
                 y={y}
                 len={len}
+                chipShiftX={-chipOverhang(rodX(box, scene.hand.rod), scene.hand.direction) / (scale * 0.82)}
               />
             );
           })()}

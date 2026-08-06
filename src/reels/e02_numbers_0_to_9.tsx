@@ -704,39 +704,60 @@ export const E02Numbers0To9: React.FC = () => (
 
             {scene.closeBeat === "store" && (
               <>
-                {/* VERTICAL in portrait — phone on top, CTA stacked under it and centred, the
-                    arrangement the phonics series uses for its 4:5 cut. Side by side at 1080
-                    wide put the whole CTA column off the frame. */}
+                {/* PORTRAIT: the 16:9 halves are STACKED, not redesigned — phone at its
+                    16:9 size (760) over the CTA at its 16:9 size, one uniform 0.75 fit
+                    for the pair (950px of stage / 1266px natural column). */}
                 <div
                   style={{
                     position: "absolute",
-                    left: pt ? (ctx.layout.W - 245) / 2 : 300,
-                    top: pt ? 6 : 20,
-                  }}
-                >
-                  <StoreFlow
-                    frame={ctx.frame - STORE_START}
-                    fps={FPS}
-                    height={pt ? 500 : 760}
-                    // the real length of the store beat, so search, detail and the GET tap
-                    // each get a readable share and the flow lands on OPEN as it ends
-                    span={STORE_FRAMES}
-                  />
-                </div>
-                <div
-                  style={{
-                    position: "absolute",
-                    left: pt ? 0 : 1090,
-                    top: pt ? 530 : 90,
+                    left: pt ? 0 : 300,
+                    top: pt ? 195 : 20,
+                    height: pt ? 1087 : undefined,
                     width: pt ? ctx.layout.W : undefined,
                     display: pt ? "flex" : undefined,
+                    alignItems: pt ? "center" : undefined,
                     justifyContent: pt ? "center" : undefined,
-                    transform: pt ? "scale(0.82)" : undefined,
-                    transformOrigin: "top center",
                   }}
                 >
-                  <DownloadCta progress={ctx.beatProgress} />
+                  <div
+                    style={
+                      pt
+                        ? {
+                            flexShrink: 0,
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            gap: 24,
+                            // -140: StoreFlow's phone artwork sits ~180px below its own box
+                            // top, which read as the whole column hugging the bottom
+                            transform: "translateY(-140px) scale(0.75)",
+                            transformOrigin: "center",
+                          }
+                        : undefined
+                    }
+                  >
+                    <StoreFlow
+                      frame={ctx.frame - STORE_START}
+                      fps={FPS}
+                      height={760}
+                      // the real length of the store beat, so search, detail and the GET tap
+                      // each get a readable share and the flow lands on OPEN as it ends
+                      span={STORE_FRAMES}
+                    />
+                    {pt && <DownloadCta progress={ctx.beatProgress} />}
+                  </div>
                 </div>
+                {!pt && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: 1090,
+                      top: 90,
+                    }}
+                  >
+                    <DownloadCta progress={ctx.beatProgress} />
+                  </div>
+                )}
               </>
             )}
 

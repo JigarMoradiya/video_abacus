@@ -12,15 +12,16 @@ export const HeadlinePill: React.FC<{
   fill: string;
   ink: string;
   size?: number;
-}> = ({ text, fill, ink, size = 62 }) => (
+  maxWidth?: number;
+}> = ({ text, fill, ink, size = 62, maxWidth = 1500 }) => (
   <div
     style={{
       display: "inline-block",
       background: fill,
       borderRadius: 999,
-      padding: "16px 54px",
+      padding: size < 50 ? "12px 40px" : "16px 54px",
       boxShadow: "0 9px 0 rgba(0,0,0,0.20)",
-      maxWidth: 1500,
+      maxWidth,
     }}
   >
     <span
@@ -41,10 +42,10 @@ export const HeadlinePill: React.FC<{
 );
 
 /**
- * Corner badge. Top-right at 16:9. In portrait it moves to the BOTTOM-right brand strip and
- * shrinks: it used to be positioned at left: 1560, off the frame entirely in a 1080-wide cut,
- * and simply putting it top-right instead collided with the centred headline pill — at 1080
- * there is no room for both on the same line.
+ * Corner badge. Top-right in BOTH cuts (user call). In portrait it used to sit in the
+ * bottom-right brand strip because the full-size headline pill collided with it at 1080 wide —
+ * the pill is now smaller in portrait (SceneStage caps its size and max width), which frees
+ * the top-right corner.
  */
 export const BrandBadge: React.FC<{ y?: number; portrait?: boolean }> = ({
   y = 30,
@@ -54,9 +55,9 @@ export const BrandBadge: React.FC<{ y?: number; portrait?: boolean }> = ({
     style={{
       position: "absolute",
       right: portrait ? 26 : 30,
-      ...(portrait ? { bottom: 4 } : { top: y }),
-      transform: portrait ? "scale(0.82)" : undefined,
-      transformOrigin: "bottom right",
+      top: portrait ? 20 : y,
+      transform: portrait ? "scale(0.78)" : undefined,
+      transformOrigin: "top right",
       display: "flex",
       alignItems: "center",
       gap: 14,

@@ -592,9 +592,10 @@ export const E01MeetTheAbacus: React.FC = () => (
     // is for. `arrowClearance` is deliberately NOT set: E01's arrows shipped as approved.
     guardOverlap
     // Portrait: the pushing hand reaches in from the right of the ones rod and needs room the
-    // 1080 frame does not otherwise have. Reserved for every PUSH-scale line — fingers, reading
-    // and the quiz — not just the lines with a hand, so the rig does not resize mid-section.
-    sideRoom={(scene) => (scene.scale === PUSH ? { left: 0, right: 350 } : { left: 0, right: 0 })}
+    // 1080 frame does not otherwise have. Reserved for the WHOLE episode — not just PUSH
+    // sections — so the fitted scale never changes and the abacus never resizes between lines
+    // (user call: the abacus is fixed; only the beads change).
+    sideRoom={() => ({ left: 0, right: 350 })}
     boxesFor={(scene, ctx) => {
       const out = [];
       if (scene.decimals) {
@@ -733,18 +734,45 @@ export const E01MeetTheAbacus: React.FC = () => (
                     is 940 and its caption card sat at x=1130 — completely off the frame, so
                     every close line lost its text. */}
                 {scene.closeBeat === "store" ? (
+                  // PORTRAIT: the 16:9 halves are STACKED, not redesigned — phone at its
+                  // 16:9 size (760) over the CTA at its 16:9 size, one uniform 0.75 fit,
+                  // and the whole column CENTRED between headline and brand strip.
                   <div
                     style={{
                       position: "absolute",
-                      left: pt ? (ctx.layout.W - 245) / 2 : 300,
-                      top: pt ? 6 : 20,
+                      left: pt ? 0 : 300,
+                      top: pt ? 195 : 20,
+                      height: pt ? 1087 : undefined,
+                      width: pt ? ctx.layout.W : undefined,
+                      display: pt ? "flex" : undefined,
+                      alignItems: pt ? "center" : undefined,
+                      justifyContent: pt ? "center" : undefined,
                     }}
                   >
-                    <StoreFlow
-                      frame={ctx.frame - STORE_START}
-                      fps={FPS}
-                      height={pt ? 500 : 760}
-                    />
+                    <div
+                      style={
+                        pt
+                          ? {
+                              flexShrink: 0,
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              gap: 24,
+                              // -140: StoreFlow's phone artwork sits ~180px below its own box
+                              // top, which read as the whole column hugging the bottom
+                              transform: "translateY(-140px) scale(0.75)",
+                              transformOrigin: "center",
+                            }
+                          : undefined
+                      }
+                    >
+                      <StoreFlow
+                        frame={ctx.frame - STORE_START}
+                        fps={FPS}
+                        height={760}
+                      />
+                      {pt && <DownloadCta progress={ctx.beatProgress} />}
+                    </div>
                   </div>
                 ) : (
                   <div
@@ -766,23 +794,17 @@ export const E01MeetTheAbacus: React.FC = () => (
                   </div>
                 )}
                 {scene.closeBeat === "store" ? (
-                  <div
-                    style={{
-                      position: "absolute",
-                      // VERTICAL in portrait: phone on top, CTA under it and centred, the
-                      // arrangement the phonics series uses for its own 4:5 cut. Side by side
-                      // at 1080 wide pushed the CTA column off the frame.
-                      left: pt ? 0 : 1090,
-                      top: pt ? 530 : 90,
-                      width: pt ? ctx.layout.W : undefined,
-                      display: pt ? "flex" : undefined,
-                      justifyContent: pt ? "center" : undefined,
-                      transform: pt ? "scale(0.82)" : undefined,
-                      transformOrigin: "top center",
-                    }}
-                  >
-                    <DownloadCta progress={ctx.beatProgress} />
-                  </div>
+                  !pt ? (
+                    <div
+                      style={{
+                        position: "absolute",
+                        left: 1090,
+                        top: 90,
+                      }}
+                    >
+                      <DownloadCta progress={ctx.beatProgress} />
+                    </div>
+                  ) : null
                 ) : (
                   <div
                     style={{
