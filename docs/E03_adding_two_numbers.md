@@ -6,8 +6,9 @@ the abacus."*
 Read `EPISODE_RULES.md` before building this. Format 16:9 **and** 4:5, one reel, two
 registry entries.
 
-**Length: 52 spoken lines, 334 words ≈ 2:21** at 145 wpm, ≈ **2:24** with the recall gap.
-56 phrases.
+**Length: 59 spoken lines, 586 words ≈ 4:02** at 145 wpm, ≈ **4:05** with the recall gap.
+61 phrases. Longer than E02's 2:48 because every starting number is now MADE on screen rather
+than assumed — see the two script rules below.
 
 ---
 
@@ -66,6 +67,21 @@ numbers.
 
 ---
 
+## Two rules this script follows
+
+Both came out of review, and both change how the lines are written.
+
+**1 · Never say a number is "already on the rod".** An earlier draft had *"Six is already on
+the rod, so push three more lower beads up"* — which skips the only interesting part. Where did
+the six come from? Every starting number is now made on screen and the words say which beads
+make it: *"To make six, push the upper bead down for five, and push one lower bead up for
+one."* This is also why the episode grew by ninety seconds.
+
+**2 · Complete sentences, not clipped fragments.** *"Six plus three."* and *"That is nine."* are
+telegraphic. Kid-friendly means short WORDS and one idea per sentence
+(EPISODE_RULES §1) — it does not mean dropping the verbs. The only fragment left in the script
+is a counting chant (*"one, two"*), which is deliberate.
+
 ## The theme — a day at the seaside
 
 E01 was fields and workbenches, E02 a pond, a garden and an open sky. A **seaside day** is a
@@ -101,147 +117,169 @@ used in E02); the bucket sits **left**.
 
 ---
 
-## 1 · HOOK (0:00–0:14) · `harbour`
+## 1 · HOOK · `harbour`
 
-| # | Voiceover | On screen |
-|---|---|---|
-| 1 | Last time we made every number from zero to nine. | The rod counts 0→9 quickly, a recap of E02's close. |
-| 2 | Today we put two numbers together. | Two small bead groups slide toward each other. |
-| 3 | That is called adding. | The `+` character bounces in for the first time. |
-| 4 | And the abacus makes it easy. | Rod clears to zero; bucket appears, empty. |
+Lines are quoted rather than numbered. Scenes are keyed to the frozen phrase JSON once the take
+is aligned — E02's doc numbered 42 rows against 53 real phrases, which is exactly the
+hand-numbering trap DESIGN_SYSTEM §8a records.
 
-## 2 · WHAT ADDING LOOKS LIKE (0:14–0:30) · `sandpit`
+| Voiceover | On screen |
+|---|---|
+| Last time we learned to make every number from zero to nine. | The rod counts 0→9 quickly — a recap of E02's close. |
+| Today we are going to put two numbers together. | Two small bead groups slide toward each other. |
+| When we put two numbers together, that is called adding. | The `+` character bounces in for the first time. |
+| And the abacus makes adding really easy. | Rod clears to zero; the bucket appears, empty. |
 
-| # | Voiceover | On screen |
-|---|---|---|
-| 5 | Adding just means moving more beads to the beam. | A bead slides up; the beam glows. |
-| 6 | Start with your first number. | `2` set on the rod. |
-| 7 | Then push up as many beads as you need. | `+` shoves one more up. |
-| 8 | The rod shows the answer all by itself. | `ValueReadout: 3`, bucket shows 3. |
+## 2 · WHAT ADDING MEANS · `sandpit`
 
-## 3 · ONE PLUS TWO (0:30–0:52) · `pebbles`
+| Voiceover | On screen |
+|---|---|
+| Adding on the abacus just means moving more beads to the beam. | A bead slides up; the beam glows. |
+| First you make your starting number. | Two lower beads rise. `ValueReadout: 2`. |
+| Then you push up as many more beads as you want to add. | The `+` shoves one more up. |
+| When you stop, the rod is already showing you the answer. | `ValueReadout: 3`; the bucket reads 3. |
+
+## 3 · ONE PLUS TWO · `pebbles`
 
 App Chapter 1, step 3 — its own example.
 
-| # | Voiceover | On screen |
-|---|---|---|
-| 9 | Let's try one plus two. | Card: `1 + 2`. Rod at zero. |
-| 10 | First, push one lower bead up. | Thumb pushes 1 up. |
-| 11 | That is one. | Big `1`. Bucket: 1. |
-| 12 | Now push two more up. | `+` pushes two beads, one at a time. |
-| 13 | One, two. | The two new beads number themselves as they land. |
-| 14 | That is three. One plus two is three. | Big `3`. Card completes: `1 + 2 = 3`. |
+| Voiceover | On screen |
+|---|---|
+| Let us try one plus two together. | Card `1 + 2`. Rod at zero. |
+| To make one, push one lower bead up to the beam. | Thumb pushes 1 up. |
+| The rod is showing one. | Big `1`. Bucket: 1. |
+| Now we add two, so push two more lower beads up. | The `+` pushes two, one at a time. |
+| Count them as they go up: one, two. | The two new beads number themselves as they land. |
+| Three lower beads are touching the beam, so one plus two is three. | Big `3`; card completes `1 + 2 = 3`. |
 
-## 4 · TWO PLUS TWO (0:52–1:10) · `shells`
+## 4 · TWO PLUS TWO · `shells`
 
 App Chapter 1, step 4.
 
-| # | Voiceover | On screen |
-|---|---|---|
-| 15 | Now let's try two plus two. | Rod resets to zero, then 2. Card: `2 + 2`. |
-| 16 | Start with two beads up. | 2 beads at the beam, numbered 1-2. |
-| 17 | Push two more up. | `+` pushes the last two. |
-| 18 | Now four beads are touching the beam. | All four lower beads up, numbered 1-4. |
-| 19 | Two plus two is four. | Big `4`. Bucket: 4. |
+| Voiceover | On screen |
+|---|---|
+| Now let us try two plus two. | Rod resets to zero. Card `2 + 2`. |
+| To make two, push two lower beads up to the beam. | Two rise, numbered 1-2. |
+| Now we add two more, so push two more lower beads up. | The `+` pushes the last two. |
+| All four lower beads are touching the beam now. | Four up, numbered 1-4. |
+| So two plus two is four. | Big `4`. Bucket: 4. |
 
-## 5 · THE LOWER-BEAD RULE (1:10–1:24) · `slatecliff`
+## 5 · THE LOWER BEAD RULE · `slatecliff`
 
-| # | Voiceover | On screen |
-|---|---|---|
-| 20 | Every lower bead you push up adds one. | One bead rises, `+1` beside it. |
-| 21 | But there are only four of them. | The four pulse together; a `4` stamp. |
-| 22 | So the lower beads alone can make one, two, three or four. | `1 2 3 4` fill in along the slate. |
+| Voiceover | On screen |
+|---|---|
+| Every lower bead you push up adds one more. | One bead rises with `+1` beside it. |
+| But each rod only has four lower beads. | The four pulse together; a `4` stamp. |
+| So the lower beads on their own can make one, two, three or four. | `1 2 3 4` fill in along the slate. |
 
-## 6 · THE UPPER BEAD ADDS FIVE (1:24–1:44) · `goldenhour`
+## 6 · THE UPPER BEAD ADDS FIVE · `goldenhour`
 
 App Chapter 2, steps 1-2.
 
-| # | Voiceover | On screen |
-|---|---|---|
-| 23 | To add five, we use the upper bead. | Camera lifts; the upper bead glows gold. |
-| 24 | Start with nothing. | Rod clears to zero. |
-| 25 | Push the upper bead down. | Index finger, arrow down, bead to the beam. |
-| 26 | That is five. | Big `5`. Bucket jumps 0→5 in one go. |
-| 27 | One bead, one move. | The four lower beads pulse once, dimmed, for contrast. |
+| Voiceover | On screen |
+|---|---|
+| When we want to add five, we use the upper bead instead. | Camera lifts; the upper bead glows gold. |
+| Start with all the beads away from the beam, so the rod is showing zero. | Rod clears to zero. |
+| Now push the upper bead down until it touches the beam. | Index finger, arrow down, bead to the beam. |
+| The rod is showing five. | Big `5`. The bucket jumps 0→5 in one go. |
+| One single bead gave us five, in one move. | The four lower beads pulse once, dimmed, for contrast. |
 
-## 7 · FIVE PLUS ONE, FIVE PLUS FOUR (1:44–2:06) · `rockpool`
+## 7 · FIVE PLUS ONE · `rockpool`
 
-App Chapter 2, steps 3-4.
+App Chapter 2, step 3. Note the five is **made**, not assumed.
 
-| # | Voiceover | On screen |
-|---|---|---|
-| 28 | Now five plus one. | Card: `5 + 1`. Upper bead stays down all section. |
-| 29 | The upper bead is already down. | It pulses; the lower half stays quiet. |
-| 30 | Push one lower bead up. | `+` pushes 1. Big `6`. |
-| 31 | Five plus one is six. | Card completes. Bucket: 6. |
-| 32 | And five plus four. | Card: `5 + 4`. |
-| 33 | Push all four lower beads up. | Four rise together. |
-| 34 | Five plus four is nine. | Big `9`. `MAX 9` stamp — callback to E02. |
+| Voiceover | On screen |
+|---|---|
+| Now let us try five plus one. | Card `5 + 1`. Rod at zero. |
+| First we make five by pushing the upper bead down. | Upper bead travels down. |
+| Then we add one, so push one lower bead up. | The `+` pushes 1. |
+| The upper bead is worth five and the lower bead is worth one. | `5` chip on the upper bead, `1` on the lower. |
+| So five plus one is six. | Big `6`. Bucket: 6. |
 
-## 7b · FROM ANY NUMBER (2:06–2:24) · `rockpool`
+## 8 · FIVE PLUS FOUR · `rockpool`
 
-The generalising beat. Everything before it starts from five, which would leave a child
-thinking the upper bead has to be the FIRST thing. Both pairs are in the app's own Chapter 2
-practice pool (`Level2Content.swift:263` generates 6+1, 6+2, **6+3**, **7+1**, 7+2, 8+1).
+App Chapter 2, step 4.
 
-| # | Voiceover | On screen |
-|---|---|---|
-| 35 | It works from any number, not just five. | The `5` card fades; a `?` takes its place. |
-| 36 | Six plus three. | Rod set to 6 — upper bead down, one lower up. Card `6 + 3`. |
-| 37 | Six is already on the rod, so push three more lower beads up. | `+` pushes three; they number 2-3-4. |
-| 38 | That is nine. | Big `9`. Bucket: 9. |
-| 39 | Now seven plus one. | Rod resets to 7. Card `7 + 1`. |
-| 40 | Push one more lower bead up. That is eight. | One bead rises. Big `8`. |
+| Voiceover | On screen |
+|---|---|
+| Let us try five plus four. | Rod resets to zero. Card `5 + 4`. |
+| Make five again by pushing the upper bead down. | Upper bead down. |
+| Now push all four lower beads up to the beam. | Four rise together, numbered 1-4. |
+| Five and four more makes nine. | Big `9`; `MAX 9` stamp — a callback to E02. |
 
-## 8 · YOUR TURN (2:24–2:40) · `sunsetsea`
+## 9 · STARTING FROM ANY NUMBER · `rockpool`
+
+**The section that fixes the gap.** Everything before it starts from zero or five, which would
+leave a child thinking the upper bead has to be the first thing on the rod. Both pairs are in
+the app's own Chapter 2 practice pool (`Level2Content.swift:263` generates 6+1, 6+2, **6+3**,
+**7+1**, 7+2, 8+1).
+
+| Voiceover | On screen |
+|---|---|
+| This works when you start from any number, not only from five. | The `5` card fades; a `?` takes its place. |
+| Let us start from six this time. | Rod at zero. Card `6 + 3`. |
+| To make six, push the upper bead down for five, and push one lower bead up for one. | **Both moves shown in order**, with `5` and `1` chips. |
+| The rod is showing six. | Big `6`. Bucket: 6. |
+| Now we add three, so push three more lower beads up. | Three rise; the lower beads number 2-3-4. |
+| Six plus three is nine. | Big `9`. |
+| Let us do one more, starting from seven. | Rod resets to zero. Card `7 + 1`. |
+| To make seven, push the upper bead down, then push two lower beads up. | Both moves shown again. |
+| Now we add one, so push one more lower bead up. | One rises. |
+| Seven plus one is eight. | Big `8`. Bucket: 8. |
+
+## 10 · YOUR TURN · `sunsetsea`
 
 `5 + 2` — from the app's own Chapter 2 practice pool.
 
-| # | Voiceover | On screen |
-|---|---|---|
-| 35 | Your turn. Five plus two. | Card `5 + 2 = ?`. Rod at zero. **Hold three full seconds.** |
-| 36 | Push the upper bead down, then two lower beads up. | The two moves, in order. |
-| 37 | That is seven. | Big `7`. Bucket: 7. |
-| 38 | Nice work. | Praise chime, the `+` cheers. |
+| Voiceover | On screen |
+|---|---|
+| Now it is your turn. Try five plus two on your own abacus. | Card `5 + 2 = ?`. Rod at zero. **Hold three full seconds.** |
+| Push the upper bead down to make five, then push two lower beads up. | The two moves, in order. |
+| The rod is showing seven, so five plus two is seven. | Big `7`. Bucket: 7. |
+| That was lovely work. | Praise chime; the `+` cheers. |
 
-## 9 · WHEN THE BEADS RUN OUT (2:22–2:32) · `sunsetsea`
+## 11 · WHEN THE BEADS RUN OUT · `sunsetsea`
 
-The app's own Chapter 6 opening, shown and **not** taught.
+The app's own Chapter 6 opening, **shown and not taught**.
 
-| # | Voiceover | On screen |
-|---|---|---|
-| 45 | One more thing. | Rod set to 1. |
-| 46 | Sometimes there is no room left for more lower beads. | `1 + 4` card; the `+` pushes and **bounces off** — only three free. **(the gag)** |
-| 47 | There is a clever trick for that, and we will learn it soon. | A `?` over the rod; the `+` shrugs at camera. |
+| Voiceover | On screen |
+|---|---|
+| Here is one last thing to notice. | Rod resets to zero. |
+| Make one on your rod, and then try to add four more. | One bead up, then card `1 + 4`. |
+| There are only three lower beads left, so there is not enough room. | The `+` pushes and **bounces off**; the three free beads flash. **(the gag)** |
+| There is a clever trick for moments like that, and we will learn it very soon. | A `?` over the rod; the `+` shrugs at camera. |
 
-## 10 · CLOSE (2:32–2:52) · `sunsetsea`
+## 12 · CLOSE · `sunsetsea`
 
-| # | Voiceover | On screen |
-|---|---|---|
-| 42 | Now try it yourself. Add two small numbers on your abacus. | The rod works through `1+1`, `2+2`, `5+3`, beads moving. No phone. |
-| 43 | If you liked this, tap like and subscribe for more. | `SubscribeCard`. |
-| 44 | Search for abacus kids on the Apple App Store or Google Play. | Store flow → detail → GET. No caption. |
-| 52 | See you in the next video, where we put bigger numbers on the abacus. | `NextUpCard`: a two-rod abacus showing `2 4`. |
+| Voiceover | On screen |
+|---|---|
+| Now try some of your own. Add two small numbers on your abacus. | The rod works through `1+1`, `2+2`, `5+3`, beads moving. No phone. |
+| If you liked this video, please tap like and subscribe for more. | `SubscribeCard`. |
+| Search for abacus kids on the Apple App Store or on Google Play. | Store flow → detail → GET. No caption. |
+| You can download it for free. | Download completes. |
+| See you in the next video, where we will put much bigger numbers on the abacus. | `NextUpCard`: a two-rod abacus showing `2 4`. |
 
-**Close is the four beats** (EPISODE_RULES §3.9): practice → like & subscribe → download →
-teaser. The practice line is new wording, and it promises no schedule.
+**The close is the four beats** (EPISODE_RULES §3.9): practice → like & subscribe → download →
+teaser. New wording throughout, and it promises no schedule.
 
 ---
 
 ## Audio
 
-- One human take, all 45 lines, from `E03_lines.txt`. No TTS.
-- **Hold three full seconds** after line 35. The recall beat is the point.
-- `tools/align_by_matching.py` only. Numbers stay words; `canon()` matches them to Whisper's
-  digits.
-- SFX: a bead click on every real move; the app's chime on 26, 37; `clap.mp3` under 38; a
-  **new comic boing** for the `+` bouncing off at line 40 — `nope.mp3` is E02's and means
-  "there is nothing there", which is not what happens here.
+- One human take, all 59 lines, from `E03_lines.txt`. No TTS.
+- **Hold three full seconds** after "Try five plus two on your own abacus." The recall beat is
+  the point.
+- `tools/align_by_matching.py` only. Numbers stay words; `canon()` matches them to the digits
+  Whisper writes.
+- SFX: a bead click on every real move; the app's chime on "The rod is showing five" and on the
+  quiz answer; `clap.mp3` under the praise; a **new comic boing** for the `+` bouncing off —
+  `nope.mp3` is E02's and means "there is nothing there", which is not what happens here.
 - Keep the mix peak under −1 dB.
 
 ## Verification, beyond the standard checklist
 
-1. **Value matches the words in every frame.** 0,1,3 · 2,4 · 5,6,9 · 7 · 1.
-2. **No illegal bead moves.** Every example here is DIRECT: no line ever needs a complement.
-3. **The upper bead never moves during lines 28-34** — only lower beads do.
-4. Read the caption against the card in the same frame, for all 45 lines, in **both cuts**.
+1. **Value matches the words in every frame:** 0,1,3 · 2,4 · 0,5 · 5,6 · 5,9 · 6,9 · 7,8 · 7 · 1.
+2. **No illegal bead moves.** Every pair here is DIRECT — no line ever needs a complement.
+3. **Every starting number is MADE on screen**, never assumed. That is the point of the rewrite.
+4. **The upper bead never moves while lower beads are being added** (sections 7-9).
+5. Read the caption against the card in the same frame, for all 59 lines, in **both cuts**.

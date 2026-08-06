@@ -1,84 +1,98 @@
 # E03 · Adding two numbers — narration, one continuous take.
 # Lines starting with # are notes and are ignored by the aligner. Do not read them.
 #
-# Warm, playful, unhurried. Short sentences — let each one land before the next.
+# Warm, playful, unhurried. Let each sentence land before the next.
+#
+# TWO RULES THIS SCRIPT FOLLOWS, both from review notes:
+#   1. Never say a number is "already on the rod". Every starting number is MADE on screen,
+#      and the words say which beads make it.
+#   2. Complete sentences, not clipped fragments. Simple words, but whole thoughts.
+#
 # Numbers are WORDS on purpose: the aligner matches them to the digits Whisper writes.
 
 # --- 1 · HOOK ---
-Last time we made every number from zero to nine.
-Today we put two numbers together.
-That is called adding.
-And the abacus makes it easy.
+Last time we learned to make every number from zero to nine.
+Today we are going to put two numbers together.
+When we put two numbers together, that is called adding.
+And the abacus makes adding really easy.
 
-# --- 2 · WHAT ADDING LOOKS LIKE ---
-Adding just means moving more beads to the beam.
-Start with your first number.
-Then push up as many beads as you need.
-The rod shows the answer all by itself.
+# --- 2 · WHAT ADDING MEANS ---
+Adding on the abacus just means moving more beads to the beam.
+First you make your starting number.
+Then you push up as many more beads as you want to add.
+When you stop, the rod is already showing you the answer.
 
 # --- 3 · ONE PLUS TWO ---
-# Count the run clearly and evenly — each number lands on its own bead.
-Let's try one plus two.
-First, push one lower bead up.
-That is one.
-Now push two more up.
-One, two.
-That is three. One plus two is three.
+Let us try one plus two together.
+To make one, push one lower bead up to the beam.
+The rod is showing one.
+Now we add two, so push two more lower beads up.
+Count them as they go up: one, two.
+Three lower beads are touching the beam, so one plus two is three.
 
 # --- 4 · TWO PLUS TWO ---
-Now let's try two plus two.
-Start with two beads up.
-Push two more up.
-Now four beads are touching the beam.
-Two plus two is four.
+Now let us try two plus two.
+To make two, push two lower beads up to the beam.
+Now we add two more, so push two more lower beads up.
+All four lower beads are touching the beam now.
+So two plus two is four.
 
-# --- 5 · THE LOWER-BEAD RULE ---
-Every lower bead you push up adds one.
-But there are only four of them.
-So the lower beads alone can make one, two, three or four.
+# --- 5 · THE LOWER BEAD RULE ---
+Every lower bead you push up adds one more.
+But each rod only has four lower beads.
+So the lower beads on their own can make one, two, three or four.
 
 # --- 6 · THE UPPER BEAD ADDS FIVE ---
-To add five, we use the upper bead.
-Start with nothing.
-Push the upper bead down.
-That is five.
-One bead, one move.
+When we want to add five, we use the upper bead instead.
+Start with all the beads away from the beam, so the rod is showing zero.
+Now push the upper bead down until it touches the beam.
+The rod is showing five.
+One single bead gave us five, in one move.
 
-# --- 7 · FIVE PLUS ONE, FIVE PLUS FOUR ---
-Now five plus one.
-The upper bead is already down.
-Push one lower bead up.
-Five plus one is six.
-And five plus four.
-Push all four lower beads up.
-Five plus four is nine.
+# --- 7 · FIVE PLUS ONE ---
+Now let us try five plus one.
+First we make five by pushing the upper bead down.
+Then we add one, so push one lower bead up.
+The upper bead is worth five and the lower bead is worth one.
+So five plus one is six.
 
-# --- 7b · FROM ANY NUMBER ---
-# The point of this section: the first number does not have to be five.
-It works from any number, not just five.
-Six plus three.
-Six is already on the rod, so push three more lower beads up.
-That is nine.
-Now seven plus one.
-Push one more lower bead up. That is eight.
+# --- 8 · FIVE PLUS FOUR ---
+Let us try five plus four.
+Make five again by pushing the upper bead down.
+Now push all four lower beads up to the beam.
+Five and four more makes nine.
 
-# --- 8 · YOUR TURN ---
+# --- 9 · STARTING FROM ANY NUMBER ---
+# The point of this section: your first number does not have to be five.
+This works when you start from any number, not only from five.
+Let us start from six this time.
+To make six, push the upper bead down for five, and push one lower bead up for one.
+The rod is showing six.
+Now we add three, so push three more lower beads up.
+Six plus three is nine.
+Let us do one more, starting from seven.
+To make seven, push the upper bead down, then push two lower beads up.
+Now we add one, so push one more lower bead up.
+Seven plus one is eight.
+
+# --- 10 · YOUR TURN ---
 # HOLD THREE FULL SECONDS OF SILENCE after the next line. Do not cut it short.
-Your turn. Five plus two.
-Push the upper bead down, then two lower beads up.
-That is seven.
-Nice work.
+Now it is your turn. Try five plus two on your own abacus.
+Push the upper bead down to make five, then push two lower beads up.
+The rod is showing seven, so five plus two is seven.
+That was lovely work.
 
-# --- 9 · WHEN THE BEADS RUN OUT ---
+# --- 11 · WHEN THE BEADS RUN OUT ---
 # Curious, not worried. This is a door being opened, not a problem.
-One more thing.
-Sometimes there is no room left for more lower beads.
-There is a clever trick for that, and we will learn it soon.
+Here is one last thing to notice.
+Make one on your rod, and then try to add four more.
+There are only three lower beads left, so there is not enough room.
+There is a clever trick for moments like that, and we will learn it very soon.
 
-# --- 10 · CLOSE ---
+# --- 12 · CLOSE ---
 # Four beats: practice -> like & subscribe -> download -> next video. No schedule promised.
-Now try it yourself. Add two small numbers on your abacus.
-If you liked this, tap like and subscribe for more.
-Search for abacus kids on the Apple App Store or Google Play.
-Download it free.
-See you in the next video, where we put bigger numbers on the abacus.
+Now try some of your own. Add two small numbers on your abacus.
+If you liked this video, please tap like and subscribe for more.
+Search for abacus kids on the Apple App Store or on Google Play.
+You can download it for free.
+See you in the next video, where we will put much bigger numbers on the abacus.
