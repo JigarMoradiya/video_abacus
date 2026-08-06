@@ -53,6 +53,22 @@ export interface AbacusProps {
   /** Show only the first N lower badges. Counting out loud reveals them one per spoken
    *  number — all four appearing at once says "four", not "one, two, three, four". */
   countLimit?: number;
+  /**
+   * Number the beads ADDED on this line rather than the whole raised group. On "one plus two"
+   * the two being counted are the SECOND and THIRD beads, and labelling the first two put a
+   * "1" on the bead that was the starting one — the child sees the wrong bead counted.
+   * Pass the value the rod is coming FROM.
+   */
+  countFrom?: number;
+  /** Restrict badges to one rod. "the lower beads can only make one to four" is about a single
+   *  rod, and labelling all five put twenty numbers on screen. */
+  countRod?: number;
+  /**
+   * Colour a bead by where it IS, not where it is going. A travelling bead used to flip to its
+   * destination colour the instant it started moving, so mid-flight you saw an "on" bead
+   * detached from the ones that had landed. Opt-in: E01 and E02 shipped with the old behaviour.
+   */
+  colorOnArrival?: boolean;
 }
 
 /** Hexagonal bead: flat top and bottom, pointed sides. */
@@ -105,6 +121,9 @@ export const Abacus: React.FC<AbacusProps> = ({
   scale = 1,
   count = null,
   countLimit,
+  countFrom,
+  countRod,
+  colorOnArrival,
   palette: P = RIG_WOOD,
 }) => {
   // Rod count comes from the data: section 7a widens to 13 rods and must stay the same
@@ -202,8 +221,27 @@ export const Abacus: React.FC<AbacusProps> = ({
               />
 
               <g opacity={dimFor("top")}>
-                <Bead x={x} y={heavenY} on={heavenOn} shadow={focus === 1} palette={P} />
-                {(count === "upper" || (count === "active" && heavenOn)) && (
+                <Bead
+                  x={x}
+                  y={heavenY}
+                  on={
+                    colorOnArrival ? (settle >= 0.85 ? heavenOn : heavenWasOn) : heavenOn
+                  }
+                  shadow={focus === 1}
+                  palette={P}
+                />
+                {(count === "upper" || (count === "active" && heavenOn)) &&
+                  (countRod === undefined || i === countRod) &&
+                  // `countFrom` says "label only the beads ADDED on this line", and it was
+                  // filtering the lower beads only — so on "add one by pushing one more lower
+                  // bead up" the lower 1 and 2 correctly disappeared while the heaven bead kept
+                  // its 5. A line labels the whole group or none of it: with countFrom set, the
+                  // heaven bead is labelled only if IT is one of the beads that moved.
+                  //
+                  // Note countFrom is a lower-bead INDEX (the previous count of raised lower
+                  // beads), not the rod's previous value, so it says nothing about the heaven
+                  // bead — whether that moved is `heavenOn !== heavenWasOn`.
+                  (countFrom === undefined || heavenOn !== heavenWasOn) && (
                   <text
                     x={cx}
                     y={heavenY + BEAD_H * 0.72}
@@ -231,11 +269,23 @@ export const Abacus: React.FC<AbacusProps> = ({
                     wasUp ? yUp : yDown,
                     isUp ? yUp : yDown,
                   ]);
+                  // it counts as "on" once it has essentially arrived, not the moment it sets off
+                  const shows = colorOnArrival ? (settle >= 0.85 ? isUp : wasUp) : isUp;
                   return (
                     <g key={b}>
-                      <Bead x={x} y={y} on={isUp} shadow={focus === 1} palette={P} />
+                      <Bead x={x} y={y} on={shows} shadow={focus === 1} palette={P} />
                       {(count === "lower" || (count === "active" && isUp)) &&
-                        (countLimit === undefined || b + 1 <= countLimit) && (
+                        // A badge on a bead that has not moved yet is both premature and, now that
+                        // every moving bead carries an arrow up its middle, invisible underneath it.
+                        // So a badge waits for its bead: already-raised beads keep theirs from the
+                        // first frame, arriving ones get theirs as they land, by which time the
+                        // arrow has faded. Gated on `colorOnArrival` so E01/E02 are untouched.
+                        (!colorOnArrival || wasUp || settle >= 0.85) &&
+                        (countRod === undefined || i === countRod) &&
+                        (countFrom === undefined || b >= countFrom) &&
+                        (countLimit === undefined ||
+                          (countFrom === undefined ? b + 1 : b - countFrom + 1) <=
+                            countLimit) && (
                         <text
                           x={cx}
                           y={y + BEAD_H * 0.72}
@@ -246,7 +296,7 @@ export const Abacus: React.FC<AbacusProps> = ({
                           stroke="#000"
                           strokeWidth={0.8}
                         >
-                          {b + 1}
+                          {countFrom === undefined ? b + 1 : b - countFrom + 1}
                         </text>
                       )}
                     </g>

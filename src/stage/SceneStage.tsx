@@ -7,7 +7,7 @@
 // The layer order below is load-bearing and matches E01's shipped render exactly:
 //   world · wash · brand · headline · counter · stage · under · hand
 //   · rod band · section band · group box · arrow · card · sum · beadWorth · label
-//   · over · caption · sfx · narration
+//   · over · celebrate · caption · sfx · narration
 // Episode content enters through the slots (`renderProp`, `renderUnder`, `renderOver`)
 // so that inserting it cannot reorder the annotation layers.
 
@@ -64,6 +64,8 @@ import {
   wordFrameIn,
 } from "./clock";
 import { StageLabel } from "./cards";
+import { BeadArrow } from "./BeadArrow";
+import { Celebrate } from "./Celebrate";
 import { fitScale, layoutFor, stageOffsetX, NO_ROOM, type Layout, type SideRoom } from "./layout";
 import type { CardSpec, Scene } from "./types";
 
@@ -150,6 +152,14 @@ export interface SceneStageProps<S extends Scene> {
   /** Colours for the abacus. Each episode gets its own; omitted means E01/E02's wood rig. */
   palette?: RigPalette;
   /**
+   * Draw a direction arrow on the beads that move, on EVERY line where the rod's value changes.
+   * Before this the only arrow lived inside FingerHand, so it appeared on the handful of lines
+   * with a hand and on none of the rest. Opt-in: E01 and E02 shipped without it.
+   */
+  beadArrows?: boolean;
+  /** Colour beads by where they are rather than where they are going. Opt-in for the same reason. */
+  colorOnArrival?: boolean;
+  /**
    * Space the episode needs BESIDE the abacus for a prop of its own (E02's ladder). Used only
    * in portrait, where the margins are otherwise too narrow to hold anything: the abacus is
    * fitted smaller and shifted off centre to make the room.
@@ -164,6 +174,10 @@ export interface SceneStageProps<S extends Scene> {
 }
 
 const DEFAULT_SLOTS = [120, 265, 195, 345];
+
+/** How long a `burst` runs, once anchored to a word. ~1.1 s: long enough to read as a reward,
+ *  short enough that the next line is clean. */
+const CELEBRATE_FRAMES = 34;
 
 export const SceneStage = <S extends Scene>({
   phrases,
@@ -182,6 +196,8 @@ export const SceneStage = <S extends Scene>({
   guardOverlap,
   arrowClearance,
   palette,
+  beadArrows,
+  colorOnArrival,
   sideRoom,
   stageShift,
 }: SceneStageProps<S>) => {
@@ -652,7 +668,10 @@ export const SceneStage = <S extends Scene>({
             highlight={scene.highlight}
             scale={scale}
             palette={palette}
+            colorOnArrival={colorOnArrival}
             count={scene.count ?? null}
+            countFrom={scene.countFrom}
+            countRod={scene.countRod}
             countLimit={
               scene.countOnNumbers ? spokenCount(phrases[p], frame, FPS) : undefined
             }
@@ -704,6 +723,24 @@ export const SceneStage = <S extends Scene>({
 
       {renderUnder?.(scene, ctx)}
 
+      {/* which bead is about to move, and which way. Skipped when a hand is on screen: the
+          hand draws its own arrow, and two would compete. */}
+      {beadArrows && (
+        <svg
+          width={L.W}
+          height={L.H}
+          style={{ position: "absolute", inset: 0, overflow: "visible" }}
+        >
+          <BeadArrow
+            box={box}
+            rod={targetRod}
+            from={rods[targetRod]?.from ?? 0}
+            to={rods[targetRod]?.value ?? 0}
+            settle={settle}
+          />
+        </svg>
+      )}
+
       {/* the hand, over the ones rod */}
       {scene.hand && (
         <svg
@@ -727,6 +764,10 @@ export const SceneStage = <S extends Scene>({
                 y={y}
                 len={len}
                 chipShiftX={-chipOverhang(rodX(box, scene.hand.rod), scene.hand.direction) / (scale * 0.82)}
+                // With `beadArrows` on, every arrow in the frame comes from BeadArrow — including
+                // the one on the bead this hand is touching. Otherwise the hand drew one arrow and
+                // the other moving beads got none.
+                showArrow={!beadArrows}
               />
             );
           })()}
@@ -959,6 +1000,25 @@ export const SceneStage = <S extends Scene>({
       )}
 
       {renderOver?.(scene, ctx)}
+
+      {/* Celebration sits above the episode's own props but UNDER the caption, so a reward can
+          never obscure the words it is rewarding. It throws from the abacus's centre. */}
+      {scene.celebrate && (
+        <Celebrate
+          kind={scene.celebrate}
+          progress={
+            scene.celebrateFrom === undefined
+              ? beatProgress
+              : (frame - scene.celebrateFrom) / CELEBRATE_FRAMES
+          }
+          frame={frame}
+          fps={FPS}
+          W={L.W}
+          H={L.H}
+          cx={box.left + box.w / 2}
+          cy={box.top + box.h / 2}
+        />
+      )}
 
       {!scene.noCaption && (
         <Caption

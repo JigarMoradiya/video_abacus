@@ -282,7 +282,9 @@ export const StoreFlow: React.FC<{
               <AppIcon size={62} />
               <div style={{ flex: 1 }}>
                 <div style={label(15, 700, "#1C1C1E")}>{APP_NAME}</div>
-                <div style={label(12, 600, "#8A8A8E")}>{DEVELOPER}</div>
+                <div style={{ ...label(12, 600, "#8A8A8E"), whiteSpace: "nowrap" }}>
+                  {DEVELOPER}
+                </div>
               </div>
               <div
                 style={{
@@ -301,7 +303,11 @@ export const StoreFlow: React.FC<{
                 <AppIcon size={68} />
                 <div style={{ flex: 1 }}>
                   <div style={label(16, 700, "#1C1C1E")}>{APP_NAME}</div>
-                  <div style={label(11.5, 600, "#8A8A8E")}>{DEVELOPER}</div>
+                  {/* one line, always: "Vedaavi Learning Apps" wrapped to two inside the
+                      narrow 4:5 phone, which no real store listing does */}
+                  <div style={{ ...label(11.5, 600, "#8A8A8E"), whiteSpace: "nowrap" }}>
+                    {DEVELOPER}
+                  </div>
                   <div style={{ ...label(11, 600, "#8A8A8E"), marginTop: 3 }}>
                     <span style={{ color: "#F5A524", letterSpacing: 1 }}>★★★★★</span> 4.8
                   </div>

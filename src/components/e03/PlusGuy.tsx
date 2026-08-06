@@ -107,19 +107,23 @@ export const PlusGuy: React.FC<{
         strokeLinecap="round"
       />
 
-      {/* Arms ONLY when cheering. Drawn all the time they turned a plus sign into a crab —
-          the character already has four limbs of its own, which is the point of it being a
-          plus. */}
+      {/* Arms ONLY when cheering — and they come off the TOP bar, not the side bars.
+          Attached at the sides they were two curved pincers either side of a face, which is a
+          crab; the first fix removed them except on a cheer and the cheer still read as a crab
+          for the same reason. From the shoulders they read as raised arms, which is the pose
+          the beat is for. */}
       {armsUp &&
         [-1, 1].map((side) => (
-          <path
-            key={side}
-            d={`M ${side * 40} -6 Q ${side * 66} -36 ${side * 60} -62`}
-            stroke={BODY_DARK}
-            strokeWidth={10}
-            strokeLinecap="round"
-            fill="none"
-          />
+          <g key={side}>
+            <path
+              d={`M ${side * 13} -34 Q ${side * 40} -54 ${side * 46} -80`}
+              stroke={BODY_DARK}
+              strokeWidth={11}
+              strokeLinecap="round"
+              fill="none"
+            />
+            <circle cx={side * 46} cy={-84} r={9} fill={BODY} stroke={BODY_DARK} strokeWidth={3} />
+          </g>
         ))}
 
       {/* impact star, only on the frames the bounce actually happens */}

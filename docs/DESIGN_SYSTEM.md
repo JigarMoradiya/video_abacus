@@ -511,3 +511,273 @@ Two fixes, and the general one matters more:
 
 Verified by measuring the card's pixel extent at 2, 8, 20 and 60 frames into the phrase: 1456-1856
 at all four, with no pixels on the left.
+
+---
+
+## §8j · What E03's review pass changed (2026-08-06)
+
+Eleven notes, and the four that generalise are all the same shape: **the frame has to be able to
+be read against the sentence with the sound off.**
+
+### A bead must be coloured by where it IS, not where it is going
+
+`Abacus` coloured a bead from its target value, so the instant a line began, a bead still sitting
+at the bottom of the rod was already the "on" colour and travelled up as a finished bead. The user
+saw it as "3rd bead is in same color" — the bead had joined the answer before the answer happened.
+`colorOnArrival` flips to `settle >= 0.85 ? isUp : wasUp`. Opt-in, because E01 and E02 shipped
+without it.
+
+### The arrow lived inside the hand, so most lines had none
+
+`FingerHand` drew the only pointer in the pipeline. Seven E03 lines have a hand; nineteen move
+beads. Twelve lines therefore said "push three more lower beads up" with nothing indicating which
+three. `stage/BeadArrow.tsx` derives the moving beads from `(from → value)` — never a fixed slot —
+and fades as they land, so the sequence reads *here is the one that moves*, then *there it goes*.
+
+### Count badges number the beads ADDED, not the first N on the rod
+
+"One, two." on 1 + 2 is counting the **second and third** beads. Badges numbered from bead 0, so
+the child was shown "1" on a bead that was already up before the line started. `countFrom` takes
+the value the rod is coming from; `countRod` stops a line about one rod from labelling all five.
+Six is a heaven bead plus one lower, so "add three" is `countFrom: 1` — the geometry decides the
+number, not the count.
+
+### A line whose beads move the wrong way is a script bug, not an art bug
+
+Turning arrows on made an old defect visible: p21, "every lower bead you push up adds one more",
+reset the rod from four to one, so three beads dropped **down** under the word "up", and the new
+arrows pointed down to prove it. The fix is not to suppress the arrows. The rod now HOLDS four
+through the whole rule section and the four raised beads are badged 1·2·3·4, which is the sentence.
+**When a guard or a new annotation makes a frame look wrong, check whether it was always wrong.**
+
+### Celebration is content, not polish
+
+Eight sums resolve in this episode and every one of them looked like the line before it.
+`stage/Celebrate.tsx`: `burst` (ring, rays, thrown confetti, done inside the first half of the
+line) on each answer, `party` (sustained fall) on "Great job" and the close. It renders **under**
+the caption, so a reward can never cover the words it rewards.
+
+It is the one layer deliberately NOT registered with the overlap guard — a transparent full-frame
+particle layer would fail every frame. The rule it obeys instead: nothing in it is opaque enough,
+or still enough, to hide a word. That is also why the four reward stars were **deleted** rather
+than repositioned: out in the gutters they covered the bucket and the character, and anywhere else
+they covered the beads.
+
+### A world has to be somewhere, not a gradient
+
+"Background theme is not look good in whole video" was correct for all eight. They were flat
+two-stop gradients with one slab or hill on them. The test now: **could you name the place with
+the abacus taken away?** New shared flags — `beach` (sea, wet sand, dry sand, and foam that laps),
+`bunting`, `sandcastle`, `umbrella`, `shellsOnSand`, `gulls` — and every E03 palette rebuilt around
+them. Two specifics worth keeping:
+
+- `slatecliff` used `slate`, whose dark panel covers 70% of the frame and whose tray covers the
+  bottom. Between them the beach was a brown strip and the world was a dark box again. The rule is
+  stated by a **card**; the world only had to be the coolest, deepest place in the episode.
+- `sunsetsea` was salmon sky over salmon sea over salmon sand — one hue, and nothing for the
+  abacus to sit against. A real dusk goes **dark at the top**: violet overhead, gold on the
+  horizon, plum sea.
+
+### Scenery has to know where the characters stand
+
+The parasol at `W * 0.9` sat exactly where the plus character stands, and the sandcastle at
+`W * 0.11` touched the left end of the caption pill. World props are not registered with the guard,
+so nothing catches this — they have to be placed against the **occupied** regions: the bucket in
+the left gutter, the character in the right, the caption pill across the bottom middle.
+
+### A column sum must be fitted to the band, not assumed to fit
+
+Vertical `a / +b / ─── / answer` is three rows where the horizontal pill was one, and at full size
+it reached out of the headline band into the abacus — the guard refused to render, correctly. The
+card now declares its natural box (`SUM_NAT`) and the reel scales it to whatever `stageTop` leaves,
+so one set of numbers governs the artwork **and** the guard box, in both aspect ratios.
+
+### Arms on a plus sign read as a crab
+
+Twice. Removing them except on a cheer did not fix it, because the problem was the **attachment
+point**: arms curving up from the ends of the horizontal bar are two pincers either side of a face.
+From the top bar's shoulders, with a round hand on the end, they read as raised arms.
+
+---
+
+## §8k · Review pass 2 on E03 (2026-08-06)
+
+Seven notes. Four are one law each, and the law matters more than the frame it was spotted on.
+
+### A world's sky is most of the frame, so it sets the whole mood
+
+"Cloud look like too big and dark / sky also look to dark." The top third of a 1920 frame IS the
+frame. Every E03 sky had a saturated top stop — deep teal, deep violet — which read as overcast and
+turned the white clouds and white cards into holes punched through it. All seven lifted; the SEA
+keeps its darker values, so the horizon still reads as a line.
+
+Two worlds were worse than dark, they were **monochrome**: `shells` was a coral sea under a coral
+sky, `goldenhour` an orange sea under an orange sky. One hue in a frame means no horizon and nothing
+for the abacus to sit against. A coral sky over a *turquoise* sea, and golden light over a *deep*
+sea, is also what those two times of day actually look like.
+
+### Tuning a shared component per-episode means a per-world flag, not an edit
+
+Shrinking and paling the clouds in `World.tsx` changed **20 of E01's 79 frames** — E01's meadow has
+clouds too, and E01 is approved. Caught by the stills oracle, which is exactly what it is for. The
+tuning became `cloudSize` / `cloudShade` on `WorldTheme`, defaulting to E01's shipped values. Any
+change to a shared drawing that only one episode asked for goes in the theme, not in the component.
+
+### Unifying two glyphs means moving to the SHIPPED one
+
+"Why is every step's arrow UI different?" There were two: `FingerHand`'s flat `#0000EE` shaft with a
+wide head, and `BeadArrow`'s haloed `#0B3B8C` shaft with a small one — so the arrow changed
+appearance depending on whether that line happened to have a hand. Now one `components/MoveArrow`.
+
+The style kept is **FingerHand's, to the pixel**, including its `len - 34` and its 18 px shaft
+floor. Not a best-of-both: E01 and E02 both use FingerHand and both are approved, so the correct
+direction of travel is the new code onto the shipped glyph, never two accepted episodes onto a new
+one. Verified: E01 back to 78/79 identical.
+
+### A thing that stays on screen must not re-animate at every beat
+
+Third time this law has been paid for (after `runSlotMap` and the card-side fix). `SumCard` faded in
+from zero on **every** phrase, so a five-line worked example re-popped the card at each line
+boundary — which on screen is a blink. It now pops once, on the phrase the sum first appears on
+(`popIn`, derived by comparing this phrase's sum to the previous phrase's), and holds.
+
+And a step change animates the **highlight**, not the card: the plate cross-fades from the old row
+to the new one and the digits' colour travels with it (`interpolateColors`), so the eye follows a
+moving highlight instead of being handed a new card.
+
+### `"none"` has to be a real state
+
+`sumFor` fell through to `"first"` for any line it had no rule for — including the announcement.
+So "Now, let's try five plus one" lit the **5** while the rod still read zero, telling the child the
+first number was already made. An enum that covers "being worked" needs a member for "not yet".
+
+### Where a card lives is decided by what else is in that gutter
+
+Moving the column sum to the right gutter (it was above the abacus, where the 232 px band cost it a
+third of its size and put it far from the rod) produced two guard failures in a row, both correct:
+
+- the finger hand reaches ~330 px past the abacus, leaving 2 px for a 268-wide card. The card
+  narrowed to 200 — the numbers are all single digits, so the width was padding, and a narrow tall
+  column is what column arithmetic looks like anyway.
+- on p33 the teaching card then had **nowhere to go**: sum right, bucket left, caption below,
+  headline band too tight for the `aboveRod` slot. That card was the app's "1st ROD · lower 1 ·
+  upper 5" and the line already puts a **5** on the upper bead and a **1** on the lower one, so it
+  was saying the same thing twice, in words, about a rod the line is not about. Dropped. Same call
+  as E02's finger cards.
+
+### A filter that says "only the beads that moved" has to cover every bead
+
+`countFrom` filtered the lower beads only, so on "add one by pushing one more lower bead up" the
+lower 1 and 2 correctly vanished while the heaven bead kept its **5**. Note `countFrom` is a lower-
+bead *index* (the previous count of raised lower beads), not the rod's previous value — it carries
+no information about the heaven bead at all. Whether that moved is `heavenOn !== heavenWasOn`.
+**A line labels the whole group or none of it.**
+
+---
+
+## §8l · Review pass 3 on E03 (2026-08-06)
+
+### A reward has to land on the word that earns it
+
+"This celebration and its sound, timing mismatch in all sums." Correct, in all eight. The burst ran
+off `beatProgress`, so it fired on the answer line's FIRST frame — a full second of confetti before
+the voice reached "four" — and the chime was anchored to the word `"is"`, which is mid-sentence.
+
+One number now drives all three. `ANSWER_FRAME` is the frame of each answer line's **final** word
+(the word that names the total), computed once from the alignment, and the burst, the chime and the
+answer digit in the sum card all key off it. This is the same law as `moveOn: "$last"` for beads,
+applied to the reward: **the picture must not run ahead of the voice** — and a card that shows the
+total while the voice is still building to it is giving the answer away.
+
+Two consequences worth keeping:
+
+- The burst is now anchored to an ABSOLUTE frame (`Scene.celebrateFrom`) with its own fixed duration,
+  not a fraction of the phrase. The last word starts 0.3-0.5 s before its line ends and the burst
+  runs ~1.1 s, so it necessarily outlives the line — which is why the reel also sets `celebrate` on
+  the phrase AFTER an answer. A celebration cut off at a line boundary reads as a dropped frame.
+- `celebrate` moved out of the eight section blocks and into `base`, driven by one table. It was
+  written eight times, which is exactly how it came to be missing from p15 on the first pass.
+
+### Matching the colour of two glyphs does not make them one glyph
+
+"Color same, but arrow style is different yar, so still arrow is not same at all." Also correct, and
+the reason is the useful part: both arrows had a **fixed 34-unit head**, and their shafts came from
+whatever travel they described. FingerHand's heaven move is 61 units → shaft 27 against head 34.
+BeadArrow's was 48 → shaft 18 against head 34. Same parts, same colour, different proportions —
+which is enough to read as two different objects, and both read as "the triangle is too big".
+
+The head is now a **fraction of the arrow's length** (0.34, bounded 12-26), and so is the shaft's
+weight. Both callers also describe the same fraction of the travel (0.8; they were 0.72 and 0.78,
+a difference nobody could justify and everybody could see). One shape at every size.
+
+This is the first deliberate break of E01's byte-identity: it changes **4 of E01's 79 frames**, all
+in the finger-work section, because the old head was too big there too. The alternative was leaving
+E03 with two arrows, which is the thing being fixed. E01 and E02 need re-rendering to pick it up.
+
+### Three separate leaks into approved episodes, all caught by the same oracle
+
+Within one review round, three changes meant for E03 hit E01: the cloud **size**, the cloud shade
+**opacity**, and then the cloud shade **colour** — 20, then 20, then 5 frames. Each time the fix was
+to move the value onto `WorldTheme` (`cloudSize`, `cloudShade`, `cloudShadeInk`, `cloudAlpha`) with
+E01's shipped number as the default.
+
+The pattern is now explicit: **touching a shared drawing to satisfy one episode means adding a theme
+field, not editing the drawing.** And run the E01 oracle after every such change, not at the end of
+the round — the third leak was a single unconditional hex literal I had introduced while fixing the
+second.
+
+### Scenery that moves earns its place
+
+"Near send in beach water, add some fish please with moving." Added to the `beach` band, drawn
+BEFORE the sand so the sand always covers their bottom edge — a fish overlapping the beach is the
+one way this can go wrong. Deterministic from frame time, wrapping, half swimming each way, tails
+beating. The first size (rx 17) was invisible at 1920 and had to go to rx 22 with a bigger scale
+range: a detail nobody can see is not a detail, it is cost.
+
+---
+
+## §8m · "Light" meant a light COLOUR — four rounds to hear it
+
+The user asked for the clouds to be lighter four times. Every attempt of mine was wrong in a
+different way, and the sequence is the lesson:
+
+1. shade opacity 0.45 → 0.22. Still read dark.
+2. shade 0.22 → 0.07, fill opacity 0.97 → 0.9 → 0.62. "Not solid white color."
+3. **A Gaussian blur.** Rejected outright: *"I dont need blur / need light color bro / currently
+   focus goes on cloude"*.
+4. What was actually being asked for the whole time: **a light cloud COLOUR** — `#E7F7FB`, a pale
+   tint close to the sky's own value, hard-edged as before, with the underside shading removed
+   entirely.
+
+The diagnosis I should have reached on round one: pure white on a pale teal sky is the **highest
+contrast in the frame**, so the eye lands on the clouds instead of on the abacus. That is what
+"focus goes on cloud" means, and it is a contrast problem with a one-value answer. Blur addresses a
+*shape* complaint; nobody had made one.
+
+Two rules out of it:
+
+- **Read the note for what it says.** "Light colour" is about colour. Twice I changed opacity, which
+  is not colour, and once I changed the edge, which is not colour either.
+- **When the same note returns a third time, the diagnosis is wrong, not the amount.** Stop turning
+  the dial and work out what the viewer's eye is actually doing.
+
+---
+
+## §8n · Verify the edit, not just the typecheck
+
+I reported the 4:5 parasol as dropped in portrait. It was not: the scripted replacement matched
+nothing, wrote the file back unchanged, and I moved on to the next item without checking. Typecheck
+passed (nothing had changed), the guards passed (world props are not guarded), the render succeeded,
+and I told the user it was fixed. They found it still there.
+
+Four other edits in the same batch had landed. That is exactly why this is worth a rule: a silent
+no-op is indistinguishable from success unless you look for the result.
+
+**After any scripted edit, grep for the thing you just wrote before claiming it is done.** `tsc` only
+proves the file still compiles — for a deletion or a condition change, an unchanged file compiles
+perfectly. One `grep -c` per edit costs nothing:
+
+    grep -c "w.umbrella && !portrait" src/components/World.tsx
+
+The same applies to reporting: "fixed" means the change is present in the file AND visible in a
+rendered frame, not that the command exited 0.

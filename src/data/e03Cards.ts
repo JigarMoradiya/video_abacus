@@ -65,7 +65,11 @@ export const E03_CARDS: Record<number, CardSpec> = {
   21: OWN.eachAddsOne, //                    every lower bead adds one more
   22: OWN.onlyFour, //                       but each rod only has four lower beads
   24: OWN.upperIsFive, //                    when we want to add five, we use the upper bead
-  33: fromTour(8), //  "1st ROD · lower 1 · upper 5" — worth five and worth one
+  // NO card on 33. "The upper bead is worth five and the lower bead is worth one" already puts
+  // a 5 on the upper bead and a 1 on the lower one — the card (the app's "1st ROD · lower 1 ·
+  // upper 5") said the same thing a second time, in words, about a rod the line is not about.
+  // It also had nowhere left to sit: the sum takes the right gutter and the bucket the left, and
+  // a 560 px card fits in neither. Same call as E02's finger cards, for the same reason.
   39: OWN.anyNumber, //                      this works from any number, not only five
   62: OWN.noRoom, //                         there are only three lower beads left
 };
@@ -80,7 +84,6 @@ export const assertCards = (textOf: (p: number) => string): void => {
     21: "lower",
     22: "four",
     24: "upper",
-    33: "worth",
     39: "any",
     62: "lower",
   };

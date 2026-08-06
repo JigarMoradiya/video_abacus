@@ -24,6 +24,7 @@ import { NextUpCard, SubscribeCard } from "../components/Outro";
 import { StoreFlow, DownloadCta } from "../components/AppShowcase";
 import { PlusGuy, type PlusMood } from "../components/e03/PlusGuy";
 import { Bucket } from "../components/e03/Bucket";
+import { SUM_NAT, SumCard, type SumStep } from "../components/e03/SumCard";
 import { Abacus, type RodState } from "../components/Abacus";
 import { Card, StickerText } from "../components/Sticker";
 import { bob } from "../lib/motion";
@@ -51,9 +52,10 @@ interface Scene extends BaseScene {
   bucketFrom?: number;
   /** the big answer number in the headline band */
   big?: string;
-  /** the sum being worked, e.g. "1 + 2" — completes to "1 + 2 = 3" on the answer line */
-  sum?: string;
-  /** the your-turn prompt */
+  /** the sum in COLUMN form, with the row the narration is on */
+  sum?: { a: number; b: number; total?: number; step: SumStep };
+  /** The your-turn lines. It used to draw its own horizontal "5 + 2 = ?" card; now it only
+   *  TINTS the column sum, so the quiz reads as a quiz while the episode keeps one notation. */
   question?: boolean;
 }
 
@@ -64,8 +66,52 @@ const BIG_SIZE = 92;
 const BIG_H = 166;
 const bigW = (t: string) => Math.max(150, t.length * BIG_SIZE * 0.66 + 80);
 
-/** Room reserved beside the abacus in 4:5: the bucket on the left, the plus guy on the right. */
-const PORTRAIT_ROOM = { left: 190, right: 250 };
+/**
+ * Where the column sum sits — and this is the one element whose PLACE differs between the two
+ * cuts, which is exactly what a 4:5 rearrangement is for.
+ *
+ * 16:9 — the RIGHT GUTTER, level with the top of the abacus. There is ~600 px of it, so the card
+ * renders full size right beside the beads. (It began in the headline band, which at 232 px cost it
+ * a third of its size and put the sum a long way from the rod it describes.) Top-aligned, because
+ * the plus character stands at the bottom of the same gutter.
+ *
+ * 4:5 — the HEADLINE BAND, centred. Portrait has no usable side gutter: the abacus fills most of
+ * 1080 and the finger hand takes the whole of what is left on the right. The headline band is the
+ * only region free on every phrase that shows a sum — no sum line in this episode also has a
+ * headline or a big number — and at 0.63 of natural the digits come out at ~43 px in a 1080-wide
+ * frame, which is proportionally LARGER than the 68 px they get in 1920.
+ */
+const SUM_EDGE = 40;
+const sumBox = (
+  box: { left: number; w: number; top: number },
+  L: { W: number; portrait: boolean; band: { headlineBottom: number } }
+) => {
+  if (L.portrait) {
+    const room = L.band.headlineBottom - 12;
+    const scale = Math.min(1, room / SUM_NAT.h);
+    const w = SUM_NAT.w * scale;
+    // `left` positions the element at its NATURAL width, and SumCard then scales about its own
+    // top-centre — so centring the SCALED width put the card 39 px right of the frame centre. The
+    // laid-out box must be centred; the guard box is the scaled one.
+    return { scale, x: (L.W - w) / 2, layoutX: (L.W - SUM_NAT.w) / 2, y: 6, w, h: SUM_NAT.h * scale };
+  }
+  const room = L.W - (box.left + box.w) - SUM_EDGE * 2;
+  const scale = Math.max(0.5, Math.min(1, room / SUM_NAT.w));
+  const w = SUM_NAT.w * scale;
+  const x = L.W - w - SUM_EDGE;
+  // scale is 1 in this cut, so the laid-out box and the scaled box are the same
+  return { scale, x, layoutX: x - (SUM_NAT.w - w) / 2, y: box.top + 10, w, h: SUM_NAT.h * scale };
+};
+
+/**
+ * Room reserved beside the abacus in 4:5: the bucket on the left, the plus character on the right.
+ *
+ * The right figure came down from 250 once the column sum moved to the headline band in this cut —
+ * it no longer has to share the gutter. That is 45 px straight back into the abacus, which in
+ * portrait is width-limited, so the beads get bigger. The finger hand still reaches into this
+ * gutter and past the frame edge, which is allowed and reads naturally.
+ */
+const PORTRAIT_ROOM = { left: 90, right: 190 };
 
 const rig = (value: number): RodState[] =>
   Array.from({ length: 5 }, (_, i) => ({
@@ -83,8 +129,8 @@ const VALUE: Record<number, number> = {
   8: 0, 9: 1, 10: 1, 11: 3, 12: 3, 13: 3, 14: 3, 15: 3,
   // two plus two
   16: 0, 17: 2, 18: 4, 19: 4, 20: 4,
-  // the lower-bead rule
-  21: 1, 22: 4, 23: 4,
+  // the lower-bead rule — the rod HOLDS four right through it
+  21: 4, 22: 4, 23: 4,
   // the upper bead adds five
   24: 4, 25: 0, 26: 0, 27: 5, 28: 5, 29: 5,
   // five plus one
@@ -105,6 +151,154 @@ const VALUE: Record<number, number> = {
 
 const valueAt = (p: number) => VALUE[p] ?? 0;
 
+/**
+ * The column sum for a section. `firstOn` is the line that makes the starting number, `secondOn`
+ * the line that adds, `answerOn` the line that names the total — so the highlighted row always
+ * matches the sentence being spoken.
+ *
+ * Anything else in the span is `"none"`: the announcement ("Now, let's try five plus one") shows
+ * the sum but highlights NO row. It used to fall through to `"first"`, which lit the 5 while the
+ * rod still read zero — telling the child the first number was already made.
+ */
+const sumFor = (
+  p: number,
+  a: number,
+  b: number,
+  span: [number, number],
+  firstOn: number[],
+  secondOn: number[],
+  answerOn: number
+): Scene["sum"] => {
+  if (p < span[0] || p > span[1]) return undefined;
+  const step: SumStep =
+    p >= answerOn
+      ? "answer"
+      : secondOn.includes(p)
+      ? "second"
+      : firstOn.includes(p)
+      ? "first"
+      : "none";
+  return { a, b, total: p >= answerOn ? a + b : undefined, step };
+};
+
+/**
+ * The frame each answer actually LANDS on — the first frame of the line's final word, which is the
+ * word that names the total ("...is four"). The burst, the chime and the answer digit all key off
+ * this one number, so they cannot drift apart.
+ *
+ * The last word starts 0.3-0.5 s before its line ends, and the burst runs ~1.1 s, so it necessarily
+ * spills into the next phrase — hence the `+ 1` entries. A celebration cut off at a line boundary
+ * looks like a dropped frame.
+ */
+const ANSWER_LINES = [15, 20, 28, 34, 38, 45, 51, 57];
+const ANSWER_FRAME = new Map<number, number>();
+for (const i of ANSWER_LINES) {
+  const f = wordFrameIn(PHRASES[i], "$last", FPS) ?? sec(PHRASES[i].start, FPS);
+  ANSWER_FRAME.set(i, f);
+}
+/** phrase -> the burst's absolute start frame, including the one-phrase tail */
+const BURST_FROM = new Map<number, number>();
+for (const [i, f] of ANSWER_FRAME) {
+  BURST_FROM.set(i, f);
+  // 58 and 66 run the sustained "party" instead; don't let a tail overwrite them
+  if (i + 1 !== 58 && i + 1 !== 66) BURST_FROM.set(i + 1, f);
+}
+
+
+/**
+ * Where the bucket sits, and how big.
+ *
+ * 16:9 — the left gutter, beside the beads, which is where a second reading of the rod's value
+ * belongs: your eye goes rod, bucket, rod.
+ *
+ * 4:5 — BELOW the abacus, bottom-left. Portrait has 136 px of gutter once the abacus is fitted, and
+ * the bucket is 175 wide, so beside is not an option: it was being clipped by the frame edge. It
+ * also fixes the 4:5 cut's real compositional problem — 370 px of empty sand under the abacus while
+ * the props crowded the sides.
+ */
+const bucketAt = (
+  box: { left: number; top: number; scale: number },
+  L: { portrait: boolean; cardBand: { top: number; height: number } | null }
+) =>
+  L.portrait && L.cardBand
+    ? { x: 132, y: L.cardBand.top + 65, scale: 0.85 }
+    : { x: box.left - 132 * box.scale, y: box.top + 96, scale: box.scale * 1.05 };
+
+/**
+ * The bucket's true extents, from `Bucket`'s own drawing: the pail spans ±75 in x, the handle
+ * reaches 64 above the origin and the number plate 190 below it.
+ *
+ * The guard box used to be derived independently (`175 * scale * 0.72`) while the art was drawn at
+ * `scale * 1.05` — two copies of the same arithmetic that disagreed, so the pail could be clipped by
+ * the frame edge with the guard reporting nothing wrong. Same bug class as the plus character's box.
+ */
+const bucketRect = (b: { x: number; y: number; scale: number }) => ({
+  x: b.x - 75 * b.scale - 6,
+  y: b.y - 64 * b.scale,
+  w: 150 * b.scale + 12,
+  h: 254 * b.scale,
+});
+
+/**
+ * Where the plus character stands, and how big.
+ *
+ * One function, used by BOTH the drawing and the overlap guard's box — they were two copies of the
+ * same arithmetic, which is how a character can run off the frame while its guard box says it is
+ * fine. In 4:5 it is smaller and tucked closer in: the reserved gutter is 205 px and at the 16:9
+ * multiplier the character alone is 230 px wide, so it walked off the right edge.
+ */
+const plusAt = (
+  box: { left: number; w: number; top: number; h: number; scale: number },
+  L: { W: number; portrait: boolean; cardBand: { top: number; height: number } | null }
+) => {
+  // 4:5: bottom-RIGHT, mirroring the bucket. Beside the abacus it needed 230 px of a 136 px gutter
+  // and walked off the frame; the finger hand keeps that gutter, which it can because it reaches in
+  // from off-screen and is meant to be partly outside the frame.
+  if (L.portrait && L.cardBand) {
+    const scale = 1.42;
+    const r = 56 * scale;
+    return { x: L.W - r - 66, y: L.cardBand.top + L.cardBand.height / 2, scale, r };
+  }
+  const scale = box.scale * 1.7;
+  const r = 56 * scale;
+  return { x: box.left + box.w + 176 * box.scale, y: box.top + box.h * 0.86, scale, r };
+};
+
+
+/**
+ * WHICH FINGER, derived from the move rather than listed per phrase.
+ *
+ * The hands used to be written out line by line, and the result was the same class of gap as the
+ * missing bead arrows: the heaven bead got an index finger on all six of its lines, while thirteen
+ * lower-bead pushes got no hand at all. A child watching asked the obvious question — why is there a
+ * finger for five and nothing for the beads underneath?
+ *
+ * Soroban technique, which is what the app teaches:
+ *   · earth (lower) beads UP      → THUMB
+ *   · earth beads DOWN            → index
+ *   · heaven bead, either way     → index
+ *
+ * Excluded: the six announcement lines where the rod silently clears back to zero ("Now, let's try
+ * five plus one"). Those are stagecraft between worked examples, not an instruction to obey, and a
+ * hand there would teach a move nobody was asked to make. p25 is NOT excluded even though it ends at
+ * zero — "start with all the beads away from the beam" is exactly such an instruction.
+ */
+const SILENT_RESET = new Set([30, 35, 40, 47, 52, 59]);
+
+const handFor = (p: number): Scene["hand"] => {
+  if (p === 0 || p === 66 || SILENT_RESET.has(p)) return undefined;
+  const to = valueAt(p);
+  const from = p > 0 ? valueAt(p - 1) : 0;
+  if (to === from) return undefined;
+  const lowerFrom = from % 5;
+  const lowerTo = to % 5;
+  if (lowerTo > lowerFrom) return { digit: "thumb", direction: "up", rod: 0, heaven: false };
+  if (from >= 5 !== to >= 5)
+    return { digit: "index", direction: to >= 5 ? "down" : "up", rod: 0, heaven: true };
+  if (lowerTo < lowerFrom) return { digit: "index", direction: "down", rod: 0, heaven: false };
+  return undefined;
+};
+
 /** Everything the frame needs, decided purely by which phrase is being spoken. */
 const sceneFor = (p: number): Scene => {
   const value = valueAt(p);
@@ -117,6 +311,11 @@ const sceneFor = (p: number): Scene => {
     highlight: null,
     bucket: value,
     bucketFrom: from,
+    hand: handFor(p),
+    // A burst belongs to the ANSWER, wherever that answer falls, so it is set once here rather
+    // than eight times in eight sections — which is how it came to be missing from p15 first time.
+    celebrate: BURST_FROM.has(p) ? ("burst" as const) : undefined,
+    celebrateFrom: BURST_FROM.get(p),
   };
 
   // ---------------------------------------------------------------- 1 · HOOK (harbour)
@@ -153,12 +352,15 @@ const sceneFor = (p: number): Scene => {
     return {
       ...base,
       world: "pebbles",
-      sum: p >= 8 ? (p >= 15 ? "1 + 2 = 3" : "1 + 2") : undefined,
-      hand: p === 9 ? { digit: "thumb", direction: "up", rod: 0, heaven: false } : undefined,
+      sum: sumFor(p, 1, 2, [8, 15], [9, 10], [11, 12, 13, 14], 15),
       moveOn: p === 9 || p === 11 ? "$last" : undefined,
       plus: p === 11 ? "push" : "idle",
       count: counting || p === 10 ? "active" : null,
       countOnNumbers: p === 13,
+      // "One, two." counts the two beads ADDED, which are the 2nd and 3rd on the rod — not
+      // the first two. The rod was on 1, so the numbering starts after that bead.
+      countFrom: p === 13 ? 1 : undefined,
+      countRod: 0,
       // "three lower beads are touching the beam" — the section, not a single bead
       band: p === 14 ? "bottom" : undefined,
     };
@@ -169,10 +371,11 @@ const sceneFor = (p: number): Scene => {
     return {
       ...base,
       world: "shells",
-      sum: p >= 20 ? "2 + 2 = 4" : "2 + 2",
+      sum: sumFor(p, 2, 2, [16, 20], [17], [18, 19], 20),
       moveOn: p === 17 || p === 18 ? "$last" : undefined,
       plus: p === 18 ? "push" : "idle",
       count: p === 19 ? "active" : null,
+      countRod: 0,
       band: p === 19 ? "bottom" : undefined,
 
     };
@@ -184,7 +387,16 @@ const sceneFor = (p: number): Scene => {
       ...base,
       world: "slatecliff",
       highlight: p === 22 ? "bottom" : null,
-      count: p === 23 ? "lower" : null,
+      // "Every lower bead you push up adds one more" — so number all four of them, which says
+      // it better than a card. It used to reset the rod from four to one here, which meant three
+      // beads dropped DOWN on a line about pushing up, and turning bead arrows on made that
+      // contradiction explicit: three down-arrows under the word "up".
+      band: p === 21 ? "bottom" : undefined,
+      count: p === 21 ? "active" : p === 23 ? "lower" : null,
+      // one badge per number as it is SPOKEN ("one, two, three or four"), and only on the rod
+      // the sentence is about — all five rods labelled at once said nothing
+      countOnNumbers: p === 23,
+      countRod: 0,
       counter: p === 23 ? "1 · 2 · 3 · 4" : undefined,
       plus: "idle",
     };
@@ -197,7 +409,6 @@ const sceneFor = (p: number): Scene => {
       world: "goldenhour",
       band: p === 24 ? "top" : undefined,
       highlight: p === 25 ? "bottom" : p >= 28 ? "top" : null,
-      hand: p === 27 ? { digit: "index", direction: "down", rod: 0, heaven: true } : undefined,
       moveOn: p === 25 ? "$last" : p === 27 ? "down" : undefined,
       big: p === 26 ? "0" : p === 28 ? "5" : undefined,
       plus: p === 29 ? "cheer" : "idle",
@@ -210,14 +421,13 @@ const sceneFor = (p: number): Scene => {
     return {
       ...base,
       world: "rockpool",
-      sum: p >= 34 ? "5 + 1 = 6" : "5 + 1",
+      sum: sumFor(p, 5, 1, [30, 34], [31], [32, 33], 34),
       moveOn: p === 31 ? "down" : p === 32 ? "$last" : undefined,
-      hand: p === 31 ? { digit: "index", direction: "down", rod: 0, heaven: true } : undefined,
       plus: p === 32 ? "push" : "idle",
       // the line that moves no beads at all: each raised bead is labelled with what it is
       // worth, which is precisely what the sentence says
       count: p === 33 ? "active" : null,
-
+      countRod: 0,
     };
   }
 
@@ -226,12 +436,11 @@ const sceneFor = (p: number): Scene => {
     return {
       ...base,
       world: "rockpool",
-      sum: p >= 38 ? "5 + 4 = 9" : "5 + 4",
+      sum: sumFor(p, 5, 4, [35, 38], [36], [37], 38),
       moveOn: p === 36 ? "down" : p === 37 ? "$last" : undefined,
-      hand: p === 36 ? { digit: "index", direction: "down", rod: 0, heaven: true } : undefined,
       plus: p === 37 ? "push" : "idle",
       count: p === 37 ? "active" : null,
-
+      countRod: 0,
     };
   }
 
@@ -242,23 +451,19 @@ const sceneFor = (p: number): Scene => {
       ...base,
       world: "rockpool",
       sum: six
-        ? p >= 45
-          ? "6 + 3 = 9"
-          : "6 + 3"
-        : p >= 47
-        ? p >= 51
-          ? "7 + 1 = 8"
-          : "7 + 1"
-        : undefined,
+        ? sumFor(p, 6, 3, [40, 45], [41, 42, 43], [44], 45)
+        : sumFor(p, 7, 1, [47, 51], [48, 49], [50], 51),
       moveOn:
         p === 41 || p === 48 ? "down" : p === 42 || p === 44 || p === 49 || p === 50 ? "$last" : undefined,
-      hand:
-        p === 41 || p === 48
-          ? { digit: "index", direction: "down", rod: 0, heaven: true }
-          : undefined,
       plus: p === 44 || p === 50 ? "push" : "idle",
-      // "the rod is showing six/seven" — no bead moves, so the beads number themselves
-      count: p === 43 || p === 49 || p === 44 || p === 50 ? "active" : null,
+      // The beads ADDED get the badges. Six is one lower bead plus the upper one, so the three
+      // going up for "add three" are the 2nd, 3rd and 4th — countFrom 1, not 0.
+      count: p === 44 || p === 49 || p === 50 ? "active" : null,
+      countFrom: p === 44 ? 1 : p === 50 ? 2 : undefined,
+      countRod: 0,
+      // "The rod is showing six/seven" is about the whole column, and numbering the lower beads
+      // 1, 2 while the voice says "seven" is simply a wrong caption. Light the rod instead.
+      rodBand: p === 43 ? 0 : undefined,
       headline: p === 39 ? "Any number!" : undefined,
     };
   }
@@ -269,12 +474,17 @@ const sceneFor = (p: number): Scene => {
       ...base,
       world: "sunsetsea",
       question: p <= 53,
-      sum: p >= 54 && p <= 57 ? (p === 57 ? "5 + 2 = 7" : "5 + 2") : undefined,
+      // The prompt is the same column as every other sum, with the answer row showing "?" — a
+      // horizontal "5 + 2 = ?" here meant the one line that ASKS the child to work it out used a
+      // notation the rest of the episode had stopped using.
+      sum: p <= 53 ? { a: 5, b: 2, step: "answer" as SumStep } : sumFor(p, 5, 2, [54, 57], [54], [55, 56], 57),
       moveOn: p === 54 ? "down" : p === 55 ? "$last" : undefined,
-      hand: p === 54 ? { digit: "index", direction: "down", rod: 0, heaven: true } : undefined,
       plus: p === 55 ? "push" : p === 58 ? "cheer" : "idle",
-      count: p === 56 ? "active" : null,
-
+      // "The rod is showing seven" — the column, not two numbered beads
+      rodBand: p === 56 ? 0 : undefined,
+      // the quiz answer earns the biggest reward in the episode
+      celebrate: p === 58 ? "party" : BURST_FROM.has(p) ? "burst" : undefined,
+      celebrateFrom: BURST_FROM.get(p),
       headline: p === 58 ? "Great job!  ⭐" : undefined,
     };
   }
@@ -285,7 +495,8 @@ const sceneFor = (p: number): Scene => {
       ...base,
       world: "sunsetsea",
       bucket: undefined,
-      sum: p >= 61 && p <= 63 ? "1 + 4 = ?" : undefined,
+      // no total: this one never resolves, which is the point
+      sum: p >= 61 && p <= 63 ? { a: 1, b: 4, step: "second" as SumStep } : undefined,
       moveOn: p === 60 ? "$last" : undefined,
       // one bead rising is a very small change in a 1920 frame; the line says "make one", so
       // the one is worth showing
@@ -295,6 +506,12 @@ const sceneFor = (p: number): Scene => {
       // the card goes LEFT here: the plus guy is mid-bounce on the right
       panelSide: p === 62 ? "left" : undefined,
       highlight: p === 62 ? "bottom" : null,
+      // "There are only three lower beads left" — number the three that are LEFT. The rod is on
+      // one, so they are beads 2, 3 and 4, and they count 1, 2, 3 as the word is said.
+      count: p === 62 ? "lower" : null,
+      countFrom: p === 62 ? 1 : undefined,
+      countOnNumbers: p === 62,
+      countRod: 0,
       headline: p === 65 ? "Very soon…" : undefined,
     };
   }
@@ -311,6 +528,7 @@ const sceneFor = (p: number): Scene => {
     noCaption: p === 68 || p === 69,
     headline: p === 66 ? "Your turn!" : undefined,
     plus: p === 66 ? "cheer" : undefined,
+    celebrate: p === 66 ? "party" : undefined,
   };
 };
 
@@ -349,9 +567,11 @@ const SFX_CUES: SfxCue[] = (() => {
   for (const i of [13, 19, 23, 37, 62]) {
     for (const f of numberWordFrames(PHRASES[i], FPS)) add(f, "tick.mp3", 12, 0.28);
   }
-  // each answer lands
-  for (const i of [15, 20, 28, 34, 38, 45, 51, 57]) {
-    add(on(i, "is") ?? at(i), "option_correct_ans.mp3", 60, 0.3);
+  // Each answer lands. Anchored to the word that NAMES the total, the same frame the burst uses —
+  // it was on "is", which is mid-sentence, so the chime and the confetti both went off before the
+  // child had heard the answer.
+  for (const i of ANSWER_LINES) {
+    add(ANSWER_FRAME.get(i)!, "option_correct_ans.mp3", 60, 0.3);
   }
   add(at(58), "clap.mp3", 90, 0.28);
   // the reveal of the upper bead, and the gag
@@ -399,6 +619,10 @@ export const E03AddingTwoNumbers: React.FC = () => (
     arrowClearance
     // its own abacus: teal beads on driftwood, not E01/E02's orange on brown
     palette={RIG_SEA}
+    // an arrow on the bead that is about to move, on EVERY line that moves one
+    beadArrows
+    // a bead stays sand-coloured until it actually reaches the beam
+    colorOnArrival
     sideRoom={() => PORTRAIT_ROOM}
     stageShift={() => ({ left: 0, right: 0 })}
     boxesFor={(scene, ctx) => {
@@ -409,36 +633,18 @@ export const E03AddingTwoNumbers: React.FC = () => (
         out.push({ label: "number", r: { x: (L.W - w) / 2, y: BIG_TOP, w, h: BIG_H } });
       }
       if (scene.sum) {
-        const w = Math.max(240, scene.sum.length * 44 + 100);
-        out.push({
-          label: "sum",
-          r: { x: (L.W - w) / 2, y: BIG_TOP + 14, w, h: 132 },
-        });
-      }
-      if (scene.question) {
-        out.push({
-          label: "prompt",
-          r: { x: L.W / 2 - 300, y: L.portrait ? 30 : L.band.stageTop - 132, w: 600, h: 150 },
-        });
+        const b = sumBox(ctx.box, L);
+        out.push({ label: "sum", r: { x: b.x, y: b.y, w: b.w, h: b.h } });
       }
       if (scene.plus && scene.plus !== "idle" && !scene.hand) {
-        const s = ctx.box.scale * 1.7;
+        const g = plusAt(ctx.box, L);
         out.push({
           label: "plusGuy",
-          r: {
-            x: ctx.box.left + ctx.box.w + 176 * ctx.box.scale - 56 * s,
-            y: ctx.box.top + ctx.box.h * 0.86 - 56 * s,
-            w: 112 * s,
-            h: 112 * s,
-          },
+          r: { x: g.x - g.r, y: g.y - g.r, w: g.r * 2, h: g.r * 2 },
         });
       }
       if (scene.bucket !== undefined) {
-        const s = ctx.box.scale * 0.72;
-        out.push({
-          label: "bucket",
-          r: { x: ctx.box.left - 175 * s - 60, y: ctx.box.top + 110, w: 175 * s + 40, h: 230 * s },
-        });
+        out.push({ label: "bucket", r: bucketRect(bucketAt(ctx.box, L)) });
       }
       return out;
     }}
@@ -454,35 +660,47 @@ export const E03AddingTwoNumbers: React.FC = () => (
               count={scene.bucket}
               from={scene.bucketFrom ?? scene.bucket}
               settle={ctx.settle}
-              x={ctx.box.left - 132 * ctx.box.scale}
-              y={ctx.box.top + 96}
-              scale={ctx.box.scale * 1.05}
+              {...bucketAt(ctx.box, ctx.layout)}
               frame={ctx.frame}
               fps={FPS}
             />
           </svg>
         )}
 
-        {/* The sum being worked. In the HEADLINE band: under the abacus it began at y 825
-            against a caption band starting at 860, so it crossed the boundary. It also
-            replaces the separate big number on answer lines — "1 + 2 = 3" already says the
-            answer, and showing both said it twice. */}
-        {scene.sum && (
-          <div
-            style={{
-              position: "absolute",
-              left: 0,
-              width: ctx.layout.W,
-              top: BIG_TOP + 14 + bob(ctx.frame, FPS, 5, 3.4),
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <Card bg={WORLDS[scene.world].accent} radius={30}>
-              <StickerText size={72}>{scene.sum}</StickerText>
-            </Card>
-          </div>
-        )}
+        {/* The sum in column form, in the right gutter beside the beads. */}
+        {scene.sum && (() => {
+          const b = sumBox(ctx.box, ctx.layout);
+          // The card holds still across a worked example and only pops in when the sum is NEW,
+          // so a five-line example does not blink at every line boundary.
+          const prev = ctx.p > 0 ? sceneFor(ctx.p - 1) : undefined;
+          const sameRun =
+            prev?.sum !== undefined &&
+            prev.sum.a === scene.sum!.a &&
+            prev.sum.b === scene.sum!.b;
+          return (
+            <div style={{ position: "absolute", left: b.layoutX, top: b.y }}>
+              <SumCard
+                a={scene.sum.a}
+                b={scene.sum.b}
+                // The answer digit appears on the SAME frame as the burst and the chime — the word
+                // that names it. It used to be there from the answer line's first frame, so the
+                // card gave the answer away while the voice was still building to it.
+                total={
+                  ANSWER_FRAME.has(ctx.p) && ctx.frame < ANSWER_FRAME.get(ctx.p)!
+                    ? undefined
+                    : scene.sum.total
+                }
+                step={scene.sum.step}
+                prevStep={sameRun ? prev!.sum!.step : "none"}
+                popIn={!sameRun}
+                // the quiz keeps the ones-place colour, so "your turn" still looks different
+                bg={scene.question ? PLACE_COLORS[0] : WORLDS[scene.world].accent}
+                progress={ctx.beatProgress}
+                scale={b.scale}
+              />
+            </div>
+          );
+        })()}
       </>
     )}
     renderOver={(scene, ctx) => (
@@ -494,9 +712,7 @@ export const E03AddingTwoNumbers: React.FC = () => (
             style={{ position: "absolute", inset: 0, overflow: "visible" }}
           >
             <PlusGuy
-              x={ctx.box.left + ctx.box.w + 176 * ctx.box.scale}
-              y={ctx.box.top + ctx.box.h * 0.86}
-              scale={ctx.box.scale * 1.7}
+              {...(({ x, y, scale }) => ({ x, y, scale }))(plusAt(ctx.box, ctx.layout))}
               mood={scene.plus}
               progress={ctx.beatProgress}
               frame={ctx.frame}
@@ -521,22 +737,6 @@ export const E03AddingTwoNumbers: React.FC = () => (
           </div>
         )}
 
-        {scene.question && (
-          <div
-            style={{
-              position: "absolute",
-              left: 0,
-              width: ctx.layout.W,
-              top: ctx.layout.portrait ? 30 : ctx.layout.band.stageTop - 132,
-              textAlign: "center",
-            }}
-          >
-            <Card bg={PLACE_COLORS[0]}>
-              <StickerText size={92}>5 + 2 = ?</StickerText>
-            </Card>
-          </div>
-        )}
-
         {scene.closing && (() => {
           const pt = ctx.layout.portrait;
           return (
@@ -555,7 +755,7 @@ export const E03AddingTwoNumbers: React.FC = () => (
                     style={{
                       position: "absolute",
                       left: pt ? 0 : 200,
-                      top: pt ? 40 : 150,
+                      top: pt ? 80 : 150,
                       width: pt ? ctx.layout.W : undefined,
                       display: pt ? "flex" : undefined,
                       justifyContent: pt ? "center" : undefined,
@@ -571,7 +771,11 @@ export const E03AddingTwoNumbers: React.FC = () => (
                     style={{
                       position: "absolute",
                       left: pt ? 0 : 900,
-                      top: pt ? 430 : 190,
+                      // SubscribeCard is TWO pills — Like and a red Subscribe — 246 px tall in
+                      // total. At 250 this card covered the Subscribe button completely; the
+                      // closing beats are not registered with the overlap guard, so nothing caught
+                      // it. 80 + 246 + 40 of clearance.
+                      top: pt ? 366 : 190,
                       width: pt ? ctx.layout.W : 840,
                       display: pt ? "flex" : undefined,
                       justifyContent: pt ? "center" : undefined,
@@ -595,14 +799,16 @@ export const E03AddingTwoNumbers: React.FC = () => (
                   <div
                     style={{
                       position: "absolute",
-                      left: pt ? (ctx.layout.W - 245) / 2 : 300,
+                      // The 4:5 phone was 245 px in a 1080 frame — under a quarter of the width,
+                      // and too narrow for the store listing's own text to sit on one line.
+                      left: pt ? (ctx.layout.W - 353) / 2 : 300,
                       top: pt ? 6 : 20,
                     }}
                   >
                     <StoreFlow
                       frame={ctx.frame - STORE_START}
                       fps={FPS}
-                      height={pt ? 500 : 760}
+                      height={pt ? 720 : 760}
                       span={STORE_FRAMES}
                     />
                   </div>
@@ -610,11 +816,12 @@ export const E03AddingTwoNumbers: React.FC = () => (
                     style={{
                       position: "absolute",
                       left: pt ? 0 : 1090,
-                      top: pt ? 530 : 90,
+                      // follows the taller phone down; 0.7 keeps the whole CTA above the caption
+                      top: pt ? 760 : 90,
                       width: pt ? ctx.layout.W : undefined,
                       display: pt ? "flex" : undefined,
                       justifyContent: pt ? "center" : undefined,
-                      transform: pt ? "scale(0.82)" : undefined,
+                      transform: pt ? "scale(0.7)" : undefined,
                       transformOrigin: "top center",
                     }}
                   >

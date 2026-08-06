@@ -122,14 +122,14 @@ export type WorldKind =
   // --- E03 · adding two numbers. A seaside day: a third place after E01's fields and
   // workbenches and E02's pond, garden and open sky. "Collecting things into one bucket" is
   // what adding IS. ---
-  | "harbour" // morning teal water, masts — the hook
-  | "sandpit" // warm sand, what adding means
-  | "pebbles" // cool grey-blue shingle — one plus two
-  | "shells" // pale coral, scattered shells — two plus two
-  | "slatecliff" // dark wet slate — the lower-bead rule
-  | "goldenhour" // rich low gold — the upper bead is five
+  | "harbour" // bright morning sea, bunting and gulls — the hook
+  | "sandpit" // full sun on a sandcastle — what adding means
+  | "pebbles" // sunny cove with a parasol — one plus two
+  | "shells" // coral light, shells on the sand — two plus two
+  | "slatecliff" // the coolest, deepest sea in the episode — the lower-bead rule
+  | "goldenhour" // the richest light in the episode — the upper bead is five
   | "rockpool" // deep turquoise — five plus one, five plus four, any number
-  | "sunsetsea"; // pink and orange dusk — your turn and the close
+  | "sunsetsea"; // violet dusk over a gold horizon — your turn and the close
 
 export interface WorldTheme {
   sky: [string, string];
@@ -139,6 +139,18 @@ export interface WorldTheme {
   accent: string;
   stars?: boolean;
   clouds?: boolean;
+  /** Cloud size multiplier, how strong the underside shading is, and the cloud's own opacity.
+   *  Defaults reproduce E01/E02 exactly — E03 asked for smaller, paler clouds and those two
+   *  episodes are already approved, so this is per-world rather than a change to the drawing. */
+  cloudSize?: number;
+  cloudShade?: number;
+  cloudShadeInk?: string;
+  /** The cloud's own fill and opacity. Solid #FFFFFF at 0.97 is E01/E02's look — on E03's pale
+   *  skies that reads as white shapes cut out of the sky rather than as cloud. */
+  cloudInk?: string;
+  cloudAlpha?: number;
+  /** Fish swimming in the sea band. Only means anything with `beach`. */
+  fish?: number;
   sun?: boolean;
   hills?: boolean;
   grid?: boolean;
@@ -159,6 +171,24 @@ export interface WorldTheme {
   starburst?: boolean;
   /** Balloons drifting up, for a close that is a send-off rather than a party. */
   balloons?: boolean;
+
+  // ---------------------------------------------------------------- seaside (E03)
+  // The first pass at this episode's worlds was eight flat gradients with a hill or a slab
+  // on them, and it read exactly as flat and grey as it was. A world is only doing its job
+  // if you could name the place with the abacus taken away. These are the props that name it.
+  /** Sea to the horizon, then wet sand, then dry sand, with foam that actually laps. */
+  beach?: { at: number; sea: string; wet: string; sand: string };
+  /** Triangle flags on a slung line across the top. The single fastest way to make a frame
+   *  read as "somewhere fun" — and it lives in the sky, where nothing else is. */
+  bunting?: string[];
+  /** A sandcastle with a flag, bottom-left. Sits under the stage band, out of the way. */
+  sandcastle?: boolean;
+  /** A striped beach umbrella, bottom-right. */
+  umbrella?: boolean;
+  /** Starfish and shells scattered on the sand — the detail that stops sand being a rectangle. */
+  shellsOnSand?: boolean;
+  /** Two gulls gliding across, high up. Motion in an otherwise empty sky. */
+  gulls?: boolean;
 }
 
 export const WORLDS: Record<WorldKind, WorldTheme> = {
@@ -328,68 +358,157 @@ export const WORLDS: Record<WorldKind, WorldTheme> = {
   },
 
   // ---------------------------------------------------------------- E03 · seaside
+  //
+  // Second pass on the skies (2026-08-06): every top stop lifted. The first set put a deep teal
+  // or violet at the top of the frame, and on a 1920 frame the top third IS the frame — it read
+  // as overcast, and it made the white clouds and white cards look like holes punched in it. The
+  // SEA keeps the old darker values, so the horizon still reads as a line.
+  // Rebuilt. The first set was eight gradients with a hill or a slab on them: "too grey and
+  // empty" was the correct read. Every one of these now has a horizon, a floor a character
+  // could stand on, and at least one piece of built scenery, and each is warm enough that the
+  // teal beads and the white cards both sit on it.
   harbour: {
-    sky: ["#2E6E7E", "#9FD8DE"],
-    ground: "#1F4E5A",
-    ink: "#FFFFFF",
-    pill: "#0E7C86",
-    accent: "#FFB703",
+    // the hook: bright morning, bunting over the water
+    sky: ["#69CDE0", "#D7F4F8"],
+    ink: "#0A3A44",
+    pill: "#FFFFFF",
+    accent: "#F4772B",
     clouds: true,
-    horizon: { at: 0.68, h: 0.32 },
+    cloudSize: 0.72,
+    // The grey underside is what made these read as "too dark white" — at 0.22 it was still a
+    // smudge across the bottom of every cloud on a pale sky. Near zero, and warmed off blue.
+    // no underside shading at all: any grey on a pale cloud is what made these read as dirty
+    cloudShade: 0,
+    cloudShadeInk: "#E9F5FF",
+    // NOT solid white. Semi-transparent and very slightly cool, so the sky reads THROUGH the
+    // cloud and it sits in the air instead of on top of it.
+    // A LIGHT COLOUR, not white and not blurred. Pure white on a pale teal sky is the highest
+    // contrast in the frame, so the eye goes to the clouds instead of the abacus — which is what
+    // "currently focus goes on cloud" means. A pale tint close to the sky's own value keeps them
+    // as scenery. (A blur was tried here and was wrong: the note was about colour.)
+    cloudInk: "#E7F7FB",
+    cloudAlpha: 0.82,
+    gulls: true,
+    bunting: ["#F4772B", "#FFD166", "#2FB3A8", "#EF5D5D", "#FFFFFF"],
+    fish: 7,
+    beach: { at: 0.6, sea: "#1E8FA8", wet: "#D9B67F", sand: "#F3D9A6" },
   },
   sandpit: {
-    sky: ["#FFE9C4", "#FFF7E6"],
-    ground: "#E3C48D",
-    ink: "#5A3E1B",
+    // what adding means: full sun, and a castle to show that more is more
+    sky: ["#FFD98A", "#FFF3D6"],
+    ink: "#5A3312",
     pill: "#FFFFFF",
-    accent: "#E07A2F",
+    accent: "#E0621F",
     sun: true,
-    surface: { at: 0.72, h: 0.28, edge: "#F0DDB4" },
+    sandcastle: true,
+    shellsOnSand: true,
+    fish: 7,
+    beach: { at: 0.62, sea: "#3AAFC0", wet: "#E0BC85", sand: "#F7E2B4" },
   },
   pebbles: {
-    sky: ["#4E6E80", "#A8C3D1"],
-    ground: "#6E8494",
-    ink: "#12303C",
+    // one plus two. Was grey shingle; now a bright cove with a parasol, which is the same
+    // place seen in better weather.
+    sky: ["#8BDCEC", "#E4FAFD"],
+    ink: "#0C3B45",
     pill: "#FFFFFF",
     accent: "#0E9AA0",
-    hills: true,
+    clouds: true,
+    cloudSize: 0.72,
+    // The grey underside is what made these read as "too dark white" — at 0.22 it was still a
+    // smudge across the bottom of every cloud on a pale sky. Near zero, and warmed off blue.
+    // no underside shading at all: any grey on a pale cloud is what made these read as dirty
+    cloudShade: 0,
+    cloudShadeInk: "#E9F5FF",
+    // NOT solid white. Semi-transparent and very slightly cool, so the sky reads THROUGH the
+    // cloud and it sits in the air instead of on top of it.
+    // A LIGHT COLOUR, not white and not blurred. Pure white on a pale teal sky is the highest
+    // contrast in the frame, so the eye goes to the clouds instead of the abacus — which is what
+    // "currently focus goes on cloud" means. A pale tint close to the sky's own value keeps them
+    // as scenery. (A blur was tried here and was wrong: the note was about colour.)
+    cloudInk: "#E7F7FB",
+    cloudAlpha: 0.82,
+    umbrella: true,
+    fish: 7,
+    beach: { at: 0.58, sea: "#26A2B8", wet: "#D3B481", sand: "#F0DBAA" },
   },
   shells: {
-    sky: ["#FFB9A6", "#FFE3D9"],
-    ink: "#7A3B2E",
+    // two plus two: coral light, shells on the sand. Had no ground at all before, so the
+    // abacus floated in a peach wash.
+    sky: ["#FFB79C", "#FFEFE4"],
+    ink: "#7A2E1E",
     pill: "#FFFFFF",
-    accent: "#D2593F",
+    accent: "#D2452F",
+    shellsOnSand: true,
+    bunting: ["#FFFFFF", "#D2452F", "#FFD166", "#2FB3A8"],
+    // a coral sky over a TURQUOISE sea: the first version was coral on coral on coral, so the
+    // frame had one hue in it and the horizon was invisible
+    fish: 7,
+    beach: { at: 0.6, sea: "#3FA7B5", wet: "#DCB07E", sand: "#FBE0BC" },
   },
   slatecliff: {
-    sky: ["#2B3A42", "#465A66"],
-    ink: "#EAF4F7",
-    pill: "#12303C",
-    accent: "#7FE3FF",
-    slate: { tray: "#1B262C" },
+    // The lower-bead rule. It had `slate`, whose dark panel covers 70% of the frame and a tray
+    // across the bottom — between them the beach was reduced to a brown strip and the world was
+    // back to being a dark box. The rule is stated by a CARD, so the world does not need a board
+    // at all; it only needs to be the coolest, deepest place in the episode, so the boundary the
+    // line is about reads as a limit. Late afternoon, sea well up the frame, gulls over it.
+    sky: ["#4FAFC4", "#C4EEF2"],
+    ink: "#04343A",
+    pill: "#FFFFFF",
+    accent: "#F2843C",
+    gulls: true,
+    shellsOnSand: true,
+    fish: 7,
+    beach: { at: 0.52, sea: "#125C6E", wet: "#B08A55", sand: "#DFBE88" },
   },
   goldenhour: {
-    sky: ["#F2A03D", "#FFE0A3"],
-    ground: "#B4651E",
+    // the upper bead is five: the richest light in the episode, for its biggest reveal
+    sky: ["#FBA84E", "#FFEDC8"],
     ink: "#4A2408",
     pill: "#FFFFFF",
     accent: "#0E7C86",
     sun: true,
-    hills: true,
+    gulls: true,
+    // same fix as `shells`: an orange sea under an orange sky was one flat field. Golden light
+    // on a deep sea is what low sun over water actually looks like.
+    fish: 7,
+    beach: { at: 0.63, sea: "#2E7F92", wet: "#C4924F", sand: "#F0CE93" },
   },
   rockpool: {
-    sky: ["#0C6E77", "#3FB3B8"],
-    ink: "#EAFEFF",
-    pill: "#08525A",
-    accent: "#FFB703",
-    water: { at: 0.64 },
+    // the worked examples: deep turquoise, the one world that keeps its water
+    sky: ["#4CBECC", "#CDF3F5"],
+    ink: "#04343A",
+    pill: "#FFFFFF",
+    accent: "#FF8A3D",
+    shellsOnSand: true,
+    clouds: true,
+    cloudSize: 0.72,
+    // The grey underside is what made these read as "too dark white" — at 0.22 it was still a
+    // smudge across the bottom of every cloud on a pale sky. Near zero, and warmed off blue.
+    // no underside shading at all: any grey on a pale cloud is what made these read as dirty
+    cloudShade: 0,
+    cloudShadeInk: "#E9F5FF",
+    // NOT solid white. Semi-transparent and very slightly cool, so the sky reads THROUGH the
+    // cloud and it sits in the air instead of on top of it.
+    // A LIGHT COLOUR, not white and not blurred. Pure white on a pale teal sky is the highest
+    // contrast in the frame, so the eye goes to the clouds instead of the abacus — which is what
+    // "currently focus goes on cloud" means. A pale tint close to the sky's own value keeps them
+    // as scenery. (A blur was tried here and was wrong: the note was about colour.)
+    cloudInk: "#E7F7FB",
+    cloudAlpha: 0.82,
+    fish: 7,
+    beach: { at: 0.61, sea: "#0B7A86", wet: "#CDA871", sand: "#EFDCAF" },
   },
   sunsetsea: {
-    sky: ["#F2726F", "#FFD1A1"],
-    ground: "#8A4A3C",
-    ink: "#4A1B18",
+    // Your turn and the close. The first version was salmon sky over a salmon sea over salmon
+    // sand — one hue for the whole frame, and the abacus had nothing to sit against. A real dusk
+    // goes DARK at the top: violet overhead, gold on the horizon, a plum sea underneath.
+    sky: ["#7C57A8", "#FFD8A6"],
+    ink: "#3A1440",
     pill: "#FFFFFF",
     accent: "#0E7C86",
-    hills: true,
-    horizon: { at: 0.7, h: 0.3 },
+    umbrella: true,
+    bunting: ["#FFFFFF", "#FFD166", "#F4715F", "#2FB3A8", "#B8459B"],
+    fish: 7,
+    beach: { at: 0.64, sea: "#8E4A6E", wet: "#B47A52", sand: "#EFCB96" },
   },
 };

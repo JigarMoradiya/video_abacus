@@ -126,7 +126,26 @@ nothing, so the overlap check alone cannot see it.
   "one, two, three, four". Props that stand for the count (a ladder, a tally) follow
   `ctx.settle`, not the phrase boundary.
 - **Point at the thing that moves.** `handAnchor` takes the value the rod is coming FROM, so
-  the arrow lands on the bead that is about to travel rather than on a fixed slot.
+  the arrow lands on the bead that is about to travel rather than on a fixed slot. From E03 this
+  is not the hand's job alone: turn on `beadArrows` so EVERY line that changes the rod's value
+  gets an arrow on the beads it actually moves. Seven E03 lines had a hand; nineteen moved beads,
+  so twelve said "push three more lower beads up" with nothing pointing at the three.
+- **A bead is coloured by where it IS, not where it is going.** Turn on `colorOnArrival`. Without
+  it a bead is the "on" colour from the first frame of the line and travels up already counted.
+- **Count badges number the beads being ADDED.** `countFrom` takes the rod's previous value; on
+  1 + 2 the two being counted are the second and third beads, not the first two. Pair it with
+  `countRod` so a sentence about one rod does not label all five.
+- **Every answer gets a celebration.** `celebrate: "burst"` on each resolved sum, `"party"` on the
+  praise beat and the close. Eight sums resolved in E03 and every one of them looked exactly like
+  the line before it. The layer renders UNDER the caption, and it is the one thing exempt from
+  the overlap guard — see DESIGN_SYSTEM §8j for why, and for the rule it obeys instead.
+- **A world has to be somewhere.** The test: could you name the place with the abacus taken away?
+  A two-stop gradient with one hill on it fails, eight times over — which is what E03 shipped its
+  first cut with. World props are NOT guarded, so place them against the occupied regions by hand:
+  the left gutter (bucket), the right gutter (the character), and the caption pill across the
+  bottom middle.
+- **One notation per episode.** If the sums are written as columns, the quiz prompt is a column
+  too. The one line that asks the child to work it out is the worst place to change notation.
 - **Teach only this episode's idea.** E02 is about READING a rod, so nothing on screen writes
   `5 + 3 = 8` — that is E03's lesson. Show the number the rod reads.
 - **Frame 0 is the thumbnail.** A finished image, nothing mid-spring.

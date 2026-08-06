@@ -80,6 +80,12 @@ export interface Scene {
    */
   countOnNumbers?: boolean;
 
+  /** Number the beads ADDED on this line instead of the whole raised group: pass the value the
+   *  rod is coming from. On "one plus two" the two being counted are the 2nd and 3rd beads. */
+  countFrom?: number;
+  /** Restrict count badges to one rod, so a line about one rod does not label all of them. */
+  countRod?: number;
+
   /** Beads keep moving for the whole line, for a line that says they slide. */
   liveBeads?: boolean;
   /** Light these rods one after another across the line, so a rule about moving left is
@@ -98,4 +104,16 @@ export interface Scene {
   closeBeat?: string;
   /** Beats where the visual IS the message and a caption would compete. */
   noCaption?: boolean;
+
+  /** Reward a resolved answer. "burst" is a one-shot pop out of the abacus on an answer line;
+   *  "party" is a sustained fall, for the two beats that are actually a celebration. */
+  celebrate?: "burst" | "party";
+  /**
+   * ABSOLUTE frame the burst starts on. A burst driven by the phrase's own progress fires on the
+   * line's FIRST frame — so "so, two plus two is four" was already celebrating a second before the
+   * word "four" was said. Anchoring it to that word means the burst outlives the line, which is
+   * why this is an absolute frame and why the reel also sets `celebrate` on the phrase AFTER an
+   * answer: a celebration that stops dead at a line boundary reads as a glitch.
+   */
+  celebrateFrom?: number;
 }

@@ -333,3 +333,158 @@ it occupied the right-hand card slot on every line of the episode.
 - 0 STALE, 0 FROZEN. One QUIET (`Make one on your rod`, diff 0.94) — one bead rising plus its
   number card, which is genuinely a small change for a short line.
 - 7384 frames, audio present, peak **−1.5 dB**, both cuts.
+
+---
+
+## Review pass 1 (2026-08-06)
+
+Eleven notes from the first 16:9 cut. Nine were fixed; one cannot be fixed in visuals and one is
+deliberately deferred. The generalisable lessons went into `DESIGN_SYSTEM.md` §8j.
+
+| # | Note | What changed |
+|---|---|---|
+| 1 | "Why is the 3rd bead in the same colour?" | `colorOnArrival` — a bead stays sand until `settle >= 0.85`. Every example, not the one frame. |
+| 2 | Highlight the number being added | `SumCard` gives each row its own line; the row the narration is on gets a white plate. |
+| 3 | Show the sum vertically, not horizontally | Column form, scaled to whatever the headline band leaves above the abacus. |
+| 4 | Arrows missing in all the examples | `stage/BeadArrow.tsx` on every value change (~12 lines had none). |
+| 5 | Counting is wrong — "we count for 2 as one and two" | `countFrom`: badges number the beads **added**. `countRod` keeps them on the ones rod. |
+| 6 | `1·2·3·4` should reveal per spoken number, on one rod | `countOnNumbers` + `countRod: 0` on p23. |
+| 7 | No celebration anywhere in the video | `stage/Celebrate.tsx` — `burst` on all 8 answers, `party` on "Great job" and the close. |
+| 8 | Backgrounds don't work — grey and empty | All eight worlds rebuilt on new shared seaside flags. `slatecliff` lost its dark slab; `sunsetsea` is a real dusk instead of one salmon hue. |
+| 9 | *(mine)* the bucket's number was the pail's own red | White plate, teal digits. Pebbles enlarged so six of them can be counted rather than read as a smudge. |
+| 10 | *(mine)* the recall gap is 0.84 s, not the scripted 3 s | **Cannot be fixed in visuals.** Needs "Try five plus two on your own abacus" re-recorded with the pause. |
+| 11 | *(mine)* 4:5 | **Not touched.** The 16:9 gets signed off first; `out/e03_adding_two_numbers_4x5.mp4` on disk is the pre-review cut and is stale. |
+
+### One thing the review exposed that was not on the list
+
+p21, "Every lower bead you push up adds one more", reset the rod from four to one — three beads
+travelling **down** under the word "up". Nobody had spotted it because nothing pointed at the beads;
+switching arrows on drew three down-arrows and made it obvious. The rod now holds four right
+through the rule section and the four raised beads are badged 1·2·3·4.
+
+The your-turn prompt was also still a horizontal `5 + 2 = ?` card — the one line in the episode
+that ASKS the child to work a sum out was using the notation the rest of it had stopped using. It
+is now the same column, with a highlighted `?` on the answer row, tinted in the ones-place colour
+so the quiz still reads as a quiz.
+
+p62 gained the same treatment: "there are only three lower beads left" numbers the three that are
+left (`countFrom: 1`, one per spoken number) instead of only asserting it.
+
+---
+
+## Review pass 2 (2026-08-06)
+
+| # | Note | What changed |
+|---|---|---|
+| 1 | Clouds too big and dark; sky too dark | All seven E03 skies lifted at the top stop. Clouds shrunk and paled via new `cloudSize` / `cloudShade` — per-world, because E01's meadow has clouds too and this change broke 20 of its frames on the first attempt. `shells` and `goldenhour` also got a contrasting sea; they were coral-on-coral and orange-on-orange, one hue per frame. |
+| 2 | Don't highlight a number when the sum is only being introduced | `"none"` is now a real `SumStep`. "Now, let's try five plus one" highlights nothing — it used to light the 5 while the rod still read zero. |
+| 3 | Every step's arrow looks different | One `components/MoveArrow`, used by both `FingerHand` and `BeadArrow`. The style kept is FingerHand's shipped glyph to the pixel, so E01 and E02 are untouched. |
+| 4 + 7 | Sum card blinks; a step change re-animates the whole card | It pops in once, on the phrase the sum first appears on, then holds. A step change cross-fades the plate from the old row to the new one and carries the digit colour with it. |
+| 5 | Put the vertical sum on the right, not above the abacus | Right gutter, level with the top of the abacus, full size. It narrowed 268 → 200 to clear the finger hand's reach, and p33's card was dropped (see below). |
+| 6 | The heaven bead's "5" survives after the lower badges clear | `countFrom` now gates the heaven bead too — a line labels the whole group or none of it. |
+
+### The one card that lost its home
+
+With the sum in the right gutter and the bucket in the left, p33 ("the upper bead is worth five and
+the lower bead is worth one") had no slot left for a 560 px card. It was the app's tour segment
+"1st ROD · lower 1 · upper 5" — and the line already badges the upper bead **5** and the lower bead
+**1**, so the card was restating it in words, about a rod the sentence is not about. Dropped, and its
+`assertCards` entry with it. The badges are the better annotation: the number is on the bead.
+
+---
+
+## Review pass 3 (2026-08-06)
+
+| # | Note | What changed |
+|---|---|---|
+| 1 | Celebration and its sound mistimed in all sums | One frame now drives the burst, the chime AND the answer digit: the first frame of the answer line's final word — the word that names the total. The burst was firing on the line's first frame and the chime was anchored to `"is"`. |
+| 2 | Arrow triangle too big; arrows still not the same style | The head is now a fraction of the arrow's length (not a fixed 34), and so is the shaft weight. Both callers describe the same 0.8 of the travel. One shape at every size. |
+| 3 | Clouds still too dark/white | `cloudShade` down to 0.07 on a warmer ink, `cloudAlpha` 0.9 — both per-world. |
+| 4 | Add moving fish in the beach water | Seven per beach world, drawn behind the sand, wrapping, tails beating, half swimming each way. |
+
+### This round broke E01's byte-identity on purpose — 4 frames
+
+The unified arrow changes E01's finger-work section (p54-p57). The old fixed 34-unit head was too big
+against a 61-unit travel there as well, so keeping E01 frozen would have meant leaving E03 with two
+different arrows — the thing being fixed. **E01 and E02 need re-rendering to pick up the new arrow.**
+Their shipped mp4s are otherwise unaffected.
+
+Also worth recording: three separate attempts to tune the clouds for E03 leaked into E01 (20, 20 then
+5 frames) before all four values became `WorldTheme` fields with E01's numbers as defaults.
+
+### Clouds took four rounds
+
+"Light" meant a light COLOUR. I tried lower shade opacity, then lower fill opacity, then a Gaussian
+blur (rejected: *"I dont need blur"*), before doing the obvious thing: `cloudInk: "#E7F7FB"`, a pale
+tint close to the sky's own value, hard edges kept, underside shading off. Pure white on a pale teal
+sky is the highest contrast in the frame, which is why the eye was going to the clouds instead of the
+abacus. See DESIGN_SYSTEM §8m.
+
+---
+
+## The 4:5 cut (2026-08-06)
+
+Same theme, same audio, same teaching — three elements move, and the 16:9 cut is **byte-identical**
+(71/71 stills) because every change is inside a `portrait` branch.
+
+| Element | 16:9 | 4:5 | Why |
+|---|---|---|---|
+| Column sum | right gutter, level with the abacus top | **headline band, centred** | Portrait has ~140 px of gutter and the finger hand takes all of it. The headline band is the only region free on every phrase that shows a sum — no sum line in this episode also has a headline or a big number — and at 0.63 of natural the digits are ~43 px in a 1080 frame, proportionally *larger* than the 68 px they get in 1920. |
+| Bucket | left gutter, beside the beads | **bottom-left, in the card band** | It is 175 px wide and was being clipped by the frame edge. Moving it also fixes the cut's real compositional problem: 370 px of empty sand under the abacus while the props crowded the sides. |
+| Plus character | right gutter, beside the beads | **bottom-right, mirroring the bucket** | At the 16:9 multiplier it needed 230 px of a 140 px gutter and walked off the frame. |
+
+Consequences, each measured rather than guessed:
+
+- **`PORTRAIT_ROOM` 185/205 → 90/190.** With nothing to fit beside the abacus it can take the largest
+  size the portrait fit allows. At 90/90 it reached 813 px and looked excellent — but the finger hand
+  was reduced to a fingertip and a sliver of fist, and the hand carries seven lines of technique. So
+  the right gutter came back and the abacus settled at **740 px**, up from 630.
+- **The horizon comes up 0.10 in portrait.** At the shared fraction the sea line landed *below* the
+  abacus's feet, so the instrument floated over the water with a field of empty sand beneath it.
+- **The parasol moved** to `x 1.02 · y 0.97` in portrait: at the 16:9 position its canopy landed on
+  the plus character, which now stands in the bottom-right.
+- **The subscribe beat was regrouped** — the Like chip and its card were 270 px apart with empty sky
+  between them and the text card sitting on the horizon line.
+
+### Two guard boxes that disagreed with their own artwork
+
+The bucket's box was derived from `175 * scale * 0.72` while the pail was drawn at `scale * 1.05`,
+and the plus character's box repeated its placement arithmetic instead of sharing it. Both meant the
+art could be clipped or off-frame with the guard reporting nothing wrong — the character only
+surfaced because it happened to fail a *frame-bounds* check. Both now come from one function used by
+the drawing **and** the box (`bucketAt`/`bucketRect`, `plusAt`). **A guard box must be derived from
+the same numbers as the thing it guards, or it is guarding a different shape.**
+
+---
+
+## 4:5 review pass 1 (2026-08-06)
+
+| # | Note | What it actually was |
+|---|---|---|
+| 1 | Bottom-right umbrella is cut | I had pushed it to `x 1.02` to clear the character, which sliced it on the frame edge. **Dropped in portrait**: the bucket holds the bottom-left, the character the bottom-right, and there is no third corner. The starfish and shells carry the dressing in that cut — they are small and set away from the edges, so they cannot be cut. |
+| 2 | Question card not centred horizontally | Real, and 39 px. `left` positions the element at its NATURAL width and `SumCard` then scales about its own top-centre, so centring the **scaled** width pushed it right. The laid-out box has to be centred; the guard box stays the scaled one. |
+| 3 | Index finger shown for five, no thumb for the lower beads | The hands were listed **per phrase**, so the heaven bead got a finger on all six of its lines and thirteen lower-bead pushes got none — the identical failure to the missing bead arrows. Replaced with `handFor(p)`, derived from the move: earth up → **thumb**, earth down → index, heaven either way → index. |
+| 4 | Like-and-subscribe text card overlaying | `SubscribeCard` is TWO pills — Like and a red Subscribe — 246 px tall. My previous "regrouping" put the text card at 250 and it covered the Subscribe button completely. The closing beats are not registered with the overlap guard, which is why nothing caught it. |
+| 5 | Phone too narrow; "Vedaavi Learning Apps" on two lines | The 4:5 phone was 245 px in a 1080 frame — under a quarter of the width. Now 353. The developer line also gets `white-space: nowrap`, because no real store listing wraps it. |
+
+### The thumb cost the multi-bead arrows, briefly
+
+`BeadArrow` was suppressed whenever a hand was present, so the moment lower-bead lines gained a
+thumb, "push three more lower beads up" went from three arrows to one. Now that both draw the same
+glyph there is no reason to choose: `FingerHand` takes `showArrow={false}` under `beadArrows`, and
+every arrow in the frame comes from one place.
+
+That in turn revealed a third-order collision — the arrows run straight up the middle of the beads,
+which is exactly where the count badges sit. So **a badge now waits for its bead**: already-raised
+beads keep theirs from the first frame, arriving ones get theirs as they land, by which time the
+arrow has faded. Better teaching as well as a fix; a badge counting a bead that has not moved yet was
+premature either way. Gated on `colorOnArrival`, so E01 and E02 are untouched.
+
+**Both cuts were re-rendered** — items 3, and its two consequences, are shared logic, not 4:5 layout.
+
+### The parasol, again
+
+Reported as dropped in portrait; it was not. The scripted replacement matched nothing, the file went
+back unchanged, and I never checked — typecheck passes trivially when nothing changed, and world props
+are not registered with the overlap guard. Now gated on a real `!portrait` flag and verified in a
+rendered frame. See DESIGN_SYSTEM §8n.

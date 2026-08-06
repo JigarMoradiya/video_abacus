@@ -14,6 +14,7 @@
 // identical apart from a text label.
 
 import React from "react";
+import { MoveArrow } from "./MoveArrow";
 import { KID_FONT } from "../lib/fonts";
 
 export type Digit = "thumb" | "index";
@@ -38,28 +39,28 @@ export const FingerHand: React.FC<{
    *  with the abacus pinned to the centre in portrait, the right-reaching hand can carry
    *  the chip past the frame edge — the stage clamps it back over the fist/abacus. */
   chipShiftX?: number;
-}> = ({ digit, direction, x, y, opacity = 1, scale = 1, len, chipShiftX = 0 }) => {
-  const dir = direction === "up" ? -1 : 1;
-  // the head has to fit inside the travel, and the whole thing must not exceed it
-  const arrowLen = Math.max(18, len / scale - 34);
+  /**
+   * Draw the direction arrow. Default true, which is E01 and E02's shipped behaviour.
+   *
+   * An episode with `beadArrows` on turns this OFF, because then the arrows come from one place for
+   * every bead that moves. Left on, the hand drew an arrow for the bead it touches and BeadArrow was
+   * suppressed for all the others — so "push three more lower beads up" showed one arrow on a line
+   * where three beads travel.
+   */
+  showArrow?: boolean;
+}> = ({ digit, direction, x, y, opacity = 1, scale = 1, len, chipShiftX = 0, showArrow = true }) => {
+  const dir: 1 | -1 = direction === "up" ? -1 : 1;
+  // The whole arrow, head included, must fit inside the travel. MoveArrow subtracts its own head
+  // and applies the 18 px shaft floor, which is exactly what was inlined here before.
+  const arrowLen = len / scale;
   const isThumb = digit === "thumb";
 
   return (
     <g opacity={opacity} transform={`translate(${x},${y}) scale(${scale})`}>
-      {/* direction arrow on the bead */}
-      <line
-        x1={0}
-        y1={0}
-        x2={0}
-        y2={dir * arrowLen}
-        stroke="#0000EE"
-        strokeWidth={13}
-        strokeLinecap="round"
-      />
-      <polygon
-        points={`${-24},${dir * arrowLen} ${24},${dir * arrowLen} 0,${dir * (arrowLen + 34)}`}
-        fill="#0000EE"
-      />
+      {/* Direction arrow on the bead — the SHARED glyph. It used to be a flat #0000EE shaft
+          drawn here, which is why the arrow on a hand line looked nothing like the arrow on a
+          line without one. */}
+      {showArrow && <MoveArrow dir={dir} len={arrowLen} />}
 
       {/* the hand, entering from the right of the ones rod */}
       <g transform={`translate(120,${dir * 26})`}>
