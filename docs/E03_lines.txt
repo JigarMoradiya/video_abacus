@@ -1,0 +1,75 @@
+# E03 · Adding two numbers — narration, one continuous take.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+#
+# Warm, playful, unhurried. Short sentences — let each one land before the next.
+# Numbers are WORDS on purpose: the aligner matches them to the digits Whisper writes.
+
+# --- 1 · HOOK ---
+Last time we made every number from zero to nine.
+Today we put two numbers together.
+That is called adding.
+And the abacus makes it easy.
+
+# --- 2 · WHAT ADDING LOOKS LIKE ---
+Adding just means moving more beads to the beam.
+Start with your first number.
+Then push up as many beads as you need.
+The rod shows the answer all by itself.
+
+# --- 3 · ONE PLUS TWO ---
+# Count the run clearly and evenly — each number lands on its own bead.
+Let's try one plus two.
+First, push one lower bead up.
+That is one.
+Now push two more up.
+One, two.
+That is three. One plus two is three.
+
+# --- 4 · TWO PLUS TWO ---
+Now let's try two plus two.
+Start with two beads up.
+Push two more up.
+Now four beads are touching the beam.
+Two plus two is four.
+
+# --- 5 · THE LOWER-BEAD RULE ---
+Every lower bead you push up adds one.
+But there are only four of them.
+So the lower beads alone can make one, two, three or four.
+
+# --- 6 · THE UPPER BEAD ADDS FIVE ---
+To add five, we use the upper bead.
+Start with nothing.
+Push the upper bead down.
+That is five.
+One bead, one move.
+
+# --- 7 · FIVE PLUS ONE, FIVE PLUS FOUR ---
+Now five plus one.
+The upper bead is already down.
+Push one lower bead up.
+Five plus one is six.
+And five plus four.
+Push all four lower beads up.
+Five plus four is nine.
+
+# --- 8 · YOUR TURN ---
+# HOLD THREE FULL SECONDS OF SILENCE after the next line. Do not cut it short.
+Your turn. Five plus two.
+Push the upper bead down, then two lower beads up.
+That is seven.
+Nice work.
+
+# --- 9 · WHEN THE BEADS RUN OUT ---
+# Curious, not worried. This is a door being opened, not a problem.
+One more thing.
+Sometimes there is no room left for more lower beads.
+That is a trick for next time.
+
+# --- 10 · CLOSE ---
+# Four beats: practice -> like & subscribe -> download -> next video. No schedule promised.
+Now try it yourself. Add two small numbers on your abacus.
+If you liked this, tap like and subscribe for more.
+Search for abacus kids on the Apple App Store or Google Play.
+Download it free.
+See you in the next video, where we learn the trick for when the beads run out.
