@@ -31,7 +31,7 @@ import { Chip } from "../components/Sticker";
 import { SegPanel, cardHeight, segsLines, segsWidth } from "../components/Tooltip";
 import { WORLDS, type RigPalette } from "../data/theme";
 import { World } from "../components/World";
-import { BEAD_H, FPS, HEAVEN_H, PLACE_COLORS } from "../data/tokens";
+import { BEAD_H, FPS, HEAVEN_H, PLACE_COLORS, ROD_PITCH } from "../data/tokens";
 import { bob, pulse } from "../lib/motion";
 import { TYPE } from "../lib/fonts";
 import { sec, type Track, type TPhrase } from "../lib/timing";
@@ -549,6 +549,35 @@ export const SceneStage = <S extends Scene>({
         mayTouchAbacus: true,
       });
     }
+    // THE PLACE-VALUE CHIPS. `Abacus` draws them inside its own SVG, below and above the frame, so
+    // they extend past `box` — and nothing outside `Abacus` knew they were there. E04 shipped a frame
+    // with "1 · 10 · 100" half-hidden behind the caption pill because of it.
+    const chipRods = rods
+      .map((r, i) => (r.chipLower || r.chipUpper ? i : -1))
+      .filter((i) => i >= 0);
+    for (const i of chipRods) {
+      const cx = rodX(box, i);
+      if (rods[i].chipLower) {
+        out.push({
+          label: `chip${i}`,
+          r: { x: cx - (ROD_PITCH / 2 - 5) * scale, y: top + abacusH + 12 * scale, w: (ROD_PITCH - 10) * scale, h: 46 * scale },
+        });
+      }
+      if (rods[i].chipUpper) {
+        out.push({
+          label: `chipUp${i}`,
+          r: { x: cx - (ROD_PITCH / 2 - 5) * scale, y: top - (58 + 46) * scale, w: (ROD_PITCH - 10) * scale, h: 46 * scale },
+        });
+      }
+    }
+
+    // THE CAPTION BAND. It has never been a guard box, which is exactly why the chips could slide
+    // underneath it unnoticed: the check can only see what it is told about, and the caption is the
+    // one element on screen that every episode has on nearly every frame.
+    if (!scene.noCaption) {
+      out.push({ label: "caption", r: { x: 0, y: L.band.captionTop, w: L.W, h: L.band.captionBottom - L.band.captionTop } });
+    }
+
     return [...out, ...(boxesFor ? boxesFor(scene, ctx) : [])];
   })();
 
@@ -731,17 +760,29 @@ export const SceneStage = <S extends Scene>({
           height={L.H}
           style={{ position: "absolute", inset: 0, overflow: "visible" }}
         >
-          <BeadArrow
-            box={box}
-            rod={targetRod}
-            from={rods[targetRod]?.from ?? 0}
-            to={rods[targetRod]?.value ?? 0}
-            settle={settle}
-          />
+          {/* Every rod whose value changed gets arrows, not just `targetRod`. Same blind spot as the
+              hand: with one live rod the two were the same thing. E04's p48 sets three rods in one
+              sentence, and each of them has to show which beads are about to move. */}
+          {rods.map((r, i) =>
+            (r.from ?? r.value) === r.value ? null : (
+              <BeadArrow
+                key={`ba${i}`}
+                box={box}
+                rod={i}
+                from={r.from ?? 0}
+                to={r.value}
+                settle={settle}
+              />
+            )
+          )}
         </svg>
       )}
 
-      {/* the hand, over the ones rod */}
+      {/* The hand, over the rod it is actually touching. It used to be pinned to `onesCx`, which was
+          invisibly correct for three episodes because nothing but the ones rod ever moved — and
+          wrong the moment E04 pushed a bead on the tens rod: the finger stayed on the ones rod while
+          a bead rose two columns away. `handAnchor` already took the hand's own rod for its y and
+          its travel; only x was hard-coded. */}
       {scene.hand && (
         <svg
           width={L.W}
@@ -760,7 +801,7 @@ export const SceneStage = <S extends Scene>({
                 digit={scene.hand.digit}
                 direction={scene.hand.direction}
                 scale={scale * 0.82}
-                x={onesCx}
+                x={rodX(box, scene.hand.rod)}
                 y={y}
                 len={len}
                 chipShiftX={-chipOverhang(rodX(box, scene.hand.rod), scene.hand.direction) / (scale * 0.82)}
@@ -1017,6 +1058,8 @@ export const SceneStage = <S extends Scene>({
           H={L.H}
           cx={box.left + box.w / 2}
           cy={box.top + box.h / 2}
+          rx={box.w / 2}
+          ry={box.h / 2}
         />
       )}
 

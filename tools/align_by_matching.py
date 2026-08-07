@@ -72,6 +72,29 @@ def canon(text: str) -> str:
     return NUM_WORDS.get(n, n)
 
 
+
+def script_tokens(phrase: str) -> list[str]:
+    """Split a phrase into the tokens the ASR will produce, not the ones the page shows.
+
+    Whitespace alone is not enough once numbers get past nine. `norm()` strips the hyphen, so
+    "twenty-three" collapses to "twentythree", which is in no lookup table — while Whisper emits it
+    as two words, "twenty" and "three". One token against two never matches, and the number words
+    are precisely the beats a bead move is timed to (E02: 1 of 51 matched before `canon()` existed).
+
+    So a hyphenated token is split when EVERY part is a number word. Only then: splitting every
+    hyphen would break ordinary compounds, and the point is to mirror the ASR, not to tidy the text.
+    The caption still renders from the phrase's own `text`, so nothing the viewer reads changes.
+    """
+    out: list[str] = []
+    for w in phrase.split():
+        parts = w.split("-")
+        numeric = len(parts) > 1 and all(canon(p) != norm(p) for p in parts if norm(p))
+        for piece in (parts if numeric else [w]):
+            if norm(piece):
+                out.append(piece)
+    return out
+
+
 def read_lines(path: Path) -> list[str]:
     out = []
     for raw in path.read_text(encoding="utf-8").splitlines():
@@ -180,10 +203,9 @@ def main() -> int:
     # flat script word list, remembering which phrase each word belongs to
     script_words, owner = [], []
     for pi, ph in enumerate(phrases):
-        for w in ph.split():
-            if norm(w):
-                script_words.append(w)
-                owner.append(pi)
+        for w in script_tokens(ph):
+            script_words.append(w)
+            owner.append(pi)
 
     matched = align(script_words, asr)
     hit = sum(1 for m in matched if m)

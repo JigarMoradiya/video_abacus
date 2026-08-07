@@ -37,10 +37,12 @@ export const Celebrate: React.FC<{
   fps: number;
   W: number;
   H: number;
-  /** where the burst comes FROM — the abacus, not the middle of the frame */
+  /** the abacus's centre AND its half-extents: every particle starts on this outline */
   cx: number;
   cy: number;
-}> = ({ kind, progress, frame, fps, W, H, cx, cy }) => {
+  rx: number;
+  ry: number;
+}> = ({ kind, progress, frame, fps, W, H, cx, cy, rx, ry }) => {
   const t = frame / fps;
 
   if (kind === "party") {
@@ -78,62 +80,92 @@ export const Celebrate: React.FC<{
   });
   if (p >= 1 || progress < 0) return null;
 
-  const ring = interpolate(p, [0, 1], [40, 520]);
-  const ringFade = interpolate(p, [0, 0.35, 1], [0, 0.5, 0]);
-  const rayLen = interpolate(p, [0, 0.4, 1], [20, 150, 96]);
-  const rayFade = interpolate(p, [0, 0.25, 0.8], [0, 0.85, 0]);
+  // The burst happens AROUND the abacus, never across it.
+  //
+  // The first version fired twelve long gold rays and a cloud of confetti out of the frame's centre,
+  // which is exactly where the beads are — so the reward covered the answer it was rewarding. Every
+  // particle now STARTS on the instrument's outline and travels away from it, and the rays are gone.
+  // What is left reads as a pop around the abacus and leaves the beads readable throughout.
+  const edge = (a: number) => ({ x: cx + Math.cos(a) * rx, y: cy + Math.sin(a) * ry });
+  const glow = interpolate(p, [0, 0.25, 0.9], [0, 0.3, 0]);
 
   return (
     <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ position: "absolute" }}>
-      <circle
-        cx={cx}
-        cy={cy}
-        r={ring}
-        fill="none"
-        stroke="#FFFFFF"
-        strokeWidth={interpolate(p, [0, 1], [22, 3])}
-        opacity={ringFade}
-      />
-      <g transform={`translate(${cx},${cy}) rotate(${p * 30})`} opacity={rayFade}>
-        {Array.from({ length: 12 }, (_, i) => (
-          <rect
-            key={i}
-            x={-6}
-            y={-(160 + rayLen)}
-            width={12}
-            height={rayLen}
-            rx={6}
-            fill="#FFD166"
-            transform={`rotate(${i * 30})`}
-          />
-        ))}
-      </g>
+      <defs>
+        <radialGradient id="celebGlow">
+          <stop offset="55%" stopColor="#FFE9A8" stopOpacity={0} />
+          <stop offset="88%" stopColor="#FFD166" stopOpacity={0.9} />
+          <stop offset="100%" stopColor="#FFD166" stopOpacity={0} />
+        </radialGradient>
+      </defs>
 
-      {/* Confetti thrown outward and then falling — a burst, not a shower. Gravity is what
-          makes it read as thrown rather than as an expanding circle. */}
-      {Array.from({ length: 34 }, (_, i) => {
-        const a = rand(i + 1) * Math.PI * 2;
-        const speed = 300 + rand(i + 61) * 460;
+      {/* A soft bloom hugging the outline — the "ta-da" that costs the beads nothing */}
+      <ellipse cx={cx} cy={cy} rx={rx * 1.28} ry={ry * 1.34} fill="url(#celebGlow)" opacity={glow} />
+
+      {/* NO RING. It survived the rewrite that removed the rays, and it was the same mistake: an
+          expanding outline is only outside the instrument if the instrument is wide and short. In the
+          4:5 cut the abacus is nearly square and fills the frame, so the ring swelled straight across
+          the beads. The glow, the thrown confetti and the corner sparkles are the celebration; the
+          ring was a big white line over the answer. */}
+      {/* Confetti launched FROM the outline, outward, then falling. Nothing is ever inside the
+          panel, so the answer stays legible while the frame celebrates it. */}
+      {Array.from({ length: 40 }, (_, i) => {
+        const a = (i / 40) * Math.PI * 2 + rand(i + 1) * 0.3;
+        const start = edge(a);
+        const speed = 220 + rand(i + 61) * 380;
         const d = p * speed;
-        const x = cx + Math.cos(a) * d;
-        const y = cy + Math.sin(a) * d * 0.72 + p * p * 320;
-        const rot = p * (360 + rand(i + 91) * 540) + i * 23;
-        const fade = interpolate(p, [0, 0.15, 0.82, 1], [0, 1, 1, 0]);
+        const x = start.x + Math.cos(a) * d;
+        const y = start.y + Math.sin(a) * d + p * p * 300;
+        const rot = p * (300 + rand(i + 91) * 520) + i * 23;
+        const fade = interpolate(p, [0, 0.12, 0.8, 1], [0, 1, 1, 0]);
+        const long = i % 4 === 0;
         return (
           <rect
             key={i}
             x={x}
             y={y}
-            width={14}
-            height={22}
+            width={long ? 9 : 14}
+            height={long ? 30 : 20}
             rx={4}
             fill={CONFETTI[i % CONFETTI.length]}
-            transform={`rotate(${rot} ${x + 7} ${y + 11})`}
+            transform={`rotate(${rot} ${x + 7} ${y + 10})`}
             opacity={fade}
           />
         );
       })}
 
+      {/* Four sparkles popping just off the corners of the frame — small, brief, outside */}
+      {[
+        [-1, -1],
+        [1, -1],
+        [-1, 1],
+        [1, 1],
+      ].map(([sx, sy], i) => {
+        const px = cx + sx * rx * 1.06;
+        const py = cy + sy * ry * 1.06;
+        const k = interpolate(p, [0.04 + i * 0.05, 0.26 + i * 0.05, 0.6], [0, 1, 0], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        });
+        if (k <= 0.01) return null;
+        const r = 16 + k * 26;
+        return (
+          <g key={`sp${i}`} opacity={k} transform={`translate(${px},${py}) rotate(${i * 22})`}>
+            {[0, 45, 90, 135].map((ang) => (
+              <rect
+                key={ang}
+                x={-2.5}
+                y={-r}
+                width={5}
+                height={r * 2}
+                rx={2.5}
+                fill="#FFE9A8"
+                transform={`rotate(${ang})`}
+              />
+            ))}
+          </g>
+        );
+      })}
       {/* NO stars. There were four, out in the gutters — and the gutters are exactly where the
           bucket and the plus character live, so the reward covered the props. Moving them
           anywhere else put them back over the beads. The ring, the rays and the thrown confetti

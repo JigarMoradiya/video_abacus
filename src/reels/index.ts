@@ -3,7 +3,12 @@
 import React from "react";
 import { E01MeetTheAbacus, E01_DURATION } from "./e01_meet_the_abacus";
 import { E02Numbers0To9, E02_DURATION } from "./e02_numbers_0_to_9";
+import { E04BiggerNumbers, E04_DURATION } from "./e04_bigger_numbers";
 import { E03AddingTwoNumbers, E03_DURATION } from "./e03_adding_two_numbers";
+import {
+  ThumbE01, ThumbE02, ThumbE03, ThumbE04,
+  ThumbE01V, ThumbE02V, ThumbE03V, ThumbE04V,
+} from "./thumbnails";
 import { W, H } from "../data/tokens";
 
 export interface ReelEntry {
@@ -55,10 +60,81 @@ export const REELS: ReelEntry[] = [
     height: H,
   },
   {
+    id: "bigger-numbers",
+    component: E04BiggerNumbers,
+    durationInFrames: E04_DURATION,
+    width: W,
+    height: H,
+  },
+  {
+    id: "bigger-numbers-4x5",
+    component: E04BiggerNumbers,
+    durationInFrames: E04_DURATION,
+    width: 1080,
+    height: 1350,
+  },
+  {
     id: "adding-two-numbers-4x5",
     component: E03AddingTwoNumbers,
     durationInFrames: E03_DURATION,
     width: 1080,
     height: 1350,
+  },
+
+  {
+    id: "thumb-e01",
+    component: ThumbE01,
+    durationInFrames: 200,
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: "thumb-e01-9x16",
+    component: ThumbE01V,
+    durationInFrames: 200,
+    width: 1080,
+    height: 1920,
+  },
+  {
+    id: "thumb-e02",
+    component: ThumbE02,
+    durationInFrames: 200,
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: "thumb-e02-9x16",
+    component: ThumbE02V,
+    durationInFrames: 200,
+    width: 1080,
+    height: 1920,
+  },
+  {
+    id: "thumb-e03",
+    component: ThumbE03,
+    durationInFrames: 200,
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: "thumb-e03-9x16",
+    component: ThumbE03V,
+    durationInFrames: 200,
+    width: 1080,
+    height: 1920,
+  },
+  {
+    id: "thumb-e04",
+    component: ThumbE04,
+    durationInFrames: 200,
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: "thumb-e04-9x16",
+    component: ThumbE04V,
+    durationInFrames: 200,
+    width: 1080,
+    height: 1920,
   },
 ];

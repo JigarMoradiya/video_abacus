@@ -1,0 +1,223 @@
+1
+00:00:00,000 --> 00:00:07,100
+Last time, we added two numbers on one rod, but one rod can only show up to nine.
+
+2
+00:00:08,220 --> 00:00:11,100
+So what do we do when a number is bigger than nine?
+
+3
+00:00:12,460 --> 00:00:14,160
+That's what the other rods are for.
+
+4
+00:00:15,180 --> 00:00:20,100
+On an abacus this size, the ones rod is the one on the far right.
+
+5
+00:00:21,040 --> 00:00:25,200
+On a much bigger abacus, the ones rod sits in the middle instead.
+
+6
+00:00:25,820 --> 00:00:28,060
+We saw that in the first video.
+
+7
+00:00:29,120 --> 00:00:32,700
+Now look at the rod just to the left of the ones rod.
+
+8
+00:00:33,500 --> 00:00:35,460
+That one is the tens rod.
+
+9
+00:00:36,460 --> 00:00:40,500
+Every bead on the tens rod is worth ten, not one.
+
+10
+00:00:41,780 --> 00:00:42,940
+Let's make ten.
+
+11
+00:00:44,380 --> 00:00:46,980
+Push one lower bead up on the tens rod.
+
+12
+00:00:48,060 --> 00:00:49,940
+Leave the ones rod at zero.
+
+13
+00:00:51,200 --> 00:00:56,420
+One bead on the tens rod is one ten, and one ten is ten.
+
+14
+00:00:58,060 --> 00:00:59,740
+Now let's make twenty-three.
+
+15
+00:01:00,980 --> 00:01:04,320
+On the tens rod, push two lower beads up.
+
+16
+00:01:05,400 --> 00:01:09,580
+Two beads on the tens rod is two tens, which is twenty.
+
+17
+00:01:10,980 --> 00:01:14,620
+Now on the ones rod, push three lower beads up.
+
+18
+00:01:15,520 --> 00:01:16,760
+That is three ones.
+
+19
+00:01:18,120 --> 00:01:20,180
+Twenty and three is twenty-three.
+
+20
+00:01:21,700 --> 00:01:24,900
+Here's how to read any number on two rods.
+
+21
+00:01:26,140 --> 00:01:27,620
+Read the tens rod first.
+
+22
+00:01:28,480 --> 00:01:30,400
+Then read the ones rod.
+
+23
+00:01:31,800 --> 00:01:33,620
+Let's try fifty-six.
+
+24
+00:01:35,140 --> 00:01:37,840
+On the tens rod, push the upper bead down.
+
+25
+00:01:38,880 --> 00:01:43,820
+The upper bead on the tens rod is worth five tens, which is fifty.
+
+26
+00:01:45,260 --> 00:01:48,660
+On the ones rod, push the upper bead down for five.
+
+27
+00:01:49,500 --> 00:01:52,520
+Then push one lower bead up for one.
+
+28
+00:01:53,620 --> 00:01:55,200
+That makes six ones.
+
+29
+00:01:56,560 --> 00:01:58,780
+Fifty and six is fifty-six.
+
+30
+00:02:00,220 --> 00:02:03,220
+What's the biggest number that two rods can show?
+
+31
+00:02:04,280 --> 00:02:09,980
+On the tens rod, push the upper bead down and all four lower beads up.
+
+32
+00:02:11,180 --> 00:02:13,780
+That is nine tens, which is ninety.
+
+33
+00:02:15,220 --> 00:02:18,140
+Now do exactly the same on the ones rod.
+
+34
+00:02:19,460 --> 00:02:20,600
+That is nine ones.
+
+35
+00:02:22,060 --> 00:02:24,260
+Ninety and nine is ninety-nine.
+
+36
+00:02:25,460 --> 00:02:29,440
+Ninety-nine is the biggest number that two rods can show.
+
+37
+00:02:30,780 --> 00:02:36,360
+So with two rods, you can make every number from zero to ninety-nine.
+
+38
+00:02:37,460 --> 00:02:39,700
+That's one hundred different numbers.
+
+39
+00:02:41,260 --> 00:02:42,820
+Now it's your turn.
+
+40
+00:02:44,060 --> 00:02:48,220
+The tens rod shows three, and the ones rod shows eight.
+
+41
+00:02:49,380 --> 00:02:50,500
+What number is that?
+
+42
+00:02:53,000 --> 00:02:54,820
+Three tens is thirty.
+
+43
+00:02:55,720 --> 00:02:57,720
+Eight ones is eight.
+
+44
+00:02:58,720 --> 00:03:01,200
+Thirty and eight is thirty-eight.
+
+45
+00:03:02,300 --> 00:03:03,300
+Great job!
+
+46
+00:03:04,720 --> 00:03:06,660
+And it doesn't stop at two rods.
+
+47
+00:03:07,840 --> 00:03:10,680
+The next rod to the left is the hundreds rod.
+
+48
+00:03:11,880 --> 00:03:14,980
+Every bead on that rod is worth one hundred.
+
+49
+00:03:16,340 --> 00:03:22,800
+Two beads on the hundreds rod, four on the tens rod, and seven on the ones rod.
+
+50
+00:03:23,600 --> 00:03:26,040
+Two hundred, forty-seven.
+
+51
+00:03:27,140 --> 00:03:33,060
+Every time you move one rod to the left, each bead is worth ten times more.
+
+52
+00:03:34,660 --> 00:03:38,200
+Now try making some big numbers on your own abacus.
+
+53
+00:03:39,060 --> 00:03:43,420
+If you enjoyed this video, please like and subscribe for more.
+
+54
+00:03:44,600 --> 00:03:48,720
+Search for abacus kids on the Apple App Store or Google Play.
+
+55
+00:03:49,480 --> 00:03:50,580
+Download it free.
+
+56
+00:03:51,620 --> 00:03:57,140
+See you in the next video where we learn how to take numbers away on the abacus.

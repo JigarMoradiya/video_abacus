@@ -60,7 +60,16 @@ at E03. Two-digit and three-digit numbers become **E04**, and the small-friend t
 |---|---|---|
 | E03 | adding two numbers, direct only | L2 Ch 1-2 |
 | **E04** | **tens and hundreds — setting and reading bigger numbers** | **L1 Lesson 4 + 5** |
-| E05 | the small-friend trick, when the lower beads run out | L2 Ch 5-6 |
+| E05 | taking away on the ones rod — direct subtraction | L2 Ch 3-4 |
+| E06 | adding AND subtracting across two rods | L2 Ch 1-4, two-rod |
+| E07 | the small-friend trick, when the lower beads run out | L2 Ch 5-6 |
+
+**Order revised 2026-08-06 (user call).** The trick was going to be E05. Subtraction now comes
+first, on one rod, and then a combined two-rod add/subtract episode, before any formula. The
+reason is the same one that moved place value ahead of the trick: a complement is a *repair* for a
+move you already know how to make, so a child who has never taken beads away has nothing to repair.
+E03's recorded close says the trick is coming "very soon" — vague enough to survive three episodes,
+and E03 is shipped, so it stands.
 
 So line 47 says the trick is coming *soon*, not next, and the closing teaser points at bigger
 numbers.

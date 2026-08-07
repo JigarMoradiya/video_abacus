@@ -80,27 +80,35 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
             );
           })}
 
+        {/* A REAL sun: a bright core, a soft corona and a wide atmospheric bloom, breathing very
+            slightly. It used to be a disc with twelve rotating spokes — a child's drawing of a sun,
+            which fought the rest of the art rather than sitting behind it. */}
         {w.sun && (
           <g>
-            <circle cx={W * 0.09} cy={H * 0.14} r={92} fill="url(#sunG)" />
-            {Array.from({ length: 12 }, (_, i) => {
-              const a = (i / 12) * Math.PI * 2 + t * 0.12;
-              const r1 = 108;
-              const r2 = 108 + 34 + Math.sin(t * 1.4 + i) * 8;
+            <defs>
+              <radialGradient id="sunReal">
+                <stop offset="0%" stopColor="#FFFFFF" stopOpacity={1} />
+                <stop offset="38%" stopColor="#FFF6C8" stopOpacity={0.98} />
+                <stop offset="62%" stopColor="#FFD873" stopOpacity={0.75} />
+                <stop offset="100%" stopColor="#FFC24E" stopOpacity={0} />
+              </radialGradient>
+              <radialGradient id="sunBloom">
+                <stop offset="0%" stopColor="#FFE9A8" stopOpacity={0.5} />
+                <stop offset="100%" stopColor="#FFE9A8" stopOpacity={0} />
+              </radialGradient>
+            </defs>
+            {(() => {
+              const sx = W * 0.11;
+              const sy = H * 0.15;
+              const breathe = 1 + Math.sin(t * 0.5) * 0.015;
               return (
-                <line
-                  key={i}
-                  x1={W * 0.09 + Math.cos(a) * r1}
-                  y1={H * 0.14 + Math.sin(a) * r1}
-                  x2={W * 0.09 + Math.cos(a) * r2}
-                  y2={H * 0.14 + Math.sin(a) * r2}
-                  stroke="#FFD54F"
-                  strokeWidth={9}
-                  strokeLinecap="round"
-                  opacity={0.85}
-                />
+                <g transform={`translate(${sx},${sy}) scale(${breathe})`}>
+                  <circle r={300} fill="url(#sunBloom)" />
+                  <circle r={150} fill="url(#sunReal)" />
+                  <circle r={70} fill="#FFFDF0" opacity={0.95} />
+                </g>
               );
-            })}
+            })()}
           </g>
         )}
 
@@ -233,7 +241,8 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
               const sc = (1.15 + rand(i + 61) * 0.6) * (H > W ? 0.82 : 1);
               // tail beat
               const wag = Math.sin(t * 7 + i * 1.9) * 9;
-              const col = ["#FFC244", "#FF8A4C", "#FFE08A", "#F4A259", "#FFD166"][i % 5];
+              const shoal = w.fishInk ?? ["#FFC244", "#FF8A4C", "#FFE08A", "#F4A259", "#FFD166"];
+              const col = shoal[i % shoal.length];
               return (
                 <g
                   key={`fi${i}`}
@@ -419,6 +428,129 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
               </g>
             );
           })}
+
+        {/* ------------------------------------------------------------------ city
+            Two parallax rows of towers on a ground band, with a lit-window grid. ONE drawing for
+            the whole of E04: the world gets from dawn to full night by turning `windows` up, which
+            is also the episode's idea — the city fills as the numbers grow.
+
+            The towers are derived from `rand(i)` rather than authored, so no two are the same width
+            or height, and the far row is both shorter and desaturated by sitting behind. */}
+        {w.skyline && (() => {
+          const sk = w.skyline;
+          const groundY = H * sk.at;
+          const row = (
+            seed: number,
+            fill: string,
+            maxH: number,
+            step: number,
+            lit: boolean
+          ) => {
+            const out: React.ReactNode[] = [];
+            let x = -40;
+            for (let i = 0; x < W + 40; i++) {
+              const bw = step * (0.72 + rand(seed + i * 3) * 0.7);
+              const bh = maxH * (0.34 + rand(seed + i * 7 + 1) * 0.66);
+              const top = groundY - bh;
+              out.push(<rect key={`t${seed}${i}`} x={x} y={top} width={bw} height={bh} fill={fill} />);
+              if (lit) {
+                // window grid, inset from the tower edges. A window is ON when its own hash falls
+                // under the world's `windows` level, so the same tower lights up progressively
+                // across the episode instead of flickering randomly per world.
+                const cols = Math.max(1, Math.floor((bw - 16) / 22));
+                const rows = Math.max(1, Math.floor((bh - 18) / 26));
+                for (let c = 0; c < cols; c++) {
+                  for (let r = 0; r < rows; r++) {
+                    const h = rand(seed * 31 + i * 97 + c * 13 + r * 7 + 5);
+                    if (h > sk.windows) continue;
+                    // a slow twinkle, so the city is never a frozen image
+                    // Held well under half strength. A window is a 11x14 rectangle at high
+                    // contrast, and a few hundred of them read as a texture that competes with the
+                    // beads — the background was winning the frame.
+                    const flick = 0.3 + 0.16 * Math.abs(Math.sin(t * 0.35 + h * 9));
+                    out.push(
+                      <rect
+                        key={`w${seed}${i}${c}${r}`}
+                        x={x + 10 + c * 22}
+                        y={top + 12 + r * 26}
+                        width={11}
+                        height={14}
+                        rx={2}
+                        fill={sk.lit}
+                        opacity={flick}
+                      />
+                    );
+                  }
+                }
+              }
+              x += bw + 4 + rand(seed + i * 11 + 2) * 10;
+            }
+            return out;
+          };
+          return (
+            <g>
+              {/* far row: shorter, no windows, so it reads as distance */}
+              <g opacity={0.42}>{row(3, sk.far, H * 0.3, 118, false)}</g>
+              <g opacity={0.8}>{row(41, sk.near, H * 0.46, 152, true)}</g>
+              {/* ground, with a lit kerb line where it meets the towers */}
+              <rect x={0} y={groundY} width={W} height={H - groundY + 2} fill={sk.ground} />
+              <rect x={0} y={groundY} width={W} height={4} fill={sk.lit} opacity={0.2} />
+              {/* street lamps along the kerb, dimmer by day */}
+              {Array.from({ length: Math.ceil(W / 260) + 1 }, (_, i) => {
+                const lx = 70 + i * 260;
+                return (
+                  <g key={`lamp${i}`} opacity={0.2 + sk.windows * 0.3}>
+                    <rect x={lx - 2} y={groundY - 74} width={4} height={74} fill={sk.lit} opacity={0.5} />
+                    <circle cx={lx} cy={groundY - 78} r={7} fill={sk.lit} />
+                    <circle cx={lx} cy={groundY - 78} r={16} fill={sk.lit} opacity={0.14} />
+                  </g>
+                );
+              })}
+            </g>
+          );
+        })()}
+
+        {/* A tower crane. It swings slowly through a small arc and its hook rides up and down —
+            the only moving machine in the series, and it says "more towers are going up", which is
+            what "that is what the other rods are for" means. */}
+        {w.crane && w.skyline && (() => {
+          const bx = W * 0.14;
+          const by = H * w.skyline.at;
+          const mastTop = by - H * 0.42;
+          const swing = Math.sin(t * 0.22) * 7;
+          const hook = mastTop + 40 + (Math.sin(t * 0.5) * 0.5 + 0.5) * (by - mastTop - 120);
+          const jib = W * 0.2;
+          return (
+            <g stroke="#8FA3B0" strokeWidth={5} fill="none" strokeLinecap="round" opacity={0.7}>
+              <line x1={bx} y1={by} x2={bx} y2={mastTop} />
+              {/* mast lattice */}
+              {Array.from({ length: 9 }, (_, i) => {
+                const y0 = mastTop + ((by - mastTop) / 9) * i;
+                const y1 = mastTop + ((by - mastTop) / 9) * (i + 1);
+                return <line key={`m${i}`} x1={bx - 11} y1={y0} x2={bx + 11} y2={y1} strokeWidth={3} />;
+              })}
+              <line x1={bx - 11} y1={by} x2={bx - 11} y2={mastTop} strokeWidth={3} />
+              <line x1={bx + 11} y1={by} x2={bx + 11} y2={mastTop} strokeWidth={3} />
+              <g transform={`rotate(${swing} ${bx} ${mastTop})`}>
+                <line x1={bx - jib * 0.3} y1={mastTop} x2={bx + jib} y2={mastTop} />
+                <line x1={bx - jib * 0.3} y1={mastTop - 26} x2={bx + jib * 0.55} y2={mastTop - 26} strokeWidth={3} />
+                <line x1={bx} y1={mastTop - 30} x2={bx} y2={mastTop} strokeWidth={3} />
+                <line x1={bx + jib * 0.55} y1={mastTop - 26} x2={bx + jib} y2={mastTop} strokeWidth={3} />
+                <line x1={bx + jib * 0.78} y1={mastTop} x2={bx + jib * 0.78} y2={hook} strokeWidth={2.5} />
+                <rect
+                  x={bx + jib * 0.78 - 15}
+                  y={hook}
+                  width={30}
+                  height={20}
+                  rx={4}
+                  fill="#E8A33A"
+                  stroke="#8A5F14"
+                  strokeWidth={3}
+                />
+              </g>
+            </g>
+          );
+        })()}
 
         {/* rolling hills */}
         {w.hills && w.ground && (

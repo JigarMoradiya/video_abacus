@@ -1,0 +1,313 @@
+
+<style>
+  :root {
+    --ground: #FFFDF9;
+    --panel: #F4EFE4;
+    --panel-2: #ECE4D5;
+    --ink: #17262E;
+    --ink-2: #4C6068;
+    --ink-3: #7C8C92;
+    --rule: #E0D6C4;
+    --rod: #C3A587;
+    --beam: #5A4030;
+    --bead: #DD4A20;
+    --bead-off: #C3CFD5;
+    --sea: #0C838C;
+    --shadow: 18 38 46;
+    --display: ui-rounded, "SF Pro Rounded", "Hiragino Maru Gothic ProN", "Avenir Next", Avenir, "Segoe UI", system-ui, sans-serif;
+    --body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #10171B;
+      --panel: #182228;
+      --panel-2: #1F2B32;
+      --ink: #E9F1F3;
+      --ink-2: #A3B6BD;
+      --ink-3: #74878F;
+      --rule: #2A3841;
+      --rod: #A98668;
+      --beam: #B08A63;
+      --bead: #FF7043;
+      --bead-off: #46565F;
+      --sea: #35C4CB;
+      --shadow: 0 0 0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #10171B; --panel: #182228; --panel-2: #1F2B32;
+    --ink: #E9F1F3; --ink-2: #A3B6BD; --ink-3: #74878F; --rule: #2A3841;
+    --rod: #A98668; --beam: #B08A63; --bead: #FF7043; --bead-off: #46565F; --sea: #35C4CB;
+    --shadow: 0 0 0;
+  }
+  :root[data-theme="light"] {
+    --ground: #FFFDF9; --panel: #F4EFE4; --panel-2: #ECE4D5;
+    --ink: #17262E; --ink-2: #4C6068; --ink-3: #7C8C92; --rule: #E0D6C4;
+    --rod: #C3A587; --beam: #5A4030; --bead: #DD4A20; --bead-off: #C3CFD5; --sea: #0C838C;
+    --shadow: 18 38 46;
+  }
+
+  body { background: var(--ground); color: var(--ink); font-family: var(--body); }
+  .top, section, .foot {
+    max-width: 60rem; margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+  h1, h2, h3 { font-family: var(--display); text-wrap: balance; letter-spacing: -0.015em; }
+
+  /* ---------------------------------------------------------------- masthead */
+  .top { padding-block: clamp(2.5rem, 7vw, 4.5rem) 1rem; display: flex; flex-direction: column; gap: 1rem; }
+  .eyebrow {
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink-3); margin: 0;
+  }
+  .top h1 { font-size: clamp(2.4rem, 7vw, 4rem); line-height: 1; margin: 0; font-weight: 700; }
+  .lede { max-width: 46ch; font-size: 1.08rem; line-height: 1.6; color: var(--ink-2); margin: 0; }
+  .stats { display: flex; flex-wrap: wrap; gap: clamp(1.5rem, 5vw, 3rem); margin-top: 0.5rem; }
+  .stats > div { display: flex; flex-direction: column; }
+  .fig {
+    font-family: var(--display); font-size: 2rem; font-weight: 700; line-height: 1;
+    font-variant-numeric: tabular-nums; color: var(--bead);
+  }
+  .cap {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--ink-3); margin-top: 0.35rem;
+  }
+  .jump { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+  .jump a {
+    display: inline-flex; align-items: baseline; gap: 0.45rem; text-decoration: none;
+    color: var(--ink); background: var(--panel); border: 1px solid var(--rule);
+    border-radius: 999px; padding: 0.4rem 0.85rem; font-size: 0.9rem;
+  }
+  .jump a:hover { border-color: var(--bead); color: var(--bead); }
+  .jump a:focus-visible { outline: 2px solid var(--bead); outline-offset: 2px; }
+  .k {
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--ink-3);
+  }
+  .jump a:hover .k { color: var(--bead); }
+
+  /* ---------------------------------------------------------------- booth notes */
+  .booth {
+    padding-block: 1.5rem; margin-block: 1.5rem 3rem;
+  }
+  .booth h2 { font-size: 1.05rem; margin: 0 0 0.9rem; color: var(--ink-2); font-weight: 600; }
+  .booth ul {
+    margin: 0; padding: 1.25rem 1.35rem 1.25rem 2.6rem; list-style: none;
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 14px;
+    display: flex; flex-direction: column; gap: 0.75rem;
+    max-width: 62ch; line-height: 1.6; font-size: 0.98rem;
+  }
+  .booth li { position: relative; }
+  .booth li::before {
+    content: ""; position: absolute; left: -1.35rem; top: 0.55rem;
+    width: 9px; height: 9px; border-radius: 50%; background: var(--rod);
+  }
+  .booth strong { font-weight: 650; }
+  code {
+    font-family: var(--mono); font-size: 0.86em; background: var(--panel-2);
+    padding: 0.1em 0.4em; border-radius: 5px;
+  }
+
+  /* ---------------------------------------------------------------- episode */
+  .ep { padding-block: 2rem 3.5rem; }
+  .ephead {
+    display: grid; grid-template-columns: auto 1fr auto; gap: 1.25rem; align-items: start;
+    padding-bottom: 1.25rem; border-bottom: 2px solid var(--rule);
+  }
+  .rod { width: 30px; height: 76px; flex: none; margin-top: 0.35rem; }
+  .epmeta { min-width: 0; }
+  .epmeta h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin: 0.15rem 0 0.35rem; line-height: 1.05; }
+  .teaches { margin: 0; color: var(--ink-2); font-size: 0.98rem; line-height: 1.5; max-width: 48ch; }
+  .epfacts { display: flex; flex-direction: column; align-items: flex-end; gap: 0.45rem; text-align: right; }
+  .chip {
+    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.3rem 0.6rem; border-radius: 999px; white-space: nowrap;
+  }
+  .chip.shipped { background: color-mix(in srgb, var(--sea) 16%, transparent); color: var(--sea); }
+  .chip.record { background: var(--bead); color: #fff; }
+  .fact {
+    font-family: var(--mono); font-size: 0.74rem; color: var(--ink-3); white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .fact b { color: var(--ink); font-weight: 600; }
+
+  /* ---------------------------------------------------------------- the script itself */
+  .script { margin-top: 1.75rem; }
+  .beat {
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-3); font-weight: 500; margin: 2rem 0 0.85rem; padding-left: 3.25rem;
+    position: relative;
+  }
+  .beat::before {
+    content: ""; position: absolute; left: 0; top: 0.52em; width: 2.5rem; height: 2px;
+    background: var(--rod);
+  }
+  .beat:first-child { margin-top: 0; }
+  .line, .pause { display: grid; grid-template-columns: 3.25rem 1fr; align-items: baseline; }
+  .line { padding-block: 0.28rem; }
+  .num {
+    font-family: var(--mono); font-size: 0.78rem; color: var(--ink-3);
+    font-variant-numeric: tabular-nums; user-select: none;
+  }
+  .say {
+    font-size: clamp(1.05rem, 1.6vw, 1.22rem); line-height: 1.68; max-width: 58ch;
+    text-wrap: pretty;
+  }
+  .line:hover .num { color: var(--bead); }
+  .pause { padding-block: 0.7rem; }
+  .pausechip {
+    display: inline-block; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em;
+    color: var(--bead); border: 1px dashed var(--bead); border-radius: 8px;
+    padding: 0.3rem 0.6rem; background: color-mix(in srgb, var(--bead) 8%, transparent);
+  }
+
+  /* ---------------------------------------------------------------- upcoming */
+  .next { padding-block: 2rem 1rem; border-top: 2px solid var(--rule); }
+  .next h2 { font-size: 1.05rem; margin: 0 0 1rem; color: var(--ink-2); font-weight: 600; }
+  .upcoming { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+  .upcoming li {
+    display: grid; grid-template-columns: 3.25rem minmax(0, 12rem) 1fr; gap: 0.75rem;
+    align-items: baseline; padding-block: 0.55rem; border-bottom: 1px solid var(--rule);
+  }
+  .upcoming b { font-family: var(--display); font-size: 1.05rem; font-weight: 650; }
+  .upcoming span:last-child { color: var(--ink-2); font-size: 0.95rem; }
+  .note { max-width: 58ch; color: var(--ink-2); font-size: 0.95rem; line-height: 1.6; margin-top: 1.25rem; }
+  .foot {
+    padding-block: 2.5rem 3.5rem; color: var(--ink-3); font-size: 0.85rem; line-height: 1.6;
+  }
+  .foot p { margin: 0; max-width: 60ch; }
+
+  @media (max-width: 640px) {
+    .ephead { grid-template-columns: auto 1fr; }
+    .epfacts { grid-column: 1 / -1; align-items: flex-start; flex-direction: row; flex-wrap: wrap; text-align: left; }
+    .line, .pause { grid-template-columns: 2.25rem 1fr; }
+    .beat { padding-left: 2.25rem; }
+    .beat::before { width: 1.6rem; }
+    .upcoming li { grid-template-columns: 2.5rem 1fr; }
+    .upcoming span:last-child { grid-column: 2; }
+  }
+  @media print {
+    :root { --ground: #fff; --panel: #fff; --ink: #000; --ink-2: #333; --ink-3: #666; --rule: #ccc; }
+    .jump, .stats, .foot { display: none; }
+    .ep { break-before: page; }
+    .line { padding-block: 0.18rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+<title>Abacus Series — Narration Scripts</title>
+
+<header class="top">
+  <p class="eyebrow">Abacus Kids · learning video series</p>
+  <h1>Narration scripts</h1>
+  <p class="lede">Every line spoken in the series, in order, numbered the way the aligner reads
+  them. Episodes&nbsp;1&ndash;3 are transcribed <em>as recorded</em>; episode&nbsp;4 is the script
+  waiting for a take.</p>
+  <div class="stats">
+    <div><span class="fig">4</span><span class="cap">episodes</span></div>
+    <div><span class="fig">241</span><span class="cap">spoken lines</span></div>
+    <div><span class="fig">11:13</span><span class="cap">recorded so far</span></div>
+  </div>
+  <nav class="jump"><a href="#e1"><span class="k">E01</span> Meet the Abacus</a> <a href="#e2"><span class="k">E02</span> Numbers 0 to 9</a> <a href="#e3"><span class="k">E03</span> Adding Two Numbers</a> <a href="#e4"><span class="k">E04</span> Bigger Numbers</a></nav>
+</header>
+
+<section class="booth">
+  <h2>Before you press record</h2>
+  <ul>
+    <li><strong>One take, one file.</strong> No stitching, no TTS. A warm read beats a literal one &mdash;
+      if you reword a line, that is fine, the take wins and I transcribe what you actually said.</li>
+    <li><strong>Say numbers as words</strong> &mdash; &ldquo;twenty&#8209;three&rdquo;, not &ldquo;23&rdquo;.
+      Every bead move is timed off a number word.</li>
+    <li><strong>Let each sentence land.</strong> The visuals are cut to your pauses, so a rushed
+      line gives me nowhere to put the bead move.</li>
+    <li><strong>Stop where it says <span class="pausechip">hold 3 seconds</span></strong> and actually
+      count to three. Episode&nbsp;3&rsquo;s recall gap came out at 0.84&nbsp;s, and no amount of
+      animation can invent thinking time that is not in the audio.</li>
+    <li><strong>Save as</strong> <code>public/audio/e004_bigger_numbers/E04.mp3</code> &mdash; mono is
+      fine, and tell me the folder name if you use a different one.</li>
+  </ul>
+</section>
+
+
+<section class="ep" id="e1">
+  <div class="ephead">
+    <svg class="rod" viewBox="0 0 30 76" aria-hidden="true"><rect x="13" y="0" width="4" height="76" rx="2" fill="var(--rod)"/><rect x="0" y="23" width="30" height="4" rx="2" fill="var(--beam)"/><ellipse cx="15" cy="8" rx="11" ry="6.5" fill="var(--bead-off)"/><ellipse cx="15" cy="33" rx="11" ry="6.5" fill="var(--bead)"/><ellipse cx="15" cy="44" rx="11" ry="6.5" fill="var(--bead-off)"/><ellipse cx="15" cy="57" rx="11" ry="6.5" fill="var(--bead-off)"/><ellipse cx="15" cy="70" rx="11" ry="6.5" fill="var(--bead-off)"/></svg>
+    <div class="epmeta">
+      <p class="eyebrow">Episode 1 &middot; <code>meet-the-abacus</code></p>
+      <h2>Meet the Abacus</h2>
+      <p class="teaches">What an abacus is, and the name of every part</p>
+    </div>
+    <div class="epfacts">
+      <span class="chip shipped">shipped</span>
+      <span class="fact"><b>72</b> lines</span>
+      <span class="fact"><b>4:19</b> as scripted</span>
+    </div>
+  </div>
+  <div class="script"><h3 class="beat">1 · HOOK</h3><div class="line"><span class="num">1</span><span class="say">Can your child count all the way to one hundred, but ask, what's seven plus eight?</span></div><div class="line"><span class="num">2</span><span class="say">Out come the fingers!</span></div><div class="line"><span class="num">3</span><span class="say">There's a little step missing, and this is the tool that helps.</span></div><div class="line"><span class="num">4</span><span class="say">This is an abacus.</span></div><div class="line"><span class="num">5</span><span class="say">By the end of this video, you'll know every part of it.</span></div><h3 class="beat">2 · WHAT AN ABACUS IS</h3><div class="line"><span class="num">6</span><span class="say">An abacus is a counting tool.</span></div><div class="line"><span class="num">7</span><span class="say">It has colorful beads that slide up and down on rods.</span></div><div class="line"><span class="num">8</span><span class="say">People used abacuses to solve maths problems long before calculators were invented.</span></div><h3 class="beat">3 · THE OUTSIDE: FRAME, RODS, BEAM</h3><div class="line"><span class="num">9</span><span class="say">Let's look at the outside first.</span></div><div class="line"><span class="num">10</span><span class="say">This outside part is called the frame.</span></div><div class="line"><span class="num">11</span><span class="say">It holds everything together.</span></div><div class="line"><span class="num">12</span><span class="say">These long lines are called rods.</span></div><div class="line"><span class="num">13</span><span class="say">Some people also call them columns.</span></div><div class="line"><span class="num">14</span><span class="say">They mean the same thing.</span></div><div class="line"><span class="num">15</span><span class="say">Right across the middle is the beam.</span></div><div class="line"><span class="num">16</span><span class="say">Some people call it the bar.</span></div><h3 class="beat">4 · THE TWO HALVES</h3><div class="line"><span class="num">17</span><span class="say">The beam is very important.</span></div><div class="line"><span class="num">18</span><span class="say">It splits the abacus into two parts.</span></div><div class="line"><span class="num">19</span><span class="say">Everything above the beam is the top section.</span></div><div class="line"><span class="num">20</span><span class="say">Everything below the beam is the bottom section.</span></div><div class="line"><span class="num">21</span><span class="say">Look at the top.</span></div><div class="line"><span class="num">22</span><span class="say">Each rod has one upper bead.</span></div><div class="line"><span class="num">23</span><span class="say">Now look at the bottom.</span></div><div class="line"><span class="num">24</span><span class="say">Each rod has four lower beads.</span></div><div class="line"><span class="num">25</span><span class="say">Sometimes people call them heaven beads and earth beads.</span></div><div class="line"><span class="num">26</span><span class="say">But don't worry, upper and lower are the names we'll use.</span></div><h3 class="beat">5 · WHERE TO START</h3><div class="line"><span class="num">27</span><span class="say">Now look at the rod on the far right.</span></div><div class="line"><span class="num">28</span><span class="say">This is the ones column.</span></div><div class="line"><span class="num">29</span><span class="say">This is where we always start.</span></div><h3 class="beat">6 · WHAT EACH BEAD IS WORTH</h3><div class="line"><span class="num">30</span><span class="say">Each lower bead is worth one.</span></div><div class="line"><span class="num">31</span><span class="say">The upper bead is worth five.</span></div><div class="line"><span class="num">32</span><span class="say">One little bead, worth five.</span></div><div class="line"><span class="num">33</span><span class="say">That's the clever part of an abacus.</span></div><div class="line"><span class="num">34</span><span class="say">Now move one rod to the left.</span></div><div class="line"><span class="num">35</span><span class="say">Everything becomes ten times bigger.</span></div><div class="line"><span class="num">36</span><span class="say">Each lower bead is now worth ten.</span></div><div class="line"><span class="num">37</span><span class="say">The upper bead is worth fifty.</span></div><div class="line"><span class="num">38</span><span class="say">Move one more rod left.</span></div><div class="line"><span class="num">39</span><span class="say">Now each lower bead is worth one hundred.</span></div><div class="line"><span class="num">40</span><span class="say">The upper bead is worth five hundred.</span></div><div class="line"><span class="num">41</span><span class="say">Every time you move left, the value becomes ten times bigger.</span></div><h3 class="beat">7 · HOW MUCH IT HOLDS</h3><div class="line"><span class="num">42</span><span class="say">So how many numbers can we make?</span></div><div class="line"><span class="num">43</span><span class="say">One rod can show any number from zero to nine.</span></div><div class="line"><span class="num">44</span><span class="say">Two rods can show zero to ninety-nine.</span></div><div class="line"><span class="num">45</span><span class="say">Three rods can show zero to nine hundred and ninety-nine.</span></div><div class="line"><span class="num">46</span><span class="say">And bigger abacuses can show even bigger numbers.</span></div><h3 class="beat">7a · BIG ABACUS, SMALL ABACUS</h3><div class="line"><span class="num">47</span><span class="say">Here's something interesting.</span></div><div class="line"><span class="num">48</span><span class="say">The abacus in our app has thirteen rods.</span></div><div class="line"><span class="num">49</span><span class="say">On a big abacus like that, the ones column is in the middle.</span></div><div class="line"><span class="num">50</span><span class="say">The rods on the right are used for decimals.</span></div><div class="line"><span class="num">51</span><span class="say">But on a small abacus like this one, we simply start on the far right.</span></div><h3 class="beat">8 · THE TWO FINGERS</h3><div class="line"><span class="num">52</span><span class="say">Now let's learn the finger trick.</span></div><div class="line"><span class="num">53</span><span class="say">You only need two fingers.</span></div><div class="line"><span class="num">54</span><span class="say">Your thumb and your index finger.</span></div><div class="line"><span class="num">55</span><span class="say">To add lower beads, push them up with your thumb.</span></div><div class="line"><span class="num">56</span><span class="say">To add the upper bead, pull it down with your index finger.</span></div><div class="line"><span class="num">57</span><span class="say">To subtract lower beads, push them down with your index finger.</span></div><div class="line"><span class="num">58</span><span class="say">To subtract the upper bead, push it back up with your thumb.</span></div><div class="line"><span class="num">59</span><span class="say">Just two fingers, four easy rules.</span></div><div class="line"><span class="num">60</span><span class="say">That's it.</span></div><h3 class="beat">9 · READ YOUR FIRST NUMBER</h3><div class="line"><span class="num">61</span><span class="say">Let's read an abacus together.</span></div><div class="line"><span class="num">62</span><span class="say">The upper bead is down. That's five.</span></div><div class="line"><span class="num">63</span><span class="say">Three lower beads are up. That's three more.</span></div><div class="line"><span class="num">64</span><span class="say">Five plus three. Eight.</span></div><h3 class="beat">10 · YOUR TURN</h3><div class="line"><span class="num">65</span><span class="say">Your turn. What number is this showing?</span></div><div class="line"><span class="num">66</span><span class="say">It's seven. One upper bead and two lower beads.</span></div><div class="line"><span class="num">67</span><span class="say">Great job.</span></div><h3 class="beat">11 · CLOSE</h3><div class="line"><span class="num">68</span><span class="say">Everything you learn today is inside our app in free mode.</span></div><div class="line"><span class="num">69</span><span class="say">Tap every bead. Move them yourself. Learn by playing.</span></div><div class="line"><span class="num">70</span><span class="say">Search for abacus kids on the Apple App Store or Google Play.</span></div><div class="line"><span class="num">71</span><span class="say">Download it free.</span></div><div class="line"><span class="num">72</span><span class="say">See you in the next video, where we'll place our very first number on the abacus.</span></div></div>
+</section>
+
+
+<section class="ep" id="e2">
+  <div class="ephead">
+    <svg class="rod" viewBox="0 0 30 76" aria-hidden="true"><rect x="13" y="0" width="4" height="76" rx="2" fill="var(--rod)"/><rect x="0" y="23" width="30" height="4" rx="2" fill="var(--beam)"/><ellipse cx="15" cy="8" rx="11" ry="6.5" fill="var(--bead-off)"/><ellipse cx="15" cy="33" rx="11" ry="6.5" fill="var(--bead)"/><ellipse cx="15" cy="46" rx="11" ry="6.5" fill="var(--bead)"/><ellipse cx="15" cy="57" rx="11" ry="6.5" fill="var(--bead-off)"/><ellipse cx="15" cy="70" rx="11" ry="6.5" fill="var(--bead-off)"/></svg>
+    <div class="epmeta">
+      <p class="eyebrow">Episode 2 &middot; <code>numbers-0-to-9</code></p>
+      <h2>Numbers 0 to 9</h2>
+      <p class="teaches">Reading and making every number on one rod</p>
+    </div>
+    <div class="epfacts">
+      <span class="chip shipped">shipped</span>
+      <span class="fact"><b>44</b> lines</span>
+      <span class="fact"><b>2:48</b> as recorded</span>
+    </div>
+  </div>
+  <div class="script"><h3 class="beat">1 · HOOK</h3><div class="line"><span class="num">1</span><span class="say">Last time we met the abacus.</span></div><div class="line"><span class="num">2</span><span class="say">Today we're going to make numbers with it.</span></div><div class="line"><span class="num">3</span><span class="say">Every number from zero all the way to nine.</span></div><div class="line"><span class="num">4</span><span class="say">And we only need one rod.</span></div><h3 class="beat">2 · ZERO</h3><div class="line"><span class="num">5</span><span class="say">Let's start with nothing at all. Zero.</span></div><div class="line"><span class="num">6</span><span class="say">Zero means no beads are touching the beam.</span></div><div class="line"><span class="num">7</span><span class="say">Push them all away, the rod says zero.</span></div><h3 class="beat">3 · ONE TO FOUR</h3><div class="line"><span class="num">8</span><span class="say">Now push one lower bead up to the beam.</span></div><div class="line"><span class="num">9</span><span class="say">That is one.</span></div><div class="line"><span class="num">10</span><span class="say">Push one more. One, two.</span></div><div class="line"><span class="num">11</span><span class="say">That is two.</span></div><div class="line"><span class="num">12</span><span class="say">One more again. One, two, three.</span></div><div class="line"><span class="num">13</span><span class="say">That is three.</span></div><div class="line"><span class="num">14</span><span class="say">One more. One, two, three, four.</span></div><div class="line"><span class="num">15</span><span class="say">That is four.</span></div><h3 class="beat">4 · THE WALL</h3><div class="line"><span class="num">16</span><span class="say">Now let's make five.</span></div><div class="line"><span class="num">17</span><span class="say">Push another lower bead up. Oh, there aren't any left.</span></div><div class="line"><span class="num">18</span><span class="say">Four is as high as the lower beads can go.</span></div><div class="line"><span class="num">19</span><span class="say">So how do we make five?</span></div><h3 class="beat">5 · THE UPPER BEAD IS FIVE</h3><div class="line"><span class="num">20</span><span class="say">Look above the beam. The upper bead.</span></div><div class="line"><span class="num">21</span><span class="say">It has been waiting there the whole time.</span></div><div class="line"><span class="num">22</span><span class="say">Send the lower beads back down.</span></div><div class="line"><span class="num">23</span><span class="say">Now bring the upper bead down with your index finger.</span></div><div class="line"><span class="num">24</span><span class="say">One upper bead, the rod says five.</span></div><div class="line"><span class="num">25</span><span class="say">That one little bead is worth five all by itself.</span></div><h3 class="beat">6 · SIX TO NINE</h3><div class="line"><span class="num">26</span><span class="say">Now five is easy to build on.</span></div><div class="line"><span class="num">27</span><span class="say">Five and one lower bead, that's six.</span></div><div class="line"><span class="num">28</span><span class="say">Five and two lower beads, seven.</span></div><div class="line"><span class="num">29</span><span class="say">Five and three, eight.</span></div><div class="line"><span class="num">30</span><span class="say">Five and four, nine.</span></div><div class="line"><span class="num">31</span><span class="say">Nine is the biggest number one rod can show.</span></div><h3 class="beat">7 · THE READING RULE</h3><div class="line"><span class="num">32</span><span class="say">Reading a rod is always the same.</span></div><div class="line"><span class="num">33</span><span class="say">First, is the upper bead down? If it is, that's five.</span></div><div class="line"><span class="num">34</span><span class="say">Then count the lower beads touching the beam.</span></div><div class="line"><span class="num">35</span><span class="say">Add them together, that's your number.</span></div><h3 class="beat">8 · YOUR TURN</h3><div class="line"><span class="num">36</span><span class="say">Your turn. What number is this rod showing?</span></div><div class="line"><span class="num">37</span><span class="say">It's three. Three lower beads are touching the beam.</span></div><div class="line"><span class="num">38</span><span class="say">The upper bead is still up.</span></div><div class="line"><span class="num">39</span><span class="say">Nice work.</span></div><h3 class="beat">9 · CLOSE</h3><div class="line"><span class="num">40</span><span class="say">Now it's your turn, make every number from zero to nine.</span></div><div class="line"><span class="num">41</span><span class="say">If you liked this, tap like and subscribe for more.</span></div><div class="line"><span class="num">42</span><span class="say">Search for abacus kids on the Apple App Store or Google Play.</span></div><div class="line"><span class="num">43</span><span class="say">Download it free.</span></div><div class="line"><span class="num">44</span><span class="say">See you in the next video, where we'll add two numbers together on the abacus.</span></div></div>
+</section>
+
+
+<section class="ep" id="e3">
+  <div class="ephead">
+    <svg class="rod" viewBox="0 0 30 76" aria-hidden="true"><rect x="13" y="0" width="4" height="76" rx="2" fill="var(--rod)"/><rect x="0" y="23" width="30" height="4" rx="2" fill="var(--beam)"/><ellipse cx="15" cy="8" rx="11" ry="6.5" fill="var(--bead-off)"/><ellipse cx="15" cy="33" rx="11" ry="6.5" fill="var(--bead)"/><ellipse cx="15" cy="46" rx="11" ry="6.5" fill="var(--bead)"/><ellipse cx="15" cy="59" rx="11" ry="6.5" fill="var(--bead)"/><ellipse cx="15" cy="70" rx="11" ry="6.5" fill="var(--bead-off)"/></svg>
+    <div class="epmeta">
+      <p class="eyebrow">Episode 3 &middot; <code>adding-two-numbers</code></p>
+      <h2>Adding Two Numbers</h2>
+      <p class="teaches">Direct addition on one rod — nothing that needs a formula</p>
+    </div>
+    <div class="epfacts">
+      <span class="chip shipped">shipped</span>
+      <span class="fact"><b>70</b> lines</span>
+      <span class="fact"><b>4:06</b> as recorded</span>
+    </div>
+  </div>
+  <div class="script"><h3 class="beat">1 · HOOK</h3><div class="line"><span class="num">1</span><span class="say">Last time, we learned to make every number from zero to nine.</span></div><div class="line"><span class="num">2</span><span class="say">Today, we're going to put two numbers together.</span></div><div class="line"><span class="num">3</span><span class="say">When we put two numbers together, that's called adding.</span></div><div class="line"><span class="num">4</span><span class="say">And the abacus makes adding really easy.</span></div><h3 class="beat">2 · WHAT ADDING MEANS</h3><div class="line"><span class="num">5</span><span class="say">Adding on the abacus means moving more beads to the beam.</span></div><div class="line"><span class="num">6</span><span class="say">First, make your starting number.</span></div><div class="line"><span class="num">7</span><span class="say">Then, push up as many more beads as you want to add.</span></div><div class="line"><span class="num">8</span><span class="say">When you stop, the rod is already showing the answer.</span></div><h3 class="beat">3 · ONE PLUS TWO</h3><div class="line"><span class="num">9</span><span class="say">Let's try one plus two together.</span></div><div class="line"><span class="num">10</span><span class="say">To make one, push one lower bead up to the beam.</span></div><div class="line"><span class="num">11</span><span class="say">The rod is showing one.</span></div><div class="line"><span class="num">12</span><span class="say">Now, add two by pushing two more lower beads up.</span></div><div class="line"><span class="num">13</span><span class="say">Count them as they go up.</span></div><div class="line"><span class="num">14</span><span class="say">One, two. Three lower beads are touching the beam.</span></div><div class="line"><span class="num">15</span><span class="say">So, one plus two is three.</span></div><h3 class="beat">4 · TWO PLUS TWO</h3><div class="line"><span class="num">16</span><span class="say">Now, let's try two plus two.</span></div><div class="line"><span class="num">17</span><span class="say">To make two, push two lower beads up to the beam.</span></div><div class="line"><span class="num">18</span><span class="say">Now, add two more by pushing two more lower beads up.</span></div><div class="line"><span class="num">19</span><span class="say">All four lower beads are touching the beam.</span></div><div class="line"><span class="num">20</span><span class="say">So, two plus two is four.</span></div><h3 class="beat">5 · THE LOWER-BEAD RULE</h3><div class="line"><span class="num">21</span><span class="say">Every lower bead you push up adds one more.</span></div><div class="line"><span class="num">22</span><span class="say">But each rod only has four lower beads.</span></div><div class="line"><span class="num">23</span><span class="say">So, the lower beads can only make one, two, three or four.</span></div><h3 class="beat">6 · THE UPPER BEAD ADDS FIVE</h3><div class="line"><span class="num">24</span><span class="say">When we want to add five, we use the upper bead instead.</span></div><div class="line"><span class="num">25</span><span class="say">Start with all the beads away from the beam.</span></div><div class="line"><span class="num">26</span><span class="say">So, the rod is showing zero.</span></div><div class="line"><span class="num">27</span><span class="say">Now, push the upper bead down until it touches the beam.</span></div><div class="line"><span class="num">28</span><span class="say">The rod is showing five.</span></div><div class="line"><span class="num">29</span><span class="say">One single bead gave us five in one move.</span></div><h3 class="beat">7 · FIVE PLUS ONE</h3><div class="line"><span class="num">30</span><span class="say">Now, let's try five plus one.</span></div><div class="line"><span class="num">31</span><span class="say">First, make five by pushing the upper bead down.</span></div><div class="line"><span class="num">32</span><span class="say">Then, add one by pushing one lower bead up.</span></div><div class="line"><span class="num">33</span><span class="say">The upper bead is worth five and the lower bead is worth one.</span></div><div class="line"><span class="num">34</span><span class="say">So, five plus one is six.</span></div><h3 class="beat">8 · FIVE PLUS FOUR</h3><div class="line"><span class="num">35</span><span class="say">Let's try five plus four.</span></div><div class="line"><span class="num">36</span><span class="say">Make five again by pushing the upper bead down.</span></div><div class="line"><span class="num">37</span><span class="say">Now, push all four lower beads up to the beam.</span></div><div class="line"><span class="num">38</span><span class="say">Five and four more makes nine.</span></div><h3 class="beat">9 · FROM ANY NUMBER</h3><div class="line"><span class="num">39</span><span class="say">This works when you start from any number, not only five.</span></div><div class="line"><span class="num">40</span><span class="say">Let's start from six.</span></div><div class="line"><span class="num">41</span><span class="say">To make six, push the upper bead down for five.</span></div><div class="line"><span class="num">42</span><span class="say">Then, push one lower bead up for one.</span></div><div class="line"><span class="num">43</span><span class="say">The rod is showing six.</span></div><div class="line"><span class="num">44</span><span class="say">Now, add three by pushing three more lower beads up.</span></div><div class="line"><span class="num">45</span><span class="say">Six plus three is nine.</span></div><div class="line"><span class="num">46</span><span class="say">Let's do one more.</span></div><div class="line"><span class="num">47</span><span class="say">Start with seven.</span></div><div class="line"><span class="num">48</span><span class="say">To make seven, push the upper bead down.</span></div><div class="line"><span class="num">49</span><span class="say">Then, push two lower beads up.</span></div><div class="line"><span class="num">50</span><span class="say">Now, add one by pushing one more lower bead up.</span></div><div class="line"><span class="num">51</span><span class="say">Seven plus one is eight.</span></div><h3 class="beat">10 · YOUR TURN</h3><div class="line"><span class="num">52</span><span class="say">Now, it's your turn.</span></div><div class="line"><span class="num">53</span><span class="say">Try five plus two on your own abacus.</span></div><div class="line"><span class="num">54</span><span class="say">Push the upper bead down to make five.</span></div><div class="line"><span class="num">55</span><span class="say">Then, push two lower beads up.</span></div><div class="line"><span class="num">56</span><span class="say">The rod is showing seven.</span></div><div class="line"><span class="num">57</span><span class="say">So, five plus two is seven.</span></div><div class="line"><span class="num">58</span><span class="say">Great job.</span></div><h3 class="beat">11 · WHEN THE BEADS RUN OUT</h3><div class="line"><span class="num">59</span><span class="say">Here's one last thing to notice.</span></div><div class="line"><span class="num">60</span><span class="say">Make one on your rod.</span></div><div class="line"><span class="num">61</span><span class="say">Now, try to add four more.</span></div><div class="line"><span class="num">62</span><span class="say">There are only three lower beads left.</span></div><div class="line"><span class="num">63</span><span class="say">There isn't enough room.</span></div><div class="line"><span class="num">64</span><span class="say">There's a clever trick for moments like this.</span></div><div class="line"><span class="num">65</span><span class="say">And we'll learn it very soon.</span></div><h3 class="beat">12 · CLOSE</h3><div class="line"><span class="num">66</span><span class="say">Now, try adding some small numbers on your own abacus.</span></div><div class="line"><span class="num">67</span><span class="say">If you enjoyed this video, please like and subscribe for more.</span></div><div class="line"><span class="num">68</span><span class="say">Search for abacus kids on the Apple App Store or Google Play.</span></div><div class="line"><span class="num">69</span><span class="say">Download it free.</span></div><div class="line"><span class="num">70</span><span class="say">See you in the next video, where we'll add much bigger numbers on the abacus.</span></div></div>
+</section>
+
+
+<section class="ep" id="e4">
+  <div class="ephead">
+    <svg class="rod" viewBox="0 0 30 76" aria-hidden="true"><rect x="13" y="0" width="4" height="76" rx="2" fill="var(--rod)"/><rect x="0" y="23" width="30" height="4" rx="2" fill="var(--beam)"/><ellipse cx="15" cy="8" rx="11" ry="6.5" fill="var(--bead-off)"/><ellipse cx="15" cy="33" rx="11" ry="6.5" fill="var(--bead)"/><ellipse cx="15" cy="46" rx="11" ry="6.5" fill="var(--bead)"/><ellipse cx="15" cy="59" rx="11" ry="6.5" fill="var(--bead)"/><ellipse cx="15" cy="72" rx="11" ry="6.5" fill="var(--bead)"/></svg>
+    <div class="epmeta">
+      <p class="eyebrow">Episode 4 &middot; <code>bigger-numbers</code></p>
+      <h2>Bigger Numbers</h2>
+      <p class="teaches">Place value: the tens rod, the hundreds rod, and reading both</p>
+    </div>
+    <div class="epfacts">
+      <span class="chip record">needs a take</span>
+      <span class="fact"><b>54</b> lines</span>
+      <span class="fact"><b>&mdash;</b> to record</span>
+    </div>
+  </div>
+  <div class="script"><h3 class="beat">1 · HOOK</h3><div class="line"><span class="num">1</span><span class="say">Last time, we added two numbers on one rod.</span></div><div class="line"><span class="num">2</span><span class="say">But one rod can only show up to nine.</span></div><div class="line"><span class="num">3</span><span class="say">So what do we do when a number is bigger than nine?</span></div><div class="line"><span class="num">4</span><span class="say">That is what the other rods are for.</span></div><h3 class="beat">2 · WHICH ROD IS WHICH</h3><div class="line"><span class="num">5</span><span class="say">On an abacus this size, the ones rod is the one on the far right.</span></div><div class="line"><span class="num">6</span><span class="say">On a much bigger abacus, the ones rod sits in the middle instead — we saw that in the first video.</span></div><div class="line"><span class="num">7</span><span class="say">Now look at the rod just to the left of the ones rod.</span></div><div class="line"><span class="num">8</span><span class="say">That one is the tens rod.</span></div><div class="line"><span class="num">9</span><span class="say">Every bead on the tens rod is worth ten, not one.</span></div><h3 class="beat">3 · MAKING TEN</h3><div class="line"><span class="num">10</span><span class="say">Let's make ten.</span></div><div class="line"><span class="num">11</span><span class="say">Push one lower bead up on the tens rod.</span></div><div class="line"><span class="num">12</span><span class="say">Leave the ones rod at zero.</span></div><div class="line"><span class="num">13</span><span class="say">One bead on the tens rod is one ten, and one ten is ten.</span></div><h3 class="beat">4 · TWENTY-THREE</h3><div class="line"><span class="num">14</span><span class="say">Now let's make twenty-three.</span></div><div class="line"><span class="num">15</span><span class="say">On the tens rod, push two lower beads up.</span></div><div class="line"><span class="num">16</span><span class="say">Two beads on the tens rod is two tens, which is twenty.</span></div><div class="line"><span class="num">17</span><span class="say">Now, on the ones rod, push three lower beads up.</span></div><div class="line"><span class="num">18</span><span class="say">That is three ones.</span></div><div class="line"><span class="num">19</span><span class="say">Twenty and three is twenty-three.</span></div><h3 class="beat">5 · THE READING RULE</h3><div class="line"><span class="num">20</span><span class="say">Here is how to read any number on two rods.</span></div><div class="line"><span class="num">21</span><span class="say">Read the tens rod first, then read the ones rod.</span></div><h3 class="beat">6 · FIFTY-SIX</h3><div class="line"><span class="num">22</span><span class="say">Let's try fifty-six.</span></div><div class="line"><span class="num">23</span><span class="say">On the tens rod, push the upper bead down.</span></div><div class="line"><span class="num">24</span><span class="say">The upper bead on the tens rod is worth five tens, which is fifty.</span></div><div class="line"><span class="num">25</span><span class="say">On the ones rod, push the upper bead down for five.</span></div><div class="line"><span class="num">26</span><span class="say">Then push one lower bead up for one.</span></div><div class="line"><span class="num">27</span><span class="say">That makes six ones.</span></div><div class="line"><span class="num">28</span><span class="say">Fifty and six is fifty-six.</span></div><h3 class="beat">7 · NINETY-NINE, THE MAXIMUM</h3><div class="line"><span class="num">29</span><span class="say">What is the biggest number that two rods can show?</span></div><div class="line"><span class="num">30</span><span class="say">On the tens rod, push the upper bead down and all four lower beads up.</span></div><div class="line"><span class="num">31</span><span class="say">That is nine tens, which is ninety.</span></div><div class="line"><span class="num">32</span><span class="say">Now do exactly the same on the ones rod.</span></div><div class="line"><span class="num">33</span><span class="say">That is nine ones.</span></div><div class="line"><span class="num">34</span><span class="say">Ninety and nine is ninety-nine.</span></div><div class="line"><span class="num">35</span><span class="say">Ninety-nine is the most that two rods can show.</span></div><div class="line"><span class="num">36</span><span class="say">So with two rods, you can make every number from zero to ninety-nine.</span></div><div class="line"><span class="num">37</span><span class="say">That is one hundred different numbers.</span></div><h3 class="beat">8 · YOUR TURN</h3><div class="line"><span class="num">38</span><span class="say">Now it is your turn.</span></div><div class="line"><span class="num">39</span><span class="say">The tens rod shows three, and the ones rod shows eight.</span></div><div class="line"><span class="num">40</span><span class="say">What number is that?</span></div><div class="pause"><span class="num"></span><span class="pausechip">hold 3 seconds &mdash; let them work it out</span></div><div class="line"><span class="num">41</span><span class="say">Three tens is thirty, and eight ones is eight.</span></div><div class="line"><span class="num">42</span><span class="say">Thirty and eight is thirty-eight.</span></div><div class="line"><span class="num">43</span><span class="say">Great job.</span></div><h3 class="beat">9 · ONE MORE ROD</h3><div class="line"><span class="num">44</span><span class="say">And it does not stop at two rods.</span></div><div class="line"><span class="num">45</span><span class="say">The next rod to the left is the hundreds rod.</span></div><div class="line"><span class="num">46</span><span class="say">Every bead on that rod is worth one hundred.</span></div><div class="line"><span class="num">47</span><span class="say">Two beads on the hundreds rod, four on the tens rod, and seven on the ones rod.</span></div><div class="line"><span class="num">48</span><span class="say">Two hundred, forty and seven is two hundred and forty-seven.</span></div><div class="line"><span class="num">49</span><span class="say">Every time you move one rod to the left, each bead is worth ten times more.</span></div><h3 class="beat">10 · CLOSE</h3><div class="line"><span class="num">50</span><span class="say">Now, try making some big numbers on your own abacus.</span></div><div class="line"><span class="num">51</span><span class="say">If you enjoyed this video, please like and subscribe for more.</span></div><div class="line"><span class="num">52</span><span class="say">Search for abacus kids on the Apple App Store or Google Play.</span></div><div class="line"><span class="num">53</span><span class="say">Download it free.</span></div><div class="line"><span class="num">54</span><span class="say">See you in the next video, where we will learn how to take numbers away on the abacus.</span></div></div>
+</section>
+
+
+<section class="next">
+  <h2>Still to script</h2>
+  <ol class="upcoming"><li><span class="k">E05</span><b>Taking Away</b><span>Direct subtraction on the ones rod</span></li><li><span class="k">E06</span><b>Both Rods</b><span>Adding and subtracting across tens and ones</span></li><li><span class="k">E07</span><b>The Clever Trick</b><span>Small friends — when the lower beads run out</span></li></ol>
+  <p class="note">Subtraction comes before the formulas on purpose: a complement is a repair for a
+  move you already know how to make, so the trick needs both adding and taking away to be fluent
+  first.</p>
+</section>
+
+<footer class="foot">
+  <p>Generated from <code>docs/E0*_lines.txt</code> and <code>docs/E0*_spoken.txt</code> &mdash;
+  the scripts are the source, this page is the view.</p>
+</footer>

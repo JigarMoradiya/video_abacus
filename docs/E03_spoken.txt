@@ -12,16 +12,22 @@
 #   your own abacus" from the answer. Flagged to the user — the visuals hold the question
 #   as long as they can, but the voice answers almost immediately.
 
+
+# --- 1 · HOOK ---
 Last time, we learned to make every number from zero to nine.
 Today, we're going to put two numbers together.
 When we put two numbers together, that's called adding.
 And the abacus makes adding really easy.
 
+
+# --- 2 · WHAT ADDING MEANS ---
 Adding on the abacus means moving more beads to the beam.
 First, make your starting number.
 Then, push up as many more beads as you want to add.
 When you stop, the rod is already showing the answer.
 
+
+# --- 3 · ONE PLUS TWO ---
 Let's try one plus two together.
 To make one, push one lower bead up to the beam.
 The rod is showing one.
@@ -30,16 +36,22 @@ Count them as they go up.
 One, two. Three lower beads are touching the beam.
 So, one plus two is three.
 
+
+# --- 4 · TWO PLUS TWO ---
 Now, let's try two plus two.
 To make two, push two lower beads up to the beam.
 Now, add two more by pushing two more lower beads up.
 All four lower beads are touching the beam.
 So, two plus two is four.
 
+
+# --- 5 · THE LOWER-BEAD RULE ---
 Every lower bead you push up adds one more.
 But each rod only has four lower beads.
 So, the lower beads can only make one, two, three or four.
 
+
+# --- 6 · THE UPPER BEAD ADDS FIVE ---
 When we want to add five, we use the upper bead instead.
 Start with all the beads away from the beam.
 So, the rod is showing zero.
@@ -47,17 +59,23 @@ Now, push the upper bead down until it touches the beam.
 The rod is showing five.
 One single bead gave us five in one move.
 
+
+# --- 7 · FIVE PLUS ONE ---
 Now, let's try five plus one.
 First, make five by pushing the upper bead down.
 Then, add one by pushing one lower bead up.
 The upper bead is worth five and the lower bead is worth one.
 So, five plus one is six.
 
+
+# --- 8 · FIVE PLUS FOUR ---
 Let's try five plus four.
 Make five again by pushing the upper bead down.
 Now, push all four lower beads up to the beam.
 Five and four more makes nine.
 
+
+# --- 9 · FROM ANY NUMBER ---
 This works when you start from any number, not only five.
 Let's start from six.
 To make six, push the upper bead down for five.
@@ -73,6 +91,8 @@ Then, push two lower beads up.
 Now, add one by pushing one more lower bead up.
 Seven plus one is eight.
 
+
+# --- 10 · YOUR TURN ---
 Now, it's your turn.
 Try five plus two on your own abacus.
 Push the upper bead down to make five.
@@ -81,6 +101,8 @@ The rod is showing seven.
 So, five plus two is seven.
 Great job.
 
+
+# --- 11 · WHEN THE BEADS RUN OUT ---
 Here's one last thing to notice.
 Make one on your rod.
 Now, try to add four more.
@@ -89,6 +111,8 @@ There isn't enough room.
 There's a clever trick for moments like this.
 And we'll learn it very soon.
 
+
+# --- 12 · CLOSE ---
 Now, try adding some small numbers on your own abacus.
 If you enjoyed this video, please like and subscribe for more.
 Search for abacus kids on the Apple App Store or Google Play.

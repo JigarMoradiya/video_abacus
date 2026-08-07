@@ -1,0 +1,95 @@
+# E04 · Bigger numbers — AS RECORDED. This is the alignment input.
+#
+# E04_lines.txt is the APPROVED SCRIPT and stays untouched (EPISODE_RULES.md §3.1a).
+# This is what the narrator actually said. The take follows the script closely and mostly
+# RESTRUCTURES: several long lines were delivered as two shorter ones, two short ones were
+# joined, and contractions replaced the written-out forms.
+#
+# 54 scripted lines -> 56 as recorded. The differences:
+#   · lines 1+2 joined into one sentence
+#   · "the ones rod sits in the middle instead — we saw that in the first video" split in two
+#   · "read the tens rod first, then read the ones rod" split in two
+#   · "three tens is thirty, and eight ones is eight" split in two
+#   · "ninety-nine is the most" became "ninety-nine is the biggest number that two rods can show"
+#   · "two hundred, forty and seven is two hundred and forty-seven" became "two hundred, forty-seven"
+#
+# ✅ The three-second recall gap WAS held this time: 2.30 s of silence after "What number is
+#    that?", against E03's 0.84 s. The visuals can hold the question honestly.
+#
+# Numbers stay WORDS (EPISODE_RULES.md §3.6); canon() folds them to Whisper's digits.
+
+# --- 1 · HOOK ---
+Last time, we added two numbers on one rod, but one rod can only show up to nine.
+So what do we do when a number is bigger than nine?
+That's what the other rods are for.
+
+# --- 2 · WHICH ROD IS WHICH ---
+On an abacus this size, the ones rod is the one on the far right.
+On a much bigger abacus, the ones rod sits in the middle instead.
+We saw that in the first video.
+Now look at the rod just to the left of the ones rod.
+That one is the tens rod.
+Every bead on the tens rod is worth ten, not one.
+
+# --- 3 · MAKING TEN ---
+Let's make ten.
+Push one lower bead up on the tens rod.
+Leave the ones rod at zero.
+One bead on the tens rod is one ten, and one ten is ten.
+
+# --- 4 · TWENTY-THREE ---
+Now let's make twenty-three.
+On the tens rod, push two lower beads up.
+Two beads on the tens rod is two tens, which is twenty.
+Now on the ones rod, push three lower beads up.
+That is three ones.
+Twenty and three is twenty-three.
+
+# --- 5 · THE READING RULE ---
+Here's how to read any number on two rods.
+Read the tens rod first.
+Then read the ones rod.
+
+# --- 6 · FIFTY-SIX ---
+Let's try fifty-six.
+On the tens rod, push the upper bead down.
+The upper bead on the tens rod is worth five tens, which is fifty.
+On the ones rod, push the upper bead down for five.
+Then push one lower bead up for one.
+That makes six ones.
+Fifty and six is fifty-six.
+
+# --- 7 · NINETY-NINE, THE MAXIMUM ---
+What's the biggest number that two rods can show?
+On the tens rod, push the upper bead down and all four lower beads up.
+That is nine tens, which is ninety.
+Now do exactly the same on the ones rod.
+That is nine ones.
+Ninety and nine is ninety-nine.
+Ninety-nine is the biggest number that two rods can show.
+So with two rods, you can make every number from zero to ninety-nine.
+That's one hundred different numbers.
+
+# --- 8 · YOUR TURN ---
+Now it's your turn.
+The tens rod shows three, and the ones rod shows eight.
+What number is that?
+Three tens is thirty.
+Eight ones is eight.
+Thirty and eight is thirty-eight.
+Great job!
+
+# --- 9 · ONE MORE ROD ---
+And it doesn't stop at two rods.
+The next rod to the left is the hundreds rod.
+Every bead on that rod is worth one hundred.
+Two beads on the hundreds rod, four on the tens rod, and seven on the ones rod.
+Two hundred, forty-seven.
+Every time you move one rod to the left, each bead is worth ten times more.
+
+# --- 10 · CLOSE ---
+Now try making some big numbers on your own abacus.
+If you enjoyed this video, please like and subscribe for more.
+Search for abacus kids on the Apple App Store or Google Play.
+Download it free.
+See you in the next video where we learn how to take numbers away on the abacus.

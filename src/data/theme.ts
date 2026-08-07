@@ -93,6 +93,28 @@ export const RIG_SEA: RigPalette = {
   offEdge: "#7E6647",
 };
 
+/**
+ * E04 · steel and lit windows. The frame is cool slate, the beads amber — the colour of a lit
+ * window in the city this episode is set in, so a raised bead reads as "this floor is on". Third
+ * distinct instrument in the series after wood-and-orange (E01/E02) and driftwood-and-teal (E03),
+ * and the states stay separable in greyscale (DESIGN_SYSTEM §9): warm bright against cool mid.
+ */
+export const RIG_CITY: RigPalette = {
+  woodLight: "#71829A",
+  wood: "#51617A",
+  woodDark: "#333F4E",
+  panel: "#F5F7FA",
+  panelEdge: "#C9D4E0",
+  rod: "#9AA7B5",
+  beam: "#26313D",
+  onTop: "#FFC94E",
+  onBottom: "#F08C00",
+  onEdge: "#A25A00",
+  offTop: "#CBD4DC",
+  offBottom: "#A7B3BE",
+  offEdge: "#7A8792",
+};
+
 // ---------------------------------------------------------------- worlds
 
 /** Every beat gets its own world, so no two stretches of the video look alike. */
@@ -129,7 +151,20 @@ export type WorldKind =
   | "slatecliff" // the coolest, deepest sea in the episode — the lower-bead rule
   | "goldenhour" // the richest light in the episode — the upper bead is five
   | "rockpool" // deep turquoise — five plus one, five plus four, any number
-  | "sunsetsea"; // violet dusk over a gold horizon — your turn and the close
+  | "sunsetsea" // violet dusk over a gold horizon — your turn and the close
+  // --- E04 · bigger numbers. A CITY, dawn to night. The episode's idea is magnitude — each rod
+  // to the left is worth ten times more — so the world grows with the numbers: a skyline whose
+  // windows light up as the lesson goes from ten to ninety-nine to two hundred and forty-seven.
+  // "Bigger number = taller tower" is a metaphor a six-year-old already owns, and after fields, a
+  // pond and a beach the series has not yet been anywhere built. ---
+  | "rooftop" // dawn over a low skyline — the hook
+  | "crane" // morning, a crane putting up more towers — which rod is which
+  | "tenblock" // clean and bright — making ten
+  | "market" // warm awning light under the towers — twenty-three
+  | "noon" // bright and plain — the reading rule
+  | "duskstreet" // late afternoon over the towers — fifty-six
+  | "summit" // the tallest tower against a low sun — ninety-nine
+  | "starcity"; // deep indigo night, every window lit — a hundred numbers, and the close
 
 export interface WorldTheme {
   sky: [string, string];
@@ -151,6 +186,18 @@ export interface WorldTheme {
   cloudAlpha?: number;
   /** Fish swimming in the sea band. Only means anything with `beach`. */
   fish?: number;
+  /** Their colours. Defaults to the warm shoal every beach world started with. */
+  fishInk?: string[];
+
+  // ---------------------------------------------------------------- city (E04)
+  /**
+   * A skyline: two parallax rows of towers with lit windows, standing on a ground band.
+   * `windows` is the fraction of them that are ON (0..1), which is how one drawing gets from dawn
+   * to full night — the world brightens with the numbers instead of needing eight illustrations.
+   */
+  skyline?: { at: number; far: string; near: string; ground: string; lit: string; windows: number };
+  /** A tower crane over the near towers: motion in the sky, and it says "more are going up". */
+  crane?: boolean;
   sun?: boolean;
   hills?: boolean;
   grid?: boolean;
@@ -495,7 +542,11 @@ export const WORLDS: Record<WorldKind, WorldTheme> = {
     // as scenery. (A blur was tried here and was wrong: the note was about colour.)
     cloudInk: "#E7F7FB",
     cloudAlpha: 0.82,
-    fish: 7,
+    // THREE, not seven, and cool against the turquoise. Seven put fish half-behind the abacus in
+    // every frame, and five shades of orange made them indistinguishable from the starfish and
+    // shells — the shoal read as more dressing rather than as fish.
+    fish: 3,
+    fishInk: ["#FF5CA8", "#5CE1E6", "#C77DFF"],
     beach: { at: 0.61, sea: "#0B7A86", wet: "#CDA871", sand: "#EFDCAF" },
   },
   sunsetsea: {
@@ -510,5 +561,95 @@ export const WORLDS: Record<WorldKind, WorldTheme> = {
     bunting: ["#FFFFFF", "#FFD166", "#F4715F", "#2FB3A8", "#B8459B"],
     fish: 7,
     beach: { at: 0.64, sea: "#8E4A6E", wet: "#B47A52", sand: "#EFCB96" },
+  },
+
+  // ---------------------------------------------------------------- E04 · Number City
+  //
+  // One skyline drawing, eight lightings. `windows` climbs across the episode, so the city fills up
+  // as the numbers do; the sky carries the time of day. That is the whole set — no world here needs
+  // its own illustration.
+  //
+  // TOWER VALUES SIT CLOSE TO THEIR OWN SKY, ON PURPOSE. The first pass used mid-tone browns and
+  // greys against pale skies, with a dense grid of bright windows on top, and the result was that
+  // the busiest, highest-contrast region in the frame was the BACKGROUND. A world has to be
+  // somewhere without asking to be looked at: every TOWER fill here is roughly halfway to the sky's
+  // own lower stop, and every `windows` density is about half what it was.
+  //
+  // The GROUND is DARKER THAN THE TOWERS BUT NOT BLACK. It is not competing with anything — it is the
+  // base the abacus stands on and the surface the caption pill sits against, and both want contrast
+  // underneath them. But the three-step search matters: lightening it with the towers took the floor
+  // out of the frame, and taking it all the way back to full dark made the pale towers above it read
+  // as washed out. It sits about a third up from dark — grounded, without a hard step at the kerb.
+  rooftop: {
+    sky: ["#F3A874", "#FFE7CC"],
+    ink: "#3A2413",
+    pill: "#FFFFFF",
+    accent: "#EF7B18",
+    skyline: { at: 0.79, far: "#D3C4C0", near: "#B5A5A8", ground: "#5F5462", lit: "#FFE9BE", windows: 0.16 },
+  },
+  crane: {
+    sky: ["#79C6EA", "#DCF2FB"],
+    ink: "#0C3348",
+    pill: "#FFFFFF",
+    accent: "#E85D2A",
+    clouds: true,
+    cloudSize: 0.7,
+    cloudShade: 0.06,
+    cloudShadeInk: "#E9F5FF",
+    cloudInk: "#F4FCFF",
+    cloudAlpha: 0.8,
+    crane: true,
+    skyline: { at: 0.79, far: "#CEDEE9", near: "#AFC5D2", ground: "#60747F", lit: "#FFEBC4", windows: 0.2 },
+  },
+  tenblock: {
+    sky: ["#5CBECB", "#D6F1F4"],
+    ink: "#083A40",
+    pill: "#FFFFFF",
+    accent: "#F0A500",
+    skyline: { at: 0.79, far: "#C9E1E4", near: "#A5C8CD", ground: "#577E84", lit: "#FFEEC2", windows: 0.26 },
+  },
+  market: {
+    sky: ["#FFC873", "#FFF1DA"],
+    ink: "#5A2A18",
+    pill: "#FFFFFF",
+    accent: "#C1443F",
+    skyline: { at: 0.79, far: "#EBD8C8", near: "#D5BCA6", ground: "#866D5A", lit: "#FFF6E2", windows: 0.28 },
+  },
+  noon: {
+    sky: ["#A2D8F2", "#EAF7FD"],
+    ink: "#0B3550",
+    pill: "#FFFFFF",
+    accent: "#1E7BB8",
+    clouds: true,
+    cloudSize: 0.7,
+    cloudShade: 0.06,
+    cloudShadeInk: "#E9F5FF",
+    cloudInk: "#FCFEFF",
+    cloudAlpha: 0.78,
+    skyline: { at: 0.79, far: "#D8E6EF", near: "#B9CCD8", ground: "#6F8594", lit: "#FFF1D4", windows: 0.22 },
+  },
+  duskstreet: {
+    sky: ["#E8823A", "#FFD9A6"],
+    ink: "#4A1D2C",
+    pill: "#FFFFFF",
+    accent: "#B8318C",
+    skyline: { at: 0.79, far: "#DCBBB0", near: "#C29A99", ground: "#6C4C54", lit: "#FFEECB", windows: 0.34 },
+  },
+  summit: {
+    sky: ["#E8663C", "#FFD494"],
+    ink: "#40160F",
+    pill: "#FFFFFF",
+    accent: "#2E5F8A",
+    skyline: { at: 0.79, far: "#E2BBAE", near: "#C99795", ground: "#714A51", lit: "#FFF2D8", windows: 0.36 },
+  },
+  starcity: {
+    // Full night, every window on — the frame the quiz, the hundreds rod and the close all share.
+    // Near-white ink, so the headline pill cannot be white either.
+    sky: ["#1A2450", "#4A6098"],
+    ink: "#EAF0FF",
+    pill: "#26305C",
+    accent: "#FFC94E",
+    stars: true,
+    skyline: { at: 0.79, far: "#3E4A7C", near: "#2C355F", ground: "#1A203E", lit: "#F0D9A6", windows: 0.4 },
   },
 };
