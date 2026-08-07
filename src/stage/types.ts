@@ -39,7 +39,13 @@ export interface Scene {
   /** Answers and prompts sit ABOVE the abacus; part labels sit beside it. */
   labelPos?: "side" | "above";
 
-  hand?: { digit: "thumb" | "index"; direction: "up" | "down"; rod: number; heaven: boolean };
+  hand?: { digit: "thumb" | "index"; direction: "up" | "down"; rod: number; heaven: boolean; /** nudge, for the rare line with two hands on one rod */ dx?: number; dy?: number };
+  /**
+   * A SECOND hand, for a line where both kinds of bead move at once — "push the upper bead down and
+   * all four lower beads up" is one instruction with two techniques in it, and showing one finger
+   * teaches half of it. Optional, so every episode before this renders exactly as before.
+   */
+  hand2?: { digit: "thumb" | "index"; direction: "up" | "down"; rod: number; heaven: boolean; /** nudge, for the rare line with two hands on one rod */ dx?: number; dy?: number };
   count?: "upper" | "lower" | "active" | null;
   /** Show the bead being valued next to what it is worth. */
   beadWorth?: { which: "upper" | "lower"; worth: number };
@@ -94,7 +100,14 @@ export interface Scene {
   /** Step one rod through a range of values across the line, one value per beat, with the
    *  beads actually travelling between them. "Make every number from zero to nine" has to
    *  BE every number from zero to nine, not a card that says so. */
-  rodRamp?: { rod: number; from: number; to: number };
+  rodRamp?: {
+    rod: number;
+    from: number;
+    to: number;
+    /** Explicit values to step through instead of counting from `from` to `to` — for a practice
+     *  drill, where the rod shows a series of ANSWERS rather than a sequence. */
+    values?: number[];
+  };
 
   /** Pull the world back behind a foreground that has to carry the frame. 0..1 */
   worldWash?: number;

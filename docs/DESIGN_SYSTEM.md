@@ -781,3 +781,30 @@ perfectly. One `grep -c` per edit costs nothing:
 
 The same applies to reporting: "fixed" means the change is present in the file AND visible in a
 rendered frame, not that the command exited 0.
+
+### A guard that can only fail is half a tool
+
+The arrow's bow was one of two constants, so an arrow with something in its way had no way out: the
+guard threw, and the frame waited for a human to move the card. That is fine when the obstruction is
+a placement mistake. It is useless when the obstruction is the layout itself.
+
+The 4:5 cut is exactly that case. The card sits BELOW the abacus, so every arrow it sends up crosses
+the place-chip row on the way in — and the chip row spans the middle of the frame, so no card
+position avoids it. E01 phrase 38 sent its arrow straight through the "100" chip and then straight
+up through the three beads it was pointing at. The 16:9 cut of the same phrase is fine, because
+there the card is in the left gutter and the arrow comes in sideways.
+
+So the router now **widens the arc until it is clear** instead of only reporting that it is not:
+keep the natural bow when it works, and otherwise search outward for the smallest arc that clears
+every guard box, trying the natural side first at each magnitude.
+
+Two properties make this safe to apply to already-approved episodes:
+
+- **A frame that already passes is bit-for-bit unchanged.** The search only runs when the natural
+  bow fails, so nothing that shipped can move. This is the same reason `arrowClearance` is a flag —
+  the last time a bow constant changed, it altered 18 of E01's 79 approved frames.
+- **It still fails loudly when it genuinely cannot route.** Ten magnitudes in both directions, then
+  a throw naming the phrase, the card and both endpoints.
+
+The general rule: **when a guard fails on geometry rather than on a mistake, give the geometry a
+degree of freedom.** A check that can only say no makes every layout variant a manual fix.

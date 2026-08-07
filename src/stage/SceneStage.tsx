@@ -25,7 +25,7 @@ import { Abacus } from "../components/Abacus";
 import { BeadWorth, SumBreakdown } from "../components/BeadWorth";
 import { BrandBadge, HeadlinePill, PoweredBy } from "../components/Brand";
 import { Caption } from "../components/Caption";
-import { FingerHand } from "../components/FingerHand";
+import { FingerHand, chipDy, chipDx, DIGIT_TIP } from "../components/FingerHand";
 import { PartArrow, samplePath } from "../components/PartArrow";
 import { Chip } from "../components/Sticker";
 import { SegPanel, cardHeight, segsLines, segsWidth } from "../components/Tooltip";
@@ -226,6 +226,24 @@ export const SceneStage = <S extends Scene>({
     room
   );
 
+  // ---- hands ----
+  //
+  // TWO HANDS ON ONE ROD. "Push the upper bead down and all four lower beads up" is one instruction
+  // with two techniques in it, and a single hand teaches half of it. Two full-size hands do not fit
+  // one rod's gutter, which is why the first attempt at this was four rounds of nudging a collision
+  // from the caption to the badge to the other chip. Offsets were the wrong tool: the fix is a
+  // LAYOUT, and it is two rules.
+  //
+  //   1. Both hands shrink. Two 267x262 hands cannot share a gutter sized for one.
+  //   2. The chip goes on the side the hand is on, not the side it is moving. On auto the upper
+  //      hand (moving down) puts its chip low and the lower hand (moving up) puts its chip high, so
+  //      the two labels meet in the middle. Forcing them apart is what makes the pair readable.
+  //
+  // Everything below is keyed off `twoHands`, so every episode with a single hand is untouched.
+  const twoHands = Boolean(scene.hand && scene.hand2);
+  const chipSideFor = (h: NonNullable<Scene["hand"]>): "auto" | "above" | "below" =>
+    !twoHands ? "auto" : h.heaven ? "above" : "below";
+
   // ---- rods: only the beads the next number needs may travel ----
   const prevScene = p > 0 ? sceneFor(p - 1) : scene;
   const sameRig =
@@ -266,6 +284,40 @@ export const SceneStage = <S extends Scene>({
     stageOffsetX(L, shift)
   );
   const { left, top, w: abacusW, h: abacusH } = box;
+
+  /**
+   * THE HAND FITS ITSELF TO THE ROOM UNDER ITS BEAD.
+   *
+   * Putting the digit on the right bead is not free: the fist hangs well below the fingertip, so a
+   * hand aimed at a bead in the LOWEST slot runs into the caption band. E02's "one more" is exactly
+   * that — going 3 -> 4, the only bead still parked is the bottom one, and there is no other bead to
+   * point at.
+   *
+   * The bead is not negotiable and the caption is not negotiable, so the HAND gives way: shrink it
+   * until its lowest point clears the caption pill. Its own height is what it has to trade, and a
+   * smaller hand pointing at the right bead beats a full-size one pointing at empty space.
+   *
+   * Derivation: the fist's bottom sits at `dir*26 + 132` hand-units below the anchor, and the anchor
+   * is `-DIGIT_TIP.dy` below the bead. So bottom = beadY + (dir*26 + 132 - tipDy) * s, and the
+   * largest s that clears `limit` follows directly.
+   */
+  const handScaleFor = (h: NonNullable<Scene["hand"]>): number => {
+    const base = scale * (twoHands ? 0.56 : 0.82);
+    if (scene.noCaption) return base;
+    const beadY = handAnchor(
+      box,
+      h.heaven,
+      h.direction,
+      rods[h.rod]?.from ?? 0,
+      rods[h.rod]?.value ?? 0,
+      h.digit,
+      0
+    ).y;
+    const dir = h.direction === "up" ? -1 : 1;
+    const drop = dir * 26 + 132 - DIGIT_TIP[h.digit].dy;
+    const limit = L.band.captionTop + 26 - 8 - (h.dy ?? 0);
+    return drop > 0 ? Math.min(base, (limit - beadY) / drop) : base;
+  };
 
   // ---- where the card goes, and what the arrow points at ----
   // Rule: the card sits on the SAME SIDE as the bead being discussed, so the arrow is short
@@ -513,38 +565,51 @@ export const SceneStage = <S extends Scene>({
           : { x: panelX, y: L.band.stageTop + 150, w: panelW, h: 150 },
       });
     }
-    if (scene.hand) {
+    for (const h of [scene.hand, scene.hand2].filter(Boolean) as NonNullable<Scene["hand"]>[]) {
       // FingerHand reaches in from the right of its rod, with its digit chip above it
-      const hx = rodX(box, scene.hand.rod);
-      const chipOver = chipOverhang(hx, scene.hand.direction);
-      const { y } = handAnchor(box, scene.hand.heaven, scene.hand.direction, rods[scene.hand.rod]?.from ?? 0);
+      const hx = rodX(box, h.rod);
+      const chipOver = chipOverhang(hx, h.direction);
+      const handS = handScaleFor(h);
+      const { y } = handAnchor(
+        box,
+        h.heaven,
+        h.direction,
+        rods[h.rod]?.from ?? 0,
+        rods[h.rod]?.value ?? 0,
+        h.digit,
+        handS
+      );
+      const side = chipSideFor(h);
       // TWO boxes, read off FingerHand's own transforms, because one rect around both is
       // wrong enough to matter: it reported the hand sitting in the badge's corner on a line
       // where only the far-left chip was that high. A guard box larger than its artwork is a
       // guard that fails on frames that are fine.
-      const dir = scene.hand.direction === "up" ? -1 : 1;
-      // fist: translate(120, dir*26), path x 12..244, y -96..132
+      const dir: 1 | -1 = h.direction === "up" ? -1 : 1;
+      // fist: translate(120, dir*26), path x 12..244, y -96..132 — all in HAND-local units, so they
+      // scale by the hand's own scale. This used to use the abacus scale and so described a box 22%
+      // larger than the artwork; a guard box bigger than the thing it guards fails frames that are
+      // fine, and it would have hidden the whole point of shrinking the hands.
       out.push({
-        label: "hand",
+        label: h === scene.hand ? "hand" : "hand2",
         r: {
-          x: hx + 132 * scale,
-          y: y + (dir * 26 - 96) * scale,
-          w: 232 * scale,
-          h: 228 * scale,
+          x: hx + 132 * handS + (h.dx ?? 0),
+          y: y + (dir * 26 - 96) * handS + (h.dy ?? 0),
+          w: 232 * handS,
+          h: 228 * handS,
         },
         mayTouchAbacus: true,
         mayExitFrame: true,
       });
-      // digit chip: translate(dir>0?214:120, dir*26 + (dir>0?186:-150)), rect 216x64
-      const chipCx = (dir > 0 ? 214 : 120) * scale - chipOver;
-      const chipCy = (dir * 26 + (dir > 0 ? 186 : -150)) * scale;
+      // digit chip: translate(dir>0?214:120, chipDy(dir, side)), rect 216x64
+      const chipCx = chipDx(dir, side) * handS - chipOver;
+      const chipCy = chipDy(dir, side) * handS;
       out.push({
-        label: "handChip",
+        label: h === scene.hand ? "handChip" : "handChip2",
         r: {
-          x: hx + chipCx - 108 * scale,
-          y: y + chipCy - 32 * scale,
-          w: 216 * scale,
-          h: 64 * scale,
+          x: hx + chipCx - 108 * handS + (h.dx ?? 0),
+          y: y + chipCy - 32 * handS + (h.dy ?? 0),
+          w: 216 * handS,
+          h: 64 * handS,
         },
         mayTouchAbacus: true,
       });
@@ -575,7 +640,21 @@ export const SceneStage = <S extends Scene>({
     // underneath it unnoticed: the check can only see what it is told about, and the caption is the
     // one element on screen that every episode has on nearly every frame.
     if (!scene.noCaption) {
-      out.push({ label: "caption", r: { x: 0, y: L.band.captionTop, w: L.W, h: L.band.captionBottom - L.band.captionTop } });
+      // THE PILL, not the band. The caption band is a reserved strip; the thing actually drawn in it
+      // is a rounded pill inset from the top and sides. Guarding the whole band reported E01's
+      // place-value chip as an overlap on phrase 29 — a 9 px intrusion into empty band space that has
+      // shipped, correctly, since E01 was made. A guard box larger than its artwork fails frames that
+      // are fine, which is the same lesson the hand's two boxes taught.
+      const capPad = 26;
+      out.push({
+        label: "caption",
+        r: {
+          x: L.edge,
+          y: L.band.captionTop + capPad,
+          w: L.W - L.edge * 2,
+          h: L.band.captionBottom - L.band.captionTop - capPad,
+        },
+      });
     }
 
     return [...out, ...(boxesFor ? boxesFor(scene, ctx) : [])];
@@ -783,37 +862,48 @@ export const SceneStage = <S extends Scene>({
           wrong the moment E04 pushed a bead on the tens rod: the finger stayed on the ones rod while
           a bead rose two columns away. `handAnchor` already took the hand's own rod for its y and
           its travel; only x was hard-coded. */}
-      {scene.hand && (
-        <svg
-          width={L.W}
-          height={L.H}
-          style={{ position: "absolute", inset: 0, overflow: "visible" }}
-        >
-          {(() => {
-            const { y, len } = handAnchor(
-              box,
-              scene.hand.heaven,
-              scene.hand.direction,
-              rods[scene.hand.rod]?.from ?? 0
-            );
-            return (
-              <FingerHand
-                digit={scene.hand.digit}
-                direction={scene.hand.direction}
-                scale={scale * 0.82}
-                x={rodX(box, scene.hand.rod)}
-                y={y}
-                len={len}
-                chipShiftX={-chipOverhang(rodX(box, scene.hand.rod), scene.hand.direction) / (scale * 0.82)}
-                // With `beadArrows` on, every arrow in the frame comes from BeadArrow — including
-                // the one on the bead this hand is touching. Otherwise the hand drew one arrow and
-                // the other moving beads got none.
-                showArrow={!beadArrows}
-              />
-            );
-          })()}
-        </svg>
-      )}
+      {/* One renderer, both hands. A line that moves the heaven bead AND the earth beads is one
+          instruction with two techniques in it, so it needs two fingers on screen at once. */}
+      {([scene.hand, scene.hand2].filter(Boolean) as NonNullable<Scene["hand"]>[]).map((h, k) => (
+        <React.Fragment key={k}>
+        {h && (
+          <svg
+            width={L.W}
+            height={L.H}
+            style={{ position: "absolute", inset: 0, overflow: "visible" }}
+          >
+            {(() => {
+              const handS = handScaleFor(h);
+              const { y, len } = handAnchor(
+                box,
+                h.heaven,
+                h.direction,
+                rods[h.rod]?.from ?? 0,
+                rods[h.rod]?.value ?? 0,
+                h.digit,
+                handS
+              );
+              return (
+                <FingerHand
+                  digit={h.digit}
+                  direction={h.direction}
+                  scale={handS}
+                  chipSide={chipSideFor(h)}
+                  x={rodX(box, h.rod) + (h.dx ?? 0)}
+                  y={y + (h.dy ?? 0)}
+                  len={len}
+                  chipShiftX={-chipOverhang(rodX(box, h.rod), h.direction) / handS}
+                  // With `beadArrows` on, every arrow in the frame comes from BeadArrow — including
+                  // the one on the bead this hand is touching. Otherwise the hand drew one arrow and
+                  // the other moving beads got none.
+                  showArrow={!beadArrows}
+                />
+              );
+            })()}
+          </svg>
+        )}
+        </React.Fragment>
+      ))}
 
       {/* the whole-rod band */}
       {rodBand && (
@@ -928,29 +1018,51 @@ export const SceneStage = <S extends Scene>({
           // Separate flag from guardOverlap on purpose: E01 wants the overlap CHECK but not
           // this geometry change, which altered 18 of its 79 approved frames.
           const level = arrowClearance && !inCardBand && Math.abs(to.y - cardCy) < cardH;
-          const bow = dir * (level ? Math.max(base, panelW * 0.55 + 60) : base);
+          const naturalBow = dir * (level ? Math.max(base, panelW * 0.55 + 60) : base);
 
           // The path must not pass through the card it comes out of, or through anything
           // else on screen. Checked here rather than by eye: this is the failure the user
           // found at "four is as high as the lower beads can go".
-          if (guardOverlap) {
-            const path = samplePath(from, to, bow);
-            for (const pt of path.slice(3, -1)) {
-              if (contains(cardBox, pt, -10)) {
-                throw new Error(
-                  `arrow path re-enters its own card on phrase ${p} ` +
-                    `(bow ${bow.toFixed(0)}, card ${panelW}x${cardH}) — increase the bow ` +
-                    `or move the card`
-                );
-              }
+          const clears = (b: number) => {
+            for (const pt of samplePath(from, to, b).slice(3, -1)) {
+              if (contains(cardBox, pt, -10)) return false;
               for (const g of guardBoxes) {
-                if (g.label !== "card" && contains(g.r, pt, -6)) {
-                  throw new Error(
-                    `arrow path crosses "${g.label}" on phrase ${p} — move the card or the prop`
-                  );
-                }
+                if (g.label !== "card" && contains(g.r, pt, -6)) return false;
               }
             }
+            return true;
+          };
+
+          // WIDEN THE ARC UNTIL IT IS CLEAR, rather than failing and waiting to be hand-tuned.
+          //
+          // The bow used to be one of two constants, so an arrow that had something in its way had
+          // no way out: the guard threw and the frame had to be fixed by moving the card. In the 4:5
+          // cut the card sits BELOW the abacus, so every arrow it sends up crosses the place-chip row
+          // on its way in — that is geometry, not a bad card placement, and no amount of moving the
+          // card avoids a row that spans the middle of the frame.
+          //
+          // So: keep the natural bow when it works, and only when it does not, search outward for the
+          // SMALLEST arc that clears everything, trying the natural side first at each magnitude. A
+          // frame that already passes is bit-for-bit unchanged — which is the whole reason this is a
+          // search and not a bigger constant. `arrowClearance` exists because one such constant
+          // altered 18 of E01's 79 approved frames.
+          let bow = naturalBow;
+          if (guardOverlap && !clears(bow)) {
+            const side = Math.sign(naturalBow) || 1;
+            const mag = Math.abs(naturalBow) || base;
+            const tries: number[] = [];
+            for (let k = 1; k <= 10; k++) {
+              tries.push(side * (mag + k * 60), -side * (mag + k * 60));
+            }
+            const found = tries.find(clears);
+            if (found === undefined) {
+              throw new Error(
+                `no arrow arc clears the frame on phrase ${p} (card ${panelW}x${cardH}, ` +
+                  `from ${from.x.toFixed(0)},${from.y.toFixed(0)} to ${to.x.toFixed(0)},` +
+                  `${to.y.toFixed(0)}) — move the card or the prop`
+              );
+            }
+            bow = found;
           }
 
           return (

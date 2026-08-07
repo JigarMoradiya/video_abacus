@@ -1,0 +1,13 @@
+# E05 · Taking away — narration, one continuous take.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+#
+# Direct subtraction on the ONES rod only: nothing here needs a complement, which is E07.
+# Source: the app's Level 2 Chapter 3 (Earth Subtract) and Chapter 4 (Heaven Subtract). The worked
+# numbers — four take two, eight take three, five take five, seven take five, nine take eight — are
+# the app's own, and nine take four is its suggested practice.
+#
+# THE FINGER IS THE HOOK. Adding is the thumb; taking away is the index finger, both for the lower
+# beads coming down and for the upper bead going up. That is real soroban technique and it is the
+# cleanest thing separating this episode from E03.
+#
+# ⏸ HOLD THREE SECONDS after "What number is left?"

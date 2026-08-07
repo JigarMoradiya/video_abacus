@@ -609,7 +609,7 @@ export const E03AddingTwoNumbers: React.FC = () => (
     phrases={PHRASES}
     track={track}
     sceneFor={sceneFor}
-    narration="audio/e003_one_to_nine_addition/E03.mp3"
+    narration="audio/e003_addition_rod1/E03.mp3"
     sfx={SFX_CUES}
     abacusFirstFrame={0}
     cardFor={cardFor}

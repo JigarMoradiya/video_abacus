@@ -125,6 +125,17 @@ nothing, so the overlap check alone cannot see it.
   badge per spoken number (`countOnNumbers`) — all of them at once says "four", not
   "one, two, three, four". Props that stand for the count (a ladder, a tally) follow
   `ctx.settle`, not the phrase boundary.
+- **THE FINGER IS DECIDED BY DIRECTION, NEVER BY WHICH BEAD.** Moving a bead **UP is the THUMB**.
+  Moving a bead **DOWN is the INDEX FINGER**. That is the whole rule, and it is the same rule for
+  the heaven bead as for the earth beads — so "push the upper bead back up" is a THUMB, even though
+  every other thing you do to the upper bead is an index finger. This is the single mistake that has
+  reached the user most often: it shipped wrong three times in E05 because it was being derived from
+  the bead ("upper bead → index finger") instead of from the direction. Write it as a function of
+  `direction` and nothing else. Auditing it means comparing the rod's DIGIT before and after, not
+  its value — 0 → 10 is an earth bead moving on the tens rod, not a heaven bead on the ones.
+- **The hand goes on the rod that changed.** `rodX(box, scene.hand.rod)`, never a hard-coded ones-rod
+  x. This was invisibly correct for three episodes because nothing but the ones rod ever moved, and
+  it was wrong the first frame E04 touched the tens rod.
 - **Point at the thing that moves.** `handAnchor` takes the value the rod is coming FROM, so
   the arrow lands on the bead that is about to travel rather than on a fixed slot. From E03 this
   is not the hand's job alone: turn on `beadArrows` so EVERY line that changes the rod's value
@@ -182,6 +193,12 @@ python3 tools/phrase_sheet.py  out/<id>.mp4 src/data/<ep>.phrases.json out/<ep>_
 python3 tools/motion_check.py  out/<id>.mp4 src/data/<ep>.phrases.json                 # FROZEN
 ```
 
+**The episode is not finished without its two thumbnails.** Add a row to `THUMBS` in
+`src/reels/thumbnails.tsx`, two compositions in `src/reels/index.ts`, and a line in
+`tools/thumbs.mjs`; `node tools/thumbs.mjs` writes both PNGs into the episode's own output folder
+beside its mp4s. The hook POSES the sum and the rod shows the STARTING number — a puzzle thumbnail
+that also prints its answer has closed the loop it exists to open.
+
 **Refactoring shared code?** Capture `--png` stills for an already-approved episode FIRST and
 diff the hashes after. Every scene value is a pure function of the frame, so a change that
 alters nothing must reproduce them byte-for-byte. E01 was ported onto a shared interpreter and
@@ -191,3 +208,36 @@ at all.
 Then **read the caption against the card in the same frame**. E01's worst bug — a tooltip a full
 line out of step for a whole section — survived several contact sheets because I checked layout
 and never checked whether the label agreed with the sentence.
+
+### The finger must be on a bead that MOVES — and the ANCHOR IS NOT THE TIP
+
+Two independent things decide where a finger lands, and both were wrong.
+
+**1. Which bead.** Always the topmost bead that actually travels.
+
+- **UP**: beads `from`..`to-1` travel; the topmost is the first parked one, at slot `(from % 5) + 1.5`.
+- **DOWN**: beads `to`..`from-1` travel; the topmost is raised at slot `(to % 5) + 0.5`. This was
+  pinned to slot 0.5, which is that bead only when the result is zero — on 9 → 6 the finger sat on
+  the one bead that was going to STAY.
+
+Technique says a thumb pushes from UNDER the group, at slot `(to % 5) + 0.5`. That was tried and
+reverted: the fist is drawn ~67 units below the tip, so aiming at the bottom bead put the hand
+through the caption band on every four-bead push and through E04's place chips. **Correct technique
+that does not fit the frame is not correct on screen.**
+
+**2. Where the tip is.** `handAnchor` returns the hand's ORIGIN, not the point of its finger.
+`DIGIT_TIP` in `FingerHand.tsx` holds the measured offset per digit — computed off the actual bezier
+paths, not estimated:
+
+| digit | tip offset from anchor |
+|---|---|
+| thumb | 75 units UP — more than a whole bead |
+| index | 12 units down — near enough to zero |
+
+So anchoring on the target bead left the thumb hovering in the empty gap ABOVE the group it was
+supposed to be pushing. That was **every upward move in all five episodes**: 33 frames.
+
+**AUDIT BOTH DIRECTIONS, AND AUDIT THE TIP, NOT THE ANCHOR.** The first pass at this checked only
+downward moves — the direction where a bug had already been found — pronounced the series clean, and
+shipped every thumb still wrong. A fix for one branch of a two-branch problem looks exactly like a
+fix for the problem.

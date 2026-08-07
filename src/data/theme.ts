@@ -115,6 +115,29 @@ export const RIG_CITY: RigPalette = {
   offEdge: "#7A8792",
 };
 
+/**
+ * E05 · flight hardware. Graphite frame, violet beads.
+ *
+ * Fourth distinct instrument: wood-and-orange (E01/E02), driftwood-and-teal (E03), steel-and-amber
+ * (E04), and now graphite-and-violet. Violet is the one hue the series has not used on a bead, and
+ * against the pale panel it holds the greyscale separation DESIGN_SYSTEM §9 asks for.
+ */
+export const RIG_SPACE: RigPalette = {
+  woodLight: "#68789B",
+  wood: "#46567A",
+  woodDark: "#2A3552",
+  panel: "#EFF2F9",
+  panelEdge: "#C3CCDF",
+  rod: "#93A0B9",
+  beam: "#1E2740",
+  onTop: "#C88CFF",
+  onBottom: "#8A3EE0",
+  onEdge: "#5A20A6",
+  offTop: "#CDD4E2",
+  offBottom: "#A8B2C6",
+  offEdge: "#7C8698",
+};
+
 // ---------------------------------------------------------------- worlds
 
 /** Every beat gets its own world, so no two stretches of the video look alike. */
@@ -164,7 +187,18 @@ export type WorldKind =
   | "noon" // bright and plain — the reading rule
   | "duskstreet" // late afternoon over the towers — fifty-six
   | "summit" // the tallest tower against a low sun — ninety-nine
-  | "starcity"; // deep indigo night, every window lit — a hundred numbers, and the close
+  | "starcity" // deep indigo night, every window lit — a hundred numbers, and the close
+  // --- E05 · taking away. A LAUNCH, ground to orbit. Subtraction IS a countdown — nine, eight,
+  // seven — so the episode climbs as the numbers come down, which is the opposite motion to E04's
+  // city and the reason the two do not feel like the same episode twice. ---
+  | "launchpad" // dawn at the pad, gantry against the sky — the hook
+  | "ignition" // the sky goes warm — what taking away means
+  | "ascent" // climbing, thinning air — four take two
+  | "highair" // deep blue, the curve beginning — eight take three
+  | "edgespace" // black above, blue below — the rule, and five take five
+  | "orbit" // Earth's limb below, stars above — seven take five
+  | "deepspace" // nebula and stars — nine take eight
+  | "homeview"; // Earth full in frame — your turn, and the close
 
 export interface WorldTheme {
   sky: [string, string];
@@ -184,10 +218,20 @@ export interface WorldTheme {
    *  skies that reads as white shapes cut out of the sky rather than as cloud. */
   cloudInk?: string;
   cloudAlpha?: number;
+  /** Squash the lobes and drop the solid base, for cloud seen from above or from altitude. */
+  cloudFlat?: number;
   /** Fish swimming in the sea band. Only means anything with `beach`. */
   fish?: number;
   /** Their colours. Defaults to the warm shoal every beach world started with. */
   fishInk?: string[];
+
+  // ---------------------------------------------------------------- flight (E05)
+  /** The curve of a planet across the bottom of the frame, with an atmospheric rim. */
+  planet?: { at: number; body: string; rim: string; lit: string };
+  /** Soft drifting colour clouds, for the deep-space beats. */
+  nebula?: string[];
+  /** The launch gantry, left of frame. Ground beats only. */
+  gantry?: boolean;
 
   // ---------------------------------------------------------------- city (E04)
   /**
@@ -651,5 +695,85 @@ export const WORLDS: Record<WorldKind, WorldTheme> = {
     accent: "#FFC94E",
     stars: true,
     skyline: { at: 0.79, far: "#3E4A7C", near: "#2C355F", ground: "#1A203E", lit: "#F0D9A6", windows: 0.4 },
+  },
+
+  // ---------------------------------------------------------------- E05 · Launch
+  //
+  // Ground to orbit across eight beats. The sky darkens as the episode climbs, which is exactly
+  // inverse to E04's city filling with light — the two sit next to each other in a playlist and had
+  // to not feel like one episode twice.
+  launchpad: {
+    sky: ["#8FC4E8", "#FFE3C2"],
+    ink: "#1B2A45",
+    pill: "#FFFFFF",
+    accent: "#E8543F",
+    gantry: true,
+    planet: { at: 0.86, body: "#5C6B52", rim: "#9FBF7E", lit: "#D8E8BE" },
+  },
+  ignition: {
+    sky: ["#F2A24E", "#FFE6C4"],
+    ink: "#4A2410",
+    pill: "#FFFFFF",
+    accent: "#C0392B",
+    gantry: true,
+    planet: { at: 0.86, body: "#6B5B44", rim: "#C79B62", lit: "#F0D6A8" },
+  },
+  ascent: {
+    sky: ["#4E96D6", "#CDE7FA"],
+    ink: "#0C2A4A",
+    pill: "#FFFFFF",
+    accent: "#E8543F",
+    clouds: true,
+    // Back to the ROUNDED cloud. The flattened "seen from altitude" version was more accurate and
+    // looked worse — stretched wisps read as smears at feed size, where the rounded lobes read
+    // instantly as cloud. Accuracy lost to legibility, which is the right way round for a children's
+    // series. Only the softening is kept: paler ink, no grey underside.
+    cloudSize: 0.75,
+    cloudShade: 0.05,
+    cloudShadeInk: "#E9F5FF",
+    cloudInk: "#FBFEFF",
+    cloudAlpha: 0.8,
+    planet: { at: 0.92, body: "#4E6B5A", rim: "#8FC0A0", lit: "#CFE8D8" },
+  },
+  highair: {
+    sky: ["#1F4E8C", "#7FB4E4"],
+    ink: "#EAF2FF",
+    pill: "#173B6B",
+    accent: "#FFB03A",
+    stars: true,
+    planet: { at: 0.94, body: "#3E5C6B", rim: "#7FB0C4", lit: "#BFE0EC" },
+  },
+  edgespace: {
+    sky: ["#0B1836", "#3C6DA8"],
+    ink: "#EAF2FF",
+    pill: "#132445",
+    accent: "#FFB03A",
+    stars: true,
+    planet: { at: 0.9, body: "#2E5A78", rim: "#6FB8D8", lit: "#B8E4F4" },
+  },
+  orbit: {
+    sky: ["#050A20", "#16305C"],
+    ink: "#EAF2FF",
+    pill: "#101E3C",
+    accent: "#5CE1E6",
+    stars: true,
+    planet: { at: 0.82, body: "#2A6E9C", rim: "#6FD0F0", lit: "#CFF2FF" },
+  },
+  deepspace: {
+    sky: ["#04061A", "#181446"],
+    ink: "#EDEBFF",
+    pill: "#161341",
+    accent: "#C88CFF",
+    stars: true,
+    nebula: ["#7B3FE0", "#2E6FD8", "#C84FA8"],
+  },
+  homeview: {
+    sky: ["#04061A", "#0E1A44"],
+    ink: "#EDF2FF",
+    pill: "#121E45",
+    accent: "#5CE1E6",
+    stars: true,
+    nebula: ["#2E6FD8", "#7B3FE0"],
+    planet: { at: 0.74, body: "#2D7AA8", rim: "#7FDCF4", lit: "#DAF4FF" },
   },
 };

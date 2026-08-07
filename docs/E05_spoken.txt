@@ -1,0 +1,108 @@
+# E05 · Taking away — AS RECORDED. This is the alignment input.
+#
+# E05_lines.txt is the APPROVED SCRIPT and stays untouched (EPISODE_RULES.md §3.1a).
+# 58 scripted lines -> 74 as recorded: the take breaks almost every long line into two short ones,
+# which is a warmer read and gives the visuals more beats to land on, not fewer.
+#
+# ⚠ Whisper transcribes every "bead" as "beat". The word is spelled CORRECTLY here, because this
+#   file is what the caption renders; canon() folds the homophone so matching still works.
+#
+# ✅ Recall gap after "What number is left?": 1.90 s. Shorter than E04's 2.50 but usable.
+# ⚠ Peak −0.5 dB, hot. Worth recording ~3 dB lower next time.
+
+
+# --- 1 · HOOK ---
+Last time, we learned to make big numbers using more than one rod.
+Today, we're going back to one rod to learn something new.
+We're going to take numbers away.
+
+# --- 2 · WHAT TAKING AWAY MEANS ---
+Taking away is the opposite of adding.
+When we added, we pushed beads towards the beam.
+So when we take away, we push beads away from the beam.
+That's the whole idea.
+The rest is just practice.
+
+# --- 3 · THE FINGER CHANGES ---
+There's one more thing that changes, your finger.
+When we add, the thumb pushes the lower beads up.
+When we take away, your index finger pushes them back down.
+
+# --- 4 · FOUR TAKE AWAY TWO ---
+Let's try four, take away two.
+First, make four.
+Push four lower beads up to the beam.
+The rod is showing four.
+Now take away two.
+Push two lower beads back down.
+Two beads have moved away from the beam.
+Two lower beads are still touching the beam.
+So four, take away two, is two.
+
+# --- 5 · EIGHT TAKE AWAY THREE ---
+Now let's try eight, take away three.
+First, make eight.
+Push the upper bead down for five.
+Then push three lower beads up for three.
+Five and three is eight.
+Now take away three.
+Push three lower beads back down.
+The upper bead doesn't move at all.
+Only the lower beads move away from the beam.
+The upper bead is still worth five.
+So eight, take away three, is five.
+
+# --- 6 · THE RULE SO FAR ---
+Here's the rule so far.
+If you only need to move lower beads, just push them away from the beam.
+
+# --- 7 · FIVE TAKE AWAY FIVE ---
+Now what if we need to take away five?
+Five lives on the upper bead.
+So the upper bead has to move.
+Let's try five, take away five.
+First, make five.
+Push the upper bead down.
+The rod is showing five.
+Now take away five.
+Push the upper bead back up.
+Every bead is away from the beam.
+So five, take away five, is zero.
+
+# --- 8 · SEVEN TAKE AWAY FIVE ---
+Let's try seven, take away five.
+First, make seven.
+Push the upper bead down for five.
+Then push two lower beads up for two.
+Now take away five.
+Push the upper bead back up.
+The two lower beads don't move.
+They're still touching the beam.
+So seven, take away five, is two.
+
+# --- 9 · NINE TAKE AWAY EIGHT ---
+Sometimes both kinds of beads have to move.
+Let's try nine, take away eight.
+First, make nine.
+Push the upper bead down and all four lower beads up.
+Now take away eight.
+Eight is five and three.
+So we move both.
+First, push three lower beads down.
+Then push the upper bead up.
+One lower bead is still touching the beam.
+So nine, take away eight is one.
+
+# --- 10 · YOUR TURN ---
+Now it's your turn.
+Make nine on your own abacus and take away four.
+What number is left?
+Nine, take away four is five.
+Great job.
+
+# --- 11 · CLOSE ---
+Now try taking away some small numbers on your own abacus.
+If you enjoyed this video, please like and subscribe for more.
+Search for abacus kids on the Apple App Store or Google Play.
+Download it free.
+See you in the next video where we'll add and take away on two rods together.

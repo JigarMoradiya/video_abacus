@@ -1,0 +1,283 @@
+1
+00:00:00,000 --> 00:00:04,120
+Last time, we learned to make every number from zero to nine.
+
+2
+00:00:04,920 --> 00:00:08,100
+Today, we're going to put two numbers together.
+
+3
+00:00:08,840 --> 00:00:12,500
+When we put two numbers together, that's called adding.
+
+4
+00:00:13,260 --> 00:00:16,080
+And the abacus makes adding really easy.
+
+5
+00:00:17,260 --> 00:00:20,500
+Adding on the abacus means moving more beads to the beam.
+
+6
+00:00:21,500 --> 00:00:23,600
+First, make your starting number.
+
+7
+00:00:24,200 --> 00:00:27,900
+Then, push up as many more beads as you want to add.
+
+8
+00:00:28,480 --> 00:00:32,040
+When you stop, the rod is already showing the answer.
+
+9
+00:00:33,020 --> 00:00:35,540
+Let's try one plus two together.
+
+10
+00:00:36,300 --> 00:00:39,860
+To make one, push one lower bead up to the beam.
+
+11
+00:00:40,660 --> 00:00:42,080
+The rod is showing one.
+
+12
+00:00:42,920 --> 00:00:47,100
+Now, add two by pushing two more lower beads up.
+
+13
+00:00:48,000 --> 00:00:49,200
+Count them as they go up.
+
+14
+00:00:49,960 --> 00:00:51,540
+One, two.
+
+15
+00:00:52,300 --> 00:00:54,720
+Three lower beads are touching the beam.
+
+16
+00:00:55,360 --> 00:00:57,180
+So, one plus two is three.
+
+17
+00:00:58,040 --> 00:01:00,480
+Now, let's try two plus two.
+
+18
+00:01:00,960 --> 00:01:04,840
+To make two, push two lower beads up to the beam.
+
+19
+00:01:05,620 --> 00:01:09,580
+Now, add two more by pushing two more lower beads up.
+
+20
+00:01:10,500 --> 00:01:13,040
+All four lower beads are touching the beam.
+
+21
+00:01:13,780 --> 00:01:15,620
+So, two plus two is four.
+
+22
+00:01:16,980 --> 00:01:19,960
+Every lower bead you push up adds one more.
+
+23
+00:01:20,580 --> 00:01:23,360
+But each rod only has four lower beads.
+
+24
+00:01:24,020 --> 00:01:28,820
+So, the lower beads can only make one, two, three or four.
+
+25
+00:01:29,720 --> 00:01:33,980
+When we want to add five, we use the upper bead instead.
+
+26
+00:01:34,660 --> 00:01:37,300
+Start with all the beads away from the beam.
+
+27
+00:01:37,820 --> 00:01:39,340
+So, the rod is showing zero.
+
+28
+00:01:40,300 --> 00:01:43,760
+Now, push the upper bead down until it touches the beam.
+
+29
+00:01:44,600 --> 00:01:46,200
+The rod is showing five.
+
+30
+00:01:47,140 --> 00:01:50,660
+One single bead gave us five in one move.
+
+31
+00:01:51,760 --> 00:01:54,320
+Now, let's try five plus one.
+
+32
+00:01:55,000 --> 00:01:58,480
+First, make five by pushing the upper bead down.
+
+33
+00:01:59,400 --> 00:02:02,820
+Then, add one by pushing one lower bead up.
+
+34
+00:02:03,740 --> 00:02:07,820
+The upper bead is worth five and the lower bead is worth one.
+
+35
+00:02:08,420 --> 00:02:10,420
+So, five plus one is six.
+
+36
+00:02:12,020 --> 00:02:13,980
+Let's try five plus four.
+
+37
+00:02:14,780 --> 00:02:17,740
+Make five again by pushing the upper bead down.
+
+38
+00:02:18,500 --> 00:02:21,520
+Now, push all four lower beads up to the beam.
+
+39
+00:02:22,420 --> 00:02:25,020
+Five and four more makes nine.
+
+40
+00:02:26,200 --> 00:02:30,200
+This works when you start from any number, not only five.
+
+41
+00:02:31,000 --> 00:02:32,160
+Let's start from six.
+
+42
+00:02:33,140 --> 00:02:36,640
+To make six, push the upper bead down for five.
+
+43
+00:02:37,320 --> 00:02:39,980
+Then, push one lower bead up for one.
+
+44
+00:02:40,720 --> 00:02:42,180
+The rod is showing six.
+
+45
+00:02:43,300 --> 00:02:47,200
+Now, add three by pushing three more lower beads up.
+
+46
+00:02:47,740 --> 00:02:49,820
+Six plus three is nine.
+
+47
+00:02:50,820 --> 00:02:52,340
+Let's do one more.
+
+48
+00:02:52,920 --> 00:02:54,020
+Start with seven.
+
+49
+00:02:54,860 --> 00:02:57,660
+To make seven, push the upper bead down.
+
+50
+00:02:58,240 --> 00:03:00,280
+Then, push two lower beads up.
+
+51
+00:03:01,300 --> 00:03:04,760
+Now, add one by pushing one more lower bead up.
+
+52
+00:03:05,660 --> 00:03:07,440
+Seven plus one is eight.
+
+53
+00:03:08,640 --> 00:03:09,880
+Now, it's your turn.
+
+54
+00:03:10,540 --> 00:03:13,400
+Try five plus two on your own abacus.
+
+55
+00:03:14,240 --> 00:03:16,560
+Push the upper bead down to make five.
+
+56
+00:03:16,560 --> 00:03:19,160
+Then, push two lower beads up.
+
+57
+00:03:19,780 --> 00:03:21,380
+The rod is showing seven.
+
+58
+00:03:22,120 --> 00:03:24,020
+So, five plus two is seven.
+
+59
+00:03:24,820 --> 00:03:25,420
+Great job.
+
+60
+00:03:26,800 --> 00:03:28,680
+Here's one last thing to notice.
+
+61
+00:03:29,620 --> 00:03:30,960
+Make one on your rod.
+
+62
+00:03:31,860 --> 00:03:33,480
+Now, try to add four more.
+
+63
+00:03:34,300 --> 00:03:36,680
+There are only three lower beads left.
+
+64
+00:03:37,340 --> 00:03:38,580
+There isn't enough room.
+
+65
+00:03:39,520 --> 00:03:41,760
+There's a clever trick for moments like this.
+
+66
+00:03:42,220 --> 00:03:43,940
+And we'll learn it very soon.
+
+67
+00:03:45,040 --> 00:03:49,060
+Now, try adding some small numbers on your own abacus.
+
+68
+00:03:49,740 --> 00:03:53,460
+If you enjoyed this video, please like and subscribe for more.
+
+69
+00:03:54,200 --> 00:03:58,160
+Search for abacus kids on the Apple App Store or Google Play.
+
+70
+00:03:58,840 --> 00:03:59,760
+Download it free.
+
+71
+00:04:00,740 --> 00:04:05,800
+See you in the next video, where we'll add much bigger numbers on the abacus.

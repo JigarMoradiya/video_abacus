@@ -142,6 +142,32 @@ const rig = (p: number): RodState[] => {
  */
 const SILENT_RESET = new Set([4, 13, 22, 29, 38, 46, 51]);
 
+/**
+ * The SECOND hand, for a line where BOTH kinds of bead move on the same rod — "on the tens rod, push
+ * the upper bead down and all four lower beads up". `handFor` returns the earth move (the thumb,
+ * because the lower-bead branch matches first), so without this the line shows one of its two
+ * techniques. Same rule and same layout as E05: SceneStage shrinks the pair and puts each chip on
+ * the side its hand is on.
+ */
+const hand2For = (p: number): Scene["hand2"] => {
+  if (p === 0 || SILENT_RESET.has(p) || rodCountAt(p) === 13) return undefined;
+  const to = digits(valueAt(p));
+  const from = digits(p > 0 ? valueAt(p - 1) : 0);
+  const moved = [0, 1, 2].filter((i) => to[i] !== from[i]);
+  if (moved.length !== 1) return undefined;
+  const rod = moved[0];
+  const earthMoves = to[rod] % 5 !== from[rod] % 5;
+  const heavenMoves = from[rod] >= 5 !== to[rod] >= 5;
+  if (!earthMoves || !heavenMoves) return undefined;
+  const down = to[rod] >= 5;
+  return {
+    digit: down ? "index" : "thumb",
+    direction: down ? "down" : "up",
+    rod,
+    heaven: true,
+  };
+};
+
 const handFor = (p: number): Scene["hand"] => {
   if (p === 0 || SILENT_RESET.has(p) || rodCountAt(p) === 13) return undefined;
   const to = digits(valueAt(p));
@@ -151,9 +177,21 @@ const handFor = (p: number): Scene["hand"] => {
   const rod = moved[0];
   const lowerFrom = from[rod] % 5;
   const lowerTo = to[rod] % 5;
+  // THE FINGER IS DECIDED BY DIRECTION, NOT BY WHICH BEAD.
+  //
+  //    moving TOWARDS the top of the frame  -> THUMB
+  //    moving DOWN                          -> INDEX FINGER
+  //
+  // So the thumb pushes earth beads up AND pushes the heaven bead back up; the index finger brings
+  // earth beads down AND brings the heaven bead down to the beam. This was wrong in E05's first
+  // build: the heaven bead had the index finger in both directions, so "push the upper bead back up"
+  // showed the wrong hand — a technique error, not a cosmetic one, on the episode whose whole hook is
+  // which finger to use.
   if (lowerTo > lowerFrom) return { digit: "thumb", direction: "up", rod, heaven: false };
-  if (from[rod] >= 5 !== to[rod] >= 5)
-    return { digit: "index", direction: to[rod] >= 5 ? "down" : "up", rod, heaven: true };
+  if (from[rod] >= 5 !== to[rod] >= 5) {
+    const down = to[rod] >= 5;
+    return { digit: down ? "index" : "thumb", direction: down ? "down" : "up", rod, heaven: true };
+  }
   if (lowerTo < lowerFrom) return { digit: "index", direction: "down", rod, heaven: false };
   return undefined;
 };
@@ -175,6 +213,7 @@ const sceneCore = (p: number): Scene => {
     targetRod: 0,
     highlight: null,
     hand: handFor(p),
+    hand2: hand2For(p),
   };
 
   // ---------------------------------------------------------------- 1 · HOOK (rooftop)

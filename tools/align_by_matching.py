@@ -62,6 +62,14 @@ NUM_WORDS.update({w: str(20 + 10 * i) for i, w in enumerate(_TENS)})
 NUM_WORDS.update({"hundred": "100", "thousand": "1000"})
 
 
+# Whisper reliably hears "bead" as "beat" — and "bead" is the most-spoken word in this entire
+# series, roughly twenty-five times in E05 alone. Under norm() the two share no match, so every one
+# of those failed and took the surrounding timing with it. Folding the homophone is the same class
+# of fix as the number words: the SCRIPT keeps the correct spelling, because that is what the caption
+# renders, and matching is taught to see through a known transcription error.
+ASR_HOMOPHONES: dict[str, str] = {"beat": "bead", "beats": "beads", "bees": "beads"}
+
+
 def canon(text: str) -> str:
     """Normalise for MATCHING: norm(), then number words to digits.
 
@@ -69,6 +77,7 @@ def canon(text: str) -> str:
     all. Folding the two would change what gets filtered out, not just what matches.
     """
     n = norm(text)
+    n = ASR_HOMOPHONES.get(n, n)
     return NUM_WORDS.get(n, n)
 
 

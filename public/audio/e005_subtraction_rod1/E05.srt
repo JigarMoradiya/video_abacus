@@ -1,0 +1,295 @@
+1
+00:00:00,000 --> 00:00:04,540
+Last time, we learned to make big numbers using more than one rod.
+
+2
+00:00:05,240 --> 00:00:08,800
+Today, we're going back to one rod to learn something new.
+
+3
+00:00:09,420 --> 00:00:11,320
+We're going to take numbers away.
+
+4
+00:00:12,440 --> 00:00:14,680
+Taking away is the opposite of adding.
+
+5
+00:00:15,400 --> 00:00:18,540
+When we added, we pushed beads towards the beam.
+
+6
+00:00:19,300 --> 00:00:23,180
+So when we take away, we push beads away from the beam.
+
+7
+00:00:23,720 --> 00:00:24,800
+That's the whole idea.
+
+8
+00:00:25,440 --> 00:00:26,940
+The rest is just practice.
+
+9
+00:00:28,200 --> 00:00:31,740
+There's one more thing that changes, your finger.
+
+10
+00:00:32,560 --> 00:00:35,880
+When we add, the thumb pushes the lower beads up.
+
+11
+00:00:36,600 --> 00:00:40,640
+When we take away, your index finger pushes them back down.
+
+12
+00:00:41,500 --> 00:00:43,420
+Let's try four, take away two.
+
+13
+00:00:44,200 --> 00:00:45,680
+First, make four.
+
+14
+00:00:46,360 --> 00:00:48,620
+Push four lower beads up to the beam.
+
+15
+00:00:49,320 --> 00:00:50,900
+The rod is showing four.
+
+16
+00:00:51,680 --> 00:00:52,860
+Now take away two.
+
+17
+00:00:53,580 --> 00:00:55,700
+Push two lower beads back down.
+
+18
+00:00:55,700 --> 00:00:58,760
+Two beads have moved away from the beam.
+
+19
+00:00:59,560 --> 00:01:02,160
+Two lower beads are still touching the beam.
+
+20
+00:01:03,020 --> 00:01:05,400
+So four, take away two, is two.
+
+21
+00:01:06,360 --> 00:01:08,960
+Now let's try eight, take away three.
+
+22
+00:01:09,800 --> 00:01:11,280
+First, make eight.
+
+23
+00:01:12,200 --> 00:01:14,160
+Push the upper bead down for five.
+
+24
+00:01:14,800 --> 00:01:17,520
+Then push three lower beads up for three.
+
+25
+00:01:18,360 --> 00:01:20,220
+Five and three is eight.
+
+26
+00:01:21,220 --> 00:01:22,420
+Now take away three.
+
+27
+00:01:23,160 --> 00:01:25,500
+Push three lower beads back down.
+
+28
+00:01:26,020 --> 00:01:28,180
+The upper bead doesn't move at all.
+
+29
+00:01:28,860 --> 00:01:31,660
+Only the lower beads move away from the beam.
+
+30
+00:01:32,440 --> 00:01:34,680
+The upper bead is still worth five.
+
+31
+00:01:35,520 --> 00:01:37,680
+So eight, take away three, is five.
+
+32
+00:01:39,080 --> 00:01:40,720
+Here's the rule so far.
+
+33
+00:01:41,380 --> 00:01:46,160
+If you only need to move lower beads, just push them away from the beam.
+
+34
+00:01:47,320 --> 00:01:49,520
+Now what if we need to take away five?
+
+35
+00:01:50,240 --> 00:01:52,340
+Five lives on the upper bead.
+
+36
+00:01:53,040 --> 00:01:54,700
+So the upper bead has to move.
+
+37
+00:01:55,460 --> 00:01:57,840
+Let's try five, take away five.
+
+38
+00:01:58,520 --> 00:02:00,220
+First, make five.
+
+39
+00:02:00,800 --> 00:02:02,180
+Push the upper bead down.
+
+40
+00:02:02,900 --> 00:02:04,500
+The rod is showing five.
+
+41
+00:02:05,340 --> 00:02:06,740
+Now take away five.
+
+42
+00:02:07,300 --> 00:02:08,900
+Push the upper bead back up.
+
+43
+00:02:09,560 --> 00:02:11,840
+Every bead is away from the beam.
+
+44
+00:02:12,620 --> 00:02:14,880
+So five, take away five, is zero.
+
+45
+00:02:16,460 --> 00:02:18,920
+Let's try seven, take away five.
+
+46
+00:02:19,380 --> 00:02:20,920
+First, make seven.
+
+47
+00:02:21,720 --> 00:02:23,740
+Push the upper bead down for five.
+
+48
+00:02:24,360 --> 00:02:26,980
+Then push two lower beads up for two.
+
+49
+00:02:27,780 --> 00:02:29,300
+Now take away five.
+
+50
+00:02:29,900 --> 00:02:31,560
+Push the upper bead back up.
+
+51
+00:02:32,180 --> 00:02:34,240
+The two lower beads don't move.
+
+52
+00:02:34,920 --> 00:02:36,420
+They're still touching the beam.
+
+53
+00:02:37,200 --> 00:02:39,540
+So seven, take away five, is two.
+
+54
+00:02:40,940 --> 00:02:44,220
+Sometimes both kinds of beads have to move.
+
+55
+00:02:44,780 --> 00:02:46,840
+Let's try nine, take away eight.
+
+56
+00:02:47,920 --> 00:02:49,180
+First, make nine.
+
+57
+00:02:49,960 --> 00:02:53,520
+Push the upper bead down and all four lower beads up.
+
+58
+00:02:54,200 --> 00:02:55,580
+Now take away eight.
+
+59
+00:02:56,280 --> 00:02:57,920
+Eight is five and three.
+
+60
+00:02:58,620 --> 00:02:59,660
+So we move both.
+
+61
+00:03:00,540 --> 00:03:03,120
+First, push three lower beads down.
+
+62
+00:03:03,860 --> 00:03:05,560
+Then push the upper bead up.
+
+63
+00:03:06,440 --> 00:03:08,880
+One lower bead is still touching the beam.
+
+64
+00:03:08,880 --> 00:03:11,720
+So nine, take away eight is one.
+
+65
+00:03:12,680 --> 00:03:14,200
+Now it's your turn.
+
+66
+00:03:14,700 --> 00:03:17,720
+Make nine on your own abacus and take away four.
+
+67
+00:03:18,320 --> 00:03:19,540
+What number is left?
+
+68
+00:03:21,640 --> 00:03:23,840
+Nine, take away four is five.
+
+69
+00:03:24,480 --> 00:03:25,140
+Great job.
+
+70
+00:03:26,160 --> 00:03:30,120
+Now try taking away some small numbers on your own abacus.
+
+71
+00:03:30,460 --> 00:03:34,540
+If you enjoyed this video, please like and subscribe for more.
+
+72
+00:03:35,240 --> 00:03:39,140
+Search for abacus kids on the Apple App Store or Google Play.
+
+73
+00:03:39,840 --> 00:03:40,900
+Download it free.
+
+74
+00:03:41,480 --> 00:03:46,640
+See you in the next video where we'll add and take away on two rods together.

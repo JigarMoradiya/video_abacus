@@ -21,6 +21,7 @@ import {
   ROD_PITCH,
 } from "../data/tokens";
 import { bob } from "../lib/motion";
+import { DIGIT_TIP, type Digit } from "../components/FingerHand";
 
 export interface Pt {
   x: number;
@@ -155,23 +156,43 @@ export const groupBox = (box: AbacusBox, count: number): Rect => {
  * from the beam) sits at centre slot b + 0.5 when raised and b + 1.5 when parked, so the
  * next bead to go up is the one parked at (fromValue % 5) + 1.5.
  *
- * A DOWN move keeps the topmost raised bead (slot 0.5): those gestures clear a whole group
- * with one sweep, and the sweep starts at the top of the group.
+ * TWO things decide it, and getting either wrong puts the finger on a bead that is not moving.
+ *
+ * 1. WHICH BEAD. Always the TOPMOST bead that actually travels.
+ *      - UP: beads `from`..`to-1` travel, and the topmost is the first parked one, at slot
+ *        `(from % 5) + 1.5`. There is never a parked bead above it, so this end of the group is
+ *        unambiguous. A real push goes UNDER the stack, at slot `(to % 5) + 0.5`, and that is what
+ *        this tried first — but the fist hangs ~67 units BELOW the tip it is drawn around, so
+ *        aiming at the bottom bead put the hand through the caption band on every four-bead push
+ *        and through the place chips in E04. Correct technique that does not fit the frame is not
+ *        correct on screen.
+ *      - DOWN: beads `to`..`from-1` travel. The index finger presses the topmost, raised at slot
+ *        `(to % 5) + 0.5`. (Pinned to slot 0.5 before, which is only that bead when the result is
+ *        zero — on 9 -> 6 the finger sat on the one bead that was going to stay.)
+ *
+ * 2. WHERE THE TIP IS. The anchor is the hand's ORIGIN, not the point of its finger. `DIGIT_TIP`
+ *    holds the measured offset per digit. The thumb's is 75 units up — more than a whole bead —
+ *    so anchoring on the target bead parked the thumb in the empty gap above the group it was
+ *    meant to be pushing. That was every upward move in all five episodes; the index finger's
+ *    offset is 12, near enough to nothing, which is why fixing the downward case first made the
+ *    problem look solved.
  */
 export const handAnchor = (
   box: AbacusBox,
   heaven: boolean,
   direction: "up" | "down",
-  fromValue = 0
+  fromValue = 0,
+  toValue = 0,
+  digit: Digit = "index",
+  handScale = box.scale
 ): { y: number; len: number } => {
   const up = direction === "up";
   const len = (heaven ? HEAVEN_H - BEAD_H : BEAD_H) * box.scale;
-  const y = heaven
+  // the bead the digit must actually touch, at the position it is in BEFORE the move
+  const beadY = heaven
     ? upperBeadY(box, up)
-    : up
-    ? lowerBeadY(box, (fromValue % 5) + 1.5)
-    : lowerBeadY(box, 0.5);
-  return { y, len };
+    : lowerBeadY(box, up ? (fromValue % 5) + 1.5 : (toValue % 5) + 0.5);
+  return { y: beadY - DIGIT_TIP[digit].dy * handScale, len };
 };
 
 // ---------------------------------------------------------------- overlap arithmetic

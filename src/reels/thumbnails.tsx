@@ -24,7 +24,7 @@ import { Abacus, type RodState } from "../components/Abacus";
 import { World } from "../components/World";
 import { AppIcon } from "../components/AppShowcase";
 import { KID_FONT } from "../lib/fonts";
-import { RIG_WOOD, RIG_SEA, RIG_CITY, WORLDS, type RigPalette, type WorldKind } from "../data/theme";
+import { RIG_WOOD, RIG_SEA, RIG_CITY, RIG_SPACE, WORLDS, type RigPalette, type WorldKind } from "../data/theme";
 import { ROD_DIM } from "../data/tokens";
 
 export interface ThumbSpec {
@@ -98,6 +98,33 @@ export const THUMBS: Record<string, ThumbSpec> = {
     ink: "#40160F",
     band: "#2E5F8A",
   },
+  e05: {
+    ep: 5,
+    hook: "8 - 3 = ?",
+    sub: "abacus subtraction",
+    // Earth's limb and a starfield. The launch worlds run dawn-to-dark across the episode, and this
+    // is the one that reads at 210px: a big lit curve, black above it, nothing else competing.
+    world: "orbit",
+    palette: RIG_SPACE,
+    // EIGHT — the question's starting number, not its answer. Same rule as lesson 3: the rod poses
+    // the sum, the hook asks for the result. Eight also happens to be the value that shows both
+    // kinds of bead at once, which is exactly what this lesson is about.
+    rods: [8, 0, 0, 0, 0],
+    rodCount: 5,
+    ink: "#5CE1E6",
+    band: "#E8543F",
+  },
+};
+
+/**
+ * Is this ink LIGHT? The drop shadow has to be the opposite of the letters or it does nothing — a
+ * white halo under white type is how lesson one lost its outline. That was patched by testing for
+ * one exact hex, which quietly meant the next light ink added to this table would inherit the bug.
+ */
+const isLightInk = (hex: string): boolean => {
+  const n = parseInt(hex.slice(1), 16);
+  const [r, g, b] = [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  return 0.299 * r + 0.587 * g + 0.114 * b > 140;
 };
 
 const rig = (spec: ThumbSpec): RodState[] =>
@@ -199,10 +226,9 @@ export const Thumbnail: React.FC<{ spec: ThumbSpec; portrait?: boolean }> = ({
           // a hard outline, because the feed shows this at 210px on unpredictable backgrounds
           // A light hook needs a DARK drop, a dark hook needs a light one — a white halo under white
           // letters is invisible, which is exactly how lesson one lost its outline.
-          textShadow:
-            spec.ink === "#FFD54F"
-              ? `0 ${7 * s}px 0 rgba(4,26,38,0.85), 0 0 ${20 * s}px rgba(4,26,38,0.6)`
-              : `0 ${8 * s}px 0 rgba(255,255,255,0.7), 0 0 ${20 * s}px rgba(255,255,255,0.55)`,
+          textShadow: isLightInk(spec.ink)
+            ? `0 ${7 * s}px 0 rgba(4,26,38,0.85), 0 0 ${20 * s}px rgba(4,26,38,0.6)`
+            : `0 ${8 * s}px 0 rgba(255,255,255,0.7), 0 0 ${20 * s}px rgba(255,255,255,0.55)`,
           letterSpacing: -1,
         }}
       >
@@ -277,7 +303,9 @@ export const ThumbE01: React.FC = () => <Thumbnail spec={THUMBS.e01} />;
 export const ThumbE02: React.FC = () => <Thumbnail spec={THUMBS.e02} />;
 export const ThumbE03: React.FC = () => <Thumbnail spec={THUMBS.e03} />;
 export const ThumbE04: React.FC = () => <Thumbnail spec={THUMBS.e04} />;
+export const ThumbE05: React.FC = () => <Thumbnail spec={THUMBS.e05} />;
 export const ThumbE01V: React.FC = () => <Thumbnail spec={THUMBS.e01} portrait />;
 export const ThumbE02V: React.FC = () => <Thumbnail spec={THUMBS.e02} portrait />;
 export const ThumbE03V: React.FC = () => <Thumbnail spec={THUMBS.e03} portrait />;
 export const ThumbE04V: React.FC = () => <Thumbnail spec={THUMBS.e04} portrait />;
+export const ThumbE05V: React.FC = () => <Thumbnail spec={THUMBS.e05} portrait />;

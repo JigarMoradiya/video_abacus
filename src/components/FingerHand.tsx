@@ -19,6 +19,40 @@ import { KID_FONT } from "../lib/fonts";
 
 export type Digit = "thumb" | "index";
 
+/**
+ * Hand-local y of the name-chip. Exported because SceneStage's guard box has to be read off the same
+ * arithmetic — a guard box computed from a stale copy of these numbers is a guard that passes frames
+ * it should fail.
+ */
+export const chipDy = (dir: 1 | -1, side: "auto" | "above" | "below" = "auto"): number => {
+  const below = side === "auto" ? dir > 0 : side === "below";
+  return dir * 26 + (below ? 186 : -150);
+};
+
+/**
+ * Hand-local x of the name-chip. A lone upward hand tucks its chip in at 120 so it sits over the
+ * abacus rather than off the frame edge; with two hands there is no room for that, because the chip
+ * then lands on the very beads the other hand is pointing at. A forced side means a pair, so the
+ * chip goes out to the fist's own line and leaves the instrument clear.
+ */
+export const chipDx = (dir: 1 | -1, side: "auto" | "above" | "below" = "auto"): number =>
+  dir > 0 || side !== "auto" ? 214 : 120;
+
+/**
+ * Where the working digit's TIP actually lands, in hand-local units, measured off the drawn paths
+ * (the extreme point of the thumb outline and of the extended index finger) plus the inner
+ * `translate(120, dir*26)`.
+ *
+ * The anchor is not the tip. The thumb's tip sits 75 units ABOVE its anchor — more than a whole
+ * bead — so anchoring the hand on the bead it is meant to push put the thumb in the empty gap above
+ * the bead group. The index finger's is 12 below, near enough to nothing, which is why a downward
+ * move looked right and hid the fact that the same arithmetic was missing for the thumb.
+ */
+export const DIGIT_TIP: Record<Digit, { dx: number; dy: number }> = {
+  thumb: { dx: 53, dy: -75 },
+  index: { dx: 40, dy: 12 },
+};
+
 const SKIN = "#F6C39B";
 const SHADE = "#E0A176";
 const EDGE = "#B87A50";
@@ -48,7 +82,30 @@ export const FingerHand: React.FC<{
    * where three beads travel.
    */
   showArrow?: boolean;
-}> = ({ digit, direction, x, y, opacity = 1, scale = 1, len, chipShiftX = 0, showArrow = true }) => {
+  /**
+   * Which side of the hand the name-chip sits on.
+   *
+   * "auto" follows the direction of travel, which is right for a lone hand: an upward move puts the
+   * chip high, a downward move puts it low, and either way it lands clear of the arm.
+   *
+   * Two hands on one rod need it decided by POSITION instead. The upper-bead hand moves down (chip
+   * low) and the lower-bead hand moves up (chip high), so on auto their two chips meet in the middle
+   * of the gutter and overlap each other. Forcing the upper hand's chip up and the lower hand's chip
+   * down spreads them apart instead of stacking them into the same 200 px.
+   */
+  chipSide?: "auto" | "above" | "below";
+}> = ({
+  digit,
+  direction,
+  x,
+  y,
+  opacity = 1,
+  scale = 1,
+  len,
+  chipShiftX = 0,
+  showArrow = true,
+  chipSide = "auto",
+}) => {
   const dir: 1 | -1 = direction === "up" ? -1 : 1;
   // The whole arrow, head included, must fit inside the travel. MoveArrow subtracts its own head
   // and applies the 18 px shaft floor, which is exactly what was inlined here before.
@@ -164,7 +221,7 @@ export const FingerHand: React.FC<{
       {/* On an UPWARD move the chip sits high above the bead — 208 px up from the anchor — and
           at PUSH scale that put its corner into the brand badge. Shifted left for those; it
           sits over the abacus instead, which the hand is allowed to do. */}
-      <g transform={`translate(${(dir > 0 ? 214 : 120) + chipShiftX},${dir * 26 + (dir > 0 ? 186 : -150)})`}>
+      <g transform={`translate(${chipDx(dir, chipSide) + chipShiftX},${chipDy(dir, chipSide)})`}>
         <rect x={-108} y={-32} width={216} height={64} rx={32} fill="#D81B60" />
         <text
           x={0}

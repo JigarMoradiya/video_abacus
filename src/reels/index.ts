@@ -6,9 +6,10 @@ import { E02Numbers0To9, E02_DURATION } from "./e02_numbers_0_to_9";
 import { E04BiggerNumbers, E04_DURATION } from "./e04_bigger_numbers";
 import { E03AddingTwoNumbers, E03_DURATION } from "./e03_adding_two_numbers";
 import {
-  ThumbE01, ThumbE02, ThumbE03, ThumbE04,
-  ThumbE01V, ThumbE02V, ThumbE03V, ThumbE04V,
+  ThumbE01, ThumbE02, ThumbE03, ThumbE04, ThumbE05,
+  ThumbE01V, ThumbE02V, ThumbE03V, ThumbE04V, ThumbE05V,
 } from "./thumbnails";
+import { E05TakingAway, E05_DURATION } from "./e05_taking_away";
 import { W, H } from "../data/tokens";
 
 export interface ReelEntry {
@@ -82,6 +83,20 @@ export const REELS: ReelEntry[] = [
   },
 
   {
+    id: "taking-away",
+    component: E05TakingAway,
+    durationInFrames: E05_DURATION,
+    width: W,
+    height: H,
+  },
+  {
+    id: "taking-away-4x5",
+    component: E05TakingAway,
+    durationInFrames: E05_DURATION,
+    width: 1080,
+    height: 1350,
+  },
+  {
     id: "thumb-e01",
     component: ThumbE01,
     durationInFrames: 200,
@@ -133,6 +148,20 @@ export const REELS: ReelEntry[] = [
   {
     id: "thumb-e04-9x16",
     component: ThumbE04V,
+    durationInFrames: 200,
+    width: 1080,
+    height: 1920,
+  },
+  {
+    id: "thumb-e05",
+    component: ThumbE05,
+    durationInFrames: 200,
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: "thumb-e05-9x16",
+    component: ThumbE05V,
     durationInFrames: 200,
     width: 1080,
     height: 1920,

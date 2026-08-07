@@ -235,22 +235,29 @@ export const spokenCount = (phrase: TPhrase, frame: number, fps: number): number
  */
 export const applyRodRamp = (
   rods: RodState[],
-  spec: { rod: number; from: number; to: number },
+  spec: { rod: number; from: number; to: number; values?: number[] },
   frame: number,
   startF: number,
   endF: number
 ): { rods: RodState[]; settle: number } => {
-  const steps = Math.max(1, spec.to - spec.from + 1);
+  const list = spec.values;
+  const steps = list ? list.length : Math.max(1, spec.to - spec.from + 1);
   const span = Math.max(1, endF - startF);
   const frac = Math.max(0, Math.min(0.9999, (frame - startF) / span));
   const k = Math.floor(frac * steps);
-  const value = spec.from + k;
+  const value = list ? list[Math.min(k, list.length - 1)] : spec.from + k;
   // travel over the first 60% of each step, then hold — a held value is what makes it
   // readable as a number rather than a blur
   const within = frac * steps - k;
   return {
     rods: rods.map((r, i) =>
-      i === spec.rod ? { ...r, from: spec.from + Math.max(0, k - 1), value } : r
+      i === spec.rod
+        ? {
+            ...r,
+            from: list ? list[Math.max(0, k - 1)] : spec.from + Math.max(0, k - 1),
+            value,
+          }
+        : r
     ),
     settle: Math.max(0, Math.min(1, within / 0.6)),
   };

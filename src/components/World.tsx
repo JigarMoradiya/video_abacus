@@ -146,12 +146,14 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
 
             return (
               <g key={i} transform={`translate(${x},${y}) scale(${s})`}>
-                {/* flat-ish base so the cloud sits on air rather than floating as blobs */}
+                {/* Flat-ish base so the cloud sits on air rather than floating as blobs — but a
+                    flattened cloud has no base at all, because the hard bottom edge is exactly what
+                    makes E01's read as a cartoon. */}
                 <ellipse
                   cx={0}
                   cy={0}
                   rx={148}
-                  ry={34}
+                  ry={34 * (w.cloudFlat ?? 1)}
                   fill={w.cloudInk ?? "#FFFFFF"}
                   opacity={w.cloudAlpha ?? 0.97}
                 />
@@ -160,8 +162,8 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
                     key={k}
                     cx={l.cx}
                     cy={l.cy}
-                    rx={l.rx}
-                    ry={l.ry}
+                    rx={l.rx * (w.cloudFlat ? 1.5 : 1)}
+                    ry={l.ry * (w.cloudFlat ?? 1)}
                     fill={w.cloudInk ?? "#FFFFFF"}
                     opacity={w.cloudAlpha ?? 0.97}
                   />
@@ -548,6 +550,150 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
                   strokeWidth={3}
                 />
               </g>
+            </g>
+          );
+        })()}
+
+        {/* ------------------------------------------------------------------ flight
+            A planet's limb across the bottom with an atmospheric rim above it. `at` is where the
+            curve's apex sits, so the world climbs simply by pushing it down the frame: the ground
+            fills half the shot at the pad and is a thin blue arc by orbit. One drawing, eight
+            altitudes — the same economy as E04's skyline. */}
+        {w.planet && (() => {
+          const pl = w.planet;
+          const apex = H * pl.at;
+          // a very wide ellipse reads as a curve rather than a hill
+          const rx = W * 1.6;
+          const ry = H * 0.55;
+          return (
+            <g>
+              <ellipse cx={W / 2} cy={apex + ry} rx={rx} ry={ry} fill={pl.body} />
+              {/* lit crescent along the top edge, and the atmosphere above it */}
+              <ellipse
+                cx={W / 2}
+                cy={apex + ry + 12}
+                rx={rx}
+                ry={ry}
+                fill="none"
+                stroke={pl.lit}
+                strokeWidth={14}
+                opacity={0.5}
+              />
+              <ellipse
+                cx={W / 2}
+                cy={apex + ry + 46}
+                rx={rx * 1.005}
+                ry={ry * 1.02}
+                fill="none"
+                stroke={pl.rim}
+                strokeWidth={44}
+                opacity={0.28}
+              />
+            </g>
+          );
+        })()}
+
+        {/* Nebula: slow soft colour fields for the deep beats. Drawn with big blurred-looking
+            ellipse stacks rather than a filter, so it stays cheap and deterministic. */}
+        {w.nebula &&
+          w.nebula.map((col, i) => {
+            const cx = W * (0.18 + i * 0.32) + Math.sin(t * 0.09 + i) * 40;
+            const cy = H * (0.24 + (i % 2) * 0.22);
+            return (
+              <g key={`neb${i}`}>
+                {[1, 0.72, 0.46].map((k, j) => (
+                  <ellipse
+                    key={j}
+                    cx={cx}
+                    cy={cy}
+                    rx={W * 0.3 * k}
+                    ry={H * 0.2 * k}
+                    fill={col}
+                    opacity={0.055}
+                  />
+                ))}
+              </g>
+            );
+          })}
+
+        {/* The launch gantry.
+            IT STANDS ON THE GROUND, and that took actual arithmetic. The planet is a very wide
+            ellipse whose apex is at `planet.at`, so its surface DROPS as you move towards the frame
+            edge — anchoring the tower to the apex left it hanging in the air on the left, which is
+            exactly what it looked like. The base is now solved from the ellipse at the tower's own x.
+
+            Built like a real one, too: a broad footing, two battered legs that taper as they rise,
+            full cross-bracing, three service arms reaching towards the pad, and a lightning mast. */}
+        {w.gantry && w.planet && (() => {
+          // SMALLER IN PORTRAIT, uniformly. The tower's height was a fraction of H and its widths
+          // were absolute pixels, so moving to 1080x1350 made it both taller AND proportionally
+          // wider — it stood over the abacus and ran its footing off the bottom of the frame. One
+          // factor on every dimension keeps the tower's own proportions and just makes it scenery
+          // again. Landscape is untouched at 1.
+          const portrait = H > W;
+          const g = portrait ? 0.55 : 1;
+          const gx = W * (portrait ? 0.13 : 0.1);
+          // where the planet's surface actually is at THIS x
+          const apex = H * w.planet.at;
+          const rx = W * 1.6;
+          const ry = H * 0.55;
+          const cy = apex + ry;
+          const dx = Math.min(1, Math.abs(gx - W / 2) / rx);
+          const base = cy - ry * Math.sqrt(1 - dx * dx);
+          const top = base - H * 0.6 * g;
+          const halfBase = 34 * g;
+          const halfTop = 17 * g;
+          const legX = (f: number, side: number) => gx + side * (halfBase + (halfTop - halfBase) * f);
+          const yAt = (f: number) => base - (base - top) * f;
+          const RUNGS = 12;
+          return (
+            <g opacity={0.82}>
+              {/* footing */}
+              <rect x={gx - halfBase - 22 * g} y={base - 12 * g} width={(halfBase + 22 * g) * 2} height={20 * g} rx={5} fill="#5E6B80" />
+              <rect x={gx - halfBase - 34 * g} y={base + 4 * g} width={(halfBase + 34 * g) * 2} height={12 * g} rx={4} fill="#4A5566" />
+              <g stroke="#8492A8" strokeWidth={7 * g} fill="none" strokeLinecap="round">
+                {/* battered legs */}
+                <line x1={legX(0, -1)} y1={base} x2={legX(1, -1)} y2={top} />
+                <line x1={legX(0, 1)} y1={base} x2={legX(1, 1)} y2={top} />
+                {/* cross-bracing, every bay */}
+                {Array.from({ length: RUNGS }, (_, k) => {
+                  const f0 = k / RUNGS;
+                  const f1 = (k + 1) / RUNGS;
+                  return (
+                    <g key={`b${k}`} strokeWidth={3 * g}>
+                      <line x1={legX(f0, -1)} y1={yAt(f0)} x2={legX(f1, 1)} y2={yAt(f1)} />
+                      <line x1={legX(f0, 1)} y1={yAt(f0)} x2={legX(f1, -1)} y2={yAt(f1)} />
+                      <line x1={legX(f1, -1)} y1={yAt(f1)} x2={legX(f1, 1)} y2={yAt(f1)} strokeWidth={4 * g} />
+                    </g>
+                  );
+                })}
+                {/* Service arms, BOTH SIDES. A real gantry is symmetric about its mast, and with
+                    arms on one side only the tower read as half-drawn — a lopsided silhouette on the
+                    one piece of built scenery in the episode. */}
+                {[0.34, 0.58, 0.8].map((f, k) =>
+                  [-1, 1].map((side) => {
+                    const x0 = legX(f, side);
+                    const x1 = x0 + side * 96 * g;
+                    return (
+                      <g key={`arm${k}${side}`}>
+                        <line x1={x0} y1={yAt(f)} x2={x1} y2={yAt(f)} strokeWidth={6 * g} />
+                        <line x1={x1} y1={yAt(f)} x2={x1} y2={yAt(f) + 26 * g} strokeWidth={4 * g} />
+                        <line x1={x0} y1={yAt(f) - 26 * g} x2={x0 + side * 88 * g} y2={yAt(f)} strokeWidth={3 * g} />
+                      </g>
+                    );
+                  })
+                )}
+                {/* lightning mast */}
+                <line x1={gx} y1={top} x2={gx} y2={top - 74 * g} strokeWidth={5 * g} />
+              </g>
+              {/* beacon */}
+              <circle
+                cx={gx}
+                cy={top - 80 * g}
+                r={7 * g}
+                fill="#FF5C4D"
+                opacity={0.35 + 0.65 * Math.abs(Math.sin(t * 1.5))}
+              />
             </g>
           );
         })()}
