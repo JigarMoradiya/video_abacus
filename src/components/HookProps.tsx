@@ -156,25 +156,62 @@ export const CountingFingers: React.FC<{ frame: number; fps: number }> = ({ fram
 /** A staircase with one step missing — "there's a little step missing". */
 export const MissingStep: React.FC<{ frame: number; fps: number }> = ({ frame, fps }) => {
   const t = frame / fps;
-  const blink = 0.45 + 0.55 * Math.abs(Math.sin(t * 2.2));
   const steps = [0, 1, 2, 3, 4];
   const missing = 2;
+
+  // THE STAIRCASE BUILDS ITSELF, and then something tries to climb it.
+  //
+  // It used to be five static blocks with one dashed outline blinking — the only moving thing on a
+  // line that is the whole reason the episode exists ("there's a little step missing"). A gap you are
+  // told about is an assertion; a gap something falls into is an argument.
+  //
+  //   0.0s  the steps rise in from the left, one every 0.16s
+  //   0.9s  a ball hops up them, and STOPS at the gap — twice, so it reads as stuck rather than
+  //         mistimed
+  //   throughout  the missing step pulses, so the eye knows where the answer should be
+  const stepIn = (i: number) =>
+    Math.max(0, Math.min(1, (t - i * 0.16) / 0.26));
+  const blink = 0.45 + 0.55 * Math.abs(Math.sin(t * 2.2));
+
+  const W = 140;
+  const H = 62;
+  const xOf = (i: number) => 40 + i * W * 0.95;
+  const yOf = (i: number) => 350 - i * H;
+
+  // the climber: hops 0 -> 1 -> stalls at the gap, waits, tries again
+  const HOP = 0.42;
+  const START = 0.95;
+  const cycle = 2.6;
+  const ct = Math.max(0, (t - START)) % cycle;
+  const hop = Math.min(2, Math.floor(ct / HOP));
+  const within = Math.min(1, (ct - hop * HOP) / HOP);
+  // on the third hop it tries to reach the missing step and drops back
+  const stalled = ct >= 2 * HOP;
+  const reach = stalled ? Math.max(0, 1 - (ct - 2 * HOP) / 0.5) : within;
+  const from = Math.min(hop, 1);
+  const to = Math.min(hop + 1, 2);
+  const bx = xOf(from) + (xOf(to) - xOf(from)) * (stalled ? reach * 0.55 : within) + W / 2;
+  const by =
+    yOf(from) + (yOf(to) - yOf(from)) * (stalled ? reach * 0.55 : within) - 26
+    - Math.sin(Math.PI * (stalled ? reach : within)) * 46;
 
   return (
     <svg width={760} height={430} viewBox="0 0 760 430" style={{ overflow: "visible" }}>
       {steps.map((i) => {
-        const w = 140;
-        const h = 62;
-        const x = 40 + i * w * 0.95;
-        const y = 350 - i * h;
+        const k = stepIn(i);
+        if (k <= 0) return null;
+        const x = xOf(i);
+        const y = yOf(i);
+        // each step slides up into place rather than appearing
+        const dy = (1 - k) * 34;
         if (i === missing) {
           return (
-            <g key={i} opacity={blink}>
+            <g key={i} opacity={blink * k} transform={`translate(0 ${dy})`}>
               <rect
                 x={x}
                 y={y}
-                width={w}
-                height={h}
+                width={W}
+                height={H}
                 rx={12}
                 fill="none"
                 stroke="#FFD166"
@@ -182,7 +219,7 @@ export const MissingStep: React.FC<{ frame: number; fps: number }> = ({ frame, f
                 strokeDasharray="18 14"
               />
               <text
-                x={x + w / 2}
+                x={x + W / 2}
                 y={y + 46}
                 textAnchor="middle"
                 fill="#FFD166"
@@ -196,13 +233,22 @@ export const MissingStep: React.FC<{ frame: number; fps: number }> = ({ frame, f
           );
         }
         return (
-          <g key={i}>
-            <rect x={x} y={y + 6} width={w} height={h} rx={12} fill="#000" opacity={0.25} />
-            <rect x={x} y={y} width={w} height={h} rx={12} fill="#7C6BD8" />
-            <rect x={x} y={y} width={w} height={12} rx={6} fill="#FFF" opacity={0.3} />
+          <g key={i} opacity={k} transform={`translate(0 ${dy})`}>
+            <rect x={x} y={y + 6} width={W} height={H} rx={12} fill="#000" opacity={0.25} />
+            <rect x={x} y={y} width={W} height={H} rx={12} fill="#7C6BD8" />
+            <rect x={x} y={y} width={W} height={12} rx={6} fill="#FFF" opacity={0.3} />
           </g>
         );
       })}
+
+      {/* the climber, once the staircase is up */}
+      {t > START && (
+        <g>
+          <ellipse cx={bx} cy={by + 26} rx={17} ry={5} fill="#000" opacity={0.18} />
+          <circle cx={bx} cy={by} r={20} fill="#FF7043" stroke="#C1440E" strokeWidth={4} />
+          <circle cx={bx - 6} cy={by - 6} r={5} fill="#FFF" opacity={0.75} />
+        </g>
+      )}
     </svg>
   );
 };

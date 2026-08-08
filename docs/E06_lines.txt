@@ -1,0 +1,129 @@
+# E06 · Two rods together — narration, one continuous take.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+#
+# Direct addition AND subtraction across the ones and tens rods. Nothing here needs a complement:
+# every single digit stays inside its own rod, which is what makes this the last episode before the
+# formulas. Source: the app's Level 2 chapters 1-4 extended to two columns, plus Level 1 place value.
+#
+# THE HOOK IS "ONE ROD AT A TIME". Two rods look like twice the work and are not — they are the same
+# work done twice, and that is the whole lesson.
+#
+# TWO ORDERING RULES, both stated AND demonstrated:
+#   1. RIGHT TO LEFT — the ones rod first, then the tens.
+#   2. WITHIN A ROD — the lower beads first, then the upper bead.
+#
+# Rule 2 needed somewhere to happen. The middle sum was fourteen plus twenty-five, whose ones rod
+# only ever moves the upper bead, so the rule would have been asserted and never shown. Thirteen plus
+# twenty-six needs BOTH on the ones rod (six is five and one), which is also where a child meets the
+# decomposition that every formula from E08 on depends on. It still lands on thirty-nine, so the
+# subtraction is still thirty-nine take away fifteen — the sum E05's teaser promised.
+#
+# THE ORDER IS RIGHT TO LEFT: ones rod first, then tens. Stated as a rule, and demonstrated that way
+# EVERYWHERE — including when a number is merely being SET UP, not calculated.
+#
+# The first pass at this fixed the two sums and left "make fourteen" starting on the tens rod, two
+# lines after the script had just said we always start on the right. A rule the very next instruction
+# breaks is worse than no rule: the child follows what they are shown.
+#
+# v1 did the tens first and only declined to call it a law — which taught it anyway, because a child
+# copies the worked example, not the sentence the script chose not to write. It also breaks the
+# episodes after this one: big friend carries FROM the ones INTO the tens, so a child who finishes the
+# tens first has to go back to a rod they were told was done.
+#
+# E05's teaser promised twenty-one plus three and thirty-nine take away fifteen. Both are here,
+# and both answers are twenty-four.
+#
+# ⏸ HOLD THREE SECONDS after "What number is showing now?"
+
+
+# --- 1 · HOOK ---
+So far, every sum we have done has used one rod.
+Today we are using two.
+And it is easier than it sounds.
+
+# --- 2 · WHAT THE SECOND ROD IS FOR ---
+Remember, each rod has its own place.
+The rod on the right is the ones.
+The rod next to it is the tens.
+Together they can show every number up to ninety-nine.
+
+# --- 3 · THE BIG IDEA ---
+Here is the whole trick for today.
+We never work on two rods at the same time.
+We do one rod, then the other rod.
+And we always start on the right, with the ones rod.
+On each rod, the lower beads move first, then the upper bead.
+Each rod is just a small sum on its own.
+
+# --- 4 · TWENTY-ONE PLUS THREE ---
+Let us try twenty-one plus three.
+First, make twenty-one.
+Push one lower bead up on the ones rod.
+Push two lower beads up on the tens rod.
+The abacus is showing twenty-one.
+Now we add three.
+Three is a ones number, so only the ones rod moves.
+Push three more lower beads up on the ones rod.
+The tens rod does not move at all.
+It is still showing twenty.
+And the ones rod is showing four.
+So twenty-one plus three is twenty-four.
+
+# --- 5 · THIRTEEN PLUS TWENTY-SIX ---
+Now let us move both rods.
+Let us try thirteen plus twenty-six.
+First, make thirteen.
+Three lower beads up on the ones rod.
+One lower bead up on the tens rod.
+Now we add twenty-six.
+Twenty-six is twenty and six.
+We always start with the ones rod.
+Six is five and one.
+Lower beads always move first.
+So push one lower bead up.
+Then push the upper bead down for five.
+The ones rod is showing nine.
+Now the tens rod.
+Twenty means two more tens.
+Push two more lower beads up on the tens rod.
+The tens rod is showing three.
+Three tens and nine ones.
+So thirteen plus twenty-six is thirty-nine.
+
+# --- 6 · THE RULE SO FAR ---
+Did you see what we did?
+Two little sums, one after the other.
+That is all a big sum ever is.
+
+# --- 7 · THIRTY-NINE TAKE AWAY FIFTEEN ---
+Taking away works the same way.
+Let us try thirty-nine take away fifteen.
+Our abacus is already showing thirty-nine.
+Fifteen is ten and five.
+Start with the ones rod again.
+We need to take away five.
+Five is the upper bead, so push it back up.
+The four lower beads stay where they are.
+Now the tens rod.
+Ten means one ten goes away.
+Push one lower bead down on the tens rod.
+The tens rod is showing two.
+Two tens and four ones.
+So thirty-nine take away fifteen is twenty-four.
+
+# --- 8 · YOUR TURN ---
+Now it is your turn.
+Make twenty-three on your own abacus.
+Then add eleven.
+Remember, the ones rod first.
+What number is showing now?
+Twenty-three plus eleven is thirty-four.
+Well done.
+
+# --- 9 · CLOSE ---
+Try a few more two rod sums on your own abacus.
+If you enjoyed this video, please like and subscribe for more.
+Search for abacus kids on the Apple App Store or Google Play.
+Download it free.
+Next time, something different.
+We will try a sum the beads cannot do, and learn the trick that fixes it.

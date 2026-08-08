@@ -1,0 +1,283 @@
+1
+00:00:00,000 --> 00:00:03,020
+So far every sum we've done has used one rod.
+
+2
+00:00:03,580 --> 00:00:07,260
+Today we're using two and it's easier than it sounds.
+
+3
+00:00:07,980 --> 00:00:10,620
+Remember each rod has its own place.
+
+4
+00:00:11,320 --> 00:00:13,740
+The rod on the right is the ones rod.
+
+5
+00:00:14,560 --> 00:00:17,040
+The rod next to it is the tens rod.
+
+6
+00:00:17,620 --> 00:00:20,920
+Together they can show every number up to ninety-nine.
+
+7
+00:00:22,120 --> 00:00:23,640
+Here's the whole trick for today.
+
+8
+00:00:24,200 --> 00:00:27,160
+We never work on two rods at the same time.
+
+9
+00:00:27,660 --> 00:00:28,820
+We do one rod.
+
+10
+00:00:29,900 --> 00:00:31,460
+Then the other rod.
+
+11
+00:00:32,160 --> 00:00:35,060
+Each rod is just a small sum on its own.
+
+12
+00:00:36,220 --> 00:00:38,320
+Let's try twenty-one plus three.
+
+13
+00:00:39,160 --> 00:00:40,600
+First make twenty-one.
+
+14
+00:00:41,660 --> 00:00:44,240
+Push two lower beads up on the tens rod.
+
+15
+00:00:44,940 --> 00:00:47,620
+Push one lower bead up on the ones rod.
+
+16
+00:00:48,520 --> 00:00:50,420
+The abacus is showing twenty-one.
+
+17
+00:00:51,440 --> 00:00:52,660
+Now we add three.
+
+18
+00:00:53,360 --> 00:00:57,320
+Three is a ones number so only the ones rod moves.
+
+19
+00:00:58,020 --> 00:01:00,980
+Push three more lower beads up on the ones rod.
+
+20
+00:01:01,580 --> 00:01:03,620
+The tens rod doesn't move at all.
+
+21
+00:01:04,220 --> 00:01:05,640
+It's still showing twenty.
+
+22
+00:01:06,240 --> 00:01:08,460
+And the ones rod is showing four.
+
+23
+00:01:09,140 --> 00:01:11,960
+So twenty-one plus three is twenty-four.
+
+24
+00:01:13,200 --> 00:01:14,820
+Now let's move both rods.
+
+25
+00:01:15,700 --> 00:01:18,140
+Let's try fourteen plus twenty-five.
+
+26
+00:01:19,220 --> 00:01:20,540
+First make fourteen.
+
+27
+00:01:21,200 --> 00:01:23,900
+Push one lower bead up on the tens rod.
+
+28
+00:01:24,540 --> 00:01:27,320
+Push four lower beads up on the ones rod.
+
+29
+00:01:27,920 --> 00:01:29,480
+Now we add twenty-five.
+
+30
+00:01:30,320 --> 00:01:32,160
+Twenty-five is twenty.
+
+31
+00:01:32,860 --> 00:01:33,680
+And five.
+
+32
+00:01:34,440 --> 00:01:36,020
+Let's start with the tens rod.
+
+33
+00:01:36,840 --> 00:01:38,980
+Twenty means two more tens.
+
+34
+00:01:39,440 --> 00:01:42,260
+Push two more lower beads up on the tens rod.
+
+35
+00:01:42,820 --> 00:01:45,660
+The tens rod is now showing three tens.
+
+36
+00:01:46,260 --> 00:01:47,280
+Now the ones rod.
+
+37
+00:01:48,220 --> 00:01:49,880
+Five lives on the upper bead.
+
+38
+00:01:50,380 --> 00:01:51,940
+So push the upper bead down.
+
+39
+00:01:52,640 --> 00:01:54,400
+The ones rod is showing nine.
+
+40
+00:01:55,100 --> 00:01:57,260
+Three tens and nine ones.
+
+41
+00:01:57,840 --> 00:02:00,760
+So fourteen plus twenty-five is thirty-nine.
+
+42
+00:02:02,280 --> 00:02:03,500
+Did you see what we did?
+
+43
+00:02:04,240 --> 00:02:06,900
+Two little sums one after the other.
+
+44
+00:02:07,520 --> 00:02:09,800
+That's all a big sum ever is.
+
+45
+00:02:10,980 --> 00:02:12,920
+Taking away works the same way.
+
+46
+00:02:13,660 --> 00:02:16,260
+Let's try thirty-nine take away fifteen.
+
+47
+00:02:17,280 --> 00:02:19,840
+Our abacus is already showing thirty-nine.
+
+48
+00:02:20,520 --> 00:02:23,480
+Fifteen is ten and five.
+
+49
+00:02:23,960 --> 00:02:25,760
+Start with the tens rod again.
+
+50
+00:02:26,480 --> 00:02:28,680
+Ten means one ten goes away.
+
+51
+00:02:29,420 --> 00:02:32,100
+Push one lower bead down on the tens rod.
+
+52
+00:02:32,700 --> 00:02:35,540
+The tens rod is now showing two tens.
+
+53
+00:02:36,240 --> 00:02:37,300
+Now the ones rod.
+
+54
+00:02:37,980 --> 00:02:39,740
+We need to take away five.
+
+55
+00:02:40,380 --> 00:02:43,180
+Five is the upper bead so push it back up.
+
+56
+00:02:43,720 --> 00:02:46,000
+The four lower beads stay where they are.
+
+57
+00:02:46,330 --> 00:02:48,800
+Two tens and four ones.
+
+58
+00:02:49,400 --> 00:02:52,640
+So thirty-nine take away fifteen is twenty-four.
+
+59
+00:02:54,030 --> 00:02:55,280
+Now it's your turn.
+
+60
+00:02:56,040 --> 00:02:58,200
+Make twenty-three on your own abacus.
+
+61
+00:02:58,520 --> 00:02:59,700
+Then add eleven.
+
+62
+00:03:00,540 --> 00:03:03,020
+Remember one rod at a time.
+
+63
+00:03:03,940 --> 00:03:05,520
+What number is showing now?
+
+64
+00:03:08,100 --> 00:03:11,300
+Twenty-three plus eleven is thirty-four.
+
+65
+00:03:12,060 --> 00:03:12,660
+Great job.
+
+66
+00:03:13,740 --> 00:03:17,380
+Try a few more two rod sums on your own abacus.
+
+67
+00:03:17,860 --> 00:03:22,080
+If you enjoyed this video, please like and subscribe for more.
+
+68
+00:03:22,840 --> 00:03:26,800
+Search for abacus kids on the Apple App Store or Google Play.
+
+69
+00:03:27,640 --> 00:03:28,580
+Download it free.
+
+70
+00:03:29,440 --> 00:03:31,160
+Next time something different.
+
+71
+00:03:31,880 --> 00:03:37,240
+We'll try a sum the beads can't do and learn the clever trick that fixes it.

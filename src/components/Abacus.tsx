@@ -35,6 +35,14 @@ export interface RodState {
   chipLower?: boolean;
   /** Show the UPPER bead's value strip above this rod. */
   chipUpper?: boolean;
+  /**
+   * NAME the place under the lower chip — "ones", "tens".
+   *
+   * Opt-in per rod, not derived from the index, so E04 (which also carries these chips) renders
+   * exactly as it did. The chip says what a bead is WORTH; a child still has to be told that the
+   * column with 10 under it is the one the narrator keeps calling "the tens rod".
+   */
+  placeName?: string;
 }
 
 export interface AbacusProps {
@@ -342,6 +350,20 @@ export const Abacus: React.FC<AbacusProps> = ({
                       </text>
                       </g>
                     ))}
+                  {/* the place's NAME, under its worth chip */}
+                  {rod.chipLower && rod.placeName && (
+                    <text
+                      x={cx}
+                      y={innerH + FRAME_LW + 12 + 46 + 30}
+                      textAnchor="middle"
+                      fill={PLACE_COLORS[i]}
+                      fontSize={26}
+                      fontWeight={700}
+                      fontFamily={KID_FONT}
+                    >
+                      {rod.placeName}
+                    </text>
+                  )}
                 </g>
               )}
             </g>

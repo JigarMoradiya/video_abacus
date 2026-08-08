@@ -138,6 +138,34 @@ export const RIG_SPACE: RigPalette = {
   offEdge: "#7C8698",
 };
 
+/**
+ * E06 · jungle. Bamboo frame, coral beads.
+ *
+ * Fifth distinct instrument. Wood-and-orange (E01/E02), driftwood-and-teal (E03), steel-and-amber
+ * (E04), graphite-and-violet (E05) — and coral is the one warm hue left that is not the orange those
+ * first two already own. Against the warm bamboo it still clears DESIGN_SYSTEM §9's greyscale test,
+ * because the frame is mid and the live bead is bright.
+ */
+export const RIG_JUNGLE: RigPalette = {
+  woodLight: "#C9A961",
+  wood: "#A8863C",
+  woodDark: "#6E5622",
+  panel: "#FFFBF0",
+  panelEdge: "#E4D5AE",
+  rod: "#C2AE7E",
+  beam: "#4A3A16",
+  onTop: "#FF8A73",
+  onBottom: "#F2543D",
+  onEdge: "#B32D1C",
+  // The OFF beads are cool grey-green, not tan. Warm tan on a warm cream panel gave the dimmed rods
+  // almost no separation from the wood behind them — the three inactive rods vanished and the live
+  // rods' parked beads read as part of the frame. Cool against warm is what DESIGN_SYSTEM §9's
+  // greyscale test actually asks for.
+  offTop: "#C3CFC4",
+  offBottom: "#9FAEA2",
+  offEdge: "#74847A",
+};
+
 // ---------------------------------------------------------------- worlds
 
 /** Every beat gets its own world, so no two stretches of the video look alike. */
@@ -198,7 +226,20 @@ export type WorldKind =
   | "edgespace" // black above, blue below — the rule, and five take five
   | "orbit" // Earth's limb below, stars above — seven take five
   | "deepspace" // nebula and stars — nine take eight
-  | "homeview"; // Earth full in frame — your turn, and the close
+  | "homeview" // Earth full in frame — your turn, and the close
+  // --- E06 · two rods together. A JUNGLE, and the brightest world set in the series. E05 ended in
+  // black space, so this opens on lime and coral; a playlist that runs them back to back should feel
+  // like walking out of a cinema into daylight. The episode is about TWO of something working
+  // together, so the scenery is full of paired things — twin vines, two banana bunches, a rope
+  // bridge with two ropes. ---
+  | "canopy" // morning light through big leaves — the hook
+  | "vinebridge" // two vines side by side — what the second rod is for
+  | "clearing" // open and bright — the big idea
+  | "bananagrove" // twenty-one plus three
+  | "waterfall" // bright teal water — fourteen plus twenty-five
+  | "riverbank" // the rule so far
+  | "treehouse" // thirty-nine take away fifteen
+  | "blossom"; // coral flowers everywhere — your turn, and the close
 
 export interface WorldTheme {
   sky: [string, string];
@@ -280,6 +321,28 @@ export interface WorldTheme {
   shellsOnSand?: boolean;
   /** Two gulls gliding across, high up. Motion in an otherwise empty sky. */
   gulls?: boolean;
+
+  // ---------------------------------------------------------------- jungle (E06)
+  /** Big overlapping leaves hanging from the top of the frame, in two parallax rows. */
+  canopy?: { far: string; near: string; depth: number };
+  /** Hanging vines with a leaf at the tip, swaying. `pairs` draws them in TWOS — the episode is
+   *  about two rods, and the scenery says so before the script does. */
+  vines?: { colour: string; count: number; pairs?: boolean };
+  /** Undergrowth along the bottom: ferns and blades, in front of the ground band. */
+  ferns?: string;
+  /** A waterfall on one side, with a plunge pool. Bright teal, the coolest thing in a warm world. */
+  falls?: { at: number; water: string; foam: string };
+  /** Coral blossoms scattered through the canopy, and a few drifting down. */
+  blossoms?: string[];
+  /** A rope bridge across the frame, well below the stage. TWO ropes, one deck. */
+  ropebridge?: { at: number; rope: string; plank: string };
+  /** Two butterflies, wandering. The jungle's equivalent of E03's gulls. */
+  butterflies?: string[];
+  /** Sun shafts through the canopy — the thing that makes a jungle read as a jungle. */
+  godrays?: boolean;
+  /** TWO banana bunches hanging from the canopy, one per gutter. Paired, like everything in this
+   *  world set — and the world called `bananagrove` should have bananas in it. */
+  bananas?: boolean;
 }
 
 export const WORLDS: Record<WorldKind, WorldTheme> = {
@@ -775,5 +838,118 @@ export const WORLDS: Record<WorldKind, WorldTheme> = {
     stars: true,
     nebula: ["#2E6FD8", "#7B3FE0"],
     planet: { at: 0.74, body: "#2D7AA8", rim: "#7FDCF4", lit: "#DAF4FF" },
+  },
+
+  // ---------------------------------------------------------------- E06 · Jungle
+  //
+  // Eight beats, and the light walks through the day: morning canopy, open clearing, the waterfall
+  // at its brightest, then late gold at the treehouse and full coral blossom for the close. Kept
+  // BRIGHT throughout on purpose — E05 finished in black space, and this is the palette cleanser.
+  //
+  // Every world carries something PAIRED, because the episode is about two rods: twin vines, two
+  // ropes on the bridge, two butterflies, a pair of banana bunches.
+  canopy: {
+    sky: ["#8FE3C8", "#E8FBEE"],
+    ground: "#3E8E4E",
+    ink: "#12401F",
+    pill: "#FFFFFF",
+    accent: "#F2543D",
+    canopy: { far: "#2F7A46", near: "#43A85C", depth: 0.9 },
+    vines: { colour: "#43A85C", count: 5, pairs: true },
+    ferns: "#2F7A46",
+    godrays: true,
+    butterflies: ["#FF8A73", "#FFD166"],
+  },
+  vinebridge: {
+    sky: ["#7FD8E8", "#E4F9FB"],
+    ground: "#3E8E4E",
+    ink: "#0E3B44",
+    pill: "#FFFFFF",
+    accent: "#F2543D",
+    canopy: { far: "#2F7A46", near: "#4FB86A", depth: 0.62 },
+    vines: { colour: "#4FB86A", count: 6, pairs: true },
+    ropebridge: { at: 0.86, rope: "#B98B4A", plank: "#D8A863" },
+    ferns: "#357F48",
+    butterflies: ["#FFD166", "#FF8A73"],
+  },
+  clearing: {
+    sky: ["#A9EEDC", "#F2FEF6"],
+    ground: "#4CA35C",
+    ink: "#12401F",
+    pill: "#FFFFFF",
+    accent: "#F2543D",
+    // deeper canopy and a pair of vines: at depth 0.34 with nothing else, this world was a flat mint
+    // field — "could you name the place with the abacus taken away?" answered no.
+    canopy: { far: "#358C46", near: "#4FB86A", depth: 0.62 },
+    vines: { colour: "#4FB86A", count: 4, pairs: true },
+    ferns: "#3E8E4E",
+    godrays: true,
+    blossoms: ["#FF8A73", "#FFC2B4"],
+    butterflies: ["#FF8A73", "#8ED9F0"],
+  },
+  bananagrove: {
+    sky: ["#B8ECB0", "#F6FEF0"],
+    ground: "#4CA35C",
+    ink: "#173F16",
+    pill: "#FFFFFF",
+    accent: "#F2543D",
+    canopy: { far: "#358C46", near: "#57BF66", depth: 0.5 },
+    vines: { colour: "#57BF66", count: 4, pairs: true },
+    ferns: "#3E8E4E",
+    bananas: true,
+    blossoms: ["#FFD166", "#FFE9A8"],
+    butterflies: ["#FFD166", "#FF8A73"],
+  },
+  waterfall: {
+    // GREEN sky, not blue. At #7ADCEE the whole frame went teal and the falling streaks read as being
+    // UNDER water rather than beside a waterfall — the one world in the set that stopped looking like
+    // a jungle. The water is the only cool thing in frame now, which is what makes it read as water.
+    sky: ["#9FE8C0", "#EFFBF0"],
+    ground: "#3E8E4E",
+    ink: "#0B3A45",
+    pill: "#FFFFFF",
+    accent: "#F2543D",
+    canopy: { far: "#2F7A46", near: "#43A85C", depth: 0.44 },
+    falls: { at: 0.2, water: "#5FCBE6", foam: "#EAFBFF" },
+    ferns: "#357F48",
+    godrays: true,
+    butterflies: ["#8ED9F0", "#FF8A73"],
+  },
+  riverbank: {
+    sky: ["#9EE8DA", "#EFFCF4"],
+    ground: "#4CA35C",
+    ink: "#0E3B33",
+    pill: "#FFFFFF",
+    accent: "#F2543D",
+    canopy: { far: "#358C46", near: "#4FB86A", depth: 0.3 },
+    water: { at: 0.88 },
+    ferns: "#3E8E4E",
+    blossoms: ["#FF8A73", "#FFD166"],
+    butterflies: ["#FFD166", "#8ED9F0"],
+  },
+  treehouse: {
+    sky: ["#FFD9A0", "#FFF4DC"],
+    ground: "#57843E",
+    ink: "#4A2A10",
+    pill: "#FFFFFF",
+    accent: "#F2543D",
+    canopy: { far: "#3B7A3E", near: "#5A9E4C", depth: 0.56 },
+    vines: { colour: "#5A9E4C", count: 5, pairs: true },
+    ropebridge: { at: 0.88, rope: "#A9743C", plank: "#CE9A53" },
+    ferns: "#4A7C3E",
+    godrays: true,
+    butterflies: ["#FFD166", "#FF8A73"],
+  },
+  blossom: {
+    sky: ["#FFCFD6", "#FFF1F3"],
+    ground: "#4CA35C",
+    ink: "#5A1B22",
+    pill: "#FFFFFF",
+    accent: "#F2543D",
+    canopy: { far: "#3E8E4E", near: "#57BF66", depth: 0.5 },
+    blossoms: ["#FF8A73", "#FFB3C1", "#FFD166"],
+    ferns: "#3E8E4E",
+    vines: { colour: "#57BF66", count: 4, pairs: true },
+    butterflies: ["#FF8A73", "#FFD166"],
   },
 };

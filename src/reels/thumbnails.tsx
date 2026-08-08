@@ -24,7 +24,7 @@ import { Abacus, type RodState } from "../components/Abacus";
 import { World } from "../components/World";
 import { AppIcon } from "../components/AppShowcase";
 import { KID_FONT } from "../lib/fonts";
-import { RIG_WOOD, RIG_SEA, RIG_CITY, RIG_SPACE, WORLDS, type RigPalette, type WorldKind } from "../data/theme";
+import { RIG_WOOD, RIG_SEA, RIG_CITY, RIG_SPACE, RIG_JUNGLE, WORLDS, type RigPalette, type WorldKind } from "../data/theme";
 import { ROD_DIM } from "../data/tokens";
 
 export interface ThumbSpec {
@@ -113,6 +113,21 @@ export const THUMBS: Record<string, ThumbSpec> = {
     rodCount: 5,
     ink: "#5CE1E6",
     band: "#E8543F",
+  },
+  e06: {
+    ep: 6,
+    hook: "21 + 3 = ?",
+    sub: "two rods · tens and ones",
+    // The clearing, not the waterfall: at 210px a thumbnail needs one bright field behind the
+    // instrument, and the falling water competed with the beads for the eye.
+    world: "clearing",
+    palette: RIG_JUNGLE,
+    // TWENTY-ONE — the question's starting number, not its answer. Same rule as lessons 3 and 5, and
+    // it is the first thumbnail in the series showing TWO live rods, which is the whole lesson.
+    rods: [1, 2, 0, 0, 0],
+    rodCount: 5,
+    ink: "#12401F",
+    band: "#F2543D",
   },
 };
 
@@ -304,8 +319,10 @@ export const ThumbE02: React.FC = () => <Thumbnail spec={THUMBS.e02} />;
 export const ThumbE03: React.FC = () => <Thumbnail spec={THUMBS.e03} />;
 export const ThumbE04: React.FC = () => <Thumbnail spec={THUMBS.e04} />;
 export const ThumbE05: React.FC = () => <Thumbnail spec={THUMBS.e05} />;
+export const ThumbE06: React.FC = () => <Thumbnail spec={THUMBS.e06} />;
 export const ThumbE01V: React.FC = () => <Thumbnail spec={THUMBS.e01} portrait />;
 export const ThumbE02V: React.FC = () => <Thumbnail spec={THUMBS.e02} portrait />;
 export const ThumbE03V: React.FC = () => <Thumbnail spec={THUMBS.e03} portrait />;
 export const ThumbE04V: React.FC = () => <Thumbnail spec={THUMBS.e04} portrait />;
 export const ThumbE05V: React.FC = () => <Thumbnail spec={THUMBS.e05} portrait />;
+export const ThumbE06V: React.FC = () => <Thumbnail spec={THUMBS.e06} portrait />;

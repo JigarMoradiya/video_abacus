@@ -528,6 +528,85 @@ const SFX_CUES: SfxCue[] = (() => {
       cues.push({ frame: at + 10, file: "clap.mp3", len: 90, vol: 0.28 });
     }
   }
+
+  // ---------------------------------------------------------------- THE HOOK, which also had none.
+  //
+  // The first two beats ANIMATE COUNTING and neither made a sound. p0 runs a number ladder from one
+  // to a hundred and p1 pops fingers up one at a time — the two things the hook is about — in total
+  // silence, so the busiest fifteen seconds in the episode were the quietest.
+  //
+  // Both are keyed to the animation's own arithmetic rather than sprinkled across the line, so a tick
+  // lands on a number appearing and a click lands on a finger going up:
+  //   CountingRun    count = interpolate(progress, [0, 0.55], [1, 100]) — the run ends at 55%
+  //   CountingFingers up   = 1 + floor(t * 3.2)                          — a finger every 1/3.2 s
+  {
+    const at = (i: number) => sec(PHRASES[i].start, FPS);
+    const add = (frame: number, file: string, len: number, vol: number) =>
+      cues.push({ frame: Math.max(0, Math.round(frame)), file, len, vol });
+
+    // p0 · counting to a hundred. TWENTY ticks across the run, not a hundred: one per number would
+    // be twenty-nine a second, which is noise rather than counting.
+    //
+    // The notes RISE. These were `btn_click.mp3` — a UI tap — and twenty taps in a row sounds like a
+    // machine, not like a child counting. Counting has a shape and the shape is that it climbs, so
+    // `make_count_sfx.py` synthesises a major scale and the cue walks up it as the numbers do.
+    {
+      const start = at(0);
+      const span = sec(PHRASES[0].end, FPS) - start;
+      const runEnd = span * 0.55;
+      const TICKS = 20;
+      for (let k = 0; k < TICKS; k++) {
+        // walk the scale and start it again an octave-worth higher up the run
+        const note = (k % 8) + 1;
+        add(start + (runEnd * k) / TICKS, `count_tick_${note}.mp3`, 14, 0.1 + 0.004 * k);
+      }
+      // "…but what's seven plus eight?" — the sum arrives at 58% and is deliberately unanswered,
+      // the same beat E02 marks with this sound when it asks how to make five.
+      add(start + span * 0.58, "boing.mp3", 26, 0.3);
+    }
+
+    // p1 · "Out come the fingers!" — one note per finger, climbing the same scale, rounder and
+    // lower than the ladder because a finger going up is a physical event rather than a tally mark.
+    {
+      const start = at(1);
+      for (let k = 0; k < 8; k++) {
+        add(start + (k / 3.2) * FPS, `finger_pop_${k + 1}.mp3`, 18, 0.2);
+      }
+    }
+  }
+
+  // ---------------------------------------------------------------- THE CLOSE, which had none.
+  //
+  // E01 is the only episode whose closing beats were silent. It has the same four moments the others
+  // do — tap, move, play, then the store flow — and every one of them ran without a sound while E02
+  // through E06 all had them, so the episode simply went quiet for its last thirty seconds. Found by
+  // auditing the SFX cue builders side by side rather than by listening, which is how a MISSING sound
+  // gets noticed at all: nothing draws attention to a cue that was never written.
+  //
+  // Levels and files match the other five exactly, so the series sounds like one series.
+  {
+    const at = (i: number) => sec(PHRASES[i].start, FPS);
+    const add = (frame: number, file: string, len: number, vol: number) =>
+      cues.push({ frame: Math.max(0, Math.round(frame)), file, len, vol });
+
+    add(at(73), "btn_click.mp3", 20, 0.3); // "Tap every bead."
+    add(at(74), "abacus_move.mp3", 30, 0.3); // "Move them yourself."
+    add(at(75), "play_win.mp3", 60, 0.26); // "Learn by playing."
+
+    // the store flow: two taps and the win, placed against the animation's own 136-frame timeline
+    // computed locally: the module-level STORE_START is declared below this builder
+    const storeIdx = PHRASES.map((x) => x.index).filter((i) => sceneFor(i).closeBeat === "store");
+    if (storeIdx.length) {
+      const start = at(storeIdx[0]);
+      const span = sec(PHRASES[storeIdx[storeIdx.length - 1]].end, FPS) - start;
+      const rate = span / 136;
+      add(start + 50 * rate, "btn_click.mp3", 20, 0.28);
+      add(start + 92 * rate, "btn_click.mp3", 20, 0.3);
+      add(start + 136 * rate - 8, "play_win.mp3", 60, 0.26);
+    }
+    const nextIdx = PHRASES.map((x) => x.index).find((i) => sceneFor(i).closeBeat === "next");
+    if (nextIdx !== undefined) add(at(nextIdx), "swipe.mp3", 16, 0.24);
+  }
   return cues;
 })();
 
@@ -564,7 +643,16 @@ export const E01MeetTheAbacus: React.FC = () => (
     // records — generated from the spoken text, so it cannot drift out of step by hand.
     subjectFor={(i) => LINE_HIGHLIGHT[i]}
     renderProp={(stage, _scene, ctx) => (
-      <>
+      // THE HOOK PROPS ARE SIZED IN PIXELS, so they do not know the frame changed shape. In 4:5 the
+      // stage band is taller and narrower, and a 760x430 staircase that filled the 16:9 band sat in
+      // the middle of it looking undersized — the first thirteen seconds of the episode, and the
+      // weakest-looking. Scaled up for portrait only; landscape is untouched.
+      <div
+        style={{
+          transform: ctx.layout.portrait ? "scale(1.42)" : undefined,
+          transformOrigin: "center",
+        }}
+      >
         {stage === "counting" && (
           <CountingRun
             frame={ctx.frame - ctx.phraseStart}
@@ -585,12 +673,20 @@ export const E01MeetTheAbacus: React.FC = () => (
             progress={ctx.beatProgress}
           />
         )}
-      </>
+      </div>
     )}
     // The boxes E01 draws itself. Enabled so the overlap check covers this episode too —
     // the user found the decimals/unit-place collision by eye, which is exactly what this
     // is for. `arrowClearance` is deliberately NOT set: E01's arrows shipped as approved.
     guardOverlap
+    // ARROWS ON EVERY BEAD THAT MOVES, and beads coloured by where they ARE.
+    //
+    // Both were opt-in from E03 and both were left off here, which meant this episode drew an arrow
+    // only on the handful of lines that also have a finger hand — four of seventy-nine — while every
+    // later episode arrows every move. A child watching the series in order got pointers that stopped
+    // appearing when they went back to lesson one.
+    beadArrows
+    colorOnArrival
     // Portrait: the pushing hand reaches in from the right of the ones rod and needs room the
     // 1080 frame does not otherwise have. Reserved for the WHOLE episode — not just PUSH
     // sections — so the fitted scale never changes and the abacus never resizes between lines

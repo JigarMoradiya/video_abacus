@@ -5,7 +5,7 @@
 // idle motion and snaps beads mid-travel. Beats decide state, not ownership.
 //
 // The layer order below is load-bearing and matches E01's shipped render exactly:
-//   world · wash · brand · headline · counter · stage · under · hand
+//   world · wash · brand · headline · counter · behind · stage · under · hand
 //   · rod band · section band · group box · arrow · card · sum · beadWorth · label
 //   · over · celebrate · caption · sfx · narration
 // Episode content enters through the slots (`renderProp`, `renderUnder`, `renderOver`)
@@ -129,6 +129,16 @@ export interface SceneStageProps<S extends Scene> {
   runSlots?: number[];
   /** Draw a non-abacus stage prop. */
   renderProp?: (stage: string, scene: S, ctx: StageCtx) => React.ReactNode;
+  /**
+   * Episode extras BEHIND the abacus — the only slot that is, and the reason it exists: E06's monkey
+   * holds the instrument, and a hand that holds something has to pass behind it. Every other slot
+   * (`renderUnder` included, despite its name) draws above the stage, so a hand placed in any of them
+   * sat on top of the frame instead of gripping it.
+   *
+   * Use it only for things that are genuinely occluded by the abacus. Anything readable belongs in
+   * front, where the guard can see it.
+   */
+  renderBehind?: (scene: S, ctx: StageCtx) => React.ReactNode;
   /** Episode extras UNDER the annotation layer (chips below the abacus, and so on). */
   renderUnder?: (scene: S, ctx: StageCtx) => React.ReactNode;
   /** Episode extras OVER everything but the caption (quiz cards, close compositions). */
@@ -190,6 +200,7 @@ export const SceneStage = <S extends Scene>({
   subjectFor,
   runSlots = DEFAULT_SLOTS,
   renderProp,
+  renderBehind,
   renderUnder,
   renderOver,
   boxesFor,
@@ -241,8 +252,43 @@ export const SceneStage = <S extends Scene>({
   //
   // Everything below is keyed off `twoHands`, so every episode with a single hand is untouched.
   const twoHands = Boolean(scene.hand && scene.hand2);
-  const chipSideFor = (h: NonNullable<Scene["hand"]>): "auto" | "above" | "below" =>
-    !twoHands ? "auto" : h.heaven ? "above" : "below";
+  /**
+   * Which side the hand's name-chip sits on.
+   *
+   * Two hands: decided by POSITION, so the pair's labels spread apart instead of meeting.
+   *
+   * One hand: "auto" — EXCEPT when the auto placement would land on the place-value chips under the
+   * abacus. A downward hand puts its label low, and this is the first episode with both a downward
+   * hand and 1/10 chips under the rods, so in the 4:5 cut the two met. Tested geometrically rather
+   * than flipped by rule, so an episode whose chip already clears is left exactly as it renders —
+   * E04 has downward hands over chips too and none of them collide.
+   */
+  const chipSideFor = (h: NonNullable<Scene["hand"]>): "auto" | "above" | "below" => {
+    if (twoHands) return h.heaven ? "above" : "below";
+    const dir: 1 | -1 = h.direction === "up" ? -1 : 1;
+    if (chipDy(dir, "auto") < 0) return "auto"; // already high; nothing below to hit
+    const hs = handScaleFor(h);
+    const hx = rodX(box, h.rod);
+    const y = handAnchor(
+      box,
+      h.heaven,
+      h.direction,
+      rods[h.rod]?.from ?? 0,
+      rods[h.rod]?.value ?? 0,
+      h.digit,
+      hs
+    ).y;
+    const chip = {
+      x: hx + chipDx(dir, "auto") * hs - chipOverhang(hx, h.direction, h.rod) - 108 * hs + (h.dx ?? 0),
+      y: y + chipDy(dir, "auto") * hs - 32 * hs + (h.dy ?? 0),
+      w: 216 * hs,
+      h: 64 * hs,
+    };
+    const rowTop = top + abacusH + 12 * scale;
+    const row = { x: box.innerLeft, y: rowTop, w: box.innerW, h: 46 * scale };
+    const hasChips = rods.some((r) => r.chipLower);
+    return hasChips && intersects(chip, row, 4) ? "above" : "auto";
+  };
 
   // ---- rods: only the beads the next number needs may travel ----
   const prevScene = p > 0 ? sceneFor(p - 1) : scene;
@@ -284,6 +330,16 @@ export const SceneStage = <S extends Scene>({
     stageOffsetX(L, shift)
   );
   const { left, top, w: abacusW, h: abacusH } = box;
+
+  /**
+   * IS THE INSTRUMENT ACTUALLY DRAWN THIS FRAME?
+   *
+   * `closing` takes it off the stage for the outro, and every annotation that points AT it has to go
+   * with it. The bead arrows did not: the close resets the rod to zero, that counts as a value
+   * change, and so two arrows were drawn pointing down at rods that were not on screen — floating in
+   * the middle of the practice card's beat.
+   */
+  const abacusOnStage = scene.stage === "abacus" && !scene.closing;
 
   /**
    * THE HAND FITS ITSELF TO THE ROOM UNDER ITS BEAD.
@@ -413,8 +469,19 @@ export const SceneStage = <S extends Scene>({
     extrapolateRight: "clamp",
   });
 
-  const bandRect = scene.band ? sectionBand(box, scene.band) : null;
-  const rodBand = scene.rodBand !== undefined ? rodBandRect(box, scene.rodBand) : null;
+  // 0..1 through the phrase, for the two bands that SWEEP across a line naming two things
+  const bandFrac = Math.max(
+    0,
+    Math.min(0.999, (frame - phraseStart) / Math.max(1, phraseEnd - phraseStart))
+  );
+  const pick = <T,>(seq: T[]) => seq[Math.min(seq.length - 1, Math.floor(bandFrac * seq.length))];
+  const bandWhich = scene.bandSeq && scene.bandSeq.length ? pick(scene.bandSeq) : scene.band;
+  const bandRect = bandWhich ? sectionBand(box, bandWhich) : null;
+  // The band can also SWEEP: `rodBandSeq` steps it through several rods across the line, so a phrase
+  // that says "one rod, then the other rod" shows one rod, then the other rod.
+  const bandRod =
+    scene.rodBandSeq && scene.rodBandSeq.length ? pick(scene.rodBandSeq) : scene.rodBand;
+  const rodBand = bandRod !== undefined ? rodBandRect(box, bandRod) : null;
   const gbox = scene.boxRods ? groupBox(box, scene.boxRods) : null;
 
   const arrowTarget: Pt | null = (() => {
@@ -483,10 +550,23 @@ export const SceneStage = <S extends Scene>({
   // but a CARD never may.
   // The digit chip is TEXT: unlike the hand it may not leave the frame. How far its
   // guard box would poke past the right edge at this line's scale (0 when it fits).
-  const chipOverhang = (hx: number, direction: "up" | "down") => {
+  /**
+   * Horizontal nudge for the digit chip, in FRAME units. Two jobs, and they pull opposite ways.
+   *
+   * OUT: a hand working a rod that is not the rightmost leaves its chip sitting on the beads of
+   * every rod to its right — E06 works the TENS rod, and the "thumb" label landed squarely on the
+   * ones rod's beads. Pushing it clear of the instrument is the only placement that reads.
+   *
+   * BACK IN: the chip is text and must stay on the frame. Whatever the push-out asks for, the
+   * clamp against the right edge wins.
+   */
+  const chipOverhang = (hx: number, direction: "up" | "down", rod = 0) => {
     const d = direction === "up" ? -1 : 1;
     const cx = (d > 0 ? 214 : 120) * scale;
-    return Math.max(0, hx + cx + 108 * scale - (L.W - 16));
+    // clear the rods to the RIGHT of the one being worked, plus half a rod of air
+    const out = rod > 0 ? -(rod + 0.5) * ROD_PITCH * scale : 0;
+    const back = Math.max(0, hx + cx - out + 108 * scale - (L.W - 16));
+    return out + back;
   };
 
   const guardBoxes: GuardBox[] = (() => {
@@ -568,7 +648,7 @@ export const SceneStage = <S extends Scene>({
     for (const h of [scene.hand, scene.hand2].filter(Boolean) as NonNullable<Scene["hand"]>[]) {
       // FingerHand reaches in from the right of its rod, with its digit chip above it
       const hx = rodX(box, h.rod);
-      const chipOver = chipOverhang(hx, h.direction);
+      const chipOver = chipOverhang(hx, h.direction, h.rod);
       const handS = handScaleFor(h);
       const { y } = handAnchor(
         box,
@@ -672,7 +752,11 @@ export const SceneStage = <S extends Scene>({
         );
       }
     }
-    for (let i = 0; i < guardBoxes.length; i++) {
+    // THE ABACUS IS ONLY IN THE WAY WHEN IT IS ON SCREEN. `closing` takes it off the stage for the
+    // outro beats, but this rectangle was computed either way — so a closing card was being failed
+    // for overlapping an instrument that is not drawn on that frame. The check can only ask about
+    // what the frame actually contains.
+    for (let i = 0; abacusOnStage && i < guardBoxes.length; i++) {
       const a = guardBoxes[i];
       if (!a.mayTouchAbacus && intersects(a.r, abacusRect, -6)) {
         throw new Error(
@@ -759,6 +843,9 @@ export const SceneStage = <S extends Scene>({
       )}
 
       {/* STAGE */}
+      {/* behind the abacus, and nothing else is */}
+      {renderBehind?.(scene, ctx)}
+
       {scene.stage === "abacus" && !scene.closing && (
         <div
           style={{
@@ -833,7 +920,7 @@ export const SceneStage = <S extends Scene>({
 
       {/* which bead is about to move, and which way. Skipped when a hand is on screen: the
           hand draws its own arrow, and two would compete. */}
-      {beadArrows && (
+      {beadArrows && abacusOnStage && (
         <svg
           width={L.W}
           height={L.H}
@@ -892,7 +979,7 @@ export const SceneStage = <S extends Scene>({
                   x={rodX(box, h.rod) + (h.dx ?? 0)}
                   y={y + (h.dy ?? 0)}
                   len={len}
-                  chipShiftX={-chipOverhang(rodX(box, h.rod), h.direction) / handS}
+                  chipShiftX={-chipOverhang(rodX(box, h.rod), h.direction, h.rod) / handS}
                   // With `beadArrows` on, every arrow in the frame comes from BeadArrow — including
                   // the one on the bead this hand is touching. Otherwise the hand drew one arrow and
                   // the other moving beads got none.
@@ -906,7 +993,7 @@ export const SceneStage = <S extends Scene>({
       ))}
 
       {/* the whole-rod band */}
-      {rodBand && (
+      {rodBand && abacusOnStage && (
         <svg width={L.W} height={L.H} style={{ position: "absolute", inset: 0 }}>
           <rect
             x={rodBand.x}
@@ -934,7 +1021,7 @@ export const SceneStage = <S extends Scene>({
       )}
 
       {/* the whole-section band */}
-      {bandRect && (
+      {bandRect && abacusOnStage && (
         <svg width={L.W} height={L.H} style={{ position: "absolute", inset: 0 }}>
           <rect x={bandRect.x} y={bandRect.y} width={bandRect.w} height={bandRect.h} rx={16}
             fill={world.accent} opacity={0.18 * dashRamp(0, 0.25)}
@@ -947,7 +1034,7 @@ export const SceneStage = <S extends Scene>({
       )}
 
       {/* the group box for the capacity lines */}
-      {gbox && (
+      {gbox && abacusOnStage && (
         <svg
           width={L.W}
           height={L.H}

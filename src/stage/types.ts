@@ -66,9 +66,26 @@ export interface Scene {
 
   /** Mark a whole SECTION — frame-top to beam, or beam to frame-bottom. */
   band?: "top" | "bottom";
+  /**
+   * MOVE the section band across the line, one section per equal slice.
+   *
+   * Same reason as `rodBandSeq`: "the lower beads move first, then the upper bead" names both
+   * sections in one phrase, and a band parked on the lower one for the whole line says the opposite
+   * of the second half of the sentence.
+   */
+  bandSeq?: ("top" | "bottom")[];
   /** Mark a whole ROD, top of the frame to the bottom. A single lit bead does not say
    *  "this whole rod". */
   rodBand?: number;
+  /**
+   * MOVE the rod band across the line, one rod per equal slice.
+   *
+   * For a phrase that names two rods in one breath — "we do one rod, then the other rod" — where a
+   * single band held for the whole line contradicts the sentence: the words move and the picture
+   * does not. `sweepRods` cannot do this job; it rewrites the rods' VALUES as it goes (it was built
+   * to light beads), so on a line that is not about a number it puts a bead on screen.
+   */
+  rodBandSeq?: number[];
   /** Box this many rods, counted from the ones rod — for lines about a GROUP of columns. */
   boxRods?: number;
 

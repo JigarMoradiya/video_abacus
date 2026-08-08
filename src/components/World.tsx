@@ -43,7 +43,7 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
 
         {/* blueprint grid — reads as a technical drawing while parts get named */}
         {w.grid && (
-          <g opacity={0.3}>
+          <g opacity={0.18}>
             {Array.from({ length: Math.ceil(W / 80) }, (_, i) => (
               <line
                 key={`v${i}`}
@@ -175,6 +175,182 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
               </g>
             );
           })}
+
+        {/* ------------------------------------------------------------------ jungle (E06)
+            Drawn back-to-front: waterfall, then the hanging canopy from the top of the frame, then
+            vines, then the rope bridge, then ferns along the bottom. Everything lives in the
+            MARGINS — the canopy hangs from the top edge and the ferns grow from the bottom — because
+            the stage band across the middle is the abacus's, and a jungle drawn edge to edge would
+            be a wall of leaves behind the beads. */}
+
+        {/* the waterfall: a bright column with a plunge pool, on the left */}
+        {w.falls && (() => {
+          const fx = W * w.falls.at;
+          const fw = W * 0.085;
+          const pool = H * 0.8;
+          return (
+            <g>
+              <rect x={fx - fw / 2} y={0} width={fw} height={pool} fill={w.falls.water} opacity={0.75} />
+              {/* falling streaks, offset so the column reads as moving water rather than a bar */}
+              {Array.from({ length: 7 }, (_, i) => {
+                const sx = fx - fw / 2 + ((i + 0.5) * fw) / 7;
+                const speed = 260 + rand(i + 3) * 190;
+                const y = ((t * speed + rand(i + 9) * pool) % (pool + 160)) - 80;
+                return (
+                  <rect
+                    key={`fw${i}`}
+                    x={sx - 3}
+                    y={y}
+                    width={6}
+                    height={70 + rand(i) * 60}
+                    rx={3}
+                    fill={w.falls!.foam}
+                    opacity={0.55}
+                  />
+                );
+              })}
+              <ellipse cx={fx} cy={pool} rx={fw * 1.5} ry={fw * 0.42} fill={w.falls.foam} opacity={0.85} />
+              {/* spray, rising and fading */}
+              {Array.from({ length: 9 }, (_, i) => {
+                const a = (t * 0.8 + rand(i + 21)) % 1;
+                return (
+                  <circle
+                    key={`sp${i}`}
+                    cx={fx + (rand(i + 5) - 0.5) * fw * 2.4}
+                    cy={pool - a * 90}
+                    r={4 + rand(i + 13) * 7}
+                    fill={w.falls!.foam}
+                    opacity={0.5 * (1 - a)}
+                  />
+                );
+              })}
+            </g>
+          );
+        })()}
+
+        {/* THE CANOPY: two parallax rows of leaves hanging from the top edge. `depth` scales how far
+            down they reach, so one drawing serves a dense morning canopy and an open clearing. */}
+        {w.canopy &&
+          [0, 1].map((row) => {
+            const c = w.canopy!;
+            const colour = row === 0 ? c.far : c.near;
+            const drop = H * (row === 0 ? 0.13 : 0.1) * c.depth;
+            const n = row === 0 ? 7 : 6;
+            return (
+              <g key={`can${row}`} opacity={row === 0 ? 0.8 : 1}>
+                <rect x={0} y={-20} width={W} height={drop * 0.55 + 20} fill={colour} />
+                {Array.from({ length: n }, (_, i) => {
+                  const cx = ((i + (row === 0 ? 0 : 0.5)) * W) / (n - 0.5);
+                  const sway = Math.sin(t * 0.5 + i * 1.3) * 7;
+                  const rw = W * 0.1;
+                  const rh = drop;
+                  return (
+                    <g key={i} transform={`translate(${cx + sway} ${drop * 0.4})`}>
+                      <ellipse cx={0} cy={0} rx={rw} ry={rh} fill={colour} />
+                      <path
+                        d={`M ${-rw * 0.8} 0 Q 0 ${rh * 0.34} ${rw * 0.8} 0`}
+                        fill="none"
+                        stroke="#FFFFFF"
+                        strokeWidth={3}
+                        opacity={0.16}
+                      />
+                    </g>
+                  );
+                })}
+              </g>
+            );
+          })}
+
+        {/* HANGING VINES, in PAIRS. The episode is about two rods working together, so the scenery
+            is full of things that come in twos — said by the picture before the script says it. */}
+        {w.vines &&
+          Array.from({ length: w.vines.count }, (_, i) => {
+            const v = w.vines!;
+            // pairs sit close together, then a wide gap to the next pair
+            const pair = Math.floor(i / 2);
+            const within = i % 2;
+            const base = v.pairs
+              ? ((pair + 0.5) / Math.ceil(v.count / 2)) * W + (within ? 34 : -34)
+              : ((i + 0.5) / v.count) * W;
+            // vines hang in the GUTTERS: pushed to whichever edge they are nearer, so none of them
+            // hangs down the middle of the stage.
+            const x = base < W / 2 ? base * 0.42 : W - (W - base) * 0.42;
+            const len = H * (0.2 + rand(i + 7) * 0.16);
+            const sway = Math.sin(t * 0.6 + i) * 16;
+            return (
+              <g key={`vine${i}`}>
+                <path
+                  d={`M ${x} ${-10} Q ${x + sway * 0.5} ${len * 0.55} ${x + sway} ${len}`}
+                  fill="none"
+                  stroke={v.colour}
+                  strokeWidth={7}
+                  strokeLinecap="round"
+                />
+                <ellipse cx={x + sway} cy={len + 12} rx={13} ry={20} fill={v.colour} />
+              </g>
+            );
+          })}
+
+        {/* TWO banana bunches, one per gutter, hanging from the canopy. Paired like everything else
+            in this world set, and they keep the left gutter occupied on the lines where the job card
+            is not up. */}
+        {w.bananas &&
+          [0, 1].map((k) => {
+            const x = k === 0 ? W * 0.11 : W * 0.89;
+            const y = H * 0.2 + Math.sin(t * 0.7 + k * 2) * 9;
+            return (
+              <g key={`ban${k}`} transform={`translate(${x} ${y})`}>
+                {/* the stalk up into the leaves */}
+                <path d={`M 0 0 Q ${k ? 10 : -10} -40 ${k ? 4 : -4} -84`} fill="none" stroke="#5A9E4C" strokeWidth={7} strokeLinecap="round" />
+                <ellipse cx={0} cy={2} rx={16} ry={11} fill="#6E5622" />
+                {[-1, 0, 1].map((i) =>
+                  [0, 1].map((row) => (
+                    <path
+                      key={`${i}${row}`}
+                      d={`M ${i * 17} ${10 + row * 22} q ${18} ${14} ${6} ${34} q ${-14} ${-6} ${-18} ${-30} z`}
+                      fill={row ? "#F5C93E" : "#FFD966"}
+                      stroke="#B98B1E"
+                      strokeWidth={2.5}
+                      transform={`rotate(${i * 16} ${i * 17} ${10 + row * 22})`}
+                    />
+                  ))
+                )}
+              </g>
+            );
+          })}
+
+        {/* the rope bridge: TWO ropes, one deck, low in the frame */}
+        {w.ropebridge && (() => {
+          const b = w.ropebridge!;
+          const y = H * b.at;
+          const sag = (x: number) => y + Math.sin((x / W) * Math.PI) * 34;
+          const pts = Array.from({ length: 24 }, (_, i) => (i / 23) * W);
+          return (
+            <g opacity={0.9}>
+              {[0, 26].map((off, k) => (
+                <path
+                  key={`rope${k}`}
+                  d={pts.map((x, i) => `${i ? "L" : "M"} ${x} ${sag(x) - off}`).join(" ")}
+                  fill="none"
+                  stroke={b.rope}
+                  strokeWidth={k ? 5 : 7}
+                  strokeLinecap="round"
+                />
+              ))}
+              {pts.filter((_, i) => i % 2 === 0).map((x, i) => (
+                <rect
+                  key={`plank${i}`}
+                  x={x - 14}
+                  y={sag(x) - 6}
+                  width={28}
+                  height={11}
+                  rx={3}
+                  fill={b.plank}
+                />
+              ))}
+            </g>
+          );
+        })()}
 
         {/* ------------------------------------------------------------------ seaside
             Sea, wet sand, dry sand, and foam that runs up the beach and back. Drawn before
@@ -891,6 +1067,101 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
                 transform={`rotate(${rot} ${x + 8} ${fall + 13})`}
                 opacity={0.92}
               />
+            );
+          })}
+
+        {/* --------------------------------------------------------- jungle foreground (E06) */}
+
+        {/* GOD RAYS through the canopy. The one thing that makes a green frame read as a jungle
+            rather than as a hedge — and it is light, so it never fights the beads for attention. */}
+        {w.godrays && (
+          <g opacity={0.3}>
+            {Array.from({ length: 4 }, (_, i) => {
+              const x = W * (0.16 + i * 0.23);
+              const drift = Math.sin(t * 0.25 + i) * 18;
+              return (
+                <path
+                  key={`ray${i}`}
+                  d={`M ${x + drift - 40} 0 L ${x + drift + 40} 0 L ${x + drift + 150} ${H} L ${x + drift + 30} ${H} Z`}
+                  fill="#FFFFFF"
+                  opacity={0.5 + 0.2 * Math.sin(t * 0.4 + i)}
+                />
+              );
+            })}
+          </g>
+        )}
+
+        {/* FERNS along the bottom edge: blades fanning up from below the frame. Undergrowth is what
+            stops a ground band being a green rectangle — the same lesson E03's shells taught. */}
+        {w.ferns &&
+          Array.from({ length: 16 }, (_, i) => {
+            const x = ((i + 0.5) / 16) * W + (rand(i + 31) - 0.5) * 40;
+            const hgt = H * (0.07 + rand(i + 3) * 0.07);
+            const lean = (rand(i + 17) - 0.5) * 46 + Math.sin(t * 0.7 + i) * 6;
+            return (
+              <g key={`fern${i}`}>
+                <path
+                  d={`M ${x} ${H + 10} Q ${x + lean * 0.4} ${H - hgt * 0.6} ${x + lean} ${H - hgt}`}
+                  fill="none"
+                  stroke={w.ferns}
+                  strokeWidth={6}
+                  strokeLinecap="round"
+                />
+                {[0.35, 0.6, 0.85].map((f, k) => {
+                  const bx = x + lean * f;
+                  const by = H + 10 - hgt * f;
+                  return (
+                    <g key={k}>
+                      <ellipse cx={bx - 13} cy={by} rx={13} ry={6} fill={w.ferns} transform={`rotate(-24 ${bx - 13} ${by})`} />
+                      <ellipse cx={bx + 13} cy={by} rx={13} ry={6} fill={w.ferns} transform={`rotate(24 ${bx + 13} ${by})`} />
+                    </g>
+                  );
+                })}
+              </g>
+            );
+          })}
+
+        {/* blossoms: a few in the canopy, a few drifting down past it */}
+        {w.blossoms &&
+          Array.from({ length: 14 }, (_, i) => {
+            const cols = w.blossoms!;
+            const col = cols[i % cols.length];
+            const x = rand(i + 41) * W + Math.sin(t * 0.5 + i) * 26;
+            const fall = ((t * (24 + rand(i + 5) * 26) + rand(i + 11) * H) % (H + 120)) - 60;
+            const r = 7 + rand(i + 19) * 5;
+            return (
+              <g key={`bl${i}`} transform={`translate(${x} ${fall}) rotate(${t * 22 + i * 40})`} opacity={0.9}>
+                {[0, 72, 144, 216, 288].map((a) => (
+                  <ellipse key={a} cx={0} cy={-r} rx={r * 0.5} ry={r} fill={col} transform={`rotate(${a})`} />
+                ))}
+                <circle r={r * 0.42} fill="#FFF3C4" />
+              </g>
+            );
+          })}
+
+        {/* two butterflies, wandering high — the jungle's answer to E03's gulls */}
+        {w.butterflies &&
+          w.butterflies.map((col, i) => {
+            const per = 15 + i * 4;
+            const a = ((t + i * 7) % per) / per;
+            const x = -70 + a * (W + 140);
+            const y = H * (0.14 + i * 0.1) + Math.sin(t * 1.6 + i * 2) * 42;
+            const flap = Math.abs(Math.sin(t * 9 + i));
+            return (
+              <g key={`bf${i}`} transform={`translate(${x} ${y})`}>
+                {[-1, 1].map((side) => (
+                  <ellipse
+                    key={side}
+                    cx={side * 12}
+                    cy={0}
+                    rx={12 * (0.35 + flap * 0.65)}
+                    ry={15}
+                    fill={col}
+                    opacity={0.95}
+                  />
+                ))}
+                <rect x={-2} y={-9} width={4} height={18} rx={2} fill="#4A3A16" />
+              </g>
             );
           })}
 

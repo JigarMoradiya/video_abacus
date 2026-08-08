@@ -17,6 +17,7 @@ const EPISODES = [
   { n: 3, dir: "e03_adding_two_numbers", frame: Number(process.env.E03_FRAME ?? 20) },
   { n: 4, dir: "e04_bigger_numbers", frame: 128 },
   { n: 5, dir: "e05_taking_away", frame: 128 },
+  { n: 6, dir: "e06_two_rods", frame: 128 },
 ];
 
 const serveUrl = await bundle({ entryPoint: path.resolve("src/index.ts") });

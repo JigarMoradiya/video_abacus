@@ -1,0 +1,121 @@
+# E06 · Two rods together — AS RECORDED (second take). This is the alignment input.
+#
+# E06_lines.txt is the APPROVED SCRIPT and stays untouched (EPISODE_RULES.md §3.1a).
+#
+# Re-recorded because the first take taught the wrong ORDER: it worked the tens rod before the ones.
+# Every episode from E08 carries FROM the ones INTO the tens, so a child taught tens-first has to go
+# back to a rod they were told was finished. This take is right-to-left throughout, states both
+# ordering rules, and its middle sum is thirteen plus twenty-six — where the ones rod needs a lower
+# bead AND the upper bead, so "lower beads move first" is shown and not just claimed.
+#
+# The deltas from the script, all improvements:
+#   · "Push three lower beads up…" — the take adds the verb the script had dropped
+#   · "twenty-six is twenty … and six", "six is five … and one", "fifteen is ten … and five" each
+#     split across a pause, which gives the decomposition its own beat
+#   · "five is the upper bead … so push it back up" also splits
+#   · "Start with the ones rod." — drops "again"
+#   · "Great job!" for "Well done."
+#   · ADDS a final "See you next time." after the teaser
+#
+# Numbers stay WORDS here: Whisper writes them as digits and canon() folds both forms
+# (EPISODE_RULES.md §3.6). "bead" is spelled correctly; canon() folds Whisper's "beat", and
+# PLACE_WORDS folds its "1's" / "10's" onto "ones" / "tens".
+#
+# ⚠ Peak −0.4 dB, hot — the same as the first take and as E05. Worth recording ~3 dB lower.
+
+
+# --- 1 · HOOK ---
+So far, every sum we've done has used one rod.
+Today, we're using two and it's easier than it sounds.
+
+# --- 2 · WHAT THE SECOND ROD IS FOR ---
+Remember, each rod has its own place.
+The rod on the right is the ones rod.
+The rod next to it is the tens rod.
+Together, they can show every number up to ninety-nine.
+
+# --- 3 · THE BIG IDEA, and both ordering rules ---
+Here's the whole trick for today.
+We never work on two rods at the same time.
+We do one rod, then the other rod.
+And we always start on the right, with the ones rod.
+On each rod, the lower beads move first, then the upper bead.
+Each rod is just a small sum on its own.
+
+# --- 4 · TWENTY-ONE PLUS THREE ---
+Let's try twenty-one plus three.
+First, make twenty-one.
+Push one lower bead up on the ones rod.
+Push two lower beads up on the tens rod.
+The abacus is showing twenty-one.
+Now we add three.
+Three is a ones number, so only the ones rod moves.
+Push three more lower beads up on the ones rod.
+The tens rod doesn't move at all.
+It's still showing twenty.
+And the ones rod is showing four.
+So twenty-one plus three is twenty-four.
+
+# --- 5 · THIRTEEN PLUS TWENTY-SIX ---
+Now let's move both rods.
+Let's try thirteen plus twenty-six.
+First, make thirteen.
+Push three lower beads up on the ones rod.
+Push one lower bead up on the tens rod.
+Now we add twenty-six.
+Twenty-six is twenty.
+And six.
+We always start with the ones rod.
+Six is five.
+And one.
+Lower beads always move first.
+So push one lower bead up.
+Then push the upper bead down for five.
+The ones rod is showing nine.
+Now the tens rod.
+Twenty means two more tens.
+Push two more lower beads up on the tens rod.
+The tens rod is showing three.
+Three tens and nine ones.
+So thirteen plus twenty-six is thirty-nine.
+
+# --- 6 · THE RULE SO FAR ---
+Did you see what we did?
+Two little sums, one after the other.
+That's all a big sum ever is.
+
+# --- 7 · THIRTY-NINE TAKE AWAY FIFTEEN ---
+Taking away works the same way.
+Let's try thirty-nine take away fifteen.
+Our abacus is already showing thirty-nine.
+Fifteen is ten.
+And five.
+Start with the ones rod.
+We need to take away five.
+Five is the upper bead.
+So push it back up.
+The four lower beads stay where they are.
+Now the tens rod.
+Ten means one ten goes away.
+Push one lower bead down on the tens rod.
+The tens rod is showing two.
+Two tens and four ones.
+So thirty-nine take away fifteen is twenty-four.
+
+# --- 8 · YOUR TURN ---
+Now it's your turn.
+Make twenty-three on your own abacus.
+Then add eleven.
+Remember the ones rod first.
+What number is showing now?
+Twenty-three plus eleven is thirty-four.
+Great job!
+
+# --- 9 · CLOSE ---
+Try a few more two rod sums on your own abacus.
+If you enjoyed this video, please like and subscribe for more.
+Search for abacus kids on the Apple App Store or Google Play.
+Download it free.
+Next time something different.
+We'll try a sum the beads can't do and learn the clever trick that fixes it.
+See you next time.

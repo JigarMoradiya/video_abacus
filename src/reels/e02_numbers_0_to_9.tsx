@@ -515,6 +515,14 @@ export const E02Numbers0To9: React.FC = () => (
       return out;
     }}
     guardOverlap
+    // ARROWS ON EVERY BEAD THAT MOVES, and beads coloured by where they ARE.
+    //
+    // Both were opt-in from E03 and both were left off here, which meant this episode drew an arrow
+    // only on the handful of lines that also have a finger hand — four of seventy-nine — while every
+    // later episode arrows every move. A child watching the series in order got pointers that stopped
+    // appearing when they went back to lesson one.
+    beadArrows
+    colorOnArrival
     arrowClearance
     // Portrait needs room on BOTH sides — the ladder on the left, the pushing hand on the
     // right — and it is the SAME room on every line, so the abacus never resizes between

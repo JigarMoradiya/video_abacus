@@ -70,15 +70,100 @@ NUM_WORDS.update({"hundred": "100", "thousand": "1000"})
 ASR_HOMOPHONES: dict[str, str] = {"beat": "bead", "beats": "beads", "bees": "beads"}
 
 
+# THE PLACE NAMES, which Whisper writes as possessives of a digit.
+#
+# "the ones rod" is transcribed "the 1's rod", and "the tens rod" as "the 10's rod"; norm() strips
+# the apostrophe and leaves "1s" and "10s", which share no match with the script's "ones" and "tens".
+# E06 says those two words twenty-six times — it is an episode ABOUT the two rods — and every one of
+# them failed, taking the alignment from 100% to 86.7%.
+#
+# NUM_WORDS deliberately lets "ones" through untouched, and its comment says so; that was right when
+# nothing depended on it and is wrong now. Kept as its own map rather than folded into NUM_WORDS,
+# because these are PLURAL PLACE NAMES, not numbers — "ones" is a column, not the value 1.
+#
+# Mapped SYMMETRICALLY: both spellings collapse to the same token, so a phrase matches whichever way
+# Whisper chose to write it that day. That can only add matches, never remove one.
+PLACE_WORDS: dict[str, str] = {
+    "ones": "1s",
+    "tens": "10s",
+    "hundreds": "100s",
+    "thousands": "1000s",
+}
+
+
+# Tens and units, for fusing a compound number into the single token Whisper usually writes.
+_TENS_DIGITS = {str(20 + 10 * i) for i in range(8)}
+_UNIT_DIGITS = {str(i) for i in range(1, 10)}
+
+
+def compound(text: str) -> str | None:
+    """"twenty-one" -> "21", but only when EVERY part is a number word.
+
+    Whisper is inconsistent about compound numbers: E05's take gave "twenty" and "one" as two
+    tokens, E06's gave "21" as one. Both are correct transcriptions and the script cannot be written
+    to suit both, so the matcher learns the equivalence instead — see `fuse` for the other half.
+    """
+    parts = [p for p in text.split("-") if norm(p)]
+    if len(parts) < 2:
+        return None
+    digits = [NUM_WORDS.get(norm(p)) for p in parts]
+    if any(d is None for d in digits):
+        return None
+    if len(digits) == 2 and digits[0] in _TENS_DIGITS and digits[1] in _UNIT_DIGITS:
+        return str(int(digits[0]) + int(digits[1]))
+    return None
+
+
 def canon(text: str) -> str:
     """Normalise for MATCHING: norm(), then number words to digits.
 
     Deliberately separate from norm(), which also decides whether a token is a word at
     all. Folding the two would change what gets filtered out, not just what matches.
     """
+    fused = compound(text)
+    if fused is not None:
+        return fused
     n = norm(text)
     n = ASR_HOMOPHONES.get(n, n)
+    n = PLACE_WORDS.get(n, n)
     return NUM_WORDS.get(n, n)
+
+
+# A tens word and a unit word that sit next to each other are only ONE number if they were spoken as
+# one. E04 says "Three tens is thirty. Eight ones is eight." — "thirty" and "Eight" are adjacent in
+# the stream and belong to different sentences, and fusing them into "38" broke two words that had
+# always matched. Punctuation and a pause are what separate them.
+_SENTENCE_END = tuple(".,!?;:")
+_FUSE_MAX_GAP = 0.22
+
+
+def fuse(tokens: list[str], raw: list[dict]) -> list[tuple[str, int, int]]:
+    """Collapse an adjacent tens+unit pair into one token: ("21", first_index, last_index).
+
+    The other half of `compound`. Whichever way the transcription split a compound number, both
+    sides end up holding the same single token, so the 1:1 alignment can pair them.
+
+    Only fuses a pair the narrator ran together: no sentence punctuation after the first word, and
+    less than `_FUSE_MAX_GAP` of silence between them. "Twenty-one" is said as one word; "thirty.
+    Eight" is not.
+    """
+    out: list[tuple[str, int, int]] = []
+    i = 0
+    while i < len(tokens):
+        joined = (
+            i + 1 < len(tokens)
+            and tokens[i] in _TENS_DIGITS
+            and tokens[i + 1] in _UNIT_DIGITS
+            and not raw[i]["word"].strip().endswith(_SENTENCE_END)
+            and raw[i + 1]["start"] - raw[i]["end"] < _FUSE_MAX_GAP
+        )
+        if joined:
+            out.append((str(int(tokens[i]) + int(tokens[i + 1])), i, i + 1))
+            i += 2
+        else:
+            out.append((tokens[i], i, i))
+            i += 1
+    return out
 
 
 
@@ -90,15 +175,17 @@ def script_tokens(phrase: str) -> list[str]:
     as two words, "twenty" and "three". One token against two never matches, and the number words
     are precisely the beats a bead move is timed to (E02: 1 of 51 matched before `canon()` existed).
 
-    So a hyphenated token is split when EVERY part is a number word. Only then: splitting every
-    hyphen would break ordinary compounds, and the point is to mirror the ASR, not to tidy the text.
-    The caption still renders from the phrase's own `text`, so nothing the viewer reads changes.
+    A hyphenated number is now kept WHOLE, because `canon` resolves "twenty-one" to "21" itself and
+    `fuse` collapses the ASR side when the transcription split it instead. Splitting here as well
+    would put two tokens against Whisper's one on any take that wrote the compound as a digit — which
+    is what E06's take did, and it cost 39 words.
     """
     out: list[str] = []
     for w in phrase.split():
         parts = w.split("-")
         numeric = len(parts) > 1 and all(canon(p) != norm(p) for p in parts if norm(p))
-        for piece in (parts if numeric else [w]):
+        # a tens+unit compound stays whole; anything else numeric still splits
+        for piece in ([w] if compound(w) else (parts if numeric else [w])):
             if norm(piece):
                 out.append(piece)
     return out
@@ -149,11 +236,20 @@ def transcribe_words(audio: Path, model_name: str, lang: str) -> list[dict]:
 def align(script_words: list[str], asr: list[dict]) -> list[dict | None]:
     """Return, per script word, the matched ASR word dict (or None)."""
     a = [canon(w) for w in script_words]
-    b = [canon(w["word"]) for w in asr]
+    # FUSE THE ASR SIDE. Whisper may render "twenty-one" as one token ("21") or two ("twenty",
+    # "one"); the script now always holds one. Fusing adjacent tens+unit pairs makes the two streams
+    # agree either way. A fused pair keeps the START of its first word and the END of its second, so
+    # the compound's timing still spans the whole spoken number.
+    fused = fuse([canon(w["word"]) for w in asr], asr)
+    b = [tok for tok, _, _ in fused]
+    spans = [
+        {"word": asr[i]["word"], "start": asr[i]["start"], "end": asr[j]["end"]}
+        for _, i, j in fused
+    ]
     matched: list[dict | None] = [None] * len(a)
     for blk in difflib.SequenceMatcher(a=a, b=b, autojunk=False).get_matching_blocks():
         for k in range(blk.size):
-            matched[blk.a + k] = asr[blk.b + k]
+            matched[blk.a + k] = spans[blk.b + k]
     return matched
 
 
