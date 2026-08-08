@@ -212,14 +212,29 @@ export const Thumbnail: React.FC<{ spec: ThumbSpec; portrait?: boolean }> = ({
   // produce — not off half its characters. "WHAT NUMBER?" is twelve characters, but it breaks into
   // "WHAT" and "NUMBER?", and sizing it as if each line were six ran the second one off the frame.
   const words = spec.hook.split(" ");
-  const bestSplit = Math.min(
-    ...words.slice(1).map((_, k) => {
-      const a = words.slice(0, k + 1).join(" ").length;
-      const b = words.slice(k + 1).join(" ").length;
-      return Math.max(a, b);
-    })
-  );
+  // A hook that is a SUM must never break mid-expression. The balanced-split rule below is right for
+  // "WHAT NUMBER?" and wrong for "21 + 3 = ?": every token is a word, so the most balanced break
+  // landed after the plus and the thumbnail read "21 +" over "3 = ?".
+  //
+  // An expression breaks at the EQUALS or not at all — question on one line, answer on the next,
+  // which is how a child writes it and how this series' own sum card lays it out.
+  const isExpression = /^[\d\s+\-−×÷=?]+$/.test(spec.hook) && spec.hook.includes("=");
+  const eqAt = spec.hook.indexOf("=");
+  const exprLines: [string, string] | null = isExpression
+    ? [spec.hook.slice(0, eqAt).trim(), spec.hook.slice(eqAt).trim()]
+    : null;
+  const bestSplit = exprLines
+    ? Math.max(exprLines[0].length, exprLines[1].length)
+    : Math.min(
+        ...words.slice(1).map((_, k) => {
+          const a = words.slice(0, k + 1).join(" ").length;
+          const b = words.slice(k + 1).join(" ").length;
+          return Math.max(a, b);
+        })
+      );
   const hookSize = Math.min(cap, wraps ? (column * 0.94) / (bestSplit * CH) : oneLine);
+  /** the lines actually drawn: one, or the two an expression is split into */
+  const hookLines = wraps && exprLines ? exprLines : [spec.hook];
 
   const headline = (
     // 9:16 gives the hook and its tag real separation. At 8 px the two were reading as one block —
@@ -235,7 +250,7 @@ export const Thumbnail: React.FC<{ spec: ThumbSpec; portrait?: boolean }> = ({
           lineHeight: 0.94,
           color: spec.ink,
           textAlign: "center",
-          whiteSpace: wraps ? "normal" : "nowrap",
+          whiteSpace: wraps && !exprLines ? "normal" : "nowrap",
           textWrap: "balance",
           maxWidth: column,
           // a hard outline, because the feed shows this at 210px on unpredictable backgrounds
@@ -247,7 +262,9 @@ export const Thumbnail: React.FC<{ spec: ThumbSpec; portrait?: boolean }> = ({
           letterSpacing: -1,
         }}
       >
-        {spec.hook}
+        {hookLines.map((line, i) => (
+          <div key={i}>{line}</div>
+        ))}
       </span>
       <span
         style={{
