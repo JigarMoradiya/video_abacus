@@ -327,8 +327,22 @@ export const StoreFlow: React.FC<{
                 {getLabel}
               </div>
 
-              {/* the real store screenshots, scrolling */}
-              <div style={{ marginTop: 14, overflow: "hidden" }}>
+              {/* THE REAL STORE SCREENSHOTS, SCROLLING.
+                  Four cards in a viewport about two and a half wide, so whichever way it is scrolled
+                  a card is cut at one edge — that is what a scroller looks like. Without an edge
+                  treatment though, the cut card reads as a broken layout rather than as more content
+                  off-screen, and it is cut mid-word. A soft fade at both ends is the standard fix and
+                  says "there is more this way" in the same gesture. */}
+              <div
+                style={{
+                  marginTop: 14,
+                  overflow: "hidden",
+                  WebkitMaskImage:
+                    "linear-gradient(to right, transparent 0px, #000 22px, #000 calc(100% - 22px), transparent 100%)",
+                  maskImage:
+                    "linear-gradient(to right, transparent 0px, #000 22px, #000 calc(100% - 22px), transparent 100%)",
+                }}
+              >
                 <div style={{ display: "flex", gap: 8, transform: `translateX(${shotScroll}px)` }}>
                   {[1, 2, 3, 4].map((k) => (
                     <Img
