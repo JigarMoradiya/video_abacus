@@ -21,11 +21,17 @@ const EPISODES = [
   { n: 4, dir: "e04_bigger_numbers", frame: 128 },
   { n: 5, dir: "e05_taking_away", frame: 128 },
   { n: 6, dir: "e06_two_rods", frame: 128 },
+  { n: 7, dir: "e07_small_friend_intro", frame: 128 },
 ];
+
+// ONLY=7 renders just that episode. Re-rendering all fourteen stills to add one is not free, and
+// every re-render is a chance to overwrite an approved thumbnail with a drifted one.
+const ONLY = process.env.ONLY ? new Set(process.env.ONLY.split(",").map(Number)) : null;
 
 const serveUrl = await bundle({ entryPoint: path.resolve("src/index.ts") });
 const browser = await openBrowser("chrome");
 for (const ep of EPISODES) {
+  if (ONLY && !ONLY.has(ep.n)) continue;
   // Straight into the episode's folder, next to its two mp4s — no subfolder. Named off the video
   // so a directory listing sorts the four files of an episode together.
   const dir = path.join("out", ep.dir);

@@ -25,8 +25,19 @@ import { World } from "../components/World";
 import { AppIcon } from "../components/AppShowcase";
 import { Monkey } from "../components/e06/Monkey";
 import { Astro } from "../components/e05/Astro";
+import { Rabbit } from "../components/e07/Rabbit";
 import { KID_FONT } from "../lib/fonts";
-import { RIG_WOOD, RIG_SEA, RIG_CITY, RIG_SPACE, RIG_JUNGLE, WORLDS, type RigPalette, type WorldKind } from "../data/theme";
+import {
+  RIG_WOOD,
+  RIG_SEA,
+  RIG_CITY,
+  RIG_SPACE,
+  RIG_JUNGLE,
+  RIG_MAGIC,
+  WORLDS,
+  type RigPalette,
+  type WorldKind,
+} from "../data/theme";
 import { ROD_DIM } from "../data/tokens";
 
 export interface ThumbSpec {
@@ -56,7 +67,7 @@ export interface ThumbSpec {
    * invent one for a thumbnail they go without: their worlds (navy blueprint, lit city) carry the
    * identity instead.
    */
-  character?: "monkey" | "astro";
+  character?: "monkey" | "astro" | "rabbit";
 }
 
 export const THUMBS: Record<string, ThumbSpec> = {
@@ -148,6 +159,24 @@ export const THUMBS: Record<string, ThumbSpec> = {
     ink: "#12401F",
     band: "#F2543D",
     character: "monkey",
+  },
+  e07: {
+    ep: 7,
+    hook: "3 + 3 = ?",
+    // the sub carries the HOOK the sum cannot: this is the episode where the beads run out, which is
+    // the only thing in the series so far that sounds like a problem rather than a lesson
+    sub: "when the beads run out",
+    // stagefull, not hatreveal — that world draws its own top hat as scenery and the rabbit brings
+    // one of its own, which would put two hats in a 210px image
+    world: "stagefull",
+    palette: RIG_MAGIC,
+    // THREE, the number the episode gets stuck on. With four lower beads on the rod, a viewer who
+    // knows the abacus can already see the problem — which is the whole promise of the video.
+    rods: [3, 0, 0, 0, 0],
+    rodCount: 5,
+    ink: "#FFD873",
+    band: "#7A2A56",
+    character: "rabbit",
   },
 };
 
@@ -377,6 +406,26 @@ export const Thumbnail: React.FC<{ spec: ThumbSpec; portrait?: boolean }> = ({
               fps={30}
               branch
             />
+          ) : spec.character === "rabbit" ? (
+            /* PLACED OFF THE ABACUS BOTTOM, not off the monkey's numbers.
+             *
+             * The rabbit is TALL — its box is 292 above the anchor against the monkey's much
+             * shorter reach — so the shared character position put its ears and hat straight
+             * through the beads in both cuts. The panel is 437 + 2x25 = 487 tall, so it draws
+             * 312px in 16:9 (x0.64) about a centre of 302 -> bottom 458, and 721px in 9:16
+             * (x1.48) -> bottom about 1410. These two numbers are the rabbit's ceiling; the
+             * scale is then whatever fits between that ceiling and the frame edge, not a
+             * number chosen for how big the rabbit looks. */
+            <Rabbit
+              x={portrait ? 812 : 1012}
+              y={portrait ? 1800 : 684}
+              scale={portrait ? 1.24 : 0.72}
+              mood="cheer"
+              progress={1}
+              frame={0}
+              fps={30}
+              facing={1}
+            />
           ) : (
             <Astro
               x={portrait ? 812 : 1012}
@@ -404,9 +453,11 @@ export const ThumbE03: React.FC = () => <Thumbnail spec={THUMBS.e03} />;
 export const ThumbE04: React.FC = () => <Thumbnail spec={THUMBS.e04} />;
 export const ThumbE05: React.FC = () => <Thumbnail spec={THUMBS.e05} />;
 export const ThumbE06: React.FC = () => <Thumbnail spec={THUMBS.e06} />;
+export const ThumbE07: React.FC = () => <Thumbnail spec={THUMBS.e07} />;
 export const ThumbE01V: React.FC = () => <Thumbnail spec={THUMBS.e01} portrait />;
 export const ThumbE02V: React.FC = () => <Thumbnail spec={THUMBS.e02} portrait />;
 export const ThumbE03V: React.FC = () => <Thumbnail spec={THUMBS.e03} portrait />;
 export const ThumbE04V: React.FC = () => <Thumbnail spec={THUMBS.e04} portrait />;
 export const ThumbE05V: React.FC = () => <Thumbnail spec={THUMBS.e05} portrait />;
 export const ThumbE06V: React.FC = () => <Thumbnail spec={THUMBS.e06} portrait />;
+export const ThumbE07V: React.FC = () => <Thumbnail spec={THUMBS.e07} portrait />;
