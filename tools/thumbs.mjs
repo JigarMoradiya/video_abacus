@@ -14,7 +14,10 @@ import path from "node:path";
 const EPISODES = [
   { n: 1, dir: "e01_meet_the_abacus", frame: 128 },
   { n: 2, dir: "e02_numbers_0_to_9", frame: 128 },
-  { n: 3, dir: "e03_adding_two_numbers", frame: Number(process.env.E03_FRAME ?? 20) },
+  // E03's FOLDER and its FILE names differ: the folder is named for the lesson (addition on
+  // rod 1) and the files for the episode title. Stated rather than inferred, so a render does
+  // not quietly recreate the folder it was moved out of.
+  { n: 3, dir: "e03_addition_rod1", name: "e03_adding_two_numbers", frame: Number(process.env.E03_FRAME ?? 20) },
   { n: 4, dir: "e04_bigger_numbers", frame: 128 },
   { n: 5, dir: "e05_taking_away", frame: 128 },
   { n: 6, dir: "e06_two_rods", frame: 128 },
@@ -28,8 +31,8 @@ for (const ep of EPISODES) {
   const dir = path.join("out", ep.dir);
   fs.mkdirSync(dir, { recursive: true });
   for (const [id, name] of [
-    [`thumb-e0${ep.n}`, `${ep.dir}_thumb_16x9.png`],
-    [`thumb-e0${ep.n}-9x16`, `${ep.dir}_thumb_9x16.png`],
+    [`thumb-e0${ep.n}`, `${ep.name ?? ep.dir}_thumb_16x9.png`],
+    [`thumb-e0${ep.n}-9x16`, `${ep.name ?? ep.dir}_thumb_9x16.png`],
   ]) {
     const composition = await selectComposition({ serveUrl, id, inputProps: {} });
     const output = path.join(dir, name);
