@@ -49,7 +49,13 @@ export const DRILLS: Drill[] = [
   { text: "86 − 51", answer: 35 },
 ];
 
-export const PRACTICE_NAT = { w: 760, h: 372 };
+/**
+ * MEASURED, not estimated. Declared 372 while the card draws about 411 — padding 60, title 46 plus
+ * an 18 margin, three rows of 85 and two 16 gaps. The overlap guard checks THIS number, so a
+ * constant smaller than the artwork is a guard that cannot fail: 39px of this card were invisible to
+ * every check. Same class of bug as E07's formula card overflowing into the caption.
+ */
+export const PRACTICE_NAT = { w: 760, h: 412 };
 
 export const PracticeList: React.FC<{
   /** 0..1 across the line; sums appear in pairs as it advances */

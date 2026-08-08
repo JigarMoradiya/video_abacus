@@ -22,7 +22,12 @@ import React from "react";
 import { interpolate } from "remotion";
 import { KID_FONT } from "../../lib/fonts";
 
-export const SPLIT_NAT = { w: 700, h: 152 };
+/**
+ * MEASURED with the bead glyphs, which are the tall case: padding 36 + a 104 cell + 6 gap + the
+ * 64-high bead-on-a-rod. Declared 152 before, which is the height WITHOUT the glyphs — so on exactly
+ * the lines that draw them (six is five and one) the guard was blind to 58px.
+ */
+export const SPLIT_NAT = { w: 700, h: 210 };
 
 const CELL_W = 132;
 const CELL_H = 104;
