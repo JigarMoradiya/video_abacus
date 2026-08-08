@@ -116,15 +116,18 @@ export const THUMBS: Record<string, ThumbSpec> = {
   },
   e06: {
     ep: 6,
-    hook: "21 + 3 = ?",
+    hook: "13 + 26 = ?",
     sub: "two rods · tens and ones",
     // The clearing, not the waterfall: at 210px a thumbnail needs one bright field behind the
     // instrument, and the falling water competed with the beads for the eye.
     world: "clearing",
     palette: RIG_JUNGLE,
-    // TWENTY-ONE — the question's starting number, not its answer. Same rule as lessons 3 and 5, and
+    // THIRTEEN — the question's starting number, not its answer. Same rule as lessons 3 and 5, and
     // it is the first thumbnail in the series showing TWO live rods, which is the whole lesson.
-    rods: [1, 2, 0, 0, 0],
+    //
+    // The episode's middle sum rather than its first: 13 + 26 moves BOTH rods, which is what the
+    // lesson is actually about, where 21 + 3 only ever touches the ones.
+    rods: [3, 1, 0, 0, 0],
     rodCount: 5,
     ink: "#12401F",
     band: "#F2543D",
