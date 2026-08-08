@@ -179,6 +179,13 @@ const EpisodeChip: React.FC<{ ep: number; band: string; scale: number }> = ({ ep
   </div>
 );
 
+/**
+ * The abacus's share of a 16:9 thumbnail. Down from 0.72: at that size the instrument took 443 of
+ * the 1280px and left the hook a 623px column, which is what forced "21 + 3 = ?" onto two lines. The
+ * beads are still perfectly legible at 0.64 — the hook is the thing being read at 210px.
+ */
+const ABACUS_S = 0.64;
+
 export const Thumbnail: React.FC<{ spec: ThumbSpec; portrait?: boolean }> = ({
   spec,
   portrait = false,
@@ -201,13 +208,22 @@ export const Thumbnail: React.FC<{ spec: ThumbSpec; portrait?: boolean }> = ({
   // up to the instrument's edge, so the longest line finished a few pixels from the beads and the
   // two halves of the thumbnail ran together. Reserving the gap also takes the type down a notch,
   // which is the same fix from the other end.
-  const GUTTER = 78;
-  const column = portrait ? 1080 - 80 : 1280 - 64 - 72 - 615 * 0.72 - GUTTER;
-  const CH = 0.62; // width of one character at this font and weight, as a fraction of its size
+  // Trimmed from 78. The gutter exists so the hook does not finish against the beads, and 50 is
+  // still clear air — the 28px it gives back goes straight into the type size of a one-line sum.
+  const GUTTER = 50;
+  const column = portrait ? 1080 - 80 : 1280 - 64 - 72 - 615 * ABACUS_S - GUTTER;
+  // Width of the hook, as a multiple of its font size. A flat 0.62 per character over-counted a sum
+  // badly — "21 + 3 = ?" is three SPACES and three thin operator glyphs out of ten characters, so the
+  // estimate said it needed 20% more room than it does, and that phantom width is what pushed it onto
+  // a second line in the first place.
+  const CH = 0.62;
+  const widthOf = (t: string) =>
+    [...t].reduce((w, c) => w + (c === " " ? 0.28 : "+-−=?".includes(c) ? 0.52 : CH), 0);
   const FLOOR = 118; // under this the hook stops working at 210px wide, so wrapping is worth it
   const cap = portrait ? 205 : 187;
-  const oneLine = (column * 0.94) / (spec.hook.length * CH);
+  const oneLine = (column * 0.94) / widthOf(spec.hook);
   const wraps = oneLine < FLOOR;
+  // (an expression ignores this — see below)
   // A wrapped hook breaks at a WORD, so it has to be sized off the longest line it can actually
   // produce — not off half its characters. "WHAT NUMBER?" is twelve characters, but it breaks into
   // "WHAT" and "NUMBER?", and sizing it as if each line were six ran the second one off the frame.
@@ -218,23 +234,18 @@ export const Thumbnail: React.FC<{ spec: ThumbSpec; portrait?: boolean }> = ({
   //
   // An expression breaks at the EQUALS or not at all — question on one line, answer on the next,
   // which is how a child writes it and how this series' own sum card lays it out.
+  // A SUM IS ALWAYS ONE LINE. Any break splits the sentence a child is being asked to read —
+  // "21 +" over "3 = ?" is nonsense, and even a tidy break at the equals makes the reader assemble
+  // two fragments. It is a ten-character string; it fits, and the type is big enough without it.
   const isExpression = /^[\d\s+\-−×÷=?]+$/.test(spec.hook) && spec.hook.includes("=");
-  const eqAt = spec.hook.indexOf("=");
-  const exprLines: [string, string] | null = isExpression
-    ? [spec.hook.slice(0, eqAt).trim(), spec.hook.slice(eqAt).trim()]
-    : null;
-  const bestSplit = exprLines
-    ? Math.max(exprLines[0].length, exprLines[1].length)
-    : Math.min(
-        ...words.slice(1).map((_, k) => {
-          const a = words.slice(0, k + 1).join(" ").length;
-          const b = words.slice(k + 1).join(" ").length;
-          return Math.max(a, b);
-        })
-      );
-  const hookSize = Math.min(cap, wraps ? (column * 0.94) / (bestSplit * CH) : oneLine);
-  /** the lines actually drawn: one, or the two an expression is split into */
-  const hookLines = wraps && exprLines ? exprLines : [spec.hook];
+  const bestSplit = Math.min(
+    ...words.slice(1).map((_, k) => {
+      const a = words.slice(0, k + 1).join(" ").length;
+      const b = words.slice(k + 1).join(" ").length;
+      return Math.max(a, b);
+    })
+  );
+  const hookSize = Math.min(cap, wraps && !isExpression ? (column * 0.94) / (bestSplit * CH) : oneLine);
 
   const headline = (
     // 9:16 gives the hook and its tag real separation. At 8 px the two were reading as one block —
@@ -250,7 +261,7 @@ export const Thumbnail: React.FC<{ spec: ThumbSpec; portrait?: boolean }> = ({
           lineHeight: 0.94,
           color: spec.ink,
           textAlign: "center",
-          whiteSpace: wraps && !exprLines ? "normal" : "nowrap",
+          whiteSpace: wraps && !isExpression ? "normal" : "nowrap",
           textWrap: "balance",
           maxWidth: column,
           // a hard outline, because the feed shows this at 210px on unpredictable backgrounds
@@ -262,9 +273,7 @@ export const Thumbnail: React.FC<{ spec: ThumbSpec; portrait?: boolean }> = ({
           letterSpacing: -1,
         }}
       >
-        {hookLines.map((line, i) => (
-          <div key={i}>{line}</div>
-        ))}
+        {spec.hook}
       </span>
       <span
         style={{
@@ -290,7 +299,7 @@ export const Thumbnail: React.FC<{ spec: ThumbSpec; portrait?: boolean }> = ({
     // `scale` sets the SVG's own width and height, so what is laid out is what is drawn.
     //
     // 9:16 gives the instrument ~85% of the width: vertical has height to spare and width to fill.
-    <Abacus rods={rig(spec)} scale={portrait ? 1.48 : 0.72} palette={spec.palette} />
+    <Abacus rods={rig(spec)} scale={portrait ? 1.48 : ABACUS_S} palette={spec.palette} />
   );
 
   return (
