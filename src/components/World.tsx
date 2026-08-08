@@ -176,6 +176,214 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
             );
           })}
 
+        {/* ------------------------------------------------------------------ magic show (E07)
+            Drawn back to front: the spotlight cones (they are light, so everything sits IN them),
+            then backstage clutter, then the boards, then the curtains down the sides, then the
+            bulbs. The curtains are last of the scenery because they frame everything else. */}
+
+        {/* THE SPOTLIGHT. A cone from above the frame, brightest at the top and gone by the boards —
+            the one prop that tells the whole story of this episode, because the light narrows when
+            the sum jams and opens out when the trick works. */}
+        {w.spot && (
+          <g>
+            <defs>
+              <linearGradient id="spotG" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={w.spot.colour} stopOpacity={0.5} />
+                <stop offset="55%" stopColor={w.spot.colour} stopOpacity={0.22} />
+                <stop offset="100%" stopColor={w.spot.colour} stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            {(() => {
+              const cx = W * w.spot!.at;
+              const half = W * w.spot!.width * 0.5;
+              const sway = Math.sin(t * 0.4) * 8;
+              return (
+                <path
+                  d={`M ${cx - 46 + sway} -20 L ${cx + 46 + sway} -20 L ${cx + half} ${H * 0.95} L ${cx - half} ${H * 0.95} Z`}
+                  fill="url(#spotG)"
+                />
+              );
+            })()}
+          </g>
+        )}
+        {w.spot2 && (
+          <g>
+            <defs>
+              <linearGradient id="spot2G" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={w.spot2.colour} stopOpacity={0.55} />
+                <stop offset="60%" stopColor={w.spot2.colour} stopOpacity={0.3} />
+                <stop offset="100%" stopColor={w.spot2.colour} stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            {(() => {
+              const cx = W * w.spot2!.at;
+              const half = W * w.spot2!.width * 0.5;
+              return (
+                <path
+                  d={`M ${cx - 26} -20 L ${cx + 26} -20 L ${cx + half} ${H * 0.62} L ${cx - half} ${H * 0.62} Z`}
+                  fill="url(#spot2G)"
+                />
+              );
+            })()}
+          </g>
+        )}
+
+        {/* backstage: ropes from the flies, a crate and a stool — the room behind the trick */}
+        {w.backstage && (
+          <g opacity={0.9}>
+            {[0.08, 0.15, 0.88, 0.94].map((f, i) => (
+              <g key={`rope${i}`}>
+                <line
+                  x1={W * f}
+                  y1={-10}
+                  x2={W * f + Math.sin(t * 0.5 + i) * 10}
+                  y2={H * (0.44 + (i % 2) * 0.12)}
+                  stroke="#8A6A46"
+                  strokeWidth={7}
+                  strokeLinecap="round"
+                />
+                <circle cx={W * f + Math.sin(t * 0.5 + i) * 10} cy={H * (0.44 + (i % 2) * 0.12)} r={9} fill="#6B4F31" />
+              </g>
+            ))}
+            {/* a crate, bottom left */}
+            <g transform={`translate(${W * 0.07} ${H * 0.7})`}>
+              <rect x={0} y={0} width={150} height={120} rx={8} fill="#7A5B37" />
+              <rect x={0} y={0} width={150} height={16} rx={6} fill="#96754A" />
+              {[30, 60, 90].map((y) => (
+                <rect key={y} x={8} y={y} width={134} height={8} rx={4} fill="#5E4426" opacity={0.7} />
+              ))}
+            </g>
+            {/* a stool, bottom right */}
+            <g transform={`translate(${W * 0.88} ${H * 0.74})`}>
+              <rect x={-52} y={0} width={104} height={16} rx={8} fill="#8A6A46" />
+              {[-38, 34].map((x) => (
+                <rect key={x} x={x} y={14} width={12} height={88} rx={6} fill="#6B4F31" />
+              ))}
+            </g>
+          </g>
+        )}
+
+        {/* the boards: the stage floor, with a lit front edge */}
+        {w.boards && (
+          <g>
+            <rect x={0} y={H * w.boards.at} width={W} height={H} fill={w.boards.face} />
+            <rect x={0} y={H * w.boards.at} width={W} height={12} fill={w.boards.edge} />
+            {/* plank seams, in perspective — closer together towards the middle */}
+            {Array.from({ length: 11 }, (_, i) => {
+              const f = (i - 5) / 5;
+              return (
+                <line
+                  key={`plank${i}`}
+                  x1={W / 2 + f * W * 0.2}
+                  y1={H * w.boards!.at}
+                  x2={W / 2 + f * W * 0.75}
+                  y2={H}
+                  stroke="#000"
+                  strokeWidth={3}
+                  opacity={0.16}
+                />
+              );
+            })}
+          </g>
+        )}
+
+        {/* the top hat, on the boards, with its own little sparkle */}
+        {w.tophat && (() => {
+          const hx = W * 0.12;
+          const hy = H * 0.8;
+          const tilt = Math.sin(t * 0.8) * 2.5;
+          return (
+            <g transform={`translate(${hx} ${hy}) rotate(${tilt})`}>
+              <ellipse cx={0} cy={12} rx={116} ry={22} fill="#1A0F22" />
+              <rect x={-72} y={-128} width={144} height={140} rx={12} fill="#241533" />
+              <rect x={-72} y={-46} width={144} height={30} fill="#C4284C" />
+              <ellipse cx={0} cy={-128} rx={72} ry={16} fill="#2E1B40" />
+              {[0, 1, 2].map((i) => {
+                const a = t * 1.6 + i * 2.1;
+                return (
+                  <g key={i} transform={`translate(${Math.cos(a) * 96} ${-150 - Math.abs(Math.sin(a)) * 40})`}>
+                    <path d="M 0 -9 L 2.6 -2.6 L 9 0 L 2.6 2.6 L 0 9 L -2.6 2.6 L -9 0 L -2.6 -2.6 Z" fill="#FFD873" />
+                  </g>
+                );
+              })}
+            </g>
+          );
+        })()}
+
+        {/* THE CURTAINS. Down both sides with a swag across the top, and `closed` brings them to meet
+            in the middle for the beat before anything has happened. */}
+        {w.curtains && (() => {
+          const c = w.curtains!;
+          const drop = c.closed ? W * 0.5 : W * 0.17;
+          const fold = (x0: number, dir: 1 | -1) =>
+            Array.from({ length: 7 }, (_, i) => {
+              const fx = x0 + dir * (i * drop) / 7;
+              const bow = Math.sin(t * 0.5 + i) * 5;
+              return (
+                <path
+                  key={`${dir}${i}`}
+                  d={`M ${fx} 0 Q ${fx + dir * 18 + bow} ${H * 0.5} ${fx} ${H}`}
+                  stroke={i % 2 ? c.shade : c.cloth}
+                  strokeWidth={(drop / 7) * 1.25}
+                  fill="none"
+                  opacity={0.96}
+                />
+              );
+            });
+          return (
+            <g>
+              {fold(0, 1)}
+              {fold(W, -1)}
+              {/* the swag across the top */}
+              <path
+                d={`M 0 0 L ${W} 0 L ${W} ${H * 0.1} Q ${W * 0.5} ${H * 0.2} 0 ${H * 0.1} Z`}
+                fill={c.cloth}
+              />
+              <path
+                d={`M 0 ${H * 0.1} Q ${W * 0.5} ${H * 0.2} ${W} ${H * 0.1}`}
+                stroke="#FFD873"
+                strokeWidth={7}
+                fill="none"
+                opacity={0.85}
+              />
+            </g>
+          );
+        })()}
+
+        {/* bulbs around the proscenium, chasing */}
+        {w.bulbs &&
+          Array.from({ length: 22 }, (_, i) => {
+            const f = i / 21;
+            const x = W * 0.03 + f * W * 0.94;
+            const y = H * 0.055 + Math.sin(f * Math.PI) * H * 0.035;
+            const on = 0.35 + 0.65 * Math.abs(Math.sin(t * 2.2 - i * 0.5));
+            return (
+              <g key={`bulb${i}`}>
+                <circle cx={x} cy={y} r={16} fill="#FFD873" opacity={0.18 * on} />
+                <circle cx={x} cy={y} r={7} fill="#FFF3C4" opacity={on} />
+              </g>
+            );
+          })}
+
+        {/* sparkles drifting in the light */}
+        {w.sparkle &&
+          Array.from({ length: 16 }, (_, i) => {
+            const cols = w.sparkle!;
+            const col = cols[i % cols.length];
+            const x = rand(i + 61) * W + Math.sin(t * 0.6 + i) * 30;
+            const y = ((t * (16 + rand(i + 7) * 22) + rand(i + 13) * H) % (H + 100)) - 50;
+            const k = 0.35 + 0.65 * Math.abs(Math.sin(t * 1.7 + i));
+            const r = 5 + rand(i + 23) * 5;
+            return (
+              <g key={`sp${i}`} transform={`translate(${x} ${y}) rotate(${t * 30 + i * 25})`} opacity={0.75 * k}>
+                <path
+                  d={`M 0 ${-r} L ${r * 0.3} ${-r * 0.3} L ${r} 0 L ${r * 0.3} ${r * 0.3} L 0 ${r} L ${-r * 0.3} ${r * 0.3} L ${-r} 0 L ${-r * 0.3} ${-r * 0.3} Z`}
+                  fill={col}
+                />
+              </g>
+            );
+          })}
+
         {/* ------------------------------------------------------------------ jungle (E06)
             Drawn back-to-front: waterfall, then the hanging canopy from the top of the frame, then
             vines, then the rope bridge, then ferns along the bottom. Everything lives in the

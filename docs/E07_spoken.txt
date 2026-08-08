@@ -1,0 +1,102 @@
+# E07 · The trick that fixes it — AS RECORDED. This is the alignment input.
+#
+# E07_lines.txt is the APPROVED SCRIPT and stays untouched (EPISODE_RULES.md §3.1a).
+#
+# The take follows the script closely. Two pairs of lines run together, both to the good — the hook
+# lands better as one breath, and "push one more bead up and another one" is the sound of someone
+# still trying rather than someone counting:
+#   · "Today we are going to get stuck and then we are going to learn a trick."
+#   · "So push one more bead up and another one."
+# A few commas are dropped in the read; the text here matches the voice, since this is what the
+# caption renders.
+#
+# Numbers stay WORDS: Whisper writes them as digits and canon() folds both forms
+# (EPISODE_RULES.md §3.6). "bead" is spelled correctly; canon() folds Whisper's "beat".
+#
+# ⚠ Peak −0.6 dB, hot — as with E05 and E06. Worth recording ~3 dB lower.
+
+
+# --- 1 · THE HOOK: a sum that gets stuck ---
+Today we are going to get stuck and then we are going to learn a trick.
+Let us try three plus three.
+
+# --- 2 · IT GOES WRONG ---
+First make three.
+Push three lower beads up on the ones rod.
+Now we want to add three more.
+So push one more bead up and another one.
+And now we are stuck.
+There is no bead left to push.
+Count them.
+One, two, three, four.
+Four is all the lower beads a rod has.
+So we cannot add three the easy way.
+
+# --- 3 · THE THING WE FORGOT ---
+But look up here.
+The upper bead has not moved at all.
+And the upper bead is worth five.
+Five is bigger than three.
+So we have more than enough.
+We just have to use it cleverly.
+
+# --- 4 · FRIENDS OF FIVE ---
+Here is the clever part.
+Every small number has a friend.
+Two friends that make five together.
+One and four are friends.
+Two and three are friends.
+Say them with me.
+One and four.
+Two and three.
+These are called the small friends.
+
+# --- 5 · THE TRICK ---
+Now watch what the friends do.
+We wanted to add three.
+Three's friend is two.
+So instead of adding three we add five and take away two.
+Because five take away two is three.
+It is the same answer the easy way round.
+
+# --- 6 · THE TRICK ON THE ABACUS ---
+Let us do it.
+Our rod is showing three.
+Remember lower beads move first.
+So take away two lower beads.
+Now the rod shows one.
+Then push the upper bead down for five.
+And now the rod shows six.
+Three plus three is six.
+We did it and we never ran out of beads.
+
+# --- 7 · ONE MORE ---
+Let us try four plus three.
+First make four.
+Push all four lower beads up.
+Now add three.
+Three's friend is two again.
+So take away two lower beads.
+The rod shows two.
+Then push the upper bead down.
+The rod shows seven.
+Four plus three is seven.
+
+# --- 8 · YOUR TURN ---
+Now it is your turn.
+Make two on your own abacus.
+Then add four.
+Four's friend is one.
+So take away one and push the upper bead down.
+What number is showing now?
+Two plus four is six.
+Well done.
+
+# --- 9 · CLOSE ---
+That is your first abacus formula.
+There is one for every small number and we will learn them all.
+If you enjoyed this video please like and subscribe for more.
+Search for abacus kids on the Apple App Store or Google Play.
+Download it free.
+Next time we will learn all four small friends for adding.
+See you next time.

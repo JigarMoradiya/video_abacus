@@ -1,0 +1,267 @@
+1
+00:00:00,000 --> 00:00:04,800
+Today we are going to get stuck and then we are going to learn a trick.
+
+2
+00:00:06,000 --> 00:00:08,000
+Let us try three plus three.
+
+3
+00:00:08,760 --> 00:00:10,140
+First make three.
+
+4
+00:00:10,920 --> 00:00:13,800
+Push three lower beads up on the ones rod.
+
+5
+00:00:15,020 --> 00:00:16,820
+Now we want to add three more.
+
+6
+00:00:17,620 --> 00:00:21,000
+So push one more bead up and another one.
+
+7
+00:00:21,980 --> 00:00:23,320
+And now we are stuck.
+
+8
+00:00:24,020 --> 00:00:25,860
+There is no bead left to push.
+
+9
+00:00:26,500 --> 00:00:27,460
+Count them.
+
+10
+00:00:28,140 --> 00:00:31,660
+One, two, three, four.
+
+11
+00:00:32,340 --> 00:00:35,240
+Four is all the lower beads a rod has.
+
+12
+00:00:36,000 --> 00:00:38,180
+So we cannot add three the easy way.
+
+13
+00:00:39,120 --> 00:00:40,520
+But look up here.
+
+14
+00:00:41,140 --> 00:00:43,340
+The upper bead has not moved at all.
+
+15
+00:00:44,220 --> 00:00:46,000
+And the upper bead is worth five.
+
+16
+00:00:46,780 --> 00:00:48,700
+Five is bigger than three.
+
+17
+00:00:49,240 --> 00:00:50,880
+So we have more than enough.
+
+18
+00:00:51,540 --> 00:00:53,600
+We just have to use it cleverly.
+
+19
+00:00:54,660 --> 00:00:56,320
+Here is the clever part.
+
+20
+00:00:56,980 --> 00:00:59,120
+Every small number has a friend.
+
+21
+00:01:00,100 --> 00:01:02,240
+Two friends that make five together.
+
+22
+00:01:03,220 --> 00:01:04,520
+One and four are friends.
+
+23
+00:01:05,560 --> 00:01:06,940
+Two and three are friends.
+
+24
+00:01:07,840 --> 00:01:08,620
+Say them with me.
+
+25
+00:01:09,380 --> 00:01:10,280
+One and four.
+
+26
+00:01:11,220 --> 00:01:12,220
+Two and three.
+
+27
+00:01:13,200 --> 00:01:14,980
+These are called the small friends.
+
+28
+00:01:16,240 --> 00:01:17,780
+Now watch what the friends do.
+
+29
+00:01:18,860 --> 00:01:20,280
+We wanted to add three.
+
+30
+00:01:20,280 --> 00:01:22,500
+Three's friend is two.
+
+31
+00:01:22,500 --> 00:01:27,220
+So instead of adding three we add five and take away two.
+
+32
+00:01:27,960 --> 00:01:30,440
+Because five take away two is three.
+
+33
+00:01:31,580 --> 00:01:34,300
+It is the same answer the easy way round.
+
+34
+00:01:35,400 --> 00:01:36,240
+Let us do it.
+
+35
+00:01:36,660 --> 00:01:38,080
+Our rod is showing three.
+
+36
+00:01:38,920 --> 00:01:41,620
+Remember lower beads move first.
+
+37
+00:01:42,380 --> 00:01:44,020
+So take away two lower beads.
+
+38
+00:01:45,140 --> 00:01:46,760
+Now the rod shows one.
+
+39
+00:01:47,780 --> 00:01:50,200
+Then push the upper bead down for five.
+
+40
+00:01:50,200 --> 00:01:53,160
+And now the rod shows six.
+
+41
+00:01:54,060 --> 00:01:55,660
+Three plus three is six.
+
+42
+00:01:56,280 --> 00:01:59,000
+We did it and we never ran out of beads.
+
+43
+00:02:00,400 --> 00:02:02,580
+Let us try four plus three.
+
+44
+00:02:03,620 --> 00:02:05,080
+First make four.
+
+45
+00:02:06,000 --> 00:02:07,940
+Push all four lower beads up.
+
+46
+00:02:09,280 --> 00:02:10,380
+Now add three.
+
+47
+00:02:10,380 --> 00:02:12,800
+Three's friend is two again.
+
+48
+00:02:13,700 --> 00:02:15,340
+So take away two lower beads.
+
+49
+00:02:16,380 --> 00:02:17,580
+The rod shows two.
+
+50
+00:02:18,490 --> 00:02:20,340
+Then push the upper bead down.
+
+51
+00:02:20,920 --> 00:02:22,740
+The rod shows seven.
+
+52
+00:02:23,720 --> 00:02:25,500
+Four plus three is seven.
+
+53
+00:02:26,980 --> 00:02:28,560
+Now it is your turn.
+
+54
+00:02:29,580 --> 00:02:31,540
+Make two on your own abacus.
+
+55
+00:02:31,540 --> 00:02:32,900
+Then add four.
+
+56
+00:02:32,900 --> 00:02:35,180
+Four's friend is one.
+
+57
+00:02:36,040 --> 00:02:39,060
+So take away one and push the upper bead down.
+
+58
+00:02:40,260 --> 00:02:42,020
+What number is showing now?
+
+59
+00:02:43,720 --> 00:02:45,800
+Two plus four is six.
+
+60
+00:02:45,800 --> 00:02:47,360
+Well done.
+
+61
+00:02:48,380 --> 00:02:50,700
+That is your first abacus formula.
+
+62
+00:02:51,600 --> 00:02:56,160
+There is one for every small number and we will learn them all.
+
+63
+00:02:57,280 --> 00:03:01,360
+If you enjoyed this video please like and subscribe for more.
+
+64
+00:03:02,340 --> 00:03:06,240
+Search for abacus kids on the Apple App Store or Google Play.
+
+65
+00:03:07,060 --> 00:03:07,920
+Download it free.
+
+66
+00:03:08,760 --> 00:03:12,760
+Next time we will learn all four small friends for adding.
+
+67
+00:03:13,620 --> 00:03:14,840
+See you next time.

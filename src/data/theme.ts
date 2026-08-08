@@ -166,6 +166,30 @@ export const RIG_JUNGLE: RigPalette = {
   offEdge: "#74847A",
 };
 
+/**
+ * E07 · the magic show. Plum frame, gold beads.
+ *
+ * Sixth distinct instrument, and the last easy hue: wood-and-orange (E01/E02), driftwood-and-teal
+ * (E03), steel-and-amber (E04), graphite-and-violet (E05), bamboo-and-coral (E06), and now
+ * plum-and-gold. Gold sits close to E04's amber on paper and nowhere near it on screen, because
+ * E04's amber is a lit window in a grey-blue city and this is gold on deep plum under stage light.
+ */
+export const RIG_MAGIC: RigPalette = {
+  woodLight: "#6E4A78",
+  wood: "#4E3157",
+  woodDark: "#331E3A",
+  panel: "#FDF6E8",
+  panelEdge: "#D9C2A8",
+  rod: "#B49BBE",
+  beam: "#2A1730",
+  onTop: "#FFD873",
+  onBottom: "#F2A917",
+  onEdge: "#A96908",
+  offTop: "#CFC6D6",
+  offBottom: "#ADA2B6",
+  offEdge: "#82778C",
+};
+
 // ---------------------------------------------------------------- worlds
 
 /** Every beat gets its own world, so no two stretches of the video look alike. */
@@ -239,7 +263,20 @@ export type WorldKind =
   | "waterfall" // bright teal water — fourteen plus twenty-five
   | "riverbank" // the rule so far
   | "treehouse" // thirty-nine take away fifteen
-  | "blossom"; // coral flowers everywhere — your turn, and the close
+  | "blossom" // coral flowers everywhere — your turn, and the close
+  // --- E07 · the first formula. A MAGIC SHOW, because the episode is literally about a trick. It
+  // is also the only episode that FAILS on purpose, and a stage is the one place where being stuck
+  // in front of everyone is part of the act rather than an accident. ---
+  | "curtain" // closed velvet, footlights — the hook
+  | "hardspot" // one hard spot, everything else dark — the sum that jams. NOT "spotlight":
+  //             E01 already owns that name for its dark starfield beat.
+  | "goldlight" // a warm second spot finds the upper bead — the thing we forgot
+  | "backstage" // ropes, crates, a workbench — where the secret is explained
+  | "hatreveal" // the top hat, mid-trick — friends of five
+  | "stagefull" // full stage, warm and open — the trick performed
+  | "encore" // deeper reds, a second run — the second sum
+  | "applause" // confetti in the lights — your turn
+  | "finale"; // curtain call, everything lit — the close
 
 export interface WorldTheme {
   sky: [string, string];
@@ -340,6 +377,25 @@ export interface WorldTheme {
   butterflies?: string[];
   /** Sun shafts through the canopy — the thing that makes a jungle read as a jungle. */
   godrays?: boolean;
+
+  // ---------------------------------------------------------------- magic show (E07)
+  /** Velvet curtains down both sides, with a swag across the top. `closed` draws them met in the
+   *  middle, for the beat before anything has happened. */
+  curtains?: { cloth: string; shade: string; closed?: boolean };
+  /** A hard spotlight cone from above. `at` is its centre as a fraction of the width. */
+  spot?: { at: number; colour: string; width: number };
+  /** A second, warmer spot — for the beat that finds the upper bead. */
+  spot2?: { at: number; colour: string; width: number };
+  /** The stage floor: a lit boards band with a front edge. */
+  boards?: { at: number; face: string; edge: string };
+  /** A top hat sitting on the boards, with a little sparkle over it. */
+  tophat?: boolean;
+  /** Backstage clutter — ropes down from the flies, a crate, a stool. */
+  backstage?: boolean;
+  /** Sparkles drifting in the light. The magic-show equivalent of E03's gulls. */
+  sparkle?: string[];
+  /** Bulbs around the proscenium, chasing. */
+  bulbs?: boolean;
   /** TWO banana bunches hanging from the canopy, one per gutter. Paired, like everything in this
    *  world set — and the world called `bananagrove` should have bananas in it. */
   bananas?: boolean;
@@ -951,5 +1007,113 @@ export const WORLDS: Record<WorldKind, WorldTheme> = {
     ferns: "#3E8E4E",
     vines: { colour: "#57BF66", count: 4, pairs: true },
     butterflies: ["#FF8A73", "#FFD166"],
+  },
+
+  // ---------------------------------------------------------------- E07 · The magic show
+  //
+  // ACCENT IS A BACKGROUND COLOUR, not a highlight colour. The caption paints the word being spoken
+  // as a filled pill in `accent` with white text on it, and the sum card and the answer card use it
+  // the same way — so a pale gold picked to glow against dark plum turned every one of those white
+  // on near-white. All nine use one deep gold that carries white text; the plum backdrop is dark
+  // enough that it still reads as gold against the set.
+  //
+  // The light tells the story. It starts closed and dark, narrows to one hard spot for the sum that
+  // jams, finds a second warm spot on the thing we forgot, opens out for the trick, and finishes
+  // fully lit. Nine beats, and a viewer could follow the shape of the episode with the sound off.
+  //
+  // Deep plum everywhere, which is the one background family the series has not used — E05's dark
+  // was black space with stars, and this is warm and enclosed rather than cold and endless.
+  curtain: {
+    sky: ["#2A0E33", "#5A1B43"],
+    ink: "#FFE9B0",
+    pill: "#3A1246",
+    accent: "#C07A05",
+    curtains: { cloth: "#9C1B3B", shade: "#6E0F28", closed: true },
+    boards: { at: 0.86, face: "#7A4B2A", edge: "#C88A4A" },
+    bulbs: true,
+    sparkle: ["#FFD873", "#FFF3C4"],
+  },
+  hardspot: {
+    sky: ["#210B2A", "#3E1338"],
+    ink: "#FFE9B0",
+    pill: "#33103E",
+    accent: "#C07A05",
+    curtains: { cloth: "#9C1B3B", shade: "#6E0F28" },
+    spot: { at: 0.5, colour: "#FFF6DC", width: 0.46 },
+    boards: { at: 0.88, face: "#6E4326", edge: "#B77E42" },
+    sparkle: ["#FFD873"],
+  },
+  goldlight: {
+    sky: ["#2A0E33", "#4A1740"],
+    ink: "#FFE9B0",
+    pill: "#381244",
+    accent: "#C07A05",
+    curtains: { cloth: "#9C1B3B", shade: "#6E0F28" },
+    spot: { at: 0.5, colour: "#FFF6DC", width: 0.44 },
+    // the second, warmer spot — this is the beat that finds the upper bead
+    spot2: { at: 0.5, colour: "#FFC53D", width: 0.2 },
+    boards: { at: 0.88, face: "#6E4326", edge: "#B77E42" },
+    sparkle: ["#FFD873", "#FFF3C4"],
+  },
+  backstage: {
+    sky: ["#241A2E", "#3B2A44"],
+    ink: "#FFEFD0",
+    pill: "#2E2038",
+    accent: "#C07A05",
+    backstage: true,
+    boards: { at: 0.88, face: "#5E4630", edge: "#96754A" },
+    sparkle: ["#FFE9B0"],
+  },
+  hatreveal: {
+    sky: ["#2E0F3A", "#63204C"],
+    ink: "#FFE9B0",
+    pill: "#3C1348",
+    accent: "#C07A05",
+    curtains: { cloth: "#9C1B3B", shade: "#6E0F28" },
+    spot: { at: 0.5, colour: "#FFF6DC", width: 0.5 },
+    tophat: true,
+    boards: { at: 0.87, face: "#7A4B2A", edge: "#C88A4A" },
+    sparkle: ["#FFD873", "#FFF3C4", "#FF9EC4"],
+  },
+  stagefull: {
+    sky: ["#3A1444", "#7A2A56"],
+    ink: "#FFF1CE",
+    pill: "#44184F",
+    accent: "#C07A05",
+    curtains: { cloth: "#B02244", shade: "#7C1230" },
+    boards: { at: 0.86, face: "#8A5730", edge: "#D89A55" },
+    bulbs: true,
+    sparkle: ["#FFD873", "#FFF3C4"],
+  },
+  encore: {
+    sky: ["#450F3F", "#8E2450"],
+    ink: "#FFF1CE",
+    pill: "#4E1449",
+    accent: "#C07A05",
+    curtains: { cloth: "#B02244", shade: "#7C1230" },
+    boards: { at: 0.86, face: "#8A5730", edge: "#D89A55" },
+    spot: { at: 0.5, colour: "#FFF6DC", width: 0.54 },
+    sparkle: ["#FFD873"],
+  },
+  applause: {
+    sky: ["#4A1548", "#95305E"],
+    ink: "#FFF1CE",
+    pill: "#541750",
+    accent: "#C07A05",
+    curtains: { cloth: "#B02244", shade: "#7C1230" },
+    boards: { at: 0.86, face: "#8A5730", edge: "#D89A55" },
+    bulbs: true,
+    confetti: true,
+    sparkle: ["#FFD873", "#FFF3C4", "#FF9EC4"],
+  },
+  finale: {
+    sky: ["#53185A", "#A8386A"],
+    ink: "#FFF6E2",
+    pill: "#5C1B62",
+    accent: "#C07A05",
+    curtains: { cloth: "#C4284C", shade: "#8C1636" },
+    boards: { at: 0.86, face: "#966034", edge: "#E2A75E" },
+    bulbs: true,
+    sparkle: ["#FFD873", "#FFF3C4"],
   },
 };

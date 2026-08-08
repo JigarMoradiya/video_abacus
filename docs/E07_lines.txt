@@ -1,0 +1,112 @@
+# E07 · The trick that fixes it — narration, one continuous take.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+#
+# THE HIGHEST-HOOK EPISODE IN THE SERIES. Everything before this has been "here is how the beads
+# work". This is the first one that says "here is something you cannot do — and here is the trick".
+# It is the video most likely to be watched by a parent who is deciding whether this is worth their
+# child's time, so it has to land.
+#
+# E06's teaser promised "a sum the beads cannot do, and the clever trick that fixes it". This pays
+# both halves. A video that poses the problem and does not solve it would be a broken promise.
+#
+# ONE ROD ONLY. Nothing here touches the tens rod — the trick being taught is the SMALL FRIEND
+# (the 5-complement), and dragging in a second rod would blur what is actually new.
+#
+# THE ORDER RULES FROM E06 STILL HOLD, and this episode depends on the second one:
+#   +3 = take away 2, then push the upper bead down.
+# Lower beads move first, then the upper bead — which is why E06 taught that rule before this.
+#
+# The three worked sums, all genuinely blocked, all checked digit by digit:
+#   3 + 3 = 6   take 2 away, add 5
+#   4 + 3 = 7   take 2 away, add 5
+#   2 + 4 = 6   take 1 away, add 5   (your turn)
+#
+# ⏸ HOLD THREE SECONDS after "What number is showing now?"
+
+
+# --- 1 · THE HOOK: a sum that gets stuck ---
+Today we are going to get stuck.
+And then we are going to learn a trick.
+Let us try three plus three.
+
+# --- 2 · IT GOES WRONG ---
+First, make three.
+Push three lower beads up on the ones rod.
+Now we want to add three more.
+So push one more bead up.
+And another one.
+And now we are stuck.
+There is no bead left to push.
+Count them.
+One, two, three, four.
+Four is all the lower beads a rod has.
+So we cannot add three the easy way.
+
+# --- 3 · THE THING WE FORGOT ---
+But look up here.
+The upper bead has not moved at all.
+And the upper bead is worth five.
+Five is bigger than three.
+So we have more than enough.
+We just have to use it cleverly.
+
+# --- 4 · FRIENDS OF FIVE ---
+Here is the clever part.
+Every small number has a friend.
+Two friends that make five together.
+One and four are friends.
+Two and three are friends.
+Say them with me.
+One and four.
+Two and three.
+These are called the small friends.
+
+# --- 5 · THE TRICK ---
+Now watch what the friends do.
+We wanted to add three.
+Three's friend is two.
+So instead of adding three, we add five and take away two.
+Because five take away two is three.
+It is the same answer, the easy way round.
+
+# --- 6 · THE TRICK ON THE ABACUS ---
+Let us do it.
+Our rod is showing three.
+Remember, lower beads move first.
+So take away two lower beads.
+Now the rod shows one.
+Then push the upper bead down for five.
+And now the rod shows six.
+Three plus three is six.
+We did it, and we never ran out of beads.
+
+# --- 7 · ONE MORE ---
+Let us try four plus three.
+First, make four.
+Push all four lower beads up.
+Now add three.
+Three's friend is two again.
+So take away two lower beads.
+The rod shows two.
+Then push the upper bead down.
+The rod shows seven.
+Four plus three is seven.
+
+# --- 8 · YOUR TURN ---
+Now it is your turn.
+Make two on your own abacus.
+Then add four.
+Four's friend is one.
+So take away one, and push the upper bead down.
+What number is showing now?
+Two plus four is six.
+Well done.
+
+# --- 9 · CLOSE ---
+That is your first abacus formula.
+There is one for every small number, and we will learn them all.
+If you enjoyed this video, please like and subscribe for more.
+Search for abacus kids on the Apple App Store or Google Play.
+Download it free.
+Next time, we will learn all four small friends for adding.
+See you next time.
