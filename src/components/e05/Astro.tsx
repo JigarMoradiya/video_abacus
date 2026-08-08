@@ -63,7 +63,15 @@ export const Astro: React.FC<{
   // POSITIVE local x. The whole character is mirrored by `facing`, so a hand drawn at -x lands on
   // the screen's RIGHT — which is how the first version reached confidently away from the abacus.
   const reach = extend * Math.max(0, reachTo);
-  const cheerT = mood === "cheer" ? Math.abs(Math.sin(t * 4.5)) : 0;
+  // WHICH POSE is a property of the MOOD; how high the arms go is the oscillation.
+  //
+  // Both used to hang off `cheerT`, and |sin| touches zero twice a second — so on those frames the
+  // raised arms vanished and the resting pose came back. The astronaut flickered between cheering
+  // and floating for the whole of every answer beat. Same bug as E06's monkey, found there first and
+  // never checked for here; a thumbnail rendered at frame 0 is what finally showed it, because
+  // frame 0 is exactly a zero crossing.
+  const cheering = mood === "cheer";
+  const cheerT = cheering ? Math.abs(Math.sin(t * 4.5)) : 0;
   const cupped = mood === "catch";
 
   return (
@@ -82,7 +90,7 @@ export const Astro: React.FC<{
       <rect x={3} y={58} width={19} height={11} rx={5} fill={TRIM} />
 
       {/* arms — the mood lives here */}
-      {cheerT > 0 ? (
+      {cheering ? (
         [-1, 1].map((side) => (
           <g key={side}>
             <path

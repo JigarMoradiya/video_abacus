@@ -23,6 +23,8 @@ import { AbsoluteFill } from "remotion";
 import { Abacus, type RodState } from "../components/Abacus";
 import { World } from "../components/World";
 import { AppIcon } from "../components/AppShowcase";
+import { Monkey } from "../components/e06/Monkey";
+import { Astro } from "../components/e05/Astro";
 import { KID_FONT } from "../lib/fonts";
 import { RIG_WOOD, RIG_SEA, RIG_CITY, RIG_SPACE, RIG_JUNGLE, WORLDS, type RigPalette, type WorldKind } from "../data/theme";
 import { ROD_DIM } from "../data/tokens";
@@ -42,6 +44,19 @@ export interface ThumbSpec {
   /** the headline's colour — pulled from the world so the set stays coherent */
   ink: string;
   band: string;
+  /**
+   * The episode's own character, in the corner.
+   *
+   * A face is the single most reliable thing you can put in a kids' thumbnail, and this one is free:
+   * the character already exists, already belongs to the episode, and a returning viewer recognises
+   * it before they read anything. It sits in the SAME corner every time so the set still reads as a
+   * series, and it is small — the puzzle is still the subject.
+   *
+   * Only four of the six episodes have one. E01 and E04 have no character at all, and rather than
+   * invent one for a thumbnail they go without: their worlds (navy blueprint, lit city) carry the
+   * identity instead.
+   */
+  character?: "monkey" | "astro";
 }
 
 export const THUMBS: Record<string, ThumbSpec> = {
@@ -113,6 +128,7 @@ export const THUMBS: Record<string, ThumbSpec> = {
     rodCount: 5,
     ink: "#5CE1E6",
     band: "#E8543F",
+    character: "astro",
   },
   e06: {
     ep: 6,
@@ -131,6 +147,7 @@ export const THUMBS: Record<string, ThumbSpec> = {
     rodCount: 5,
     ink: "#12401F",
     band: "#F2543D",
+    character: "monkey",
   },
 };
 
@@ -336,6 +353,44 @@ export const Thumbnail: React.FC<{ spec: ThumbSpec; portrait?: boolean }> = ({
         {headline}
         {instrument}
       </AbsoluteFill>
+      {/* THE CHARACTER, in the empty band below the instrument. Cheering, because a thumbnail is an
+          invitation and the pose has to read at 210px — an arms-up silhouette does, a subtle one
+          does not. Drawn before the badge so the badge always wins if they ever meet. */}
+      {spec.character && (
+        <svg
+          width="100%"
+          height="100%"
+          viewBox={portrait ? "0 0 1080 1920" : "0 0 1280 720"}
+          style={{ position: "absolute", inset: 0, overflow: "visible" }}
+        >
+          {/* FRAME 0, not mid-animation. The cheer bounces on |sin|, so any other frame lifts the
+              monkey off the branch it is standing on and leaves it hovering. A thumbnail is one
+              frame — it has to be the settled one. */}
+          {spec.character === "monkey" ? (
+            <Monkey
+              x={portrait ? 812 : 1012}
+              y={portrait ? 1596 : 664}
+              scale={portrait ? 1.45 : 1.0}
+              mood="cheer"
+              progress={1}
+              frame={0}
+              fps={30}
+              branch
+            />
+          ) : (
+            <Astro
+              x={portrait ? 812 : 1012}
+              y={portrait ? 1560 : 636}
+              scale={portrait ? 1.5 : 1.05}
+              mood="cheer"
+              progress={1}
+              frame={0}
+              fps={30}
+            />
+          )}
+        </svg>
+      )}
+
       <div style={{ position: "absolute", left: portrait ? 48 : 40, bottom: portrait ? 56 : 34 }}>
         <EpisodeChip ep={spec.ep} band={spec.band} scale={portrait ? 1.25 : 1} />
       </div>
