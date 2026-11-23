@@ -77,6 +77,23 @@ export interface AbacusProps {
    * detached from the ones that had landed. Opt-in: E01 and E02 shipped with the old behaviour.
    */
   colorOnArrival?: boolean;
+  /**
+   * Add a white halo behind the "tens"/"ones" place-name label (see `placeName`) so it reads
+   * against ANY world background, not just the ones its plain `PLACE_COLORS` fill happens to
+   * contrast with. Opt-in: E13's autumn-park worlds put a warm orange label on warm
+   * orange/brown grounds, low enough contrast to be flagged; every other caller renders exactly
+   * as before.
+   */
+  placeLabelHalo?: boolean;
+  /** bf3: ink for the worth chips' numerals (default white) and per-place ink for the place-name labels (default PLACE_COLORS). Both opt-in; every earlier video renders unchanged. */
+  chipInk?: string;
+  labelInk?: readonly string[];
+  /** E15: ink for the numerals counted onto beads (default white with a thin black edge). */
+  countInk?: string;
+  /** E-series remake: ONE clean card per rod instead of a worth chip plus a separate name pill ("10 / tens"). Opt-in. */
+  placeCard?: boolean;
+  /** a shorter placeCard (40 + 36 px) for the 4:5 cut, where the card column sits right under the abacus */
+  placeCompact?: boolean;
 }
 
 /** Hexagonal bead: flat top and bottom, pointed sides. */
@@ -133,6 +150,12 @@ export const Abacus: React.FC<AbacusProps> = ({
   countRod,
   colorOnArrival,
   palette: P = RIG_WOOD,
+  placeLabelHalo,
+  chipInk,
+  countInk,
+  labelInk,
+  placeCard,
+  placeCompact,
 }) => {
   // Rod count comes from the data: section 7a widens to 13 rods and must stay the same
   // component instance rather than mounting a second abacus.
@@ -298,11 +321,13 @@ export const Abacus: React.FC<AbacusProps> = ({
                           x={cx}
                           y={y + BEAD_H * 0.72}
                           textAnchor="middle"
-                          fill="#FFF"
+                          fill={countInk ?? "#FFF"}
                           fontSize={34}
                           fontWeight={700}
-                          stroke="#000"
-                          strokeWidth={0.8}
+                          stroke={countInk ? "#FFFFFF" : "#000"}
+                          strokeWidth={countInk ? 4 : 0.8}
+                          paintOrder={countInk ? "stroke" : undefined}
+                          strokeLinejoin={countInk ? "round" : undefined}
                         >
                           {countFrom === undefined ? b + 1 : b - countFrom + 1}
                         </text>
@@ -318,7 +343,43 @@ export const Abacus: React.FC<AbacusProps> = ({
               {/* Each strip appears only once the narration has stated that value —
                   both used to appear together, so "5" was on screen a line before the
                   video said the upper bead is worth five. */}
-              {(rod.chipLower || rod.chipUpper) && (
+              {placeCard && (rod.chipLower || rod.chipUpper) && (
+                <g>
+                  {rod.chipUpper && (() => {
+                    const w = ROD_PITCH - 10;
+                    const x0 = cx - w / 2;
+                    const y0 = -FRAME_LW - 62;
+                    return (
+                      <g>
+                        <rect x={x0} y={y0} width={w} height={52} rx={16} fill={PLACE_COLORS[i]} stroke="#06222C" strokeWidth={3} />
+                        <text x={cx} y={y0 + 38} textAnchor="middle" fill="#06222C" fontSize={40} fontWeight={700} fontFamily={KID_FONT}>{5 * Math.pow(10, i)}</text>
+                      </g>
+                    );
+                  })()}
+                  {rod.chipLower && (() => {
+                    const w = ROD_PITCH - 10;
+                    const x0 = cx - w / 2;
+                    const y0 = innerH + FRAME_LW + 12;
+                    const band = placeCompact ? 40 : 46;
+                    const nameH = placeCompact ? 36 : 42;
+                    const h = rod.placeName ? band + nameH : band;
+                    return (
+                      <g>
+                        <rect x={x0} y={y0} width={w} height={h} rx={16} fill="#FFFBEF" stroke="#06222C" strokeWidth={3} />
+                        <path d={`M ${x0 + 1.5} ${y0 + band} V ${y0 + 17} Q ${x0 + 1.5} ${y0 + 1.5} ${x0 + 17} ${y0 + 1.5} H ${x0 + w - 17} Q ${x0 + w - 1.5} ${y0 + 1.5} ${x0 + w - 1.5} ${y0 + 17} V ${y0 + band} Z`} fill={PLACE_COLORS[i]} />
+                        <text x={cx} y={y0 + (placeCompact ? 30 : 35)} textAnchor="middle" fill="#06222C" fontSize={placeCompact ? 32 : 37} fontWeight={700} fontFamily={KID_FONT}>{Math.pow(10, i)}</text>
+                        {rod.placeName && (
+                          <>
+                            <line x1={x0 + 1.5} x2={x0 + w - 1.5} y1={y0 + band} y2={y0 + band} stroke="#06222C" strokeWidth={2.5} />
+                            <text x={cx} y={y0 + band + (placeCompact ? 27 : 31)} textAnchor="middle" fill="#06222C" fontSize={placeCompact ? 26 : 29} fontWeight={700} fontFamily={KID_FONT}>{rod.placeName}</text>
+                          </>
+                        )}
+                      </g>
+                    );
+                  })()}
+                </g>
+              )}
+              {!placeCard && (rod.chipLower || rod.chipUpper) && (
                 <g>
                   {[
                     { y: -FRAME_LW - 58, worth: 5 * Math.pow(10, i), show: rod.chipUpper },
@@ -341,7 +402,7 @@ export const Abacus: React.FC<AbacusProps> = ({
                         x={cx}
                         y={s.y + 32}
                         textAnchor="middle"
-                        fill="#FFF"
+                        fill={chipInk ?? "#FFF"}
                         fontSize={s.worth >= 10000 ? 20 : s.worth >= 1000 ? 23 : 27}
                         fontWeight={700}
                         fontFamily={KID_FONT}
@@ -356,10 +417,13 @@ export const Abacus: React.FC<AbacusProps> = ({
                       x={cx}
                       y={innerH + FRAME_LW + 12 + 46 + 30}
                       textAnchor="middle"
-                      fill={PLACE_COLORS[i]}
+                      fill={labelInk?.[i] ?? PLACE_COLORS[i]}
                       fontSize={26}
                       fontWeight={700}
                       fontFamily={KID_FONT}
+                      {...(placeLabelHalo
+                        ? { stroke: "#FFFFFF", strokeWidth: 6, strokeLinejoin: "round" as const, paintOrder: "stroke" as const }
+                        : {})}
                     >
                       {rod.placeName}
                     </text>

@@ -1,0 +1,47 @@
+1
+00:00:00,000 --> 00:00:02,000
+A grid with no numbers yet...
+
+2
+00:00:02,440 --> 00:00:06,000
+just cages, and a target inside each one!
+
+3
+00:00:07,440 --> 00:00:10,020
+This is Calcudoku!
+
+4
+00:00:10,020 --> 00:00:13,740
+Fill every cage so its numbers combine to match the clue!
+
+5
+00:00:15,540 --> 00:00:18,080
+This cage says three plus...
+
+6
+00:00:18,080 --> 00:00:20,980
+one and two make three!
+
+7
+00:00:22,640 --> 00:00:25,280
+This cage says six times...
+
+8
+00:00:25,280 --> 00:00:29,560
+two times three makes six — cage solved!
+
+9
+00:00:31,120 --> 00:00:36,140
+No repeats in any row or column — every cage has to work out too!
+
+10
+00:00:37,700 --> 00:00:41,840
+Parents — this builds arithmetic and logic, working together!
+
+11
+00:00:43,540 --> 00:00:49,560
+Tap Math Game Zone, crack open Calcudoku, pick your level, and crack the cages!
+
+12
+00:00:51,940 --> 00:00:56,280
+Abacus Kids — free right now on the App Store and Google Play!

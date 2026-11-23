@@ -1,0 +1,625 @@
+[
+  {
+    "index": 0,
+    "text": "An equation gets called out...",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 2.24,
+    "duration": 2.24,
+    "matched": 5,
+    "words": [
+      {
+        "word": "An",
+        "start": 0.0,
+        "end": 0.22
+      },
+      {
+        "word": "equation",
+        "start": 0.22,
+        "end": 0.7
+      },
+      {
+        "word": "gets",
+        "start": 0.7,
+        "end": 1.16
+      },
+      {
+        "word": "called",
+        "start": 1.16,
+        "end": 1.68
+      },
+      {
+        "word": "out...",
+        "start": 1.68,
+        "end": 2.24
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "find the answer...",
+    "line_index": 0,
+    "start": 3.28,
+    "end": 4.14,
+    "duration": 1.88,
+    "matched": 3,
+    "words": [
+      {
+        "word": "find",
+        "start": 2.26,
+        "end": 3.54
+      },
+      {
+        "word": "the",
+        "start": 3.54,
+        "end": 3.8
+      },
+      {
+        "word": "answer...",
+        "start": 3.8,
+        "end": 4.14
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "and stamp it!",
+    "line_index": 0,
+    "start": 4.14,
+    "end": 6.48,
+    "duration": 2.34,
+    "matched": 3,
+    "words": [
+      {
+        "word": "and",
+        "start": 4.14,
+        "end": 5.5
+      },
+      {
+        "word": "stamp",
+        "start": 5.5,
+        "end": 6.02
+      },
+      {
+        "word": "it!",
+        "start": 6.02,
+        "end": 6.48
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "This is Math Bingo!",
+    "line_index": 1,
+    "start": 8.12,
+    "end": 9.56,
+    "duration": 2.02,
+    "matched": 4,
+    "words": [
+      {
+        "word": "This",
+        "start": 7.54,
+        "end": 8.38
+      },
+      {
+        "word": "is",
+        "start": 8.38,
+        "end": 8.62
+      },
+      {
+        "word": "Math",
+        "start": 8.62,
+        "end": 9.0
+      },
+      {
+        "word": "Bingo!",
+        "start": 9.0,
+        "end": 9.56
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Solve, stamp, and race to a full line!",
+    "line_index": 1,
+    "start": 10.16,
+    "end": 13.28,
+    "duration": 3.28,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Solve,",
+        "start": 10.0,
+        "end": 10.52
+      },
+      {
+        "word": "stamp,",
+        "start": 11.16,
+        "end": 11.3
+      },
+      {
+        "word": "and",
+        "start": 11.3,
+        "end": 11.88
+      },
+      {
+        "word": "race",
+        "start": 11.88,
+        "end": 12.2
+      },
+      {
+        "word": "to",
+        "start": 12.2,
+        "end": 12.5
+      },
+      {
+        "word": "a",
+        "start": 12.5,
+        "end": 12.62
+      },
+      {
+        "word": "full",
+        "start": 12.62,
+        "end": 12.86
+      },
+      {
+        "word": "line!",
+        "start": 12.86,
+        "end": 13.28
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "Four plus five...",
+    "line_index": 2,
+    "start": 15.17,
+    "end": 16.14,
+    "duration": 1.12,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Four",
+        "start": 15.02,
+        "end": 15.36
+      },
+      {
+        "word": "plus",
+        "start": 15.36,
+        "end": 15.62
+      },
+      {
+        "word": "five...",
+        "start": 15.62,
+        "end": 16.14
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "that's nine!",
+    "line_index": 2,
+    "start": 16.57,
+    "end": 17.22,
+    "duration": 0.7,
+    "matched": 2,
+    "words": [
+      {
+        "word": "that's",
+        "start": 16.52,
+        "end": 16.9
+      },
+      {
+        "word": "nine!",
+        "start": 16.9,
+        "end": 17.22
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "Stamp the nine on your card!",
+    "line_index": 2,
+    "start": 18.02,
+    "end": 19.36,
+    "duration": 1.34,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Stamp",
+        "start": 18.02,
+        "end": 18.2
+      },
+      {
+        "word": "the",
+        "start": 18.2,
+        "end": 18.44
+      },
+      {
+        "word": "nine",
+        "start": 18.44,
+        "end": 18.64
+      },
+      {
+        "word": "on",
+        "start": 18.64,
+        "end": 18.86
+      },
+      {
+        "word": "your",
+        "start": 18.86,
+        "end": 19.02
+      },
+      {
+        "word": "card!",
+        "start": 19.02,
+        "end": 19.36
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "Get four in a row \u2014 across, down, or diagonal \u2014 and it's BINGO!",
+    "line_index": 3,
+    "start": 21.32,
+    "end": 26.7,
+    "duration": 6.0,
+    "matched": 12,
+    "words": [
+      {
+        "word": "Get",
+        "start": 20.7,
+        "end": 21.52
+      },
+      {
+        "word": "four",
+        "start": 21.52,
+        "end": 21.92
+      },
+      {
+        "word": "in",
+        "start": 21.92,
+        "end": 22.16
+      },
+      {
+        "word": "a",
+        "start": 22.16,
+        "end": 22.28
+      },
+      {
+        "word": "row",
+        "start": 22.28,
+        "end": 22.5
+      },
+      {
+        "word": "across,",
+        "start": 22.5,
+        "end": 23.26
+      },
+      {
+        "word": "down,",
+        "start": 23.84,
+        "end": 24.04
+      },
+      {
+        "word": "or",
+        "start": 24.04,
+        "end": 24.64
+      },
+      {
+        "word": "diagonal",
+        "start": 24.64,
+        "end": 25.12
+      },
+      {
+        "word": "and",
+        "start": 25.12,
+        "end": 25.76
+      },
+      {
+        "word": "it's",
+        "start": 25.76,
+        "end": 26.18
+      },
+      {
+        "word": "BINGO!",
+        "start": 26.18,
+        "end": 26.7
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Ninety seconds on the clock \u2014 how many lines can you stamp?",
+    "line_index": 4,
+    "start": 28.73,
+    "end": 32.5,
+    "duration": 4.22,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Ninety",
+        "start": 28.28,
+        "end": 29.08
+      },
+      {
+        "word": "seconds",
+        "start": 29.08,
+        "end": 29.54
+      },
+      {
+        "word": "on",
+        "start": 29.54,
+        "end": 29.76
+      },
+      {
+        "word": "the",
+        "start": 29.76,
+        "end": 29.9
+      },
+      {
+        "word": "clock",
+        "start": 29.9,
+        "end": 30.18
+      },
+      {
+        "word": "how",
+        "start": 30.74,
+        "end": 30.92
+      },
+      {
+        "word": "many",
+        "start": 30.92,
+        "end": 31.14
+      },
+      {
+        "word": "lines",
+        "start": 31.14,
+        "end": 31.46
+      },
+      {
+        "word": "can",
+        "start": 31.46,
+        "end": 31.72
+      },
+      {
+        "word": "you",
+        "start": 31.72,
+        "end": 32.0
+      },
+      {
+        "word": "stamp?",
+        "start": 32.0,
+        "end": 32.5
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Parents \u2014 this trains mental math under pressure, while scanning the whole board!",
+    "line_index": 5,
+    "start": 33.85,
+    "end": 39.48,
+    "duration": 5.84,
+    "matched": 12,
+    "words": [
+      {
+        "word": "Parents",
+        "start": 33.64,
+        "end": 34.2
+      },
+      {
+        "word": "this",
+        "start": 34.74,
+        "end": 34.92
+      },
+      {
+        "word": "trains",
+        "start": 34.92,
+        "end": 35.34
+      },
+      {
+        "word": "mental",
+        "start": 35.34,
+        "end": 35.92
+      },
+      {
+        "word": "math",
+        "start": 35.92,
+        "end": 36.28
+      },
+      {
+        "word": "under",
+        "start": 36.28,
+        "end": 36.64
+      },
+      {
+        "word": "pressure,",
+        "start": 36.64,
+        "end": 37.12
+      },
+      {
+        "word": "while",
+        "start": 37.12,
+        "end": 37.74
+      },
+      {
+        "word": "scanning",
+        "start": 37.74,
+        "end": 38.16
+      },
+      {
+        "word": "the",
+        "start": 38.16,
+        "end": 38.46
+      },
+      {
+        "word": "whole",
+        "start": 38.46,
+        "end": 38.86
+      },
+      {
+        "word": "board!",
+        "start": 38.86,
+        "end": 39.48
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "Find it in the app \u2014 tap Math Game Zone, pick Math Bingo, choose your level, and play!",
+    "line_index": 6,
+    "start": 41.04,
+    "end": 47.78,
+    "duration": 7.32,
+    "matched": 17,
+    "words": [
+      {
+        "word": "Find",
+        "start": 40.46,
+        "end": 41.26
+      },
+      {
+        "word": "it",
+        "start": 41.26,
+        "end": 41.46
+      },
+      {
+        "word": "in",
+        "start": 41.46,
+        "end": 41.62
+      },
+      {
+        "word": "the",
+        "start": 41.62,
+        "end": 41.76
+      },
+      {
+        "word": "app",
+        "start": 41.76,
+        "end": 42.06
+      },
+      {
+        "word": "tap",
+        "start": 42.44,
+        "end": 42.64
+      },
+      {
+        "word": "Math",
+        "start": 42.64,
+        "end": 43.08
+      },
+      {
+        "word": "Game",
+        "start": 43.08,
+        "end": 43.32
+      },
+      {
+        "word": "Zone,",
+        "start": 43.32,
+        "end": 43.72
+      },
+      {
+        "word": "pick",
+        "start": 44.3,
+        "end": 44.5
+      },
+      {
+        "word": "Math",
+        "start": 44.5,
+        "end": 44.92
+      },
+      {
+        "word": "Bingo,",
+        "start": 44.92,
+        "end": 45.36
+      },
+      {
+        "word": "choose",
+        "start": 45.94,
+        "end": 46.24
+      },
+      {
+        "word": "your",
+        "start": 46.24,
+        "end": 46.52
+      },
+      {
+        "word": "level,",
+        "start": 46.52,
+        "end": 46.84
+      },
+      {
+        "word": "and",
+        "start": 46.84,
+        "end": 47.36
+      },
+      {
+        "word": "play!",
+        "start": 47.36,
+        "end": 47.78
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Abacus Kids \u2014 free on the App Store and Google Play!",
+    "line_index": 7,
+    "start": 47.78,
+    "end": 53.7,
+    "duration": 5.92,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Abacus",
+        "start": 47.78,
+        "end": 50.52
+      },
+      {
+        "word": "Kids",
+        "start": 50.52,
+        "end": 50.8
+      },
+      {
+        "word": "free",
+        "start": 51.44,
+        "end": 51.66
+      },
+      {
+        "word": "on",
+        "start": 51.66,
+        "end": 51.96
+      },
+      {
+        "word": "the",
+        "start": 51.96,
+        "end": 52.14
+      },
+      {
+        "word": "App",
+        "start": 52.14,
+        "end": 52.34
+      },
+      {
+        "word": "Store",
+        "start": 52.34,
+        "end": 52.66
+      },
+      {
+        "word": "and",
+        "start": 52.66,
+        "end": 53.02
+      },
+      {
+        "word": "Google",
+        "start": 53.02,
+        "end": 53.3
+      },
+      {
+        "word": "Play!",
+        "start": 53.3,
+        "end": 53.7
+      }
+    ]
+  }
+]

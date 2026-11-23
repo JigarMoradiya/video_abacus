@@ -1,0 +1,159 @@
+1
+00:00:00,000 --> 00:00:01,320
+Here's a number secret!
+
+2
+00:00:01,940 --> 00:00:04,380
+Big friends are pairs that make ten together.
+
+3
+00:00:05,060 --> 00:00:05,920
+One and nine.
+
+4
+00:00:06,400 --> 00:00:07,300
+Two and eight.
+
+5
+00:00:07,800 --> 00:00:08,840
+Three and seven.
+
+6
+00:00:09,300 --> 00:00:10,280
+Four and six.
+
+7
+00:00:10,820 --> 00:00:11,880
+Five and five.
+
+8
+00:00:12,380 --> 00:00:17,260
+When the ones rod does not have enough beads to take away, a big friend comes to help!
+
+9
+00:00:17,720 --> 00:00:19,080
+Alert at the prize wall!
+
+10
+00:00:19,520 --> 00:00:21,520
+Eighty-five take away six is stuck!
+
+11
+00:00:22,080 --> 00:00:23,680
+There's not enough to take away six.
+
+12
+00:00:24,100 --> 00:00:24,940
+Let's call a friend!
+
+13
+00:00:27,940 --> 00:00:29,540
+Six's friend is four!
+
+14
+00:00:30,020 --> 00:00:32,240
+Add four, then take away ten!
+
+15
+00:00:32,860 --> 00:00:35,260
+Eighty-five take away six is seventy-nine!
+
+16
+00:00:35,720 --> 00:00:36,620
+Counter's good!
+
+17
+00:00:37,240 --> 00:00:39,080
+Sixty take away one is stuck!
+
+18
+00:00:39,640 --> 00:00:41,220
+There's not enough to take away one.
+
+19
+00:00:41,620 --> 00:00:42,480
+Friend, Spark!
+
+20
+00:00:45,440 --> 00:00:46,960
+One's friend is nine!
+
+21
+00:00:47,600 --> 00:00:49,680
+Add nine, then take away ten!
+
+22
+00:00:50,220 --> 00:00:52,460
+Sixty take away one is fifty-nine!
+
+23
+00:00:52,900 --> 00:00:53,880
+Ticket wall's steady!
+
+24
+00:00:54,460 --> 00:00:56,600
+Ninety-six take away eight is stuck!
+
+25
+00:00:57,120 --> 00:00:57,960
+Not enough there.
+
+26
+00:00:58,280 --> 00:00:59,040
+One more friend!
+
+27
+00:01:01,740 --> 00:01:03,240
+Eight's friend is two!
+
+28
+00:01:03,720 --> 00:01:05,820
+Add two, then take away ten!
+
+29
+00:01:06,420 --> 00:01:08,660
+Ninety-six take away eight is eighty-eight!
+
+30
+00:01:09,120 --> 00:01:09,800
+Hang in there!
+
+31
+00:01:10,300 --> 00:01:10,860
+Last one!
+
+32
+00:01:11,320 --> 00:01:13,400
+Seventy-two take away three is stuck!
+
+33
+00:01:13,940 --> 00:01:14,820
+Still not enough.
+
+34
+00:01:15,160 --> 00:01:15,860
+Final friend!
+
+35
+00:01:18,660 --> 00:01:20,280
+Three's friend is seven!
+
+36
+00:01:20,820 --> 00:01:22,980
+Add seven, then take away ten!
+
+37
+00:01:23,540 --> 00:01:26,080
+Seventy-two take away three is sixty-nine!
+
+38
+00:01:26,480 --> 00:01:28,380
+Prize wall's open, jackpot!
+
+39
+00:01:28,920 --> 00:01:30,540
+Every stuck number has a trick.
+
+40
+00:01:31,020 --> 00:01:34,900
+Learn them all with Abacus Kids — free on the App Store and Google Play!

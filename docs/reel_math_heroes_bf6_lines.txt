@@ -1,0 +1,91 @@
+# Math Heroes · Big Friend 6 — recording script (9:16 short reel)
+# Lines starting with # are notes and are NOT read aloud. Everything else IS read aloud.
+#
+# THIS SHORT'S HOOK: a one-minute lightning round against the clock — a fast competition, distinct
+# from short 5's calm drill.
+#
+# FORMULA SPLIT (revision 9): MIXED, random add/subtract order. −5 is the self-paired subtract
+# formula (NEW this set); −7, +3 and +6 are recall formulas (first taught in shorts 4, 1 and 2) on
+# BRAND NEW starting numbers. With this reel all 18 Big Friend formulas appear at least once —
+# see docs/reel_math_heroes_bf_PLAN.txt for the coverage table.
+#
+#   Mission 1:  76 − 7   friend 3   -> 69
+#   Mission 2:  77 + 3   friend 7   -> 80
+#   Mission 3:  34 + 6   friend 4   -> 40
+#   Mission 4:  83 − 5   friend 5   -> 78
+
+# NARRATOR
+Big friend quiz! Big friends are pairs that make ten, like four and six.
+Stuck on the ones rod? A big friend helps us, whether we add or take away!
+Lightning round, one minute on the clock!
+
+# BLAZE
+Go! Seventy-six take away seven is stuck!
+
+# SPARK
+Friend, now, no time to waste!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# SPARK
+Seven's friend is three!
+
+# BLAZE
+Add three, then take away ten, go!
+
+# BOTH
+Seventy-six take away seven is sixty-nine! Next!
+
+# SPARK
+Seventy-seven plus three is stuck!
+
+# BLAZE
+Friend, fast!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# BLAZE
+Three's friend is seven!
+
+# SPARK
+Take away seven, then add ten, go!
+
+# BOTH
+Seventy-seven plus three is eighty! Next!
+
+# BLAZE
+Thirty-four plus six is stuck!
+
+# SPARK
+Friend, quick, clock's ticking!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# SPARK
+Six's friend is four!
+
+# BLAZE
+Take away four, then add ten, go!
+
+# BOTH
+Thirty-four plus six is forty! One left!
+
+# SPARK
+Last one! Eighty-three take away five is stuck!
+
+# BLAZE
+Friend, last call!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# BLAZE
+Five's friend is five!
+
+# SPARK
+Add five, then take away ten, go!
+
+# BOTH
+Eighty-three take away five is seventy-eight! Time! Lightning round, perfect score!
+
+# NARRATOR
+Four numbers, zero mistakes, one minute flat. Practice your own lightning round with Abacus Kids — free on the App Store and Google Play!

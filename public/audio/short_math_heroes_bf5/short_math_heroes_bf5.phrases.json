@@ -1,0 +1,1286 @@
+[
+  {
+    "index": 0,
+    "text": "Remember our big friends?",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 1.2,
+    "duration": 1.2,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Remember",
+        "start": 0.0,
+        "end": 0.38
+      },
+      {
+        "word": "our",
+        "start": 0.38,
+        "end": 0.66
+      },
+      {
+        "word": "big",
+        "start": 0.66,
+        "end": 0.84
+      },
+      {
+        "word": "friends?",
+        "start": 0.84,
+        "end": 1.2
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "Two numbers that make ten together, like five and five.",
+    "line_index": 0,
+    "start": 1.894,
+    "end": 4.98,
+    "duration": 3.086,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Two",
+        "start": 1.894,
+        "end": 2.0
+      },
+      {
+        "word": "numbers",
+        "start": 2.0,
+        "end": 2.38
+      },
+      {
+        "word": "that",
+        "start": 2.38,
+        "end": 2.66
+      },
+      {
+        "word": "make",
+        "start": 2.66,
+        "end": 2.86
+      },
+      {
+        "word": "ten",
+        "start": 2.86,
+        "end": 3.2
+      },
+      {
+        "word": "together,",
+        "start": 3.2,
+        "end": 3.6
+      },
+      {
+        "word": "like",
+        "start": 3.94,
+        "end": 4.2
+      },
+      {
+        "word": "five",
+        "start": 4.2,
+        "end": 4.56
+      },
+      {
+        "word": "and",
+        "start": 4.56,
+        "end": 4.72
+      },
+      {
+        "word": "five.",
+        "start": 4.72,
+        "end": 4.98
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "They help when the ones rod has no room to add, or not enough to take away!",
+    "line_index": 1,
+    "start": 5.728,
+    "end": 10.04,
+    "duration": 4.312,
+    "matched": 17,
+    "words": [
+      {
+        "word": "They",
+        "start": 5.728,
+        "end": 5.94
+      },
+      {
+        "word": "help",
+        "start": 5.94,
+        "end": 6.28
+      },
+      {
+        "word": "when",
+        "start": 6.28,
+        "end": 6.54
+      },
+      {
+        "word": "the",
+        "start": 6.54,
+        "end": 6.66
+      },
+      {
+        "word": "ones",
+        "start": 6.66,
+        "end": 7.0
+      },
+      {
+        "word": "rod",
+        "start": 7.0,
+        "end": 7.26
+      },
+      {
+        "word": "has",
+        "start": 7.26,
+        "end": 7.54
+      },
+      {
+        "word": "no",
+        "start": 7.54,
+        "end": 7.88
+      },
+      {
+        "word": "room",
+        "start": 7.88,
+        "end": 8.14
+      },
+      {
+        "word": "to",
+        "start": 8.14,
+        "end": 8.3
+      },
+      {
+        "word": "add,",
+        "start": 8.3,
+        "end": 8.62
+      },
+      {
+        "word": "or",
+        "start": 8.939,
+        "end": 9.02
+      },
+      {
+        "word": "not",
+        "start": 9.02,
+        "end": 9.18
+      },
+      {
+        "word": "enough",
+        "start": 9.18,
+        "end": 9.48
+      },
+      {
+        "word": "to",
+        "start": 9.48,
+        "end": 9.62
+      },
+      {
+        "word": "take",
+        "start": 9.62,
+        "end": 9.8
+      },
+      {
+        "word": "away!",
+        "start": 9.8,
+        "end": 10.04
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "Time for a friendly speed drill!",
+    "line_index": 2,
+    "start": 10.878,
+    "end": 12.4,
+    "duration": 1.522,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Time",
+        "start": 10.878,
+        "end": 11.06
+      },
+      {
+        "word": "for",
+        "start": 11.06,
+        "end": 11.3
+      },
+      {
+        "word": "a",
+        "start": 11.3,
+        "end": 11.42
+      },
+      {
+        "word": "friendly",
+        "start": 11.42,
+        "end": 11.66
+      },
+      {
+        "word": "speed",
+        "start": 11.66,
+        "end": 12.0
+      },
+      {
+        "word": "drill!",
+        "start": 12.0,
+        "end": 12.4
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Drill one, eighteen plus seven!",
+    "line_index": 3,
+    "start": 13.08,
+    "end": 15.28,
+    "duration": 2.2,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Drill",
+        "start": 13.08,
+        "end": 13.36
+      },
+      {
+        "word": "one,",
+        "start": 13.36,
+        "end": 13.64
+      },
+      {
+        "word": "eighteen",
+        "start": 14.18,
+        "end": 14.6
+      },
+      {
+        "word": "plus",
+        "start": 14.6,
+        "end": 14.88
+      },
+      {
+        "word": "seven!",
+        "start": 14.88,
+        "end": 15.28
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "No room to add seven.",
+    "line_index": 4,
+    "start": 16.076,
+    "end": 17.34,
+    "duration": 1.264,
+    "matched": 5,
+    "words": [
+      {
+        "word": "No",
+        "start": 16.076,
+        "end": 16.4
+      },
+      {
+        "word": "room",
+        "start": 16.4,
+        "end": 16.66
+      },
+      {
+        "word": "to",
+        "start": 16.66,
+        "end": 16.82
+      },
+      {
+        "word": "add",
+        "start": 16.82,
+        "end": 17.02
+      },
+      {
+        "word": "seven.",
+        "start": 17.02,
+        "end": 17.34
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Friend time, same as always!",
+    "line_index": 4,
+    "start": 17.96,
+    "end": 19.5,
+    "duration": 1.54,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Friend",
+        "start": 17.96,
+        "end": 18.08
+      },
+      {
+        "word": "time,",
+        "start": 18.08,
+        "end": 18.44
+      },
+      {
+        "word": "same",
+        "start": 18.68,
+        "end": 18.94
+      },
+      {
+        "word": "as",
+        "start": 18.94,
+        "end": 19.14
+      },
+      {
+        "word": "always!",
+        "start": 19.14,
+        "end": 19.5
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "Seven's friend is three!",
+    "line_index": 5,
+    "start": 22.886,
+    "end": 24.32,
+    "duration": 1.434,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Seven's",
+        "start": 22.886,
+        "end": 23.4
+      },
+      {
+        "word": "friend",
+        "start": 23.4,
+        "end": 23.62
+      },
+      {
+        "word": "is",
+        "start": 23.62,
+        "end": 23.94
+      },
+      {
+        "word": "three!",
+        "start": 23.94,
+        "end": 24.32
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "Take away three, then add ten!",
+    "line_index": 6,
+    "start": 24.999,
+    "end": 27.12,
+    "duration": 2.121,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Take",
+        "start": 24.999,
+        "end": 25.14
+      },
+      {
+        "word": "away",
+        "start": 25.14,
+        "end": 25.4
+      },
+      {
+        "word": "three,",
+        "start": 25.4,
+        "end": 25.72
+      },
+      {
+        "word": "then",
+        "start": 26.1,
+        "end": 26.36
+      },
+      {
+        "word": "add",
+        "start": 26.36,
+        "end": 26.76
+      },
+      {
+        "word": "ten!",
+        "start": 26.76,
+        "end": 27.12
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Eighteen plus seven is twenty-five!",
+    "line_index": 7,
+    "start": 27.861,
+    "end": 29.84,
+    "duration": 1.979,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Eighteen",
+        "start": 27.861,
+        "end": 28.22
+      },
+      {
+        "word": "plus",
+        "start": 28.22,
+        "end": 28.4
+      },
+      {
+        "word": "seven",
+        "start": 28.4,
+        "end": 28.78
+      },
+      {
+        "word": "is",
+        "start": 28.78,
+        "end": 29.08
+      },
+      {
+        "word": "twenty-five!",
+        "start": 29.08,
+        "end": 29.84
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Check!",
+    "line_index": 7,
+    "start": 30.26,
+    "end": 30.46,
+    "duration": 0.2,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Check!",
+        "start": 30.26,
+        "end": 30.46
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "Drill two, a take-away this time, eighty-two take away four!",
+    "line_index": 8,
+    "start": 31.425,
+    "end": 35.5,
+    "duration": 4.075,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Drill",
+        "start": 31.425,
+        "end": 31.7
+      },
+      {
+        "word": "two,",
+        "start": 31.7,
+        "end": 31.96
+      },
+      {
+        "word": "a",
+        "start": 32.391,
+        "end": 32.48
+      },
+      {
+        "word": "take-away",
+        "start": 32.48,
+        "end": 32.92
+      },
+      {
+        "word": "this",
+        "start": 32.92,
+        "end": 33.16
+      },
+      {
+        "word": "time,",
+        "start": 33.16,
+        "end": 33.42
+      },
+      {
+        "word": "eighty-two",
+        "start": 33.96,
+        "end": 34.48
+      },
+      {
+        "word": "take",
+        "start": 34.82,
+        "end": 34.9
+      },
+      {
+        "word": "away",
+        "start": 34.9,
+        "end": 35.14
+      },
+      {
+        "word": "four!",
+        "start": 35.14,
+        "end": 35.5
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Not enough.",
+    "line_index": 9,
+    "start": 36.118,
+    "end": 36.68,
+    "duration": 0.562,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Not",
+        "start": 36.118,
+        "end": 36.38
+      },
+      {
+        "word": "enough.",
+        "start": 36.38,
+        "end": 36.68
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "Friend!",
+    "line_index": 9,
+    "start": 37.18,
+    "end": 37.46,
+    "duration": 0.28,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Friend!",
+        "start": 37.18,
+        "end": 37.46
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "Four's friend is six!",
+    "line_index": 10,
+    "start": 40.754,
+    "end": 42.02,
+    "duration": 1.266,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Four's",
+        "start": 40.754,
+        "end": 41.14
+      },
+      {
+        "word": "friend",
+        "start": 41.14,
+        "end": 41.38
+      },
+      {
+        "word": "is",
+        "start": 41.38,
+        "end": 41.66
+      },
+      {
+        "word": "six!",
+        "start": 41.66,
+        "end": 42.02
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "Add six, then take away ten!",
+    "line_index": 11,
+    "start": 42.674,
+    "end": 44.66,
+    "duration": 1.986,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Add",
+        "start": 42.674,
+        "end": 42.92
+      },
+      {
+        "word": "six,",
+        "start": 42.92,
+        "end": 43.3
+      },
+      {
+        "word": "then",
+        "start": 43.56,
+        "end": 43.76
+      },
+      {
+        "word": "take",
+        "start": 43.76,
+        "end": 44.06
+      },
+      {
+        "word": "away",
+        "start": 44.06,
+        "end": 44.3
+      },
+      {
+        "word": "ten!",
+        "start": 44.3,
+        "end": 44.66
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "Eighty-two take away four is seventy-eight!",
+    "line_index": 12,
+    "start": 45.427,
+    "end": 47.82,
+    "duration": 2.393,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Eighty-two",
+        "start": 45.427,
+        "end": 45.9
+      },
+      {
+        "word": "take",
+        "start": 45.96,
+        "end": 46.18
+      },
+      {
+        "word": "away",
+        "start": 46.18,
+        "end": 46.42
+      },
+      {
+        "word": "four",
+        "start": 46.42,
+        "end": 46.76
+      },
+      {
+        "word": "is",
+        "start": 46.76,
+        "end": 47.08
+      },
+      {
+        "word": "seventy-eight!",
+        "start": 47.08,
+        "end": 47.82
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "Check!",
+    "line_index": 12,
+    "start": 48.34,
+    "end": 48.48,
+    "duration": 0.14,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Check!",
+        "start": 48.34,
+        "end": 48.48
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "Drill three, take-away again, seventy-five take away eight!",
+    "line_index": 13,
+    "start": 49.58,
+    "end": 53.5,
+    "duration": 3.92,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Drill",
+        "start": 49.58,
+        "end": 49.74
+      },
+      {
+        "word": "three,",
+        "start": 49.74,
+        "end": 50.06
+      },
+      {
+        "word": "take-away",
+        "start": 50.478,
+        "end": 50.82
+      },
+      {
+        "word": "again,",
+        "start": 50.82,
+        "end": 51.18
+      },
+      {
+        "word": "seventy-five",
+        "start": 51.78,
+        "end": 52.44
+      },
+      {
+        "word": "take",
+        "start": 52.74,
+        "end": 52.84
+      },
+      {
+        "word": "away",
+        "start": 52.84,
+        "end": 53.14
+      },
+      {
+        "word": "eight!",
+        "start": 53.14,
+        "end": 53.5
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "Not enough.",
+    "line_index": 14,
+    "start": 54.18,
+    "end": 54.74,
+    "duration": 0.56,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Not",
+        "start": 54.18,
+        "end": 54.44
+      },
+      {
+        "word": "enough.",
+        "start": 54.44,
+        "end": 54.74
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "Friend, quick!",
+    "line_index": 14,
+    "start": 55.137,
+    "end": 55.82,
+    "duration": 0.683,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Friend,",
+        "start": 55.137,
+        "end": 55.42
+      },
+      {
+        "word": "quick!",
+        "start": 55.68,
+        "end": 55.82
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "Eight's friend is two!",
+    "line_index": 15,
+    "start": 59.034,
+    "end": 60.24,
+    "duration": 1.206,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Eight's",
+        "start": 59.034,
+        "end": 59.34
+      },
+      {
+        "word": "friend",
+        "start": 59.34,
+        "end": 59.58
+      },
+      {
+        "word": "is",
+        "start": 59.58,
+        "end": 59.84
+      },
+      {
+        "word": "two!",
+        "start": 59.84,
+        "end": 60.24
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "Add two, then take away ten!",
+    "line_index": 16,
+    "start": 60.874,
+    "end": 62.82,
+    "duration": 1.946,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Add",
+        "start": 60.874,
+        "end": 61.1
+      },
+      {
+        "word": "two,",
+        "start": 61.1,
+        "end": 61.46
+      },
+      {
+        "word": "then",
+        "start": 61.7,
+        "end": 61.9
+      },
+      {
+        "word": "take",
+        "start": 61.9,
+        "end": 62.18
+      },
+      {
+        "word": "away",
+        "start": 62.18,
+        "end": 62.44
+      },
+      {
+        "word": "ten!",
+        "start": 62.44,
+        "end": 62.82
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "Seventy-five take away eight is sixty-seven!",
+    "line_index": 17,
+    "start": 63.498,
+    "end": 66.22,
+    "duration": 2.722,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Seventy-five",
+        "start": 63.498,
+        "end": 64.2
+      },
+      {
+        "word": "take",
+        "start": 64.3,
+        "end": 64.5
+      },
+      {
+        "word": "away",
+        "start": 64.5,
+        "end": 64.74
+      },
+      {
+        "word": "eight",
+        "start": 64.74,
+        "end": 65.06
+      },
+      {
+        "word": "is",
+        "start": 65.06,
+        "end": 65.38
+      },
+      {
+        "word": "sixty-seven!",
+        "start": 65.38,
+        "end": 66.22
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "Check!",
+    "line_index": 17,
+    "start": 66.613,
+    "end": 66.82,
+    "duration": 0.207,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Check!",
+        "start": 66.613,
+        "end": 66.82
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "Last drill, back to adding, eighty-eight plus two!",
+    "line_index": 18,
+    "start": 67.676,
+    "end": 70.98,
+    "duration": 3.304,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Last",
+        "start": 67.676,
+        "end": 67.98
+      },
+      {
+        "word": "drill,",
+        "start": 67.98,
+        "end": 68.26
+      },
+      {
+        "word": "back",
+        "start": 68.64,
+        "end": 68.76
+      },
+      {
+        "word": "to",
+        "start": 68.76,
+        "end": 68.96
+      },
+      {
+        "word": "adding,",
+        "start": 68.96,
+        "end": 69.22
+      },
+      {
+        "word": "eighty-eight",
+        "start": 69.82,
+        "end": 70.3
+      },
+      {
+        "word": "plus",
+        "start": 70.3,
+        "end": 70.58
+      },
+      {
+        "word": "two!",
+        "start": 70.58,
+        "end": 70.98
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "Still no room.",
+    "line_index": 19,
+    "start": 71.578,
+    "end": 72.54,
+    "duration": 0.962,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Still",
+        "start": 71.578,
+        "end": 71.98
+      },
+      {
+        "word": "no",
+        "start": 71.98,
+        "end": 72.24
+      },
+      {
+        "word": "room.",
+        "start": 72.24,
+        "end": 72.54
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "One more friend!",
+    "line_index": 19,
+    "start": 72.903,
+    "end": 73.7,
+    "duration": 0.797,
+    "matched": 3,
+    "words": [
+      {
+        "word": "One",
+        "start": 72.903,
+        "end": 73.14
+      },
+      {
+        "word": "more",
+        "start": 73.14,
+        "end": 73.32
+      },
+      {
+        "word": "friend!",
+        "start": 73.32,
+        "end": 73.7
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "text": "Two's friend is eight!",
+    "line_index": 20,
+    "start": 76.895,
+    "end": 78.06,
+    "duration": 1.165,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Two's",
+        "start": 76.895,
+        "end": 77.18
+      },
+      {
+        "word": "friend",
+        "start": 77.18,
+        "end": 77.44
+      },
+      {
+        "word": "is",
+        "start": 77.44,
+        "end": 77.72
+      },
+      {
+        "word": "eight!",
+        "start": 77.72,
+        "end": 78.06
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "text": "Take away eight, then add ten!",
+    "line_index": 21,
+    "start": 78.767,
+    "end": 80.76,
+    "duration": 1.993,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Take",
+        "start": 78.767,
+        "end": 78.92
+      },
+      {
+        "word": "away",
+        "start": 78.92,
+        "end": 79.16
+      },
+      {
+        "word": "eight,",
+        "start": 79.16,
+        "end": 79.58
+      },
+      {
+        "word": "then",
+        "start": 79.74,
+        "end": 79.94
+      },
+      {
+        "word": "add",
+        "start": 79.94,
+        "end": 80.38
+      },
+      {
+        "word": "ten!",
+        "start": 80.38,
+        "end": 80.76
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "text": "Eighty-eight plus two is ninety!",
+    "line_index": 22,
+    "start": 81.46,
+    "end": 83.28,
+    "duration": 1.82,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Eighty-eight",
+        "start": 81.46,
+        "end": 81.94
+      },
+      {
+        "word": "plus",
+        "start": 81.94,
+        "end": 82.16
+      },
+      {
+        "word": "two",
+        "start": 82.16,
+        "end": 82.52
+      },
+      {
+        "word": "is",
+        "start": 82.52,
+        "end": 82.8
+      },
+      {
+        "word": "ninety!",
+        "start": 82.8,
+        "end": 83.28
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "text": "Full check, no misses!",
+    "line_index": 22,
+    "start": 83.82,
+    "end": 85.28,
+    "duration": 1.46,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Full",
+        "start": 83.82,
+        "end": 84.1
+      },
+      {
+        "word": "check,",
+        "start": 84.1,
+        "end": 84.4
+      },
+      {
+        "word": "no",
+        "start": 84.74,
+        "end": 84.94
+      },
+      {
+        "word": "misses!",
+        "start": 84.94,
+        "end": 85.28
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "text": "Drill complete, Blaze and Spark are ready for anything.",
+    "line_index": 23,
+    "start": 86.056,
+    "end": 89.28,
+    "duration": 3.224,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Drill",
+        "start": 86.056,
+        "end": 86.36
+      },
+      {
+        "word": "complete,",
+        "start": 86.36,
+        "end": 86.74
+      },
+      {
+        "word": "Blaze",
+        "start": 87.3,
+        "end": 87.44
+      },
+      {
+        "word": "and",
+        "start": 87.44,
+        "end": 87.66
+      },
+      {
+        "word": "Spark",
+        "start": 87.66,
+        "end": 87.92
+      },
+      {
+        "word": "are",
+        "start": 87.92,
+        "end": 88.22
+      },
+      {
+        "word": "ready",
+        "start": 88.22,
+        "end": 88.56
+      },
+      {
+        "word": "for",
+        "start": 88.56,
+        "end": 88.78
+      },
+      {
+        "word": "anything.",
+        "start": 88.78,
+        "end": 89.28
+      }
+    ]
+  },
+  {
+    "index": 33,
+    "text": "Keep sharp with Abacus Kids \u2014 free on the App Store and Google Play!",
+    "line_index": 23,
+    "start": 89.879,
+    "end": 94.02,
+    "duration": 4.141,
+    "matched": 13,
+    "words": [
+      {
+        "word": "Keep",
+        "start": 89.879,
+        "end": 90.04
+      },
+      {
+        "word": "sharp",
+        "start": 90.04,
+        "end": 90.36
+      },
+      {
+        "word": "with",
+        "start": 90.36,
+        "end": 90.66
+      },
+      {
+        "word": "Abacus",
+        "start": 90.66,
+        "end": 91.18
+      },
+      {
+        "word": "Kids",
+        "start": 91.18,
+        "end": 91.44
+      },
+      {
+        "word": "free",
+        "start": 91.909,
+        "end": 92.2
+      },
+      {
+        "word": "on",
+        "start": 92.2,
+        "end": 92.48
+      },
+      {
+        "word": "the",
+        "start": 92.48,
+        "end": 92.6
+      },
+      {
+        "word": "App",
+        "start": 92.6,
+        "end": 92.82
+      },
+      {
+        "word": "Store",
+        "start": 92.82,
+        "end": 93.06
+      },
+      {
+        "word": "and",
+        "start": 93.06,
+        "end": 93.38
+      },
+      {
+        "word": "Google",
+        "start": 93.38,
+        "end": 93.66
+      },
+      {
+        "word": "Play!",
+        "start": 93.66,
+        "end": 94.02
+      }
+    ]
+  }
+]

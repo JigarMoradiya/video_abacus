@@ -1,0 +1,299 @@
+1
+00:00:00,000 --> 00:00:02,580
+We are about to get REALLY stuck.
+
+2
+00:00:03,900 --> 00:00:07,860
+No beads left to push — not one, anywhere on this rod.
+
+3
+00:00:09,120 --> 00:00:11,680
+So we carry a bead to the tens rod instead.
+
+4
+00:00:12,940 --> 00:00:15,560
+Let us try nine plus one.
+
+5
+00:00:17,640 --> 00:00:19,020
+First, make nine.
+
+6
+00:00:20,680 --> 00:00:23,840
+Push four lower beads up on the ones rod.
+
+7
+00:00:25,600 --> 00:00:28,340
+Now push the upper bead down for five.
+
+8
+00:00:29,300 --> 00:00:31,880
+Four and five together is nine.
+
+9
+00:00:33,840 --> 00:00:35,980
+Now we want to add one more.
+
+10
+00:00:36,700 --> 00:00:38,140
+But look at the ones rod.
+
+11
+00:00:39,020 --> 00:00:41,600
+Every bead on it is already pushed.
+
+12
+00:00:42,360 --> 00:00:44,140
+There is nothing left to push.
+
+13
+00:00:45,540 --> 00:00:47,900
+So we cannot add one the easy way.
+
+14
+00:00:49,200 --> 00:00:50,720
+But we are not stuck.
+
+15
+00:00:51,700 --> 00:00:54,200
+There is another rod — the tens rod.
+
+16
+00:00:55,660 --> 00:00:58,200
+The tens rod is empty right now.
+
+17
+00:00:59,040 --> 00:01:03,420
+One bead on the tens rod is worth ten beads on the ones rod.
+
+18
+00:01:04,540 --> 00:01:09,560
+So when the ones rod is full, we carry a bead to the tens rod instead.
+
+19
+00:01:10,860 --> 00:01:12,600
+Here is the clever part.
+
+20
+00:01:13,940 --> 00:01:16,160
+Some friends do not make five together.
+
+21
+00:01:16,840 --> 00:01:18,420
+They make ten together.
+
+22
+00:01:19,820 --> 00:01:21,520
+One and nine are friends.
+
+23
+00:01:21,520 --> 00:01:24,400
+Two and eight are friends.
+
+24
+00:01:25,400 --> 00:01:27,340
+Three and seven are friends.
+
+25
+00:01:28,080 --> 00:01:30,180
+Four and six are friends.
+
+26
+00:01:31,380 --> 00:01:33,260
+Five and five are friends.
+
+27
+00:01:34,440 --> 00:01:35,900
+Say them with me.
+
+28
+00:01:37,300 --> 00:01:38,120
+One and nine.
+
+29
+00:01:38,980 --> 00:01:40,340
+Two and eight.
+
+30
+00:01:41,240 --> 00:01:42,760
+Three and seven.
+
+31
+00:01:43,960 --> 00:01:45,240
+Four and six.
+
+32
+00:01:46,580 --> 00:01:47,800
+Five and five.
+
+33
+00:01:48,820 --> 00:01:51,700
+These are called the big friends.
+
+34
+00:01:53,120 --> 00:01:54,880
+Now watch what the friends do.
+
+35
+00:01:56,040 --> 00:01:57,620
+We wanted to add one.
+
+36
+00:01:58,940 --> 00:02:00,400
+One's friend is nine.
+
+37
+00:02:01,680 --> 00:02:08,360
+So instead of adding one here, we take away nine here, and carry one bead to the tens rod.
+
+38
+00:02:09,600 --> 00:02:14,860
+Because taking away nine, then adding ten, is the same as adding one.
+
+39
+00:02:15,980 --> 00:02:19,440
+It is the same answer, the easy way round.
+
+40
+00:02:20,960 --> 00:02:22,340
+Let us do it.
+
+41
+00:02:24,260 --> 00:02:26,040
+Our ones rod is showing nine.
+
+42
+00:02:27,460 --> 00:02:29,200
+First, we take away nine.
+
+43
+00:02:30,340 --> 00:02:34,360
+Push the four lower beads down, then push the upper bead up.
+
+44
+00:02:35,560 --> 00:02:37,780
+The ones rod now shows zero.
+
+45
+00:02:39,400 --> 00:02:40,700
+Now, we carry.
+
+46
+00:02:41,640 --> 00:02:44,760
+Push one lower bead up on the tens rod.
+
+47
+00:02:45,480 --> 00:02:47,600
+That bead is worth ten.
+
+48
+00:02:48,600 --> 00:02:50,740
+The tens rod shows one.
+
+49
+00:02:52,180 --> 00:02:54,020
+Nine plus one is ten.
+
+50
+00:02:55,260 --> 00:02:57,840
+We did it, and we never ran out of beads.
+
+51
+00:02:59,320 --> 00:03:01,960
+Let us try eight plus two.
+
+52
+00:03:03,500 --> 00:03:05,080
+First, make eight.
+
+53
+00:03:06,340 --> 00:03:10,260
+Push three lower beads up, then the upper bead down.
+
+54
+00:03:11,260 --> 00:03:12,860
+Now add two.
+
+55
+00:03:12,860 --> 00:03:15,700
+Two's friend is eight.
+
+56
+00:03:17,160 --> 00:03:19,900
+So first, take away eight from the ones rod.
+
+57
+00:03:21,200 --> 00:03:23,100
+The ones rod shows zero.
+
+58
+00:03:24,560 --> 00:03:27,160
+Then carry one bead to the tens rod.
+
+59
+00:03:28,640 --> 00:03:30,640
+The tens rod shows one.
+
+60
+00:03:31,880 --> 00:03:33,740
+Eight plus two is ten.
+
+61
+00:03:35,120 --> 00:03:36,720
+Now it is your turn.
+
+62
+00:03:37,580 --> 00:03:39,760
+Make seven on your own abacus.
+
+63
+00:03:39,760 --> 00:03:41,720
+Then add three.
+
+64
+00:03:41,720 --> 00:03:44,660
+Three's friend is seven.
+
+65
+00:03:45,620 --> 00:03:51,600
+So take away seven from the ones rod, then carry one bead to the tens rod.
+
+66
+00:03:52,880 --> 00:03:54,500
+What number is showing now?
+
+67
+00:03:56,300 --> 00:03:58,220
+Seven plus three is ten.
+
+68
+00:03:59,360 --> 00:04:00,060
+Well done.
+
+69
+00:04:01,120 --> 00:04:05,000
+If you enjoyed this video, please like and subscribe for more.
+
+70
+00:04:05,000 --> 00:04:08,680
+That is your first big friend formula.
+
+71
+00:04:09,460 --> 00:04:15,680
+There is one for every number that needs a friend to reach ten, and we will learn them all.
+
+72
+00:04:17,060 --> 00:04:20,900
+Search for abacus kids on the Apple App Store or Google Play.
+
+73
+00:04:21,500 --> 00:04:22,720
+Download it free.
+
+74
+00:04:23,680 --> 00:04:27,680
+Next time, we will learn all five big friends for adding.
+
+75
+00:04:28,660 --> 00:04:30,140
+See you next time.

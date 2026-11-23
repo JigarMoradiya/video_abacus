@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:02,120
+An equation flashes on screen...
+
+2
+00:00:02,640 --> 00:00:04,200
+true, or false?
+
+3
+00:00:06,200 --> 00:00:08,060
+This is True or False!
+
+4
+00:00:08,660 --> 00:00:12,900
+Sixty seconds — smash right or wrong, as fast as you can!
+
+5
+00:00:14,080 --> 00:00:18,060
+Seven plus three equals ten — true!
+
+6
+00:00:18,520 --> 00:00:19,340
+Tap the check!
+
+7
+00:00:21,000 --> 00:00:23,320
+Six times two equals ten?
+
+8
+00:00:23,960 --> 00:00:25,480
+That's a sneaky lie!
+
+9
+00:00:26,240 --> 00:00:28,580
+Tap the X!
+
+10
+00:00:28,580 --> 00:00:33,000
+Every right answer keeps your streak alive — how many can you catch?
+
+11
+00:00:34,660 --> 00:00:40,360
+Parents — this sharpens fact fluency, so wrong answers jump out instantly!
+
+12
+00:00:41,540 --> 00:00:48,300
+Find it in the app — tap Math Game Zone, pick True or False, choose your level, and play!
+
+13
+00:00:50,020 --> 00:00:53,520
+Abacus Kids — free on the App Store and Google Play!

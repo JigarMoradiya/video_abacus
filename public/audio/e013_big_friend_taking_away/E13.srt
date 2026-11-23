@@ -1,0 +1,455 @@
+1
+00:00:00,000 --> 00:00:00,800
+Hello again!
+
+2
+00:00:01,220 --> 00:00:05,120
+Last time, we learned big friend adding.
+
+3
+00:00:05,780 --> 00:00:07,040
+Do you remember the trick?
+
+4
+00:00:08,600 --> 00:00:12,160
+Take away the friend, then carry to the tens rod.
+
+5
+00:00:13,080 --> 00:00:16,740
+This video is all about big friend taking away.
+
+6
+00:00:18,100 --> 00:00:18,960
+Same friends.
+
+7
+00:00:19,620 --> 00:00:20,420
+Same idea.
+
+8
+00:00:20,880 --> 00:00:22,140
+Just the other way round.
+
+9
+00:00:23,000 --> 00:00:23,380
+Ready?
+
+10
+00:00:23,820 --> 00:00:24,500
+Let us go!
+
+11
+00:00:25,880 --> 00:00:28,680
+First, always look at the ones rod.
+
+12
+00:00:29,580 --> 00:00:32,380
+If there are enough beads, just take them away.
+
+13
+00:00:33,000 --> 00:00:33,640
+Watch.
+
+14
+00:00:34,160 --> 00:00:36,420
+Eighteen take away five.
+
+15
+00:00:37,340 --> 00:00:38,600
+Push the upper bead up.
+
+16
+00:00:39,220 --> 00:00:39,520
+Done!
+
+17
+00:00:40,360 --> 00:00:41,000
+Thirteen.
+
+18
+00:00:41,780 --> 00:00:42,600
+That was easy.
+
+19
+00:00:43,280 --> 00:00:44,640
+The ones rod had enough.
+
+20
+00:00:45,900 --> 00:00:48,620
+Now let us try ten take away one.
+
+21
+00:00:49,680 --> 00:00:50,540
+Make ten.
+
+22
+00:00:51,300 --> 00:00:54,860
+One bead on the tens rod, and nothing on the ones rod.
+
+23
+00:00:55,860 --> 00:00:57,280
+Look at the ones rod.
+
+24
+00:00:57,980 --> 00:00:59,820
+How many beads can we take away?
+
+25
+00:01:00,920 --> 00:01:01,600
+None!
+
+26
+00:01:02,160 --> 00:01:03,960
+The ones rod is empty.
+
+27
+00:01:05,140 --> 00:01:05,640
+Oh no.
+
+28
+00:01:06,160 --> 00:01:07,120
+We are stuck.
+
+29
+00:01:08,320 --> 00:01:09,160
+Do not worry.
+
+30
+00:01:09,660 --> 00:01:11,280
+A big friend can help us.
+
+31
+00:01:12,140 --> 00:01:13,920
+We want to take away one.
+
+32
+00:01:15,000 --> 00:01:16,220
+Who is one's friend?
+
+33
+00:01:17,420 --> 00:01:18,100
+Nine!
+
+34
+00:01:18,780 --> 00:01:20,880
+One and nine make ten.
+
+35
+00:01:21,900 --> 00:01:24,900
+So here is the big friend trick for taking away.
+
+36
+00:01:25,680 --> 00:01:31,400
+Take away one is the same as add nine, then take away ten.
+
+37
+00:01:32,480 --> 00:01:36,340
+Minus one equals plus nine, minus ten.
+
+38
+00:01:37,520 --> 00:01:38,440
+Why does it work?
+
+39
+00:01:39,840 --> 00:01:42,380
+Taking away ten takes away too much.
+
+40
+00:01:42,900 --> 00:01:44,640
+It takes away nine extra.
+
+41
+00:01:45,600 --> 00:01:48,000
+So we add the nine back first.
+
+42
+00:01:48,000 --> 00:01:51,120
+And we are left with taking away one.
+
+43
+00:01:52,080 --> 00:01:54,220
+Let us do it on the abacus.
+
+44
+00:01:55,320 --> 00:01:56,720
+Remember our rule.
+
+45
+00:01:57,640 --> 00:02:02,780
+The ones rod goes first, and lower beads move before the upper bead.
+
+46
+00:02:03,880 --> 00:02:06,600
+First, add nine on the ones rod.
+
+47
+00:02:07,600 --> 00:02:11,320
+Push four lower beads up, then the upper bead down.
+
+48
+00:02:12,680 --> 00:02:14,680
+Now the tens rod gets its turn.
+
+49
+00:02:15,780 --> 00:02:16,740
+Take away ten.
+
+50
+00:02:17,760 --> 00:02:20,100
+Take one bead away from the tens rod.
+
+51
+00:02:21,120 --> 00:02:22,560
+And there it is.
+
+52
+00:02:22,700 --> 00:02:23,340
+Nine!
+
+53
+00:02:24,340 --> 00:02:26,500
+Ten take away one is nine.
+
+54
+00:02:26,500 --> 00:02:29,400
+Plus nine, minus ten.
+
+55
+00:02:30,320 --> 00:02:33,980
+That is our first big friend formula for taking away.
+
+56
+00:02:34,980 --> 00:02:37,640
+Let us try twelve take away three.
+
+57
+00:02:38,420 --> 00:02:39,440
+Make twelve.
+
+58
+00:02:40,200 --> 00:02:44,800
+One bead on the tens rod, and two lower beads on the ones rod.
+
+59
+00:02:45,740 --> 00:02:48,620
+Can we take away three from the ones rod?
+
+60
+00:02:49,420 --> 00:02:50,180
+No!
+
+61
+00:02:50,540 --> 00:02:52,440
+There are only two beads there.
+
+62
+00:02:53,780 --> 00:02:55,320
+So we call a big friend.
+
+63
+00:02:55,320 --> 00:02:58,120
+Three's friend is seven.
+
+64
+00:02:59,420 --> 00:03:03,420
+Minus three equals plus seven, minus ten.
+
+65
+00:03:04,820 --> 00:03:05,900
+Ones rod first.
+
+66
+00:03:06,740 --> 00:03:07,520
+Add seven.
+
+67
+00:03:08,340 --> 00:03:12,160
+Push two lower beads up, then the upper bead down.
+
+68
+00:03:13,540 --> 00:03:16,380
+Now take one bead away from the tens rod.
+
+69
+00:03:17,240 --> 00:03:19,920
+Twelve take away three is nine!
+
+70
+00:03:20,660 --> 00:03:22,780
+You are doing so well!
+
+71
+00:03:23,340 --> 00:03:26,420
+Give this video a like, and subscribe for more.
+
+72
+00:03:27,720 --> 00:03:31,640
+Now, what about taking away a big number, like seven?
+
+73
+00:03:33,060 --> 00:03:35,520
+Let us try eleven take away seven.
+
+74
+00:03:36,420 --> 00:03:37,360
+Make eleven.
+
+75
+00:03:38,180 --> 00:03:42,740
+One bead on the tens rod, and one lower bead on the ones rod.
+
+76
+00:03:43,740 --> 00:03:46,960
+Can we take away seven from just one bead?
+
+77
+00:03:48,200 --> 00:03:48,960
+No way!
+
+78
+00:03:48,960 --> 00:03:51,440
+Seven's friend is three.
+
+79
+00:03:52,840 --> 00:03:56,740
+Minus seven equals plus three, minus ten.
+
+80
+00:03:57,900 --> 00:03:59,080
+Ones rod first.
+
+81
+00:03:59,900 --> 00:04:01,600
+Push three lower beads up.
+
+82
+00:04:02,780 --> 00:04:05,680
+Then take one bead away from the tens rod.
+
+83
+00:04:06,840 --> 00:04:09,160
+Eleven take away seven is four!
+
+84
+00:04:09,840 --> 00:04:12,620
+The big numbers work the same way.
+
+85
+00:04:13,440 --> 00:04:14,880
+Now stop and look.
+
+86
+00:04:15,760 --> 00:04:16,780
+Did you see it?
+
+87
+00:04:17,840 --> 00:04:21,500
+Every single time, we did the same two things.
+
+88
+00:04:22,380 --> 00:04:24,840
+Add the friend on the ones rod first.
+
+89
+00:04:26,000 --> 00:04:28,900
+Then take one bead away from the tens rod.
+
+90
+00:04:29,700 --> 00:04:30,900
+The friend changes.
+
+91
+00:04:30,900 --> 00:04:32,980
+But ten never does.
+
+92
+00:04:34,220 --> 00:04:39,360
+There is one for every number, from take away one to take away nine.
+
+93
+00:04:40,040 --> 00:04:43,840
+That is nine big friend formulas for taking away.
+
+94
+00:04:44,800 --> 00:04:46,260
+Now it is your turn.
+
+95
+00:04:46,840 --> 00:04:47,800
+All on your own.
+
+96
+00:04:48,680 --> 00:04:49,560
+Make thirteen.
+
+97
+00:04:50,660 --> 00:04:55,340
+One bead on the tens rod, and three lower beads on the ones rod.
+
+98
+00:04:56,780 --> 00:04:57,900
+Take away nine.
+
+99
+00:04:59,040 --> 00:04:59,440
+Think.
+
+100
+00:04:59,440 --> 00:05:01,460
+What is nine's friend?
+
+101
+00:05:03,160 --> 00:05:03,960
+One!
+
+102
+00:05:03,960 --> 00:05:08,260
+Minus nine equals plus one, minus ten.
+
+103
+00:05:09,500 --> 00:05:15,400
+Add one lower bead on the ones rod, then take one bead away from the tens rod.
+
+104
+00:05:16,620 --> 00:05:18,460
+What number is showing now?
+
+105
+00:05:19,840 --> 00:05:22,280
+Thirteen take away nine is four!
+
+106
+00:05:23,060 --> 00:05:23,900
+Did you get it?
+
+107
+00:05:24,480 --> 00:05:25,120
+Well done!
+
+108
+00:05:26,480 --> 00:05:29,120
+So now you know big friend taking away.
+
+109
+00:05:29,860 --> 00:05:32,520
+Nine formulas, and they are all yours.
+
+110
+00:05:33,260 --> 00:05:36,280
+Try them at home on your own abacus.
+
+111
+00:05:36,740 --> 00:05:41,160
+Search for Abacus Kids on the Apple App Store or Google Play.
+
+112
+00:05:41,880 --> 00:05:43,040
+Download it free.
+
+113
+00:05:43,860 --> 00:05:48,760
+Next time, we will mix everything together in one big game.
+
+114
+00:05:49,660 --> 00:05:50,800
+See you next time!

@@ -55,8 +55,8 @@ These are called the small friends.
 Now watch what the friends do.
 We wanted to add three.
 Three's friend is two.
-So instead of adding three we add five and take away two.
-Because five take away two is three.
+So instead of adding three we take away two and add five.
+Because take away two and add five is three.
 It is the same answer the easy way round.
 
 # --- 6 · THE TRICK ON THE ABACUS ---

@@ -1,0 +1,161 @@
+[reading note: every "[pause N seconds]" below is a REAL held silence — count it out at full length before continuing, do not rush past it]
+
+
+[cheerful] Hello again!
+[proud] We learned two family tricks. The plus family adds, and its steps go up, with the thumb. The minus family takes away, and its steps go down, with the index finger.
+[pause 1 second]
+[excited] Today, we play a family game. I hide one step. You find the missing step.
+[calm] Every family trick has three steps. Lower beads. Five. Ten. Plus six is plus one, minus five, plus ten.
+[pause 2 seconds]
+[calm] You pick A, B or C.
+[calm] Remember Look, Call, Move? The game hides part of the Call.
+[pause 2 seconds]
+
+[bright] Round one of eight.
+[calm] Make twenty-four. Ones rod, four lower beads. Tens rod, two lower beads. Thumb pushes them up.
+[pause 1 second]
+[curious] Minus seven equals minus two, blank, minus ten.
+[curious] Which step is missing? A: minus five. B: plus five. C: plus ten.
+[pause 3 seconds]
+[happy] B! Plus five. Yes!
+[calm] Move.
+[calm] Minus two.
+[pause 1 second]
+[calm] Plus five.
+[pause 1 second]
+[calm] Minus ten. Down, index finger!
+[pause 1 second]
+[excited] Twenty-four take away seven is seventeen!
+[pause 1 second]
+
+[bright] Round two.
+[calm] Make thirty-six. Ones rod, one lower bead and the upper bead. Tens rod, three lower beads. Thumb for lower beads, index finger for the upper bead.
+[pause 1 second]
+[curious] Plus eight equals blank, minus five, plus ten.
+[curious] Which step is missing? A: plus two. B: plus four. C: plus three.
+[pause 3 seconds]
+[happy] C! Plus three. Right!
+[calm] Move.
+[calm] Plus three.
+[pause 1 second]
+[calm] Minus five.
+[pause 1 second]
+[calm] Plus ten. Up, thumb!
+[pause 1 second]
+[excited] Thirty-six plus eight is forty-four!
+[pause 1 second]
+
+[bright] Round three.
+[calm] Make eighty-two. Ones rod, two lower beads. Tens rod, three lower beads and the upper bead.
+[pause 1 second]
+[curious] Minus six equals minus one, plus five, blank.
+[curious] Which step is missing? A: minus ten. B: plus ten. C: minus five.
+[pause 3 seconds]
+[happy] A! Minus ten. Yes!
+[calm] Move.
+[calm] Minus one.
+[pause 1 second]
+[calm] Plus five.
+[pause 1 second]
+[calm] Minus ten. Index finger!
+[pause 1 second]
+[excited] Eighty-two take away six is seventy-six!
+[pause 1 second]
+
+[cheerful] Good game so far! Give it a like.
+[cheerful] And subscribe, to play more.
+[pause 1 second]
+
+[bright] Round four.
+[calm] Make twenty-five. Ones rod, the upper bead. Tens rod, two lower beads.
+[pause 1 second]
+[curious] Plus nine equals blank, minus five, plus ten.
+[curious] Which step is missing? A: plus five. B: plus four. C: plus three.
+[pause 3 seconds]
+[happy] B! Plus four. Right!
+[calm] Move.
+[calm] Plus four.
+[pause 1 second]
+[calm] Minus five.
+[pause 1 second]
+[calm] Plus ten.
+[pause 1 second]
+[excited] Twenty-five plus nine is thirty-four!
+[pause 1 second]
+
+[bright] Round five.
+[calm] Make seventy-seven. Ones rod, two lower beads and the upper bead. Tens rod, two lower beads and the upper bead.
+[pause 1 second]
+[curious] Plus six equals plus one, blank, plus ten.
+[curious] Which step is missing? A: minus five. B: plus five. C: plus ten.
+[pause 3 seconds]
+[happy] A! Minus five. Yes!
+[calm] Move.
+[calm] Plus one.
+[pause 1 second]
+[calm] Minus five.
+[pause 1 second]
+[calm] Plus ten. Thumb!
+[pause 1 second]
+[excited] Seventy-seven plus six is eighty-three!
+[pause 1 second]
+
+[bright] Round six.
+[calm] Make sixty-four. Ones rod, four lower beads. Tens rod, one lower bead and the upper bead.
+[pause 1 second]
+[curious] Minus nine equals minus four, plus five, blank.
+[curious] Which step is missing? A: plus ten. B: minus five. C: minus ten.
+[pause 3 seconds]
+[happy] C! Minus ten. Right!
+[calm] Move.
+[calm] Minus four.
+[pause 1 second]
+[calm] Plus five.
+[pause 1 second]
+[calm] Minus ten. Index finger!
+[pause 1 second]
+[excited] Sixty-four take away nine is fifty-five!
+[pause 1 second]
+
+[bright] Round seven.
+[calm] Make sixteen. Ones rod, one lower bead and the upper bead. Tens rod, one lower bead.
+[pause 1 second]
+[curious] Plus seven equals blank, minus five, plus ten.
+[curious] Which step is missing? A: plus three. B: plus two. C: plus one.
+[pause 3 seconds]
+[happy] B! Plus two. Yes!
+[calm] Move.
+[calm] Plus two.
+[pause 1 second]
+[calm] Minus five.
+[pause 1 second]
+[calm] Plus ten.
+[pause 1 second]
+[excited] Sixteen plus seven is twenty-three!
+[pause 1 second]
+
+[bright] Round eight, last one.
+[calm] Make ninety-four. Ones rod, four lower beads. Tens rod, four lower beads and the upper bead.
+[pause 1 second]
+[curious] Minus eight equals minus three, blank, minus ten.
+[curious] Which step is missing? A: plus five. B: minus five. C: minus ten.
+[pause 3 seconds]
+[happy] A! Plus five. Right!
+[calm] Move.
+[calm] Minus three.
+[pause 1 second]
+[calm] Plus five.
+[pause 1 second]
+[calm] Minus ten.
+[pause 1 second]
+[excited] Ninety-four take away eight is eighty-six!
+[pause 1 second]
+
+[thoughtful] Flip it. Plus family: up, thumb. Minus family: down, index finger.
+[pause 2 seconds]
+
+[proud] Try the game at home. Write a family trick, hide one step, and ask a friend.
+[cheerful] Play more in Abacus Kids. It is free on the Apple App Store and Google Play.
+[pause 1 second]
+[excited] Next time, we learn how to choose the right trick.
+[happy] See you next time!

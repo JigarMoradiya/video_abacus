@@ -1,0 +1,492 @@
+[
+  {
+    "word": "A",
+    "start": 0.0,
+    "end": 0.22
+  },
+  {
+    "word": "target",
+    "start": 0.22,
+    "end": 0.6
+  },
+  {
+    "word": "number",
+    "start": 0.6,
+    "end": 1.0
+  },
+  {
+    "word": "appears...",
+    "start": 1.0,
+    "end": 1.44
+  },
+  {
+    "word": "and",
+    "start": 1.44,
+    "end": 2.38
+  },
+  {
+    "word": "a",
+    "start": 2.38,
+    "end": 2.54
+  },
+  {
+    "word": "handful",
+    "start": 2.54,
+    "end": 2.88
+  },
+  {
+    "word": "of",
+    "start": 2.88,
+    "end": 3.16
+  },
+  {
+    "word": "numbers",
+    "start": 3.16,
+    "end": 3.44
+  },
+  {
+    "word": "to",
+    "start": 3.44,
+    "end": 3.74
+  },
+  {
+    "word": "reach",
+    "start": 3.74,
+    "end": 3.98
+  },
+  {
+    "word": "it!",
+    "start": 3.98,
+    "end": 5.0
+  },
+  {
+    "word": "This",
+    "start": 5.66,
+    "end": 6.24
+  },
+  {
+    "word": "is",
+    "start": 6.24,
+    "end": 6.46
+  },
+  {
+    "word": "Target",
+    "start": 6.46,
+    "end": 6.86
+  },
+  {
+    "word": "Number!",
+    "start": 6.86,
+    "end": 7.38
+  },
+  {
+    "word": "Tap",
+    "start": 8.64,
+    "end": 8.78
+  },
+  {
+    "word": "two",
+    "start": 8.78,
+    "end": 9.1
+  },
+  {
+    "word": "numbers",
+    "start": 9.1,
+    "end": 9.52
+  },
+  {
+    "word": "and",
+    "start": 9.52,
+    "end": 9.84
+  },
+  {
+    "word": "an",
+    "start": 9.84,
+    "end": 10.0
+  },
+  {
+    "word": "operator",
+    "start": 10.0,
+    "end": 10.5
+  },
+  {
+    "word": "to",
+    "start": 10.5,
+    "end": 10.74
+  },
+  {
+    "word": "combine",
+    "start": 10.74,
+    "end": 11.08
+  },
+  {
+    "word": "them!",
+    "start": 11.08,
+    "end": 11.54
+  },
+  {
+    "word": "Target",
+    "start": 13.0,
+    "end": 13.2
+  },
+  {
+    "word": "twenty-six...",
+    "start": 13.2,
+    "end": 13.88
+  },
+  {
+    "word": "four",
+    "start": 14.4,
+    "end": 14.84
+  },
+  {
+    "word": "times",
+    "start": 14.84,
+    "end": 15.14
+  },
+  {
+    "word": "six",
+    "start": 15.14,
+    "end": 15.6
+  },
+  {
+    "word": "is",
+    "start": 15.6,
+    "end": 15.98
+  },
+  {
+    "word": "twenty-four!",
+    "start": 15.98,
+    "end": 16.86
+  },
+  {
+    "word": "Twenty-four",
+    "start": 18.1,
+    "end": 18.92
+  },
+  {
+    "word": "plus",
+    "start": 18.92,
+    "end": 19.3
+  },
+  {
+    "word": "two...",
+    "start": 19.3,
+    "end": 19.72
+  },
+  {
+    "word": "that's",
+    "start": 20.26,
+    "end": 20.78
+  },
+  {
+    "word": "twenty-six",
+    "start": 20.78,
+    "end": 21.4
+  },
+  {
+    "word": "target",
+    "start": 22.92,
+    "end": 23.26
+  },
+  {
+    "word": "reached!",
+    "start": 23.26,
+    "end": 23.9
+  },
+  {
+    "word": "Combine",
+    "start": 25.72,
+    "end": 26.52
+  },
+  {
+    "word": "until",
+    "start": 26.52,
+    "end": 26.86
+  },
+  {
+    "word": "only",
+    "start": 26.86,
+    "end": 27.26
+  },
+  {
+    "word": "one",
+    "start": 27.26,
+    "end": 27.56
+  },
+  {
+    "word": "number",
+    "start": 27.56,
+    "end": 28.0
+  },
+  {
+    "word": "is",
+    "start": 28.0,
+    "end": 28.24
+  },
+  {
+    "word": "left",
+    "start": 28.24,
+    "end": 28.58
+  },
+  {
+    "word": "can",
+    "start": 28.58,
+    "end": 29.46
+  },
+  {
+    "word": "you",
+    "start": 29.46,
+    "end": 29.66
+  },
+  {
+    "word": "always",
+    "start": 29.66,
+    "end": 30.02
+  },
+  {
+    "word": "hit",
+    "start": 30.02,
+    "end": 30.3
+  },
+  {
+    "word": "the",
+    "start": 30.3,
+    "end": 30.46
+  },
+  {
+    "word": "target?",
+    "start": 30.46,
+    "end": 30.8
+  },
+  {
+    "word": "Parents",
+    "start": 32.44,
+    "end": 33.08
+  },
+  {
+    "word": "this",
+    "start": 33.36,
+    "end": 33.56
+  },
+  {
+    "word": "builds",
+    "start": 33.56,
+    "end": 33.94
+  },
+  {
+    "word": "flexible",
+    "start": 33.94,
+    "end": 34.52
+  },
+  {
+    "word": "thinking,",
+    "start": 34.52,
+    "end": 35.06
+  },
+  {
+    "word": "so",
+    "start": 35.56,
+    "end": 35.64
+  },
+  {
+    "word": "kids",
+    "start": 35.64,
+    "end": 35.92
+  },
+  {
+    "word": "try",
+    "start": 35.92,
+    "end": 36.28
+  },
+  {
+    "word": "different",
+    "start": 36.28,
+    "end": 36.66
+  },
+  {
+    "word": "paths",
+    "start": 36.66,
+    "end": 37.08
+  },
+  {
+    "word": "to",
+    "start": 37.08,
+    "end": 37.42
+  },
+  {
+    "word": "the",
+    "start": 37.42,
+    "end": 37.56
+  },
+  {
+    "word": "same",
+    "start": 37.56,
+    "end": 37.94
+  },
+  {
+    "word": "answer!",
+    "start": 37.94,
+    "end": 38.42
+  },
+  {
+    "word": "Think",
+    "start": 39.9,
+    "end": 40.3
+  },
+  {
+    "word": "you",
+    "start": 40.3,
+    "end": 40.5
+  },
+  {
+    "word": "can",
+    "start": 40.5,
+    "end": 40.66
+  },
+  {
+    "word": "hit",
+    "start": 40.66,
+    "end": 40.88
+  },
+  {
+    "word": "it?",
+    "start": 40.88,
+    "end": 41.2
+  },
+  {
+    "word": "Tap",
+    "start": 42.3,
+    "end": 42.44
+  },
+  {
+    "word": "Math",
+    "start": 42.44,
+    "end": 42.86
+  },
+  {
+    "word": "Game",
+    "start": 42.86,
+    "end": 43.16
+  },
+  {
+    "word": "Zone,",
+    "start": 43.16,
+    "end": 43.52
+  },
+  {
+    "word": "line",
+    "start": 43.52,
+    "end": 43.9
+  },
+  {
+    "word": "up",
+    "start": 43.52,
+    "end": 44.28
+  },
+  {
+    "word": "Target",
+    "start": 44.28,
+    "end": 44.72
+  },
+  {
+    "word": "Number,",
+    "start": 44.72,
+    "end": 45.12
+  },
+  {
+    "word": "pick",
+    "start": 45.56,
+    "end": 45.84
+  },
+  {
+    "word": "your",
+    "start": 45.84,
+    "end": 46.08
+  },
+  {
+    "word": "level,",
+    "start": 46.08,
+    "end": 46.36
+  },
+  {
+    "word": "and",
+    "start": 46.36,
+    "end": 46.98
+  },
+  {
+    "word": "take",
+    "start": 46.98,
+    "end": 47.24
+  },
+  {
+    "word": "your",
+    "start": 47.24,
+    "end": 47.62
+  },
+  {
+    "word": "shot!",
+    "start": 47.62,
+    "end": 48.18
+  },
+  {
+    "word": "Abacus",
+    "start": 48.18,
+    "end": 49.92
+  },
+  {
+    "word": "Kids",
+    "start": 49.92,
+    "end": 50.34
+  },
+  {
+    "word": "download",
+    "start": 50.76,
+    "end": 51.0
+  },
+  {
+    "word": "it",
+    "start": 51.0,
+    "end": 51.26
+  },
+  {
+    "word": "free",
+    "start": 51.26,
+    "end": 51.54
+  },
+  {
+    "word": "on",
+    "start": 51.54,
+    "end": 51.86
+  },
+  {
+    "word": "the",
+    "start": 51.86,
+    "end": 52.0
+  },
+  {
+    "word": "App",
+    "start": 52.0,
+    "end": 52.2
+  },
+  {
+    "word": "Store",
+    "start": 52.2,
+    "end": 52.48
+  },
+  {
+    "word": "and",
+    "start": 52.48,
+    "end": 52.8
+  },
+  {
+    "word": "Google",
+    "start": 52.8,
+    "end": 53.08
+  },
+  {
+    "word": "Play!",
+    "start": 53.08,
+    "end": 53.46
+  }
+]

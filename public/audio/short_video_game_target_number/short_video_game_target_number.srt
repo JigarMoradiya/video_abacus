@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:01,440
+A target number appears...
+
+2
+00:00:01,440 --> 00:00:05,000
+and a handful of numbers to reach it!
+
+3
+00:00:05,660 --> 00:00:07,380
+This is Target Number!
+
+4
+00:00:08,640 --> 00:00:11,540
+Tap two numbers and an operator to combine them!
+
+5
+00:00:13,000 --> 00:00:13,880
+Target twenty-six...
+
+6
+00:00:14,400 --> 00:00:16,860
+four times six is twenty-four!
+
+7
+00:00:18,100 --> 00:00:19,720
+Twenty-four plus two...
+
+8
+00:00:20,260 --> 00:00:23,900
+that's twenty-six — target reached!
+
+9
+00:00:25,720 --> 00:00:30,800
+Combine until only one number is left — can you always hit the target?
+
+10
+00:00:32,440 --> 00:00:38,420
+Parents — this builds flexible thinking, so kids try different paths to the same answer!
+
+11
+00:00:39,900 --> 00:00:41,200
+Think you can hit it?
+
+12
+00:00:42,300 --> 00:00:48,180
+Tap Math Game Zone, line up Target Number, pick your level, and take your shot!
+
+13
+00:00:48,180 --> 00:00:53,460
+Abacus Kids — download it free on the App Store and Google Play!

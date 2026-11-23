@@ -1,0 +1,624 @@
+[
+  {
+    "index": 0,
+    "text": "A grid with no numbers yet...",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 2.0,
+    "duration": 2.0,
+    "matched": 6,
+    "words": [
+      {
+        "word": "A",
+        "start": 0.0,
+        "end": 0.22
+      },
+      {
+        "word": "grid",
+        "start": 0.22,
+        "end": 0.52
+      },
+      {
+        "word": "with",
+        "start": 0.52,
+        "end": 0.84
+      },
+      {
+        "word": "no",
+        "start": 0.84,
+        "end": 1.16
+      },
+      {
+        "word": "numbers",
+        "start": 1.16,
+        "end": 1.64
+      },
+      {
+        "word": "yet...",
+        "start": 1.64,
+        "end": 2.0
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "just cages, and a target inside each one!",
+    "line_index": 0,
+    "start": 2.552744,
+    "end": 6.0,
+    "duration": 3.56,
+    "matched": 8,
+    "words": [
+      {
+        "word": "just",
+        "start": 2.552744,
+        "end": 2.92
+      },
+      {
+        "word": "cages,",
+        "start": 2.92,
+        "end": 3.42
+      },
+      {
+        "word": "and",
+        "start": 3.42,
+        "end": 4.34
+      },
+      {
+        "word": "a",
+        "start": 4.34,
+        "end": 4.5
+      },
+      {
+        "word": "target",
+        "start": 4.5,
+        "end": 4.84
+      },
+      {
+        "word": "inside",
+        "start": 4.84,
+        "end": 5.22
+      },
+      {
+        "word": "each",
+        "start": 5.22,
+        "end": 5.66
+      },
+      {
+        "word": "one!",
+        "start": 5.66,
+        "end": 6.0
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "This is Calcudoku!",
+    "line_index": 1,
+    "start": 7.503016,
+    "end": 10.02,
+    "duration": 2.58,
+    "matched": 2,
+    "words": [
+      {
+        "word": "This",
+        "start": 7.503016,
+        "end": 7.68
+      },
+      {
+        "word": "is",
+        "start": 7.68,
+        "end": 8.16
+      },
+      {
+        "word": "Calcudoku!",
+        "start": 8.16,
+        "end": 10.02
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "Fill every cage so its numbers combine to match the clue!",
+    "line_index": 1,
+    "start": 10.212381,
+    "end": 13.74,
+    "duration": 3.72,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Fill",
+        "start": 10.212381,
+        "end": 10.4
+      },
+      {
+        "word": "every",
+        "start": 10.4,
+        "end": 10.82
+      },
+      {
+        "word": "cage",
+        "start": 10.82,
+        "end": 11.18
+      },
+      {
+        "word": "so",
+        "start": 11.18,
+        "end": 11.66
+      },
+      {
+        "word": "its",
+        "start": 11.66,
+        "end": 11.84
+      },
+      {
+        "word": "numbers",
+        "start": 11.84,
+        "end": 12.16
+      },
+      {
+        "word": "combine",
+        "start": 12.16,
+        "end": 12.66
+      },
+      {
+        "word": "to",
+        "start": 12.66,
+        "end": 13.0
+      },
+      {
+        "word": "match",
+        "start": 13.0,
+        "end": 13.3
+      },
+      {
+        "word": "the",
+        "start": 13.3,
+        "end": 13.46
+      },
+      {
+        "word": "clue!",
+        "start": 13.46,
+        "end": 13.74
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "This cage says three plus...",
+    "line_index": 2,
+    "start": 15.634853,
+    "end": 18.08,
+    "duration": 2.54,
+    "matched": 5,
+    "words": [
+      {
+        "word": "This",
+        "start": 15.634853,
+        "end": 15.92
+      },
+      {
+        "word": "cage",
+        "start": 15.92,
+        "end": 16.26
+      },
+      {
+        "word": "says",
+        "start": 16.26,
+        "end": 16.74
+      },
+      {
+        "word": "three",
+        "start": 16.74,
+        "end": 17.64
+      },
+      {
+        "word": "plus...",
+        "start": 17.64,
+        "end": 18.08
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "one and two make three!",
+    "line_index": 2,
+    "start": 18.08,
+    "end": 20.98,
+    "duration": 2.9,
+    "matched": 5,
+    "words": [
+      {
+        "word": "one",
+        "start": 18.08,
+        "end": 19.82
+      },
+      {
+        "word": "and",
+        "start": 19.82,
+        "end": 20.0
+      },
+      {
+        "word": "two",
+        "start": 20.0,
+        "end": 20.24
+      },
+      {
+        "word": "make",
+        "start": 20.24,
+        "end": 20.48
+      },
+      {
+        "word": "three!",
+        "start": 20.48,
+        "end": 20.98
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "This cage says six times...",
+    "line_index": 3,
+    "start": 23.161179,
+    "end": 25.28,
+    "duration": 2.64,
+    "matched": 5,
+    "words": [
+      {
+        "word": "This",
+        "start": 23.161179,
+        "end": 23.36
+      },
+      {
+        "word": "cage",
+        "start": 23.36,
+        "end": 23.62
+      },
+      {
+        "word": "says",
+        "start": 23.62,
+        "end": 24.06
+      },
+      {
+        "word": "six",
+        "start": 24.06,
+        "end": 24.74
+      },
+      {
+        "word": "times...",
+        "start": 24.74,
+        "end": 25.28
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "two times three makes six \u2014 cage solved!",
+    "line_index": 3,
+    "start": 25.28,
+    "end": 29.56,
+    "duration": 4.28,
+    "matched": 7,
+    "words": [
+      {
+        "word": "two",
+        "start": 25.28,
+        "end": 26.54
+      },
+      {
+        "word": "times",
+        "start": 26.54,
+        "end": 26.78
+      },
+      {
+        "word": "three",
+        "start": 26.78,
+        "end": 27.16
+      },
+      {
+        "word": "makes",
+        "start": 27.16,
+        "end": 27.44
+      },
+      {
+        "word": "six",
+        "start": 27.44,
+        "end": 28.02
+      },
+      {
+        "word": "cage",
+        "start": 28.675646,
+        "end": 28.9
+      },
+      {
+        "word": "solved!",
+        "start": 28.9,
+        "end": 29.56
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "No repeats in any row or column \u2014 every cage has to work out too!",
+    "line_index": 4,
+    "start": 31.637823,
+    "end": 36.14,
+    "duration": 5.02,
+    "matched": 14,
+    "words": [
+      {
+        "word": "No",
+        "start": 31.637823,
+        "end": 31.8
+      },
+      {
+        "word": "repeats",
+        "start": 31.8,
+        "end": 32.2
+      },
+      {
+        "word": "in",
+        "start": 32.2,
+        "end": 32.58
+      },
+      {
+        "word": "any",
+        "start": 32.58,
+        "end": 32.88
+      },
+      {
+        "word": "row",
+        "start": 32.88,
+        "end": 33.14
+      },
+      {
+        "word": "or",
+        "start": 33.14,
+        "end": 33.38
+      },
+      {
+        "word": "column",
+        "start": 33.38,
+        "end": 33.7
+      },
+      {
+        "word": "every",
+        "start": 34.440567,
+        "end": 34.7
+      },
+      {
+        "word": "cage",
+        "start": 34.7,
+        "end": 34.98
+      },
+      {
+        "word": "has",
+        "start": 34.98,
+        "end": 35.26
+      },
+      {
+        "word": "to",
+        "start": 35.26,
+        "end": 35.46
+      },
+      {
+        "word": "work",
+        "start": 35.46,
+        "end": 35.64
+      },
+      {
+        "word": "out",
+        "start": 35.64,
+        "end": 35.84
+      },
+      {
+        "word": "too!",
+        "start": 35.84,
+        "end": 36.14
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Parents \u2014 this builds arithmetic and logic, working together!",
+    "line_index": 5,
+    "start": 37.908118,
+    "end": 41.84,
+    "duration": 4.14,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Parents",
+        "start": 37.908118,
+        "end": 38.26
+      },
+      {
+        "word": "this",
+        "start": 38.733855,
+        "end": 38.9
+      },
+      {
+        "word": "builds",
+        "start": 38.9,
+        "end": 39.28
+      },
+      {
+        "word": "arithmetic",
+        "start": 39.28,
+        "end": 39.88
+      },
+      {
+        "word": "and",
+        "start": 39.88,
+        "end": 40.32
+      },
+      {
+        "word": "logic,",
+        "start": 40.32,
+        "end": 40.72
+      },
+      {
+        "word": "working",
+        "start": 40.72,
+        "end": 41.28
+      },
+      {
+        "word": "together!",
+        "start": 41.28,
+        "end": 41.84
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Tap Math Game Zone, crack open Calcudoku, pick your level, and crack the cages!",
+    "line_index": 6,
+    "start": 43.878299,
+    "end": 49.56,
+    "duration": 6.02,
+    "matched": 13,
+    "words": [
+      {
+        "word": "Tap",
+        "start": 43.878299,
+        "end": 44.08
+      },
+      {
+        "word": "Math",
+        "start": 44.08,
+        "end": 44.38
+      },
+      {
+        "word": "Game",
+        "start": 44.38,
+        "end": 44.68
+      },
+      {
+        "word": "Zone,",
+        "start": 44.68,
+        "end": 45.04
+      },
+      {
+        "word": "crack",
+        "start": 45.62,
+        "end": 45.72
+      },
+      {
+        "word": "open",
+        "start": 45.72,
+        "end": 46.12
+      },
+      {
+        "word": "Calcudoku,",
+        "start": 46.12,
+        "end": 47.6
+      },
+      {
+        "word": "pick",
+        "start": 47.602313,
+        "end": 47.72
+      },
+      {
+        "word": "your",
+        "start": 47.72,
+        "end": 47.94
+      },
+      {
+        "word": "level,",
+        "start": 47.94,
+        "end": 48.24
+      },
+      {
+        "word": "and",
+        "start": 48.24,
+        "end": 48.66
+      },
+      {
+        "word": "crack",
+        "start": 48.66,
+        "end": 48.9
+      },
+      {
+        "word": "the",
+        "start": 48.9,
+        "end": 49.16
+      },
+      {
+        "word": "cages!",
+        "start": 49.16,
+        "end": 49.56
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "Abacus Kids \u2014 free right now on the App Store and Google Play!",
+    "line_index": 7,
+    "start": 52.14254,
+    "end": 56.28,
+    "duration": 4.34,
+    "matched": 12,
+    "words": [
+      {
+        "word": "Abacus",
+        "start": 52.14254,
+        "end": 52.62
+      },
+      {
+        "word": "Kids",
+        "start": 52.62,
+        "end": 52.96
+      },
+      {
+        "word": "free",
+        "start": 53.66,
+        "end": 53.84
+      },
+      {
+        "word": "right",
+        "start": 53.84,
+        "end": 54.1
+      },
+      {
+        "word": "now",
+        "start": 54.1,
+        "end": 54.5
+      },
+      {
+        "word": "on",
+        "start": 54.5,
+        "end": 54.74
+      },
+      {
+        "word": "the",
+        "start": 54.74,
+        "end": 54.92
+      },
+      {
+        "word": "App",
+        "start": 54.92,
+        "end": 55.1
+      },
+      {
+        "word": "Store",
+        "start": 55.1,
+        "end": 55.36
+      },
+      {
+        "word": "and",
+        "start": 55.36,
+        "end": 55.68
+      },
+      {
+        "word": "Google",
+        "start": 55.68,
+        "end": 55.94
+      },
+      {
+        "word": "Play!",
+        "start": 55.94,
+        "end": 56.28
+      }
+    ]
+  }
+]

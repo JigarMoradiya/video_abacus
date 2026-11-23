@@ -1,0 +1,52 @@
+# Math Heroes 2 — recording script (9:16 short reel, ~40-45s)
+# Lines starting with # are notes and are NOT read aloud — same rule the full episode scripts
+# use. Everything else IS read aloud, exactly as written.
+#
+# Two voices: NARRATOR and BLAZE and SPARK. A "# BOTH" line means Blaze and Spark read that one
+# line together (or, if you only have one voice, just read it once yourself — it still works).
+# Read at a quick, energetic pace — this is a short-form hook, not a slow lesson.
+#
+# THE TRICK THIS TIME: Small Friend SUBTRACTION — the mirror of reel 1's addition trick.
+# Same "friend" idea (a number's friend is what it takes to make 5), and the SAME bead order
+# as reel 1: the friend moves first, five moves second. Reel 1 taught the friends of 2 and 1;
+# this one teaches the friends of 1 and 3 — together the two reels cover all four.
+
+# NARRATOR
+When a number gets stuck, Math Heroes save the day!
+
+# BLAZE
+Alert! Five take away one, and it's stuck!
+
+# SPARK
+There's no room to take away one. Let's call a friend!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# SPARK
+One's friend is four!
+
+# BLAZE
+Add four, then take away five!
+
+# BOTH
+Five take away one is four! Mission solved!
+
+# BLAZE
+Another alert! Five take away three, and it's stuck!
+
+# SPARK
+There's no room to take away three. Let's call a friend again!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# SPARK
+Three's friend is two!
+
+# BLAZE
+Add two, then take away five!
+
+# BOTH
+Five take away three is two! Heroes win again!
+
+# NARRATOR
+Every stuck number has a trick. Learn them all with Abacus Kids — free on the App Store and Google Play!

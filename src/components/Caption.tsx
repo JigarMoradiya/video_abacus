@@ -47,7 +47,10 @@ export const Caption: React.FC<{
   /** Extra words this episode wants coloured, beyond the shared vocabulary. */
   keywords?: string[];
   layout: Layout;
-}> = ({ track, frame, accent, keywords, layout }) => {
+  /** Opt-in colours for the not-yet-spoken words, measured to stay at least 3:1 on the white pill
+   *  (the shared defaults are lighter). Omitted renders exactly as before. */
+  comingColors?: { coming: string; keyComing: string };
+}> = ({ track, frame, accent, keywords, layout, comingColors }) => {
   const active = track.activeAt(frame);
   if (!active) return null;
   const { phrase, wordIdx } = active;
@@ -92,10 +95,10 @@ export const Caption: React.FC<{
             ? "#FFF"
             : isKey
             ? coming
-              ? KEY_COMING
+              ? comingColors?.keyComing ?? KEY_COMING
               : KEY
             : coming
-            ? COMING
+            ? comingColors?.coming ?? COMING
             : SAID;
           return (
             <span

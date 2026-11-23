@@ -1,0 +1,8 @@
+A grid with no numbers yet... just cages, and a target inside each one!
+This is Calcudoku! Fill every cage so its numbers combine to match the clue!
+This cage says three plus... one and two make three!
+This cage says six times... two times three makes six — cage solved!
+No repeats in any row or column — every cage has to work out too!
+Parents — this builds arithmetic and logic, working together!
+Tap Math Game Zone, crack open Calcudoku, pick your level, and crack the cages!
+Abacus Kids — free right now on the App Store and Google Play!

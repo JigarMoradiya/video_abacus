@@ -1,0 +1,140 @@
+# E11 · The Big Friend Trick — narration, one continuous take.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+#
+# CORRECTED 2026-09-21: the bead order and the formula itself were WRONG in the first recording
+# — they had the abacus carrying to the tens rod BEFORE touching the ones rod. The real rule:
+#   +1 = −9 + 10   (take away the friend FIRST, then carry)
+# and on the ones rod itself, the friend always comes off LOWER beads first, THEN the upper bead
+# — the exact same "bottom before top" rule Small Friend already uses. Big Friend is NOT the
+# opposite order from Small Friend, as an earlier version of this file claimed — it is the SAME
+# order, just with an extra step (the carry) added after the ones-rod work is done, not before
+# it. Every worked example below is rewritten to this order. This script needs fresh audio.
+#
+# FIRST BIG FRIEND EPISODE. Mirrors E07's shape exactly: hook with a stuck sum, name the trick,
+# two worked examples, one "your turn", close with a tease for the next one. Teacher voice,
+# short simple sentences, one idea per line — a parent watching should feel like a kind teacher
+# is sitting with their child, not a narrator reading facts at them.
+#
+# PLAIN MATH LANGUAGE ONLY — no "next door"/"room" metaphor (cut after review: "what is this
+# next door, room world? we need easy language with math language"). Say exactly what is
+# happening: ones rod, tens rod, carry, beads. The reasoning that makes carrying make sense is
+# real place value, said plainly — "one bead on the tens rod is worth ten beads on the ones
+# rod" — not a spatial metaphor standing in for it.
+#
+# WHY THIS IS BIGGER THAN E07: last time, only the LOWER beads ran out — the upper bead still had
+# a free bead, and that free bead was the whole trick. This time the whole rod is full, lower AND
+# upper, nothing left to push anywhere on the ones rod. The trick this time is not "look
+# elsewhere on this rod" — it is "carry to the tens rod". Kids already know the tens rod from
+# E06, so this episode leans on that, it does not re-teach it.
+#
+# TWO-COLUMN ABACUS FROM HERE ON — this is the first formula episode that needs the tens rod
+# on screen the whole time, not just for "bigger numbers". Keep both rods visible from the very
+# first frame so section 3's "there is another rod, and it is empty" beat actually lands.
+#
+# THE THREE WORKED SUMS, all Big Friend pairs that land exactly on ten (deliberately not going
+# past ten yet — that is Family, a later season). CORRECTED ORDER — take the friend away from
+# the ones rod first, THEN carry to the tens rod:
+#   9 + 1 = 10   take nine away from the ones rod, THEN carry one to the tens rod
+#   8 + 2 = 10   take eight away from the ones rod, THEN carry one to the tens rod
+#   7 + 3 = 10   take seven away from the ones rod, THEN carry one to the tens rod   (your turn)
+#
+# BEAD ORDER — matches Small Friend's own rule, it does not reverse it: on the ones rod, lower
+# beads move first, THEN the upper bead — exactly like Small Friend. The only new step Big
+# Friend adds is the carry, and the carry happens AFTER the ones-rod work is fully done, never
+# before it. Formula notation: +1 = −9 + 10 (not +10 − 9 — that was the error).
+#
+# ⏸ HOLD THREE SECONDS after "What number is showing now?" — same pause as E07's your-turn beat.
+
+
+# --- 1 · THE HOOK: a rod with no beads left ---
+We are about to get REALLY stuck.
+No beads left to push — not one, anywhere on this rod.
+So we carry a bead to the tens rod instead.
+Let us try nine plus one.
+
+# --- 2 · IT GOES WRONG ---
+First, make nine.
+Push four lower beads up on the ones rod.
+Now push the upper bead down for five.
+Four and five together is nine.
+Now we want to add one more.
+But look at the ones rod.
+Every bead on it is already pushed.
+There is nothing left to push.
+So we cannot add one the easy way.
+
+# --- 3 · CARRY TO THE TENS ROD ---
+But we are not stuck.
+There is another rod — the tens rod.
+The tens rod is empty right now.
+One bead on the tens rod is worth ten beads on the ones rod.
+So when the ones rod is full, we carry a bead to the tens rod instead.
+
+# --- 4 · BIG FRIENDS ---
+Here is the clever part.
+Some friends do not make five together.
+They make ten together.
+One and nine are friends.
+Two and eight are friends.
+Three and seven are friends.
+Four and six are friends.
+Five and five are friends.
+Say them with me.
+One and nine.
+Two and eight.
+Three and seven.
+Four and six.
+Five and five.
+These are called the big friends.
+
+# --- 5 · THE TRICK ---
+Now watch what the friends do.
+We wanted to add one.
+One's friend is nine.
+So instead of adding one here, we take away nine here, and carry one bead to the tens rod.
+Because taking away nine, then adding ten, is the same as adding one.
+It is the same answer, the easy way round.
+
+# --- 6 · THE TRICK ON THE ABACUS ---
+Let us do it.
+Our ones rod is showing nine.
+First, we take away nine.
+Push the four lower beads down, then push the upper bead up.
+The ones rod now shows zero.
+Now, we carry.
+Push one lower bead up on the tens rod.
+That bead is worth ten.
+The tens rod shows one.
+Nine plus one is ten.
+We did it, and we never ran out of beads.
+
+# --- 7 · ONE MORE ---
+Let us try eight plus two.
+First, make eight.
+Push three lower beads up, then the upper bead down.
+Now add two.
+Two's friend is eight.
+So first, take away eight from the ones rod.
+The ones rod shows zero.
+Then carry one bead to the tens rod.
+The tens rod shows one.
+Eight plus two is ten.
+
+# --- 8 · YOUR TURN ---
+Now it is your turn.
+Make seven on your own abacus.
+Then add three.
+Three's friend is seven.
+So take away seven from the ones rod, then carry one bead to the tens rod.
+What number is showing now?
+Seven plus three is ten.
+Well done.
+
+# --- 9 · CLOSE ---
+If you enjoyed this video, please like and subscribe for more.
+That is your first big friend formula.
+There is one for every number that needs a friend to reach ten, and we will learn them all.
+Search for abacus kids on the Apple App Store or Google Play.
+Download it free.
+Next time, we will learn all five big friends for adding.
+See you next time.

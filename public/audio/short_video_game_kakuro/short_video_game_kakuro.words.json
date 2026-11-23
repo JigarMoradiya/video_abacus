@@ -1,0 +1,492 @@
+[
+  {
+    "word": "A",
+    "start": 0.0,
+    "end": 0.18
+  },
+  {
+    "word": "crossword",
+    "start": 0.18,
+    "end": 0.82
+  },
+  {
+    "word": "of",
+    "start": 0.82,
+    "end": 1.1
+  },
+  {
+    "word": "numbers...",
+    "start": 1.1,
+    "end": 1.52
+  },
+  {
+    "word": "but",
+    "start": 2.04,
+    "end": 2.38
+  },
+  {
+    "word": "every",
+    "start": 2.38,
+    "end": 2.84
+  },
+  {
+    "word": "clue",
+    "start": 2.84,
+    "end": 3.16
+  },
+  {
+    "word": "is",
+    "start": 3.16,
+    "end": 3.64
+  },
+  {
+    "word": "a",
+    "start": 3.64,
+    "end": 3.76
+  },
+  {
+    "word": "sum,",
+    "start": 3.76,
+    "end": 4.2
+  },
+  {
+    "word": "not",
+    "start": 4.52,
+    "end": 4.8
+  },
+  {
+    "word": "a",
+    "start": 4.8,
+    "end": 5.02
+  },
+  {
+    "word": "word!",
+    "start": 5.02,
+    "end": 5.4
+  },
+  {
+    "word": "This",
+    "start": 7.22,
+    "end": 7.38
+  },
+  {
+    "word": "is",
+    "start": 7.38,
+    "end": 7.6
+  },
+  {
+    "word": "Kakuro!",
+    "start": 7.6,
+    "end": 8.12
+  },
+  {
+    "word": "Fill",
+    "start": 9.06,
+    "end": 9.2
+  },
+  {
+    "word": "the",
+    "start": 9.2,
+    "end": 9.44
+  },
+  {
+    "word": "blanks",
+    "start": 9.44,
+    "end": 10.06
+  },
+  {
+    "word": "so",
+    "start": 10.06,
+    "end": 10.46
+  },
+  {
+    "word": "each",
+    "start": 10.46,
+    "end": 10.8
+  },
+  {
+    "word": "run",
+    "start": 10.8,
+    "end": 11.16
+  },
+  {
+    "word": "adds",
+    "start": 11.16,
+    "end": 11.74
+  },
+  {
+    "word": "up",
+    "start": 11.74,
+    "end": 11.94
+  },
+  {
+    "word": "to",
+    "start": 11.94,
+    "end": 12.2
+  },
+  {
+    "word": "its",
+    "start": 12.2,
+    "end": 12.36
+  },
+  {
+    "word": "clue!",
+    "start": 12.36,
+    "end": 12.7
+  },
+  {
+    "word": "Down",
+    "start": 14.2,
+    "end": 14.44
+  },
+  {
+    "word": "says",
+    "start": 14.44,
+    "end": 14.8
+  },
+  {
+    "word": "nine...",
+    "start": 14.8,
+    "end": 15.38
+  },
+  {
+    "word": "three",
+    "start": 16.18,
+    "end": 16.38
+  },
+  {
+    "word": "plus",
+    "start": 16.38,
+    "end": 16.64
+  },
+  {
+    "word": "six",
+    "start": 16.64,
+    "end": 17.04
+  },
+  {
+    "word": "makes",
+    "start": 17.04,
+    "end": 17.5
+  },
+  {
+    "word": "nine!",
+    "start": 17.5,
+    "end": 18.2
+  },
+  {
+    "word": "Across",
+    "start": 18.2,
+    "end": 20.08
+  },
+  {
+    "word": "says",
+    "start": 20.08,
+    "end": 20.6
+  },
+  {
+    "word": "twelve...",
+    "start": 20.6,
+    "end": 21.28
+  },
+  {
+    "word": "three",
+    "start": 21.92,
+    "end": 22.22
+  },
+  {
+    "word": "plus",
+    "start": 22.22,
+    "end": 22.5
+  },
+  {
+    "word": "nine",
+    "start": 22.5,
+    "end": 23.02
+  },
+  {
+    "word": "makes",
+    "start": 23.02,
+    "end": 23.4
+  },
+  {
+    "word": "twelve",
+    "start": 23.4,
+    "end": 23.88
+  },
+  {
+    "word": "both",
+    "start": 24.66,
+    "end": 24.84
+  },
+  {
+    "word": "runs",
+    "start": 24.84,
+    "end": 25.32
+  },
+  {
+    "word": "solved!",
+    "start": 25.32,
+    "end": 26.04
+  },
+  {
+    "word": "No",
+    "start": 26.88,
+    "end": 27.68
+  },
+  {
+    "word": "repeats",
+    "start": 27.68,
+    "end": 28.06
+  },
+  {
+    "word": "in",
+    "start": 28.06,
+    "end": 28.44
+  },
+  {
+    "word": "a",
+    "start": 28.44,
+    "end": 28.56
+  },
+  {
+    "word": "run",
+    "start": 28.56,
+    "end": 28.78
+  },
+  {
+    "word": "every",
+    "start": 29.5,
+    "end": 29.76
+  },
+  {
+    "word": "number",
+    "start": 29.76,
+    "end": 30.2
+  },
+  {
+    "word": "from",
+    "start": 30.2,
+    "end": 30.46
+  },
+  {
+    "word": "one",
+    "start": 30.46,
+    "end": 30.76
+  },
+  {
+    "word": "to",
+    "start": 30.76,
+    "end": 30.98
+  },
+  {
+    "word": "nine,",
+    "start": 30.98,
+    "end": 31.34
+  },
+  {
+    "word": "used",
+    "start": 31.34,
+    "end": 32.06
+  },
+  {
+    "word": "just",
+    "start": 32.06,
+    "end": 32.76
+  },
+  {
+    "word": "once!",
+    "start": 32.76,
+    "end": 33.42
+  },
+  {
+    "word": "Parents",
+    "start": 34.78,
+    "end": 35.22
+  },
+  {
+    "word": "this",
+    "start": 35.72,
+    "end": 36.06
+  },
+  {
+    "word": "builds",
+    "start": 36.06,
+    "end": 36.5
+  },
+  {
+    "word": "sum",
+    "start": 36.5,
+    "end": 37.06
+  },
+  {
+    "word": "decomposition,",
+    "start": 37.06,
+    "end": 37.9
+  },
+  {
+    "word": "seeing",
+    "start": 38.82,
+    "end": 38.96
+  },
+  {
+    "word": "numbers",
+    "start": 38.96,
+    "end": 39.42
+  },
+  {
+    "word": "as",
+    "start": 39.42,
+    "end": 39.86
+  },
+  {
+    "word": "parts",
+    "start": 39.86,
+    "end": 40.12
+  },
+  {
+    "word": "of",
+    "start": 40.12,
+    "end": 40.44
+  },
+  {
+    "word": "a",
+    "start": 40.44,
+    "end": 40.56
+  },
+  {
+    "word": "whole!",
+    "start": 40.56,
+    "end": 41.04
+  },
+  {
+    "word": "Tap",
+    "start": 42.52,
+    "end": 42.9
+  },
+  {
+    "word": "Math",
+    "start": 42.9,
+    "end": 43.26
+  },
+  {
+    "word": "Game",
+    "start": 43.26,
+    "end": 43.58
+  },
+  {
+    "word": "Zone,",
+    "start": 43.58,
+    "end": 43.98
+  },
+  {
+    "word": "take",
+    "start": 44.68,
+    "end": 44.84
+  },
+  {
+    "word": "on",
+    "start": 44.84,
+    "end": 45.06
+  },
+  {
+    "word": "Kakuro,",
+    "start": 45.06,
+    "end": 45.54
+  },
+  {
+    "word": "pick",
+    "start": 46.2,
+    "end": 46.32
+  },
+  {
+    "word": "your",
+    "start": 46.32,
+    "end": 46.54
+  },
+  {
+    "word": "level,",
+    "start": 46.54,
+    "end": 46.84
+  },
+  {
+    "word": "and",
+    "start": 46.84,
+    "end": 47.28
+  },
+  {
+    "word": "start",
+    "start": 47.28,
+    "end": 47.68
+  },
+  {
+    "word": "summing!",
+    "start": 47.68,
+    "end": 48.2
+  },
+  {
+    "word": "Abacus",
+    "start": 49.4,
+    "end": 50.0
+  },
+  {
+    "word": "Kids",
+    "start": 50.0,
+    "end": 50.3
+  },
+  {
+    "word": "always",
+    "start": 51.06,
+    "end": 51.36
+  },
+  {
+    "word": "free",
+    "start": 51.36,
+    "end": 51.78
+  },
+  {
+    "word": "to",
+    "start": 51.78,
+    "end": 51.98
+  },
+  {
+    "word": "try,",
+    "start": 51.98,
+    "end": 52.44
+  },
+  {
+    "word": "on",
+    "start": 52.44,
+    "end": 52.98
+  },
+  {
+    "word": "the",
+    "start": 52.98,
+    "end": 53.18
+  },
+  {
+    "word": "App",
+    "start": 53.18,
+    "end": 53.38
+  },
+  {
+    "word": "Store",
+    "start": 53.38,
+    "end": 53.66
+  },
+  {
+    "word": "and",
+    "start": 53.66,
+    "end": 54.08
+  },
+  {
+    "word": "Google",
+    "start": 54.08,
+    "end": 54.34
+  },
+  {
+    "word": "Play!",
+    "start": 54.34,
+    "end": 54.7
+  }
+]

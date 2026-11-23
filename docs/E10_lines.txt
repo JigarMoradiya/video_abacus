@@ -1,0 +1,161 @@
+# E10 · Beat the Beads — narration, one continuous take.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+#
+# ═══ FORMAT ═══ Not a teaching episode — a RECALL episode. E08 taught all four Little Friends
+# for addition; E09 taught all four for subtraction. This is the game show that makes the child
+# prove they remember all eight, mixed, not recited back in the same block order they were taught.
+#
+# ═══ VOICE ═══ Same complete-sentence rule as E08/E09, but faster and lighter — a game-show host,
+# not a teacher. Short reactions are still full sentences ("Look at that, we are stuck." not
+# "Stuck!"), but every round moves quickly: state the sum, hit the wall, name the friend, answer.
+# No re-teaching of WHY the trick works — that was E08 and E09's job. This one is pure recall.
+#
+# ═══ THE EIGHT ROUNDS, LOCKED ORDER ═══ mixed, not blocked — each of 1-4 appears once as
+# addition and once as subtraction, split evenly across both halves:
+#
+#   R1  +1   four plus one            = five           (1's friend is 4)
+#   R2  −3   six take away three      = three           (3's friend is 2)
+#   R3  +4   one plus four            = five           (4's friend is 1)
+#   R4  −2   six take away two        = four           (2's friend is 3)
+#   --- like ask ---
+#   R5  −1   five take away one       = four           (1's friend is 4)
+#   R6  +3   two plus three           = five           (3's friend is 2)
+#   R7  −4   seven take away four     = three           (4's friend is 1)
+#   R8  +2   three plus two           = five           (2's friend is 3)
+#
+# Every example is a real E08/E09 worked case, reused on purpose — recall works better against a
+# sum the child has already met than a brand new one.
+#
+# ═══ LIKE ASK ═══ new spot, new wording, per EPISODE_RULES §3.9a: after round 4, on the halfway
+# win. Not the close, not 94-96%.
+
+
+# --- 1 · GAME INTRO ---
+Are you ready to play a game?
+It is called Beat the Beads!
+I will spin the wheel, and it will land on a number.
+You tell me that number's friend, before I count to three.
+If the beads get stuck, you will know exactly what to do.
+Let's find out who remembers best.
+
+
+# --- 2 · ROUND ONE ---
+Round one — spin the wheel!
+# ⏸ hold 1s
+It lands on add one.
+Make four, then try to add one more.
+Look at that, we are stuck.
+Quick — what is one's friend?
+# ⏸ hold 3s
+One's friend is four!
+Four plus one is five!
+
+
+# --- 3 · ROUND TWO ---
+Round two — spin the wheel!
+# ⏸ hold 1s
+It lands on take away three.
+Make six, then try to take away three.
+Uh oh, we are stuck again.
+Think fast — what is three's friend?
+# ⏸ hold 3s
+Three's friend is two!
+Six take away three is three!
+
+
+# --- 4 · ROUND THREE ---
+Round three — spin the wheel!
+# ⏸ hold 1s
+It lands on add four.
+Make one, then try to add four more.
+Stuck already? Let's fix that.
+Here it comes — what is four's friend?
+# ⏸ hold 3s
+Four's friend is one!
+One plus four is five!
+
+
+# --- 5 · ROUND FOUR ---
+Round four — spin the wheel!
+# ⏸ hold 1s
+It lands on take away two.
+Make six, then try to take away two.
+There it is — stuck once more.
+Can you get this one? What is two's friend?
+# ⏸ hold 3s
+Two's friend is three!
+Six take away two is four!
+
+
+# --- 6 · LIKE ASK ---
+Four down, four to go — you are on fire today!
+If you are having fun, tap that like button.
+
+
+# --- 7 · KEEP MIXING ---
+# Not "now it switches to subtraction" — R6 and R8 are still additions. The wheel has been
+# mixing both the whole time; this line names THAT, instead of claiming a block change that
+# the actual round order (R5 −, R6 +, R7 −, R8 +) contradicts two lines later.
+The wheel keeps mixing it up — you never know what is coming next!
+
+
+# --- 8 · ROUND FIVE ---
+Round five — spin the wheel!
+# ⏸ hold 1s
+It lands on take away one.
+Make five, then try to take away one.
+We are stuck, but we know exactly what to do.
+You know this one — what is one's friend?
+# ⏸ hold 3s
+One's friend is four!
+Five take away one is four!
+
+
+# --- 9 · ROUND SIX ---
+Round six — spin the wheel!
+# ⏸ hold 1s
+It lands on add three.
+Make two, then try to add three more.
+Stuck! Lucky for us, we have a trick.
+What is three's friend? Tell me!
+# ⏸ hold 2s
+Three's friend is two!
+Two plus three is five!
+
+
+# --- 10 · ROUND SEVEN ---
+Round seven — spin the wheel!
+# ⏸ hold 1s
+It lands on take away four.
+Make seven, then try to take away four.
+Here we go again — stuck!
+You know this one too — what is four's friend?
+# ⏸ hold 3s
+Four's friend is one!
+Seven take away four is three!
+
+
+# --- 11 · ROUND EIGHT ---
+Round eight — spin the wheel!
+# ⏸ hold 1s
+It lands on add two.
+Make three, then try to add two more.
+One more stuck moment to solve.
+Last one — what is two's friend?
+# ⏸ hold 3s
+Two's friend is three!
+Three plus two is five!
+
+
+# --- 12 · RECAP ---
+You just beat all eight small friends!
+Four for adding, and four for taking away.
+That is every small friend there is.
+
+
+# --- 13 · CLOSE ---
+Try Beat the Beads on your own abacus at home.
+For more sums to practice, search for Abacus Kids on the Apple App Store or Google Play.
+Download it free.
+Next time, we will meet a brand new kind of friend — the Big Friends of ten.
+See you next time!

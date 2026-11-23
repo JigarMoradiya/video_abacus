@@ -1,0 +1,55 @@
+1
+00:00:00,000 --> 00:00:00,220
+Pop!
+
+2
+00:00:00,480 --> 00:00:00,500
+Pop!
+
+3
+00:00:00,720 --> 00:00:00,820
+Pop!
+
+4
+00:00:01,360 --> 00:00:04,800
+This is Balloon Pop — math you can burst!
+
+5
+00:00:05,660 --> 00:00:08,340
+Your mission is on top — make ten...
+
+6
+00:00:08,340 --> 00:00:09,880
+with seven!
+
+7
+00:00:11,320 --> 00:00:14,060
+Balloons float up, each with a number.
+
+8
+00:00:14,660 --> 00:00:18,800
+Seven needs three to make ten — pop the three!
+
+9
+00:00:20,360 --> 00:00:21,080
+Wrong balloon?
+
+10
+00:00:21,680 --> 00:00:24,860
+It just wiggles — try again, no worries!
+
+11
+00:00:26,080 --> 00:00:29,900
+Every right pop grows your streak — pop, pop, pop!
+
+12
+00:00:31,090 --> 00:00:36,480
+Parents — this trains number bonds, the secret to fast mental math!
+
+13
+00:00:37,290 --> 00:00:44,640
+Find it in the app — tap Math Game Zone, pick Balloon Pop, choose your level, and play!
+
+14
+00:00:44,640 --> 00:00:50,140
+Abacus Kids — free on the App Store and Google Play!

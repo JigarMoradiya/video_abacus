@@ -1,0 +1,472 @@
+[
+  {
+    "word": "The",
+    "start": 0.0,
+    "end": 0.22
+  },
+  {
+    "word": "clock's",
+    "start": 0.22,
+    "end": 0.84
+  },
+  {
+    "word": "hands",
+    "start": 0.84,
+    "end": 1.26
+  },
+  {
+    "word": "point...",
+    "start": 1.26,
+    "end": 1.64
+  },
+  {
+    "word": "what",
+    "start": 2.66,
+    "end": 2.78
+  },
+  {
+    "word": "time",
+    "start": 2.78,
+    "end": 3.08
+  },
+  {
+    "word": "is",
+    "start": 3.08,
+    "end": 3.28
+  },
+  {
+    "word": "it?",
+    "start": 3.28,
+    "end": 3.5
+  },
+  {
+    "word": "This",
+    "start": 5.5,
+    "end": 5.8
+  },
+  {
+    "word": "is",
+    "start": 5.8,
+    "end": 5.98
+  },
+  {
+    "word": "Clock",
+    "start": 5.98,
+    "end": 6.28
+  },
+  {
+    "word": "Master!",
+    "start": 6.28,
+    "end": 6.8
+  },
+  {
+    "word": "Read",
+    "start": 7.74,
+    "end": 7.84
+  },
+  {
+    "word": "the",
+    "start": 7.84,
+    "end": 8.06
+  },
+  {
+    "word": "hands",
+    "start": 8.06,
+    "end": 8.34
+  },
+  {
+    "word": "and",
+    "start": 8.34,
+    "end": 8.56
+  },
+  {
+    "word": "set",
+    "start": 8.56,
+    "end": 8.76
+  },
+  {
+    "word": "the",
+    "start": 8.76,
+    "end": 8.96
+  },
+  {
+    "word": "time!",
+    "start": 8.96,
+    "end": 9.34
+  },
+  {
+    "word": "Short",
+    "start": 10.46,
+    "end": 10.58
+  },
+  {
+    "word": "hand",
+    "start": 10.58,
+    "end": 10.88
+  },
+  {
+    "word": "on",
+    "start": 10.88,
+    "end": 11.12
+  },
+  {
+    "word": "three,",
+    "start": 11.12,
+    "end": 11.5
+  },
+  {
+    "word": "long",
+    "start": 12.34,
+    "end": 12.44
+  },
+  {
+    "word": "hand",
+    "start": 12.44,
+    "end": 12.74
+  },
+  {
+    "word": "on",
+    "start": 12.74,
+    "end": 12.98
+  },
+  {
+    "word": "twelve",
+    "start": 12.98,
+    "end": 13.4
+  },
+  {
+    "word": "that's",
+    "start": 14.22,
+    "end": 14.5
+  },
+  {
+    "word": "three",
+    "start": 14.5,
+    "end": 14.8
+  },
+  {
+    "word": "o'clock!",
+    "start": 14.8,
+    "end": 18.66
+  },
+  {
+    "word": "Short",
+    "start": 18.66,
+    "end": 18.76
+  },
+  {
+    "word": "hand",
+    "start": 18.76,
+    "end": 19.06
+  },
+  {
+    "word": "on",
+    "start": 19.06,
+    "end": 19.28
+  },
+  {
+    "word": "six,",
+    "start": 19.28,
+    "end": 19.72
+  },
+  {
+    "word": "long",
+    "start": 20.52,
+    "end": 20.6
+  },
+  {
+    "word": "hand",
+    "start": 20.6,
+    "end": 20.9
+  },
+  {
+    "word": "on",
+    "start": 20.9,
+    "end": 21.16
+  },
+  {
+    "word": "six",
+    "start": 21.16,
+    "end": 21.46
+  },
+  {
+    "word": "that's",
+    "start": 22.38,
+    "end": 22.82
+  },
+  {
+    "word": "half",
+    "start": 22.82,
+    "end": 23.12
+  },
+  {
+    "word": "past",
+    "start": 23.12,
+    "end": 23.42
+  },
+  {
+    "word": "six!",
+    "start": 23.42,
+    "end": 23.84
+  },
+  {
+    "word": "Get",
+    "start": 27.1,
+    "end": 27.94
+  },
+  {
+    "word": "it",
+    "start": 27.94,
+    "end": 28.1
+  },
+  {
+    "word": "right,",
+    "start": 28.1,
+    "end": 28.36
+  },
+  {
+    "word": "the",
+    "start": 28.78,
+    "end": 28.9
+  },
+  {
+    "word": "clock",
+    "start": 28.9,
+    "end": 29.14
+  },
+  {
+    "word": "chimes,",
+    "start": 29.14,
+    "end": 29.7
+  },
+  {
+    "word": "and",
+    "start": 29.7,
+    "end": 30.28
+  },
+  {
+    "word": "a",
+    "start": 30.28,
+    "end": 30.4
+  },
+  {
+    "word": "new",
+    "start": 30.4,
+    "end": 30.62
+  },
+  {
+    "word": "time",
+    "start": 30.62,
+    "end": 31.06
+  },
+  {
+    "word": "pops",
+    "start": 31.06,
+    "end": 31.38
+  },
+  {
+    "word": "up",
+    "start": 31.38,
+    "end": 31.62
+  },
+  {
+    "word": "fast!",
+    "start": 31.62,
+    "end": 32.04
+  },
+  {
+    "word": "Parents",
+    "start": 33.42,
+    "end": 34.26
+  },
+  {
+    "word": "this",
+    "start": 34.9,
+    "end": 35.18
+  },
+  {
+    "word": "builds",
+    "start": 35.18,
+    "end": 35.52
+  },
+  {
+    "word": "real-life",
+    "start": 35.52,
+    "end": 36.76
+  },
+  {
+    "word": "time-reading,",
+    "start": 35.52,
+    "end": 38.0
+  },
+  {
+    "word": "a",
+    "start": 38.0,
+    "end": 38.1
+  },
+  {
+    "word": "skill",
+    "start": 38.1,
+    "end": 38.42
+  },
+  {
+    "word": "kids",
+    "start": 38.42,
+    "end": 38.82
+  },
+  {
+    "word": "use",
+    "start": 38.82,
+    "end": 39.24
+  },
+  {
+    "word": "every",
+    "start": 39.24,
+    "end": 39.88
+  },
+  {
+    "word": "single",
+    "start": 39.88,
+    "end": 40.4
+  },
+  {
+    "word": "day!",
+    "start": 40.4,
+    "end": 40.9
+  },
+  {
+    "word": "Find",
+    "start": 42.0,
+    "end": 42.42
+  },
+  {
+    "word": "it",
+    "start": 42.42,
+    "end": 42.62
+  },
+  {
+    "word": "in",
+    "start": 42.62,
+    "end": 42.78
+  },
+  {
+    "word": "the",
+    "start": 42.78,
+    "end": 42.94
+  },
+  {
+    "word": "app",
+    "start": 42.94,
+    "end": 43.22
+  },
+  {
+    "word": "tap",
+    "start": 43.64,
+    "end": 43.82
+  },
+  {
+    "word": "Math",
+    "start": 43.82,
+    "end": 44.22
+  },
+  {
+    "word": "Game",
+    "start": 44.22,
+    "end": 44.5
+  },
+  {
+    "word": "Zone,",
+    "start": 44.5,
+    "end": 44.88
+  },
+  {
+    "word": "pick",
+    "start": 45.58,
+    "end": 45.68
+  },
+  {
+    "word": "Clock",
+    "start": 45.68,
+    "end": 46.0
+  },
+  {
+    "word": "Master,",
+    "start": 46.0,
+    "end": 46.5
+  },
+  {
+    "word": "choose",
+    "start": 47.06,
+    "end": 47.48
+  },
+  {
+    "word": "your",
+    "start": 47.48,
+    "end": 47.68
+  },
+  {
+    "word": "level,",
+    "start": 47.68,
+    "end": 48.0
+  },
+  {
+    "word": "and",
+    "start": 48.0,
+    "end": 48.58
+  },
+  {
+    "word": "play!",
+    "start": 48.58,
+    "end": 49.0
+  },
+  {
+    "word": "Abacus",
+    "start": 50.16,
+    "end": 50.78
+  },
+  {
+    "word": "Kids",
+    "start": 50.78,
+    "end": 51.12
+  },
+  {
+    "word": "free",
+    "start": 51.96,
+    "end": 52.1
+  },
+  {
+    "word": "on",
+    "start": 52.1,
+    "end": 52.32
+  },
+  {
+    "word": "the",
+    "start": 52.32,
+    "end": 52.5
+  },
+  {
+    "word": "App",
+    "start": 52.5,
+    "end": 52.7
+  },
+  {
+    "word": "Store",
+    "start": 52.7,
+    "end": 52.98
+  },
+  {
+    "word": "and",
+    "start": 52.98,
+    "end": 53.44
+  },
+  {
+    "word": "Google",
+    "start": 53.44,
+    "end": 53.78
+  },
+  {
+    "word": "Play!",
+    "start": 53.78,
+    "end": 54.22
+  }
+]

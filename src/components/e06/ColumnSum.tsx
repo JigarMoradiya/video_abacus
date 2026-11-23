@@ -57,7 +57,21 @@ export const ColumnSum: React.FC<{
   bg: string;
   progress: number;
   scale: number;
-}> = ({ a, b, op, total, step, prevStep, activeRod, popIn, bg, progress, scale }) => {
+  /** the ONE row whose number is being spoken right now — its digits scale up and flash gold on
+   *  that word, independent of `step` (which lights a row for a whole line). `k` is 0..1, driven
+   *  by the caller off the word's own start frame, so it lands on the word wherever it falls. */
+  flash?: { row: SumStep; k: number };
+  /** A plain white pill reads as "highlighted" on its own, but sits right next to the flash's
+   *  bold solid-gold pill on plenty of frames (E13's worked examples in particular), and next to
+   *  that much louder effect the row pill can read as barely-there. Opt-in per caller rather than
+   *  a blanket change: E06-E12 already shipped with the plain pill and this keeps their look
+   *  identical; only a caller that passes `strongHighlight` gets the gold ring + glow added below.
+   *  A still with the row "on" and NO flash firing (e.g. most of a "second"-step phrase's own
+   *  duration) must still read as obviously highlighted with this on. */
+  strongHighlight?: boolean;
+  /** Opacity of a dimmed "?" placeholder (default 0.5; E15 passes 0.9 so it passes the contrast audit). */
+  placeholderOpacity?: number;
+}> = ({ a, b, op, total, step, prevStep, activeRod, popIn, bg, progress, scale, flash, strongHighlight, placeholderOpacity = 0.5 }) => {
   const pop = popIn
     ? interpolate(progress, [0, 0.18], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
     : 1;
@@ -72,6 +86,7 @@ export const ColumnSum: React.FC<{
   const row = (label: string, value: [string, string], which: SumStep, dim = false) => {
     const on = (which === prevStep ? 1 : 0) * (1 - k) + (which === step ? 1 : 0) * k;
     const ink = interpolateColors(on, [0, 1], [OFF_INK, bg]);
+    const fk = flash && flash.row === which ? flash.k : 0;
     return (
       <div
         style={{
@@ -83,7 +98,12 @@ export const ColumnSum: React.FC<{
           background: `rgba(255,255,255,${0.96 * on})`,
           borderRadius: 18,
           padding: "0 8px",
-          boxShadow: on > 0.5 ? "0 3px 0 rgba(0,0,0,0.18)" : "none",
+          border: strongHighlight ? `3px solid rgba(255,209,102,${on})` : undefined,
+          boxShadow: strongHighlight
+            ? `0 0 ${18 * on}px rgba(255,209,102,${0.6 * on}), 0 ${3 * on}px 0 rgba(0,0,0,${0.22 * on})`
+            : on > 0.5
+            ? "0 3px 0 rgba(0,0,0,0.18)"
+            : "none",
         }}
       >
         <span
@@ -95,7 +115,7 @@ export const ColumnSum: React.FC<{
             width: 40,
             textAlign: "center",
             color: ink,
-            opacity: dim ? 0.5 : 1,
+            opacity: dim ? placeholderOpacity : 1,
           }}
         >
           {label}
@@ -114,13 +134,33 @@ export const ColumnSum: React.FC<{
                 lineHeight: 1,
                 width: DIGIT_W,
                 textAlign: "center",
-                color: on > 0.5 ? ink : "#FFFFFF",
-                opacity: dim ? 0.5 : 1,
-                textShadow: on > 0.5 ? "none" : "2px 2px 0 rgba(0,0,0,0.28)",
+                // FLASH = a solid gold pill with DARK ink, not gold text. Gold text on this
+                // card's orange ground had almost no contrast — the spoken digit looked washed
+                // out, the opposite of "look here". A filled pill reads on the orange row AND on
+                // the white lit row, and it is the same shape the caption's own karaoke pill uses.
+                color:
+                  fk > 0.01 && value[i]
+                    ? interpolateColors(fk, [0, 1], [on > 0.5 ? ink : "#FFFFFF", "#3A2A1E"])
+                    : on > 0.5
+                    ? ink
+                    : "#FFFFFF",
+                opacity: dim && fk < 0.01 ? placeholderOpacity : 1,
+                textShadow: fk > 0.01 && value[i] ? "none" : on > 0.5 ? "none" : "2px 2px 0 rgba(0,0,0,0.28)",
+                transform: value[i] ? `scale(${1 + 0.28 * fk})` : undefined,
                 // the worked column, marked on every row at once so the eye reads it as a column
-                background: lit ? "rgba(255,255,255,0.22)" : "transparent",
+                background:
+                  fk > 0.01 && value[i]
+                    ? `rgba(255,224,102,${fk})`
+                    : lit
+                    ? "rgba(255,255,255,0.22)"
+                    : "transparent",
                 borderRadius: 12,
-                boxShadow: lit ? "inset 0 0 0 3px rgba(255,255,255,0.55)" : "none",
+                boxShadow:
+                  fk > 0.01 && value[i]
+                    ? `0 0 ${20 * fk}px rgba(255,224,102,${0.9 * fk}), 0 ${3 * fk}px 0 rgba(0,0,0,${0.25 * fk})`
+                    : lit
+                    ? "inset 0 0 0 3px rgba(255,255,255,0.55)"
+                    : "none",
               }}
             >
               {value[i]}

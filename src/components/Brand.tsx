@@ -47,9 +47,10 @@ export const HeadlinePill: React.FC<{
  * the pill is now smaller in portrait (SceneStage caps its size and max width), which frees
  * the top-right corner.
  */
-export const BrandBadge: React.FC<{ y?: number; portrait?: boolean }> = ({
+export const BrandBadge: React.FC<{ y?: number; portrait?: boolean; dark?: boolean }> = ({
   y = 30,
   portrait,
+  dark,
 }) => (
   <div
     style={{
@@ -65,7 +66,8 @@ export const BrandBadge: React.FC<{ y?: number; portrait?: boolean }> = ({
       borderRadius: 999,
       // more room at both ends so the icon and the wordmark are not against the edges
       padding: "10px 34px 10px 20px",
-      boxShadow: "0 6px 0 rgba(0,0,0,0.15)",
+      boxShadow: dark ? "0 6px 0 rgba(6,34,44,0.45)" : "0 6px 0 rgba(0,0,0,0.15)",
+      border: dark ? "4px solid #0B2A4A" : undefined,
     }}
   >
     <Img
@@ -91,7 +93,7 @@ export const BrandBadge: React.FC<{ y?: number; portrait?: boolean }> = ({
 
 /** Publisher credit. Bottom-left at 16:9; TOP-left in portrait, where the caption band reaches
  *  to 1340 and a bottom-pinned credit sat inside it. */
-export const PoweredBy: React.FC<{ portrait?: boolean }> = ({ portrait }) => (
+export const PoweredBy: React.FC<{ portrait?: boolean; dark?: boolean }> = ({ portrait, dark }) => (
   <div
     style={{
       position: "absolute",
@@ -103,16 +105,16 @@ export const PoweredBy: React.FC<{ portrait?: boolean }> = ({ portrait }) => (
       display: "flex",
       alignItems: "center",
       gap: 9,
-      background: "rgba(255,255,255,0.72)",
+      background: dark ? "#0B2A4A" : "rgba(255,255,255,0.72)",
       borderRadius: 999,
       padding: "7px 18px",
       fontFamily: KID_FONT,
       fontWeight: 700,
       fontSize: 20,
-      color: "#43596B",
+      color: dark ? "#FFFFFF" : "#43596B",
       letterSpacing: 0.6,
     }}
   >
-    powered by <span style={{ color: "#123A5C", fontSize: 23 }}>VEDAAVI</span>
+    powered by <span style={{ color: dark ? "#FFE066" : "#123A5C", fontSize: 23 }}>VEDAAVI</span>
   </div>
 );

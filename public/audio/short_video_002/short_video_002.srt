@@ -1,0 +1,75 @@
+1
+00:00:00,000 --> 00:00:04,060
+When a number gets stuck, Math Heroes save the day!
+
+2
+00:00:04,720 --> 00:00:05,440
+Alert!
+
+3
+00:00:05,440 --> 00:00:08,740
+Five take away one, and it's stuck!
+
+4
+00:00:09,440 --> 00:00:11,980
+There's no room to take away one.
+
+5
+00:00:12,900 --> 00:00:14,040
+Let's call a friend!
+
+6
+00:00:16,080 --> 00:00:18,020
+One's friend is four!
+
+7
+00:00:18,020 --> 00:00:21,540
+Add four, then take away five!
+
+8
+00:00:22,620 --> 00:00:24,460
+Five take away one is four!
+
+9
+00:00:25,060 --> 00:00:26,120
+Mission solved!
+
+10
+00:00:27,000 --> 00:00:28,300
+Another alert!
+
+11
+00:00:28,760 --> 00:00:31,640
+Five take away three, and it's stuck!
+
+12
+00:00:32,620 --> 00:00:34,640
+There's no room to take away three.
+
+13
+00:00:35,520 --> 00:00:36,900
+Let's call a friend again!
+
+14
+00:00:36,900 --> 00:00:40,980
+Three's friend is two!
+
+15
+00:00:40,980 --> 00:00:44,460
+Add two, then take away five!
+
+16
+00:00:45,520 --> 00:00:47,620
+Five take away three is two!
+
+17
+00:00:48,320 --> 00:00:49,660
+Heroes win again!
+
+18
+00:00:51,160 --> 00:00:53,240
+Every stuck number has a trick.
+
+19
+00:00:53,240 --> 00:00:58,480
+Learn them all with Abacus Kids — free on the App Store and Google Play!

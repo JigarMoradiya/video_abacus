@@ -1,0 +1,168 @@
+# E09 · Small friends for taking away — narration, one continuous take.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+#
+# E08's take ends "Next time, we will learn the small friends for taking away." This pays it.
+#
+# ═══ VOICE ═══ Same as E08: complete sentences, not fragments. A real teacher does not say
+# "Four!" — they say "That makes four." Every answer, every reaction, every aside below is written
+# as a full sentence a teacher would actually say out loud, holds and all.
+#
+#   1. ASKS, then WAITS. Every ⏸ is a real silence.
+#   2. REACTS in full sentences. Not "Stuck!" — "Look at that, we are stuck."
+#   3. TALKS TO ONE CHILD, by name of the moment: "your abacus", "you try this one".
+#   4. NAMES LAST TIME. E08 is not a stranger to this video — the trick, the formula, even its
+#      wording ("add the friend, then take away five") gets called back to directly, twice.
+#
+# ═══ CONTENT ═══
+#
+# THE MIRROR OF E08. Adding ran out of lower beads going UP; subtracting runs out going DOWN —
+# there are not enough lower beads left to take away. The fix is the same friends, used backwards:
+# ADD the friend to the lower beads first, THEN take away five by releasing the upper bead.
+#
+# BOTTOM BEADS FIRST, STILL. E06's rule is about the MOVE, not the operation: lower beads move
+# before the upper bead, always. So the notation is `−n = +friend −5`, friend-first, exactly
+# mirroring E08's `+n = −friend +5`. Checked for every case: adding the friend to the lower beads
+# never exceeds four, because the trigger condition (digit%5 < n) guarantees (digit%5 + friend) <= 4.
+#
+# THE FOUR CASES, the only digit each one is possible from (single rod, digit 5-9):
+#   −1 = +4 −5   only from 5            (5 − 1 = 4)
+#   −2 = +3 −5   from 5 or 6            (6 − 2 = 4)   WE SHOW
+#   −3 = +2 −5   from 5, 6 or 7         (6 − 3 = 3)   THEY DO
+#   −4 = +1 −5   from 5, 6, 7 or 8      (7 − 4 = 3)   WE SHOW
+#
+# −1 IS THE WALL, not a fourth "we show" — it is only ever possible from a rod showing exactly
+# five, which is ZERO lower beads: the starkest possible stuck moment, and the natural hook.
+# −3 is the your-turn, on its own digit (6), not reusing the wall's 5 — this episode has no prior
+# taught case to lean on the way E08 leaned on E07's +3, so the your-turn is genuinely new work,
+# not recall.
+#
+# THE CONTRAST CASE: nine minus two. digit%5 = 4 >= 2, so this is DIRECT — take two lower beads
+# away, no friend needed. Establishes the trigger (look at the lower beads first) exactly as
+# E08's "two plus two" did.
+#
+# ONE ROD ONLY. Every result stays under ten.
+
+
+# --- 1 · RECAP HOOK ---
+Hello again!
+Last time, we learned something clever.
+When adding gets stuck, a friend can rescue us.
+Do you remember the trick?
+# ⏸ hold 2s
+We take away the friend, and then we add five.
+Today the beads get stuck a different way.
+This time, we are taking away.
+
+
+# --- 2 · LOOK FIRST ---
+The rule is still the same as last time.
+Always look at the lower beads first.
+If there are enough, just take them away.
+Let us try nine take away two.
+Make nine on your abacus.
+Now take two lower beads away.
+That was easy.
+Nine take away two is seven.
+No friend needed there at all.
+
+
+# --- 3 · THE WALL ---
+Now let us try five take away one.
+Make five on your abacus.
+Look carefully at the lower beads.
+How many lower beads do you have?
+# ⏸ hold 2s
+None at all.
+The upper bead is holding all of the five.
+So how can we take one away?
+There is nothing down here to take.
+Look at that, we are stuck.
+
+
+# --- 4 · THE FRIEND HELPS AGAIN ---
+Do not worry, we know what to do.
+One's friend is four.
+Last time, the friend helped us add.
+This time, the friend helps us take away.
+Here is the trick.
+First, we add the friend to the lower beads.
+Then, we take away five.
+Remember, lower beads move first.
+So add four lower beads now.
+The rod shows nine.
+Now take away five.
+Push the upper bead up.
+The rod shows four.
+Five take away one is four.
+We had nothing to take, and we still did it.
+
+
+# --- 5 · ONE MORE ---
+Let us try six take away two.
+Make six on your abacus.
+Look at the lower beads.
+There is only one, and we need two.
+So we call a friend.
+Two's friend is three.
+Add three lower beads first.
+The rod shows nine.
+Now take away five.
+Push the upper bead up.
+The rod shows four.
+Six take away two is four.
+
+
+# --- 6 · ENJOYING THIS? ---
+You are doing so well with these tricky ones.
+If you are enjoying this, please like the video and subscribe.
+Now, let us try one more together.
+
+
+# --- 7 · ANOTHER ONE ---
+Let us try seven take away four.
+Make seven on your abacus.
+Look at the lower beads.
+There are two, and we need four.
+Four's friend is one.
+Add one lower bead first.
+The rod shows eight.
+Now take away five.
+Push the upper bead up.
+The rod shows three.
+Seven take away four is three.
+
+
+# --- 8 · THE PATTERN ---
+Did you see the pattern?
+It is the same trick as last time, just the other way round.
+Last time, we took away the friend, and then added five.
+This time, we add the friend, and then take away five.
+Every time, we did the same two things.
+Add the friend first.
+Then take away five.
+The friend changes.
+The five never does.
+
+
+# --- 9 · YOUR TURN ---
+Now it is your turn, all on your own.
+Make six on your abacus.
+Then take away three.
+Think about it. What is three's friend?
+# ⏸ hold 2s
+Add that friend to the lower beads first.
+Then take away five.
+What number is showing now?
+# ⏸ hold 3s
+Six take away three is three.
+Did you get it right?
+Well done, you used the trick all by yourself.
+
+
+# --- 10 · CLOSE ---
+Now you know the small friends for taking away too.
+Try them on your own abacus at home.
+Search for abacus kids on the Apple App Store or Google Play.
+Download it free.
+Next time, we will mix everything together in one big game.
+See you next time!

@@ -8,6 +8,9 @@
 import React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
 import { WORLDS, type WorldKind } from "../data/theme";
+import { CoveLayer } from "./e15/CoveLayer";
+import { DinoLayer } from "./e08/DinoLayer";
+import { ThemeLayer } from "./cast/ThemeLayer";
 
 const rand = (i: number): number => {
   const x = Math.sin(i * 12.9898) * 43758.5453;
@@ -287,13 +290,17 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
           </g>
         )}
 
-        {/* the top hat, on the boards, with its own little sparkle */}
+        {/* the top hat, on the boards, with its own little sparkle. hx used to sit at 0.12 —
+            inside the side curtain's own 0–0.17 covered band (see the curtains block below,
+            `drop = W * 0.17`) — so almost the whole hat rendered hidden behind the curtain
+            fabric, just a sliver of its right edge peeking out. Moved clear of that band. */}
         {w.tophat && (() => {
-          const hx = W * 0.12;
+          const hx = W * 0.26;
           const hy = H * 0.8;
           const tilt = Math.sin(t * 0.8) * 2.5;
+          const hs = portrait ? 0.62 : 1; // smaller in portrait — the narrower frame made it read oversized
           return (
-            <g transform={`translate(${hx} ${hy}) rotate(${tilt})`}>
+            <g transform={`translate(${hx} ${hy}) rotate(${tilt}) scale(${hs})`}>
               <ellipse cx={0} cy={12} rx={116} ry={22} fill="#1A0F22" />
               <rect x={-72} y={-128} width={144} height={140} rx={12} fill="#241533" />
               <rect x={-72} y={-46} width={144} height={30} fill="#C4284C" />
@@ -395,7 +402,8 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
         {w.falls && (() => {
           const fx = W * w.falls.at;
           const fw = W * 0.085;
-          const pool = H * 0.8;
+          const toBottom = Boolean(w.falls.toBottom);
+          const pool = toBottom ? H + 40 : H * 0.8;
           return (
             <g>
               <rect x={fx - fw / 2} y={0} width={fw} height={pool} fill={w.falls.water} opacity={0.75} />
@@ -417,9 +425,11 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
                   />
                 );
               })}
-              <ellipse cx={fx} cy={pool} rx={fw * 1.5} ry={fw * 0.42} fill={w.falls.foam} opacity={0.85} />
-              {/* spray, rising and fading */}
-              {Array.from({ length: 9 }, (_, i) => {
+              {!toBottom && (
+                <ellipse cx={fx} cy={pool} rx={fw * 1.5} ry={fw * 0.42} fill={w.falls.foam} opacity={0.85} />
+              )}
+              {/* spray, rising and fading — only where there is a pool for it to rise from */}
+              {!toBottom && Array.from({ length: 9 }, (_, i) => {
                 const a = (t * 0.8 + rand(i + 21)) % 1;
                 return (
                   <circle
@@ -1299,6 +1309,527 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
           </g>
         )}
 
+        {/* ══════════════════════════════ E08 · THE PARK ══════════════════════════════
+            Ten worlds share one ground and swap what stands on it. Everything here is drawn
+            BEHIND the stage band and out of the two gutters the cards use, because world props
+            are not covered by the overlap guard — placement is by hand, against the occupied
+            regions, exactly as §4 of the standing brief says. */}
+
+        {/* the ground: grass, a darker seam at the horizon, then the path along the bottom */}
+        {w.parkground && (() => {
+          const g = w.parkground!;
+          const gy = H * g.at;
+          const py = H * (g.at + 0.145);
+          return (
+            <g>
+              <rect x={0} y={gy} width={W} height={H - gy} fill={g.grass} />
+              <rect x={0} y={gy} width={W} height={10} fill={g.grassDark} opacity={0.55} />
+              {/* mown stripes — the thing that makes grass read as a kept lawn rather than a slab */}
+              {Array.from({ length: 9 }, (_, i) => (
+                <polygon
+                  key={`mow${i}`}
+                  points={`${(i / 9) * W},${H} ${((i + 0.5) / 9) * W},${H} ${
+                    W / 2 + (((i + 0.5) / 9) * W - W / 2) * 0.42
+                  },${gy} ${W / 2 + ((i / 9) * W - W / 2) * 0.42},${gy}`}
+                  fill={g.grassDark}
+                  opacity={0.16}
+                />
+              ))}
+              <rect x={0} y={py} width={W} height={H - py} fill={g.path} />
+              <rect x={0} y={py} width={W} height={7} fill="#000" opacity={0.07} />
+            </g>
+          );
+        })()}
+
+        {/* TREES: two parallax rows of round crowns on the horizon. Round, not conifer — a park
+            is planted, and the silhouette has to read at thumbnail size.
+            SOFT-FOCUS ON PURPOSE. These were drawn at full saturation and full sharpness, which put
+            them in visual competition with the abacus, the cards and the pair — nothing on screen
+            said "this is scenery, not content". A camera does this with depth of field: the thing
+            you're meant to look at is sharp, everything behind it recedes. `filter: blur(...)
+            saturate(...)` is that, done in CSS instead of glass — softened and slightly desaturated
+            so the eye slides past them on the way to the abacus, exactly as intended. */}
+        {w.trees && w.parkground && (() => {
+          const tr = w.trees!;
+          const gy = H * w.parkground!.at;
+          return (
+            <g>
+              {/* FAR ROW — furthest from the subject, so it recedes the most: heavier blur, more
+                  desaturation, lower opacity. Keeps out of the MIDDLE THIRD too: the see-saw's
+                  fulcrum and the formula board both stand there, and a tree crown directly behind a
+                  fulcrum reads as clutter regardless of focus. World props are not covered by the
+                  overlap guard, so this is placement by hand against the occupied region — §4 of the
+                  standing brief. */}
+              <g style={{ filter: "blur(2.2px) saturate(0.55) brightness(1.06)" }} opacity={0.68}>
+                {Array.from({ length: 7 }, (_, i) => {
+                  const u = (i + 0.5) / 7;
+                  const x = (u < 0.5 ? u * 0.62 : 1 - (1 - u) * 0.62) * W + (rand(i + 61) - 0.5) * 70;
+                  const r = H * (0.085 + rand(i + 5) * 0.03);
+                  const sway = Math.sin(t * 0.5 + i * 1.3) * 3;
+                  return (
+                    <g key={`tf${i}`} transform={`translate(${sway} 0)`}>
+                      <rect x={x - 7} y={gy - r * 0.9} width={14} height={r} fill={tr.trunk} opacity={0.7} />
+                      <circle cx={x} cy={gy - r * 1.25} r={r} fill={tr.far} />
+                    </g>
+                  );
+                })}
+              </g>
+              {/* NEAR ROW — closer, so it stays readable as "trees" while still sitting a clear step
+                  behind anything a line is actually about: lighter blur, milder desaturation. */}
+              <g style={{ filter: "blur(1.1px) saturate(0.72) brightness(1.03)" }} opacity={0.82}>
+                {Array.from({ length: 4 }, (_, i) => {
+                  // kept OUT of the middle: the stage band lives there
+                  const x = i < 2 ? W * (0.06 + i * 0.1) : W * (0.84 + (i - 2) * 0.1);
+                  const r = H * (0.12 + rand(i + 9) * 0.035);
+                  const sway = Math.sin(t * 0.42 + i * 2.1) * 4;
+                  return (
+                    <g key={`tn${i}`} transform={`translate(${sway} 0)`}>
+                      <rect x={x - 12} y={gy - r * 1.0} width={24} height={r * 1.1} fill={tr.trunk} />
+                      <circle cx={x} cy={gy - r * 1.5} r={r} fill={tr.near} />
+                      <circle cx={x - r * 0.5} cy={gy - r * 1.2} r={r * 0.62} fill={tr.near} />
+                      <circle cx={x + r * 0.52} cy={gy - r * 1.22} r={r * 0.6} fill={tr.near} />
+                      <circle cx={x - r * 0.3} cy={gy - r * 1.75} r={r * 0.5} fill="#FFFFFF" opacity={0.12} />
+                    </g>
+                  );
+                })}
+              </g>
+            </g>
+          );
+        })()}
+
+        {/* a white picket fence along the grass line */}
+        {w.fence && w.parkground && (() => {
+          const gy = H * w.parkground!.at + 6;
+          const n = Math.ceil(W / 46);
+          return (
+            <g opacity={0.92}>
+              {Array.from({ length: n }, (_, i) => (
+                <g key={`pk${i}`}>
+                  <rect x={i * 46 + 8} y={gy - 34} width={13} height={40} rx={3} fill={w.fence} />
+                  <polygon
+                    points={`${i * 46 + 8},${gy - 34} ${i * 46 + 14.5},${gy - 44} ${i * 46 + 21},${gy - 34}`}
+                    fill={w.fence}
+                  />
+                </g>
+              ))}
+              <rect x={0} y={gy - 24} width={W} height={7} fill={w.fence} />
+            </g>
+          );
+        })()}
+
+        {/* flowers in the grass — dotted along the two gutters only */}
+        {w.flowers && w.parkground &&
+          Array.from({ length: 22 }, (_, i) => {
+            const side = i % 2 === 0;
+            const x = side ? rand(i + 71) * W * 0.22 : W * 0.78 + rand(i + 73) * W * 0.22;
+            const y = H * w.parkground!.at + 16 + rand(i + 77) * (H * 0.13);
+            const c = w.flowers![i % w.flowers!.length];
+            const s = 1 + Math.sin(t * 1.6 + i) * 0.06;
+            return (
+              <g key={`fl${i}`} transform={`translate(${x} ${y}) scale(${s})`}>
+                <rect x={-1.6} y={0} width={3.2} height={16} fill="#3C7A38" />
+                {[0, 72, 144, 216, 288].map((a) => (
+                  <ellipse key={a} cx={0} cy={-7} rx={4.4} ry={7} fill={c} transform={`rotate(${a} 0 0)`} />
+                ))}
+                <circle cx={0} cy={0} r={3.6} fill="#FFF3B0" />
+              </g>
+            );
+          })}
+
+        {/* the swing set, left gutter — TWO swings, because everything in this world comes in twos */}
+        {w.swings && w.parkground && (() => {
+          const gy = H * w.parkground!.at + H * 0.075;
+          const x = W * 0.13;
+          const hgt = H * 0.3;
+          return (
+            <g>
+              <line x1={x - hgt * 0.42} y1={gy} x2={x} y2={gy - hgt} stroke="#8E6BFF" strokeWidth={11} strokeLinecap="round" />
+              <line x1={x + hgt * 0.42} y1={gy} x2={x} y2={gy - hgt} stroke="#8E6BFF" strokeWidth={11} strokeLinecap="round" />
+              <line x1={x - hgt * 0.62} y1={gy - hgt} x2={x + hgt * 0.62} y2={gy - hgt} stroke="#7351E8" strokeWidth={12} strokeLinecap="round" />
+              {[-1, 1].map((k, i) => {
+                const sw = Math.sin(t * 1.1 + i * Math.PI) * 0.16;
+                const sx = x + k * hgt * 0.3;
+                const len = hgt * 0.6;
+                const tx = sx + Math.sin(sw) * len;
+                const ty = gy - hgt + Math.cos(sw) * len;
+                return (
+                  <g key={`sw${i}`}>
+                    <line x1={sx} y1={gy - hgt} x2={tx} y2={ty} stroke="#5E4A2E" strokeWidth={4} />
+                    <rect x={tx - 20} y={ty} width={40} height={9} rx={4} fill="#FF6B8A" />
+                  </g>
+                );
+              })}
+            </g>
+          );
+        })()}
+
+        {/* the slide, right gutter */}
+        {w.slide && w.parkground && (() => {
+          const sl = w.slide!;
+          const gy = H * w.parkground!.at + H * 0.085;
+          const x = W * 0.87;
+          const hgt = H * 0.24;
+          return (
+            <g>
+              <rect x={x + 22} y={gy - hgt} width={12} height={hgt} rx={5} fill={sl.rail} />
+              <rect x={x + 58} y={gy - hgt} width={12} height={hgt} rx={5} fill={sl.rail} />
+              {Array.from({ length: 5 }, (_, i) => (
+                <rect key={`st${i}`} x={x + 22} y={gy - hgt + 16 + i * (hgt / 6)} width={48} height={8} rx={4} fill={sl.chute} />
+              ))}
+              <path
+                d={`M ${x + 22} ${gy - hgt + 4} L ${x - 62} ${gy - 6} L ${x - 62} ${gy + 12} L ${x + 30} ${gy - hgt + 20} Z`}
+                fill={sl.chute}
+              />
+              <path d={`M ${x + 22} ${gy - hgt + 4} L ${x - 62} ${gy - 6}`} stroke={sl.rail} strokeWidth={7} strokeLinecap="round" />
+            </g>
+          );
+        })()}
+
+        {/* kites, high in the sky where nothing else is */}
+        {w.kites &&
+          w.kites.map((c, i) => {
+            const x = W * (0.13 + i * 0.26) + Math.sin(t * 0.4 + i * 2) * W * 0.05;
+            const y = H * (0.09 + i * 0.05) + Math.sin(t * 0.62 + i) * H * 0.02;
+            const tilt = Math.sin(t * 0.62 + i) * 14;
+            return (
+              <g key={`kt${i}`} transform={`translate(${x} ${y}) rotate(${tilt})`}>
+                <polygon points="0,-30 22,0 0,42 -22,0" fill={c} />
+                <polygon points="0,-30 0,42 -22,0" fill="#000" opacity={0.12} />
+                <path
+                  d={`M 0 42 q ${Math.sin(t * 3) * 10} 22 0 44 q ${-Math.sin(t * 3) * 10} 22 0 44`}
+                  stroke={c}
+                  strokeWidth={3}
+                  fill="none"
+                  opacity={0.8}
+                />
+              </g>
+            );
+          })}
+
+        {/* falling autumn leaves — E13's equivalent of kites/butterflies, motion where nothing
+            else is. Each colour gets 3 individually phased leaves, drifting down and swaying
+            side to side, looping from the top once they pass the bottom edge. One continuous
+            animation layer, no per-frame conditionals, so nothing ever snaps. */}
+        {w.leaves &&
+          w.leaves.flatMap((c, ci) =>
+            [0, 1, 2].map((li) => {
+              const seed = ci * 3 + li;
+              const fallSpeed = 0.028 + (seed % 3) * 0.006;
+              const xBase = (seed * 0.171) % 1;
+              const y = ((t * fallSpeed + seed * 0.37) % 1.15) * H - H * 0.1;
+              const sway = Math.sin(t * (0.7 + (seed % 4) * 0.15) + seed * 1.7) * W * 0.045;
+              const x = xBase * W + sway;
+              const spin = t * (30 + seed * 11) + seed * 40;
+              const s = 0.6 + (seed % 3) * 0.18;
+              return (
+                <g key={`lf${ci}-${li}`} transform={`translate(${x} ${y}) rotate(${spin}) scale(${s})`} opacity={0.85}>
+                  <path
+                    d="M 0 -16 C 10 -10 12 4 0 16 C -12 4 -10 -10 0 -16 Z"
+                    fill={c}
+                  />
+                  <path d="M 0 -14 L 0 14" stroke="#000" strokeWidth={1.4} opacity={0.18} />
+                </g>
+              );
+            })
+          )}
+
+        {/* chalk hopscotch on the path */}
+        {w.chalksquares && w.parkground && (() => {
+          const py = H * (w.parkground!.at + 0.145) + 18;
+          return (
+            <g opacity={0.5} stroke="#FFFFFF" strokeWidth={5} fill="none">
+              {Array.from({ length: 4 }, (_, i) => (
+                <rect key={`hs${i}`} x={W * 0.06 + i * 96} y={py + (i % 2) * 10} width={78} height={64} rx={6} />
+              ))}
+              {Array.from({ length: 4 }, (_, i) => (
+                <rect key={`hs2${i}`} x={W * 0.72 + i * 96} y={py + ((i + 1) % 2) * 10} width={78} height={64} rx={6} />
+              ))}
+            </g>
+          );
+        })()}
+
+        {/* the picnic blanket, bottom-left, under the stage band */}
+        {w.blanket && w.parkground && (() => {
+          const [a, b] = w.blanket!;
+          const y = H * (w.parkground!.at + 0.09);
+          return (
+            <g transform={`translate(${W * 0.04} ${y})`}>
+              <ellipse cx={130} cy={62} rx={150} ry={44} fill="#000" opacity={0.1} />
+              <rect x={0} y={0} width={260} height={92} rx={12} fill={a} transform="rotate(-3)" />
+              {Array.from({ length: 5 }, (_, i) => (
+                <rect key={`bl${i}`} x={i * 52} y={0} width={24} height={92} fill={b} opacity={0.55} transform="rotate(-3)" />
+              ))}
+            </g>
+          );
+        })()}
+
+        {/* the bandstand, behind the stage but off-centre so it never sits under the abacus */}
+        {w.bandstand && w.parkground && (() => {
+          const gy = H * w.parkground!.at + 8;
+          const x = W * 0.16;
+          const rw = W * 0.16;
+          return (
+            <g opacity={0.95}>
+              {Array.from({ length: 4 }, (_, i) => (
+                <rect key={`bp${i}`} x={x - rw / 2 + (i * rw) / 3 - 5} y={gy - H * 0.17} width={11} height={H * 0.17} fill="#FFF6E4" />
+              ))}
+              <rect x={x - rw / 2 - 14} y={gy - H * 0.185} width={rw + 28} height={16} rx={6} fill="#FFF6E4" />
+              <path d={`M ${x - rw / 2 - 26} ${gy - H * 0.185} Q ${x} ${gy - H * 0.31} ${x + rw / 2 + 26} ${gy - H * 0.185} Z`} fill="#FF6B8A" />
+              <circle cx={x} cy={gy - H * 0.315} r={9} fill="#FFD23F" />
+              <rect x={x - rw / 2 - 14} y={gy - 8} width={rw + 28} height={14} rx={5} fill="#E7D6B4" />
+            </g>
+          );
+        })()}
+
+        {/* paper lanterns strung between the trees — the evening close */}
+        {w.lanterns && (() => {
+          const cols = w.lanterns!;
+          const sag = H * 0.055;
+          const y0 = H * 0.1;
+          return (
+            <g>
+              <path d={`M -20 ${y0} Q ${W / 2} ${y0 + sag * 2.2} ${W + 20} ${y0}`} stroke="#2A1C3E" strokeWidth={4} fill="none" opacity={0.75} />
+              {Array.from({ length: 11 }, (_, i) => {
+                const u = (i + 0.5) / 11;
+                const x = -20 + u * (W + 40);
+                const y = y0 + Math.sin(Math.PI * u) * sag * 2.2 * 0.5 + 10;
+                const c = cols[i % cols.length];
+                const glow = 0.7 + Math.sin(t * 1.4 + i * 0.9) * 0.22;
+                return (
+                  <g key={`ln${i}`}>
+                    <circle cx={x} cy={y + 26} r={34} fill={c} opacity={0.14 * glow} />
+                    <ellipse cx={x} cy={y + 26} rx={15} ry={19} fill={c} opacity={glow} />
+                    <rect x={x - 7} y={y + 6} width={14} height={7} rx={2} fill="#2A1C3E" opacity={0.8} />
+                  </g>
+                );
+              })}
+            </g>
+          );
+        })()}
+
+        {/* two small birds, wandering. The park's version of E03's gulls. */}
+        {w.birds &&
+          [0, 1].map((i) => {
+            const u = ((t * 0.035 + i * 0.45) % 1.3) - 0.15;
+            const x = u * W;
+            const y = H * (0.13 + i * 0.06) + Math.sin(t * 0.9 + i * 2) * 14;
+            const flap = Math.sin(t * 6 + i * 1.7) * 8;
+            return (
+              <g key={`bd${i}`} opacity={0.55}>
+                <path
+                  d={`M ${x - 15} ${y} q 8 ${-9 - flap} 15 0 q 7 ${-9 - flap} 15 0`}
+                  stroke={w.ink}
+                  strokeWidth={3.4}
+                  fill="none"
+                  strokeLinecap="round"
+                />
+              </g>
+            );
+          })}
+
+        {/* ══════════════════════════════ E09 · THE BOARDWALK AT DUSK ══════════════════════════════
+            Eleven worlds share one pier (deck, railing, dark water) and swap what stands on it.
+            Background pieces (stalls, carousel, ferris wheel) get the SAME soft-focus treatment
+            E08's trees learned they needed — blurred and desaturated, so the eye goes to the
+            abacus and the cards, not the scenery. */}
+
+        {/* the pier: deck, a darker seam at the rail line, dark water below with a soft shimmer */}
+        {w.pier && (() => {
+          const pr = w.pier!;
+          const dy = H * pr.at;
+          return (
+            <g>
+              <rect x={0} y={dy} width={W} height={H - dy} fill={pr.sea} />
+              {Array.from({ length: 5 }, (_, i) => {
+                const y = dy + H * 0.03 + i * H * 0.045;
+                const wob = Math.sin(t * 0.6 + i * 1.4) * 10;
+                return (
+                  <rect key={`shim${i}`} x={wob} y={y} width={W} height={2} fill="#FFFFFF" opacity={0.08} />
+                );
+              })}
+              <rect x={0} y={dy - H * 0.16} width={W} height={H * 0.16} fill={pr.deck} />
+              <rect x={0} y={dy - H * 0.16} width={W} height={6} fill="#000" opacity={0.12} />
+              {Array.from({ length: Math.ceil(W / 70) }, (_, i) => (
+                <rect key={`plank${i}`} x={i * 70} y={dy - H * 0.16} width={3} height={H * 0.16} fill={pr.deckDark} opacity={0.35} />
+              ))}
+            </g>
+          );
+        })()}
+
+        {/* background stalls: two soft-focus rows of peaked-roof silhouettes */}
+        {w.stalls && w.pier && (() => {
+          const st = w.stalls!;
+          const gy = H * w.pier!.at - H * 0.16;
+          return (
+            <g>
+              <g style={{ filter: "blur(2px) saturate(0.55) brightness(1.08)" }} opacity={0.6}>
+                {Array.from({ length: 6 }, (_, i) => {
+                  const u = (i + 0.5) / 6;
+                  const x = (u < 0.5 ? u * 0.6 : 1 - (1 - u) * 0.6) * W;
+                  const hgt = H * 0.1;
+                  const wid = W * 0.11;
+                  return (
+                    <g key={`sf${i}`}>
+                      <rect x={x - wid / 2} y={gy - hgt} width={wid} height={hgt} fill={st.far} />
+                      <polygon points={`${x - wid / 2 - 6},${gy - hgt} ${x},${gy - hgt - hgt * 0.55} ${x + wid / 2 + 6},${gy - hgt}`} fill={st.roof} />
+                    </g>
+                  );
+                })}
+              </g>
+              <g style={{ filter: "blur(1px) saturate(0.7) brightness(1.04)" }} opacity={0.75}>
+                {[0, 1].map((i) => {
+                  const x = i === 0 ? W * 0.1 : W * 0.9;
+                  const hgt = H * 0.15;
+                  const wid = W * 0.15;
+                  const glow = 0.5 + Math.sin(t * 1.6 + i) * 0.15;
+                  return (
+                    <g key={`sn${i}`}>
+                      <rect x={x - wid / 2} y={gy - hgt} width={wid} height={hgt} fill={st.near} />
+                      <polygon points={`${x - wid / 2 - 8},${gy - hgt} ${x},${gy - hgt - hgt * 0.5} ${x + wid / 2 + 8},${gy - hgt}`} fill={st.roof} />
+                      <rect x={x - wid * 0.28} y={gy - hgt * 0.62} width={wid * 0.22} height={hgt * 0.3} fill="#FFE9A8" opacity={glow} />
+                      <rect x={x + wid * 0.06} y={gy - hgt * 0.62} width={wid * 0.22} height={hgt * 0.3} fill="#FFE9A8" opacity={glow} />
+                    </g>
+                  );
+                })}
+              </g>
+            </g>
+          );
+        })()}
+
+        {/* pier railing along the deck line */}
+        {w.railing && w.pier && (() => {
+          const gy = H * w.pier!.at - H * 0.16 + 4;
+          const n = Math.ceil(W / 60);
+          return (
+            <g opacity={0.85}>
+              <rect x={0} y={gy - 30} width={W} height={5} fill={w.railing} />
+              {Array.from({ length: n }, (_, i) => (
+                <rect key={`rl${i}`} x={i * 60 + 10} y={gy - 30} width={5} height={30} fill={w.railing} />
+              ))}
+            </g>
+          );
+        })()}
+
+        {/* the ice-cream cart, left gutter — SMALL and LOW enough to clear the sum card.
+            The sum card occupies x:44-320, y:254-550 (16:9, at its own natural size). The cart
+            used to reach y=475, deep into that box, for the entire "look first"/"the wall"/
+            "one more" run — 36 phrases. Shrunk to clear the card's bottom by ~15px in the
+            tightest case (scoopdelivery's pier.at=0.75) rather than just moved, since a cart the
+            same size sitting further away still reads as a cart; a corner sliver would not. */}
+        {w.cart && w.pier && (() => {
+          const gy = H * w.pier!.at - H * 0.16;
+          const x = W * 0.08;
+          const cw = W * 0.08;
+          const ch = H * 0.068;
+          const sway = Math.sin(t * 1.1) * 2;
+          return (
+            <g transform={`translate(${sway} 0)`}>
+              <rect x={x - cw / 2} y={gy - ch} width={cw} height={ch} rx={10} fill="#FFF3EC" />
+              <rect x={x - cw / 2} y={gy - ch} width={cw} height={ch * 0.22} fill="#F5567F" />
+              {Array.from({ length: 5 }, (_, i) => (
+                <polygon
+                  key={`aw${i}`}
+                  points={`${x - cw / 2 + (i * cw) / 5},${gy - ch + ch * 0.22} ${x - cw / 2 + ((i + 1) * cw) / 5},${gy - ch + ch * 0.22} ${x - cw / 2 + ((i + 1) * cw) / 5},${gy - ch + ch * 0.34} ${x - cw / 2 + (i * cw) / 5 + cw * 0.03},${gy - ch + ch * 0.4}`}
+                  fill={i % 2 === 0 ? "#FFFFFF" : "#F5567F"}
+                />
+              ))}
+              <circle cx={x - cw * 0.28} cy={gy + 8} r={9} fill="#5A3F28" />
+              <circle cx={x + cw * 0.28} cy={gy + 8} r={9} fill="#5A3F28" />
+              <rect x={x - cw * 0.42} y={gy - ch * 0.36} width={cw * 0.84} height={ch * 0.3} rx={6} fill="#33574F" />
+            </g>
+          );
+        })()}
+
+        {/* the red call box — "so we call a friend", made literal. Same clearance fix as the cart:
+            was reaching y=432, well inside the sum card's y:254-550. */}
+        {w.callbox && w.pier && (() => {
+          const gy = H * w.pier!.at - H * 0.16;
+          const x = W * 0.09;
+          const bw = W * 0.045;
+          const bh = H * 0.075;
+          const glow = 0.7 + Math.sin(t * 2.4) * 0.3;
+          return (
+            <g>
+              <rect x={x - bw / 2} y={gy - bh} width={bw} height={bh} rx={4} fill="#C4284C" />
+              <rect x={x - bw / 2 + 5} y={gy - bh + 10} width={bw - 10} height={bh * 0.42} rx={2} fill="#7A1030" opacity={0.6} />
+              <rect x={x - bw * 0.36} y={gy - bh * 0.52} width={bw * 0.72} height={bh * 0.3} rx={2} fill="#FFF3C4" opacity={glow} />
+              <rect x={x - bw / 2 - 6} y={gy - bh - 8} width={bw + 12} height={10} rx={3} fill="#A61E3E" />
+            </g>
+          );
+        })()}
+
+        {/* a turning carousel silhouette, soft-focus, warm lit canopy */}
+        {w.carousel && w.pier && (() => {
+          const gy = H * w.pier!.at - H * 0.16;
+          const x = W * 0.16;
+          const r = H * 0.16;
+          const spin = (t * 14) % 360;
+          return (
+            <g style={{ filter: "blur(1.4px) saturate(0.65) brightness(1.05)" }} opacity={0.7}>
+              <polygon points={`${x - r},${gy - r * 0.7} ${x},${gy - r * 1.5} ${x + r},${gy - r * 0.7}`} fill="#B95E8E" />
+              <rect x={x - r} y={gy - r * 0.72} width={r * 2} height={8} fill="#FFE08A" />
+              <g transform={`rotate(${spin} ${x} ${gy - r * 0.3})`}>
+                {[0, 1, 2, 3, 4, 5].map((i) => {
+                  const a = (i / 6) * Math.PI * 2;
+                  return (
+                    <line key={i} x1={x} y1={gy - r * 0.3} x2={x + Math.cos(a) * r * 0.65} y2={gy - r * 0.3 + Math.sin(a) * r * 0.65} stroke="#FFE08A" strokeWidth={3} />
+                  );
+                })}
+              </g>
+              <rect x={x - r * 0.9} y={gy - r * 0.36} width={r * 1.8} height={r * 0.36} fill="#8A4C8E" />
+            </g>
+          );
+        })()}
+
+        {/* a turning ferris wheel silhouette, soft-focus, lit spokes */}
+        {w.ferriswheel && w.pier && (() => {
+          const gy = H * w.pier!.at - H * 0.16;
+          const x = W * 0.82;
+          const r = H * 0.26;
+          const spin = (t * 8) % 360;
+          return (
+            <g style={{ filter: "blur(1.6px) saturate(0.6) brightness(1.05)" }} opacity={0.62}>
+              <circle cx={x} cy={gy - r} r={r} fill="none" stroke="#FFAE4A" strokeWidth={6} opacity={0.55} />
+              <g transform={`rotate(${spin} ${x} ${gy - r})`}>
+                {Array.from({ length: 8 }, (_, i) => {
+                  const a = (i / 8) * Math.PI * 2;
+                  const px = x + Math.cos(a) * r;
+                  const py = gy - r + Math.sin(a) * r;
+                  return (
+                    <g key={i}>
+                      <line x1={x} y1={gy - r} x2={px} y2={py} stroke="#FFAE4A" strokeWidth={3} opacity={0.5} />
+                      <circle cx={px} cy={py} r={7} fill="#FFE08A" opacity={0.85} />
+                    </g>
+                  );
+                })}
+              </g>
+              <line x1={x} y1={gy - r * 2} x2={x} y2={gy} stroke="#8A5A3C" strokeWidth={6} opacity={0.5} />
+            </g>
+          );
+        })()}
+
+        {/* fireworks bursting over the pier — the close */}
+        {w.fireworksBurst &&
+          w.fireworksBurst.map((c, i) => {
+            const cyc = 3.2;
+            const ph = (t / cyc + i * 0.37) % 1;
+            const x = W * (0.18 + i * 0.22);
+            const y = H * 0.22 + i * H * 0.03;
+            const grow = ph < 0.5 ? ph / 0.5 : 1 - (ph - 0.5) / 0.5;
+            if (grow <= 0.02) return null;
+            const rad = 20 + grow * 70;
+            return (
+              <g key={`fw${i}`} opacity={Math.min(1, grow * 1.6)}>
+                {Array.from({ length: 10 }, (_, k) => {
+                  const a = (k / 10) * Math.PI * 2;
+                  return (
+                    <circle key={k} cx={x + Math.cos(a) * rad} cy={y + Math.sin(a) * rad} r={4} fill={c} />
+                  );
+                })}
+              </g>
+            );
+          })}
+
         {/* FERNS along the bottom edge: blades fanning up from below the frame. Undergrowth is what
             stops a ground band being a green rectangle — the same lesson E03's shells taught. */}
         {w.ferns &&
@@ -1347,31 +1878,55 @@ export const World: React.FC<{ kind: WorldKind }> = ({ kind }) => {
             );
           })}
 
-        {/* two butterflies, wandering high — the jungle's answer to E03's gulls */}
+        {/* two butterflies, wandering high — the jungle's answer to E03's gulls.
+            TWO LOBES PER SIDE (a bigger rounded upper wing, a smaller trailing lower wing), not a
+            single ellipse — a real butterfly's silhouette is not a blob, and a flap that only
+            scaled an ellipse's width read as a shrinking pill rather than a wingbeat. The flap
+            itself now scales each wing PAIR horizontally toward the body (0.3..1.0), which is the
+            actual shape of a wingbeat — closing toward the body, not shrinking in place — plus a
+            slight body roll into the sine drift so the flight path reads as banking, not sliding
+            sideways on rails. */}
         {w.butterflies &&
           w.butterflies.map((col, i) => {
             const per = 15 + i * 4;
             const a = ((t + i * 7) % per) / per;
             const x = -70 + a * (W + 140);
-            const y = H * (0.14 + i * 0.1) + Math.sin(t * 1.6 + i * 2) * 42;
+            const drift = Math.sin(t * 1.6 + i * 2);
+            const y = H * (0.14 + i * 0.1) + drift * 42;
             const flap = Math.abs(Math.sin(t * 9 + i));
+            const wingOpen = 0.3 + flap * 0.7;
             return (
-              <g key={`bf${i}`} transform={`translate(${x} ${y})`}>
+              <g key={`bf${i}`} transform={`translate(${x} ${y}) rotate(${drift * 14})`}>
                 {[-1, 1].map((side) => (
-                  <ellipse
-                    key={side}
-                    cx={side * 12}
-                    cy={0}
-                    rx={12 * (0.35 + flap * 0.65)}
-                    ry={15}
-                    fill={col}
-                    opacity={0.95}
-                  />
+                  <g key={side} transform={`scale(${side * wingOpen} 1)`}>
+                    {/* upper wing — the bigger, rounder lobe */}
+                    <path d="M 2 -2 C 10 -20 30 -22 34 -6 C 36 4 22 8 8 4 Z" fill={col} opacity={0.96} />
+                    {/* lower wing — smaller, trailing */}
+                    <path d="M 2 2 C 8 14 22 18 24 8 C 25 2 14 -1 6 1 Z" fill={col} opacity={0.8} />
+                    {/* a pale spot on the upper wing — the detail that stops it reading as a flat cutout */}
+                    <ellipse cx={18} cy={-8} rx={4} ry={3} fill="#FFFFFF" opacity={0.55} />
+                  </g>
                 ))}
-                <rect x={-2} y={-9} width={4} height={18} rx={2} fill="#4A3A16" />
+                {/* body — a small round head, then a tapered thorax/abdomen */}
+                <circle cx={0} cy={-6} r={2.4} fill="#3A2A1E" />
+                <path d="M 0 -4 Q -1.6 6 0 14 Q 1.6 6 0 -4 Z" fill="#3A2A1E" />
+                {/* antennae */}
+                <path
+                  d="M 0 -8 Q -4 -14 -6 -17 M 0 -8 Q 4 -14 6 -17"
+                  stroke="#3A2A1E"
+                  strokeWidth={1.2}
+                  fill="none"
+                  strokeLinecap="round"
+                />
               </g>
             );
           })}
+
+        {/* E15 · the sea-otter kelp cove — only worlds that set `cove` draw it */}
+        {w.cove && <CoveLayer cove={w.cove} t={t} W={W} H={H} />}
+        {/* E08 · Dino Valley — only worlds that set `dino` draw it */}
+        {w.dino && <DinoLayer dino={w.dino} t={t} W={W} H={H} />}
+        {w.bb && <ThemeLayer theme={w.bb.theme} mood={w.bb.mood} t={t} W={W} H={H} />}
 
         {w.vignette && <rect x={0} y={0} width={W} height={H} fill="url(#vig)" />}
       </svg>

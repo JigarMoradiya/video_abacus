@@ -1,0 +1,502 @@
+[
+  {
+    "word": "A",
+    "start": 0.0,
+    "end": 0.24
+  },
+  {
+    "word": "secret",
+    "start": 0.24,
+    "end": 0.78
+  },
+  {
+    "word": "number",
+    "start": 0.78,
+    "end": 1.32
+  },
+  {
+    "word": "hides",
+    "start": 1.32,
+    "end": 1.74
+  },
+  {
+    "word": "in",
+    "start": 1.74,
+    "end": 2.1
+  },
+  {
+    "word": "the",
+    "start": 2.1,
+    "end": 2.26
+  },
+  {
+    "word": "range...",
+    "start": 2.26,
+    "end": 2.9
+  },
+  {
+    "word": "can",
+    "start": 3.42,
+    "end": 3.52
+  },
+  {
+    "word": "you",
+    "start": 3.52,
+    "end": 3.78
+  },
+  {
+    "word": "crack",
+    "start": 3.78,
+    "end": 4.04
+  },
+  {
+    "word": "it?",
+    "start": 4.04,
+    "end": 4.36
+  },
+  {
+    "word": "This",
+    "start": 6.02,
+    "end": 6.46
+  },
+  {
+    "word": "is",
+    "start": 6.46,
+    "end": 6.68
+  },
+  {
+    "word": "Number",
+    "start": 6.68,
+    "end": 7.18
+  },
+  {
+    "word": "Detective!",
+    "start": 7.18,
+    "end": 7.8
+  },
+  {
+    "word": "Guess",
+    "start": 9.32,
+    "end": 9.58
+  },
+  {
+    "word": "a",
+    "start": 9.58,
+    "end": 9.72
+  },
+  {
+    "word": "number",
+    "start": 9.72,
+    "end": 10.04
+  },
+  {
+    "word": "too",
+    "start": 10.7,
+    "end": 10.8
+  },
+  {
+    "word": "high",
+    "start": 10.8,
+    "end": 11.16
+  },
+  {
+    "word": "or",
+    "start": 11.16,
+    "end": 11.68
+  },
+  {
+    "word": "too",
+    "start": 11.68,
+    "end": 11.92
+  },
+  {
+    "word": "low,",
+    "start": 11.92,
+    "end": 12.24
+  },
+  {
+    "word": "the",
+    "start": 12.88,
+    "end": 12.94
+  },
+  {
+    "word": "clues",
+    "start": 12.94,
+    "end": 13.3
+  },
+  {
+    "word": "point",
+    "start": 13.3,
+    "end": 13.76
+  },
+  {
+    "word": "the",
+    "start": 13.76,
+    "end": 14.08
+  },
+  {
+    "word": "way!",
+    "start": 14.08,
+    "end": 14.42
+  },
+  {
+    "word": "Guess",
+    "start": 15.8,
+    "end": 16.1
+  },
+  {
+    "word": "ten...",
+    "start": 16.1,
+    "end": 16.52
+  },
+  {
+    "word": "too",
+    "start": 17.34,
+    "end": 17.5
+  },
+  {
+    "word": "low,",
+    "start": 17.5,
+    "end": 17.88
+  },
+  {
+    "word": "arrow",
+    "start": 19.6,
+    "end": 20.04
+  },
+  {
+    "word": "up!",
+    "start": 20.04,
+    "end": 20.46
+  },
+  {
+    "word": "Guess",
+    "start": 21.98,
+    "end": 22.38
+  },
+  {
+    "word": "sixteen...",
+    "start": 22.38,
+    "end": 22.98
+  },
+  {
+    "word": "too",
+    "start": 23.76,
+    "end": 23.9
+  },
+  {
+    "word": "high,",
+    "start": 23.9,
+    "end": 24.36
+  },
+  {
+    "word": "arrow",
+    "start": 25.88,
+    "end": 26.26
+  },
+  {
+    "word": "down!",
+    "start": 26.26,
+    "end": 26.66
+  },
+  {
+    "word": "Guess",
+    "start": 27.9,
+    "end": 28.6
+  },
+  {
+    "word": "fourteen...",
+    "start": 28.6,
+    "end": 29.24
+  },
+  {
+    "word": "that's",
+    "start": 30.52,
+    "end": 31.22
+  },
+  {
+    "word": "it",
+    "start": 31.22,
+    "end": 31.38
+  },
+  {
+    "word": "case",
+    "start": 31.82,
+    "end": 32.14
+  },
+  {
+    "word": "cracked!",
+    "start": 32.14,
+    "end": 32.8
+  },
+  {
+    "word": "Narrow",
+    "start": 34.36,
+    "end": 34.68
+  },
+  {
+    "word": "the",
+    "start": 34.68,
+    "end": 34.84
+  },
+  {
+    "word": "range",
+    "start": 34.84,
+    "end": 35.1
+  },
+  {
+    "word": "with",
+    "start": 35.1,
+    "end": 35.34
+  },
+  {
+    "word": "every",
+    "start": 35.34,
+    "end": 35.78
+  },
+  {
+    "word": "clue",
+    "start": 35.78,
+    "end": 36.14
+  },
+  {
+    "word": "how",
+    "start": 36.94,
+    "end": 37.04
+  },
+  {
+    "word": "few",
+    "start": 37.04,
+    "end": 37.3
+  },
+  {
+    "word": "guesses",
+    "start": 37.3,
+    "end": 37.7
+  },
+  {
+    "word": "can",
+    "start": 37.7,
+    "end": 38.12
+  },
+  {
+    "word": "you",
+    "start": 38.12,
+    "end": 38.28
+  },
+  {
+    "word": "crack",
+    "start": 38.28,
+    "end": 38.5
+  },
+  {
+    "word": "it",
+    "start": 38.5,
+    "end": 38.7
+  },
+  {
+    "word": "in?",
+    "start": 38.7,
+    "end": 38.98
+  },
+  {
+    "word": "Parents",
+    "start": 40.58,
+    "end": 41.02
+  },
+  {
+    "word": "this",
+    "start": 41.48,
+    "end": 41.68
+  },
+  {
+    "word": "builds",
+    "start": 41.68,
+    "end": 42.04
+  },
+  {
+    "word": "number",
+    "start": 42.04,
+    "end": 42.46
+  },
+  {
+    "word": "sense",
+    "start": 42.46,
+    "end": 42.86
+  },
+  {
+    "word": "and",
+    "start": 42.86,
+    "end": 43.18
+  },
+  {
+    "word": "logical",
+    "start": 43.18,
+    "end": 43.56
+  },
+  {
+    "word": "thinking,",
+    "start": 43.56,
+    "end": 44.14
+  },
+  {
+    "word": "one",
+    "start": 44.74,
+    "end": 44.92
+  },
+  {
+    "word": "clue",
+    "start": 44.92,
+    "end": 45.28
+  },
+  {
+    "word": "at",
+    "start": 45.28,
+    "end": 45.58
+  },
+  {
+    "word": "a",
+    "start": 45.58,
+    "end": 45.72
+  },
+  {
+    "word": "time!",
+    "start": 45.72,
+    "end": 46.18
+  },
+  {
+    "word": "Find",
+    "start": 47.26,
+    "end": 47.96
+  },
+  {
+    "word": "it",
+    "start": 47.96,
+    "end": 48.1
+  },
+  {
+    "word": "in",
+    "start": 48.1,
+    "end": 48.28
+  },
+  {
+    "word": "the",
+    "start": 48.28,
+    "end": 48.44
+  },
+  {
+    "word": "app",
+    "start": 48.44,
+    "end": 48.72
+  },
+  {
+    "word": "tap",
+    "start": 49.14,
+    "end": 49.26
+  },
+  {
+    "word": "Math",
+    "start": 49.26,
+    "end": 49.58
+  },
+  {
+    "word": "Game",
+    "start": 49.58,
+    "end": 49.88
+  },
+  {
+    "word": "Zone,",
+    "start": 49.88,
+    "end": 50.22
+  },
+  {
+    "word": "pick",
+    "start": 50.74,
+    "end": 50.86
+  },
+  {
+    "word": "Number",
+    "start": 50.86,
+    "end": 51.2
+  },
+  {
+    "word": "Detective,",
+    "start": 51.2,
+    "end": 51.72
+  },
+  {
+    "word": "choose",
+    "start": 52.26,
+    "end": 52.46
+  },
+  {
+    "word": "your",
+    "start": 52.46,
+    "end": 52.68
+  },
+  {
+    "word": "level,",
+    "start": 52.68,
+    "end": 52.98
+  },
+  {
+    "word": "and",
+    "start": 52.98,
+    "end": 53.44
+  },
+  {
+    "word": "play!",
+    "start": 53.44,
+    "end": 53.74
+  },
+  {
+    "word": "Abacus",
+    "start": 54.96,
+    "end": 55.52
+  },
+  {
+    "word": "Kids",
+    "start": 55.52,
+    "end": 55.76
+  },
+  {
+    "word": "free",
+    "start": 56.4,
+    "end": 56.48
+  },
+  {
+    "word": "on",
+    "start": 56.48,
+    "end": 56.68
+  },
+  {
+    "word": "the",
+    "start": 56.68,
+    "end": 56.84
+  },
+  {
+    "word": "App",
+    "start": 56.84,
+    "end": 57.04
+  },
+  {
+    "word": "Store",
+    "start": 57.04,
+    "end": 57.32
+  },
+  {
+    "word": "and",
+    "start": 57.32,
+    "end": 57.72
+  },
+  {
+    "word": "Google",
+    "start": 57.72,
+    "end": 58.0
+  },
+  {
+    "word": "Play!",
+    "start": 58.0,
+    "end": 58.4
+  }
+]

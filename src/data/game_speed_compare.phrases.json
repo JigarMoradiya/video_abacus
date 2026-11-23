@@ -1,0 +1,656 @@
+[
+  {
+    "index": 0,
+    "text": "Whoa \u2014 look at that scale tip!",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 2.16,
+    "duration": 2.16,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Whoa",
+        "start": 0.0,
+        "end": 0.48
+      },
+      {
+        "word": "look",
+        "start": 0.82,
+        "end": 1.1
+      },
+      {
+        "word": "at",
+        "start": 1.1,
+        "end": 1.26
+      },
+      {
+        "word": "that",
+        "start": 1.26,
+        "end": 1.46
+      },
+      {
+        "word": "scale",
+        "start": 1.46,
+        "end": 1.8
+      },
+      {
+        "word": "tip!",
+        "start": 1.8,
+        "end": 2.16
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "This is Speed Compare!",
+    "line_index": 0,
+    "start": 2.84,
+    "end": 4.4,
+    "duration": 1.56,
+    "matched": 4,
+    "words": [
+      {
+        "word": "This",
+        "start": 2.84,
+        "end": 3.04
+      },
+      {
+        "word": "is",
+        "start": 3.04,
+        "end": 3.48
+      },
+      {
+        "word": "Speed",
+        "start": 3.48,
+        "end": 3.84
+      },
+      {
+        "word": "Compare!",
+        "start": 3.84,
+        "end": 4.4
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Two numbers...",
+    "line_index": 1,
+    "start": 6.3,
+    "end": 6.8,
+    "duration": 0.5,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Two",
+        "start": 5.76,
+        "end": 6.42
+      },
+      {
+        "word": "numbers...",
+        "start": 6.42,
+        "end": 6.8
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "or two whole equations...",
+    "line_index": 1,
+    "start": 6.8,
+    "end": 9.18,
+    "duration": 2.38,
+    "matched": 4,
+    "words": [
+      {
+        "word": "or",
+        "start": 6.8,
+        "end": 7.94
+      },
+      {
+        "word": "two",
+        "start": 7.94,
+        "end": 8.22
+      },
+      {
+        "word": "whole",
+        "start": 8.22,
+        "end": 8.6
+      },
+      {
+        "word": "equations...",
+        "start": 8.6,
+        "end": 9.18
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "which side is bigger?",
+    "line_index": 1,
+    "start": 10.32,
+    "end": 11.24,
+    "duration": 0.92,
+    "matched": 4,
+    "words": [
+      {
+        "word": "which",
+        "start": 10.02,
+        "end": 10.46
+      },
+      {
+        "word": "side",
+        "start": 10.46,
+        "end": 10.78
+      },
+      {
+        "word": "is",
+        "start": 10.78,
+        "end": 10.98
+      },
+      {
+        "word": "bigger?",
+        "start": 10.98,
+        "end": 11.24
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "Nine...",
+    "line_index": 2,
+    "start": 14.01,
+    "end": 14.56,
+    "duration": 0.55,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Nine...",
+        "start": 13.78,
+        "end": 14.56
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "or five?",
+    "line_index": 2,
+    "start": 14.56,
+    "end": 15.84,
+    "duration": 1.28,
+    "matched": 2,
+    "words": [
+      {
+        "word": "or",
+        "start": 14.56,
+        "end": 15.34
+      },
+      {
+        "word": "five?",
+        "start": 15.34,
+        "end": 15.84
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "The scale tips toward nine!",
+    "line_index": 2,
+    "start": 20.48,
+    "end": 22.4,
+    "duration": 1.92,
+    "matched": 4,
+    "words": [
+      {
+        "word": "The",
+        "start": 20.02,
+        "end": 20.54
+      },
+      {
+        "word": "scale",
+        "start": 20.54,
+        "end": 20.96
+      },
+      {
+        "word": "tips",
+        "start": 20.96,
+        "end": 21.26
+      },
+      {
+        "word": "toward",
+        "start": 21.26,
+        "end": 21.74
+      },
+      {
+        "word": "nine!",
+        "start": 21.74,
+        "end": 22.4
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "Tap the sign \u2014 greater than, less than, or equal!",
+    "line_index": 3,
+    "start": 24.38,
+    "end": 28.12,
+    "duration": 3.74,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Tap",
+        "start": 24.1,
+        "end": 24.5
+      },
+      {
+        "word": "the",
+        "start": 24.5,
+        "end": 24.7
+      },
+      {
+        "word": "sign",
+        "start": 24.7,
+        "end": 25.06
+      },
+      {
+        "word": "greater",
+        "start": 25.06,
+        "end": 25.82
+      },
+      {
+        "word": "than,",
+        "start": 25.82,
+        "end": 26.32
+      },
+      {
+        "word": "less",
+        "start": 26.68,
+        "end": 26.9
+      },
+      {
+        "word": "than,",
+        "start": 26.9,
+        "end": 27.28
+      },
+      {
+        "word": "or",
+        "start": 27.28,
+        "end": 27.72
+      },
+      {
+        "word": "equal!",
+        "start": 27.72,
+        "end": 28.12
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Get it right, the scale locks in, and the next round pops up fast!",
+    "line_index": 4,
+    "start": 30.15,
+    "end": 34.58,
+    "duration": 4.43,
+    "matched": 14,
+    "words": [
+      {
+        "word": "Get",
+        "start": 30.0,
+        "end": 30.26
+      },
+      {
+        "word": "it",
+        "start": 30.26,
+        "end": 30.4
+      },
+      {
+        "word": "right,",
+        "start": 30.4,
+        "end": 30.62
+      },
+      {
+        "word": "the",
+        "start": 30.92,
+        "end": 31.02
+      },
+      {
+        "word": "scale",
+        "start": 31.02,
+        "end": 31.34
+      },
+      {
+        "word": "locks",
+        "start": 31.34,
+        "end": 31.64
+      },
+      {
+        "word": "in,",
+        "start": 31.64,
+        "end": 32.08
+      },
+      {
+        "word": "and",
+        "start": 32.48,
+        "end": 32.68
+      },
+      {
+        "word": "the",
+        "start": 32.68,
+        "end": 32.8
+      },
+      {
+        "word": "next",
+        "start": 32.8,
+        "end": 33.08
+      },
+      {
+        "word": "round",
+        "start": 33.08,
+        "end": 33.38
+      },
+      {
+        "word": "pops",
+        "start": 33.38,
+        "end": 33.72
+      },
+      {
+        "word": "up",
+        "start": 33.72,
+        "end": 33.9
+      },
+      {
+        "word": "fast!",
+        "start": 33.9,
+        "end": 34.58
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Fifteen rounds to win \u2014 how quick can you go?",
+    "line_index": 5,
+    "start": 36.46,
+    "end": 39.62,
+    "duration": 3.16,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Fifteen",
+        "start": 36.34,
+        "end": 36.96
+      },
+      {
+        "word": "rounds",
+        "start": 36.96,
+        "end": 37.26
+      },
+      {
+        "word": "to",
+        "start": 37.26,
+        "end": 37.56
+      },
+      {
+        "word": "win",
+        "start": 37.56,
+        "end": 38.22
+      },
+      {
+        "word": "how",
+        "start": 38.22,
+        "end": 38.52
+      },
+      {
+        "word": "quick",
+        "start": 38.52,
+        "end": 38.8
+      },
+      {
+        "word": "can",
+        "start": 38.8,
+        "end": 39.1
+      },
+      {
+        "word": "you",
+        "start": 39.1,
+        "end": 39.34
+      },
+      {
+        "word": "go?",
+        "start": 39.34,
+        "end": 39.62
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "Parents \u2014 this builds number sense, so kids compare fast, not just count slow!",
+    "line_index": 6,
+    "start": 41.75,
+    "end": 47.66,
+    "duration": 5.91,
+    "matched": 13,
+    "words": [
+      {
+        "word": "Parents",
+        "start": 41.52,
+        "end": 42.14
+      },
+      {
+        "word": "this",
+        "start": 42.72,
+        "end": 42.92
+      },
+      {
+        "word": "builds",
+        "start": 42.92,
+        "end": 43.32
+      },
+      {
+        "word": "number",
+        "start": 43.32,
+        "end": 43.72
+      },
+      {
+        "word": "sense,",
+        "start": 43.72,
+        "end": 44.22
+      },
+      {
+        "word": "so",
+        "start": 44.56,
+        "end": 44.7
+      },
+      {
+        "word": "kids",
+        "start": 44.7,
+        "end": 44.96
+      },
+      {
+        "word": "compare",
+        "start": 44.96,
+        "end": 45.36
+      },
+      {
+        "word": "fast,",
+        "start": 45.36,
+        "end": 46.04
+      },
+      {
+        "word": "not",
+        "start": 46.3,
+        "end": 46.62
+      },
+      {
+        "word": "just",
+        "start": 46.62,
+        "end": 46.92
+      },
+      {
+        "word": "count",
+        "start": 46.92,
+        "end": 47.2
+      },
+      {
+        "word": "slow!",
+        "start": 47.2,
+        "end": 47.66
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Find it in the app \u2014 tap Math Game Zone, pick Speed Compare, choose your level, and play!",
+    "line_index": 7,
+    "start": 50.05,
+    "end": 56.36,
+    "duration": 6.31,
+    "matched": 16,
+    "words": [
+      {
+        "word": "Find",
+        "start": 49.72,
+        "end": 50.3
+      },
+      {
+        "word": "it",
+        "start": 50.3,
+        "end": 50.44
+      },
+      {
+        "word": "in",
+        "start": 50.44,
+        "end": 50.6
+      },
+      {
+        "word": "the",
+        "start": 50.6,
+        "end": 50.76
+      },
+      {
+        "word": "app",
+        "start": 50.76,
+        "end": 51.1
+      },
+      {
+        "word": "tap",
+        "start": 51.52,
+        "end": 51.64
+      },
+      {
+        "word": "Math",
+        "start": 51.64,
+        "end": 52.0
+      },
+      {
+        "word": "Game",
+        "start": 52.0,
+        "end": 52.32
+      },
+      {
+        "word": "Zone,",
+        "start": 52.32,
+        "end": 52.66
+      },
+      {
+        "word": "pick",
+        "start": 53.28,
+        "end": 53.42
+      },
+      {
+        "word": "Speed",
+        "start": 53.42,
+        "end": 53.78
+      },
+      {
+        "word": "Compare,",
+        "start": 53.78,
+        "end": 54.26
+      },
+      {
+        "word": "choose",
+        "start": 54.88,
+        "end": 55.02
+      },
+      {
+        "word": "your",
+        "start": 55.02,
+        "end": 55.26
+      },
+      {
+        "word": "level,",
+        "start": 55.26,
+        "end": 55.54
+      },
+      {
+        "word": "and",
+        "start": 55.54,
+        "end": 56.04
+      },
+      {
+        "word": "play!",
+        "start": 56.04,
+        "end": 56.36
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "Abacus Kids \u2014 free on the App Store and Google Play!",
+    "line_index": 8,
+    "start": 56.36,
+    "end": 62.24,
+    "duration": 5.88,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Abacus",
+        "start": 56.36,
+        "end": 59.2
+      },
+      {
+        "word": "Kids",
+        "start": 59.2,
+        "end": 59.64
+      },
+      {
+        "word": "free",
+        "start": 60.34,
+        "end": 60.42
+      },
+      {
+        "word": "on",
+        "start": 60.42,
+        "end": 60.62
+      },
+      {
+        "word": "the",
+        "start": 60.62,
+        "end": 60.78
+      },
+      {
+        "word": "App",
+        "start": 60.78,
+        "end": 60.96
+      },
+      {
+        "word": "Store",
+        "start": 60.96,
+        "end": 61.24
+      },
+      {
+        "word": "and",
+        "start": 61.24,
+        "end": 61.54
+      },
+      {
+        "word": "Google",
+        "start": 61.54,
+        "end": 61.86
+      },
+      {
+        "word": "Play!",
+        "start": 61.86,
+        "end": 62.24
+      }
+    ]
+  }
+]

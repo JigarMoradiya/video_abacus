@@ -1,0 +1,67 @@
+1
+00:00:00,000 --> 00:00:01,440
+A grid of boxes...
+
+2
+00:00:02,020 --> 00:00:05,240
+and every single line must add up the same!
+
+3
+00:00:06,460 --> 00:00:08,280
+This is Magic Square!
+
+4
+00:00:10,110 --> 00:00:13,580
+Every row and column has to equal fifteen!
+
+5
+00:00:15,180 --> 00:00:15,860
+Two...
+
+6
+00:00:15,860 --> 00:00:17,620
+plus seven...
+
+7
+00:00:17,620 --> 00:00:19,220
+plus six...
+
+8
+00:00:19,720 --> 00:00:20,680
+that's fifteen!
+
+9
+00:00:22,140 --> 00:00:23,040
+Four...
+
+10
+00:00:23,040 --> 00:00:24,280
+plus three...
+
+11
+00:00:24,280 --> 00:00:25,680
+plus eight...
+
+12
+00:00:26,400 --> 00:00:29,120
+fifteen again — the square is complete!
+
+13
+00:00:30,280 --> 00:00:33,960
+Every row, every column — all fifteen.
+
+14
+00:00:34,740 --> 00:00:35,760
+That's the magic!
+
+15
+00:00:37,140 --> 00:00:42,540
+Parents — this builds structured thinking, the foundation for algebra later!
+
+16
+00:00:43,700 --> 00:00:49,820
+Tap Math Game Zone, unlock Magic Square, pick your level, and complete the square!
+
+17
+00:00:49,820 --> 00:00:54,860
+Abacus Kids — yours free on the App Store and Google Play!

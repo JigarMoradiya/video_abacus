@@ -1,0 +1,522 @@
+[
+  {
+    "word": "A",
+    "start": 0.0,
+    "end": 0.24
+  },
+  {
+    "word": "grid",
+    "start": 0.24,
+    "end": 0.62
+  },
+  {
+    "word": "full",
+    "start": 0.62,
+    "end": 0.98
+  },
+  {
+    "word": "of",
+    "start": 0.98,
+    "end": 1.24
+  },
+  {
+    "word": "numbers...",
+    "start": 1.24,
+    "end": 1.62
+  },
+  {
+    "word": "with",
+    "start": 1.62,
+    "end": 2.34
+  },
+  {
+    "word": "a",
+    "start": 2.34,
+    "end": 2.5
+  },
+  {
+    "word": "few",
+    "start": 2.5,
+    "end": 2.84
+  },
+  {
+    "word": "missing",
+    "start": 2.84,
+    "end": 3.24
+  },
+  {
+    "word": "can",
+    "start": 4.02,
+    "end": 4.18
+  },
+  {
+    "word": "you",
+    "start": 4.18,
+    "end": 4.44
+  },
+  {
+    "word": "fill",
+    "start": 4.44,
+    "end": 4.66
+  },
+  {
+    "word": "them",
+    "start": 4.66,
+    "end": 4.9
+  },
+  {
+    "word": "in?",
+    "start": 4.9,
+    "end": 5.2
+  },
+  {
+    "word": "This",
+    "start": 7.36,
+    "end": 7.68
+  },
+  {
+    "word": "is",
+    "start": 7.68,
+    "end": 7.9
+  },
+  {
+    "word": "Sudoku!",
+    "start": 7.9,
+    "end": 8.46
+  },
+  {
+    "word": "Every",
+    "start": 9.28,
+    "end": 9.52
+  },
+  {
+    "word": "row,",
+    "start": 9.52,
+    "end": 9.86
+  },
+  {
+    "word": "column,",
+    "start": 10.22,
+    "end": 10.54
+  },
+  {
+    "word": "and",
+    "start": 10.54,
+    "end": 11.0
+  },
+  {
+    "word": "box",
+    "start": 11.0,
+    "end": 11.22
+  },
+  {
+    "word": "needs",
+    "start": 11.22,
+    "end": 11.68
+  },
+  {
+    "word": "the",
+    "start": 11.68,
+    "end": 11.98
+  },
+  {
+    "word": "same",
+    "start": 11.98,
+    "end": 12.3
+  },
+  {
+    "word": "numbers,",
+    "start": 12.3,
+    "end": 12.78
+  },
+  {
+    "word": "no",
+    "start": 13.36,
+    "end": 13.54
+  },
+  {
+    "word": "repeats!",
+    "start": 13.54,
+    "end": 13.92
+  },
+  {
+    "word": "One,",
+    "start": 15.3,
+    "end": 15.66
+  },
+  {
+    "word": "two...",
+    "start": 16.14,
+    "end": 16.64
+  },
+  {
+    "word": "and",
+    "start": 16.64,
+    "end": 17.52
+  },
+  {
+    "word": "four",
+    "start": 17.52,
+    "end": 17.88
+  },
+  {
+    "word": "are",
+    "start": 17.88,
+    "end": 18.16
+  },
+  {
+    "word": "here",
+    "start": 18.16,
+    "end": 18.5
+  },
+  {
+    "word": "so",
+    "start": 19.78,
+    "end": 20.06
+  },
+  {
+    "word": "the",
+    "start": 20.06,
+    "end": 20.22
+  },
+  {
+    "word": "missing",
+    "start": 20.22,
+    "end": 20.52
+  },
+  {
+    "word": "box",
+    "start": 20.52,
+    "end": 20.88
+  },
+  {
+    "word": "must",
+    "start": 20.88,
+    "end": 21.18
+  },
+  {
+    "word": "be",
+    "start": 21.18,
+    "end": 21.42
+  },
+  {
+    "word": "three!",
+    "start": 21.42,
+    "end": 21.88
+  },
+  {
+    "word": "Tap",
+    "start": 22.8,
+    "end": 23.06
+  },
+  {
+    "word": "the",
+    "start": 23.06,
+    "end": 23.28
+  },
+  {
+    "word": "cell,",
+    "start": 23.28,
+    "end": 23.52
+  },
+  {
+    "word": "tap",
+    "start": 24.16,
+    "end": 24.32
+  },
+  {
+    "word": "the",
+    "start": 24.32,
+    "end": 24.54
+  },
+  {
+    "word": "number,",
+    "start": 24.54,
+    "end": 24.84
+  },
+  {
+    "word": "and",
+    "start": 24.84,
+    "end": 25.34
+  },
+  {
+    "word": "the",
+    "start": 25.34,
+    "end": 25.5
+  },
+  {
+    "word": "row",
+    "start": 25.5,
+    "end": 25.78
+  },
+  {
+    "word": "locks",
+    "start": 25.78,
+    "end": 26.06
+  },
+  {
+    "word": "into",
+    "start": 26.06,
+    "end": 26.52
+  },
+  {
+    "word": "place!",
+    "start": 26.52,
+    "end": 26.9
+  },
+  {
+    "word": "No",
+    "start": 27.8,
+    "end": 28.48
+  },
+  {
+    "word": "repeats",
+    "start": 28.48,
+    "end": 28.92
+  },
+  {
+    "word": "in",
+    "start": 28.92,
+    "end": 29.24
+  },
+  {
+    "word": "any",
+    "start": 29.24,
+    "end": 29.6
+  },
+  {
+    "word": "row,",
+    "start": 29.6,
+    "end": 29.96
+  },
+  {
+    "word": "column,",
+    "start": 30.34,
+    "end": 30.58
+  },
+  {
+    "word": "or",
+    "start": 30.58,
+    "end": 30.9
+  },
+  {
+    "word": "box",
+    "start": 30.9,
+    "end": 31.24
+  },
+  {
+    "word": "that's",
+    "start": 31.9,
+    "end": 32.18
+  },
+  {
+    "word": "the",
+    "start": 32.18,
+    "end": 32.32
+  },
+  {
+    "word": "whole",
+    "start": 32.32,
+    "end": 32.48
+  },
+  {
+    "word": "puzzle!",
+    "start": 32.48,
+    "end": 32.9
+  },
+  {
+    "word": "Parents",
+    "start": 34.08,
+    "end": 34.54
+  },
+  {
+    "word": "this",
+    "start": 35.04,
+    "end": 35.28
+  },
+  {
+    "word": "builds",
+    "start": 35.28,
+    "end": 35.58
+  },
+  {
+    "word": "logic",
+    "start": 35.58,
+    "end": 36.02
+  },
+  {
+    "word": "and",
+    "start": 36.02,
+    "end": 36.26
+  },
+  {
+    "word": "careful",
+    "start": 36.26,
+    "end": 36.68
+  },
+  {
+    "word": "thinking",
+    "start": 36.68,
+    "end": 37.2
+  },
+  {
+    "word": "smart,",
+    "start": 37.8,
+    "end": 38.08
+  },
+  {
+    "word": "not",
+    "start": 38.4,
+    "end": 38.66
+  },
+  {
+    "word": "fast!",
+    "start": 38.66,
+    "end": 39.3
+  },
+  {
+    "word": "Ready",
+    "start": 40.62,
+    "end": 40.88
+  },
+  {
+    "word": "to",
+    "start": 40.88,
+    "end": 41.12
+  },
+  {
+    "word": "test",
+    "start": 41.12,
+    "end": 41.38
+  },
+  {
+    "word": "your",
+    "start": 41.38,
+    "end": 41.58
+  },
+  {
+    "word": "logic?",
+    "start": 41.58,
+    "end": 41.96
+  },
+  {
+    "word": "Tap",
+    "start": 42.76,
+    "end": 42.98
+  },
+  {
+    "word": "Math",
+    "start": 42.98,
+    "end": 43.34
+  },
+  {
+    "word": "Game",
+    "start": 43.34,
+    "end": 43.62
+  },
+  {
+    "word": "Zone,",
+    "start": 43.62,
+    "end": 43.98
+  },
+  {
+    "word": "dig",
+    "start": 43.98,
+    "end": 44.35
+  },
+  {
+    "word": "into",
+    "start": 43.98,
+    "end": 44.72
+  },
+  {
+    "word": "Sudoku,",
+    "start": 44.72,
+    "end": 45.24
+  },
+  {
+    "word": "pick",
+    "start": 45.9,
+    "end": 46.04
+  },
+  {
+    "word": "your",
+    "start": 46.04,
+    "end": 46.28
+  },
+  {
+    "word": "level,",
+    "start": 46.28,
+    "end": 46.56
+  },
+  {
+    "word": "and",
+    "start": 46.56,
+    "end": 47.04
+  },
+  {
+    "word": "get",
+    "start": 47.04,
+    "end": 47.36
+  },
+  {
+    "word": "solving!",
+    "start": 47.36,
+    "end": 47.92
+  },
+  {
+    "word": "Abacus",
+    "start": 49.04,
+    "end": 49.58
+  },
+  {
+    "word": "Kids",
+    "start": 49.58,
+    "end": 49.86
+  },
+  {
+    "word": "it's",
+    "start": 50.62,
+    "end": 50.82
+  },
+  {
+    "word": "free",
+    "start": 50.82,
+    "end": 51.06
+  },
+  {
+    "word": "on",
+    "start": 51.06,
+    "end": 51.3
+  },
+  {
+    "word": "the",
+    "start": 51.3,
+    "end": 51.46
+  },
+  {
+    "word": "App",
+    "start": 51.46,
+    "end": 51.66
+  },
+  {
+    "word": "Store",
+    "start": 51.66,
+    "end": 51.9
+  },
+  {
+    "word": "and",
+    "start": 51.9,
+    "end": 52.34
+  },
+  {
+    "word": "Google",
+    "start": 52.34,
+    "end": 52.62
+  },
+  {
+    "word": "Play!",
+    "start": 52.62,
+    "end": 52.98
+  }
+]

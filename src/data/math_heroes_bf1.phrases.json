@@ -1,0 +1,1436 @@
+[
+  {
+    "index": 0,
+    "text": "Big friends are two numbers that make ten together!",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 2.86,
+    "duration": 2.86,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Big",
+        "start": 0.0,
+        "end": 0.32
+      },
+      {
+        "word": "friends",
+        "start": 0.32,
+        "end": 0.68
+      },
+      {
+        "word": "are",
+        "start": 0.68,
+        "end": 0.96
+      },
+      {
+        "word": "two",
+        "start": 0.96,
+        "end": 1.28
+      },
+      {
+        "word": "numbers",
+        "start": 1.28,
+        "end": 1.64
+      },
+      {
+        "word": "that",
+        "start": 1.64,
+        "end": 1.9
+      },
+      {
+        "word": "make",
+        "start": 1.9,
+        "end": 2.08
+      },
+      {
+        "word": "ten",
+        "start": 2.08,
+        "end": 2.4
+      },
+      {
+        "word": "together!",
+        "start": 2.4,
+        "end": 2.86
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "Nine and one.",
+    "line_index": 1,
+    "start": 3.54,
+    "end": 4.44,
+    "duration": 0.9,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Nine",
+        "start": 3.54,
+        "end": 3.78
+      },
+      {
+        "word": "and",
+        "start": 3.78,
+        "end": 4.12
+      },
+      {
+        "word": "one.",
+        "start": 4.12,
+        "end": 4.44
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Eight and two.",
+    "line_index": 1,
+    "start": 5.094,
+    "end": 6.04,
+    "duration": 0.946,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Eight",
+        "start": 5.094,
+        "end": 5.32
+      },
+      {
+        "word": "and",
+        "start": 5.32,
+        "end": 5.64
+      },
+      {
+        "word": "two.",
+        "start": 5.64,
+        "end": 6.04
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "Seven and three.",
+    "line_index": 1,
+    "start": 6.546,
+    "end": 7.46,
+    "duration": 0.914,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Seven",
+        "start": 6.546,
+        "end": 6.88
+      },
+      {
+        "word": "and",
+        "start": 6.88,
+        "end": 7.16
+      },
+      {
+        "word": "three.",
+        "start": 7.16,
+        "end": 7.46
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Six and four.",
+    "line_index": 1,
+    "start": 8.12,
+    "end": 9.18,
+    "duration": 1.06,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Six",
+        "start": 8.12,
+        "end": 8.36
+      },
+      {
+        "word": "and",
+        "start": 8.36,
+        "end": 8.74
+      },
+      {
+        "word": "four.",
+        "start": 8.74,
+        "end": 9.18
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "When the ones rod has no room to add, a big friend helps us carry to the tens rod!",
+    "line_index": 2,
+    "start": 9.9,
+    "end": 14.74,
+    "duration": 4.84,
+    "matched": 19,
+    "words": [
+      {
+        "word": "When",
+        "start": 9.9,
+        "end": 9.92
+      },
+      {
+        "word": "the",
+        "start": 9.92,
+        "end": 10.1
+      },
+      {
+        "word": "ones",
+        "start": 10.1,
+        "end": 10.32
+      },
+      {
+        "word": "rod",
+        "start": 10.32,
+        "end": 10.6
+      },
+      {
+        "word": "has",
+        "start": 10.6,
+        "end": 10.88
+      },
+      {
+        "word": "no",
+        "start": 10.88,
+        "end": 11.2
+      },
+      {
+        "word": "room",
+        "start": 11.2,
+        "end": 11.44
+      },
+      {
+        "word": "to",
+        "start": 11.44,
+        "end": 11.6
+      },
+      {
+        "word": "add,",
+        "start": 11.6,
+        "end": 11.9
+      },
+      {
+        "word": "a",
+        "start": 12.328,
+        "end": 12.42
+      },
+      {
+        "word": "big",
+        "start": 12.42,
+        "end": 12.7
+      },
+      {
+        "word": "friend",
+        "start": 12.7,
+        "end": 13.04
+      },
+      {
+        "word": "helps",
+        "start": 13.04,
+        "end": 13.3
+      },
+      {
+        "word": "us",
+        "start": 13.3,
+        "end": 13.5
+      },
+      {
+        "word": "carry",
+        "start": 13.5,
+        "end": 13.78
+      },
+      {
+        "word": "to",
+        "start": 13.78,
+        "end": 13.98
+      },
+      {
+        "word": "the",
+        "start": 13.98,
+        "end": 14.12
+      },
+      {
+        "word": "tens",
+        "start": 14.12,
+        "end": 14.38
+      },
+      {
+        "word": "rod!",
+        "start": 14.38,
+        "end": 14.74
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Alert at the ticket counter!",
+    "line_index": 3,
+    "start": 15.242,
+    "end": 16.52,
+    "duration": 1.278,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Alert",
+        "start": 15.242,
+        "end": 15.52
+      },
+      {
+        "word": "at",
+        "start": 15.52,
+        "end": 15.76
+      },
+      {
+        "word": "the",
+        "start": 15.76,
+        "end": 15.86
+      },
+      {
+        "word": "ticket",
+        "start": 15.86,
+        "end": 16.1
+      },
+      {
+        "word": "counter!",
+        "start": 16.1,
+        "end": 16.52
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "Twenty-nine plus one is stuck!",
+    "line_index": 3,
+    "start": 17.06,
+    "end": 18.64,
+    "duration": 1.58,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Twenty-nine",
+        "start": 17.06,
+        "end": 17.44
+      },
+      {
+        "word": "plus",
+        "start": 17.44,
+        "end": 17.74
+      },
+      {
+        "word": "one",
+        "start": 17.74,
+        "end": 18.1
+      },
+      {
+        "word": "is",
+        "start": 18.1,
+        "end": 18.28
+      },
+      {
+        "word": "stuck!",
+        "start": 18.28,
+        "end": 18.64
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "There's no room to add one.",
+    "line_index": 4,
+    "start": 19.282,
+    "end": 20.62,
+    "duration": 1.338,
+    "matched": 6,
+    "words": [
+      {
+        "word": "There's",
+        "start": 19.282,
+        "end": 19.48
+      },
+      {
+        "word": "no",
+        "start": 19.48,
+        "end": 19.7
+      },
+      {
+        "word": "room",
+        "start": 19.7,
+        "end": 19.98
+      },
+      {
+        "word": "to",
+        "start": 19.98,
+        "end": 20.14
+      },
+      {
+        "word": "add",
+        "start": 20.14,
+        "end": 20.34
+      },
+      {
+        "word": "one.",
+        "start": 20.34,
+        "end": 20.62
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Let's call a friend!",
+    "line_index": 4,
+    "start": 21.029,
+    "end": 21.82,
+    "duration": 0.791,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 21.029,
+        "end": 21.24
+      },
+      {
+        "word": "call",
+        "start": 21.24,
+        "end": 21.38
+      },
+      {
+        "word": "a",
+        "start": 21.38,
+        "end": 21.52
+      },
+      {
+        "word": "friend!",
+        "start": 21.52,
+        "end": 21.82
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "One's friend is nine!",
+    "line_index": 5,
+    "start": 24.769,
+    "end": 26.04,
+    "duration": 1.271,
+    "matched": 4,
+    "words": [
+      {
+        "word": "One's",
+        "start": 24.769,
+        "end": 25.18
+      },
+      {
+        "word": "friend",
+        "start": 25.18,
+        "end": 25.4
+      },
+      {
+        "word": "is",
+        "start": 25.4,
+        "end": 25.68
+      },
+      {
+        "word": "nine!",
+        "start": 25.68,
+        "end": 26.04
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "Take away nine, then add ten!",
+    "line_index": 6,
+    "start": 26.685,
+    "end": 28.8,
+    "duration": 2.115,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Take",
+        "start": 26.685,
+        "end": 26.86
+      },
+      {
+        "word": "away",
+        "start": 26.86,
+        "end": 27.1
+      },
+      {
+        "word": "nine,",
+        "start": 27.1,
+        "end": 27.46
+      },
+      {
+        "word": "then",
+        "start": 27.74,
+        "end": 28.12
+      },
+      {
+        "word": "add",
+        "start": 28.12,
+        "end": 28.46
+      },
+      {
+        "word": "ten!",
+        "start": 28.46,
+        "end": 28.8
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Twenty-nine plus one is thirty!",
+    "line_index": 7,
+    "start": 29.442,
+    "end": 31.26,
+    "duration": 1.818,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Twenty-nine",
+        "start": 29.442,
+        "end": 29.72
+      },
+      {
+        "word": "plus",
+        "start": 29.72,
+        "end": 30.16
+      },
+      {
+        "word": "one",
+        "start": 30.16,
+        "end": 30.54
+      },
+      {
+        "word": "is",
+        "start": 30.54,
+        "end": 30.84
+      },
+      {
+        "word": "thirty!",
+        "start": 30.84,
+        "end": 31.26
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "Next ticket, please!",
+    "line_index": 7,
+    "start": 31.731,
+    "end": 32.5,
+    "duration": 0.769,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Next",
+        "start": 31.731,
+        "end": 31.92
+      },
+      {
+        "word": "ticket,",
+        "start": 31.92,
+        "end": 32.22
+      },
+      {
+        "word": "please!",
+        "start": 32.34,
+        "end": 32.5
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "Next ticket!",
+    "line_index": 8,
+    "start": 33.14,
+    "end": 33.66,
+    "duration": 0.52,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Next",
+        "start": 33.14,
+        "end": 33.28
+      },
+      {
+        "word": "ticket!",
+        "start": 33.28,
+        "end": 33.66
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "Thirty-nine plus two is stuck!",
+    "line_index": 8,
+    "start": 34.22,
+    "end": 35.82,
+    "duration": 1.6,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Thirty-nine",
+        "start": 34.22,
+        "end": 34.58
+      },
+      {
+        "word": "plus",
+        "start": 34.58,
+        "end": 34.86
+      },
+      {
+        "word": "two",
+        "start": 34.86,
+        "end": 35.24
+      },
+      {
+        "word": "is",
+        "start": 35.24,
+        "end": 35.46
+      },
+      {
+        "word": "stuck!",
+        "start": 35.46,
+        "end": 35.82
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "There's no room to add two.",
+    "line_index": 9,
+    "start": 36.431,
+    "end": 37.78,
+    "duration": 1.349,
+    "matched": 6,
+    "words": [
+      {
+        "word": "There's",
+        "start": 36.431,
+        "end": 36.62
+      },
+      {
+        "word": "no",
+        "start": 36.62,
+        "end": 36.86
+      },
+      {
+        "word": "room",
+        "start": 36.86,
+        "end": 37.12
+      },
+      {
+        "word": "to",
+        "start": 37.12,
+        "end": 37.3
+      },
+      {
+        "word": "add",
+        "start": 37.3,
+        "end": 37.5
+      },
+      {
+        "word": "two.",
+        "start": 37.5,
+        "end": 37.78
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "Friend time!",
+    "line_index": 9,
+    "start": 38.28,
+    "end": 38.78,
+    "duration": 0.5,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Friend",
+        "start": 38.28,
+        "end": 38.44
+      },
+      {
+        "word": "time!",
+        "start": 38.44,
+        "end": 38.78
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "Two's friend is eight!",
+    "line_index": 10,
+    "start": 41.708,
+    "end": 42.86,
+    "duration": 1.152,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Two's",
+        "start": 41.708,
+        "end": 42.02
+      },
+      {
+        "word": "friend",
+        "start": 42.02,
+        "end": 42.26
+      },
+      {
+        "word": "is",
+        "start": 42.26,
+        "end": 42.52
+      },
+      {
+        "word": "eight!",
+        "start": 42.52,
+        "end": 42.86
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "Take away eight, then add ten!",
+    "line_index": 11,
+    "start": 43.427,
+    "end": 45.48,
+    "duration": 2.053,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Take",
+        "start": 43.427,
+        "end": 43.6
+      },
+      {
+        "word": "away",
+        "start": 43.6,
+        "end": 43.86
+      },
+      {
+        "word": "eight,",
+        "start": 43.86,
+        "end": 44.22
+      },
+      {
+        "word": "then",
+        "start": 44.44,
+        "end": 44.8
+      },
+      {
+        "word": "add",
+        "start": 44.8,
+        "end": 45.14
+      },
+      {
+        "word": "ten!",
+        "start": 45.14,
+        "end": 45.48
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "Thirty-nine plus two is forty-one!",
+    "line_index": 12,
+    "start": 46.138,
+    "end": 48.06,
+    "duration": 1.922,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Thirty-nine",
+        "start": 46.138,
+        "end": 46.5
+      },
+      {
+        "word": "plus",
+        "start": 46.5,
+        "end": 46.8
+      },
+      {
+        "word": "two",
+        "start": 46.8,
+        "end": 47.18
+      },
+      {
+        "word": "is",
+        "start": 47.18,
+        "end": 47.46
+      },
+      {
+        "word": "forty-one!",
+        "start": 47.46,
+        "end": 48.06
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "Line keeps moving!",
+    "line_index": 12,
+    "start": 48.542,
+    "end": 49.36,
+    "duration": 0.818,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Line",
+        "start": 48.542,
+        "end": 48.76
+      },
+      {
+        "word": "keeps",
+        "start": 48.76,
+        "end": 49.0
+      },
+      {
+        "word": "moving!",
+        "start": 49.0,
+        "end": 49.36
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "Uh oh, sixty-eight plus three is stuck!",
+    "line_index": 13,
+    "start": 50.08,
+    "end": 52.52,
+    "duration": 2.44,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Uh",
+        "start": 50.08,
+        "end": 50.2
+      },
+      {
+        "word": "oh,",
+        "start": 50.2,
+        "end": 50.42
+      },
+      {
+        "word": "sixty-eight",
+        "start": 50.82,
+        "end": 51.3
+      },
+      {
+        "word": "plus",
+        "start": 51.3,
+        "end": 51.54
+      },
+      {
+        "word": "three",
+        "start": 51.54,
+        "end": 51.94
+      },
+      {
+        "word": "is",
+        "start": 51.94,
+        "end": 52.14
+      },
+      {
+        "word": "stuck!",
+        "start": 52.14,
+        "end": 52.52
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "There's no room to add three.",
+    "line_index": 14,
+    "start": 53.205,
+    "end": 54.48,
+    "duration": 1.275,
+    "matched": 6,
+    "words": [
+      {
+        "word": "There's",
+        "start": 53.205,
+        "end": 53.38
+      },
+      {
+        "word": "no",
+        "start": 53.38,
+        "end": 53.62
+      },
+      {
+        "word": "room",
+        "start": 53.62,
+        "end": 53.86
+      },
+      {
+        "word": "to",
+        "start": 53.86,
+        "end": 54.02
+      },
+      {
+        "word": "add",
+        "start": 54.02,
+        "end": 54.2
+      },
+      {
+        "word": "three.",
+        "start": 54.2,
+        "end": 54.48
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "Friend, now!",
+    "line_index": 14,
+    "start": 54.908,
+    "end": 55.68,
+    "duration": 0.772,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Friend,",
+        "start": 54.908,
+        "end": 55.16
+      },
+      {
+        "word": "now!",
+        "start": 55.42,
+        "end": 55.68
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "Three's friend is seven!",
+    "line_index": 15,
+    "start": 58.684,
+    "end": 59.92,
+    "duration": 1.236,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Three's",
+        "start": 58.684,
+        "end": 59.02
+      },
+      {
+        "word": "friend",
+        "start": 59.02,
+        "end": 59.24
+      },
+      {
+        "word": "is",
+        "start": 59.24,
+        "end": 59.52
+      },
+      {
+        "word": "seven!",
+        "start": 59.52,
+        "end": 59.92
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "Take away seven, then add ten!",
+    "line_index": 16,
+    "start": 60.467,
+    "end": 62.58,
+    "duration": 2.113,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Take",
+        "start": 60.467,
+        "end": 60.64
+      },
+      {
+        "word": "away",
+        "start": 60.64,
+        "end": 60.9
+      },
+      {
+        "word": "seven,",
+        "start": 60.9,
+        "end": 61.3
+      },
+      {
+        "word": "then",
+        "start": 61.58,
+        "end": 61.92
+      },
+      {
+        "word": "add",
+        "start": 61.92,
+        "end": 62.26
+      },
+      {
+        "word": "ten!",
+        "start": 62.26,
+        "end": 62.58
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "Sixty-eight plus three is seventy-one!",
+    "line_index": 17,
+    "start": 63.2,
+    "end": 65.26,
+    "duration": 2.06,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Sixty-eight",
+        "start": 63.2,
+        "end": 63.68
+      },
+      {
+        "word": "plus",
+        "start": 63.68,
+        "end": 63.98
+      },
+      {
+        "word": "three",
+        "start": 63.98,
+        "end": 64.38
+      },
+      {
+        "word": "is",
+        "start": 64.38,
+        "end": 64.62
+      },
+      {
+        "word": "seventy-one!",
+        "start": 64.62,
+        "end": 65.26
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "text": "Ticket's out!",
+    "line_index": 17,
+    "start": 65.699,
+    "end": 66.22,
+    "duration": 0.521,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Ticket's",
+        "start": 65.699,
+        "end": 65.9
+      },
+      {
+        "word": "out!",
+        "start": 65.9,
+        "end": 66.22
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "text": "Last ticket before opening time!",
+    "line_index": 18,
+    "start": 66.741,
+    "end": 68.34,
+    "duration": 1.599,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Last",
+        "start": 66.741,
+        "end": 67.02
+      },
+      {
+        "word": "ticket",
+        "start": 67.02,
+        "end": 67.3
+      },
+      {
+        "word": "before",
+        "start": 67.3,
+        "end": 67.58
+      },
+      {
+        "word": "opening",
+        "start": 67.58,
+        "end": 67.98
+      },
+      {
+        "word": "time!",
+        "start": 67.98,
+        "end": 68.34
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "text": "Fifty-seven plus four is stuck!",
+    "line_index": 18,
+    "start": 68.792,
+    "end": 70.54,
+    "duration": 1.748,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Fifty-seven",
+        "start": 68.792,
+        "end": 69.24
+      },
+      {
+        "word": "plus",
+        "start": 69.24,
+        "end": 69.56
+      },
+      {
+        "word": "four",
+        "start": 69.56,
+        "end": 69.98
+      },
+      {
+        "word": "is",
+        "start": 69.98,
+        "end": 70.2
+      },
+      {
+        "word": "stuck!",
+        "start": 70.2,
+        "end": 70.54
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "text": "There's no room to add four.",
+    "line_index": 19,
+    "start": 71.263,
+    "end": 72.56,
+    "duration": 1.297,
+    "matched": 6,
+    "words": [
+      {
+        "word": "There's",
+        "start": 71.263,
+        "end": 71.44
+      },
+      {
+        "word": "no",
+        "start": 71.44,
+        "end": 71.68
+      },
+      {
+        "word": "room",
+        "start": 71.68,
+        "end": 71.92
+      },
+      {
+        "word": "to",
+        "start": 71.92,
+        "end": 72.06
+      },
+      {
+        "word": "add",
+        "start": 72.06,
+        "end": 72.26
+      },
+      {
+        "word": "four.",
+        "start": 72.26,
+        "end": 72.56
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "text": "One more friend!",
+    "line_index": 19,
+    "start": 72.947,
+    "end": 73.62,
+    "duration": 0.673,
+    "matched": 3,
+    "words": [
+      {
+        "word": "One",
+        "start": 72.947,
+        "end": 73.1
+      },
+      {
+        "word": "more",
+        "start": 73.1,
+        "end": 73.26
+      },
+      {
+        "word": "friend!",
+        "start": 73.26,
+        "end": 73.62
+      }
+    ]
+  },
+  {
+    "index": 33,
+    "text": "Four's friend is six!",
+    "line_index": 20,
+    "start": 76.574,
+    "end": 77.72,
+    "duration": 1.146,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Four's",
+        "start": 76.574,
+        "end": 76.86
+      },
+      {
+        "word": "friend",
+        "start": 76.86,
+        "end": 77.12
+      },
+      {
+        "word": "is",
+        "start": 77.12,
+        "end": 77.38
+      },
+      {
+        "word": "six!",
+        "start": 77.38,
+        "end": 77.72
+      }
+    ]
+  },
+  {
+    "index": 34,
+    "text": "Take away six, then add ten!",
+    "line_index": 21,
+    "start": 78.34,
+    "end": 80.4,
+    "duration": 2.06,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Take",
+        "start": 78.34,
+        "end": 78.48
+      },
+      {
+        "word": "away",
+        "start": 78.48,
+        "end": 78.74
+      },
+      {
+        "word": "six,",
+        "start": 78.74,
+        "end": 79.12
+      },
+      {
+        "word": "then",
+        "start": 79.36,
+        "end": 79.68
+      },
+      {
+        "word": "add",
+        "start": 79.68,
+        "end": 80.04
+      },
+      {
+        "word": "ten!",
+        "start": 80.04,
+        "end": 80.4
+      }
+    ]
+  },
+  {
+    "index": 35,
+    "text": "Fifty-seven plus four is sixty-one!",
+    "line_index": 22,
+    "start": 81.024,
+    "end": 83.1,
+    "duration": 2.076,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Fifty-seven",
+        "start": 81.024,
+        "end": 81.28
+      },
+      {
+        "word": "plus",
+        "start": 81.28,
+        "end": 81.84
+      },
+      {
+        "word": "four",
+        "start": 81.84,
+        "end": 82.26
+      },
+      {
+        "word": "is",
+        "start": 82.26,
+        "end": 82.5
+      },
+      {
+        "word": "sixty-one!",
+        "start": 82.5,
+        "end": 83.1
+      }
+    ]
+  },
+  {
+    "index": 36,
+    "text": "Doors open, let's go!",
+    "line_index": 22,
+    "start": 83.605,
+    "end": 84.86,
+    "duration": 1.255,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Doors",
+        "start": 83.605,
+        "end": 83.88
+      },
+      {
+        "word": "open,",
+        "start": 83.88,
+        "end": 84.14
+      },
+      {
+        "word": "let's",
+        "start": 84.38,
+        "end": 84.62
+      },
+      {
+        "word": "go!",
+        "start": 84.62,
+        "end": 84.86
+      }
+    ]
+  },
+  {
+    "index": 37,
+    "text": "Every stuck number has a trick.",
+    "line_index": 23,
+    "start": 85.477,
+    "end": 87.04,
+    "duration": 1.563,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Every",
+        "start": 85.477,
+        "end": 85.7
+      },
+      {
+        "word": "stuck",
+        "start": 85.7,
+        "end": 86.0
+      },
+      {
+        "word": "number",
+        "start": 86.0,
+        "end": 86.38
+      },
+      {
+        "word": "has",
+        "start": 86.38,
+        "end": 86.68
+      },
+      {
+        "word": "a",
+        "start": 86.68,
+        "end": 86.82
+      },
+      {
+        "word": "trick.",
+        "start": 86.82,
+        "end": 87.04
+      }
+    ]
+  },
+  {
+    "index": 38,
+    "text": "Learn them all with Abacus Kids \u2014 free on the App Store and Google Play!",
+    "line_index": 23,
+    "start": 87.497,
+    "end": 91.56,
+    "duration": 4.063,
+    "matched": 14,
+    "words": [
+      {
+        "word": "Learn",
+        "start": 87.497,
+        "end": 87.62
+      },
+      {
+        "word": "them",
+        "start": 87.62,
+        "end": 87.84
+      },
+      {
+        "word": "all",
+        "start": 87.84,
+        "end": 88.14
+      },
+      {
+        "word": "with",
+        "start": 88.14,
+        "end": 88.4
+      },
+      {
+        "word": "Abacus",
+        "start": 88.4,
+        "end": 88.92
+      },
+      {
+        "word": "Kids",
+        "start": 88.92,
+        "end": 89.14
+      },
+      {
+        "word": "free",
+        "start": 89.632,
+        "end": 89.84
+      },
+      {
+        "word": "on",
+        "start": 89.84,
+        "end": 90.1
+      },
+      {
+        "word": "the",
+        "start": 90.1,
+        "end": 90.22
+      },
+      {
+        "word": "App",
+        "start": 90.22,
+        "end": 90.46
+      },
+      {
+        "word": "Store",
+        "start": 90.46,
+        "end": 90.68
+      },
+      {
+        "word": "and",
+        "start": 90.68,
+        "end": 90.96
+      },
+      {
+        "word": "Google",
+        "start": 90.96,
+        "end": 91.2
+      },
+      {
+        "word": "Play!",
+        "start": 91.2,
+        "end": 91.56
+      }
+    ]
+  }
+]

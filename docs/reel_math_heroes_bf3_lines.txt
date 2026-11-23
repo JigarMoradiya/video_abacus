@@ -1,0 +1,91 @@
+# Math Heroes · Big Friend 3 — recording script (9:16 short reel)
+# Lines starting with # are notes and are NOT read aloud. Everything else IS read aloud.
+#
+# THIS SHORT'S HOOK: The prize wall is almost empty and a stuck number blocks the last prize.
+# Alert/celebration lines carry the setting; every math line is plain wording ("stuck" / "not
+# enough to take away" / "add ___, then take away ten"). Alert speaker alternates by slot.
+#
+# FORMULA SPLIT (revision 9): BIG FRIEND TAKING AWAY, random half of the eight non-self-paired
+# subtract formulas: −1, −3, −6, −8 (a mix of small and big numbers; the other half, −2, −4, −7, −9,
+# is short 4; −5 is in short 6). Friend-first: −n = +friend − 10.
+#
+#   Mission 1:  85 − 6   friend 4   -> 79
+#   Mission 2:  60 − 1   friend 9   -> 59
+#   Mission 3:  96 − 8   friend 2   -> 88
+#   Mission 4:  72 − 3   friend 7   -> 69
+
+# NARRATOR
+Here's a number secret! Big friends are pairs that make ten together.
+One and nine. Two and eight. Three and seven. Four and six. Five and five.
+When the ones rod does not have enough beads to take away, a big friend comes to help!
+
+# BLAZE
+Alert at the prize wall! Eighty-five take away six is stuck!
+
+# SPARK
+There's not enough to take away six. Let's call a friend!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# SPARK
+Six's friend is four!
+
+# BLAZE
+Add four, then take away ten!
+
+# BOTH
+Eighty-five take away six is seventy-nine! Counter's good!
+
+# SPARK
+Sixty take away one is stuck!
+
+# BLAZE
+There's not enough to take away one. Friend, Spark!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# BLAZE
+One's friend is nine!
+
+# SPARK
+Add nine, then take away ten!
+
+# BOTH
+Sixty take away one is fifty-nine! Ticket wall's steady!
+
+# BLAZE
+Ninety-six take away eight is stuck!
+
+# SPARK
+Not enough there. One more friend!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# SPARK
+Eight's friend is two!
+
+# BLAZE
+Add two, then take away ten!
+
+# BOTH
+Ninety-six take away eight is eighty-eight! Hang in there!
+
+# SPARK
+Last one! Seventy-two take away three is stuck!
+
+# BLAZE
+Still not enough. Final friend!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# BLAZE
+Three's friend is seven!
+
+# SPARK
+Add seven, then take away ten!
+
+# BOTH
+Seventy-two take away three is sixty-nine! Prize wall's open, jackpot!
+
+# NARRATOR
+Every stuck number has a trick. Learn them all with Abacus Kids — free on the App Store and Google Play!

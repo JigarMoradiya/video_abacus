@@ -1,0 +1,111 @@
+[cheerful] Hello again!
+[thoughtful] Last time, we learned big friend adding.
+[playful] Do you remember the trick?
+[pause 2 seconds]
+[happy] Take away the friend, then carry to the tens rod.
+[excited] This video is all about big friend taking away.
+[cheerful] Same friends. Same idea. Just the other way round.
+[excited] Ready? Let us go!
+[pause 1 second]
+
+[thoughtful] First, always look at the ones rod.
+[encouraging] If there are enough beads, just take them away.
+[cheerful] Watch. Eighteen take away five.
+[happy] Push the upper bead up.
+[excited] Done! Thirteen.
+[happy] That was easy. The ones rod had enough.
+[pause 1 second]
+
+[cheerful] Now let us try ten take away one.
+[encouraging] Make ten. One bead on the tens rod, and nothing on the ones rod.
+[curious] Look at the ones rod. How many beads can we take away?
+[pause 2 seconds]
+[dramatic] None! The ones rod is empty.
+[slow] Oh no. We are stuck.
+[pause 1 second]
+
+[reassuring] Do not worry. A big friend can help us.
+[thoughtful] We want to take away one.
+[curious] Who is one's friend?
+[pause 2 seconds]
+[excited] Nine! One and nine make ten.
+[pause 1 second]
+
+[thoughtful] So here is the big friend trick for taking away.
+[slow] Take away one is the same as add nine, then take away ten.
+[emphasis] Minus one equals plus nine, minus ten.
+[curious] Why does it work?
+[thoughtful] Taking away ten takes away too much. It takes away nine extra.
+[happy] So we add the nine back first. And we are left with taking away one.
+[cheerful] Let us do it on the abacus.
+[pause 1 second]
+
+[encouraging] Remember our rule. The ones rod goes first, and lower beads move before the upper bead.
+[cheerful] First, add nine on the ones rod. Push four lower beads up, then the upper bead down.
+[excited] Now the tens rod gets its turn. Take away ten. Take one bead away from the tens rod.
+[triumphant] And there it is. Nine!
+[happy] Ten take away one is nine.
+[proud] Plus nine, minus ten. That is our first big friend formula for taking away.
+[pause 1 second]
+
+[cheerful] Let us try twelve take away three.
+[encouraging] Make twelve. One bead on the tens rod, and two lower beads on the ones rod.
+[curious] Can we take away three from the ones rod?
+[pause 2 seconds]
+[playful] No! There are only two beads there.
+[happy] So we call a big friend. Three's friend is seven.
+[thoughtful] Minus three equals plus seven, minus ten.
+[encouraging] Ones rod first. Add seven. Push two lower beads up, then the upper bead down.
+[cheerful] Now take one bead away from the tens rod.
+[triumphant] Twelve take away three is nine!
+[pause 1 second]
+
+[cheerful] You are doing so well!
+[bright] Give this video a like, and subscribe for more.
+[pause 1 second]
+
+[curious] Now, what about taking away a big number, like seven?
+[cheerful] Let us try eleven take away seven.
+[encouraging] Make eleven. One bead on the tens rod, and one lower bead on the ones rod.
+[curious] Can we take away seven from just one bead?
+[pause 2 seconds]
+[playful] No way!
+[happy] Seven's friend is three.
+[thoughtful] Minus seven equals plus three, minus ten.
+[encouraging] Ones rod first. Push three lower beads up.
+[cheerful] Then take one bead away from the tens rod.
+[triumphant] Eleven take away seven is four!
+[happy] The big numbers work the same way.
+[pause 1 second]
+
+[thoughtful] Now stop and look.
+[curious] Did you see it?
+[excited] Every single time, we did the same two things.
+[cheerful] Add the friend on the ones rod first.
+[happy] Then take one bead away from the tens rod.
+[playful] The friend changes.
+[emphasis] But ten never does.
+[thoughtful] There is one for every number, from take away one to take away nine.
+[proud] That is nine big friend formulas for taking away.
+[pause 1 second]
+
+[excited] Now it is your turn. All on your own.
+[encouraging] Make thirteen. One bead on the tens rod, and three lower beads on the ones rod.
+[thoughtful] Take away nine.
+[curious] Think. What is nine's friend?
+[pause 2 seconds]
+[excited] One! Minus nine equals plus one, minus ten.
+[cheerful] Add one lower bead on the ones rod, then take one bead away from the tens rod.
+[curious] What number is showing now?
+[pause 3 seconds]
+[triumphant] Thirteen take away nine is four!
+[happy] Did you get it? Well done!
+[pause 1 second]
+
+[proud] So now you know big friend taking away.
+[happy] Nine formulas, and they are all yours.
+[encouraging] Try them at home on your own abacus.
+[cheerful] Search for Abacus Kids on the Apple App Store or Google Play.
+[bright] Download it free.
+[excited] Next time, we will mix everything together in one big game.
+[happy] See you next time!

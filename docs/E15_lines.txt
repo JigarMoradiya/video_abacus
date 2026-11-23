@@ -1,0 +1,290 @@
+# E15 · Family trick for adding — narration, one continuous take.
+#
+# REV 6 (final): the 6 + 8 example is cut; examples are 7 + 6, 26 + 7, 5 + 9.
+#
+# REV 2: the NEED now comes before the NAME. Section 2 states the problem (the big friend takes the
+# friend off the ones rod, but sometimes the upper bead is down and there are not enough lower beads,
+# so it gets stuck), then the small friend helps, THEN "family" is named as the answer, then ONE line
+# says WHEN to look for it. The 7 + 6 wall is now the proof, not the introduction. Paid for by:
+# cutting the 4 + 7 contrast example, shortening 26 + 7 and 6 + 8, and trimming the pattern and
+# your-turn lines. Length ~660 words at that point; the setup lines added in rev 3 brought it to ~700.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+# The expression-tagged recording version is docs/E15_lines_expressive.txt.
+#
+# E14 ends "Next time, we will meet a brand new kind of trick — one that adds and takes away, both
+# at once." Section 1 echoes that line word for word and pays it off. "TAKING AWAY" throughout —
+# never "subtraction" or "negative" (series convention). SCRIPT ONLY — no code, audio or render yet.
+#
+# CHECKLIST: this script was audited line by line against docs/SCRIPT_CHECKLIST.md (rev 5).
+#   Violations found and fixed in that pass: (1) hook did not say what/why in its first lines — now
+#   "what helps when the big friend gets stuck"; (2) "the small friend" was never tied to the number —
+#   now "Four's small friend is one"; (3) the WHEN line was one long sentence — split into short ones;
+#   (4) the 7 + 6 and 6 + 8 "Make ..." lines did not say which rod — now "on the ones rod", also in
+#   5 + 9; (5) the formula was introduced without first showing the big-friend form it comes from —
+#   now "Plus six equals minus four, plus ten. But we cannot take away four. The small friend can.";
+#   (6) "Only three?" was unclear — now "Oh! Only three on the ones rod?"; (7) 6 + 8 and 26 + 7 moves
+#   were crammed into one line with no hold — each move now has its own line and a 1 s hold;
+#   (8) the pattern line "five less than the number we add" was abstract for 6–8 year olds — now
+#   "Plus six, add one lower bead. Plus seven, add two..."; (9) "Stuck again" was word-for-word in two
+#   examples — second is now "Still not enough"; (10) your-turn "all three moves" did not remind of
+#   the order — now "Ones rod first"; (11) E13 callback was missing its cue — restored; (12) the index finger was never heard: the
+#   "Make <number>" setups push the upper bead DOWN, so the make lines now carry thumb/index hints
+#   and the rule is said once ("up is the thumb, and down is the index finger").
+#
+# ═══ RESOLVED FACTS — read before recording (checked against the real app, not assumed) ═══
+#
+#  1. WHICH DOC WAS WRONG: docs/EPISODE_ROADMAP.md. It labels E15 "Family Plus (+5−10)" and E16
+#     "Family Minus (−5+10)" — the signs are SWAPPED. The app (iOS Level2FormulaView.swift:
+#     "Family + (−5+10)" / "Family − (+5−10)"; Level2Content.swift chapter 10; Android
+#     Level2FormulaScreen.kt: the same) and the reference_abacus_formulas memory both say Family PLUS
+#     is "−5 +10" (heaven bead up, carry a ten) and Family MINUS is "+5 −10". The roadmap's labels
+#     read like iOS/APP_FEATURES.md line 78 ("+5−10 and −5+10 combined"), which lists the two in the
+#     other order and is ambiguous. The math settles it: adding must net a positive number, and
+#     −5+10 is +5; +5−10 is −5. E15 = "Family +" = −5+10. E16 = "Family −" = +5−10. (Not edited —
+#     flagged for the roadmap to be corrected.)
+#
+#  2. NOTATION / BEAD ORDER. Series convention (E11–E13): ones rod first, LOWER beads before the
+#     UPPER bead, tens rod last. The APP already writes Family + in exactly that order:
+#         +6 = +1 −5 +10   (add lower beads, push the upper bead away, carry a ten)
+#     The memory file writes the same moves in a different ORDER ("+6 = −5+10+1", heaven first, add
+#     the earth bead last). That ordering breaks the lower-beads-first rule, so E15 uses the APP's
+#     order: "Plus six equals plus one, minus five, plus ten." Spoken the way E13 speaks its
+#     formula ("Minus three equals plus seven, minus ten."). The memory file's bead order should be
+#     corrected to match.
+#
+#  3. WHY IT EXISTS (the derivation the script teaches before any bead moves). Big friend adding is
+#     +n = −friend +10, and its first step "take away the friend" needs enough LOWER beads. When it
+#     does not have them, that step is itself a SMALL-friend taking-away (E09): −friend is
+#     +(n−5) −5.  So Family = big friend + small friend:
+#         +6 = −4 +10, and −4 = +1 −5      →  +6 = +1 −5 +10
+#         +7 = −3 +10, and −3 = +2 −5      →  +7 = +2 −5 +10
+#         +8 = −2 +10, and −2 = +3 −5      →  +8 = +3 −5 +10
+#         +9 = −1 +10, and −1 = +4 −5      →  +9 = +4 −5 +10
+#     The lower beads added are always n − 5.
+#
+#  4. WHEN FAMILY IS NEEDED (exact, brute-forced over every ones digit d 0–9 for n = 1…9, checking
+#     whether "take away the friend f = 10−n from d" is a plain move; trigger for any trick at all
+#     is d + n > 9). Family is needed when the heaven bead is down (d ≥ 5) and the friend f is
+#     greater than the lower beads showing (d − 5):
+#         formula   friend   FAMILY when ones digit d is      pure big friend works when d is
+#         +6        4        5, 6, 7, 8                        4, 9
+#         +7        3        5, 6, 7                           3, 4, 8, 9
+#         +8        2        5, 6                              2, 3, 4, 7, 8, 9
+#         +9        1        5                                 1, 2, 3, 4, 6, 7, 8, 9
+#         +1…+5     —        NEVER (friend ≥ 5 comes off with the upper bead; or d too low)
+#     That is 10 (d, n) pairs — exactly the app's familyAddPairs() (iOS Level2Content.swift:237).
+#     Four Family formulas for adding: +6, +7, +8, +9. In kid words: "the big friend gets stuck —
+#     there are not enough lower beads to take the friend away."
+#
+#  5. CONTENT FLAG FOUND ON THE WAY (not part of this script, tell whoever owns the app copy):
+#     the app's Big Friend + table lists "5+6=11" for +6 = −4+10 and "5+9=14" for +9 = −1+10, but
+#     d = 5 is a FAMILY case for both (see table above — no lower bead to take away). Those two
+#     example rows belong in Family, not Big Friend. E12 and E14's examples are unaffected: every
+#     one was already checked (E14: 29+6 has d = 9, plain big friend).
+#
+# ═══ CONTENT ═══
+#   Only ADDING. Four formulas, +6 … +9. Every worked example is a real Family case.
+#   Taking away (Family −) is E16, teased in the close.
+#
+#   EXAMPLE VERIFICATION — every example passes ALL THREE checks:
+#   (a) ONES rod: Family trigger holds (d ≥ 5, friend > lower beads showing) AND each sub-step is a
+#       legal physical move (lower beads added fit: lower beads + k ≤ 4; upper bead really is down
+#       so it can be pushed up);
+#   (b) TENS rod: the carry is itself ONE plain bead. Adding one to tens digit t is direct for
+#       t = 0,1,2,3,5,6,7,8 — NOT t = 4 (needs the upper bead = small friend) and not t = 9;
+#   (c) not 50-shaped (no start, result or answer-neighbour of 50); every number distinct.
+#
+#   ex.        d  lower   friend  (a) trigger + moves                              (b) tens t      (c)
+#   ─────────  ─  ─────   ──────  ───────────────────────────────────────────────  ──────────────  ──
+#   7 + 6=13   7  2       4       4 > 2 ✓. +1 lower (2→3 ≤4 ✓), upper up (3), +10  t0→1 direct     ok
+#   26 + 7=33  6  1       3       3 > 1 ✓. +2 lower (1→3 ✓), upper up (3), +10     t2→3 direct     ok
+#   5 + 9=14   5  0       1       1 > 0 ✓. +4 lower (0→4 ✓), upper up (4), +10     t0→1 direct     ok
+#   (A 4 + 7 plain-big-friend contrast was in the first draft and was cut for length; the WHEN rule is
+#   now stated up front instead.) (6 + 8 was cut in rev 6 because it repeated the 7 + 6 pattern; +8 is still in the pattern recap.)
+#   Numbers used: 7, 6, 13, 26, 33, 5, 9, 14 — all distinct. 5 + 9 is the your-turn on
+#   purpose: it is the hardest case (no lower bead at all, +9 → add the full four).
+#   Questions never show their answer: formula card and sum total appear on the ANSWER line, never
+#   on "how many can we take away?", "nine is how many more than five?", or "what number is
+#   showing now?".
+#
+# ═══ NARRATION RULES ═══  Making a number: ONES rod first, then the tens rod, and on every rod LOWER
+#   beads before the UPPER bead. Moves: ones rod first, lower beads before the upper bead, tens rod
+#   last. Every example's setup line names the makeup before the friend line.
+#
+# ═══ FINGER RULE (visuals) ═══  Decided by DIRECTION, never by bead (EPISODE_RULES): UP = THUMB,
+#   DOWN = INDEX FINGER, and it counts for the "Make <number>" setups too, not only the formula moves.
+#   MAKING a number pushes lower beads UP (thumb) and the upper bead DOWN toward the beam (INDEX
+#   finger). The FORMULA moves are all UP: "plus lower beads" (thumb), "minus five" = the upper bead
+#   pushed back up (thumb), "carry one bead" on the tens rod (thumb). Wording matches E01. FINGER HINT
+#   SPOTS for the build (thumb/index animation on these words):
+#     1. 7+6 make-seven (clear hint, 2 s hold): "Push two lower beads up with your thumb." then
+#        "Then push the upper bead down with your index finger." then the rule once: "Remember: up is
+#        the thumb, and down is the index finger."
+#     2. 7+6 moves: "Plus one. Push one lower bead up. Thumb!" / "Minus five. Push the upper bead up.
+#        Thumb again!"
+#     3. 26+7 make-twenty-six: "...Thumb up, index finger down!" and the carry: "Carry one bead to the
+#        tens rod. Thumb all the way!"
+#     4. Pattern recap: "Every move went up. So every move was a thumb."
+#     5. Your turn 5+9, BEFORE the moves, answer not given: make-five "That is down, so use your index
+#        finger." and later "Now do all three moves. Ones rod first, and remember, up is the thumb."
+#
+# ═══ WORLD + MASCOTS (concept only, nothing built) ═══
+#   NEW WORLD SET: a SEA-OTTER KELP COVE, morning to dusk — the first UNDERWATER/kelp world (E03's
+#   harbour/rockpool/sunsetsea is a beach seen from above the waterline; this one lives in the
+#   water). Not a repeat of any E-series world: no circus/stage (E07/E10/E11), jungle (E06/E12),
+#   park (E08/E13), pier (E09), arcade (E14), city (E04), space (E05). Palette: deep teal to aqua with
+#   warm peach sunrise light — distinct from E14's neon arcade and E13's rust autumn.
+#   NEW MASCOTS: A FAMILY OF THREE SEA OTTERS (big, middle, little) who hold paws, because sea otters
+#   really do float in a chain holding paws so they do not drift apart — and the Family formula is
+#   exactly THREE parts: little otter = "plus the lower beads", middle otter = "minus five", big
+#   otter = "plus ten". They link paws when the formula is said, and each otter lights up on its own
+#   part while its beads move. Not used before: hedgehogs (E14), squirrels (E13), toucans (E12),
+#   elephant (E11), foxes (E10), seagull (E09), puppies (E08), rabbit/magic (E07), ninja (E01–E05).
+#   Beats: dawn mist over the cove (hook) · otters meet the two friends, shallows (recap) ·
+#   tide-pool, the wall (stuck) · reef shelf, formula card (the family trick) · sunlit kelp,
+#   like-ask · deep blue current (26+7) · calm kelp drift (pattern) ·
+#   golden shallows, confetti (your turn) · moonlit raft of otters (close).
+#
+# ═══ LIKE-ASK PLACEMENT (EPISODE_RULES §3.9a — NEW SPOT, log this row) ═══
+#   | E15 | right after the FIRST worked sum's win ("That is our first family formula."), before the 26+7 example | ~53% |
+#   Last two logged spots were E08 (after the THIRD sum, ~72%) and E14 (after round four, ~54% — a
+#   near-identical percentage now that 6+8 (which sat after the ask) is cut, but a different beat: E14's is
+#   a milestone mid-game, this is the first win). Flag: if a different percentage is wanted, move it after 26+7 (~70%, E08's spot). E13's
+#   unlogged ask sat after its SECOND sum. This one is after the FIRST win — the first moment the
+#   viewer has actually seen the trick work. Two lines, new wording, includes a subscribe beat. Not
+#   in the close.
+#
+# ═══ STRUCTURE (same shape as E12/E13) ═══
+#   1 recap hook (E14 payoff)  2 THE PROBLEM FIRST (big friend gets stuck: upper bead down, not
+#   enough lower beads), then the small friend helps, THEN the name "family", then WHEN to call it
+#   3 the wall as PROOF (7+6)  4 FORMULA INTRODUCED AND EXPLAINED, then beads (7+6)  — like ask —  5 a bigger number (26+7)
+#   7 pattern recap  8 your turn (5+9)  9 close + teaser to E16.
+#   Callbacks: E12 ("take away the friend, then carry"), E13 ("ones rod first, lower beads before the
+#   upper bead"), E09 ("to take away four, add one, then take away five"), E14 (Beat the Beads,
+#   eighteen formulas, the teaser itself).
+#   RUNTIME ESTIMATE: ~665 spoken words + ~58 s of scripted holds. Calibrated against E13 (673 words
+#   recorded at 351 s, ~0.49 s per word, holds included) that is ~6.4 min; at a normal read it is ~5.4–6.0
+#   min. So about 5.4–6.4 min. Rev 6 cuts: the whole 6 + 8 example (it repeated 7 + 6), the duplicate
+#   "we cannot take away four", "Is there even one lower bead" question in the your-turn (now a
+#   statement), the shorter hook, the "Ready? Let us go!" line, "Four formulas, and they are all
+#   yours" (repeated the recap), and shorter stuck lines in 26 + 7.
+#
+# ⏸ marks are real silences — the child is answering. 3 s after every question, 1–2 s between
+# steps, 3 s hold after each formula card. The expressive file carries them as [pause N seconds].
+
+
+# --- 1 · RECAP HOOK — pays E14's teaser ---
+Hello again!
+Last time, in Beat the Beads, you remembered all eighteen formulas.
+I promised you a brand new kind of trick. One that adds and takes away, both at once.
+# ⏸ hold 1s
+Today, it is here. It helps when the big friend gets stuck.
+# ⏸ hold 1s
+
+# --- 2 · THE PROBLEM FIRST, THEN THE NAME — need before name ---
+A reminder: the big friend takes the friend off the ones rod, then carries one bead to the tens rod.
+You tell me. What is six's big friend?
+# ⏸ hold 3s
+Four!
+But here is a problem. Sometimes the ones rod cannot give the friend away.
+There are not enough lower beads showing, and the upper bead is down.
+Then the big friend alone gets stuck. We need something more.
+# ⏸ hold 2s
+Good news. The small friend can help. Four's small friend is one, and four and one make five.
+The big friend and the small friend, working together. That is called the family.
+# ⏸ hold 1s
+So, look at the ones rod first. If the big friend gets stuck like that, call the family.
+# ⏸ hold 2s
+
+# --- 3 · THE WALL — the proof: 7 + 6 ---
+Let us see it. Seven plus six.
+Make seven on the ones rod. Push two lower beads up with your thumb.
+# ⏸ hold 1s
+Then push the upper bead down with your index finger.
+Remember: up is the thumb, and down is the index finger.
+# ⏸ hold 2s
+Six's friend is four, so take away four.
+How many lower beads can we take away?
+# ⏸ hold 3s
+Only two!
+We need four. The big friend is stuck, just like we said.
+# ⏸ hold 2s
+
+# --- 4 · THE FAMILY FORMULA FIRST, THEN THE BEADS: 7 + 6 ---
+Plus six equals minus four, plus ten.
+But the small friend can take away four. Add one, then take away five.
+Minus four equals plus one, minus five.
+# ⏸ hold 2s
+Put them together. Here is the family trick for adding.
+Plus six equals plus one, minus five, plus ten.
+# ⏸ hold 3s
+Why? Plus ten adds four too many, so we take four away.
+# ⏸ hold 1s
+Remember our rule. Ones rod first, and lower beads before the upper bead.
+Plus one. Push one lower bead up. Thumb!
+# ⏸ hold 2s
+Minus five. Push the upper bead up. Thumb again!
+# ⏸ hold 1s
+Oh! Only three on the ones rod? Watch what happens next.
+Now carry one bead to the tens rod.
+And there it is. Seven plus six is thirteen!
+That is our first family formula.
+# ⏸ hold 2s
+
+# --- THE LIKE ASK — MID-ROLL, RIGHT AFTER THE FIRST WIN ---
+Having fun with the family?
+Give this video a like, and subscribe to meet the rest.
+# ⏸ hold 1s
+
+# --- 5 · A BIGGER NUMBER: 26 + 7 ---
+Bigger numbers now. Make twenty-six.
+On the ones rod, one lower bead and the upper bead. Then two lower beads on the tens rod. Thumb up, index finger down!
+Seven's friend is three. Can we take away three lower beads?
+# ⏸ hold 3s
+No! Only one.
+Stuck again.
+Call the family. Plus seven equals plus two, minus five, plus ten.
+# ⏸ hold 3s
+Push two lower beads up.
+# ⏸ hold 1s
+Now push the upper bead up.
+# ⏸ hold 1s
+Carry one bead to the tens rod. Thumb all the way!
+Twenty-six plus seven is thirty-three!
+# ⏸ hold 1s
+
+# --- 7 · THE PATTERN ---
+Look. Every time: plus some lower beads, minus five, plus ten.
+Every move went up. So every move was a thumb.
+# ⏸ hold 1s
+Plus six, add one. Plus seven, add two. Plus eight, add three. Plus nine, add four.
+But minus five, and plus ten, never change.
+# ⏸ hold 3s
+Four family formulas for adding: plus six, seven, eight and nine.
+# ⏸ hold 1s
+
+# --- 8 · YOUR TURN: 5 + 9 ---
+Your turn. Make five on the ones rod. Just the upper bead. That is down, so use your index finger. Then add nine.
+What is nine's friend?
+# ⏸ hold 3s
+One!
+Look at the ones rod. There are no lower beads at all. So call the family.
+Nine is how many more than five?
+# ⏸ hold 3s
+Four! Plus nine equals plus four, minus five, plus ten.
+# ⏸ hold 2s
+Now do all three moves. Ones rod first, and remember, up is the thumb.
+# ⏸ hold 2s
+What number is showing now?
+# ⏸ hold 3s
+Five plus nine is fourteen!
+Well done! You did the family trick all by yourself.
+# ⏸ hold 1s
+
+# --- 9 · CLOSE ---
+So now you know the family trick for adding.
+Try them at home on your own abacus.
+To meet the whole family, search for Abacus Kids on the Apple App Store or Google Play.
+Download it free.
+Next time, the family works the other way round. We will learn the family trick for taking away.
+See you next time!

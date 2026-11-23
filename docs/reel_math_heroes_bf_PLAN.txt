@@ -1,0 +1,533 @@
+Math Heroes — Big Friend shorts 1-6 — coverage & verification plan
+===================================================================
+(Referenced from the header comments of reel_math_heroes_bf1_lines.txt and
+reel_math_heroes_bf6_lines.txt. Script-only phase — no code/audio/render work
+has started on these six shorts yet.)
+
+STRUCTURE
+---------
+Short 1 — 4 examples, Big Friend ADDING, group A (+1,+2,+3,+4)
+Short 2 — 4 examples, Big Friend ADDING, group B (+6,+7,+8,+9)
+Short 3 — 4 examples, Big Friend TAKING AWAY, group A (-1,-2,-3,-4)
+Short 4 — 4 examples, Big Friend TAKING AWAY, group B (-6,-7,-8,-9)
+Short 5 — 4 examples, MIXED (+5 plus 3 reused formulas, new numbers)
+Short 6 — 4 examples, MIXED (-5 plus 3 reused formulas, new numbers)
+Total: 24 worked examples across 6 shorts.
+
+WHY +5/-5 ARE SPLIT OUT
+------------------------
+Big Friend has 9 add formulas and 9 subtract formulas. 4+4 covers 8 of 9 per
+direction, leaving exactly one uncovered each time. +5 and -5 are the natural
+leftovers because 5 is its own friend (friend = 10-5 = 5) — they don't pair
+with a different number the way the other four pairs do (1<->9, 2<->8, 3<->7,
+4<->6), so forcing either into shorts 1-4 would make one of those shorts
+teach an awkward 5th "odd" formula instead of a clean pair-based set of 4.
+Instead, +5 opens Short 5 and -5 opens Short 6 — each gets its own moment in
+a mixed-operation reel, and each mixed reel fills its remaining 3 missions
+with formulas already taught earlier, on brand-new two-digit numbers (recall
+practice, not new teaching).
+
+THE DIRECT-MOVE VALID-d RANGES (ones digit d before the move, friend f=10-n)
+-----------------------------------------------------------------------------
+ADD +n (trigger: d+n>9, i.e. no room to add n directly — call friend f, then
++10 on tens rod. Direct iff the ones rod has >=f beads to remove):
+  +1 -> d in {9}
+  +2 -> d in {8,9}
+  +3 -> d in {7,8,9}
+  +4 -> d in {6,7,8,9}
+  +5 -> d in {5,6,7,8,9}
+  +6 -> d in {4,9}
+  +7 -> d in {3,4,8,9}
+  +8 -> d in {2,3,4,7,8,9}
+  +9 -> d in {1,2,3,4,6,7,8,9}
+
+SUBTRACT -n (trigger: d<n, i.e. not enough to take away n directly — call
+friend f, add it, then -10 on tens rod. Direct iff the ones rod has room to
+add f without overflow):
+  -1 -> d in {0}
+  -2 -> d in {0,1}
+  -3 -> d in {0,1,2}
+  -4 -> d in {0,1,2,3}
+  -5 -> d in {0,1,2,3,4}
+  -6 -> d in {0,5}
+  -7 -> d in {0,1,5,6}
+  -8 -> d in {0,1,2,5,6,7}
+  -9 -> d in {0,1,2,3,5,6,7,8}
+
+ALL 24 EXAMPLES (verified against the ranges above)
+----------------------------------------------------
+Short | Mission | Formula | Friend | Start->Result | d (ones digit) | check
+------|---------|---------|--------|---------------|-----------------|-------
+1 | 1 | +1 | 9 | 29 -> 30 | d=9, in {9} | OK
+1 | 2 | +2 | 8 | 39 -> 41 | d=9, in {8,9} | OK
+1 | 3 | +3 | 7 | 68 -> 71 | d=8, in {7,8,9} | OK
+1 | 4 | +4 | 6 | 57 -> 61 | d=7, in {6,7,8,9} | OK
+2 | 1 | +6 | 4 | 79 -> 85 | d=9, in {4,9} | OK
+2 | 2 | +7 | 3 | 49 -> 56 | d=9, in {3,4,8,9} | OK
+2 | 3 | +8 | 2 | 67 -> 75 | d=7, in {2,3,4,7,8,9} | OK
+2 | 4 | +9 | 1 | 26 -> 35 | d=6, in {1,2,3,4,6,7,8,9} | OK
+3 | 1 | -1 | 9 | 60 -> 59 | d=0, in {0} | OK
+3 | 2 | -2 | 8 | 41 -> 39 | d=1, in {0,1} | OK
+3 | 3 | -3 | 7 | 72 -> 69 | d=2, in {0,1,2} | OK
+3 | 4 | -4 | 6 | 53 -> 49 | d=3, in {0,1,2,3} | OK
+4 | 1 | -6 | 4 | 85 -> 79 | d=5, in {0,5} | OK
+4 | 2 | -7 | 3 | 36 -> 29 | d=6, in {0,1,5,6} | OK
+4 | 3 | -8 | 2 | 96 -> 88 | d=6, in {0,1,2,5,6,7} | OK
+4 | 4 | -9 | 1 | 37 -> 28 | d=7, in {0,1,2,3,5,6,7,8} | OK
+5 | 1 | +5 | 5 | 47 -> 52 | d=7, in {5,6,7,8,9} | OK
+5 | 2 | -7 | 3 | 25 -> 18 | d=5, in {0,1,5,6} | OK (reused, new number)
+5 | 3 | +2 | 8 | 38 -> 40 | d=8, in {8,9} | OK (reused, new number)
+5 | 4 | -9 | 1 | 93 -> 84 | d=3, in {0,1,2,3,5,6,7,8} | OK (reused, new number)
+6 | 1 | -5 | 5 | 83 -> 78 | d=3, in {0,1,2,3,4} | OK
+6 | 2 | +8 | 2 | 54 -> 62 | d=4, in {2,3,4,7,8,9} | OK (reused, new number)
+6 | 3 | -3 | 7 | 51 -> 48 | d=1, in {0,1,2} | OK (reused, new number)
+6 | 4 | +1 | 9 | 69 -> 70 | d=9, in {9} | OK (reused, new number)
+
+COVERAGE CHECK
+---------------
+All 18 Big Friend formulas appear at least once:
+  +1 (Short1, Short6) .. repeated
+  +2 (Short1, Short5) .. repeated
+  +3 (Short1 only)
+  +4 (Short1 only)
+  +5 (Short5 only)
+  +6 (Short2 only)
+  +7 (Short2 only)
+  +8 (Short2, Short6) .. repeated
+  +9 (Short2 only)
+  -1 (Short3 only)
+  -2 (Short3 only)
+  -3 (Short3, Short6) .. repeated
+  -4 (Short3 only)
+  -5 (Short6 only)
+  -6 (Short4 only)
+  -7 (Short4, Short5) .. repeated
+  -8 (Short4 only)
+  -9 (Short4, Short5) .. repeated
+
+18 unique formulas + 6 repeats = 24 example slots. Matches exactly.
+
+DUPLICATE-STARTING-NUMBER CHECK
+---------------------------------
+All 24 starting numbers are globally unique across the full set:
+29,39,68,57,79,49,67,26,60,41,72,53,85,36,96,37,47,25,38,93,83,54,51,69
+(Two early collisions — start=67 reused in Short2/Short4, start=53 reused in
+Short3/Short5 — were caught during verification and fixed by re-picking
+Short4's -9 example to 37->28 and Short5's -9 example to 93->84 before any
+script files were written. The numbers above are the final, corrected set.)
+
+RUNTIME ESTIMATE PER SHORT
+----------------------------
+Baseline: the existing 2-mission shorts (short_math_heroes.tsx /
+short_math_heroes_2.tsx) run approximately 55-60s for 2 missions, i.e.
+roughly 27-30s per mission including its alert/stuck/countdown/friend-reveal/
+formula/solved beats and the ~3s held countdown pause.
+Cross-check against E14's own round-reveal pacing: each round there runs
+roughly 8-12s for the reveal/formula/solved beats alone (excluding the
+wheel-spin/build phase, which the Math Heroes format doesn't use at all —
+it goes straight from alert to countdown to reveal). Adding the Math Heroes
+format's ~3s countdown hold and the alert/stuck setup lines brings each
+mission to a comparable ~27-30s total, consistent with the 2-mission
+baseline's own per-mission math (55-60s / 2 ~= 27.5-30s).
+At 4 missions per short (this new set), with no other structural change:
+  4 x ~27-30s/mission = ~108-120s per short, plus the shared opening narrator
+  line (~2-3s) and closing CTA line (~4-5s) common to all shorts
+  => estimated total runtime per short: ~115-130 seconds (about 2-2.2 minutes).
+This roughly doubles the original ~55-60s runtime, as expected for exactly
+double the missions (2 -> 4) with the same per-mission beat structure, pacing,
+and countdown hold carried over unchanged.
+
+PRODUCTION FLAG — SINGLE-ROD VS TWO-ROD ABACUS PROP
+------------------------------------------------------
+short_math_heroes.tsx hardcodes a single floating abacus rod for the prop:
+  ABX_BOX: rodCount: 1, innerW: 1 * ROD_PITCH * ABX_SCALE
+  <Abacus rods={[{ value: bead.to, from: bead.from, focus: 1 }]} .../>
+and positions the formula card in the wide open margin beside that single
+rod (FORMULA_LEFT = ABX_LEFT + ABX_W + 36). This layout assumes a single-digit
+number on one rod with generous clear space on both sides.
+Big Friend's 24 examples are all genuine two-digit numbers requiring a TENS
+rod and a ONES rod moving together (the full "-friend+10" / "+friend-10"
+two-rod move, same geometry already used in E11-E14). The existing single-rod
+prop and its wide-margin formula-card layout will NOT directly accommodate
+this — it needs to become a 2-rod floating prop (matching E11-E14's own
+place-value/rod geometry), and the formula card's margin will likely need to
+narrow or reflow to make room for the second rod.
+This is flagged for a decision before any production (code/render) work
+starts on these shorts — not resolved in this script-only pass.
+
+STATUS
+------
+Script-only deliverable complete: docs/reel_math_heroes_bf1_lines.txt through
+bf6_lines.txt, plus their _expressive counterparts (12 files total). All six
+plain/expressive pairs verified to match exactly via diff. All spoken lines
+verified free of stray digits (numbers spelled as words throughout). No
+code, audio, or render work has been started — per the explicit "script-only
+for now" instruction.
+
+DIFFERENTIATION PASS (revision 2 — all 24 numbers/formulas above unchanged)
+-----------------------------------------------------------------------------
+First draft of all 6 scripts used one identical mechanical template (alert ->
+mission x4 -> close) with only the numbers swapped, which read as 6
+interchangeable shorts. Revised per house rule (every new short reel needs
+its own hook in the first 3-4s and must never reuse a prior reel's theme).
+Each short now has a distinct setting/hook, its own stuck/win vocabulary, and
+varies who gets stuck vs. who calls the friend each mission:
+  Short 1 — arcade grand-opening morning, jammed ticket counter. Blaze stuck
+            every mission, Spark calls each friend. Vocab: jammed/maxed out/
+            stuck solid -> prints out/rolling/ticket's out.
+  Short 2 — closing time, five minutes to the bell, frozen scoreboard. Roles
+            swapped from Short 1: Spark stuck every mission, Blaze calls the
+            friend. Vocab: frozen/freeze/packed tight -> scoreboard's back/
+            keep it moving/bell's ringing.
+  Short 3 — near-empty prize wall, ticket countdown glitching. Calmer tone;
+            Blaze and Spark alternate who's stuck mission to mission. Vocab:
+            glitch/glitching/stuck on empty -> counter's good/ticket wall's
+            steady/jackpot.
+  Short 4 — storm rescue, chopper dial board locked mid-flight. Highest-
+            urgency, clipped lines; roles alternate (opposite pattern from
+            Short 3). Vocab: locked/locked tight/won't budge -> dial's free/
+            keep climbing/landed, everyone's safe.
+  Short 5 — NOT a crisis: a calm "check-up" speed drill between missions, no
+            alert framing at all. Vocab: drill one/two/three/last drill ->
+            check!/full check, no misses.
+  Short 6 — the other recall short flipped into a high-energy "lightning
+            round" against a running clock (contrast with Short 5's calm
+            drill, so the two recall shorts don't repeat the same framing).
+            Vocab: no room/not enough/stuck -> next!/one left!/perfect score.
+Reaction-line phrasing for "stuck," "friend reveal," and "celebration" was
+also varied per mission within each short (not the same 3 lines reused 4x),
+and plain/expressive diffs plus the stray-digit check were re-run after the
+rewrite — both still pass clean (see the main verification note above this
+section). Runtime estimate is unaffected: line count and countdown-hold
+timing per mission are unchanged, only the wording.
+
+COLD-OPEN FIX (revision 3 — hook lines only, story settings unchanged)
+-------------------------------------------------------------------------
+Revision 2's opening lines hooked the STORY (arcade, scoreboard, storm, prize
+wall) but dropped the explicit "this is about a stuck number" signal the
+original two Math Heroes shorts led with in their very first line ("When a
+number gets stuck, Math Heroes save the day!" — checked directly against
+docs/reel_math_heroes_lines.txt / reel_math_heroes_2_lines.txt as precedent).
+Without that, a viewer had no signal in the first 3-4s that this was abacus/
+math content rather than a generic cartoon. Fixed by weaving "a stuck number"
+into each short's own opening line, so the hook now does both jobs (story +
+math) at once instead of making the viewer wait for the first mission's
+numbers several lines later:
+  Short 1: "Grand opening morning, and a stuck number just jammed the ticket
+           counter on its very first customer!"
+  Short 2: "Closing bell in five minutes, and a stuck number just froze the
+           scoreboard mid-count!"
+  Short 3: "Prize wall's almost empty, and a stuck number's blocking the
+           very last ticket!"
+  Short 4: "Storm's rolling in, and a stuck number just locked up the rescue
+           chopper's dial board!"
+  Short 5: "Before the next big mission, Blaze and Spark run their own
+           stuck-number check-up, no alarms this time, just a friendly
+           speed drill."
+  Short 6: "Lightning round! One minute on the clock, Blaze and Spark race
+           the timer through four stuck numbers back to back."
+Only these NARRATOR opening lines changed; everything else from revision 2
+(per-short setting, hero-role pattern, mission vocabulary, closing CTA) is
+unchanged. Plain/expressive diffs and the stray-digit check were re-run
+again after this edit — both still pass clean for all 6 shorts.
+
+LANGUAGE / MATH-BALANCE PASS (revision 4 — numbers/formulas/structure unchanged)
+-----------------------------------------------------------------------------------
+Revision 2's differentiation pass had let story jargon crowd into the MATH
+lines themselves, not just the alert/celebration lines, and used some words
+too complex for the app's actual audience (young kids learning abacus):
+"dial"/"the ones dial" (not an abacus term a kid knows), "glitch"/"glitching"
+(tech jargon), "maxed out"/"packed tight"/"locked tight"/"won't budge"
+(adult-register phrasing), and invented reveal verbs ("clear X, roll a new
+ten" / "bump the ten" / "drop a ten") that varied the SAME math instruction
+six different ways instead of keeping it simple and recognizable.
+Fixed by rebalancing every mission so the math is always the clear
+through-line and the story setting is only flavor in the alert/celebration
+lines:
+  - Every mission's core instruction is now one of exactly two plain,
+    uniform phrasings, matching the original two Math Heroes shorts'
+    own phrasing style: "Take away [friend], then add ten!" for an ADD
+    round, "Add [friend], then take away ten!" for a SUBTRACT round.
+  - Every "stuck" line is now the same simple word ("is stuck!" / "There's
+    no room to add ___." / "There's not enough to take away ___.") instead
+    of six shorts' worth of different synonyms competing with the numbers.
+  - Story-setting words ("ticket counter," "scoreboard," "prize wall,"
+    "rescue chopper," "drill," "lightning round") now appear ONLY in each
+    short's alert line and celebration line, never inside the friend-reveal
+    or operation lines.
+BEFORE / AFTER examples (verbatim from the files):
+  Short 1, Mission 1 — before: "No room on the ones dial. Only one fix,
+    call the friend!" / "Clear nine, roll a new ten!"
+    after: "There's no room to add one. Let's call a friend!" / "Take away
+    nine, then add ten!"
+  Short 2, Mission 2 — before: "Dial's packed tight. Friend, quick!"
+    after: "There's no room to add seven. Friend, quick!"
+  Short 3, Mission 1 — before: "Sixty tickets left, take away one, glitch!
+    Can't go below zero on the ones!"
+    after: "Sixty take away one is stuck!"
+  Short 4, header/narrator — before: "...the rescue chopper's dial board
+    just locked up, the numbers won't budge!"
+    after: "...a stuck number is blocking the rescue chopper!"
+Numbers, formulas, direct-move results, mission count, hero-role patterns,
+per-short story identity, and the math-signaling hooks from revision 3 are
+all unchanged — this was a wording/balance pass only. Plain/expressive
+diffs, the stray-digit check, and a fresh grep for leftover jargon ("dial",
+"glitch", "jammed", "maxed out", "packed tight", "locked tight", "won't
+budge", "frozen solid") were all re-run after the rewrite — all clean
+(the one hit on "jammed" is in Short 1's alert line only, a simple concrete
+word kids already know, not mid-complexity jargon, so it was kept).
+
+HOOK REORDER — MATH-FIRST, NOT STORY-FIRST (revision 5 — opening lines only)
+-----------------------------------------------------------------------------
+Revision 3's hooks still led with the story clause and tacked the math
+signal on second ("Grand opening morning, and a stuck number just jammed
+the ticket counter..."), so a viewer's very first words were still scene-
+setting, not math. Checked the app's own naming for this trick directly —
+src/components/e11/BigFriendFormulaList.tsx calls it "Big Friend" / "big
+friends" in its comments, and E14's own narration says it the same way in
+speech ("Today, we mix big friend adding and big friend taking away"). Also
+re-checked the original two Small Friend shorts' opening line one more
+time: "When a number gets stuck, Math Heroes save the day!" — it leads with
+the math concept and has ZERO story/setting detail in the opening line at
+all. Reworded all 6 openings so the FIRST WORDS name the "big friend"
+trick, with the story setting folded in as the clause that follows, not
+the clause that leads:
+  Short 1: "A big friend problem is stuck, right at the grand opening
+           ticket counter!"
+  Short 2: "A big friend problem is stuck, right as the closing bell
+           counts down!"
+  Short 3: "A big friend problem is stuck, blocking the very last prize
+           on the wall!"
+  Short 4: "A big friend problem is stuck, right in the middle of a
+           storm rescue!"
+  Short 5: "Big friend check-up time, no alarms this time, just a
+           friendly speed drill before the next big mission!"
+  Short 6: "Big friend lightning round, one minute on the clock, racing
+           through four stuck numbers back to back!"
+Only these 6 opening NARRATOR lines changed; every mission line, hero-role
+pattern, story setting, and the CTA close are unchanged from revision 4.
+Plain/expressive diffs and the stray-digit check were re-run again — both
+pass clean for all 6 shorts.
+
+VOICE CHECK AGAINST THE ORIGINAL TWO SHORTS (same pass, no further changes)
+-----------------------------------------------------------------------------
+Per an explicit request to re-compare line-type by line-type against
+docs/reel_math_heroes_lines.txt / reel_math_heroes_2_lines.txt (re-read in
+full for this check) before calling the voice match done:
+  - Alert line: originals use "Alert! [equation], and it's stuck!" / repeat
+    missions get "Another alert! ...". The 6 BF shorts intentionally vary
+    this wording per short/mission instead (an explicit, already-approved
+    requirement from the differentiation pass, since 4 missions repeating
+    the literal word "Alert!" four times read as flat) — kept as is.
+  - Stuck/friend-call line: originals use "There's no room to add ___. Let's
+    call a friend[, again]!" — the BF scripts match this almost verbatim
+    after the language-balance pass ("There's no room to add ___. Let's
+    call a friend!" / "There's not enough to take away ___."). Already
+    aligned, no change needed.
+  - Friend-reveal line: originals use "[Number]'s friend is [friend]!" —
+    the BF scripts match this exactly, unchanged. Already aligned.
+  - Operation line: originals use "Take away [friend], then add [base]!" /
+    "Add [friend], then take away [base]!" — the BF scripts match this
+    exactly (base is "ten" instead of "five" since Big Friend adds/removes
+    a ten, not a five). Already aligned after revision 4's rewrite.
+  - Celebration line: originals use "[equation] is [result]! Mission
+    solved!" / "Heroes win again!" (alternating between the 2 missions).
+    The BF scripts use the same "[equation] is [result]!" opening half but
+    close with a short per-short declaration tag instead of alternating
+    only those 2 exact phrases (an approved differentiation choice, since
+    4 missions reusing only 2 alternating tags would feel repetitive over
+    a longer script) — kept as is.
+  - Close/CTA line: originals use "Every stuck number has a trick. Learn
+    them all with Abacus Kids — free on the App Store and Google Play!"
+    word for word. Shorts 1-4 use this exact line unchanged. Shorts 5-6
+    (the recall/review shorts) use a short custom lead-in before the same
+    CTA phrase ("Drill complete..." / "Four numbers, zero mistakes...")
+    — an approved customization for the "different kind of episode" framing
+    those two shorts were deliberately given; the core CTA sentence itself
+    is preserved verbatim in both.
+Net result: nothing beyond the opening-line reorder needed tightening —
+every other line-type was already matching the originals' structure/rhythm
+as closely as the 4-mission format and per-short differentiation allow.
+
+BIG FRIEND INTRO ADDED TO EVERY SHORT (revision 6)
+---------------------------------------------------
+Revision 5's math-first opening still assumed the viewer already knew what a
+"big friend" is. Each short is standalone, so every short now OPENS with a
+2-3 line math intro (before mission 1) that says (1) what a big friend is
+(two numbers that make ten, using E11's own wording: "make ten together",
+"ones rod", "tens rod") and (2) why we need it (ones rod has no room to add /
+not enough beads to take away, so a big friend helps us through the tens
+rod). The story setting moved into the mission-1 alert line that follows the
+intro. Wording and speaker split vary per short:
+  Short 1 (Narrator): Big friends are two numbers that make ten together! /
+    Nine and one. Eight and two. Seven and three. Six and four. / When the
+    ones rod has no room to add, a big friend helps us carry to the tens rod!
+  Short 2 (Spark+Blaze): Do you know a big friend? It's a pair of numbers
+    that make ten! / Six and four. Seven and three. Eight and two. Nine and
+    one! / When the ones rod is too full to add, a big friend lets us use the
+    tens rod!
+  Short 3 (Narrator): Here's a number secret! Big friends are pairs that make
+    ten together. / One and nine. Two and eight. Three and seven. Four and
+    six. / When the ones rod does not have enough beads to take away, a big
+    friend comes to help!
+  Short 4 (Blaze+Spark): Big friends make ten together! Six and four. Seven
+    and three. Eight and two. Nine and one! / If the ones rod can't take away
+    enough, we ask a big friend to help through the tens rod!
+  Short 5 (Narrator, quick recall): Remember our big friends? Two numbers that
+    make ten together, like five and five. / They help when the ones rod has
+    no room to add, or not enough to take away! / Time for a friendly speed
+    drill!
+  Short 6 (Narrator, quick recall): Big friend quiz! Big friends are pairs
+    that make ten, like four and six. / Stuck on the ones rod? A big friend
+    helps us, whether we add or take away! / Lightning round, one minute on
+    the clock!
+Mission-1 alert lines now carry the setting ("Alert at the ticket counter!",
+"Alert, the closing bell is near!", "Alert at the prize wall!", "Alert, a
+storm is coming!", "Go!" for the lightning round). Everything else unchanged.
+RUNTIME RE-ESTIMATE: intro is ~28-38 spoken words (~9-12s) replacing a ~2-3s
+opener, net +7-10s per short. Shorts 1-4: ~125-140s each; Shorts 5-6 (shorter
+recall intro): ~120-135s each.
+
+FIVE AND FIVE ADDED TO PAIR LISTS (revision 7)
+-----------------------------------------------
+User noticed the intro pair lists skipped "five and five". Added "Five and
+five." to the pair list in Short 2, Short 3 and Short 4 intros (plain +
+expressive). Short 1 left as is by explicit instruction; Short 5 already says
+"like five and five" and Short 6 already covers it via the minus-five mission,
+so both untouched. Runtime effect is about +1s each for Shorts 2-4 (now about
+126-141s); other estimates unchanged.
+
+RANDOMIZED MISSION ORDER (revision 8)
+--------------------------------------
+Examples inside each short were running in numeric sequence (predictable).
+Shuffled Shorts 2-6 so no slot sequence has an ascending or descending run of
+three; the same 4 verified examples and formulas stay in each short (coverage
+plan unchanged). Short 1 left exactly as is (already recorded).
+  Short 1: +1 (29), +2 (39), +3 (68), +4 (57)       [unchanged]
+  Short 2: +8 (67), +6 (79), +9 (26), +7 (49)
+  Short 3: -3 (72), -1 (60), -4 (53), -2 (41)
+  Short 4: -7 (36), -9 (37), -6 (85), -8 (96)
+  Short 5: -7 (25), -9 (93), +2 (38), +5 (47)       [sub, sub, add, add]
+  Short 6: -5 (83), +8 (54), +1 (69), -3 (51)       [sub, add, add, sub]
+Position-dependent lines are now bound to the SLOT, not the mission: the
+setting alert ("Alert, the closing bell is near!", "Alert at the prize wall!",
+"Alert, a storm is coming!", "Go!") sits on slot 1, "Another one!"/"Last
+one..." tags on the later slots, celebration tags (e.g. "Bell's ringing, we
+made it!", "Prize wall's open, jackpot!", "We landed, everyone's safe!",
+"Full check, no misses!", "Time! Lightning round, perfect score!") stay on
+slot 4, and hero-role alternation is by slot parity. Short 5's drill cues
+("Drill one/two/three/Last drill", "take-away again", "back to adding",
+"adding again") are generated from the actual previous operation.
+
+FORMULA SPLIT REDONE — RANDOM MIX, SUPERSEDES ALL EARLIER TABLES/SPLITS (revision 9)
+-----------------------------------------------------------------------------------
+User objected that Short 3 was only -1..-4 and Short 4 only -6..-9 (low group / high group).
+Formulas are now spread randomly. bf1 (+1,+2,+3,+4; starts 29,39,68,57) is locked/recorded and untouched.
+Split: Short 2 = +9,+5,+8,+6 | Short 3 = -6,-1,-8,-3 | Short 4 = -9,-4,-7,-2 | Short 5 = +7 (the one
+leftover add formula, NEW) + recall -4,-8,+2 | Short 6 = -5 (the self-paired subtract, NEW) + recall -7,+3,+6.
+Orders (no ascending/descending run of 3 in any short; mixed shorts not alternating):
+  Short 2: +9 (26->35), +5 (47->52), +8 (67->75), +6 (79->85)
+  Short 3: -6 (85->79), -1 (60->59), -8 (96->88), -3 (72->69)
+  Short 4: -9 (37->28), -4 (53->49), -7 (36->29), -2 (41->39)
+  Short 5: +7 (49->56), -4 (82->78), -8 (75->67), +2 (88->90)   [add, sub, sub, add]
+  Short 6: -7 (76->69), +3 (77->80), +6 (34->40), -5 (83->78)   [sub, add, add, sub]
+Direct-move verification of all 24 examples (script output):
+short slot formula friend start->result d  trigger direct
+bf1 1 +1 9 29->30 9 True True OK
+bf1 2 +2 8 39->41 9 True True OK
+bf1 3 +3 7 68->71 8 True True OK
+bf1 4 +4 6 57->61 7 True True OK
+bf2 1 +9 1 26->35 6 True True OK
+bf2 2 +5 5 47->52 7 True True OK
+bf2 3 +8 2 67->75 7 True True OK
+bf2 4 +6 4 79->85 9 True True OK
+bf3 1 -6 4 85->79 5 True True OK
+bf3 2 -1 9 60->59 0 True True OK
+bf3 3 -8 2 96->88 6 True True OK
+bf3 4 -3 7 72->69 2 True True OK
+bf4 1 -9 1 37->28 7 True True OK
+bf4 2 -4 6 53->49 3 True True OK
+bf4 3 -7 3 36->29 6 True True OK
+bf4 4 -2 8 41->39 1 True True OK
+bf5 1 +7 3 49->56 9 True True OK
+bf5 2 -4 6 82->78 2 True True OK
+bf5 3 -8 2 75->67 5 True True OK
+bf5 4 +2 8 88->90 8 True True OK
+bf6 1 -7 3 76->69 6 True True OK
+bf6 2 +3 7 77->80 7 True True OK
+bf6 3 +6 4 34->40 4 True True OK
+bf6 4 -5 5 83->78 3 True True OK
+dupe starts: 0 formulas: 18 fails: 0
+missing: set()
+Rule: ADD trigger d+n>9, direct iff f>5, or f==5 and d>=5, or f<5 and (d<5 or f<=d-5). SUBTRACT trigger d<n,
+direct iff (d<5 and (f<=4-d or 5<=f<=9-d)) or (d>=5 and f<=9-d). No start or result is 50; all 24 starts unique.
+Coverage: all 18 formulas appear. Repeats (recall, new starts): -4 (S4,S5), -8 (S3,S5), +2 (S1,S5), -7 (S4,S6),
++3 (S1,S6), +6 (S2,S6) = 18 unique + 6 repeats = 24. Slot-bound lines, intros, hooks, CTA unchanged.
+
+TENS-ROD RULE ADDED — REVISION 10 (APPLY TO EVERY WORKED EXAMPLE IN ANY EPISODE OR SHORT)
+--------------------------------------------------------------------------------------------
+Revision 9's direct-move check only looked at the ONES rod. A big friend also
+moves the TENS rod by one, and that single step must ALSO be a plain one-bead
+move, otherwise a hidden small-friend (Family) move sneaks in (same class of
+mistake as the earlier "50 - 2" example).
+  BIG-FRIEND ADD  (tens digit t goes to t+1): direct for t = 0,1,2,3 (add a
+    lower bead) and t = 5,6,7,8 (upper bead already on, add a lower bead).
+    NOT direct for t = 4 (all four lower beads are up; reaching 5 needs the
+    upper bead, i.e. small friend +1 = -4 +5). t = 9 would overflow into the
+    hundreds: avoid.
+  BIG-FRIEND SUBTRACT (t goes to t-1): direct for t = 1,2,3,4 (remove a lower
+    bead) and t = 6,7,8,9 (remove a lower bead, upper stays). NOT direct for
+    t = 5 (only the upper bead is up; reaching 4 needs small friend -1 = +4
+    -5). t = 0 is impossible.
+  SHORT FORM: no ADD example may have tens digit 4 (or 9); no SUBTRACT example
+  may have tens digit 5. Every example must pass BOTH the ones-rod rule
+  (revision 9 formulas) AND this tens-rod rule, and avoid 50 as a start or
+  result.
+REPLACED (all failed the tens rule, same formulas and slots kept):
+  Short 2 slot 2: +5, 47 -> 52 (tens 4, add)      now 65 -> 70   (d=5, t=6)
+  Short 4 slot 2: -4, 53 -> 49 (tens 5, subtract) now 23 -> 19   (d=3, t=2)
+  Short 5 slot 1: +7, 49 -> 56 (tens 4, add)      now 18 -> 25   (d=8, t=1)
+Re-verified table (ones rod + tens rod), all 24 starts unique, 18 formulas:
+short slot form fr start->res d t trig ones tens  verdict
+bf1 1 +1 9 29->30 9 2 True True True OK
+bf1 2 +2 8 39->41 9 3 True True True OK
+bf1 3 +3 7 68->71 8 6 True True True OK
+bf1 4 +4 6 57->61 7 5 True True True OK
+bf2 1 +9 1 26->35 6 2 True True True OK
+bf2 2 +5 5 65->70 5 6 True True True OK
+bf2 3 +8 2 67->75 7 6 True True True OK
+bf2 4 +6 4 79->85 9 7 True True True OK
+bf3 1 -6 4 85->79 5 8 True True True OK
+bf3 2 -1 9 60->59 0 6 True True True OK
+bf3 3 -8 2 96->88 6 9 True True True OK
+bf3 4 -3 7 72->69 2 7 True True True OK
+bf4 1 -9 1 37->28 7 3 True True True OK
+bf4 2 -4 6 23->19 3 2 True True True OK
+bf4 3 -7 3 36->29 6 3 True True True OK
+bf4 4 -2 8 41->39 1 4 True True True OK
+bf5 1 +7 3 18->25 8 1 True True True OK
+bf5 2 -4 6 82->78 2 8 True True True OK
+bf5 3 -8 2 75->67 5 7 True True True OK
+bf5 4 +2 8 88->90 8 8 True True True OK
+bf6 1 -7 3 76->69 6 7 True True True OK
+bf6 2 +3 7 77->80 7 7 True True True OK
+bf6 3 +6 4 34->40 4 3 True True True OK
+bf6 4 -5 5 83->78 3 8 True True True OK
+E14 1 +4 6 37->41 7 3 True True True OK
+E14 2 -7 3 81->74 1 8 True True True OK
+E14 3 +8 2 63->71 3 6 True True True OK
+E14 4 -9 1 96->87 6 9 True True True OK
+E14 5 +6 4 29->35 9 2 True True True OK
+E14 6 -3 7 62->59 2 6 True True True OK
+E14 7 -2 8 91->89 1 9 True True True OK
+E14 8 +5 5 68->73 8 6 True True True OK
+E14close 1 -8 2 80->72 0 8 True True True OK
+E14close 2 -3 7 42->39 2 4 True True True OK
+E14close 3 +3 7 27->30 7 2 True True True OK
+E14close 4 +5 5 19->24 9 1 True True True OK
+bf dupe starts: 0 | bf formulas covered: 18 | FAILS: 0
+bf1 (recorded, untouched) passes: +1 29 (t=2), +2 39 (t=3), +3 68 (t=6), +4 57 (t=5).
+E14 rounds (37+4, 81-7, 63+8, 96-9, 29+6, 62-3, 91-2, 68+5) and its close-beat
+practice sums (80-8, 42-3, 27+3, 19+5) all pass both rods. E11, E12 and E13
+worked examples all start with tens digit 0 or 1 (9+1, 8+2, 7+3, 4+6, 6+4,
+5+5, 2+8, 18-5, 10-1, 12-3, 11-7, 13-9), so they pass the tens rule too.

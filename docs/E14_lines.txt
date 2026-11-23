@@ -1,0 +1,254 @@
+# E14 · Big Friend Recap — narration, one continuous take.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+# The expression-tagged recording version is docs/E14_lines_expressive.txt.
+#
+# E13 ends "Next time, we will mix everything together in one big game." This pays it — the
+# hook echoes that EXACT phrase ("mix ... together", "one big game"), not the phrase "beat the
+# beads" (that is E10's own in-universe NAME for this recall game format, not what E13 promised).
+#
+# ═══ FORMAT ═══ Not a teaching episode — a RECALL episode, mirroring E10's role exactly (E10
+# recapped all 4 Small Friend formulas mixed; this recaps Big Friend). E12 taught all 9 adding
+# formulas; E13 taught all 9 taking-away formulas. This is the game show that makes the child
+# prove they remember both, mixed, not recited back in the block order they were taught.
+#
+# ═══ VOICE ═══ Same rule as E10: a game-show host, not a teacher. Short reactions are still full
+# sentences. Every round moves quickly: state the sum, hit the wall, name the friend, say the
+# formula, answer. No re-teaching of WHY the trick works — that was E11/E12/E13's job. This one
+# is pure recall, same pacing family as E10.
+#
+# ═══ WHY THE FORMULA LINE, WHEN E10 DID NOT HAVE ONE ═══ Since this episode's own tagline is
+# "nine formulas, both ways," each round's reveal states the formula out loud too, friend-first,
+# matching E11/E12/E13's corrected convention exactly:
+#   ADDING:      +n = −friend + 10        e.g.  +4 = −6 + 10
+#   TAKING AWAY: −n = +friend − 10        e.g.  −7 = +3 − 10
+#
+# ═══ THE EIGHT ROUNDS — RE-SEQUENCED FOR PAIR SPACING (this pass) ═══
+#
+# USER CALL (this pass): the PREVIOUS locked order tested friend pair {2,8} in rounds 3 AND 4 —
+# back to back, the only pair repeated with zero rounds between its two directions. E10's own
+# header comment states the design rule this recap has to honour: "mixed, never blocked
+# add-then-subtract" — testing the SAME pair twice in a row isn't mixed recall, it's just the
+# same pair twice, which undercuts the whole point of a recall game. The other two doubled pairs
+# were already spaced correctly ({4,6}: rounds 1 & 7, six apart; {3,7}: rounds 2 & 6, four apart)
+# — only {2,8} was adjacent.
+#
+# FIX: rounds 1-6 and 8 are UNCHANGED (already verified against the direct-move rule below, just
+# reassigned to new round NUMBERS so the doubled pairs spread out evenly). ROUND 7 SPECIFICALLY
+# also gets a BRAND NEW starting number, not just a new position — the user's actual complaint
+# was "50 − 2" itself, not which round it played in, so reusing 50/48 anywhere (even at a
+# different round number) would not have addressed it. Round 7 is now 91 − 2 = 89, a genuinely
+# different two-digit example with a different ones-digit bead state too (d=1, one lone bead —
+# not d=0, empty rod, which was 50's own state):
+#
+#   R1  +4   thirty-seven plus four        = forty-one      friend 6   (pair {4,6})
+#   R2  −7   eighty-one take away seven    = seventy-four   friend 3   (pair {3,7})
+#   R3  +8   sixty-three plus eight        = seventy-one    friend 2   (pair {2,8})
+#   R4  −9   ninety-six take away nine     = eighty-seven   friend 1   (pair {1,9} — one round only)
+#   --- like ask ---
+#   R5  +6   twenty-nine plus six          = thirty-five    friend 4   (pair {4,6}, flip of R1 — 4 apart)
+#   R6  −3   sixty-two take away three     = fifty-nine     friend 7   (pair {3,7}, flip of R2 — 4 apart)
+#   R7  −2   ninety-one take away two      = eighty-nine    friend 8   (pair {2,8}, flip of R3 — 4 apart — NEW number)
+#   R8  +5   sixty-eight plus five         = seventy-three  friend 5   (pair {5,5} — self, one round only)
+#
+# Every doubled pair is now exactly 4 rounds apart ({4,6}: R1/R5, {3,7}: R2/R6, {2,8}: R3/R7) —
+# no two rounds testing the same pair are adjacent. {1,9} and {5,5} still get one round each
+# (unchanged reasoning from before: {5,5} is self-symmetric, and −1's OWN trigger forces an
+# empty-ones-rod example indistinguishable from E13's own signature first worked case, so {1,9}
+# keeps its one workable round, −9, same as before).
+#
+# THE FULL DIRECT-MOVE RULE (bead activation only, no deactivation-then-reactivation), d = ones
+# digit before the move, f = friend = 10−n:
+#   −n round (ADDS f to d): direct iff, when d<5, f ≤ (4−d) [lower-only] OR 5 ≤ f ≤ (9−d)
+#     [upper + remaining lowers] — the gap between (4−d) and 5 is NOT achievable directly;
+#     when d≥5 (upper already on), direct iff f ≤ (9−d) (lower-only, upper can't add twice).
+#   +n round (REMOVES f from d, d≥f guaranteed by the trigger): direct iff f>5 always; f==5
+#     iff d≥5; f<5 iff d<5, OR (d≥5 AND f ≤ d−5) — d≥5 with f > d−5 would need to remove the
+#     upper bead (−5) and add back (5−f) lowers, which is Family, not direct.
+#
+# For ROUND 7 specifically (−2, friend 8): d<5 branch, 5≤f≤(9−d) → 5≤8≤(9−d) → d≤1 — so f=8 is
+# ONLY directly achievable at d=0 or d=1 (checked independently, not assumed from the earlier
+# derivation): the d≥5 branch needs f≤(9−d)≤4 for any d≥5, and 8 never fits that, so d≥5 is
+# impossible for this friend regardless. d=1 (91) was chosen over d=0 specifically so the new
+# example is ALSO visually distinct from 50's own empty-rod state, not just numerically different.
+#
+# EVERY ROUND RE-VERIFIED against this rule (all 8, not just the one that changed):
+#   R1  +4  d=7 f=6         f>5 → always direct.                         37+4=41
+#   R2  −7  d=1 f=3         d<5: f(3) ≤ 4−d(3) → direct (lower-only).    81−7=74
+#   R3  +8  d=3 f=2         f<5, d<5 → always direct.                    63+8=71
+#   R4  −9  d=6 f=1         d≥5: f(1) ≤ 9−d(3) → direct.                 96−9=87
+#   R5  +6  d=9 f=4         f<5, d≥5, f(4) ≤ d−5(4) → direct (boundary). 29+6=35
+#   R6  −3  d=2 f=7         d<5: f(7) in [5, 9−d(7)] → direct.           62−3=59
+#   R7  −2  d=1 f=8         d<5: f(8) in [5, 9−d(8)] → direct.           91−2=89
+#   R8  +5  d=8 f=5         f==5, d≥5 → direct (remove upper only).      68+5=73
+# All eight confirmed pure big-friend, no Family move hiding in any of them, and all eight
+# results (41,74,71,87,35,59,89,73) and all sixteen start/result numbers across the episode are
+# distinct — no accidental repeats.
+#
+# FLAVOUR-LINE NOTE: each round's REACTION line ("no room left", "nothing there at all", etc.)
+# is tied to the NUMBER (whether the ones rod is empty, whether it is a repeat-feeling stuck
+# moment), not to the round's position, so these moved WITH their numbers to the new round slots.
+# R4 (now 96−9, a non-empty ones rod, mid-episode rather than the old finale slot) gets a fresh
+# generic "stuck" reaction instead of reusing R8's old "last one" framing, since R4 is no longer
+# the last round. R8 (now 68+5, the genuine final round) keeps a "last one" framing, reworded for
+# its own friend.
+#
+# ═══ LIKE ASK ═══ after round four, on the halfway win — unchanged placement, per EPISODE_RULES
+# §3.9a (logged in that file's table already; the placement itself did not move, only which
+# example plays at round four).
+#
+# ═══ WORLD & MASCOT ═══ unchanged from the previous pass — the arcade midway world set
+# (ticketglow/arcadefloor/prizewall/arcadeneon/jackpotfinale) and the two hedgehogs (signature
+# pose: curl) are untouched by this re-sequencing; only the eight rounds' own content moved.
+#
+# ⏸ marks are real silences — the child is answering. READ THESE AS GENUINELY HELD SILENCE, not
+# a beat you rush past — the previous recording's pauses were mechanically stretched afterward
+# because they were read too fast the first time; reading them at full length now avoids needing
+# that fix again.
+
+
+# --- 1 · GAME INTRO ---
+Hello again! Today, we mix big friend adding and big friend taking away — in one big game!
+
+
+# --- 1a · REMEMBER EVERYTHING (both "all nine" cards, before a single round starts) ---
+Let's remember everything first.
+Adding: one formula for every friend. Plus one, plus two, plus three, all the way to plus nine.
+Taking away: same friends, same idea, just the other way round. Minus one, all the way to minus nine.
+Eighteen formulas. You know them all.
+Now let's see if you remember them — mixed up, and fast!
+# ⏸ hold 2s
+It is time to Beat the Beads!
+I will spin the wheel. It will land on a number and a trick — adding, or taking away.
+You tell me that number's friend, before I count to three.
+If the beads get stuck, you will know exactly what to do.
+Let's find out who remembers best.
+
+
+# --- 2 · ROUND ONE (unchanged: +4, friend 6, pair {4,6}) ---
+Round one — spin the wheel!
+# ⏸ hold 1s
+It lands on plus four.
+Make thirty-seven, then try to add four more.
+Look at that — no room left!
+Quick — what is four's friend?
+# ⏸ hold 3s
+Four's friend is six!
+Plus four equals minus six, plus ten.
+Thirty-seven plus four is forty-one!
+
+
+# --- 3 · ROUND TWO (unchanged: −7, friend 3, pair {3,7}) ---
+Round two — spin the wheel!
+# ⏸ hold 1s
+It lands on minus seven.
+Make eighty-one, then try to take away seven.
+Uh oh, we are stuck!
+Think fast — what is seven's friend?
+# ⏸ hold 3s
+Seven's friend is three!
+Minus seven equals plus three, minus ten.
+Eighty-one take away seven is seventy-four!
+
+
+# --- 4 · ROUND THREE (unchanged: +8, friend 2, pair {2,8}) ---
+Round three — spin the wheel!
+# ⏸ hold 1s
+It lands on plus eight.
+Make sixty-three, then try to add eight more.
+Stuck again? Let's fix that.
+Here it comes — what is eight's friend?
+# ⏸ hold 3s
+Eight's friend is two!
+Plus eight equals minus two, plus ten.
+Sixty-three plus eight is seventy-one!
+
+
+# --- 5 · ROUND FOUR (moved from old R8: −9, friend 1, pair {1,9}) ---
+Round four — spin the wheel!
+# ⏸ hold 1s
+It lands on minus nine.
+Make ninety-six, then try to take away nine.
+Uh oh, that is a big one to take away!
+Quick — what is nine's friend?
+# ⏸ hold 3s
+Nine's friend is one!
+Minus nine equals plus one, minus ten.
+Ninety-six take away nine is eighty-seven!
+
+
+# --- 6 · LIKE ASK ---
+Four down, four to go — you are mixing it up like a pro!
+If you are having fun, tap that like button.
+
+
+# --- 7 · KEEP MIXING ---
+The wheel keeps mixing adding and taking away — you never know what is coming next!
+
+
+# --- 8 · ROUND FIVE (moved from old R7: +6, friend 4, pair {4,6}, flip of R1) ---
+Round five — spin the wheel!
+# ⏸ hold 1s
+It lands on plus six.
+Make twenty-nine, then try to add six more.
+Here we go again — no room!
+You remember this one — what is six's friend?
+# ⏸ hold 3s
+Six's friend is four!
+Plus six equals minus four, plus ten.
+Twenty-nine plus six is thirty-five!
+
+
+# --- 9 · ROUND SIX (unchanged: −3, friend 7, pair {3,7}, flip of R2) ---
+Round six — spin the wheel!
+# ⏸ hold 1s
+It lands on minus three.
+Make sixty-two, then try to take away three.
+Stuck! Good thing we have a trick.
+What is three's friend? Tell me!
+# ⏸ hold 3s
+Three's friend is seven!
+Minus three equals plus seven, minus ten.
+Sixty-two take away three is fifty-nine!
+
+
+# --- 10 · ROUND SEVEN (−2, friend 8, pair {2,8}, flip of R3 — NEW number, not 50/48: the
+# user specifically flagged "50 − 2" itself, not just its round position, so this is a genuinely
+# different two-digit example, not the same numbers moved to a new slot. d=1 (one lone bead),
+# not d=0 — a different bead-state from the old example too, not just a different tens digit.) ---
+Round seven — spin the wheel!
+# ⏸ hold 1s
+It lands on minus two.
+Make ninety-one, then try to take away two.
+Only one bead there — not enough!
+Can you get this one? What is two's friend?
+# ⏸ hold 3s
+Two's friend is eight!
+Minus two equals plus eight, minus ten.
+Ninety-one take away two is eighty-nine!
+
+
+# --- 11 · ROUND EIGHT (moved from old R5: +5, friend 5, pair {5,5}) ---
+Round eight — spin the wheel!
+# ⏸ hold 1s
+It lands on plus five.
+Make sixty-eight, then try to add five more.
+One more stuck moment to solve!
+Last one — what is five's friend?
+# ⏸ hold 3s
+Five's friend is five!
+Plus five equals minus five, plus ten.
+Sixty-eight plus five is seventy-three!
+
+
+# --- 12 · RECAP ---
+You just beat all eight big friend formulas!
+Adding and taking away, all mixed up, and you got every one.
+Nine formulas each way, and now you have played with both.
+
+
+# --- 13 · CLOSE ---
+Try Beat the Beads on your own abacus at home.
+For more sums to practice, search for Abacus Kids on the Apple App Store or Google Play.
+Download it free.
+Next time, we will meet a brand new kind of trick — one that adds and takes away, both at once.
+See you next time!

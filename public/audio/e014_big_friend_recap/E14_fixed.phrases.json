@@ -1,0 +1,4217 @@
+[
+  {
+    "index": 0,
+    "text": "Hello again!",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 0.72,
+    "duration": 0.72,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Hello",
+        "start": 0.0,
+        "end": 0.32
+      },
+      {
+        "word": "again!",
+        "start": 0.32,
+        "end": 0.72
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "Today, we mix big friend adding and big friend taking away — in one big game!",
+    "line_index": 0,
+    "start": 1.3,
+    "end": 6.84,
+    "duration": 5.54,
+    "matched": 15,
+    "words": [
+      {
+        "word": "Today,",
+        "start": 1.3,
+        "end": 1.52
+      },
+      {
+        "word": "we",
+        "start": 1.52,
+        "end": 2.04
+      },
+      {
+        "word": "mix",
+        "start": 2.04,
+        "end": 2.34
+      },
+      {
+        "word": "big",
+        "start": 2.34,
+        "end": 2.64
+      },
+      {
+        "word": "friend",
+        "start": 2.64,
+        "end": 2.9
+      },
+      {
+        "word": "adding",
+        "start": 2.9,
+        "end": 3.26
+      },
+      {
+        "word": "and",
+        "start": 3.26,
+        "end": 3.68
+      },
+      {
+        "word": "big",
+        "start": 3.68,
+        "end": 3.96
+      },
+      {
+        "word": "friend",
+        "start": 3.96,
+        "end": 4.26
+      },
+      {
+        "word": "taking",
+        "start": 4.26,
+        "end": 4.6
+      },
+      {
+        "word": "away",
+        "start": 4.6,
+        "end": 4.94
+      },
+      {
+        "word": "in",
+        "start": 4.94,
+        "end": 5.56
+      },
+      {
+        "word": "one",
+        "start": 5.56,
+        "end": 5.94
+      },
+      {
+        "word": "big",
+        "start": 5.94,
+        "end": 6.4
+      },
+      {
+        "word": "game!",
+        "start": 6.4,
+        "end": 6.84
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Let's remember everything first.",
+    "line_index": 1,
+    "start": 7.5,
+    "end": 9.12,
+    "duration": 1.62,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 7.5,
+        "end": 7.82
+      },
+      {
+        "word": "remember",
+        "start": 7.82,
+        "end": 8.26
+      },
+      {
+        "word": "everything",
+        "start": 8.26,
+        "end": 8.7
+      },
+      {
+        "word": "first.",
+        "start": 8.7,
+        "end": 9.12
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "Adding: one formula for every friend.",
+    "line_index": 2,
+    "start": 9.76,
+    "end": 12.48,
+    "duration": 2.72,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Adding:",
+        "start": 9.76,
+        "end": 10.0
+      },
+      {
+        "word": "one",
+        "start": 10.0,
+        "end": 10.74
+      },
+      {
+        "word": "formula",
+        "start": 10.74,
+        "end": 11.2
+      },
+      {
+        "word": "for",
+        "start": 11.2,
+        "end": 11.56
+      },
+      {
+        "word": "every",
+        "start": 11.56,
+        "end": 11.98
+      },
+      {
+        "word": "friend.",
+        "start": 11.98,
+        "end": 12.48
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Plus one, plus two, plus three, all the way to plus nine.",
+    "line_index": 2,
+    "start": 12.74,
+    "end": 16.98,
+    "duration": 4.24,
+    "matched": 12,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 12.74,
+        "end": 12.98
+      },
+      {
+        "word": "one,",
+        "start": 12.98,
+        "end": 13.38
+      },
+      {
+        "word": "plus",
+        "start": 13.76,
+        "end": 13.86
+      },
+      {
+        "word": "two,",
+        "start": 13.86,
+        "end": 14.22
+      },
+      {
+        "word": "plus",
+        "start": 14.58,
+        "end": 14.72
+      },
+      {
+        "word": "three,",
+        "start": 14.72,
+        "end": 15.14
+      },
+      {
+        "word": "all",
+        "start": 15.52,
+        "end": 15.72
+      },
+      {
+        "word": "the",
+        "start": 15.72,
+        "end": 15.88
+      },
+      {
+        "word": "way",
+        "start": 15.88,
+        "end": 16.08
+      },
+      {
+        "word": "to",
+        "start": 16.08,
+        "end": 16.3
+      },
+      {
+        "word": "plus",
+        "start": 16.3,
+        "end": 16.6
+      },
+      {
+        "word": "nine.",
+        "start": 16.6,
+        "end": 16.98
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "Taking away: same friends, same idea, just the other way round.",
+    "line_index": 3,
+    "start": 17.58,
+    "end": 22.48,
+    "duration": 4.9,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Taking",
+        "start": 17.58,
+        "end": 17.82
+      },
+      {
+        "word": "away:",
+        "start": 17.82,
+        "end": 18.2
+      },
+      {
+        "word": "same",
+        "start": 18.76,
+        "end": 19.04
+      },
+      {
+        "word": "friends,",
+        "start": 19.04,
+        "end": 19.42
+      },
+      {
+        "word": "same",
+        "start": 19.86,
+        "end": 20.08
+      },
+      {
+        "word": "idea,",
+        "start": 20.08,
+        "end": 20.46
+      },
+      {
+        "word": "just",
+        "start": 20.84,
+        "end": 21.04
+      },
+      {
+        "word": "the",
+        "start": 21.04,
+        "end": 21.28
+      },
+      {
+        "word": "other",
+        "start": 21.28,
+        "end": 21.46
+      },
+      {
+        "word": "way",
+        "start": 21.46,
+        "end": 21.62
+      },
+      {
+        "word": "round.",
+        "start": 21.62,
+        "end": 22.48
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Minus one, all the way to minus nine.",
+    "line_index": 3,
+    "start": 22.48,
+    "end": 24.96,
+    "duration": 2.48,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Minus",
+        "start": 22.48,
+        "end": 22.82
+      },
+      {
+        "word": "one,",
+        "start": 22.82,
+        "end": 23.14
+      },
+      {
+        "word": "all",
+        "start": 23.14,
+        "end": 23.62
+      },
+      {
+        "word": "the",
+        "start": 23.62,
+        "end": 23.78
+      },
+      {
+        "word": "way",
+        "start": 23.78,
+        "end": 23.98
+      },
+      {
+        "word": "to",
+        "start": 23.98,
+        "end": 24.2
+      },
+      {
+        "word": "minus",
+        "start": 24.2,
+        "end": 24.56
+      },
+      {
+        "word": "nine.",
+        "start": 24.56,
+        "end": 24.96
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "Eighteen formulas.",
+    "line_index": 4,
+    "start": 25.46,
+    "end": 26.5,
+    "duration": 1.04,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Eighteen",
+        "start": 25.46,
+        "end": 25.86
+      },
+      {
+        "word": "formulas.",
+        "start": 25.86,
+        "end": 26.5
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "You know them all.",
+    "line_index": 4,
+    "start": 26.94,
+    "end": 27.84,
+    "duration": 0.9,
+    "matched": 4,
+    "words": [
+      {
+        "word": "You",
+        "start": 26.94,
+        "end": 27.2
+      },
+      {
+        "word": "know",
+        "start": 27.2,
+        "end": 27.36
+      },
+      {
+        "word": "them",
+        "start": 27.36,
+        "end": 27.58
+      },
+      {
+        "word": "all.",
+        "start": 27.58,
+        "end": 27.84
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Now let's see if you remember them — mixed up, and fast!",
+    "line_index": 5,
+    "start": 27.84,
+    "end": 31.74,
+    "duration": 3.9,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Now",
+        "start": 27.84,
+        "end": 28.42
+      },
+      {
+        "word": "let's",
+        "start": 28.42,
+        "end": 28.82
+      },
+      {
+        "word": "see",
+        "start": 28.82,
+        "end": 28.92
+      },
+      {
+        "word": "if",
+        "start": 28.92,
+        "end": 29.08
+      },
+      {
+        "word": "you",
+        "start": 29.08,
+        "end": 29.18
+      },
+      {
+        "word": "remember",
+        "start": 29.18,
+        "end": 29.56
+      },
+      {
+        "word": "them",
+        "start": 29.56,
+        "end": 29.88
+      },
+      {
+        "word": "mixed",
+        "start": 30.24,
+        "end": 30.56
+      },
+      {
+        "word": "up,",
+        "start": 30.56,
+        "end": 30.74
+      },
+      {
+        "word": "and",
+        "start": 30.74,
+        "end": 31.12
+      },
+      {
+        "word": "fast!",
+        "start": 31.12,
+        "end": 31.74
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "It is time to Beat the Beads!",
+    "line_index": 6,
+    "start": 33.86,
+    "end": 35.64,
+    "duration": 1.78,
+    "matched": 7,
+    "words": [
+      {
+        "word": "It",
+        "start": 33.86,
+        "end": 33.92
+      },
+      {
+        "word": "is",
+        "start": 33.92,
+        "end": 34.08
+      },
+      {
+        "word": "time",
+        "start": 34.08,
+        "end": 34.42
+      },
+      {
+        "word": "to",
+        "start": 34.42,
+        "end": 34.72
+      },
+      {
+        "word": "Beat",
+        "start": 34.72,
+        "end": 35.04
+      },
+      {
+        "word": "the",
+        "start": 35.04,
+        "end": 35.28
+      },
+      {
+        "word": "Beads!",
+        "start": 35.28,
+        "end": 35.64
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "I will spin the wheel.",
+    "line_index": 7,
+    "start": 36.36,
+    "end": 37.26,
+    "duration": 0.9,
+    "matched": 5,
+    "words": [
+      {
+        "word": "I",
+        "start": 36.36,
+        "end": 36.48
+      },
+      {
+        "word": "will",
+        "start": 36.48,
+        "end": 36.62
+      },
+      {
+        "word": "spin",
+        "start": 36.62,
+        "end": 36.86
+      },
+      {
+        "word": "the",
+        "start": 36.86,
+        "end": 37.04
+      },
+      {
+        "word": "wheel.",
+        "start": 37.04,
+        "end": 37.26
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "It will land on a number and a trick — adding, or taking away.",
+    "line_index": 7,
+    "start": 37.72,
+    "end": 41.26,
+    "duration": 3.54,
+    "matched": 13,
+    "words": [
+      {
+        "word": "It",
+        "start": 37.72,
+        "end": 37.8
+      },
+      {
+        "word": "will",
+        "start": 37.8,
+        "end": 37.92
+      },
+      {
+        "word": "land",
+        "start": 37.92,
+        "end": 38.2
+      },
+      {
+        "word": "on",
+        "start": 38.2,
+        "end": 38.34
+      },
+      {
+        "word": "a",
+        "start": 38.34,
+        "end": 38.46
+      },
+      {
+        "word": "number",
+        "start": 38.46,
+        "end": 38.76
+      },
+      {
+        "word": "and",
+        "start": 38.76,
+        "end": 39.08
+      },
+      {
+        "word": "a",
+        "start": 39.08,
+        "end": 39.2
+      },
+      {
+        "word": "trick",
+        "start": 39.2,
+        "end": 39.44
+      },
+      {
+        "word": "adding,",
+        "start": 39.96,
+        "end": 40.22
+      },
+      {
+        "word": "or",
+        "start": 40.22,
+        "end": 40.64
+      },
+      {
+        "word": "taking",
+        "start": 40.64,
+        "end": 40.92
+      },
+      {
+        "word": "away.",
+        "start": 40.92,
+        "end": 41.26
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "You tell me that number's friend, before I count to three.",
+    "line_index": 8,
+    "start": 41.78,
+    "end": 44.74,
+    "duration": 2.96,
+    "matched": 11,
+    "words": [
+      {
+        "word": "You",
+        "start": 41.78,
+        "end": 41.94
+      },
+      {
+        "word": "tell",
+        "start": 41.94,
+        "end": 42.16
+      },
+      {
+        "word": "me",
+        "start": 42.16,
+        "end": 42.42
+      },
+      {
+        "word": "that",
+        "start": 42.42,
+        "end": 42.66
+      },
+      {
+        "word": "number's",
+        "start": 42.66,
+        "end": 43.1
+      },
+      {
+        "word": "friend,",
+        "start": 43.1,
+        "end": 43.4
+      },
+      {
+        "word": "before",
+        "start": 43.4,
+        "end": 43.86
+      },
+      {
+        "word": "I",
+        "start": 43.86,
+        "end": 44.12
+      },
+      {
+        "word": "count",
+        "start": 44.12,
+        "end": 44.28
+      },
+      {
+        "word": "to",
+        "start": 44.28,
+        "end": 44.48
+      },
+      {
+        "word": "three.",
+        "start": 44.48,
+        "end": 44.74
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "If the beads get stuck, you will know exactly what to do.",
+    "line_index": 9,
+    "start": 45.22,
+    "end": 48.28,
+    "duration": 3.06,
+    "matched": 12,
+    "words": [
+      {
+        "word": "If",
+        "start": 45.22,
+        "end": 45.32
+      },
+      {
+        "word": "the",
+        "start": 45.32,
+        "end": 45.46
+      },
+      {
+        "word": "beads",
+        "start": 45.46,
+        "end": 45.7
+      },
+      {
+        "word": "get",
+        "start": 45.7,
+        "end": 45.92
+      },
+      {
+        "word": "stuck,",
+        "start": 45.92,
+        "end": 46.32
+      },
+      {
+        "word": "you",
+        "start": 46.72,
+        "end": 46.94
+      },
+      {
+        "word": "will",
+        "start": 46.94,
+        "end": 47.08
+      },
+      {
+        "word": "know",
+        "start": 47.08,
+        "end": 47.22
+      },
+      {
+        "word": "exactly",
+        "start": 47.22,
+        "end": 47.66
+      },
+      {
+        "word": "what",
+        "start": 47.66,
+        "end": 47.98
+      },
+      {
+        "word": "to",
+        "start": 47.98,
+        "end": 48.14
+      },
+      {
+        "word": "do.",
+        "start": 48.14,
+        "end": 48.28
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "Let's find out who remembers best.",
+    "line_index": 10,
+    "start": 48.8,
+    "end": 50.64,
+    "duration": 1.84,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 48.8,
+        "end": 49.1
+      },
+      {
+        "word": "find",
+        "start": 49.1,
+        "end": 49.28
+      },
+      {
+        "word": "out",
+        "start": 49.28,
+        "end": 49.54
+      },
+      {
+        "word": "who",
+        "start": 49.54,
+        "end": 49.82
+      },
+      {
+        "word": "remembers",
+        "start": 49.82,
+        "end": 50.24
+      },
+      {
+        "word": "best.",
+        "start": 50.24,
+        "end": 50.64
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "Round one — spin the wheel!",
+    "line_index": 11,
+    "start": 51.42,
+    "end": 53.62,
+    "duration": 2.2,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Round",
+        "start": 51.42,
+        "end": 52.08
+      },
+      {
+        "word": "one",
+        "start": 52.08,
+        "end": 52.52
+      },
+      {
+        "word": "spin",
+        "start": 52.96,
+        "end": 53.16
+      },
+      {
+        "word": "the",
+        "start": 53.16,
+        "end": 53.38
+      },
+      {
+        "word": "wheel!",
+        "start": 53.38,
+        "end": 53.62
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "It lands on plus four.",
+    "line_index": 12,
+    "start": 54.7,
+    "end": 56.36,
+    "duration": 1.66,
+    "matched": 5,
+    "words": [
+      {
+        "word": "It",
+        "start": 54.7,
+        "end": 54.88
+      },
+      {
+        "word": "lands",
+        "start": 54.88,
+        "end": 55.18
+      },
+      {
+        "word": "on",
+        "start": 55.18,
+        "end": 55.56
+      },
+      {
+        "word": "plus",
+        "start": 55.56,
+        "end": 55.9
+      },
+      {
+        "word": "four.",
+        "start": 55.9,
+        "end": 56.36
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "Make thirty-seven, then try to add four more.",
+    "line_index": 13,
+    "start": 56.94,
+    "end": 59.5,
+    "duration": 2.56,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Make",
+        "start": 56.94,
+        "end": 57.1
+      },
+      {
+        "word": "thirty-seven,",
+        "start": 57.1,
+        "end": 57.8
+      },
+      {
+        "word": "then",
+        "start": 58.1,
+        "end": 58.26
+      },
+      {
+        "word": "try",
+        "start": 58.26,
+        "end": 58.54
+      },
+      {
+        "word": "to",
+        "start": 58.54,
+        "end": 58.68
+      },
+      {
+        "word": "add",
+        "start": 58.68,
+        "end": 58.9
+      },
+      {
+        "word": "four",
+        "start": 58.9,
+        "end": 59.22
+      },
+      {
+        "word": "more.",
+        "start": 59.22,
+        "end": 59.5
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "Look at that — no room left!",
+    "line_index": 14,
+    "start": 60.0,
+    "end": 61.88,
+    "duration": 1.88,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Look",
+        "start": 60.0,
+        "end": 60.22
+      },
+      {
+        "word": "at",
+        "start": 60.22,
+        "end": 60.36
+      },
+      {
+        "word": "that",
+        "start": 60.36,
+        "end": 60.66
+      },
+      {
+        "word": "no",
+        "start": 61.08,
+        "end": 61.28
+      },
+      {
+        "word": "room",
+        "start": 61.28,
+        "end": 61.56
+      },
+      {
+        "word": "left!",
+        "start": 61.56,
+        "end": 61.88
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "Quick — what is four's friend?",
+    "line_index": 15,
+    "start": 62.46,
+    "end": 63.94,
+    "duration": 1.48,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Quick",
+        "start": 62.46,
+        "end": 62.62
+      },
+      {
+        "word": "what",
+        "start": 63.1,
+        "end": 63.22
+      },
+      {
+        "word": "is",
+        "start": 63.22,
+        "end": 63.36
+      },
+      {
+        "word": "four's",
+        "start": 63.36,
+        "end": 63.72
+      },
+      {
+        "word": "friend?",
+        "start": 63.72,
+        "end": 63.94
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "Four's friend is six!",
+    "line_index": 16,
+    "start": 66.78,
+    "end": 68.28,
+    "duration": 1.5,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Four's",
+        "start": 66.78,
+        "end": 67.44
+      },
+      {
+        "word": "friend",
+        "start": 67.44,
+        "end": 67.74
+      },
+      {
+        "word": "is",
+        "start": 67.74,
+        "end": 67.98
+      },
+      {
+        "word": "six!",
+        "start": 67.98,
+        "end": 68.28
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "Plus four equals minus six, plus ten.",
+    "line_index": 17,
+    "start": 68.98,
+    "end": 71.82,
+    "duration": 2.84,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 68.98,
+        "end": 69.18
+      },
+      {
+        "word": "four",
+        "start": 69.18,
+        "end": 69.62
+      },
+      {
+        "word": "equals",
+        "start": 69.62,
+        "end": 70.04
+      },
+      {
+        "word": "minus",
+        "start": 70.04,
+        "end": 70.48
+      },
+      {
+        "word": "six,",
+        "start": 70.48,
+        "end": 70.86
+      },
+      {
+        "word": "plus",
+        "start": 70.86,
+        "end": 71.36
+      },
+      {
+        "word": "ten.",
+        "start": 71.36,
+        "end": 71.82
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "Thirty-seven plus four is forty-one!",
+    "line_index": 18,
+    "start": 72.38,
+    "end": 74.66,
+    "duration": 2.28,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Thirty-seven",
+        "start": 72.38,
+        "end": 72.9
+      },
+      {
+        "word": "plus",
+        "start": 72.9,
+        "end": 73.26
+      },
+      {
+        "word": "four",
+        "start": 73.26,
+        "end": 73.7
+      },
+      {
+        "word": "is",
+        "start": 73.7,
+        "end": 74.02
+      },
+      {
+        "word": "forty-one!",
+        "start": 74.02,
+        "end": 74.66
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "Round two — spin the wheel!",
+    "line_index": 19,
+    "start": 75.88,
+    "end": 77.64,
+    "duration": 1.76,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Round",
+        "start": 75.88,
+        "end": 76.14
+      },
+      {
+        "word": "two",
+        "start": 76.14,
+        "end": 76.5
+      },
+      {
+        "word": "spin",
+        "start": 77.0,
+        "end": 77.14
+      },
+      {
+        "word": "the",
+        "start": 77.14,
+        "end": 77.34
+      },
+      {
+        "word": "wheel!",
+        "start": 77.34,
+        "end": 77.64
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "It lands on minus seven.",
+    "line_index": 20,
+    "start": 78.66,
+    "end": 80.34,
+    "duration": 1.68,
+    "matched": 5,
+    "words": [
+      {
+        "word": "It",
+        "start": 78.66,
+        "end": 78.86
+      },
+      {
+        "word": "lands",
+        "start": 78.86,
+        "end": 79.14
+      },
+      {
+        "word": "on",
+        "start": 79.14,
+        "end": 79.54
+      },
+      {
+        "word": "minus",
+        "start": 79.54,
+        "end": 79.88
+      },
+      {
+        "word": "seven.",
+        "start": 79.88,
+        "end": 80.34
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "Make eighty-one, then try to take away seven.",
+    "line_index": 21,
+    "start": 80.64,
+    "end": 83.36,
+    "duration": 2.72,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Make",
+        "start": 80.64,
+        "end": 81.04
+      },
+      {
+        "word": "eighty-one,",
+        "start": 81.04,
+        "end": 81.56
+      },
+      {
+        "word": "then",
+        "start": 82.02,
+        "end": 82.14
+      },
+      {
+        "word": "try",
+        "start": 82.14,
+        "end": 82.38
+      },
+      {
+        "word": "to",
+        "start": 82.38,
+        "end": 82.52
+      },
+      {
+        "word": "take",
+        "start": 82.52,
+        "end": 82.72
+      },
+      {
+        "word": "away",
+        "start": 82.72,
+        "end": 82.94
+      },
+      {
+        "word": "seven.",
+        "start": 82.94,
+        "end": 83.36
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "Uh oh, we are stuck!",
+    "line_index": 22,
+    "start": 83.9,
+    "end": 85.28,
+    "duration": 1.38,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Uh",
+        "start": 83.9,
+        "end": 84.02
+      },
+      {
+        "word": "oh,",
+        "start": 84.02,
+        "end": 84.22
+      },
+      {
+        "word": "we",
+        "start": 84.56,
+        "end": 84.76
+      },
+      {
+        "word": "are",
+        "start": 84.76,
+        "end": 84.86
+      },
+      {
+        "word": "stuck!",
+        "start": 84.86,
+        "end": 85.28
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "text": "Think fast — what is seven's friend?",
+    "line_index": 23,
+    "start": 85.92,
+    "end": 87.74,
+    "duration": 1.82,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Think",
+        "start": 85.92,
+        "end": 86.08
+      },
+      {
+        "word": "fast",
+        "start": 86.08,
+        "end": 86.36
+      },
+      {
+        "word": "what",
+        "start": 86.92,
+        "end": 87.0
+      },
+      {
+        "word": "is",
+        "start": 87.0,
+        "end": 87.12
+      },
+      {
+        "word": "seven's",
+        "start": 87.12,
+        "end": 87.52
+      },
+      {
+        "word": "friend?",
+        "start": 87.52,
+        "end": 87.74
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "text": "Seven's friend is three!",
+    "line_index": 24,
+    "start": 90.74,
+    "end": 92.24,
+    "duration": 1.5,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Seven's",
+        "start": 90.74,
+        "end": 91.38
+      },
+      {
+        "word": "friend",
+        "start": 91.38,
+        "end": 91.6
+      },
+      {
+        "word": "is",
+        "start": 91.6,
+        "end": 91.88
+      },
+      {
+        "word": "three!",
+        "start": 91.88,
+        "end": 92.24
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "text": "Minus seven equals plus three, minus ten.",
+    "line_index": 25,
+    "start": 92.92,
+    "end": 95.68,
+    "duration": 2.76,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Minus",
+        "start": 92.92,
+        "end": 93.22
+      },
+      {
+        "word": "seven",
+        "start": 93.22,
+        "end": 93.56
+      },
+      {
+        "word": "equals",
+        "start": 93.56,
+        "end": 93.92
+      },
+      {
+        "word": "plus",
+        "start": 93.92,
+        "end": 94.32
+      },
+      {
+        "word": "three,",
+        "start": 94.32,
+        "end": 94.7
+      },
+      {
+        "word": "minus",
+        "start": 94.7,
+        "end": 95.24
+      },
+      {
+        "word": "ten.",
+        "start": 95.24,
+        "end": 95.68
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "text": "Eighty-one take away seven is seventy-four!",
+    "line_index": 26,
+    "start": 96.22,
+    "end": 98.72,
+    "duration": 2.5,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Eighty-one",
+        "start": 96.22,
+        "end": 96.6
+      },
+      {
+        "word": "take",
+        "start": 96.86,
+        "end": 97.0
+      },
+      {
+        "word": "away",
+        "start": 97.0,
+        "end": 97.22
+      },
+      {
+        "word": "seven",
+        "start": 97.22,
+        "end": 97.64
+      },
+      {
+        "word": "is",
+        "start": 97.64,
+        "end": 97.94
+      },
+      {
+        "word": "seventy-four!",
+        "start": 97.94,
+        "end": 98.72
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "text": "Round three — spin the wheel!",
+    "line_index": 27,
+    "start": 100.02,
+    "end": 101.68,
+    "duration": 1.66,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Round",
+        "start": 100.02,
+        "end": 100.18
+      },
+      {
+        "word": "three",
+        "start": 100.18,
+        "end": 100.62
+      },
+      {
+        "word": "spin",
+        "start": 101.06,
+        "end": 101.26
+      },
+      {
+        "word": "the",
+        "start": 101.26,
+        "end": 101.44
+      },
+      {
+        "word": "wheel!",
+        "start": 101.44,
+        "end": 101.68
+      }
+    ]
+  },
+  {
+    "index": 33,
+    "text": "It lands on plus eight.",
+    "line_index": 28,
+    "start": 102.76,
+    "end": 104.28,
+    "duration": 1.52,
+    "matched": 5,
+    "words": [
+      {
+        "word": "It",
+        "start": 102.76,
+        "end": 102.94
+      },
+      {
+        "word": "lands",
+        "start": 102.94,
+        "end": 103.2
+      },
+      {
+        "word": "on",
+        "start": 103.2,
+        "end": 103.56
+      },
+      {
+        "word": "plus",
+        "start": 103.56,
+        "end": 103.88
+      },
+      {
+        "word": "eight.",
+        "start": 103.88,
+        "end": 104.28
+      }
+    ]
+  },
+  {
+    "index": 34,
+    "text": "Make sixty-three, then try to add eight more.",
+    "line_index": 29,
+    "start": 104.92,
+    "end": 107.42,
+    "duration": 2.5,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Make",
+        "start": 104.92,
+        "end": 105.02
+      },
+      {
+        "word": "sixty-three,",
+        "start": 105.02,
+        "end": 105.5
+      },
+      {
+        "word": "then",
+        "start": 106.0,
+        "end": 106.22
+      },
+      {
+        "word": "try",
+        "start": 106.22,
+        "end": 106.48
+      },
+      {
+        "word": "to",
+        "start": 106.48,
+        "end": 106.64
+      },
+      {
+        "word": "add",
+        "start": 106.64,
+        "end": 106.86
+      },
+      {
+        "word": "eight",
+        "start": 106.86,
+        "end": 107.14
+      },
+      {
+        "word": "more.",
+        "start": 107.14,
+        "end": 107.42
+      }
+    ]
+  },
+  {
+    "index": 35,
+    "text": "Stuck again?",
+    "line_index": 30,
+    "start": 107.42,
+    "end": 108.58,
+    "duration": 1.16,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Stuck",
+        "start": 107.42,
+        "end": 108.26
+      },
+      {
+        "word": "again?",
+        "start": 108.26,
+        "end": 108.58
+      }
+    ]
+  },
+  {
+    "index": 36,
+    "text": "Let's fix that.",
+    "line_index": 30,
+    "start": 109.06,
+    "end": 109.9,
+    "duration": 0.84,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 109.06,
+        "end": 109.38
+      },
+      {
+        "word": "fix",
+        "start": 109.38,
+        "end": 109.56
+      },
+      {
+        "word": "that.",
+        "start": 109.56,
+        "end": 109.9
+      }
+    ]
+  },
+  {
+    "index": 37,
+    "text": "Here it comes — what is eight's friend?",
+    "line_index": 31,
+    "start": 110.38,
+    "end": 112.32,
+    "duration": 1.94,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Here",
+        "start": 110.38,
+        "end": 110.54
+      },
+      {
+        "word": "it",
+        "start": 110.54,
+        "end": 110.68
+      },
+      {
+        "word": "comes",
+        "start": 110.68,
+        "end": 110.92
+      },
+      {
+        "word": "what",
+        "start": 111.54,
+        "end": 111.6
+      },
+      {
+        "word": "is",
+        "start": 111.6,
+        "end": 111.78
+      },
+      {
+        "word": "eight's",
+        "start": 111.78,
+        "end": 112.1
+      },
+      {
+        "word": "friend?",
+        "start": 112.1,
+        "end": 112.32
+      }
+    ]
+  },
+  {
+    "index": 38,
+    "text": "Eight's friend is two!",
+    "line_index": 32,
+    "start": 115.12,
+    "end": 116.66,
+    "duration": 1.54,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Eight's",
+        "start": 115.12,
+        "end": 115.8
+      },
+      {
+        "word": "friend",
+        "start": 115.8,
+        "end": 116.02
+      },
+      {
+        "word": "is",
+        "start": 116.02,
+        "end": 116.3
+      },
+      {
+        "word": "two!",
+        "start": 116.3,
+        "end": 116.66
+      }
+    ]
+  },
+  {
+    "index": 39,
+    "text": "Plus eight equals minus two, plus ten.",
+    "line_index": 33,
+    "start": 117.26,
+    "end": 120.0,
+    "duration": 2.74,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 117.26,
+        "end": 117.44
+      },
+      {
+        "word": "eight",
+        "start": 117.44,
+        "end": 117.8
+      },
+      {
+        "word": "equals",
+        "start": 117.8,
+        "end": 118.26
+      },
+      {
+        "word": "minus",
+        "start": 118.26,
+        "end": 118.68
+      },
+      {
+        "word": "two,",
+        "start": 118.68,
+        "end": 119.06
+      },
+      {
+        "word": "plus",
+        "start": 119.06,
+        "end": 119.54
+      },
+      {
+        "word": "ten.",
+        "start": 119.54,
+        "end": 120.0
+      }
+    ]
+  },
+  {
+    "index": 40,
+    "text": "Sixty-three plus eight is seventy-one!",
+    "line_index": 34,
+    "start": 120.52,
+    "end": 122.82,
+    "duration": 2.3,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Sixty-three",
+        "start": 120.52,
+        "end": 120.86
+      },
+      {
+        "word": "plus",
+        "start": 120.86,
+        "end": 121.44
+      },
+      {
+        "word": "eight",
+        "start": 121.44,
+        "end": 121.78
+      },
+      {
+        "word": "is",
+        "start": 121.78,
+        "end": 122.1
+      },
+      {
+        "word": "seventy-one!",
+        "start": 122.1,
+        "end": 122.82
+      }
+    ]
+  },
+  {
+    "index": 41,
+    "text": "Round four — spin the wheel!",
+    "line_index": 35,
+    "start": 123.64,
+    "end": 125.82,
+    "duration": 2.18,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Round",
+        "start": 123.64,
+        "end": 124.32
+      },
+      {
+        "word": "four",
+        "start": 124.32,
+        "end": 124.74
+      },
+      {
+        "word": "spin",
+        "start": 125.14,
+        "end": 125.36
+      },
+      {
+        "word": "the",
+        "start": 125.36,
+        "end": 125.56
+      },
+      {
+        "word": "wheel!",
+        "start": 125.56,
+        "end": 125.82
+      }
+    ]
+  },
+  {
+    "index": 42,
+    "text": "It lands on minus two.",
+    "line_index": 36,
+    "start": 126.86,
+    "end": 128.48,
+    "duration": 1.62,
+    "matched": 5,
+    "words": [
+      {
+        "word": "It",
+        "start": 126.86,
+        "end": 127.08
+      },
+      {
+        "word": "lands",
+        "start": 127.08,
+        "end": 127.36
+      },
+      {
+        "word": "on",
+        "start": 127.36,
+        "end": 127.68
+      },
+      {
+        "word": "minus",
+        "start": 127.68,
+        "end": 128.06
+      },
+      {
+        "word": "two.",
+        "start": 128.06,
+        "end": 128.48
+      }
+    ]
+  },
+  {
+    "index": 43,
+    "text": "Make fifty, then try to take away two.",
+    "line_index": 37,
+    "start": 129.04,
+    "end": 131.26,
+    "duration": 2.22,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Make",
+        "start": 129.04,
+        "end": 129.2
+      },
+      {
+        "word": "fifty,",
+        "start": 129.2,
+        "end": 129.66
+      },
+      {
+        "word": "then",
+        "start": 129.94,
+        "end": 130.14
+      },
+      {
+        "word": "try",
+        "start": 130.14,
+        "end": 130.4
+      },
+      {
+        "word": "to",
+        "start": 130.4,
+        "end": 130.54
+      },
+      {
+        "word": "take",
+        "start": 130.54,
+        "end": 130.74
+      },
+      {
+        "word": "away",
+        "start": 130.74,
+        "end": 130.96
+      },
+      {
+        "word": "two.",
+        "start": 130.96,
+        "end": 131.26
+      }
+    ]
+  },
+  {
+    "index": 44,
+    "text": "Nothing there at all — not one bead!",
+    "line_index": 38,
+    "start": 136.72,
+    "end": 137.63,
+    "duration": 0.91,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Nothing",
+        "start": 136.72,
+        "end": 137.4
+      },
+      {
+        "word": "there",
+        "start": 137.4,
+        "end": 137.553
+      },
+      {
+        "word": "at",
+        "start": 137.4,
+        "end": 137.564
+      },
+      {
+        "word": "all",
+        "start": 137.4,
+        "end": 137.577
+      },
+      {
+        "word": "not",
+        "start": 137.4,
+        "end": 137.592
+      },
+      {
+        "word": "one",
+        "start": 137.4,
+        "end": 137.609
+      },
+      {
+        "word": "bead!",
+        "start": 137.4,
+        "end": 137.63
+      }
+    ]
+  },
+  {
+    "index": 45,
+    "text": "Can you get this one?",
+    "line_index": 39,
+    "start": 137.4,
+    "end": 137.86,
+    "duration": 0.46,
+    "matched": 0,
+    "words": [
+      {
+        "word": "Can",
+        "start": 137.4,
+        "end": 137.656
+      },
+      {
+        "word": "you",
+        "start": 137.4,
+        "end": 137.688
+      },
+      {
+        "word": "get",
+        "start": 137.4,
+        "end": 137.729
+      },
+      {
+        "word": "this",
+        "start": 137.4,
+        "end": 137.783
+      },
+      {
+        "word": "one?",
+        "start": 137.4,
+        "end": 137.86
+      }
+    ]
+  },
+  {
+    "index": 46,
+    "text": "What is two's friend?",
+    "line_index": 39,
+    "start": 137.4,
+    "end": 139.7,
+    "duration": 2.3,
+    "matched": 0,
+    "words": [
+      {
+        "word": "What",
+        "start": 137.4,
+        "end": 137.975
+      },
+      {
+        "word": "is",
+        "start": 137.4,
+        "end": 138.167
+      },
+      {
+        "word": "two's",
+        "start": 137.4,
+        "end": 138.55
+      },
+      {
+        "word": "friend?",
+        "start": 137.4,
+        "end": 139.7
+      }
+    ]
+  },
+  {
+    "index": 47,
+    "text": "Two's friend is eight!",
+    "line_index": 40,
+    "start": 139.7,
+    "end": 141.22,
+    "duration": 1.52,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Two's",
+        "start": 139.7,
+        "end": 140.26
+      },
+      {
+        "word": "friend",
+        "start": 140.26,
+        "end": 140.52
+      },
+      {
+        "word": "is",
+        "start": 140.52,
+        "end": 140.84
+      },
+      {
+        "word": "eight!",
+        "start": 140.84,
+        "end": 141.22
+      }
+    ]
+  },
+  {
+    "index": 48,
+    "text": "Minus two equals plus eight, minus ten.",
+    "line_index": 41,
+    "start": 141.82,
+    "end": 144.54,
+    "duration": 2.72,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Minus",
+        "start": 141.82,
+        "end": 142.16
+      },
+      {
+        "word": "two",
+        "start": 142.16,
+        "end": 142.42
+      },
+      {
+        "word": "equals",
+        "start": 142.42,
+        "end": 142.84
+      },
+      {
+        "word": "plus",
+        "start": 142.84,
+        "end": 143.18
+      },
+      {
+        "word": "eight,",
+        "start": 143.18,
+        "end": 143.56
+      },
+      {
+        "word": "minus",
+        "start": 143.56,
+        "end": 144.06
+      },
+      {
+        "word": "ten.",
+        "start": 144.06,
+        "end": 144.54
+      }
+    ]
+  },
+  {
+    "index": 49,
+    "text": "Fifty take away two is forty-eight!",
+    "line_index": 42,
+    "start": 145.08,
+    "end": 147.28,
+    "duration": 2.2,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Fifty",
+        "start": 145.08,
+        "end": 145.4
+      },
+      {
+        "word": "take",
+        "start": 145.58,
+        "end": 145.7
+      },
+      {
+        "word": "away",
+        "start": 145.7,
+        "end": 145.92
+      },
+      {
+        "word": "two",
+        "start": 145.92,
+        "end": 146.24
+      },
+      {
+        "word": "is",
+        "start": 146.24,
+        "end": 146.62
+      },
+      {
+        "word": "forty-eight!",
+        "start": 146.62,
+        "end": 147.28
+      }
+    ]
+  },
+  {
+    "index": 50,
+    "text": "Four down, four to go — you are mixing it up like a pro!",
+    "line_index": 43,
+    "start": 148.46,
+    "end": 152.08,
+    "duration": 3.62,
+    "matched": 13,
+    "words": [
+      {
+        "word": "Four",
+        "start": 148.46,
+        "end": 148.74
+      },
+      {
+        "word": "down,",
+        "start": 148.74,
+        "end": 149.02
+      },
+      {
+        "word": "four",
+        "start": 149.28,
+        "end": 149.54
+      },
+      {
+        "word": "to",
+        "start": 149.54,
+        "end": 149.68
+      },
+      {
+        "word": "go",
+        "start": 149.68,
+        "end": 149.9
+      },
+      {
+        "word": "you",
+        "start": 150.32,
+        "end": 150.5
+      },
+      {
+        "word": "are",
+        "start": 150.5,
+        "end": 150.66
+      },
+      {
+        "word": "mixing",
+        "start": 150.66,
+        "end": 151.06
+      },
+      {
+        "word": "it",
+        "start": 151.06,
+        "end": 151.28
+      },
+      {
+        "word": "up",
+        "start": 151.28,
+        "end": 151.42
+      },
+      {
+        "word": "like",
+        "start": 151.42,
+        "end": 151.58
+      },
+      {
+        "word": "a",
+        "start": 151.58,
+        "end": 151.74
+      },
+      {
+        "word": "pro!",
+        "start": 151.74,
+        "end": 152.08
+      }
+    ]
+  },
+  {
+    "index": 51,
+    "text": "If you are having fun, tap that like button.",
+    "line_index": 44,
+    "start": 152.62,
+    "end": 154.92,
+    "duration": 2.3,
+    "matched": 7,
+    "words": [
+      {
+        "word": "If",
+        "start": 152.62,
+        "end": 152.74
+      },
+      {
+        "word": "you",
+        "start": 152.74,
+        "end": 152.85
+      },
+      {
+        "word": "are",
+        "start": 152.74,
+        "end": 152.96
+      },
+      {
+        "word": "having",
+        "start": 152.96,
+        "end": 153.2
+      },
+      {
+        "word": "fun,",
+        "start": 153.2,
+        "end": 153.58
+      },
+      {
+        "word": "tap",
+        "start": 153.92,
+        "end": 154.1
+      },
+      {
+        "word": "that",
+        "start": 154.1,
+        "end": 154.34
+      },
+      {
+        "word": "like",
+        "start": 154.34,
+        "end": 154.56
+      },
+      {
+        "word": "button.",
+        "start": 154.56,
+        "end": 154.92
+      }
+    ]
+  },
+  {
+    "index": 52,
+    "text": "The wheel keeps mixing adding and taking away — you never know what is coming next!",
+    "line_index": 45,
+    "start": 156.04,
+    "end": 160.8,
+    "duration": 4.76,
+    "matched": 15,
+    "words": [
+      {
+        "word": "The",
+        "start": 156.04,
+        "end": 156.18
+      },
+      {
+        "word": "wheel",
+        "start": 156.18,
+        "end": 156.44
+      },
+      {
+        "word": "keeps",
+        "start": 156.44,
+        "end": 156.7
+      },
+      {
+        "word": "mixing",
+        "start": 156.7,
+        "end": 157.24
+      },
+      {
+        "word": "adding",
+        "start": 157.54,
+        "end": 157.82
+      },
+      {
+        "word": "and",
+        "start": 158.02,
+        "end": 158.08
+      },
+      {
+        "word": "taking",
+        "start": 158.08,
+        "end": 158.4
+      },
+      {
+        "word": "away",
+        "start": 158.4,
+        "end": 158.74
+      },
+      {
+        "word": "you",
+        "start": 159.2,
+        "end": 159.36
+      },
+      {
+        "word": "never",
+        "start": 159.36,
+        "end": 159.68
+      },
+      {
+        "word": "know",
+        "start": 159.68,
+        "end": 159.86
+      },
+      {
+        "word": "what",
+        "start": 159.86,
+        "end": 160.02
+      },
+      {
+        "word": "is",
+        "start": 160.02,
+        "end": 160.16
+      },
+      {
+        "word": "coming",
+        "start": 160.16,
+        "end": 160.36
+      },
+      {
+        "word": "next!",
+        "start": 160.36,
+        "end": 160.8
+      }
+    ]
+  },
+  {
+    "index": 53,
+    "text": "Round five — spin the wheel!",
+    "line_index": 46,
+    "start": 161.48,
+    "end": 163.7,
+    "duration": 2.22,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Round",
+        "start": 161.48,
+        "end": 162.1
+      },
+      {
+        "word": "five",
+        "start": 162.1,
+        "end": 162.56
+      },
+      {
+        "word": "spin",
+        "start": 162.96,
+        "end": 163.22
+      },
+      {
+        "word": "the",
+        "start": 163.22,
+        "end": 163.4
+      },
+      {
+        "word": "wheel!",
+        "start": 163.4,
+        "end": 163.7
+      }
+    ]
+  },
+  {
+    "index": 54,
+    "text": "It lands on plus five.",
+    "line_index": 47,
+    "start": 164.34,
+    "end": 166.36,
+    "duration": 2.02,
+    "matched": 5,
+    "words": [
+      {
+        "word": "It",
+        "start": 164.34,
+        "end": 164.42
+      },
+      {
+        "word": "lands",
+        "start": 164.42,
+        "end": 165.16
+      },
+      {
+        "word": "on",
+        "start": 165.16,
+        "end": 165.46
+      },
+      {
+        "word": "plus",
+        "start": 165.46,
+        "end": 165.7
+      },
+      {
+        "word": "five.",
+        "start": 165.7,
+        "end": 166.36
+      }
+    ]
+  },
+  {
+    "index": 55,
+    "text": "Make sixty-eight, then try to add five more.",
+    "line_index": 48,
+    "start": 166.76,
+    "end": 169.18,
+    "duration": 2.42,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Make",
+        "start": 166.76,
+        "end": 166.86
+      },
+      {
+        "word": "sixty-eight,",
+        "start": 166.86,
+        "end": 167.44
+      },
+      {
+        "word": "then",
+        "start": 167.84,
+        "end": 168.0
+      },
+      {
+        "word": "try",
+        "start": 168.0,
+        "end": 168.3
+      },
+      {
+        "word": "to",
+        "start": 168.3,
+        "end": 168.42
+      },
+      {
+        "word": "add",
+        "start": 168.42,
+        "end": 168.6
+      },
+      {
+        "word": "five",
+        "start": 168.6,
+        "end": 168.88
+      },
+      {
+        "word": "more.",
+        "start": 168.88,
+        "end": 169.18
+      }
+    ]
+  },
+  {
+    "index": 56,
+    "text": "We are stuck, but we know just what to do.",
+    "line_index": 49,
+    "start": 169.74,
+    "end": 172.34,
+    "duration": 2.6,
+    "matched": 10,
+    "words": [
+      {
+        "word": "We",
+        "start": 169.74,
+        "end": 169.88
+      },
+      {
+        "word": "are",
+        "start": 169.88,
+        "end": 170.0
+      },
+      {
+        "word": "stuck,",
+        "start": 170.0,
+        "end": 170.44
+      },
+      {
+        "word": "but",
+        "start": 170.88,
+        "end": 170.98
+      },
+      {
+        "word": "we",
+        "start": 170.98,
+        "end": 171.22
+      },
+      {
+        "word": "know",
+        "start": 171.22,
+        "end": 171.4
+      },
+      {
+        "word": "just",
+        "start": 171.4,
+        "end": 171.72
+      },
+      {
+        "word": "what",
+        "start": 171.72,
+        "end": 172.0
+      },
+      {
+        "word": "to",
+        "start": 172.0,
+        "end": 172.18
+      },
+      {
+        "word": "do.",
+        "start": 172.18,
+        "end": 172.34
+      }
+    ]
+  },
+  {
+    "index": 57,
+    "text": "You know this one — what is five's friend?",
+    "line_index": 50,
+    "start": 172.82,
+    "end": 174.92,
+    "duration": 2.1,
+    "matched": 8,
+    "words": [
+      {
+        "word": "You",
+        "start": 172.82,
+        "end": 172.94
+      },
+      {
+        "word": "know",
+        "start": 172.94,
+        "end": 173.08
+      },
+      {
+        "word": "this",
+        "start": 173.08,
+        "end": 173.34
+      },
+      {
+        "word": "one",
+        "start": 173.34,
+        "end": 173.52
+      },
+      {
+        "word": "what",
+        "start": 174.0,
+        "end": 174.1
+      },
+      {
+        "word": "is",
+        "start": 174.1,
+        "end": 174.26
+      },
+      {
+        "word": "five's",
+        "start": 174.26,
+        "end": 174.7
+      },
+      {
+        "word": "friend?",
+        "start": 174.7,
+        "end": 174.92
+      }
+    ]
+  },
+  {
+    "index": 58,
+    "text": "Five's friend is five!",
+    "line_index": 51,
+    "start": 177.86,
+    "end": 179.3,
+    "duration": 1.44,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Five's",
+        "start": 177.86,
+        "end": 178.48
+      },
+      {
+        "word": "friend",
+        "start": 178.48,
+        "end": 178.72
+      },
+      {
+        "word": "is",
+        "start": 178.72,
+        "end": 178.94
+      },
+      {
+        "word": "five!",
+        "start": 178.94,
+        "end": 179.3
+      }
+    ]
+  },
+  {
+    "index": 59,
+    "text": "Plus five equals minus five, plus ten.",
+    "line_index": 52,
+    "start": 179.86,
+    "end": 182.7,
+    "duration": 2.84,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 179.86,
+        "end": 180.04
+      },
+      {
+        "word": "five",
+        "start": 180.04,
+        "end": 180.5
+      },
+      {
+        "word": "equals",
+        "start": 180.5,
+        "end": 180.94
+      },
+      {
+        "word": "minus",
+        "start": 180.94,
+        "end": 181.38
+      },
+      {
+        "word": "five,",
+        "start": 181.38,
+        "end": 181.82
+      },
+      {
+        "word": "plus",
+        "start": 181.82,
+        "end": 182.26
+      },
+      {
+        "word": "ten.",
+        "start": 182.26,
+        "end": 182.7
+      }
+    ]
+  },
+  {
+    "index": 60,
+    "text": "Sixty-eight plus five is seventy-three!",
+    "line_index": 53,
+    "start": 183.18,
+    "end": 185.4,
+    "duration": 2.22,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Sixty-eight",
+        "start": 183.18,
+        "end": 183.64
+      },
+      {
+        "word": "plus",
+        "start": 183.64,
+        "end": 183.96
+      },
+      {
+        "word": "five",
+        "start": 183.96,
+        "end": 184.38
+      },
+      {
+        "word": "is",
+        "start": 184.38,
+        "end": 184.66
+      },
+      {
+        "word": "seventy-three!",
+        "start": 184.66,
+        "end": 185.4
+      }
+    ]
+  },
+  {
+    "index": 61,
+    "text": "Round six — spin the wheel!",
+    "line_index": 54,
+    "start": 186.18,
+    "end": 188.44,
+    "duration": 2.26,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Round",
+        "start": 186.18,
+        "end": 186.86
+      },
+      {
+        "word": "six",
+        "start": 186.86,
+        "end": 187.38
+      },
+      {
+        "word": "spin",
+        "start": 187.76,
+        "end": 187.98
+      },
+      {
+        "word": "the",
+        "start": 187.98,
+        "end": 188.16
+      },
+      {
+        "word": "wheel!",
+        "start": 188.16,
+        "end": 188.44
+      }
+    ]
+  },
+  {
+    "index": 62,
+    "text": "It lands on minus three.",
+    "line_index": 55,
+    "start": 189.44,
+    "end": 190.9,
+    "duration": 1.46,
+    "matched": 5,
+    "words": [
+      {
+        "word": "It",
+        "start": 189.44,
+        "end": 189.66
+      },
+      {
+        "word": "lands",
+        "start": 189.66,
+        "end": 189.9
+      },
+      {
+        "word": "on",
+        "start": 189.9,
+        "end": 190.16
+      },
+      {
+        "word": "minus",
+        "start": 190.16,
+        "end": 190.48
+      },
+      {
+        "word": "three.",
+        "start": 190.48,
+        "end": 190.9
+      }
+    ]
+  },
+  {
+    "index": 63,
+    "text": "Make sixty-two, then try to take away three.",
+    "line_index": 56,
+    "start": 191.4,
+    "end": 193.88,
+    "duration": 2.48,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Make",
+        "start": 191.4,
+        "end": 191.5
+      },
+      {
+        "word": "sixty-two,",
+        "start": 191.5,
+        "end": 191.92
+      },
+      {
+        "word": "then",
+        "start": 192.46,
+        "end": 192.7
+      },
+      {
+        "word": "try",
+        "start": 192.7,
+        "end": 193.02
+      },
+      {
+        "word": "to",
+        "start": 193.02,
+        "end": 193.14
+      },
+      {
+        "word": "take",
+        "start": 193.14,
+        "end": 193.36
+      },
+      {
+        "word": "away",
+        "start": 193.36,
+        "end": 193.56
+      },
+      {
+        "word": "three.",
+        "start": 193.56,
+        "end": 193.88
+      }
+    ]
+  },
+  {
+    "index": 64,
+    "text": "Stuck!",
+    "line_index": 57,
+    "start": 194.4,
+    "end": 194.78,
+    "duration": 0.38,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Stuck!",
+        "start": 194.4,
+        "end": 194.78
+      }
+    ]
+  },
+  {
+    "index": 65,
+    "text": "Good thing we have a trick.",
+    "line_index": 57,
+    "start": 195.26,
+    "end": 196.3,
+    "duration": 1.04,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Good",
+        "start": 195.26,
+        "end": 195.48
+      },
+      {
+        "word": "thing",
+        "start": 195.48,
+        "end": 195.66
+      },
+      {
+        "word": "we",
+        "start": 195.66,
+        "end": 195.84
+      },
+      {
+        "word": "have",
+        "start": 195.84,
+        "end": 195.96
+      },
+      {
+        "word": "a",
+        "start": 195.96,
+        "end": 196.08
+      },
+      {
+        "word": "trick.",
+        "start": 196.08,
+        "end": 196.3
+      }
+    ]
+  },
+  {
+    "index": 66,
+    "text": "What is three's friend?",
+    "line_index": 58,
+    "start": 196.86,
+    "end": 197.7,
+    "duration": 0.84,
+    "matched": 4,
+    "words": [
+      {
+        "word": "What",
+        "start": 196.86,
+        "end": 196.94
+      },
+      {
+        "word": "is",
+        "start": 196.94,
+        "end": 197.12
+      },
+      {
+        "word": "three's",
+        "start": 197.12,
+        "end": 197.48
+      },
+      {
+        "word": "friend?",
+        "start": 197.48,
+        "end": 197.7
+      }
+    ]
+  },
+  {
+    "index": 67,
+    "text": "Tell me!",
+    "line_index": 58,
+    "start": 198.16,
+    "end": 198.5,
+    "duration": 0.34,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Tell",
+        "start": 198.16,
+        "end": 198.28
+      },
+      {
+        "word": "me!",
+        "start": 198.28,
+        "end": 198.5
+      }
+    ]
+  },
+  {
+    "index": 68,
+    "text": "Three's friend is seven!",
+    "line_index": 59,
+    "start": 201.2,
+    "end": 202.8,
+    "duration": 1.6,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Three's",
+        "start": 201.2,
+        "end": 201.88
+      },
+      {
+        "word": "friend",
+        "start": 201.88,
+        "end": 202.12
+      },
+      {
+        "word": "is",
+        "start": 202.12,
+        "end": 202.36
+      },
+      {
+        "word": "seven!",
+        "start": 202.36,
+        "end": 202.8
+      }
+    ]
+  },
+  {
+    "index": 69,
+    "text": "Minus three equals plus seven, minus ten.",
+    "line_index": 60,
+    "start": 203.36,
+    "end": 206.18,
+    "duration": 2.82,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Minus",
+        "start": 203.36,
+        "end": 203.7
+      },
+      {
+        "word": "three",
+        "start": 203.7,
+        "end": 203.98
+      },
+      {
+        "word": "equals",
+        "start": 203.98,
+        "end": 204.4
+      },
+      {
+        "word": "plus",
+        "start": 204.4,
+        "end": 204.76
+      },
+      {
+        "word": "seven,",
+        "start": 204.76,
+        "end": 205.24
+      },
+      {
+        "word": "minus",
+        "start": 205.24,
+        "end": 205.74
+      },
+      {
+        "word": "ten.",
+        "start": 205.74,
+        "end": 206.18
+      }
+    ]
+  },
+  {
+    "index": 70,
+    "text": "Sixty-two take away three is fifty-nine!",
+    "line_index": 61,
+    "start": 206.62,
+    "end": 209.06,
+    "duration": 2.44,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Sixty-two",
+        "start": 206.62,
+        "end": 206.98
+      },
+      {
+        "word": "take",
+        "start": 207.38,
+        "end": 207.5
+      },
+      {
+        "word": "away",
+        "start": 207.5,
+        "end": 207.72
+      },
+      {
+        "word": "three",
+        "start": 207.72,
+        "end": 208.08
+      },
+      {
+        "word": "is",
+        "start": 208.08,
+        "end": 208.44
+      },
+      {
+        "word": "fifty-nine!",
+        "start": 208.44,
+        "end": 209.06
+      }
+    ]
+  },
+  {
+    "index": 71,
+    "text": "Round seven — spin the wheel!",
+    "line_index": 62,
+    "start": 209.9,
+    "end": 212.18,
+    "duration": 2.28,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Round",
+        "start": 209.9,
+        "end": 210.58
+      },
+      {
+        "word": "seven",
+        "start": 210.58,
+        "end": 211.1
+      },
+      {
+        "word": "spin",
+        "start": 211.48,
+        "end": 211.7
+      },
+      {
+        "word": "the",
+        "start": 211.7,
+        "end": 211.9
+      },
+      {
+        "word": "wheel!",
+        "start": 211.9,
+        "end": 212.18
+      }
+    ]
+  },
+  {
+    "index": 72,
+    "text": "It lands on plus six.",
+    "line_index": 63,
+    "start": 213.24,
+    "end": 214.66,
+    "duration": 1.42,
+    "matched": 5,
+    "words": [
+      {
+        "word": "It",
+        "start": 213.24,
+        "end": 213.4
+      },
+      {
+        "word": "lands",
+        "start": 213.4,
+        "end": 213.66
+      },
+      {
+        "word": "on",
+        "start": 213.66,
+        "end": 213.92
+      },
+      {
+        "word": "plus",
+        "start": 213.92,
+        "end": 214.16
+      },
+      {
+        "word": "six.",
+        "start": 214.16,
+        "end": 214.66
+      }
+    ]
+  },
+  {
+    "index": 73,
+    "text": "Make twenty-nine, then try to add six more.",
+    "line_index": 64,
+    "start": 215.1,
+    "end": 217.48,
+    "duration": 2.38,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Make",
+        "start": 215.1,
+        "end": 215.18
+      },
+      {
+        "word": "twenty-nine,",
+        "start": 215.18,
+        "end": 215.74
+      },
+      {
+        "word": "then",
+        "start": 216.08,
+        "end": 216.28
+      },
+      {
+        "word": "try",
+        "start": 216.28,
+        "end": 216.58
+      },
+      {
+        "word": "to",
+        "start": 216.58,
+        "end": 216.72
+      },
+      {
+        "word": "add",
+        "start": 216.72,
+        "end": 216.88
+      },
+      {
+        "word": "six",
+        "start": 216.88,
+        "end": 217.16
+      },
+      {
+        "word": "more.",
+        "start": 217.16,
+        "end": 217.48
+      }
+    ]
+  },
+  {
+    "index": 74,
+    "text": "Here we go again — no room!",
+    "line_index": 65,
+    "start": 217.86,
+    "end": 219.8,
+    "duration": 1.94,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Here",
+        "start": 217.86,
+        "end": 218.08
+      },
+      {
+        "word": "we",
+        "start": 218.08,
+        "end": 218.2
+      },
+      {
+        "word": "go",
+        "start": 218.2,
+        "end": 218.38
+      },
+      {
+        "word": "again",
+        "start": 218.38,
+        "end": 218.72
+      },
+      {
+        "word": "no",
+        "start": 219.18,
+        "end": 219.38
+      },
+      {
+        "word": "room!",
+        "start": 219.38,
+        "end": 219.8
+      }
+    ]
+  },
+  {
+    "index": 75,
+    "text": "You remember this one — what is six's friend?",
+    "line_index": 66,
+    "start": 220.34,
+    "end": 222.74,
+    "duration": 2.4,
+    "matched": 8,
+    "words": [
+      {
+        "word": "You",
+        "start": 220.34,
+        "end": 220.5
+      },
+      {
+        "word": "remember",
+        "start": 220.5,
+        "end": 220.76
+      },
+      {
+        "word": "this",
+        "start": 220.76,
+        "end": 221.14
+      },
+      {
+        "word": "one",
+        "start": 221.14,
+        "end": 221.32
+      },
+      {
+        "word": "what",
+        "start": 221.82,
+        "end": 221.92
+      },
+      {
+        "word": "is",
+        "start": 221.92,
+        "end": 222.04
+      },
+      {
+        "word": "six's",
+        "start": 222.04,
+        "end": 222.48
+      },
+      {
+        "word": "friend?",
+        "start": 222.48,
+        "end": 222.74
+      }
+    ]
+  },
+  {
+    "index": 76,
+    "text": "Six's friend is four!",
+    "line_index": 67,
+    "start": 225.66,
+    "end": 227.3,
+    "duration": 1.64,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Six's",
+        "start": 225.66,
+        "end": 226.34
+      },
+      {
+        "word": "friend",
+        "start": 226.34,
+        "end": 226.62
+      },
+      {
+        "word": "is",
+        "start": 226.62,
+        "end": 226.88
+      },
+      {
+        "word": "four!",
+        "start": 226.88,
+        "end": 227.3
+      }
+    ]
+  },
+  {
+    "index": 77,
+    "text": "Plus six equals minus four, plus ten.",
+    "line_index": 68,
+    "start": 227.78,
+    "end": 230.48,
+    "duration": 2.7,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 227.78,
+        "end": 227.96
+      },
+      {
+        "word": "six",
+        "start": 227.96,
+        "end": 228.38
+      },
+      {
+        "word": "equals",
+        "start": 228.38,
+        "end": 228.84
+      },
+      {
+        "word": "minus",
+        "start": 228.84,
+        "end": 229.22
+      },
+      {
+        "word": "four,",
+        "start": 229.22,
+        "end": 229.64
+      },
+      {
+        "word": "plus",
+        "start": 229.64,
+        "end": 230.04
+      },
+      {
+        "word": "ten.",
+        "start": 230.04,
+        "end": 230.48
+      }
+    ]
+  },
+  {
+    "index": 78,
+    "text": "Twenty-nine plus six is thirty-five!",
+    "line_index": 69,
+    "start": 230.9,
+    "end": 233.08,
+    "duration": 2.18,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Twenty-nine",
+        "start": 230.9,
+        "end": 231.34
+      },
+      {
+        "word": "plus",
+        "start": 231.34,
+        "end": 231.68
+      },
+      {
+        "word": "six",
+        "start": 231.68,
+        "end": 232.06
+      },
+      {
+        "word": "is",
+        "start": 232.06,
+        "end": 232.4
+      },
+      {
+        "word": "thirty-five!",
+        "start": 232.4,
+        "end": 233.08
+      }
+    ]
+  },
+  {
+    "index": 79,
+    "text": "Round eight — spin the wheel!",
+    "line_index": 70,
+    "start": 233.8,
+    "end": 235.98,
+    "duration": 2.18,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Round",
+        "start": 233.8,
+        "end": 234.48
+      },
+      {
+        "word": "eight",
+        "start": 234.48,
+        "end": 234.9
+      },
+      {
+        "word": "spin",
+        "start": 235.34,
+        "end": 235.54
+      },
+      {
+        "word": "the",
+        "start": 235.54,
+        "end": 235.72
+      },
+      {
+        "word": "wheel!",
+        "start": 235.72,
+        "end": 235.98
+      }
+    ]
+  },
+  {
+    "index": 80,
+    "text": "It lands on minus nine.",
+    "line_index": 71,
+    "start": 237.12,
+    "end": 238.56,
+    "duration": 1.44,
+    "matched": 5,
+    "words": [
+      {
+        "word": "It",
+        "start": 237.12,
+        "end": 237.22
+      },
+      {
+        "word": "lands",
+        "start": 237.22,
+        "end": 237.46
+      },
+      {
+        "word": "on",
+        "start": 237.46,
+        "end": 237.74
+      },
+      {
+        "word": "minus",
+        "start": 237.74,
+        "end": 238.04
+      },
+      {
+        "word": "nine.",
+        "start": 238.04,
+        "end": 238.56
+      }
+    ]
+  },
+  {
+    "index": 81,
+    "text": "Make ninety-six, then try to take away nine.",
+    "line_index": 72,
+    "start": 238.98,
+    "end": 241.36,
+    "duration": 2.38,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Make",
+        "start": 238.98,
+        "end": 239.1
+      },
+      {
+        "word": "ninety-six,",
+        "start": 239.1,
+        "end": 239.64
+      },
+      {
+        "word": "then",
+        "start": 240.08,
+        "end": 240.24
+      },
+      {
+        "word": "try",
+        "start": 240.24,
+        "end": 240.54
+      },
+      {
+        "word": "to",
+        "start": 240.54,
+        "end": 240.68
+      },
+      {
+        "word": "take",
+        "start": 240.68,
+        "end": 240.88
+      },
+      {
+        "word": "away",
+        "start": 240.88,
+        "end": 241.08
+      },
+      {
+        "word": "nine.",
+        "start": 241.08,
+        "end": 241.36
+      }
+    ]
+  },
+  {
+    "index": 82,
+    "text": "One more stuck moment to solve!",
+    "line_index": 73,
+    "start": 241.88,
+    "end": 243.58,
+    "duration": 1.7,
+    "matched": 6,
+    "words": [
+      {
+        "word": "One",
+        "start": 241.88,
+        "end": 242.06
+      },
+      {
+        "word": "more",
+        "start": 242.06,
+        "end": 242.32
+      },
+      {
+        "word": "stuck",
+        "start": 242.32,
+        "end": 242.68
+      },
+      {
+        "word": "moment",
+        "start": 242.68,
+        "end": 243.02
+      },
+      {
+        "word": "to",
+        "start": 243.02,
+        "end": 243.24
+      },
+      {
+        "word": "solve!",
+        "start": 243.24,
+        "end": 243.58
+      }
+    ]
+  },
+  {
+    "index": 83,
+    "text": "Last one — what is nine's friend?",
+    "line_index": 74,
+    "start": 244.16,
+    "end": 246.02,
+    "duration": 1.86,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Last",
+        "start": 244.16,
+        "end": 244.32
+      },
+      {
+        "word": "one",
+        "start": 244.32,
+        "end": 244.62
+      },
+      {
+        "word": "what",
+        "start": 245.12,
+        "end": 245.22
+      },
+      {
+        "word": "is",
+        "start": 245.22,
+        "end": 245.38
+      },
+      {
+        "word": "nine's",
+        "start": 245.38,
+        "end": 245.8
+      },
+      {
+        "word": "friend?",
+        "start": 245.8,
+        "end": 246.02
+      }
+    ]
+  },
+  {
+    "index": 84,
+    "text": "Nine's friend is one!",
+    "line_index": 75,
+    "start": 248.9,
+    "end": 250.42,
+    "duration": 1.52,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Nine's",
+        "start": 248.9,
+        "end": 249.58
+      },
+      {
+        "word": "friend",
+        "start": 249.58,
+        "end": 249.78
+      },
+      {
+        "word": "is",
+        "start": 249.78,
+        "end": 250.08
+      },
+      {
+        "word": "one!",
+        "start": 250.08,
+        "end": 250.42
+      }
+    ]
+  },
+  {
+    "index": 85,
+    "text": "Minus nine equals plus one, minus ten.",
+    "line_index": 76,
+    "start": 251.02,
+    "end": 253.68,
+    "duration": 2.66,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Minus",
+        "start": 251.02,
+        "end": 251.36
+      },
+      {
+        "word": "nine",
+        "start": 251.36,
+        "end": 251.64
+      },
+      {
+        "word": "equals",
+        "start": 251.64,
+        "end": 252.02
+      },
+      {
+        "word": "plus",
+        "start": 252.02,
+        "end": 252.4
+      },
+      {
+        "word": "one,",
+        "start": 252.4,
+        "end": 252.82
+      },
+      {
+        "word": "minus",
+        "start": 252.82,
+        "end": 253.28
+      },
+      {
+        "word": "ten.",
+        "start": 253.28,
+        "end": 253.68
+      }
+    ]
+  },
+  {
+    "index": 86,
+    "text": "Ninety-six take away nine is eighty-seven!",
+    "line_index": 77,
+    "start": 254.16,
+    "end": 256.72,
+    "duration": 2.56,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Ninety-six",
+        "start": 254.16,
+        "end": 254.62
+      },
+      {
+        "word": "take",
+        "start": 254.88,
+        "end": 255.02
+      },
+      {
+        "word": "away",
+        "start": 255.02,
+        "end": 255.24
+      },
+      {
+        "word": "nine",
+        "start": 255.24,
+        "end": 255.56
+      },
+      {
+        "word": "is",
+        "start": 255.56,
+        "end": 255.94
+      },
+      {
+        "word": "eighty-seven!",
+        "start": 255.94,
+        "end": 256.72
+      }
+    ]
+  },
+  {
+    "index": 87,
+    "text": "You just beat all eight big friend formulas!",
+    "line_index": 78,
+    "start": 257.52,
+    "end": 260.52,
+    "duration": 3.0,
+    "matched": 8,
+    "words": [
+      {
+        "word": "You",
+        "start": 257.52,
+        "end": 258.04
+      },
+      {
+        "word": "just",
+        "start": 258.04,
+        "end": 258.3
+      },
+      {
+        "word": "beat",
+        "start": 258.3,
+        "end": 258.5
+      },
+      {
+        "word": "all",
+        "start": 258.5,
+        "end": 258.92
+      },
+      {
+        "word": "eight",
+        "start": 258.92,
+        "end": 259.3
+      },
+      {
+        "word": "big",
+        "start": 259.3,
+        "end": 259.64
+      },
+      {
+        "word": "friend",
+        "start": 259.64,
+        "end": 260.06
+      },
+      {
+        "word": "formulas!",
+        "start": 260.06,
+        "end": 260.52
+      }
+    ]
+  },
+  {
+    "index": 88,
+    "text": "Adding and taking away, all mixed up, and you got every one.",
+    "line_index": 79,
+    "start": 261.06,
+    "end": 265.14,
+    "duration": 4.08,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Adding",
+        "start": 261.06,
+        "end": 261.32
+      },
+      {
+        "word": "and",
+        "start": 261.32,
+        "end": 261.58
+      },
+      {
+        "word": "taking",
+        "start": 261.58,
+        "end": 261.88
+      },
+      {
+        "word": "away,",
+        "start": 261.88,
+        "end": 262.22
+      },
+      {
+        "word": "all",
+        "start": 262.22,
+        "end": 262.7
+      },
+      {
+        "word": "mixed",
+        "start": 262.7,
+        "end": 262.96
+      },
+      {
+        "word": "up,",
+        "start": 262.96,
+        "end": 263.22
+      },
+      {
+        "word": "and",
+        "start": 263.46,
+        "end": 263.52
+      },
+      {
+        "word": "you",
+        "start": 263.52,
+        "end": 263.76
+      },
+      {
+        "word": "got",
+        "start": 263.76,
+        "end": 263.96
+      },
+      {
+        "word": "every",
+        "start": 263.96,
+        "end": 264.55
+      },
+      {
+        "word": "one.",
+        "start": 263.96,
+        "end": 265.14
+      }
+    ]
+  },
+  {
+    "index": 89,
+    "text": "Nine formulas each way, and now you have played with both.",
+    "line_index": 80,
+    "start": 265.14,
+    "end": 268.34,
+    "duration": 3.2,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Nine",
+        "start": 265.14,
+        "end": 265.4
+      },
+      {
+        "word": "formulas",
+        "start": 265.4,
+        "end": 265.92
+      },
+      {
+        "word": "each",
+        "start": 265.92,
+        "end": 266.36
+      },
+      {
+        "word": "way,",
+        "start": 266.36,
+        "end": 266.6
+      },
+      {
+        "word": "and",
+        "start": 266.92,
+        "end": 267.0
+      },
+      {
+        "word": "now",
+        "start": 267.0,
+        "end": 267.26
+      },
+      {
+        "word": "you",
+        "start": 267.26,
+        "end": 267.48
+      },
+      {
+        "word": "have",
+        "start": 267.48,
+        "end": 267.64
+      },
+      {
+        "word": "played",
+        "start": 267.64,
+        "end": 267.86
+      },
+      {
+        "word": "with",
+        "start": 267.86,
+        "end": 268.04
+      },
+      {
+        "word": "both.",
+        "start": 268.04,
+        "end": 268.34
+      }
+    ]
+  },
+  {
+    "index": 90,
+    "text": "Try Beat the Beads on your own abacus at home.",
+    "line_index": 81,
+    "start": 269.32,
+    "end": 271.7,
+    "duration": 2.38,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Try",
+        "start": 269.32,
+        "end": 269.6
+      },
+      {
+        "word": "Beat",
+        "start": 269.6,
+        "end": 269.82
+      },
+      {
+        "word": "the",
+        "start": 269.82,
+        "end": 270.02
+      },
+      {
+        "word": "Beads",
+        "start": 270.02,
+        "end": 270.22
+      },
+      {
+        "word": "on",
+        "start": 270.22,
+        "end": 270.48
+      },
+      {
+        "word": "your",
+        "start": 270.48,
+        "end": 270.6
+      },
+      {
+        "word": "own",
+        "start": 270.6,
+        "end": 270.9
+      },
+      {
+        "word": "abacus",
+        "start": 270.9,
+        "end": 271.3
+      },
+      {
+        "word": "at",
+        "start": 271.3,
+        "end": 271.46
+      },
+      {
+        "word": "home.",
+        "start": 271.46,
+        "end": 271.7
+      }
+    ]
+  },
+  {
+    "index": 91,
+    "text": "For more sums to practice, search for Abacus Kids on the Apple App Store or Google Play.",
+    "line_index": 82,
+    "start": 272.06,
+    "end": 276.72,
+    "duration": 4.66,
+    "matched": 17,
+    "words": [
+      {
+        "word": "For",
+        "start": 272.06,
+        "end": 272.16
+      },
+      {
+        "word": "more",
+        "start": 272.16,
+        "end": 272.38
+      },
+      {
+        "word": "sums",
+        "start": 272.38,
+        "end": 272.66
+      },
+      {
+        "word": "to",
+        "start": 272.66,
+        "end": 272.82
+      },
+      {
+        "word": "practice,",
+        "start": 272.82,
+        "end": 273.18
+      },
+      {
+        "word": "search",
+        "start": 273.56,
+        "end": 273.78
+      },
+      {
+        "word": "for",
+        "start": 273.78,
+        "end": 273.94
+      },
+      {
+        "word": "Abacus",
+        "start": 273.94,
+        "end": 274.46
+      },
+      {
+        "word": "Kids",
+        "start": 274.46,
+        "end": 274.68
+      },
+      {
+        "word": "on",
+        "start": 274.68,
+        "end": 274.94
+      },
+      {
+        "word": "the",
+        "start": 274.94,
+        "end": 275.08
+      },
+      {
+        "word": "Apple",
+        "start": 275.08,
+        "end": 275.38
+      },
+      {
+        "word": "App",
+        "start": 275.38,
+        "end": 275.58
+      },
+      {
+        "word": "Store",
+        "start": 275.58,
+        "end": 275.84
+      },
+      {
+        "word": "or",
+        "start": 275.84,
+        "end": 276.12
+      },
+      {
+        "word": "Google",
+        "start": 276.12,
+        "end": 276.4
+      },
+      {
+        "word": "Play.",
+        "start": 276.4,
+        "end": 276.72
+      }
+    ]
+  },
+  {
+    "index": 92,
+    "text": "Download it free.",
+    "line_index": 83,
+    "start": 277.12,
+    "end": 277.78,
+    "duration": 0.66,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Download",
+        "start": 277.12,
+        "end": 277.3
+      },
+      {
+        "word": "it",
+        "start": 277.3,
+        "end": 277.52
+      },
+      {
+        "word": "free.",
+        "start": 277.52,
+        "end": 277.78
+      }
+    ]
+  },
+  {
+    "index": 93,
+    "text": "Next time, we will meet a brand new kind of trick — one that adds and takes away, both at once.",
+    "line_index": 84,
+    "start": 278.22,
+    "end": 283.6,
+    "duration": 5.38,
+    "matched": 20,
+    "words": [
+      {
+        "word": "Next",
+        "start": 278.22,
+        "end": 278.42
+      },
+      {
+        "word": "time,",
+        "start": 278.42,
+        "end": 278.72
+      },
+      {
+        "word": "we",
+        "start": 278.94,
+        "end": 279.06
+      },
+      {
+        "word": "will",
+        "start": 279.06,
+        "end": 279.18
+      },
+      {
+        "word": "meet",
+        "start": 279.18,
+        "end": 279.38
+      },
+      {
+        "word": "a",
+        "start": 279.38,
+        "end": 279.56
+      },
+      {
+        "word": "brand",
+        "start": 279.56,
+        "end": 279.9
+      },
+      {
+        "word": "new",
+        "start": 279.9,
+        "end": 280.16
+      },
+      {
+        "word": "kind",
+        "start": 280.16,
+        "end": 280.38
+      },
+      {
+        "word": "of",
+        "start": 280.38,
+        "end": 280.54
+      },
+      {
+        "word": "trick",
+        "start": 280.54,
+        "end": 280.76
+      },
+      {
+        "word": "one",
+        "start": 281.1,
+        "end": 281.26
+      },
+      {
+        "word": "that",
+        "start": 281.26,
+        "end": 281.44
+      },
+      {
+        "word": "adds",
+        "start": 281.44,
+        "end": 281.82
+      },
+      {
+        "word": "and",
+        "start": 281.82,
+        "end": 282.16
+      },
+      {
+        "word": "takes",
+        "start": 282.16,
+        "end": 282.44
+      },
+      {
+        "word": "away,",
+        "start": 282.44,
+        "end": 282.72
+      },
+      {
+        "word": "both",
+        "start": 282.72,
+        "end": 283.12
+      },
+      {
+        "word": "at",
+        "start": 283.12,
+        "end": 283.3
+      },
+      {
+        "word": "once.",
+        "start": 283.3,
+        "end": 283.6
+      }
+    ]
+  },
+  {
+    "index": 94,
+    "text": "See you next time!",
+    "line_index": 85,
+    "start": 284.04,
+    "end": 284.78,
+    "duration": 0.74,
+    "matched": 4,
+    "words": [
+      {
+        "word": "See",
+        "start": 284.04,
+        "end": 284.22
+      },
+      {
+        "word": "you",
+        "start": 284.22,
+        "end": 284.3
+      },
+      {
+        "word": "next",
+        "start": 284.3,
+        "end": 284.48
+      },
+      {
+        "word": "time!",
+        "start": 284.48,
+        "end": 284.78
+      }
+    ]
+  }
+]

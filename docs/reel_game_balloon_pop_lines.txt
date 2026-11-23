@@ -1,0 +1,26 @@
+# Balloon Pop — recording script (9:16 game reel, ~40-45s, quick-showcase tier)
+# Lines starting with # are notes and are NOT read aloud. Everything else IS read aloud,
+# exactly as written. Read at a quick, playful pace — this is an arcade game reel.
+#
+# PILOT #1 of the Math Game Zone series. Gameplay facts verified against the real app
+# (iOS Balloon Make Ten): a target banner on top ("Make 10 with 7"), balloons float up with
+# numbers, tap the one that completes the sum, wrong taps just wiggle (no penalty), right
+# pops grow a streak multiplier. Easy tier is free forever.
+#
+# The "Find it in the app" line drives an APP-NAVIGATION visual: recreated app screens —
+# home → tap Math Game Zone → the zone's game rows → tap Balloon Pop → difficulty selector
+# → play. Fast 4-step montage with tap rings, one step per beat of the sentence.
+#
+# Voice notes: playful kid-energy throughout EXCEPT the "Parents —" line, which slows down
+# slightly and speaks directly to the parent. The three "Pop!"s in the hook should be punchy
+# and separate — the balloons on screen pop in sync with each one.
+
+Pop! Pop! Pop! This is Balloon Pop — math you can burst!
+Your mission is on top — make ten... with seven!
+Balloons float up, each with a number.
+Seven needs three to make ten — pop the three!
+Wrong balloon? It just wiggles — try again, no worries!
+Every right pop grows your streak — pop, pop, pop!
+Parents — this trains number bonds, the secret to fast mental math!
+Find it in the app — tap Math Game Zone, pick Balloon Pop, choose your level, and play!
+Abacus Kids — free on the App Store and Google Play!

@@ -1,0 +1,95 @@
+# Math Heroes · Big Friend 2 — recording script (9:16 short reel)
+# Lines starting with # are notes and are NOT read aloud. Everything else IS read aloud.
+#
+# THIS SHORT'S HOOK: Closing time at the arcade, five minutes to the bell, and the scoreboard
+# freezes mid-count. Alert/celebration lines carry the setting; every math line is plain wording
+# ("stuck" / "no room to add" / "take away ___, then add ten"). Alert speaker alternates by slot.
+#
+# FORMULA SPLIT (revision 9): BIG FRIEND ADDING, mixed set +5, +6, +8, +9 in a random order, drawn
+# from the formulas bf1 (+1..+4, already recorded) does not cover. +7 is the one add formula left
+# over; it appears in short 5. Same friend-first convention (+n = −friend + 10).
+#
+#   Mission 1:  26 + 9   friend 1   -> 35
+#   Mission 2:  65 + 5   friend 5   -> 70
+#   Mission 3:  67 + 8   friend 2   -> 75
+#   Mission 4:  79 + 6   friend 4   -> 85
+
+# SPARK
+Do you know a big friend? It's a pair of numbers that make ten!
+
+# BLAZE
+Six and four. Seven and three. Eight and two. Nine and one. Five and five!
+
+# SPARK
+When the ones rod is too full to add, a big friend lets us use the tens rod!
+
+# SPARK
+Alert, the closing bell is near! Twenty-six plus nine is stuck!
+
+# BLAZE
+There's no room to add nine. Call the friend, Spark!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# BLAZE
+Nine's friend is one!
+
+# SPARK
+Take away one, then add ten!
+
+# BOTH
+Twenty-six plus nine is thirty-five! Scoreboard's back!
+
+# BLAZE
+Another one! Sixty-five plus five is stuck!
+
+# SPARK
+There's no room to add five. Friend, quick!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# SPARK
+Five's friend is five!
+
+# BLAZE
+Take away five, then add ten!
+
+# BOTH
+Sixty-five plus five is seventy! Keep it moving!
+
+# SPARK
+Sixty-seven plus eight is stuck!
+
+# BLAZE
+There's no room to add eight. Friend time!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# BLAZE
+Eight's friend is two!
+
+# SPARK
+Take away two, then add ten!
+
+# BOTH
+Sixty-seven plus eight is seventy-five! Almost there!
+
+# BLAZE
+Last one before the bell! Seventy-nine plus six is stuck!
+
+# SPARK
+There's no room to add six. One more friend!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# SPARK
+Six's friend is four!
+
+# BLAZE
+Take away four, then add ten!
+
+# BOTH
+Seventy-nine plus six is eighty-five! Bell's ringing, we made it!
+
+# NARRATOR
+Every stuck number has a trick. Learn them all with Abacus Kids — free on the App Store and Google Play!

@@ -1,0 +1,379 @@
+1
+00:00:00,000 --> 00:00:00,680
+Hello again!
+
+2
+00:00:01,300 --> 00:00:07,040
+Today, we mix big friend adding and big friend taking away — in one big game!
+
+3
+00:00:07,660 --> 00:00:09,360
+Let's remember everything first.
+
+4
+00:00:09,980 --> 00:00:12,800
+Adding: one formula for every friend.
+
+5
+00:00:13,080 --> 00:00:17,180
+Plus one, plus two, plus three, all the way to plus nine.
+
+6
+00:00:17,820 --> 00:00:22,120
+Taking away: same friends, same idea, just the other way round.
+
+7
+00:00:22,120 --> 00:00:25,280
+Minus one, all the way to minus nine.
+
+8
+00:00:25,840 --> 00:00:26,800
+Eighteen formulas.
+
+9
+00:00:27,280 --> 00:00:28,140
+You know them all.
+
+10
+00:00:30,000 --> 00:00:33,400
+Now let's see if you remember them — mixed up, and fast!
+
+11
+00:00:35,200 --> 00:00:37,200
+It is time to Beat the Beads!
+
+12
+00:00:37,920 --> 00:00:38,880
+I will spin the wheel.
+
+13
+00:00:39,320 --> 00:00:42,820
+It will land on a number and a trick — adding, or taking away.
+
+14
+00:00:43,340 --> 00:00:46,320
+You tell me that number's friend, before I count to three.
+
+15
+00:00:46,840 --> 00:00:49,900
+If the beads get stuck, you will know exactly what to do.
+
+16
+00:00:49,900 --> 00:00:52,620
+Let's find out who remembers best.
+
+17
+00:00:53,220 --> 00:00:54,900
+Round one — spin the wheel!
+
+18
+00:00:55,760 --> 00:00:57,340
+It lands on plus four.
+
+19
+00:00:57,900 --> 00:01:00,540
+Make thirty-seven, then try to add four more.
+
+20
+00:01:01,040 --> 00:01:02,900
+Look at that — no room left!
+
+21
+00:01:03,520 --> 00:01:05,060
+Quick — what is four's friend?
+
+22
+00:01:07,740 --> 00:01:09,260
+Four's friend is six!
+
+23
+00:01:09,880 --> 00:01:12,840
+Plus four equals minus six, plus ten.
+
+24
+00:01:12,840 --> 00:01:15,780
+Thirty-seven plus four is forty-one!
+
+25
+00:01:17,040 --> 00:01:18,680
+Round two — spin the wheel!
+
+26
+00:01:19,580 --> 00:01:21,200
+It lands on minus seven.
+
+27
+00:01:21,720 --> 00:01:24,300
+Make eighty-one, then try to take away seven.
+
+28
+00:01:24,800 --> 00:01:26,200
+Uh oh, we are stuck!
+
+29
+00:01:26,900 --> 00:01:28,800
+Think fast — what is seven's friend?
+
+30
+00:01:31,480 --> 00:01:33,140
+Seven's friend is three!
+
+31
+00:01:33,760 --> 00:01:36,780
+Minus seven equals plus three, minus ten.
+
+32
+00:01:36,780 --> 00:01:39,920
+Eighty-one take away seven is seventy-four!
+
+33
+00:01:40,860 --> 00:01:43,060
+Round three — spin the wheel!
+
+34
+00:01:43,920 --> 00:01:45,440
+It lands on plus eight.
+
+35
+00:01:46,020 --> 00:01:48,620
+Make sixty-three, then try to add eight more.
+
+36
+00:01:49,120 --> 00:01:49,760
+Stuck again?
+
+37
+00:01:50,280 --> 00:01:50,980
+Let's fix that.
+
+38
+00:01:51,460 --> 00:01:53,360
+Here it comes — what is eight's friend?
+
+39
+00:01:55,980 --> 00:01:57,540
+Eight's friend is two!
+
+40
+00:01:58,080 --> 00:02:00,980
+Plus eight equals minus two, plus ten.
+
+41
+00:02:00,980 --> 00:02:03,880
+Sixty-three plus eight is seventy-one!
+
+42
+00:02:04,820 --> 00:02:07,020
+Round four — spin the wheel!
+
+43
+00:02:07,860 --> 00:02:09,480
+It lands on minus nine.
+
+44
+00:02:09,980 --> 00:02:12,520
+Make ninety-six, then try to take away nine.
+
+45
+00:02:13,060 --> 00:02:15,360
+Uh oh, that is a big one to take away!
+
+46
+00:02:15,860 --> 00:02:17,420
+Quick — what is nine's friend?
+
+47
+00:02:20,160 --> 00:02:21,700
+Nine's friend is one!
+
+48
+00:02:22,280 --> 00:02:25,180
+Minus nine equals plus one, minus ten.
+
+49
+00:02:25,180 --> 00:02:28,400
+Ninety-six take away nine is eighty-seven!
+
+50
+00:02:29,200 --> 00:02:33,240
+Four down, four to go — you are mixing it up like a pro!
+
+51
+00:02:33,760 --> 00:02:36,300
+If you are having fun, tap that like button.
+
+52
+00:02:37,260 --> 00:02:42,180
+The wheel keeps mixing adding and taking away — you never know what is coming next!
+
+53
+00:02:42,900 --> 00:02:45,020
+Round five — spin the wheel!
+
+54
+00:02:45,880 --> 00:02:47,680
+It lands on plus six.
+
+55
+00:02:48,160 --> 00:02:50,620
+Make twenty-nine, then try to add six more.
+
+56
+00:02:50,620 --> 00:02:53,260
+Here we go again — no room!
+
+57
+00:02:53,980 --> 00:02:56,460
+You remember this one — what is six's friend?
+
+58
+00:02:59,160 --> 00:03:00,920
+Six's friend is four!
+
+59
+00:03:01,480 --> 00:03:04,480
+Plus six equals minus four, plus ten.
+
+60
+00:03:04,880 --> 00:03:07,120
+Twenty-nine plus six is thirty-five!
+
+61
+00:03:08,400 --> 00:03:10,180
+Round six — spin the wheel!
+
+62
+00:03:11,120 --> 00:03:12,800
+It lands on minus three.
+
+63
+00:03:13,300 --> 00:03:15,860
+Make sixty-two, then try to take away three.
+
+64
+00:03:15,860 --> 00:03:16,900
+Stuck!
+
+65
+00:03:17,200 --> 00:03:18,480
+Good thing we have a trick.
+
+66
+00:03:18,980 --> 00:03:19,840
+What is three's friend?
+
+67
+00:03:20,380 --> 00:03:20,820
+Tell me!
+
+68
+00:03:23,440 --> 00:03:25,080
+Three's friend is seven!
+
+69
+00:03:25,640 --> 00:03:28,680
+Minus three equals plus seven, minus ten.
+
+70
+00:03:29,100 --> 00:03:31,620
+Sixty-two take away three is fifty-nine!
+
+71
+00:03:32,540 --> 00:03:34,640
+Round seven — spin the wheel!
+
+72
+00:03:35,560 --> 00:03:37,380
+It lands on minus two.
+
+73
+00:03:38,020 --> 00:03:40,740
+Make ninety-one, then try to take away two.
+
+74
+00:03:40,740 --> 00:03:43,500
+Only one bead there — not enough!
+
+75
+00:03:44,120 --> 00:03:45,100
+Can you get this one?
+
+76
+00:03:45,660 --> 00:03:46,580
+What is two's friend?
+
+77
+00:03:49,360 --> 00:03:50,980
+Two's friend is eight!
+
+78
+00:03:51,680 --> 00:03:54,640
+Minus two equals plus eight, minus ten.
+
+79
+00:03:55,240 --> 00:03:57,720
+Ninety-one take away two is eighty-nine!
+
+80
+00:03:58,760 --> 00:04:01,320
+Round eight — spin the wheel!
+
+81
+00:04:02,280 --> 00:04:04,060
+It lands on plus five.
+
+82
+00:04:04,420 --> 00:04:06,940
+Make sixty-eight, then try to add five more.
+
+83
+00:04:07,280 --> 00:04:09,180
+One more stuck moment to solve!
+
+84
+00:04:09,180 --> 00:04:11,700
+Last one — what is five's friend?
+
+85
+00:04:14,380 --> 00:04:15,980
+Five's friend is five!
+
+86
+00:04:15,980 --> 00:04:19,440
+Plus five equals minus five, plus ten.
+
+87
+00:04:19,860 --> 00:04:22,200
+Sixty-eight plus five is seventy-three!
+
+88
+00:04:22,860 --> 00:04:25,580
+You just beat all eight big friend formulas!
+
+89
+00:04:26,160 --> 00:04:30,380
+Adding and taking away, all mixed up, and you got every one.
+
+90
+00:04:30,380 --> 00:04:33,640
+Nine formulas each way, and now you have played with both.
+
+91
+00:04:34,540 --> 00:04:37,080
+Try Beat the Beads on your own abacus at home.
+
+92
+00:04:37,080 --> 00:04:42,200
+For more sums to practice, search for Abacus Kids on the Apple App Store or Google Play.
+
+93
+00:04:42,580 --> 00:04:43,300
+Download it free.
+
+94
+00:04:43,720 --> 00:04:49,680
+Next time, we will meet a brand new kind of trick — one that adds and takes away, both at once.
+
+95
+00:04:50,080 --> 00:04:50,920
+See you next time!

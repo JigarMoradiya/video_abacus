@@ -1,0 +1,625 @@
+[
+  {
+    "index": 0,
+    "text": "An equation flashes on screen...",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 2.12,
+    "duration": 2.12,
+    "matched": 5,
+    "words": [
+      {
+        "word": "An",
+        "start": 0.0,
+        "end": 0.24
+      },
+      {
+        "word": "equation",
+        "start": 0.24,
+        "end": 0.84
+      },
+      {
+        "word": "flashes",
+        "start": 0.84,
+        "end": 1.4
+      },
+      {
+        "word": "on",
+        "start": 1.4,
+        "end": 1.76
+      },
+      {
+        "word": "screen...",
+        "start": 1.76,
+        "end": 2.12
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "true, or false?",
+    "line_index": 0,
+    "start": 2.83,
+    "end": 4.2,
+    "duration": 1.56,
+    "matched": 3,
+    "words": [
+      {
+        "word": "true,",
+        "start": 2.64,
+        "end": 3.12
+      },
+      {
+        "word": "or",
+        "start": 3.12,
+        "end": 3.78
+      },
+      {
+        "word": "false?",
+        "start": 3.78,
+        "end": 4.2
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "This is True or False!",
+    "line_index": 1,
+    "start": 6.41,
+    "end": 8.06,
+    "duration": 1.86,
+    "matched": 5,
+    "words": [
+      {
+        "word": "This",
+        "start": 6.2,
+        "end": 6.66
+      },
+      {
+        "word": "is",
+        "start": 6.66,
+        "end": 6.9
+      },
+      {
+        "word": "True",
+        "start": 6.9,
+        "end": 7.28
+      },
+      {
+        "word": "or",
+        "start": 7.28,
+        "end": 7.56
+      },
+      {
+        "word": "False!",
+        "start": 7.56,
+        "end": 8.06
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "Sixty seconds \u2014 smash right or wrong, as fast as you can!",
+    "line_index": 1,
+    "start": 8.66,
+    "end": 12.9,
+    "duration": 4.24,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Sixty",
+        "start": 8.66,
+        "end": 9.0
+      },
+      {
+        "word": "seconds",
+        "start": 9.0,
+        "end": 9.64
+      },
+      {
+        "word": "smash",
+        "start": 9.64,
+        "end": 10.32
+      },
+      {
+        "word": "right",
+        "start": 10.32,
+        "end": 10.8
+      },
+      {
+        "word": "or",
+        "start": 10.8,
+        "end": 11.0
+      },
+      {
+        "word": "wrong,",
+        "start": 11.0,
+        "end": 11.32
+      },
+      {
+        "word": "as",
+        "start": 11.32,
+        "end": 11.78
+      },
+      {
+        "word": "fast",
+        "start": 11.78,
+        "end": 12.12
+      },
+      {
+        "word": "as",
+        "start": 12.12,
+        "end": 12.38
+      },
+      {
+        "word": "you",
+        "start": 12.38,
+        "end": 12.52
+      },
+      {
+        "word": "can!",
+        "start": 12.52,
+        "end": 12.9
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Seven plus three equals ten \u2014 true!",
+    "line_index": 2,
+    "start": 14.58,
+    "end": 18.06,
+    "duration": 3.98,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Seven",
+        "start": 14.08,
+        "end": 15.0
+      },
+      {
+        "word": "plus",
+        "start": 15.0,
+        "end": 15.42
+      },
+      {
+        "word": "three",
+        "start": 15.42,
+        "end": 15.94
+      },
+      {
+        "word": "equals",
+        "start": 15.94,
+        "end": 16.66
+      },
+      {
+        "word": "ten",
+        "start": 16.66,
+        "end": 17.12
+      },
+      {
+        "word": "true!",
+        "start": 17.8,
+        "end": 18.06
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "Tap the check!",
+    "line_index": 2,
+    "start": 18.7,
+    "end": 19.34,
+    "duration": 0.82,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Tap",
+        "start": 18.52,
+        "end": 18.82
+      },
+      {
+        "word": "the",
+        "start": 18.82,
+        "end": 19.02
+      },
+      {
+        "word": "check!",
+        "start": 19.02,
+        "end": 19.34
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Six times two equals ten?",
+    "line_index": 3,
+    "start": 21.12,
+    "end": 23.32,
+    "duration": 2.32,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Six",
+        "start": 21.0,
+        "end": 21.42
+      },
+      {
+        "word": "times",
+        "start": 21.42,
+        "end": 21.86
+      },
+      {
+        "word": "two",
+        "start": 21.86,
+        "end": 22.24
+      },
+      {
+        "word": "equals",
+        "start": 22.24,
+        "end": 22.74
+      },
+      {
+        "word": "ten?",
+        "start": 22.74,
+        "end": 23.32
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "That's a sneaky lie!",
+    "line_index": 3,
+    "start": 24.01,
+    "end": 25.48,
+    "duration": 1.52,
+    "matched": 4,
+    "words": [
+      {
+        "word": "That's",
+        "start": 23.96,
+        "end": 24.42
+      },
+      {
+        "word": "a",
+        "start": 24.42,
+        "end": 24.54
+      },
+      {
+        "word": "sneaky",
+        "start": 24.54,
+        "end": 25.04
+      },
+      {
+        "word": "lie!",
+        "start": 25.04,
+        "end": 25.48
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "Tap the X!",
+    "line_index": 3,
+    "start": 26.24,
+    "end": 28.58,
+    "duration": 2.34,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Tap",
+        "start": 26.24,
+        "end": 26.36
+      },
+      {
+        "word": "the",
+        "start": 26.36,
+        "end": 26.56
+      },
+      {
+        "word": "X!",
+        "start": 26.56,
+        "end": 28.58
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Every right answer keeps your streak alive \u2014 how many can you catch?",
+    "line_index": 4,
+    "start": 28.99,
+    "end": 33.0,
+    "duration": 4.42,
+    "matched": 12,
+    "words": [
+      {
+        "word": "Every",
+        "start": 28.58,
+        "end": 29.24
+      },
+      {
+        "word": "right",
+        "start": 29.24,
+        "end": 29.54
+      },
+      {
+        "word": "answer",
+        "start": 29.54,
+        "end": 30.04
+      },
+      {
+        "word": "keeps",
+        "start": 30.04,
+        "end": 30.36
+      },
+      {
+        "word": "your",
+        "start": 30.36,
+        "end": 30.62
+      },
+      {
+        "word": "streak",
+        "start": 30.62,
+        "end": 30.94
+      },
+      {
+        "word": "alive",
+        "start": 30.94,
+        "end": 31.38
+      },
+      {
+        "word": "how",
+        "start": 31.76,
+        "end": 32.1
+      },
+      {
+        "word": "many",
+        "start": 32.1,
+        "end": 32.36
+      },
+      {
+        "word": "can",
+        "start": 32.36,
+        "end": 32.58
+      },
+      {
+        "word": "you",
+        "start": 32.58,
+        "end": 32.76
+      },
+      {
+        "word": "catch?",
+        "start": 32.76,
+        "end": 33.0
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Parents \u2014 this sharpens fact fluency, so wrong answers jump out instantly!",
+    "line_index": 5,
+    "start": 34.93,
+    "end": 40.36,
+    "duration": 5.7,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Parents",
+        "start": 34.66,
+        "end": 35.32
+      },
+      {
+        "word": "this",
+        "start": 35.88,
+        "end": 36.1
+      },
+      {
+        "word": "sharpens",
+        "start": 36.1,
+        "end": 36.66
+      },
+      {
+        "word": "fact",
+        "start": 36.66,
+        "end": 36.9
+      },
+      {
+        "word": "fluency,",
+        "start": 36.9,
+        "end": 37.58
+      },
+      {
+        "word": "so",
+        "start": 38.04,
+        "end": 38.1
+      },
+      {
+        "word": "wrong",
+        "start": 38.1,
+        "end": 38.38
+      },
+      {
+        "word": "answers",
+        "start": 38.38,
+        "end": 38.9
+      },
+      {
+        "word": "jump",
+        "start": 38.9,
+        "end": 39.36
+      },
+      {
+        "word": "out",
+        "start": 39.36,
+        "end": 39.68
+      },
+      {
+        "word": "instantly!",
+        "start": 39.68,
+        "end": 40.36
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "Find it in the app \u2014 tap Math Game Zone, pick True or False, choose your level, and play!",
+    "line_index": 6,
+    "start": 42.03,
+    "end": 48.3,
+    "duration": 6.76,
+    "matched": 18,
+    "words": [
+      {
+        "word": "Find",
+        "start": 41.54,
+        "end": 42.2
+      },
+      {
+        "word": "it",
+        "start": 42.2,
+        "end": 42.36
+      },
+      {
+        "word": "in",
+        "start": 42.36,
+        "end": 42.54
+      },
+      {
+        "word": "the",
+        "start": 42.54,
+        "end": 42.66
+      },
+      {
+        "word": "app",
+        "start": 42.66,
+        "end": 42.94
+      },
+      {
+        "word": "tap",
+        "start": 43.38,
+        "end": 43.54
+      },
+      {
+        "word": "Math",
+        "start": 43.54,
+        "end": 43.92
+      },
+      {
+        "word": "Game",
+        "start": 43.92,
+        "end": 44.24
+      },
+      {
+        "word": "Zone,",
+        "start": 44.24,
+        "end": 44.66
+      },
+      {
+        "word": "pick",
+        "start": 45.2,
+        "end": 45.28
+      },
+      {
+        "word": "True",
+        "start": 45.28,
+        "end": 45.6
+      },
+      {
+        "word": "or",
+        "start": 45.6,
+        "end": 45.78
+      },
+      {
+        "word": "False,",
+        "start": 45.78,
+        "end": 46.16
+      },
+      {
+        "word": "choose",
+        "start": 46.7,
+        "end": 46.92
+      },
+      {
+        "word": "your",
+        "start": 46.92,
+        "end": 47.14
+      },
+      {
+        "word": "level,",
+        "start": 47.14,
+        "end": 47.42
+      },
+      {
+        "word": "and",
+        "start": 47.42,
+        "end": 47.92
+      },
+      {
+        "word": "play!",
+        "start": 47.92,
+        "end": 48.3
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Abacus Kids \u2014 free on the App Store and Google Play!",
+    "line_index": 7,
+    "start": 50.11,
+    "end": 53.52,
+    "duration": 3.5,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Abacus",
+        "start": 50.02,
+        "end": 50.56
+      },
+      {
+        "word": "Kids",
+        "start": 50.56,
+        "end": 50.82
+      },
+      {
+        "word": "free",
+        "start": 51.34,
+        "end": 51.58
+      },
+      {
+        "word": "on",
+        "start": 51.58,
+        "end": 51.8
+      },
+      {
+        "word": "the",
+        "start": 51.8,
+        "end": 51.98
+      },
+      {
+        "word": "App",
+        "start": 51.98,
+        "end": 52.16
+      },
+      {
+        "word": "Store",
+        "start": 52.16,
+        "end": 52.46
+      },
+      {
+        "word": "and",
+        "start": 52.46,
+        "end": 52.88
+      },
+      {
+        "word": "Google",
+        "start": 52.88,
+        "end": 53.16
+      },
+      {
+        "word": "Play!",
+        "start": 53.16,
+        "end": 53.52
+      }
+    ]
+  }
+]

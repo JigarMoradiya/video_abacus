@@ -19,7 +19,15 @@
     "render:e06:4x5": "remotion render two-rods-4x5 out/e06_two_rods/e06_two_rods_4x5.mp4",
     "render:e05:4x5": "remotion render taking-away-4x5 out/e05_taking_away/e05_taking_away_4x5.mp4",
     "render:e07": "remotion render small-friend-intro out/e07_small_friend_intro/e07_small_friend_intro_16x9.mp4",
-    "render:e07:4x5": "remotion render small-friend-intro-4x5 out/e07_small_friend_intro/e07_small_friend_intro_4x5.mp4"
+    "render:e07:4x5": "remotion render small-friend-intro-4x5 out/e07_small_friend_intro/e07_small_friend_intro_4x5.mp4",
+    "render:e08": "remotion render all-small-friends out/e08_all_small_friends/e08_all_small_friends_16x9.mp4",
+    "render:e08:4x5": "remotion render all-small-friends-4x5 out/e08_all_small_friends/e08_all_small_friends_4x5.mp4",
+    "render:e09": "remotion render small-friend-subtract out/e09_small_friend_subtract/e09_small_friend_subtract_16x9.mp4",
+    "render:e09:4x5": "remotion render small-friend-subtract-4x5 out/e09_small_friend_subtract/e09_small_friend_subtract_4x5.mp4",
+    "render:e10": "remotion render small-friend-game out/e10_small_friend_game/e10_small_friend_game_16x9.mp4",
+    "render:e10:4x5": "remotion render small-friend-game-4x5 out/e10_small_friend_game/e10_small_friend_game_4x5.mp4",
+    "render:e11": "remotion render big-friend-intro out/e11_big_friend_intro/e11_16x9.mp4",
+    "render:e11:4x5": "remotion render big-friend-intro-4x5 out/e11_big_friend_intro/e11_4x5.mp4"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

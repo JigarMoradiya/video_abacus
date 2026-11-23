@@ -34,8 +34,35 @@ esac
 # video name = id with hyphens -> underscores, minus a trailing aspect suffix
 BASE=$(printf '%s' "$ID" | sed -E 's/-(16x9|9x16|4x5|1x1)$//' | tr '-' '_')
 DIR="out/$BASE"
-OUT="$DIR/${BASE}_${ASPECT}.mp4"
 
+# CURRICULUM EPISODES live in out/eNN_<slug>/ — the episode number first, matching the audio
+# folder (public/audio/e0NN_<slug>) so the two sort together. Composition ids carry no number
+# (big-friend-intro, all-five-big-friends), so the prefix is mapped here. Add a line per episode.
+#
+# An episode's ONLY saved file is the intro-merged one (out/eNN_<slug>/eNN_<aspect>.mp4). The raw
+# render goes to a temp folder, tools/merge_intro.sh prepends the Vedaavi intro, and the raw is
+# deleted — so the folder never holds a second, intro-less copy that could be sent by mistake.
+EP=""
+case "$BASE" in
+  big_friend_intro)      DIR="out/e11_big_friend_intro";      EP=e11 ;;
+  all_five_big_friends)  DIR="out/e12_all_five_big_friends";  EP=e12 ;;
+  big_friend_taking_away) DIR="out/e13_big_friend_taking_away"; EP=e13 ;;
+  big_friend_recap)       DIR="out/e14_big_friend_recap";       EP=e14 ;;
+  family_plus)            DIR="out/e15_family_plus";            EP=e15 ;;
+esac
 mkdir -p "$DIR"
-echo "→ $ID  ($SIZE)  ->  $OUT"
-npx remotion render "$ID" "$OUT" "$@"
+
+if [ -z "$EP" ]; then
+  OUT="$DIR/${BASE}_${ASPECT}.mp4"
+  echo "→ $ID  ($SIZE)  ->  $OUT"
+  npx remotion render "$ID" "$OUT" "$@"
+  exit 0
+fi
+
+RAW_DIR=$(mktemp -d)
+trap 'rm -rf "$RAW_DIR"' EXIT
+RAW="$RAW_DIR/${BASE}_${ASPECT}.mp4"
+OUT="$DIR/${EP}_${ASPECT}.mp4"
+echo "→ $ID  ($SIZE)  ->  $OUT  (intro merged; raw render not kept)"
+npx remotion render "$ID" "$RAW" "$@"
+sh tools/merge_intro.sh "$RAW" "$OUT"

@@ -1,0 +1,292 @@
+# E17 · Family Recap — "Which step is missing?" — narration, one continuous take.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+# The expression-tagged recording version is docs/E17_lines_expressive.txt.
+# SCRIPT ONLY — no code, audio or render. Audited against docs/SCRIPT_CHECKLIST.md.
+#
+# TEASER CHECK (E16 → E17): E16's close used to say "Next time, we mix every trick in one big challenge.
+# Ready?" — that promises a later episode (Mixed Practice, now E19), not E17. CHANGED in docs/E16_lines.txt and
+# docs/E16_lines_expressive.txt to: "Next time, we play a family game. Can you find the missing step?"
+# E17's hook does NOT claim we already played: it recaps what E15/E16 really taught (the plus family,
+# steps up, thumb; the minus family, steps down, index finger), then says "I hide one step. You find the
+# missing step." — the game is new in E17. E17's own close teases
+# E18 (Choosing the Right Formula): "Next time, we learn how to choose the right trick." (Order set by
+# the user: E18 = how to choose FIRST, E19 = Mixed Practice after it.)
+#
+# ═══ GAME DESIGN (approved) ═══  ONE job every round: "Which step is missing?" Every family trick is
+#   three bead steps in the series order — the LOWER-BEAD part, the FIVE part, the TEN part:
+#         plus  family:  +(n−5)  −5  +10          e.g. +6 = +1 −5 +10     (all steps UP → thumb)
+#         minus family:  −(n−5)  +5  −10          e.g. −6 = −1 +5 −10     (all steps DOWN → index finger)
+#   ONE part is hidden ("blank"). The viewer picks A, B or C (read aloud, 3 s hold), then the answer.
+#   The question wording is identical every round so kids learn the rhythm: "<formula with a blank>.
+#   Which step is missing? A: … B: … C: …". Wrong choices are plain numbers, never a bead-order move.
+#   Which part is hidden varies (lower-bead ×3, five ×3, ten ×2, never the same part twice in a row);
+#   the answer letter varies too. Eight rounds, one per family formula, random order. Narration is
+#   maths only (numbers, rods, beads, steps, fingers); any world/mascot idea lives in the visuals.
+#   Each round: "Round …", a Make line, the formula with a blank, the question, the answer, then "Move"
+#   with the three steps as three short lines, then the sum. Look, Call, Move (E16) is a one-line callback
+#   in the hook, not re-taught. No boss round (runtime), no spot-the-mistake, no card matching.
+#
+# ═══ DELIBERATE EXCEPTION TO THE CHECKLIST ═══  Rounds carry a Make line but NO separate "friend" line
+#   ("Seven's friend is three"): the approved game shows the three steps and hides one, and a friend line
+#   per round would add about 20 s. The friend is implied by the lower-bead part (n − 5) and the formula.
+#   Flagged to the coordinator; adding it back costs ~20 s of runtime.
+#   Repeated words ("Round …", "Move.", "Which step is missing?") are the deliberate game rhythm.
+#
+# ═══ FORMULAS (friend-first, lower-first; n and friend checked) ═══
+#   +6 = +1 −5 +10   +7 = +2 −5 +10   +8 = +3 −5 +10   +9 = +4 −5 +10     (friend 4, 3, 2, 1)
+#   −6 = −1 +5 −10   −7 = −2 +5 −10   −8 = −3 +5 −10   −9 = −4 +5 −10     (friend 4, 3, 2, 1)
+#   Family PLUS needs ones digit d ≥ 5 (+6: 5–8, +7: 5–7, +8: 5–6, +9: 5). Family MINUS needs d < 5
+#   (−6: 1–4, −7: 2–4, −8: 3–4, −9: 4). Directions: plus family moves are all UP (lower beads up, the
+#   five = upper bead pushed up, the ten = tens bead up) = THUMB; minus family moves are all DOWN = INDEX
+#   finger. Number makeup is the usual mix: lower beads UP (thumb), upper bead DOWN (index).
+#
+# ═══ THE EIGHT SUMS — random order, every one verified (script-checked at generation) ═══
+#   (a) ONES rod: Family trigger holds and every sub-step is a legal physical move; (b) TENS rod: add →
+#   tens digit 0,1,2,3,5,6,7,8 (not 4 or 9); take away → tens digit 1,2,3,4,6,7,8,9 (not 5);
+#   (c) no start or result of 50; all 16 numbers distinct; two-digit/teen starts.
+#   Distinct from E12–E16 examples (E15: 7+6, 26+7, 5+9; E16: 11−6, 22−7, 93−8, 84−9; E14 rounds 37,
+#   81, 63, 96, 29, 62, 91, 68). ONE note: round one's start 24 is also the ANSWER of E14's closing
+#   practice sum 19+5 (a minor overlap; every alternative also hit an E14 closing number). Result 55 is
+#   not 50-shaped.
+#   rd  step  sum         ones rod                                                   tens rod        hidden part
+#   R1  -7  24 - 7 = 17   d=4 (upper bead up, 0 free lower), friend 3 > 0 free; -2 lowers (4 to 2), upper down   2 to 1 direct   hidden: five  answer B
+#   R2  +8  36 + 8 = 44   d=6 (upper bead down, 1 lower), friend 2 > 1 lower; +3 lower (1 to 4), upper up   3 to 4 direct   hidden: lower  answer C
+#   R3  -6  82 - 6 = 76   d=2 (upper bead up, 2 free lower), friend 4 > 2 free; -1 lowers (2 to 1), upper down   8 to 7 direct   hidden: ten  answer A
+#   R4  +9  25 + 9 = 34   d=5 (upper bead down, 0 lower), friend 1 > 0 lower; +4 lower (0 to 4), upper up   2 to 3 direct   hidden: lower  answer B
+#   R5  +6  77 + 6 = 83   d=7 (upper bead down, 2 lower), friend 4 > 2 lower; +1 lower (2 to 3), upper up   7 to 8 direct   hidden: five  answer A
+#   R6  -9  64 - 9 = 55   d=4 (upper bead up, 0 free lower), friend 1 > 0 free; -4 lowers (4 to 0), upper down   6 to 5 direct   hidden: ten  answer C
+#   R7  +7  16 + 7 = 23   d=6 (upper bead down, 1 lower), friend 3 > 1 lower; +2 lower (1 to 3), upper up   1 to 2 direct   hidden: lower  answer B
+#   R8  -8  94 - 8 = 86   d=4 (upper bead up, 0 free lower), friend 2 > 0 free; -3 lowers (4 to 1), upper down   9 to 8 direct   hidden: five  answer A
+#   Order check: n sequence 7,8,6,9,6,9,7,8 has no run of three up or down; ops −,+,−,+,+,−,+,− are mixed
+#   and not strictly alternating.
+#
+# ═══ CHOICES (A B C) PER ROUND ═══
+#   R1 −7  blank = the five part      A minus five   B PLUS FIVE    C plus ten
+#   R2 +8  blank = the lower part     A plus two     B plus four    C PLUS THREE
+#   R3 −6  blank = the ten part       A MINUS TEN    B plus ten     C minus five
+#   R4 +9  blank = the lower part     A plus five    B PLUS FOUR    C plus three
+#   R5 +6  blank = the five part      A MINUS FIVE   B plus five    C plus ten
+#   R6 −9  blank = the ten part       A plus ten     B minus five   C MINUS TEN
+#   R7 +7  blank = the lower part     A plus three   B PLUS TWO     C plus one
+#   R8 −8  blank = the five part      A PLUS FIVE    B minus five   C minus ten
+#   Answers by letter: B C A B A C B A. Hidden parts: five, lower, ten, lower, five, ten, lower, five.
+#   Wrong choices are plausible plain numbers (the neighbouring lower-bead counts, the opposite sign of
+#   five, or ten with the wrong sign) and none is offered as a move order.
+#
+# ═══ FINGER-HINT SPOTS (for the build) ═══
+#     1. Hook: "Plus steps go up, with the thumb. Minus steps go down, with the index finger." (rule once)
+#     2. R1 make: "Thumb pushes them up." R1 moves: "…Minus ten. Down, index finger!"
+#     3. R2 make: "Thumb for lower beads, index finger for the upper bead." R2 moves: "…Plus ten. Up, thumb!"
+#     4. R3 moves: "…Minus ten. Index finger!"   R5 moves: "…Plus ten. Thumb!"   R6: "Index finger!"
+#     5. Flip it: "Plus family: up, thumb. Minus family: down, index finger."
+#     Light reminders only; not on every line.
+#
+# ═══ NARRATION RULES ═══  Make line: ONES rod first, then the tens rod, lower beads before the upper
+#   bead on every rod. Moves: ones rod first, lower beads before the upper bead, tens rod last (the
+#   three steps are spoken in that order). Question never gives its answer; 3 s hold after every real
+#   question; reading note at the top of the expressive file.
+#
+# ═══ HOLDS (pacing — rev 4; every one is a real silence for the visual to land) ═══
+#   Hook: 1 s after the plus/minus family recap, 2 s after "Every family trick has three steps…" (the
+#   three-steps card), 2 s at the end of the hook.
+#   Every round: 1 s after the "Make <number>" line (beads set up), 3 s after the question, NO hold between
+#   the answer and "Move." ("Move." is itself the beat), 1 s between the move steps, 1 s after the last
+#   move step before the sum is spoken, then 1 s after the sum.
+#   Like ask: 1 s after. Flip it: 2 s after. Close: 1 s before the teaser (a breath, not a stretch).
+#
+# ═══ WORLD + MASCOTS (concept only, nothing built) ═══
+#   NEW WORLD SET: A MOUNTAIN PASS AT SUNRISE — snowy peaks, a winding trail, three wooden SIGNPOSTS
+#   marked A, B and C at each turn (the choices literally are signposts), prayer-flag bunting, thin
+#   cold light that warms to gold as the rounds climb. Not used before: no earlier E-episode is a
+#   mountain (meadow/harbour/city/space/jungle/magic stage/park/pier/game show/circus/rainforest/autumn
+#   park/arcade/kelp cove/desert canyon).
+#   NEW MASCOTS: TWO LLAMAS (a spotted one and a plain one) who walk the trail; one points at the
+#   signposts, the other thinks and nods. Not used: hedgehogs, squirrels, toucans, elephants, foxes,
+#   meerkats, sea otters, seagull, puppies, rabbit, monkey, astronaut, or the Math Heroes cast.
+#   The ladder is the trail itself: a small marker walks up one switchback per round. Visual only.
+#
+# ═══ LIKE-ASK PLACEMENT (EPISODE_RULES §3.9a — NEW SPOT, log this row) ═══
+#   | E17 | right after round THREE's win ("Eighty-two take away six is seventy-six!") | ~43% |
+#   Logged/known: E08 ~72%, E13 ~50%, E14 ~54%, E15 ~53%, E16 ~58%. E17's is earlier than all of them
+#   (about a third of the way in), after the third correct answer, and no earlier episode asked after
+#   its third round at this point. Two lines, new wording, includes a subscribe beat. Not in the close.
+#
+# ═══ STRUCTURE ═══
+#   1 hook (recap of E15/E16 + the rules + Look/Call/Move callback; finger rule once)  2–9 rounds one to eight (like
+#   ask after round three)  10 flip it  11 close + teaser to E18 (choose the right trick).
+#   RUNTIME ESTIMATE: ~622 spoken words + ~73 s of scripted holds. Calibrated against E13 (673 words recorded at 351 s,
+#   ~0.49 s per word, holds included) that is ~6.3 min; at a normal read ~5.4 min.
+#
+# ⏸ marks are real silences — the child is answering. 3 s after every question, 1–2 s between
+# steps. The expressive file carries them as [pause N seconds].
+
+# --- 1 · HOOK — recap what E15 and E16 taught, then the game (maths only) ---
+Hello again!
+We learned two family tricks. The plus family adds, and its steps go up, with the thumb. The minus family takes away, and its steps go down, with the index finger.
+# ⏸ hold 1s
+Today, we play a family game. I hide one step. You find the missing step.
+Every family trick has three steps. Lower beads. Five. Ten. Plus six is plus one, minus five, plus ten.
+# ⏸ hold 2s
+You pick A, B or C.
+Remember Look, Call, Move? The game hides part of the Call.
+# ⏸ hold 2s
+
+# --- ROUND 1 · -7: 24 − 7 ---
+Round one of eight.
+Make twenty-four. Ones rod, four lower beads. Tens rod, two lower beads. Thumb pushes them up.
+# ⏸ hold 1s
+Minus seven equals minus two, blank, minus ten.
+Which step is missing? A: minus five. B: plus five. C: plus ten.
+# ⏸ hold 3s
+B! Plus five. Yes!
+Move.
+Minus two.
+# ⏸ hold 1s
+Plus five.
+# ⏸ hold 1s
+Minus ten. Down, index finger!
+# ⏸ hold 1s
+Twenty-four take away seven is seventeen!
+# ⏸ hold 1s
+
+# --- ROUND 2 · +8: 36 + 8 ---
+Round two.
+Make thirty-six. Ones rod, one lower bead and the upper bead. Tens rod, three lower beads. Thumb for lower beads, index finger for the upper bead.
+# ⏸ hold 1s
+Plus eight equals blank, minus five, plus ten.
+Which step is missing? A: plus two. B: plus four. C: plus three.
+# ⏸ hold 3s
+C! Plus three. Right!
+Move.
+Plus three.
+# ⏸ hold 1s
+Minus five.
+# ⏸ hold 1s
+Plus ten. Up, thumb!
+# ⏸ hold 1s
+Thirty-six plus eight is forty-four!
+# ⏸ hold 1s
+
+# --- ROUND 3 · -6: 82 − 6 ---
+Round three.
+Make eighty-two. Ones rod, two lower beads. Tens rod, three lower beads and the upper bead.
+# ⏸ hold 1s
+Minus six equals minus one, plus five, blank.
+Which step is missing? A: minus ten. B: plus ten. C: minus five.
+# ⏸ hold 3s
+A! Minus ten. Yes!
+Move.
+Minus one.
+# ⏸ hold 1s
+Plus five.
+# ⏸ hold 1s
+Minus ten. Index finger!
+# ⏸ hold 1s
+Eighty-two take away six is seventy-six!
+# ⏸ hold 1s
+
+# --- THE LIKE ASK — MID-ROLL, RIGHT AFTER ROUND THREE ---
+Good game so far! Give it a like.
+And subscribe, to play more.
+# ⏸ hold 1s
+
+# --- ROUND 4 · +9: 25 + 9 ---
+Round four.
+Make twenty-five. Ones rod, the upper bead. Tens rod, two lower beads.
+# ⏸ hold 1s
+Plus nine equals blank, minus five, plus ten.
+Which step is missing? A: plus five. B: plus four. C: plus three.
+# ⏸ hold 3s
+B! Plus four. Right!
+Move.
+Plus four.
+# ⏸ hold 1s
+Minus five.
+# ⏸ hold 1s
+Plus ten.
+# ⏸ hold 1s
+Twenty-five plus nine is thirty-four!
+# ⏸ hold 1s
+
+# --- ROUND 5 · +6: 77 + 6 ---
+Round five.
+Make seventy-seven. Ones rod, two lower beads and the upper bead. Tens rod, two lower beads and the upper bead.
+# ⏸ hold 1s
+Plus six equals plus one, blank, plus ten.
+Which step is missing? A: minus five. B: plus five. C: plus ten.
+# ⏸ hold 3s
+A! Minus five. Yes!
+Move.
+Plus one.
+# ⏸ hold 1s
+Minus five.
+# ⏸ hold 1s
+Plus ten. Thumb!
+# ⏸ hold 1s
+Seventy-seven plus six is eighty-three!
+# ⏸ hold 1s
+
+# --- ROUND 6 · -9: 64 − 9 ---
+Round six.
+Make sixty-four. Ones rod, four lower beads. Tens rod, one lower bead and the upper bead.
+# ⏸ hold 1s
+Minus nine equals minus four, plus five, blank.
+Which step is missing? A: plus ten. B: minus five. C: minus ten.
+# ⏸ hold 3s
+C! Minus ten. Right!
+Move.
+Minus four.
+# ⏸ hold 1s
+Plus five.
+# ⏸ hold 1s
+Minus ten. Index finger!
+# ⏸ hold 1s
+Sixty-four take away nine is fifty-five!
+# ⏸ hold 1s
+
+# --- ROUND 7 · +7: 16 + 7 ---
+Round seven.
+Make sixteen. Ones rod, one lower bead and the upper bead. Tens rod, one lower bead.
+# ⏸ hold 1s
+Plus seven equals blank, minus five, plus ten.
+Which step is missing? A: plus three. B: plus two. C: plus one.
+# ⏸ hold 3s
+B! Plus two. Yes!
+Move.
+Plus two.
+# ⏸ hold 1s
+Minus five.
+# ⏸ hold 1s
+Plus ten.
+# ⏸ hold 1s
+Sixteen plus seven is twenty-three!
+# ⏸ hold 1s
+
+# --- ROUND 8 · -8: 94 − 8 ---
+Round eight, last one.
+Make ninety-four. Ones rod, four lower beads. Tens rod, four lower beads and the upper bead.
+# ⏸ hold 1s
+Minus eight equals minus three, blank, minus ten.
+Which step is missing? A: plus five. B: minus five. C: minus ten.
+# ⏸ hold 3s
+A! Plus five. Right!
+Move.
+Minus three.
+# ⏸ hold 1s
+Plus five.
+# ⏸ hold 1s
+Minus ten.
+# ⏸ hold 1s
+Ninety-four take away eight is eighty-six!
+# ⏸ hold 1s
+
+# --- FLIP IT — the mirror, quick ---
+Flip it. Plus family: up, thumb. Minus family: down, index finger.
+# ⏸ hold 2s
+
+# --- CLOSE ---
+Try the game at home. Write a family trick, hide one step, and ask a friend.
+Play more in Abacus Kids. It is free on the Apple App Store and Google Play.
+# ⏸ hold 1s
+Next time, we learn how to choose the right trick.
+See you next time!

@@ -1,0 +1,437 @@
+[
+  {
+    "word": "A",
+    "start": 0.0,
+    "end": 0.18
+  },
+  {
+    "word": "grid",
+    "start": 0.18,
+    "end": 0.5
+  },
+  {
+    "word": "of",
+    "start": 0.5,
+    "end": 0.96
+  },
+  {
+    "word": "boxes...",
+    "start": 0.96,
+    "end": 1.44
+  },
+  {
+    "word": "and",
+    "start": 2.02,
+    "end": 2.38
+  },
+  {
+    "word": "every",
+    "start": 2.38,
+    "end": 2.86
+  },
+  {
+    "word": "single",
+    "start": 2.86,
+    "end": 3.26
+  },
+  {
+    "word": "line",
+    "start": 3.26,
+    "end": 3.7
+  },
+  {
+    "word": "must",
+    "start": 3.7,
+    "end": 4.18
+  },
+  {
+    "word": "add",
+    "start": 4.18,
+    "end": 4.46
+  },
+  {
+    "word": "up",
+    "start": 4.46,
+    "end": 4.66
+  },
+  {
+    "word": "the",
+    "start": 4.82,
+    "end": 4.96
+  },
+  {
+    "word": "same!",
+    "start": 4.96,
+    "end": 5.24
+  },
+  {
+    "word": "This",
+    "start": 6.46,
+    "end": 6.96
+  },
+  {
+    "word": "is",
+    "start": 6.96,
+    "end": 7.4
+  },
+  {
+    "word": "Magic",
+    "start": 7.4,
+    "end": 7.84
+  },
+  {
+    "word": "Square!",
+    "start": 7.84,
+    "end": 8.28
+  },
+  {
+    "word": "Every",
+    "start": 10.11,
+    "end": 10.58
+  },
+  {
+    "word": "row",
+    "start": 10.58,
+    "end": 10.9
+  },
+  {
+    "word": "and",
+    "start": 10.9,
+    "end": 11.24
+  },
+  {
+    "word": "column",
+    "start": 11.24,
+    "end": 11.62
+  },
+  {
+    "word": "has",
+    "start": 11.62,
+    "end": 12.26
+  },
+  {
+    "word": "to",
+    "start": 12.26,
+    "end": 12.5
+  },
+  {
+    "word": "equal",
+    "start": 12.5,
+    "end": 12.86
+  },
+  {
+    "word": "fifteen!",
+    "start": 12.86,
+    "end": 13.58
+  },
+  {
+    "word": "Two...",
+    "start": 15.18,
+    "end": 15.86
+  },
+  {
+    "word": "plus",
+    "start": 15.86,
+    "end": 17.06
+  },
+  {
+    "word": "seven...",
+    "start": 17.06,
+    "end": 17.62
+  },
+  {
+    "word": "plus",
+    "start": 17.62,
+    "end": 18.66
+  },
+  {
+    "word": "six...",
+    "start": 18.66,
+    "end": 19.22
+  },
+  {
+    "word": "that's",
+    "start": 19.72,
+    "end": 20.16
+  },
+  {
+    "word": "fifteen!",
+    "start": 20.16,
+    "end": 20.68
+  },
+  {
+    "word": "Four...",
+    "start": 22.14,
+    "end": 23.04
+  },
+  {
+    "word": "plus",
+    "start": 23.04,
+    "end": 23.84
+  },
+  {
+    "word": "three...",
+    "start": 23.84,
+    "end": 24.28
+  },
+  {
+    "word": "plus",
+    "start": 24.28,
+    "end": 25.22
+  },
+  {
+    "word": "eight...",
+    "start": 25.22,
+    "end": 25.68
+  },
+  {
+    "word": "fifteen",
+    "start": 26.4,
+    "end": 26.84
+  },
+  {
+    "word": "again",
+    "start": 26.84,
+    "end": 27.22
+  },
+  {
+    "word": "the",
+    "start": 27.52,
+    "end": 27.92
+  },
+  {
+    "word": "square",
+    "start": 27.92,
+    "end": 28.28
+  },
+  {
+    "word": "is",
+    "start": 28.28,
+    "end": 28.6
+  },
+  {
+    "word": "complete!",
+    "start": 28.6,
+    "end": 29.12
+  },
+  {
+    "word": "Every",
+    "start": 30.28,
+    "end": 31.08
+  },
+  {
+    "word": "row,",
+    "start": 31.08,
+    "end": 31.42
+  },
+  {
+    "word": "every",
+    "start": 31.96,
+    "end": 32.24
+  },
+  {
+    "word": "column",
+    "start": 32.24,
+    "end": 32.62
+  },
+  {
+    "word": "all",
+    "start": 33.1,
+    "end": 33.42
+  },
+  {
+    "word": "fifteen.",
+    "start": 33.42,
+    "end": 33.96
+  },
+  {
+    "word": "That's",
+    "start": 34.74,
+    "end": 35.28
+  },
+  {
+    "word": "the",
+    "start": 35.28,
+    "end": 35.4
+  },
+  {
+    "word": "magic!",
+    "start": 35.4,
+    "end": 35.76
+  },
+  {
+    "word": "Parents",
+    "start": 37.14,
+    "end": 37.68
+  },
+  {
+    "word": "this",
+    "start": 38.2,
+    "end": 38.48
+  },
+  {
+    "word": "builds",
+    "start": 38.48,
+    "end": 38.8
+  },
+  {
+    "word": "structured",
+    "start": 38.8,
+    "end": 39.42
+  },
+  {
+    "word": "thinking,",
+    "start": 39.42,
+    "end": 39.96
+  },
+  {
+    "word": "the",
+    "start": 40.42,
+    "end": 40.62
+  },
+  {
+    "word": "foundation",
+    "start": 40.62,
+    "end": 41.24
+  },
+  {
+    "word": "for",
+    "start": 41.24,
+    "end": 41.56
+  },
+  {
+    "word": "algebra",
+    "start": 41.56,
+    "end": 41.98
+  },
+  {
+    "word": "later!",
+    "start": 41.98,
+    "end": 42.54
+  },
+  {
+    "word": "Tap",
+    "start": 43.7,
+    "end": 44.04
+  },
+  {
+    "word": "Math",
+    "start": 44.04,
+    "end": 44.38
+  },
+  {
+    "word": "Game",
+    "start": 44.38,
+    "end": 44.66
+  },
+  {
+    "word": "Zone,",
+    "start": 44.66,
+    "end": 45.0
+  },
+  {
+    "word": "unlock",
+    "start": 45.64,
+    "end": 45.9
+  },
+  {
+    "word": "Magic",
+    "start": 45.9,
+    "end": 46.38
+  },
+  {
+    "word": "Square,",
+    "start": 46.38,
+    "end": 46.76
+  },
+  {
+    "word": "pick",
+    "start": 47.26,
+    "end": 47.6
+  },
+  {
+    "word": "your",
+    "start": 47.6,
+    "end": 47.8
+  },
+  {
+    "word": "level,",
+    "start": 47.8,
+    "end": 48.12
+  },
+  {
+    "word": "and",
+    "start": 48.62,
+    "end": 48.72
+  },
+  {
+    "word": "complete",
+    "start": 48.72,
+    "end": 49.12
+  },
+  {
+    "word": "the",
+    "start": 49.12,
+    "end": 49.44
+  },
+  {
+    "word": "square!",
+    "start": 49.44,
+    "end": 49.82
+  },
+  {
+    "word": "Abacus",
+    "start": 49.82,
+    "end": 51.42
+  },
+  {
+    "word": "Kids",
+    "start": 51.42,
+    "end": 51.68
+  },
+  {
+    "word": "yours",
+    "start": 52.32,
+    "end": 52.46
+  },
+  {
+    "word": "free",
+    "start": 52.46,
+    "end": 52.88
+  },
+  {
+    "word": "on",
+    "start": 52.88,
+    "end": 53.2
+  },
+  {
+    "word": "the",
+    "start": 53.2,
+    "end": 53.38
+  },
+  {
+    "word": "App",
+    "start": 53.38,
+    "end": 53.6
+  },
+  {
+    "word": "Store",
+    "start": 53.6,
+    "end": 53.88
+  },
+  {
+    "word": "and",
+    "start": 53.88,
+    "end": 54.24
+  },
+  {
+    "word": "Google",
+    "start": 54.24,
+    "end": 54.52
+  },
+  {
+    "word": "Play!",
+    "start": 54.52,
+    "end": 54.86
+  }
+]

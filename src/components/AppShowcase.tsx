@@ -211,6 +211,15 @@ export const StoreFlow: React.FC<{
   const getLabel = d < 38 ? "GET" : dl < 1 ? `${Math.round(dl * 100)}%` : "OPEN";
   const getBg = d < 38 ? BLUE : dl < 1 ? "#C7CEDB" : GREEN;
 
+  // The search ROW (compact, mostly empty space below it) and the detail PAGE (fills the
+  // whole card) are a hard ternary swap keyed to `inDetail` — with no transition at all, that
+  // reads as an instant "pop" from a small card to a tall one, which plays like an unwanted
+  // zoom rather than a deliberate "tapped through to the detail page" beat. A quick dip-to-
+  // dim-and-back right at the swap frame (not a scale — a scale would BE a zoom) turns the
+  // hard cut into a soft blink, the same gesture a real app's page transition reads as.
+  const swapDip = Math.max(0, 1 - Math.abs(d) / 6);
+  const contentOpacity = 1 - swapDip * 0.92;
+
   const shotW = Math.round(SW * 0.42);
   const stripW = 4 * shotW + 3 * 8;
   const shotScroll = interpolate(d, [16, 110], [0, -Math.max(0, stripW - (SW - 28))], {
@@ -247,6 +256,7 @@ export const StoreFlow: React.FC<{
             background: "#FFFFFF",
           }}
         >
+          <div style={{ opacity: contentOpacity }}>
           <div style={{ padding: "18px 16px 8px" }}>
             {!inDetail && (
               <>
@@ -309,7 +319,7 @@ export const StoreFlow: React.FC<{
                     {DEVELOPER}
                   </div>
                   <div style={{ ...label(11, 600, "#8A8A8E"), marginTop: 3 }}>
-                    <span style={{ color: "#F5A524", letterSpacing: 1 }}>★★★★★</span> 4.8
+                    <span style={{ color: "#F5A524", letterSpacing: 1 }}>★★★★★</span>
                   </div>
                 </div>
               </div>
@@ -404,27 +414,10 @@ export const StoreFlow: React.FC<{
                 ))}
               </div>
 
-              {/* the page used to end here with a third of the phone blank */}
-              <div style={{ marginTop: 14, borderTop: "1px solid #EFEFF4", paddingTop: 10 }}>
-                <div style={label(12, 700, "#1C1C1E")}>Ratings &amp; Reviews</div>
-                <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
-                  <span style={label(30, 700, "#1C1C1E")}>4.8</span>
-                  <span style={{ ...label(10, 600, "#8A8A8E"), lineHeight: 1.4 }}>
-                    <span style={{ color: "#F5A524", fontSize: 12, letterSpacing: 1 }}>
-                      ★★★★★
-                    </span>
-                    <br />
-                    out of 5 · 2.4K ratings
-                  </span>
-                </div>
-                <div style={{ ...label(10, 600, "#3C3C43"), marginTop: 8, lineHeight: 1.5 }}>
-                  “She learnt every bead value in two weeks and asks for it daily.”
-                  <br />
-                  <span style={label(9, 600, "#8A8A8E")}>— Aarav's Mum</span>
-                </div>
-              </div>
+              {/* NO rating number, review count or review quote anywhere: the real store changes them with its users, so a video must not state them (12 Oct) */}
             </div>
           )}
+          </div>
 
           {/* Finger: starts in the CENTRE and travels to what it is about to tap. It used
               to be parked on its target already, so the tap read as a static dot. */}
@@ -473,7 +466,20 @@ export const StoreFlow: React.FC<{
 };
 
 /** Right-hand column of the download beat: icon, name, rating, CTA, both badges. */
-export const DownloadCta: React.FC<{ progress: number }> = ({ progress }) => {
+export const DownloadCta: React.FC<{
+  progress: number;
+  /**
+   * The name/rating text colour. Defaults to the navy every light-background outro in the
+   * series already uses. Dark-background outros (a night sky, not a podium) pass a light
+   * colour here instead of getting their own wrapping card behind the CTA — a card was how
+   * this got "fixed" once already, and it just added a second box behind the icon rather
+   * than actually answering "the text isn't visible".
+   */
+  nameColor?: string;
+  /** Extra space above the store-badge row, on top of the column's own gap. 0 everywhere
+   *  this shipped before — opt in per caller rather than widen every episode's spacing. */
+  badgeMarginTop?: number;
+}> = ({ progress, nameColor = "#123A5C", badgeMarginTop = 0 }) => {
   const iconIn = interpolate(progress, [0, 0.25], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
@@ -486,6 +492,7 @@ export const DownloadCta: React.FC<{ progress: number }> = ({ progress }) => {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
+  const textShadow = "0 2px 8px rgba(0,0,0,0.4)";
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
       <div style={{ transform: `scale(${0.7 + iconIn * 0.3})`, opacity: iconIn }}>
@@ -496,7 +503,8 @@ export const DownloadCta: React.FC<{ progress: number }> = ({ progress }) => {
           fontFamily: TYPE.family,
           fontWeight: 700,
           fontSize: 50,
-          color: "#123A5C",
+          color: nameColor,
+          textShadow,
           opacity: iconIn,
         }}
       >
@@ -508,15 +516,15 @@ export const DownloadCta: React.FC<{ progress: number }> = ({ progress }) => {
           fontFamily: TYPE.family,
           fontWeight: 700,
           fontSize: 32,
-          color: "#123A5C",
+          color: nameColor,
+          textShadow,
           opacity: iconIn,
           display: "flex",
           alignItems: "center",
           gap: 10,
         }}
       >
-        <span style={{ color: "#F5A524", fontSize: 36, letterSpacing: 2 }}>★★★★★</span>
-        4.8
+        <span style={{ color: "#F5A524", fontSize: 36, letterSpacing: 2, textShadow }}>★★★★★</span>
       </div>
       <div
         style={{
@@ -534,7 +542,7 @@ export const DownloadCta: React.FC<{ progress: number }> = ({ progress }) => {
       >
         Download it — it's FREE!
       </div>
-      <div style={{ display: "flex", gap: 18, opacity: badgeIn }}>
+      <div style={{ display: "flex", gap: 18, opacity: badgeIn, marginTop: badgeMarginTop }}>
         <Img src={staticFile("brand/appstore.png")} style={{ width: 240 }} />
         <Img src={staticFile("brand/playstore.png")} style={{ width: 240 }} />
       </div>

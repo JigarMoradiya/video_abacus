@@ -1,0 +1,520 @@
+[
+  {
+    "index": 0,
+    "text": "Every bead has a secret power \u2014 let's find out!",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 4.0,
+    "duration": 4.0,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Every",
+        "start": 0.0,
+        "end": 0.48
+      },
+      {
+        "word": "bead",
+        "start": 0.48,
+        "end": 0.92
+      },
+      {
+        "word": "has",
+        "start": 0.92,
+        "end": 1.24
+      },
+      {
+        "word": "a",
+        "start": 1.24,
+        "end": 1.44
+      },
+      {
+        "word": "secret",
+        "start": 1.44,
+        "end": 1.9
+      },
+      {
+        "word": "power",
+        "start": 1.9,
+        "end": 2.48
+      },
+      {
+        "word": "let's",
+        "start": 2.94,
+        "end": 3.18
+      },
+      {
+        "word": "find",
+        "start": 3.18,
+        "end": 3.4
+      },
+      {
+        "word": "out!",
+        "start": 3.4,
+        "end": 4.0
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "Each rod on the abacus has two kinds of beads.",
+    "line_index": 1,
+    "start": 5.0,
+    "end": 8.42,
+    "duration": 3.42,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Each",
+        "start": 5.0,
+        "end": 5.54
+      },
+      {
+        "word": "rod",
+        "start": 5.54,
+        "end": 5.88
+      },
+      {
+        "word": "on",
+        "start": 5.88,
+        "end": 6.1
+      },
+      {
+        "word": "the",
+        "start": 6.1,
+        "end": 6.28
+      },
+      {
+        "word": "abacus",
+        "start": 6.28,
+        "end": 6.8
+      },
+      {
+        "word": "has",
+        "start": 6.8,
+        "end": 7.22
+      },
+      {
+        "word": "two",
+        "start": 7.22,
+        "end": 7.54
+      },
+      {
+        "word": "kinds",
+        "start": 7.54,
+        "end": 7.9
+      },
+      {
+        "word": "of",
+        "start": 7.9,
+        "end": 8.24
+      },
+      {
+        "word": "beads.",
+        "start": 8.24,
+        "end": 8.42
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "These lower beads \u2014 each one is worth just one.",
+    "line_index": 2,
+    "start": 9.26,
+    "end": 13.12,
+    "duration": 3.86,
+    "matched": 9,
+    "words": [
+      {
+        "word": "These",
+        "start": 9.26,
+        "end": 9.58
+      },
+      {
+        "word": "lower",
+        "start": 9.58,
+        "end": 9.98
+      },
+      {
+        "word": "beads",
+        "start": 9.98,
+        "end": 10.34
+      },
+      {
+        "word": "each",
+        "start": 11.02,
+        "end": 11.38
+      },
+      {
+        "word": "one",
+        "start": 11.38,
+        "end": 11.66
+      },
+      {
+        "word": "is",
+        "start": 11.66,
+        "end": 12.0
+      },
+      {
+        "word": "worth",
+        "start": 12.0,
+        "end": 12.3
+      },
+      {
+        "word": "just",
+        "start": 12.3,
+        "end": 12.66
+      },
+      {
+        "word": "one.",
+        "start": 12.66,
+        "end": 13.12
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "But this upper bead \u2014 worth five, all by itself!",
+    "line_index": 3,
+    "start": 14.26,
+    "end": 18.06,
+    "duration": 3.8,
+    "matched": 9,
+    "words": [
+      {
+        "word": "But",
+        "start": 14.26,
+        "end": 14.5
+      },
+      {
+        "word": "this",
+        "start": 14.5,
+        "end": 14.82
+      },
+      {
+        "word": "upper",
+        "start": 14.82,
+        "end": 15.14
+      },
+      {
+        "word": "bead",
+        "start": 15.14,
+        "end": 15.44
+      },
+      {
+        "word": "worth",
+        "start": 16.08,
+        "end": 16.28
+      },
+      {
+        "word": "five,",
+        "start": 16.28,
+        "end": 16.78
+      },
+      {
+        "word": "all",
+        "start": 16.78,
+        "end": 17.3
+      },
+      {
+        "word": "by",
+        "start": 17.3,
+        "end": 17.56
+      },
+      {
+        "word": "itself!",
+        "start": 17.56,
+        "end": 18.06
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Now the tens rod: lower beads worth ten each, upper bead worth fifty!",
+    "line_index": 4,
+    "start": 19.4,
+    "end": 26.14,
+    "duration": 6.74,
+    "matched": 13,
+    "words": [
+      {
+        "word": "Now",
+        "start": 19.4,
+        "end": 19.88
+      },
+      {
+        "word": "the",
+        "start": 19.88,
+        "end": 20.06
+      },
+      {
+        "word": "tens",
+        "start": 20.06,
+        "end": 20.34
+      },
+      {
+        "word": "rod:",
+        "start": 20.34,
+        "end": 20.62
+      },
+      {
+        "word": "lower",
+        "start": 21.38,
+        "end": 21.82
+      },
+      {
+        "word": "beads",
+        "start": 21.82,
+        "end": 22.16
+      },
+      {
+        "word": "worth",
+        "start": 22.16,
+        "end": 22.58
+      },
+      {
+        "word": "ten",
+        "start": 22.58,
+        "end": 23.0
+      },
+      {
+        "word": "each,",
+        "start": 23.0,
+        "end": 23.54
+      },
+      {
+        "word": "upper",
+        "start": 24.32,
+        "end": 24.54
+      },
+      {
+        "word": "bead",
+        "start": 24.54,
+        "end": 24.96
+      },
+      {
+        "word": "worth",
+        "start": 24.96,
+        "end": 25.42
+      },
+      {
+        "word": "fifty!",
+        "start": 25.42,
+        "end": 26.14
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "And the hundreds rod: lower beads worth a hundred, upper worth five hundred!",
+    "line_index": 5,
+    "start": 27.14,
+    "end": 33.84,
+    "duration": 6.7,
+    "matched": 13,
+    "words": [
+      {
+        "word": "And",
+        "start": 27.14,
+        "end": 27.54
+      },
+      {
+        "word": "the",
+        "start": 27.54,
+        "end": 27.7
+      },
+      {
+        "word": "hundreds",
+        "start": 27.7,
+        "end": 28.08
+      },
+      {
+        "word": "rod:",
+        "start": 28.08,
+        "end": 28.42
+      },
+      {
+        "word": "lower",
+        "start": 29.1,
+        "end": 29.76
+      },
+      {
+        "word": "beads",
+        "start": 29.76,
+        "end": 30.06
+      },
+      {
+        "word": "worth",
+        "start": 30.06,
+        "end": 30.52
+      },
+      {
+        "word": "a",
+        "start": 30.52,
+        "end": 30.8
+      },
+      {
+        "word": "hundred,",
+        "start": 30.8,
+        "end": 31.22
+      },
+      {
+        "word": "upper",
+        "start": 31.88,
+        "end": 32.32
+      },
+      {
+        "word": "worth",
+        "start": 32.32,
+        "end": 32.84
+      },
+      {
+        "word": "five",
+        "start": 32.84,
+        "end": 33.32
+      },
+      {
+        "word": "hundred!",
+        "start": 33.32,
+        "end": 33.84
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Ones, tens, hundreds \u2014 bigger and bigger, rod by rod!",
+    "line_index": 6,
+    "start": 33.84,
+    "end": 40.14,
+    "duration": 6.3,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Ones,",
+        "start": 33.84,
+        "end": 34.03
+      },
+      {
+        "word": "tens,",
+        "start": 35.76,
+        "end": 36.2
+      },
+      {
+        "word": "hundreds",
+        "start": 36.2,
+        "end": 37.02
+      },
+      {
+        "word": "bigger",
+        "start": 37.64,
+        "end": 37.92
+      },
+      {
+        "word": "and",
+        "start": 37.92,
+        "end": 38.28
+      },
+      {
+        "word": "bigger,",
+        "start": 38.28,
+        "end": 38.78
+      },
+      {
+        "word": "rod",
+        "start": 39.18,
+        "end": 39.38
+      },
+      {
+        "word": "by",
+        "start": 39.38,
+        "end": 39.72
+      },
+      {
+        "word": "rod!",
+        "start": 39.72,
+        "end": 40.14
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "Learn it all with Abacus Kids \u2014 free on the App Store and Google Play!",
+    "line_index": 7,
+    "start": 41.04,
+    "end": 46.16,
+    "duration": 5.12,
+    "matched": 14,
+    "words": [
+      {
+        "word": "Learn",
+        "start": 41.04,
+        "end": 41.82
+      },
+      {
+        "word": "it",
+        "start": 41.82,
+        "end": 42.02
+      },
+      {
+        "word": "all",
+        "start": 42.02,
+        "end": 42.32
+      },
+      {
+        "word": "with",
+        "start": 42.32,
+        "end": 42.62
+      },
+      {
+        "word": "Abacus",
+        "start": 42.62,
+        "end": 43.14
+      },
+      {
+        "word": "Kids",
+        "start": 43.14,
+        "end": 43.42
+      },
+      {
+        "word": "free",
+        "start": 43.92,
+        "end": 44.18
+      },
+      {
+        "word": "on",
+        "start": 44.18,
+        "end": 44.54
+      },
+      {
+        "word": "the",
+        "start": 44.54,
+        "end": 44.72
+      },
+      {
+        "word": "App",
+        "start": 44.72,
+        "end": 44.92
+      },
+      {
+        "word": "Store",
+        "start": 44.92,
+        "end": 45.18
+      },
+      {
+        "word": "and",
+        "start": 45.18,
+        "end": 45.52
+      },
+      {
+        "word": "Google",
+        "start": 45.52,
+        "end": 45.8
+      },
+      {
+        "word": "Play!",
+        "start": 45.8,
+        "end": 46.16
+      }
+    ]
+  }
+]

@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:01,860
+A buddy stands on a number...
+
+2
+00:00:01,860 --> 00:00:05,620
+and a whole path of tiles stretches ahead!
+
+3
+00:00:06,440 --> 00:00:08,520
+This is Number Path!
+
+4
+00:00:08,520 --> 00:00:12,880
+Hop from tile to tile — each one changes your number!
+
+5
+00:00:13,740 --> 00:00:15,180
+Start on five...
+
+6
+00:00:16,640 --> 00:00:17,860
+hop minus two...
+
+7
+00:00:18,540 --> 00:00:19,300
+that's three!
+
+8
+00:00:20,700 --> 00:00:21,500
+Plus one...
+
+9
+00:00:22,640 --> 00:00:23,480
+that's four!
+
+10
+00:00:24,900 --> 00:00:25,800
+Plus three...
+
+11
+00:00:27,020 --> 00:00:30,020
+that's seven — target reached!
+
+12
+00:00:30,900 --> 00:00:35,360
+Every hop counts — plan your path to land right on the goal!
+
+13
+00:00:36,760 --> 00:00:42,020
+Parents — this builds planning and sequential reasoning, one hop at a time!
+
+14
+00:00:43,220 --> 00:00:49,040
+Tap Math Game Zone, hop into Number Path, pick your level, and start hopping!
+
+15
+00:00:49,040 --> 00:00:54,540
+Abacus Kids — grab it free on the App Store and Google Play!

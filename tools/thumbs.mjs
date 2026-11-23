@@ -22,6 +22,12 @@ const EPISODES = [
   { n: 5, dir: "e05_taking_away", frame: 128 },
   { n: 6, dir: "e06_two_rods", frame: 128 },
   { n: 7, dir: "e07_small_friend_intro", frame: 128 },
+  { n: 8, dir: "e08_all_small_friends", frame: 128 },
+  { n: 9, dir: "e09_small_friend_subtract", frame: 128 },
+  { n: 10, dir: "e10_small_friend_game", frame: 128 },
+  // E11's files predate this list and are named thumb_e11_16x9.png / thumb_e11_9x16.png: stated, not inferred
+  { n: 11, dir: "e11_big_friend_intro", frame: 128, files: ["thumb_e11_16x9.png", "thumb_e11_9x16.png"] },
+  { n: 14, dir: "e14_big_friend_recap", frame: 128 },
 ];
 
 // ONLY=7 renders just that episode. Re-rendering all fourteen stills to add one is not free, and
@@ -36,9 +42,13 @@ for (const ep of EPISODES) {
   // so a directory listing sorts the four files of an episode together.
   const dir = path.join("out", ep.dir);
   fs.mkdirSync(dir, { recursive: true });
+  // `e0${n}` was hard-coded for a one-digit episode number and silently produced "e010" the
+  // first time a tenth episode showed up — pad to two digits instead so this keeps working
+  // past e09 without needing a second special case for e100.
+  const epId = `e${String(ep.n).padStart(2, "0")}`;
   for (const [id, name] of [
-    [`thumb-e0${ep.n}`, `${ep.name ?? ep.dir}_thumb_16x9.png`],
-    [`thumb-e0${ep.n}-9x16`, `${ep.name ?? ep.dir}_thumb_9x16.png`],
+    [`thumb-${epId}`, ep.files?.[0] ?? `${ep.name ?? ep.dir}_thumb_16x9.png`],
+    [`thumb-${epId}-9x16`, ep.files?.[1] ?? `${ep.name ?? ep.dir}_thumb_9x16.png`],
   ]) {
     const composition = await selectComposition({ serveUrl, id, inputProps: {} });
     const output = path.join(dir, name);

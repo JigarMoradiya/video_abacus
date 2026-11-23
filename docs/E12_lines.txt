@@ -1,0 +1,209 @@
+# E12 · All five big friends — narration, one continuous take.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+#
+# E11's take ends "Next time, we will learn all five big friends for adding." This pays it.
+# Mirrors E08's shape (its direct sibling — E08 did this for Small Friend, this does it for Big
+# Friend): E11 already worked three pairs bead-by-bead (9+1, 8+2, 7+3). This one is the
+# recall-and-cover-the-rest episode — the three already seen get named, not re-taught; the two
+# genuinely new pairs (6+4, 5+5) get the real teaching time.
+#
+# ═══ READ THIS BEFORE RECORDING — the voice of this episode ═══
+#
+# TEACH, DO NOT READ. A narrator states facts in a row; a teacher does four things a narrator
+# never does, and all four are built into the lines below:
+#
+#   1. ASKS, then WAITS. Every ⏸ is a real silence. Do not fill it. The child is answering.
+#      Then say their answer back to them as if you heard it — "Eight! Well done."
+#   2. REACTS. "Oh! Zero already?" is not information, it is a face. Play the surprise, then
+#      the reveal.
+#   3. TALKS TO ONE CHILD. "You tell me", "your abacus", "you are getting quick at this."
+#      Never "we can observe that". One child, sitting next to you.
+#   4. CHANGES SPEED. Slow and careful on a new rule. Quick and light on "Done!" and "Friends!"
+#
+# The ⏸ marks are part of the script. If they are read straight through, the episode becomes a
+# lecture again no matter how warmly the lines are said.
+#
+# ═══ CONTENT ═══
+#
+# E11 did NOT teach only one pair — it fully worked THREE (9+1, 8+2, 7+3, all bead-by-bead). An
+# earlier version of this note said otherwise; it was wrong, and it led the first draft of this
+# script to re-teach 8+2 and 7+3 bead-for-bead a second time, which is just repeated footage with
+# new numbers stapled on. Fixed: E12 now only re-teaches what is actually new. That leaves exactly
+# TWO pairs E11 never touched — four and six, five and five — and those are where this episode's
+# real teaching time goes. The other three get named and recapped, not re-worked.
+#
+# TWO RODS, LIVE, FROM FRAME 0 — same as E11. Every worked sum here crosses ten, so the tens rod
+# is doing real work the whole episode, not sitting there for "bigger numbers".
+#
+# BEAD ORDER — the same rule E11 corrected to, and this episode must not drift from it:
+#   - RODS, RIGHT TO LEFT: the ones rod is always dealt with FIRST (build it, then take the
+#     friend away from it), and only THEN does the tens rod get its one carried bead. Never the
+#     other way round.
+#   - ON A ROD, BOTTOM FIRST: lower (earth) beads move before the upper (heaven) bead — true
+#     whether beads are going ON (building a number) or OFF (taking the friend away). This is
+#     NOT reversed from Small Friend; it is the exact same rule, with the carry added as one
+#     extra step at the end.
+#
+# THE WORKED SUMS, every one checked digit by digit:
+#   6 + 2 = 8   DIRECT — plenty of room on the ones rod, no trick, this is the point of section 3
+#   9 + 1 = 10  NAMED ONLY — E11's own pair, called back to by name, not re-worked
+#   8 + 2 = 10  NAMED ONLY — already fully worked in E11, not repeated here
+#   7 + 3 = 10  NAMED ONLY — already fully worked in E11, not repeated here
+#   2 + 8 = 10  friend 2   take away two, then carry                WE SHOW (flip of 8+2, section 4)
+#   6 + 4 = 10  friend 6   take away six, then carry                WE SHOW (new, full detail)
+#   4 + 6 = 10  friend 4   take away four, then carry                WE SHOW (flip of 6+4, section 6a)
+#   5 + 5 = 10  friend 5   take away five, then carry               THEY DO (new)
+#
+# ALL FIVE PAIRS ARE NAMED in section 2. Note there are really NINE directional formulas here, not
+# five — `+n = −friend+10` for n=1..9 are nine different operations (different starting rod value,
+# different friend), since e.g. `+1` (start at 9) and `+9` (start at 1) both use the pair {1,9} but
+# are not the same move. The worked examples teach the "+1..+5" direction bead-by-bead and the
+# reverse direction with TWO concrete flipped examples (2+8 in section 4, 4+6 in section 6a).
+# The FORMULA CARD lists ALL NINE (user call, 2026-09-23): on the pattern recap ("That is all. The
+# friend changes. But ten never does.") and on the closing card, the on-screen list is
+# +1 = −9+10 … +9 = −1+10, because "the friend changes but ten never does" is a statement about
+# the whole set, and a five-row card there would silently claim +6..+9 do not exist. The single
+# lit strip beside each worked sum is unchanged (only that sum's own formula). E11's own five-row
+# card is untouched — it only ever claimed the five it taught.
+#
+# 5+5 is the your-turn on purpose: it is the one pair where a number is its OWN friend, a genuine
+# "wait, what?" moment, and the best possible note to end the child's own turn on.
+#
+# NOTATION: `+n = −friend + 10` — friend first, then ten. Matches E11 exactly (do not let this
+# drift back to "+10 − friend", which was the error E11 itself had to correct).
+#
+# ⏸ HOLD 3 SECONDS after "What number is showing now?" in section 7 — the your-turn recall gap,
+# same convention every episode with a your-turn uses.
+
+
+# --- 1 · RECAP HOOK ---
+Hello again!
+Last time, we got completely stuck.
+Do you remember what saved us?
+# ⏸ hold 2s — let them answer
+The big friend trick!
+Take away the friend, and carry to the tens rod.
+This video is all about big friend adding.
+Today we learn all five.
+Ready? Let us go.
+
+
+# --- 2 · MEET THE FRIENDS ---
+First, let us meet them all.
+Every number that needs a big friend has one.
+Five pairs that make ten together.
+Look. One and nine.
+One and nine make ten.
+So they are friends.
+Two and eight make ten as well.
+Three and seven make ten.
+Four and six make ten.
+And five and... five!
+A number can be its own friend.
+Now you tell me.
+Who is two's friend?
+# ⏸ hold 2s
+Eight! Well done.
+And six's friend?
+# ⏸ hold 2s
+Four! You have got it.
+So four's friend is six.
+And six's friend is four.
+
+
+# --- 3 · WHEN DO WE NEED IT? ---
+Now, careful here. This part is important.
+We do not always need the big friend.
+Always look at the whole rod first.
+If there is still room, just push the beads.
+Watch. Six plus two.
+Push one lower bead up, then the upper bead down. That makes six.
+Now push two more lower beads.
+Done!
+That was easy. No trick at all. The rod still had room.
+But do you remember nine plus one?
+We pushed, and pushed... and there was nothing left.
+Not one bead, anywhere on the rod.
+And that is when we call a big friend.
+
+
+# --- 4 · YOU ALREADY KNOW THREE ---
+Now, you already met three of these friends last time.
+Nine and one.
+Eight and two.
+Seven and three.
+Take away the friend, then carry to the tens rod. Every one of those made ten.
+
+And here is something neat. It works flipped around too.
+Two and eight. Make two on your abacus. Just two lower beads.
+Eight's friend is two — and that is exactly what is already there.
+Take away two, then carry one bead to the tens rod.
+Two plus eight is ten. Same trick, just flipped.
+
+So today, let us learn the last two.
+
+
+# --- 5 · ADD FOUR ---
+Four's friend is six.
+Let us make six. Push one lower bead up, then the upper bead down.
+Now we want to add four.
+Remember our rule. The ones rod goes first, and lower beads move before the upper bead.
+So take away six. Down comes one lower bead, then up goes the upper bead.
+Now the ones rod shows zero.
+Oh! Zero already?
+Do not worry. Watch what happens next.
+Now the tens rod gets its turn. Carry one bead.
+And there it is. Ten!
+Six plus four is ten.
+We wanted four more, and we got it.
+
+# --- THE LIKE ASK — MID-ROLL, RIGHT AFTER A WIN ---
+Enjoying this?
+Give this video a like, and subscribe for more.
+
+
+# --- 6 · THE PATTERN ---
+Now stop and look.
+Did you see it?
+Every single time, we did the same two things.
+Take away the friend, on the ones rod first.
+Then carry one bead to the tens rod.
+You 
+The friend changes.
+But ten never does.
+
+
+# --- 6a · IT WORKS BACKWARDS TOO ---
+Here is something neat.
+It works the other way round too.
+Let us flip it. Four plus six.
+Make four on your abacus. Just four lower beads.
+Six's friend is four — and look, that is exactly what is already there.
+So take away four, then carry one bead to the tens rod.
+Four plus six is ten.
+Same trick. Just flipped around.
+
+
+# --- 7 · YOUR TURN ---
+Now it is your turn. All on your own.
+Make five on your abacus. Just the upper bead.
+Then add five.
+Think. What is five's friend?
+# ⏸ hold 2s
+Five! A number really can be its own friend.
+Take it away, then carry one bead to the tens rod.
+What number is showing now?
+# ⏸ hold 3s — the recall gap
+Five plus five is ten.
+Did you get it? Well done!
+That was the fifth friend, and you did it by yourself.
+
+
+# --- 8 · CLOSE ---
+So now you know all five big friends for adding.
+That is a real abacus formula, and it is yours.
+Try them at home on your own abacus.
+Search for abacus kids on the Apple App Store or Google Play.
+Download it free.
+Next time, we will learn the big friends for taking away.
+See you next time!

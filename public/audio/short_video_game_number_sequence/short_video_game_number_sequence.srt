@@ -1,0 +1,39 @@
+1
+00:00:00,000 --> 00:00:01,360
+Eight numbered tiles...
+
+2
+00:00:01,860 --> 00:00:06,020
+and one empty space to slide them into!
+
+3
+00:00:06,020 --> 00:00:08,640
+This is Number Sequence Puzzle!
+
+4
+00:00:09,680 --> 00:00:12,860
+Slide the tiles until they run one to eight, in order!
+
+5
+00:00:14,060 --> 00:00:16,360
+Six is next to the empty space...
+
+6
+00:00:17,140 --> 00:00:33,560
+Slide it in — one, two, three, four, five, six, seven, eight — solved!
+
+7
+00:00:34,520 --> 00:00:38,500
+One slide at a time, until every number lines up perfectly!
+
+8
+00:00:39,860 --> 00:00:44,460
+Parents — this builds spatial reasoning and step-by-step planning!
+
+9
+00:00:45,380 --> 00:00:51,600
+Tap Math Game Zone, slide into Number Sequence Puzzle, pick your level, and start sliding!
+
+10
+00:00:51,600 --> 00:00:58,220
+Abacus Kids — no cost to start, on the App Store and Google Play!

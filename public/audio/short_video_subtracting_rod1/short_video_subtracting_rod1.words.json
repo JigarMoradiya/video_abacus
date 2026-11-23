@@ -1,0 +1,692 @@
+[
+  {
+    "word": "Taking",
+    "start": 0.0,
+    "end": 0.36
+  },
+  {
+    "word": "away",
+    "start": 0.36,
+    "end": 0.7
+  },
+  {
+    "word": "on",
+    "start": 0.7,
+    "end": 0.98
+  },
+  {
+    "word": "one",
+    "start": 0.98,
+    "end": 1.34
+  },
+  {
+    "word": "rod",
+    "start": 1.34,
+    "end": 1.56
+  },
+  {
+    "word": "is",
+    "start": 1.56,
+    "end": 1.88
+  },
+  {
+    "word": "super",
+    "start": 1.88,
+    "end": 2.36
+  },
+  {
+    "word": "quick",
+    "start": 2.36,
+    "end": 2.8
+  },
+  {
+    "word": "check",
+    "start": 3.24,
+    "end": 3.44
+  },
+  {
+    "word": "out",
+    "start": 3.44,
+    "end": 3.66
+  },
+  {
+    "word": "these",
+    "start": 3.66,
+    "end": 3.86
+  },
+  {
+    "word": "examples!",
+    "start": 3.86,
+    "end": 4.42
+  },
+  {
+    "word": "Three",
+    "start": 6.22,
+    "end": 6.42
+  },
+  {
+    "word": "beads",
+    "start": 6.42,
+    "end": 6.66
+  },
+  {
+    "word": "are",
+    "start": 6.66,
+    "end": 6.86
+  },
+  {
+    "word": "up.",
+    "start": 6.86,
+    "end": 7.14
+  },
+  {
+    "word": "Pull",
+    "start": 7.52,
+    "end": 7.74
+  },
+  {
+    "word": "two",
+    "start": 7.74,
+    "end": 7.98
+  },
+  {
+    "word": "down",
+    "start": 7.98,
+    "end": 8.26
+  },
+  {
+    "word": "three",
+    "start": 8.84,
+    "end": 9.08
+  },
+  {
+    "word": "take",
+    "start": 9.08,
+    "end": 9.32
+  },
+  {
+    "word": "away",
+    "start": 9.32,
+    "end": 9.54
+  },
+  {
+    "word": "two",
+    "start": 9.54,
+    "end": 9.78
+  },
+  {
+    "word": "is",
+    "start": 9.78,
+    "end": 10.12
+  },
+  {
+    "word": "one!",
+    "start": 10.12,
+    "end": 10.58
+  },
+  {
+    "word": "Let's",
+    "start": 12.16,
+    "end": 12.8
+  },
+  {
+    "word": "try",
+    "start": 12.8,
+    "end": 12.98
+  },
+  {
+    "word": "another!",
+    "start": 12.98,
+    "end": 13.32
+  },
+  {
+    "word": "Two",
+    "start": 14.28,
+    "end": 14.52
+  },
+  {
+    "word": "lower",
+    "start": 14.52,
+    "end": 14.8
+  },
+  {
+    "word": "beads,",
+    "start": 14.8,
+    "end": 15.06
+  },
+  {
+    "word": "plus",
+    "start": 15.06,
+    "end": 15.4
+  },
+  {
+    "word": "the",
+    "start": 15.4,
+    "end": 15.66
+  },
+  {
+    "word": "upper",
+    "start": 15.66,
+    "end": 15.92
+  },
+  {
+    "word": "bead",
+    "start": 15.92,
+    "end": 16.24
+  },
+  {
+    "word": "that's",
+    "start": 16.24,
+    "end": 16.92
+  },
+  {
+    "word": "seven.",
+    "start": 16.92,
+    "end": 17.22
+  },
+  {
+    "word": "Lift",
+    "start": 18.18,
+    "end": 18.32
+  },
+  {
+    "word": "the",
+    "start": 18.32,
+    "end": 18.56
+  },
+  {
+    "word": "upper",
+    "start": 18.56,
+    "end": 18.76
+  },
+  {
+    "word": "bead",
+    "start": 18.76,
+    "end": 19.08
+  },
+  {
+    "word": "seven",
+    "start": 19.68,
+    "end": 19.9
+  },
+  {
+    "word": "take",
+    "start": 19.9,
+    "end": 20.16
+  },
+  {
+    "word": "away",
+    "start": 20.16,
+    "end": 20.4
+  },
+  {
+    "word": "five",
+    "start": 20.4,
+    "end": 20.66
+  },
+  {
+    "word": "is",
+    "start": 20.66,
+    "end": 21.0
+  },
+  {
+    "word": "two!",
+    "start": 21.0,
+    "end": 21.58
+  },
+  {
+    "word": "Next",
+    "start": 23.1,
+    "end": 23.74
+  },
+  {
+    "word": "one!",
+    "start": 23.74,
+    "end": 24.1
+  },
+  {
+    "word": "Four",
+    "start": 24.96,
+    "end": 25.28
+  },
+  {
+    "word": "lower",
+    "start": 25.28,
+    "end": 25.62
+  },
+  {
+    "word": "beads,",
+    "start": 25.62,
+    "end": 25.9
+  },
+  {
+    "word": "plus",
+    "start": 25.9,
+    "end": 26.2
+  },
+  {
+    "word": "the",
+    "start": 26.2,
+    "end": 26.48
+  },
+  {
+    "word": "upper",
+    "start": 26.48,
+    "end": 26.74
+  },
+  {
+    "word": "bead",
+    "start": 26.74,
+    "end": 27.1
+  },
+  {
+    "word": "that's",
+    "start": 27.1,
+    "end": 27.96
+  },
+  {
+    "word": "nine.",
+    "start": 27.96,
+    "end": 28.36
+  },
+  {
+    "word": "Pull",
+    "start": 29.14,
+    "end": 29.46
+  },
+  {
+    "word": "one",
+    "start": 29.46,
+    "end": 29.82
+  },
+  {
+    "word": "lower",
+    "start": 29.82,
+    "end": 30.08
+  },
+  {
+    "word": "bead",
+    "start": 30.08,
+    "end": 30.32
+  },
+  {
+    "word": "down,",
+    "start": 30.32,
+    "end": 30.66
+  },
+  {
+    "word": "and",
+    "start": 30.66,
+    "end": 31.16
+  },
+  {
+    "word": "lift",
+    "start": 31.16,
+    "end": 31.36
+  },
+  {
+    "word": "the",
+    "start": 31.36,
+    "end": 31.64
+  },
+  {
+    "word": "upper",
+    "start": 31.64,
+    "end": 31.84
+  },
+  {
+    "word": "bead",
+    "start": 31.84,
+    "end": 32.2
+  },
+  {
+    "word": "nine",
+    "start": 32.68,
+    "end": 33.06
+  },
+  {
+    "word": "take",
+    "start": 33.06,
+    "end": 33.34
+  },
+  {
+    "word": "away",
+    "start": 33.34,
+    "end": 33.58
+  },
+  {
+    "word": "six",
+    "start": 33.58,
+    "end": 33.84
+  },
+  {
+    "word": "is",
+    "start": 33.84,
+    "end": 34.22
+  },
+  {
+    "word": "three!",
+    "start": 34.22,
+    "end": 34.96
+  },
+  {
+    "word": "One",
+    "start": 36.32,
+    "end": 36.96
+  },
+  {
+    "word": "more!",
+    "start": 36.96,
+    "end": 37.26
+  },
+  {
+    "word": "Three",
+    "start": 38.14,
+    "end": 38.48
+  },
+  {
+    "word": "lower",
+    "start": 38.48,
+    "end": 38.72
+  },
+  {
+    "word": "beads,",
+    "start": 38.72,
+    "end": 39.04
+  },
+  {
+    "word": "plus",
+    "start": 39.04,
+    "end": 39.38
+  },
+  {
+    "word": "the",
+    "start": 39.38,
+    "end": 39.64
+  },
+  {
+    "word": "upper",
+    "start": 39.64,
+    "end": 39.9
+  },
+  {
+    "word": "bead",
+    "start": 39.9,
+    "end": 40.22
+  },
+  {
+    "word": "that's",
+    "start": 40.22,
+    "end": 41.02
+  },
+  {
+    "word": "eight.",
+    "start": 41.02,
+    "end": 41.26
+  },
+  {
+    "word": "Pull",
+    "start": 42.32,
+    "end": 42.46
+  },
+  {
+    "word": "two",
+    "start": 42.46,
+    "end": 42.74
+  },
+  {
+    "word": "lower",
+    "start": 42.74,
+    "end": 43.06
+  },
+  {
+    "word": "beads",
+    "start": 43.06,
+    "end": 43.28
+  },
+  {
+    "word": "down,",
+    "start": 43.28,
+    "end": 43.68
+  },
+  {
+    "word": "and",
+    "start": 43.68,
+    "end": 44.14
+  },
+  {
+    "word": "lift",
+    "start": 44.14,
+    "end": 44.36
+  },
+  {
+    "word": "the",
+    "start": 44.36,
+    "end": 44.62
+  },
+  {
+    "word": "upper",
+    "start": 44.62,
+    "end": 44.86
+  },
+  {
+    "word": "bead",
+    "start": 44.86,
+    "end": 45.24
+  },
+  {
+    "word": "eight",
+    "start": 46.0,
+    "end": 46.18
+  },
+  {
+    "word": "take",
+    "start": 46.18,
+    "end": 46.48
+  },
+  {
+    "word": "away",
+    "start": 46.48,
+    "end": 46.7
+  },
+  {
+    "word": "seven",
+    "start": 46.7,
+    "end": 47.02
+  },
+  {
+    "word": "is",
+    "start": 47.02,
+    "end": 47.38
+  },
+  {
+    "word": "one!",
+    "start": 47.38,
+    "end": 47.88
+  },
+  {
+    "word": "Here's",
+    "start": 49.64,
+    "end": 50.28
+  },
+  {
+    "word": "one",
+    "start": 50.28,
+    "end": 50.46
+  },
+  {
+    "word": "tip:",
+    "start": 50.46,
+    "end": 50.76
+  },
+  {
+    "word": "lower",
+    "start": 51.54,
+    "end": 51.68
+  },
+  {
+    "word": "beads",
+    "start": 51.68,
+    "end": 51.96
+  },
+  {
+    "word": "always",
+    "start": 51.96,
+    "end": 52.5
+  },
+  {
+    "word": "move",
+    "start": 52.5,
+    "end": 52.94
+  },
+  {
+    "word": "first,",
+    "start": 52.94,
+    "end": 53.48
+  },
+  {
+    "word": "then",
+    "start": 53.7,
+    "end": 53.98
+  },
+  {
+    "word": "the",
+    "start": 53.98,
+    "end": 54.22
+  },
+  {
+    "word": "upper",
+    "start": 54.22,
+    "end": 54.48
+  },
+  {
+    "word": "bead!",
+    "start": 54.48,
+    "end": 54.84
+  },
+  {
+    "word": "Lower",
+    "start": 55.88,
+    "end": 56.48
+  },
+  {
+    "word": "beads",
+    "start": 56.48,
+    "end": 56.76
+  },
+  {
+    "word": "or",
+    "start": 56.76,
+    "end": 57.08
+  },
+  {
+    "word": "the",
+    "start": 57.08,
+    "end": 57.26
+  },
+  {
+    "word": "upper",
+    "start": 57.26,
+    "end": 57.52
+  },
+  {
+    "word": "bead",
+    "start": 57.52,
+    "end": 57.86
+  },
+  {
+    "word": "taking",
+    "start": 58.32,
+    "end": 58.58
+  },
+  {
+    "word": "away",
+    "start": 58.58,
+    "end": 58.92
+  },
+  {
+    "word": "is",
+    "start": 58.92,
+    "end": 59.26
+  },
+  {
+    "word": "always",
+    "start": 59.26,
+    "end": 59.72
+  },
+  {
+    "word": "quick!",
+    "start": 59.72,
+    "end": 60.34
+  },
+  {
+    "word": "Learn",
+    "start": 61.42,
+    "end": 61.82
+  },
+  {
+    "word": "it",
+    "start": 61.82,
+    "end": 62.06
+  },
+  {
+    "word": "all",
+    "start": 62.06,
+    "end": 62.2
+  },
+  {
+    "word": "with",
+    "start": 62.2,
+    "end": 62.38
+  },
+  {
+    "word": "Abacus",
+    "start": 62.38,
+    "end": 62.88
+  },
+  {
+    "word": "Kids",
+    "start": 62.88,
+    "end": 63.16
+  },
+  {
+    "word": "free",
+    "start": 63.74,
+    "end": 63.9
+  },
+  {
+    "word": "on",
+    "start": 63.9,
+    "end": 64.1
+  },
+  {
+    "word": "the",
+    "start": 64.1,
+    "end": 64.26
+  },
+  {
+    "word": "App",
+    "start": 64.26,
+    "end": 64.46
+  },
+  {
+    "word": "Store",
+    "start": 64.46,
+    "end": 64.74
+  },
+  {
+    "word": "and",
+    "start": 64.74,
+    "end": 64.98
+  },
+  {
+    "word": "Google",
+    "start": 64.98,
+    "end": 65.28
+  },
+  {
+    "word": "Play!",
+    "start": 65.28,
+    "end": 65.62
+  }
+]

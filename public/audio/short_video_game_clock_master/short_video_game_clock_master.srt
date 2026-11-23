@@ -1,0 +1,39 @@
+1
+00:00:00,000 --> 00:00:01,640
+The clock's hands point...
+
+2
+00:00:02,660 --> 00:00:03,500
+what time is it?
+
+3
+00:00:05,500 --> 00:00:06,800
+This is Clock Master!
+
+4
+00:00:07,740 --> 00:00:09,340
+Read the hands and set the time!
+
+5
+00:00:10,460 --> 00:00:18,660
+Short hand on three, long hand on twelve — that's three o'clock!
+
+6
+00:00:18,660 --> 00:00:23,840
+Short hand on six, long hand on six — that's half past six!
+
+7
+00:00:27,100 --> 00:00:32,040
+Get it right, the clock chimes, and a new time pops up fast!
+
+8
+00:00:33,420 --> 00:00:40,900
+Parents — this builds real-life time-reading, a skill kids use every single day!
+
+9
+00:00:42,000 --> 00:00:49,000
+Find it in the app — tap Math Game Zone, pick Clock Master, choose your level, and play!
+
+10
+00:00:50,160 --> 00:00:54,220
+Abacus Kids — free on the App Store and Google Play!

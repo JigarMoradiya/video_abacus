@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:03,900
+Adding on one rod is super quick — check out these examples!
+
+2
+00:00:05,320 --> 00:00:06,460
+One bead is up.
+
+3
+00:00:06,920 --> 00:00:09,860
+Push two more up — one plus two is three!
+
+4
+00:00:11,740 --> 00:00:12,880
+Let's try another!
+
+5
+00:00:14,220 --> 00:00:15,220
+Two beads are up.
+
+6
+00:00:15,720 --> 00:00:18,700
+Push two more up — two plus two is four!
+
+7
+00:00:20,940 --> 00:00:21,780
+Next one!
+
+8
+00:00:22,820 --> 00:00:23,880
+Two beads are up.
+
+9
+00:00:24,240 --> 00:00:27,840
+Bring the upper bead down — two plus five is seven!
+
+10
+00:00:30,000 --> 00:00:30,900
+One more!
+
+11
+00:00:31,700 --> 00:00:35,460
+Six is up — one lower bead, plus the upper bead.
+
+12
+00:00:36,040 --> 00:00:39,820
+Add three more lower beads — six plus three is nine!
+
+13
+00:00:41,820 --> 00:00:47,400
+Here's one tip: lower beads always move first, then the upper bead!
+
+14
+00:00:48,420 --> 00:00:52,460
+Lower beads or the upper bead — adding is always quick!
+
+15
+00:00:53,380 --> 00:00:58,420
+Learn it all with Abacus Kids — free on the App Store and Google Play!

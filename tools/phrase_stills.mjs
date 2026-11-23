@@ -44,6 +44,8 @@ const outDir = flag("out");
 const offset = parseInt(flag("offset", "20"), 10);
 const png = has("png");
 const only = flag("only");
+// --notext: render with every text transparent (inputProps.hideText) for tools/contrast_audit.py
+const inputProps = has("notext") ? { hideText: true } : {};
 
 if (!id || !phrasesPath || !outDir) {
   console.error("need --id, --phrases and --out");
@@ -61,7 +63,7 @@ const serveUrl = await bundle({
   onProgress: () => {},
 });
 
-const composition = await selectComposition({ serveUrl, id });
+const composition = await selectComposition({ serveUrl, id, inputProps });
 const { fps, durationInFrames } = composition;
 console.log(`${id}: ${durationInFrames} frames @ ${fps}fps · ${phrases.length} phrases`);
 
@@ -92,6 +94,7 @@ for (const p of phrases) {
     imageFormat: ext,
     puppeteerInstance: browser,
     overwrite: true,
+    inputProps,
   });
 
   written++;

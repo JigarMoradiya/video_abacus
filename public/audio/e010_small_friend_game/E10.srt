@@ -1,0 +1,307 @@
+1
+00:00:00,000 --> 00:00:01,500
+Are you ready to play a game?
+
+2
+00:00:02,240 --> 00:00:04,760
+It is called Beat the Beads!
+
+3
+00:00:05,240 --> 00:00:08,680
+I will spin the wheel, and it will land on a number.
+
+4
+00:00:09,460 --> 00:00:13,040
+You tell me that number's friend, before I count to three.
+
+5
+00:00:13,880 --> 00:00:17,880
+If the beads get stuck, you will know exactly what to do.
+
+6
+00:00:18,920 --> 00:00:20,980
+Let's find out who remembers best.
+
+7
+00:00:22,540 --> 00:00:25,160
+Round one — spin the wheel!
+
+8
+00:00:26,560 --> 00:00:29,560
+It lands on add one.
+
+9
+00:00:30,060 --> 00:00:33,420
+Make four, then try to add one more.
+
+10
+00:00:34,440 --> 00:00:36,460
+Look at that, we are stuck.
+
+11
+00:00:37,340 --> 00:00:39,380
+Quick — what is one's friend?
+
+12
+00:00:41,380 --> 00:00:43,300
+One's friend is four!
+
+13
+00:00:44,220 --> 00:00:46,520
+Four plus one is five!
+
+14
+00:00:48,040 --> 00:00:50,580
+Round two — spin the wheel!
+
+15
+00:00:51,760 --> 00:00:54,860
+It lands on take away three.
+
+16
+00:00:55,740 --> 00:00:58,860
+Make six, then try to take away three.
+
+17
+00:01:00,120 --> 00:01:02,240
+Uh oh, we are stuck again.
+
+18
+00:01:03,220 --> 00:01:05,960
+Think fast — what is three's friend?
+
+19
+00:01:07,620 --> 00:01:09,280
+Three's friend is two!
+
+20
+00:01:10,340 --> 00:01:12,760
+Six take away three is three!
+
+21
+00:01:14,480 --> 00:01:17,180
+Round three — spin the wheel!
+
+22
+00:01:18,300 --> 00:01:21,320
+It lands on add four.
+
+23
+00:01:21,840 --> 00:01:25,440
+Make one, then try to add four more.
+
+24
+00:01:26,600 --> 00:01:27,520
+Stuck already?
+
+25
+00:01:28,200 --> 00:01:29,560
+Let's fix that.
+
+26
+00:01:30,380 --> 00:01:33,520
+Here it comes — what is four's friend?
+
+27
+00:01:35,560 --> 00:01:37,260
+Four's friend is one!
+
+28
+00:01:38,340 --> 00:01:40,700
+One plus four is five!
+
+29
+00:01:42,480 --> 00:01:45,320
+Round four — spin the wheel!
+
+30
+00:01:46,320 --> 00:01:49,880
+It lands on take away two.
+
+31
+00:01:50,760 --> 00:01:54,060
+Make six, then try to take away two.
+
+32
+00:01:55,340 --> 00:01:58,060
+There it is — stuck once more.
+
+33
+00:01:58,940 --> 00:02:00,060
+Can you get this one?
+
+34
+00:02:01,060 --> 00:02:02,460
+What is two's friend?
+
+35
+00:02:04,080 --> 00:02:06,100
+Two's friend is three!
+
+36
+00:02:07,100 --> 00:02:09,500
+Six take away two is four!
+
+37
+00:02:10,880 --> 00:02:15,560
+Four down, four to go — you are on fire today!
+
+38
+00:02:16,260 --> 00:02:19,160
+If you are having fun, tap that like button.
+
+39
+00:02:20,140 --> 00:02:24,440
+The wheel keeps mixing it up — you never know what is coming next!
+
+40
+00:02:26,200 --> 00:02:28,880
+Round five — spin the wheel!
+
+41
+00:02:30,020 --> 00:02:33,200
+It lands on take away one.
+
+42
+00:02:34,020 --> 00:02:37,280
+Make five, then try to take away one.
+
+43
+00:02:38,180 --> 00:02:42,360
+We are stuck, but we know exactly what to do.
+
+44
+00:02:43,280 --> 00:02:46,540
+You know this one — what is one's friend?
+
+45
+00:02:48,380 --> 00:02:50,200
+One's friend is four!
+
+46
+00:02:51,200 --> 00:02:53,620
+Five take away one is four!
+
+47
+00:02:55,380 --> 00:02:58,040
+Round six — spin the wheel!
+
+48
+00:02:59,200 --> 00:03:02,120
+It lands on add three.
+
+49
+00:03:02,120 --> 00:03:06,440
+Make two, then try to add three more.
+
+50
+00:03:07,980 --> 00:03:08,400
+Stuck!
+
+51
+00:03:08,900 --> 00:03:11,600
+Lucky for us, we have a trick.
+
+52
+00:03:12,720 --> 00:03:13,980
+What is three's friend?
+
+53
+00:03:14,860 --> 00:03:15,480
+Tell me!
+
+54
+00:03:16,840 --> 00:03:18,380
+Three's friend is two!
+
+55
+00:03:19,420 --> 00:03:21,960
+Two plus three is five!
+
+56
+00:03:23,460 --> 00:03:26,380
+Round seven — spin the wheel!
+
+57
+00:03:27,620 --> 00:03:30,860
+It lands on take away four.
+
+58
+00:03:30,860 --> 00:03:35,280
+Make seven, then try to take away four.
+
+59
+00:03:36,520 --> 00:03:38,920
+Here we go again — stuck!
+
+60
+00:03:39,400 --> 00:03:43,360
+You know this one too — what is four's friend?
+
+61
+00:03:45,100 --> 00:03:46,840
+Four's friend is one!
+
+62
+00:03:47,760 --> 00:03:50,460
+Seven take away four is three!
+
+63
+00:03:52,380 --> 00:03:54,980
+Round eight — spin the wheel!
+
+64
+00:03:56,240 --> 00:03:59,000
+It lands on add two.
+
+65
+00:03:59,000 --> 00:04:03,080
+Make three, then try to add two more.
+
+66
+00:04:04,460 --> 00:04:06,660
+One more stuck moment to solve.
+
+67
+00:04:07,700 --> 00:04:10,600
+Last one — what is two's friend?
+
+68
+00:04:12,100 --> 00:04:13,920
+Two's friend is three!
+
+69
+00:04:14,960 --> 00:04:17,060
+Three plus two is five!
+
+70
+00:04:18,140 --> 00:04:21,280
+You just beat all eight small friends!
+
+71
+00:04:21,800 --> 00:04:24,900
+Four for adding, and four for taking away.
+
+72
+00:04:25,840 --> 00:04:28,500
+That is every small friend there is.
+
+73
+00:04:29,040 --> 00:04:32,200
+Try Beat the Beads on your own abacus at home.
+
+74
+00:04:32,800 --> 00:04:38,980
+For more sums to practice, search for Abacus Kids on the Apple App Store or Google Play.
+
+75
+00:04:39,780 --> 00:04:40,660
+Download it free.
+
+76
+00:04:41,620 --> 00:04:47,860
+Next time, we will meet a brand new kind of friend — the Big Friends of ten.
+
+77
+00:04:48,700 --> 00:04:49,880
+See you next time!

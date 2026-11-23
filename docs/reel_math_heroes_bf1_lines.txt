@@ -1,0 +1,110 @@
+# Math Heroes · Big Friend 1 — recording script (9:16 short reel)
+# Lines starting with # are notes and are NOT read aloud — same rule the full episode scripts
+# and the original two Math Heroes shorts use. Everything else IS read aloud, exactly as written.
+#
+# Two voices: NARRATOR and BLAZE and SPARK. A "# BOTH" line means Blaze and Spark read that one
+# line together (or, if you only have one voice, just read it once yourself — it still works).
+# Read at a quick, energetic pace — this is a short-form hook, not a slow lesson.
+#
+# THIS SHORT'S HOOK: Grand-opening morning at the arcade — Blaze is running the brand-new ticket
+# counter and it gets stuck on the very first customer of the day. Blaze gets stuck every mission
+# this time (Spark is the one who calls each friend). The ticket-counter setting only shows up in
+# the alert line and the celebration line — every mission's math instruction uses plain, simple
+# words ("stuck" / "no room to add" / "take away ___, then add ten") so the math stays the clear
+# through-line, not story jargon (see bf_PLAN.txt's language-pass note for why "dial"/"jammed"/
+# "maxed out" style wording was removed in favor of this plain phrasing).
+#
+# THE TRICK THIS TIME: BIG FRIEND ADDING, group A — four of the nine adding formulas
+# (+1, +2, +3, +4). Friend-first convention, SAME shape as every full episode this session
+# (+n = −friend + 10): take the friend AWAY from the ones rod first, THEN add a whole ten —
+# NOT Small Friend's complement-of-5 convention the first two shorts used. Every example is a
+# real two-digit number (not a bare single-digit-to-10 pair), same "feels like real practice"
+# standard E14 held its own worked examples to.
+#
+# FOUR missions this time, not two — Big Friend has more than double the formulas Small Friend
+# does (9 each direction vs 4), so this set of shorts covers it across six reels instead of two.
+#
+# EVERY EXAMPLE VERIFIED against the direct-move rule (no secretly-Family moves) before being
+# written here — see docs/reel_math_heroes_bf_PLAN.txt for the full 24-example coverage table
+# and the verification work.
+#
+#   Mission 1:  29 + 1   friend 9   -> 30
+#   Mission 2:  39 + 2   friend 8   -> 41
+#   Mission 3:  68 + 3   friend 7   -> 71
+#   Mission 4:  57 + 4   friend 6   -> 61
+
+# NARRATOR
+Big friends are two numbers that make ten together!
+Nine and one. Eight and two. Seven and three. Six and four.
+When the ones rod has no room to add, a big friend helps us carry to the tens rod!
+
+# BLAZE
+Alert at the ticket counter! Twenty-nine plus one is stuck!
+
+# SPARK
+There's no room to add one. Let's call a friend!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# SPARK
+One's friend is nine!
+
+# BLAZE
+Take away nine, then add ten!
+
+# BOTH
+Twenty-nine plus one is thirty! Next ticket, please!
+
+# SPARK
+Next ticket! Thirty-nine plus two is stuck!
+
+# BLAZE
+There's no room to add two. Friend time!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# BLAZE
+Two's friend is eight!
+
+# SPARK
+Take away eight, then add ten!
+
+# BOTH
+Thirty-nine plus two is forty-one! Line keeps moving!
+
+# BLAZE
+Uh oh, sixty-eight plus three is stuck!
+
+# SPARK
+There's no room to add three. Friend, now!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# SPARK
+Three's friend is seven!
+
+# BLAZE
+Take away seven, then add ten!
+
+# BOTH
+Sixty-eight plus three is seventy-one! Ticket's out!
+
+# SPARK
+Last ticket before opening time! Fifty-seven plus four is stuck!
+
+# BLAZE
+There's no room to add four. One more friend!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# BLAZE
+Four's friend is six!
+
+# SPARK
+Take away six, then add ten!
+
+# BOTH
+Fifty-seven plus four is sixty-one! Doors open, let's go!
+
+# NARRATOR
+Every stuck number has a trick. Learn them all with Abacus Kids — free on the App Store and Google Play!

@@ -65,10 +65,24 @@ ones*, not E01's in a new order.
    *Unit's Place*. Use the app's words, in the app's colours (`src/data/tour.ts`).
 8. **Never teach a partial rule as a rule.** Qualify anything that is only true of the abacus
    on screen — see the far-right/centre-rod trap in the plan's §6b.
-9. **Close on four beats:** a practice prompt → **like & subscribe** → the download CTA naming
-   both stores → the `NextUpCard` teaser. The like ask goes straight after the praise beat, while
-   the viewer is feeling good, and **must not promise a cadence** ("every week", "tomorrow") —
+9. **Close on three beats:** a practice prompt → the download CTA naming both stores → the
+   `NextUpCard` teaser. The close **must not promise a cadence** ("every week", "tomorrow") —
    a promise the upload calendar cannot keep costs trust.
+
+   9a. **THE LIKE ASK MOVES EVERY EPISODE, AND IT IS NOT IN THE CLOSE.** E02–E07 all put it at
+   94–96% through, which is the same place every time *and* the place where the fewest people are
+   still watching. It goes wherever this episode's best **win beat** falls — the moment right after
+   the child gets something right — because that is what "while the viewer is feeling good" always
+   meant. Two lines maximum: a long ask mid-video costs more momentum than it earns. New wording
+   every episode, same as the CTA line.
+
+   | ep | placement | % through |
+   |---|---|---|
+   | E02–E07 | end of close | 94–96% — **do not repeat this** |
+   | E08 | after the third worked sum, on "you are getting fast at this" | ~72% |
+   | E14 | after round four's milestone ("four down, four to go — you are mixing it up like a pro!"), p51 "if you are having fun, tap that like button" | ~54% |
+
+   Log the next one in this table before scripting, and pick a spot the last two did not use.
 10. **Teach the abacus, not the app's modules.** These episodes explain the *instrument*. Do not
     walk the viewer through Free Mode, Practice, Exam or CCM — those get their own module videos
     later. The download CTA stays, because it is the conversion moment rather than a module tour,

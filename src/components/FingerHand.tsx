@@ -35,8 +35,11 @@ export const chipDy = (dir: 1 | -1, side: "auto" | "above" | "below" = "auto"): 
  * then lands on the very beads the other hand is pointing at. A forced side means a pair, so the
  * chip goes out to the fist's own line and leaves the instrument clear.
  */
+/** Opt-in "neat" pills (Bead Buddies): set once per render by SceneStage; centres the pill on its own hand and widens the guard box. */
+export const NEAT = { on: false };
+export const CHIP_HALF = (): number => (NEAT.on ? 118 : 108);
 export const chipDx = (dir: 1 | -1, side: "auto" | "above" | "below" = "auto"): number =>
-  dir > 0 || side !== "auto" ? 214 : 120;
+  NEAT.on ? 236 : dir > 0 || side !== "auto" ? 214 : 120;
 
 /**
  * Where the working digit's TIP actually lands, in hand-local units, measured off the drawn paths
@@ -94,6 +97,12 @@ export const FingerHand: React.FC<{
    * down spreads them apart instead of stacking them into the same 200 px.
    */
   chipSide?: "auto" | "above" | "below";
+  /** Hide the "thumb"/"index finger" name chip. Default false — every existing episode keeps
+   *  its chip. A line with two hands on two DIFFERENT rods (each already showing its own
+   *  distinct move) can turn this on so the pair doesn't read as two redundant labels. */
+  showChip?: boolean;
+  /** Opt-in (Bead Buddies): the name pill is sized from its text with even padding and the text is centred in it. */
+  neat?: boolean;
 }> = ({
   digit,
   direction,
@@ -105,6 +114,8 @@ export const FingerHand: React.FC<{
   chipShiftX = 0,
   showArrow = true,
   chipSide = "auto",
+  showChip = true,
+  neat = false,
 }) => {
   const dir: 1 | -1 = direction === "up" ? -1 : 1;
   // The whole arrow, head included, must fit inside the travel. MoveArrow subtracts its own head
@@ -221,20 +232,23 @@ export const FingerHand: React.FC<{
       {/* On an UPWARD move the chip sits high above the bead — 208 px up from the anchor — and
           at PUSH scale that put its corner into the brand badge. Shifted left for those; it
           sits over the abacus instead, which the hand is allowed to do. */}
-      <g transform={`translate(${chipDx(dir, chipSide) + chipShiftX},${chipDy(dir, chipSide)})`}>
-        <rect x={-108} y={-32} width={216} height={64} rx={32} fill="#D81B60" />
-        <text
-          x={0}
-          y={12}
-          textAnchor="middle"
-          fill="#FFF"
-          fontSize={34}
-          fontWeight={700}
-          fontFamily={KID_FONT}
-        >
-          {isThumb ? "thumb" : "index finger"}
-        </text>
-      </g>
+      {showChip && (
+        <g transform={`translate(${chipDx(dir, chipSide) + chipShiftX},${chipDy(dir, chipSide)})`}>
+          <rect x={neat ? (isThumb ? -85 : -118) : -108} y={-32} width={neat ? (isThumb ? 170 : 236) : 216} height={64} rx={32} fill="#D81B60" />
+          <text
+            x={0}
+            y={neat ? 1 : 12}
+            textAnchor="middle"
+            dominantBaseline={neat ? "central" : undefined}
+            fill="#FFF"
+            fontSize={neat ? 36 : 34}
+            fontWeight={700}
+            fontFamily={KID_FONT}
+          >
+            {isThumb ? "thumb" : "index finger"}
+          </text>
+        </g>
+      )}
     </g>
   );
 };

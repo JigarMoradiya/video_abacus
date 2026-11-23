@@ -1,0 +1,71 @@
+1
+00:00:00,000 --> 00:00:02,140
+This puzzle looks like a crossword...
+
+2
+00:00:02,420 --> 00:00:04,100
+but it's made of MATH!
+
+3
+00:00:04,840 --> 00:00:05,820
+Cross Math!
+
+4
+00:00:07,500 --> 00:00:09,060
+Equations go across...
+
+5
+00:00:09,720 --> 00:00:10,560
+and down...
+
+6
+00:00:11,060 --> 00:00:12,360
+and they cross each other!
+
+7
+00:00:12,360 --> 00:00:14,740
+See an empty box?
+
+8
+00:00:15,120 --> 00:00:15,660
+Tap it!
+
+9
+00:00:17,240 --> 00:00:20,860
+Now tap a number tile below — it jumps right in!
+
+10
+00:00:21,960 --> 00:00:24,740
+When a whole line is correct, it glows green!
+
+11
+00:00:25,560 --> 00:00:30,000
+But careful — every tile can be used only once!
+
+12
+00:00:31,580 --> 00:00:34,700
+Fill every box to finish the level — three stars!
+
+13
+00:00:36,060 --> 00:00:36,660
+Stuck?
+
+14
+00:00:37,100 --> 00:00:40,680
+No problem — you get three hints on every level!
+
+15
+00:00:41,380 --> 00:00:44,040
+And there are two hundred levels to conquer!
+
+16
+00:00:45,820 --> 00:00:51,340
+Parents — this builds math fluency and logic together, in one puzzle!
+
+17
+00:00:52,290 --> 00:00:58,900
+Find it in the app — tap Math Game Zone, pick Cross Math, choose your level, and play!
+
+18
+00:00:58,900 --> 00:01:04,020
+Abacus Kids — free on the App Store and Google Play!

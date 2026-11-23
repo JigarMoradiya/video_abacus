@@ -5,6 +5,12 @@
 //        +3 = −2 +5
 //        +4 = −1 +5
 //
+// FRIEND FIRST, then five — this is the direction the CONSTANT below writes it, matching the bead
+// order (lower beads move first, then the upper bead). An earlier draft had the constant read
+// `+n = +5 − friend` because one beat's narration says "we add five and take away two"; the series
+// convention was corrected on E08 to always read friend-first, since a static reference table has
+// no narration of its own to match, and friend-first is what the hands actually do.
+//
 // This is the NOTATION, and E07 is where a child should first see it — on the two lines that say
 // "that is your first abacus formula" and "there is one for every small number". Before this the
 // episode has been careful to speak in words ("add five and take away two"), which is right for
@@ -32,20 +38,20 @@ export const FORMULA_NAT = { w: 430, h: 372 };
 export const FORMULA_ONE = { w: 330, h: 104 };
 
 /**
- * The four small friends, written ONE way: `+n = +5 − (5−n)`.
+ * The four small friends, written FRIEND FIRST: `+n = −(5−n) +5`.
  *
- * Not `+n = −(5−n) +5`. Both are the same arithmetic and the second is the order the BEADS move in,
- * but this episode says it out loud as "add five and take away two" — the headline says it, the
- * caption says it, and the strip on the rule beats says `+5 − 2`. Writing the closing formulas the
- * other way round put two notations for one idea in a single video, which is the sort of thing that
- * makes a child think they have missed something.
+ * This is the bead order — lower beads move first, then the upper bead — and it is now the series
+ * convention everywhere this table is a static REFERENCE: the closing reveal, and the next-episode
+ * teasers. It reads `+4 = −1 +5`, not `+4 = +5 −1`.
  *
- * The bead ORDER is still lower-first-then-upper, and the episode teaches that in words; the
- * notation matches the sentence rather than the choreography.
+ * One beat in THIS episode still says the words the other way round — "instead of adding three we
+ * add five and take away two" — and its inline strip is written to match THAT sentence, because a
+ * strip tied to a specific spoken instant has to agree with the instant, not with the table. This
+ * constant is for the beats that have no sentence of their own to match.
  */
 export const SMALL_FRIENDS = [1, 2, 3, 4].map((n) => ({
   n,
-  text: `+${n} = +5 − ${5 - n}`,
+  text: `+${n} = −${5 - n} +5`,
 }));
 
 export const FormulaList: React.FC<{
@@ -66,15 +72,16 @@ export const FormulaList: React.FC<{
   /**
    * Override the text of the single strip.
    *
-   * On the rule beats the strip has to match the WORDS — the narration and the headline both say
-   * "add five and take away two", so the strip reads `+5 −2` in that order. The canonical
-   * `+3 = −2 +5` is kept for the closing line that names it as a formula, which is the notation E08
-   * goes on to use.
+   * On the rule beats the strip has to match the WORDS — this episode's one five-first sentence
+   * ("add five and take away two") gets a five-first strip via this override; every other use of
+   * this table, including the closing line right below and E08 onward, reads friend-first.
    */
   label?: string;
   accent: string;
   progress: number;
   scale?: number;
+  /** opt-in: rows still to come show as dashed "?" placeholders, so the card is never an empty box */
+  ghost?: boolean;
 }> = ({
   active,
   stagger = false,
@@ -84,6 +91,7 @@ export const FormulaList: React.FC<{
   accent,
   progress,
   scale = 1,
+  ghost = false,
 }) => (
   <div
     style={{
@@ -119,22 +127,43 @@ export const FormulaList: React.FC<{
           : 1;
       const lit = active === f.n;
       return (
-        <div
-          key={f.n}
-          style={{
-            width: "100%",
-            textAlign: "center",
-            fontSize: 42 * scale,
-            fontWeight: 700,
-            color: lit ? "#FFFFFF" : "#6B5C72",
-            background: lit ? accent : "#F1ECF3",
-            borderRadius: 14 * scale,
-            padding: `${6 * scale}px 0`,
-            opacity: (lit ? 1 : 0.72) * on,
-            transform: `translateY(${(1 - on) * 10 * scale}px) scale(${lit ? 1.04 : 1})`,
-          }}
-        >
-          {only && label ? label : f.text}
+        <div key={f.n} style={{ position: "relative", width: "100%" }}>
+          {ghost && !only && (
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                boxSizing: "border-box",
+                border: `${3 * scale}px dashed ${accent}`,
+                borderRadius: 14 * scale,
+                opacity: 0.5 * (1 - on),
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: 34 * scale,
+                fontWeight: 700,
+                color: accent,
+              }}
+            >
+              ?
+            </div>
+          )}
+          <div
+            style={{
+              width: "100%",
+              textAlign: "center",
+              fontSize: 42 * scale,
+              fontWeight: 700,
+              color: lit ? "#FFFFFF" : "#6B5C72",
+              background: lit ? accent : "#F1ECF3",
+              borderRadius: 14 * scale,
+              padding: `${6 * scale}px 0`,
+              opacity: (lit ? 1 : 0.72) * on,
+              transform: `translateY(${(1 - on) * 10 * scale}px) scale(${lit ? 1.04 : 1})`,
+            }}
+          >
+            {only && label ? label : f.text}
+          </div>
         </div>
       );
     })}

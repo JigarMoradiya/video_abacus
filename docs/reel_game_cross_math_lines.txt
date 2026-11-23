@@ -1,0 +1,30 @@
+# Cross Math — recording script (9:16 game reel, ~55-65s, how-to deep-dive tier)
+# Lines starting with # are notes and are NOT read aloud. Everything else IS read aloud,
+# exactly as written.
+#
+# PILOT #2 of the Math Game Zone series. Gameplay facts verified against the real app
+# (iOS Cross Math): a number-crossword grid where equations run across and down and cross
+# each other; tap an empty box, then tap a number tile below to fill it; each tile can be
+# used only once; a completed correct line glows green; 3 hints per level; 50 levels per
+# difficulty x 4 difficulties = 200 levels, 3-star rated. Level 1 is free forever.
+#
+# The "Find it in the app" line drives an APP-NAVIGATION visual: recreated app screens —
+# home → tap Math Game Zone → the zone's game rows → tap Cross Math → difficulty selector
+# → play. Fast 4-step montage with tap rings, one step per beat of the sentence.
+#
+# Voice notes: curious/mysterious open (it LOOKS like a crossword...), then clear teaching
+# voice for the how-to middle, playful again for the streak/stars, and the "Parents —" line
+# slows down and speaks directly to the parent.
+
+This puzzle looks like a crossword... but it's made of MATH! Cross Math!
+Equations go across... and down... and they cross each other!
+See an empty box? Tap it!
+Now tap a number tile below — it jumps right in!
+When a whole line is correct, it glows green!
+But careful — every tile can be used only once!
+Fill every box to finish the level — three stars!
+Stuck? No problem — you get three hints on every level!
+And there are two hundred levels to conquer!
+Parents — this builds math fluency and logic together, in one puzzle!
+Find it in the app — tap Math Game Zone, pick Cross Math, choose your level, and play!
+Abacus Kids — free on the App Store and Google Play!

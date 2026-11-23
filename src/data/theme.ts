@@ -1,3 +1,4 @@
+import { BB_WORLDS } from "./bbworlds";
 // Visual system for the Abacus series.
 //
 // This REPLACES the earlier "port the app's background" approach. The app's ambient
@@ -190,6 +191,223 @@ export const RIG_MAGIC: RigPalette = {
   offEdge: "#82778C",
 };
 
+/**
+ * E09 · SOFT MINT AND SUNSET PINK — a boardwalk at dusk.
+ *
+ * Eighth distinct instrument. E08 was daytime teal/orange; this mirrors it in every way that
+ * matters — the small friends are the SAME idea, used backwards — while looking nothing like it:
+ * evening light, cool mint against warm pink, so a viewer bingeing both feels an afternoon become
+ * an evening, not a reskin of the same park.
+ */
+export const RIG_ICE: RigPalette = {
+  woodLight: "#6FA79E",
+  wood: "#4C7F78",
+  woodDark: "#33574F",
+  panel: "#FFF7F0",
+  panelEdge: "#E3C9BC",
+  rod: "#B7D6CF",
+  beam: "#22403A",
+  onTop: "#FF9AB0",
+  onBottom: "#F5567F",
+  onEdge: "#B02F53",
+  offTop: "#D9DDD4",
+  offBottom: "#B7BDB1",
+  offEdge: "#8B928A",
+};
+
+/**
+ * E08 · TEAL AND SUNNY ORANGE — a park.
+ *
+ * Seventh distinct instrument. E06 was lime-and-coral jungle, E07 plum-and-gold magic show; a
+ * complementary teal/orange pair is bright and warm without landing on either, and orange beads on
+ * a teal frame are the highest-contrast "on/off" the series has had — which matters more in this
+ * episode than in any before it, because the child is being asked to READ the rod after every move.
+ */
+export const RIG_DINO: RigPalette = {
+  woodLight: "#C79A5B",
+  wood: "#9C6B34",
+  woodDark: "#6B4420",
+  panel: "#FFF9E8",
+  panelEdge: "#E3D2A8",
+  rod: "#C9B48A",
+  beam: "#4A2E14",
+  onTop: "#FFAE4A",
+  onBottom: "#F0741B",
+  onEdge: "#B24A08",
+  offTop: "#D9DDD2",
+  offBottom: "#B8BDB0",
+  offEdge: "#8A8E84",
+};
+
+export const RIG_PARK: RigPalette = {
+  woodLight: "#3F8E7E",
+  wood: "#2C6B5E",
+  woodDark: "#1C4A40",
+  panel: "#FFFBEF",
+  panelEdge: "#D8CDB4",
+  rod: "#A9C6BE",
+  beam: "#173A32",
+  onTop: "#FFAE4A",
+  onBottom: "#F0741B",
+  onEdge: "#B24A08",
+  offTop: "#D5D9D2",
+  offBottom: "#B3B8B1",
+  offEdge: "#888E86",
+};
+
+/**
+ * E10 · ELECTRIC INDIGO AND BUZZER GOLD — a TV game show.
+ *
+ * Tenth distinct instrument, and the first that is not a place at all — this episode's world is a
+ * STAGE, on purpose: RecapQuiz has no new idea to teach, so the abacus itself becomes the game
+ * prop, lit like a buzzer that lights up gold the instant a bead answers correctly. E07 already
+ * owns velvet-and-gold theatre magic, so this goes electric-blue-and-arcade-gold instead — same
+ * "stage" family, nothing like the same room.
+ */
+export const RIG_SHOW: RigPalette = {
+  woodLight: "#3D4A9E",
+  wood: "#2B3480",
+  woodDark: "#1C2359",
+  panel: "#FFF9E8",
+  panelEdge: "#F0D68A",
+  rod: "#8FA0E8",
+  beam: "#151B45",
+  onTop: "#FFE156",
+  onBottom: "#FFC300",
+  onEdge: "#B88600",
+  offTop: "#C7CEDB",
+  offBottom: "#9AA3BE",
+  offEdge: "#6E7796",
+};
+
+/**
+ * E11 · the big top circus. Cherry-red-and-cream tent frame, vivid magenta beads.
+ *
+ * Eleventh distinct instrument. E07 already owns velvet-and-gold theatre magic and E10 owns
+ * electric-indigo-and-arcade-gold game show — both NIGHT stages under artificial light. This one
+ * is a stage too (the episode composes its worlds from the same curtains/spot/boards vocabulary
+ * E07 built), but the hue family is new: warm cherry red instead of plum or indigo, and the beads
+ * are a saturated magenta-pink rather than E09's soft rose (`RIG_ICE`) — cooler and far more
+ * electric, so the two do not read as the same pink reused. The off beads go cool blue-grey
+ * against the warm red frame, the same warm/cool split DESIGN_SYSTEM §9's greyscale test asks
+ * every rig for.
+ */
+export const RIG_CIRCUS: RigPalette = {
+  woodLight: "#E2685F",
+  wood: "#B8342E",
+  woodDark: "#7A1E1A",
+  panel: "#FFF9EE",
+  panelEdge: "#F2DAB6",
+  rod: "#E3B79C",
+  beam: "#5C1712",
+  onTop: "#FF57C0",
+  onBottom: "#E0128B",
+  onEdge: "#95095F",
+  offTop: "#D6CFD2",
+  offBottom: "#ABA3A8",
+  offEdge: "#7C7579",
+};
+
+/**
+ * E12 · the rainbow treehouse jungle. Deep leaf-green frame, sunshine-yellow beads.
+ *
+ * Twelfth distinct instrument. Every earlier warm hue is already spoken for — orange (E01/E02,
+ * E04's amber, E06's coral-red, E08), teal (E03, E08's frame), violet (E05), gold (E07, E10), pink
+ * (E09, E11) — so this is the first rig with a GREEN frame and the first with beads that read as
+ * pure sunshine yellow rather than gold or amber. Green-and-yellow is also just a toucan: a bright
+ * beak colour sitting on a deep jungle green, which is the whole point of this episode's world.
+ */
+export const RIG_TOUCAN: RigPalette = {
+  woodLight: "#3FA34D",
+  wood: "#2D7A3A",
+  woodDark: "#1D5226",
+  panel: "#FFFDF2",
+  panelEdge: "#D9E8B8",
+  rod: "#8FC97E",
+  beam: "#1A3D1F",
+  onTop: "#FFE066",
+  onBottom: "#FFC800",
+  onEdge: "#B88A00",
+  offTop: "#C7D6C9",
+  offBottom: "#9AAE9C",
+  offEdge: "#6E7F70",
+};
+
+/**
+ * E13 · the autumn park. Chestnut-and-cream frame, sky-blue beads.
+ *
+ * Thirteenth distinct instrument, the direct sequel to E12's rig. Deliberately does NOT reuse
+ * E12's sunshine-yellow on-beads — this episode has to read as its own thing next to its own
+ * template, not a reskin — so the "on" bead goes to a clear autumn-sky blue family instead,
+ * popping hard against a warm rust/chestnut wood frame. Off beads stay neutral grey, the same
+ * greyscale-test split DESIGN_SYSTEM §9 asks of every rig.
+ */
+export const RIG_AUTUMN: RigPalette = {
+  woodLight: "#C97A3D",
+  wood: "#B5651D",
+  woodDark: "#7A4013",
+  panel: "#FFF6E8",
+  panelEdge: "#EAD0AA",
+  rod: "#E3B98D",
+  beam: "#5C3410",
+  onTop: "#6EC6F2",
+  onBottom: "#2E9BD6",
+  onEdge: "#1C6B96",
+  offTop: "#D8D2CC",
+  offBottom: "#AEA79E",
+  offEdge: "#7C766E",
+};
+
+/**
+ * E14 · the arcade. Near-black cabinet frame, neon lime beads.
+ *
+ * Fourteenth distinct instrument. Every earlier warm/cool hue pairing is spoken for — the closest
+ * neighbours are E10's electric-indigo-and-arcade-gold game show and E11's cherry-and-magenta
+ * circus — so this goes darker and more electric than either: a near-black cabinet frame (an
+ * actual arcade machine's own colour) with beads that glow neon lime, a hue no earlier rig uses.
+ * Off beads stay a cool charcoal-blue, keeping the on/off split separable in greyscale
+ * (DESIGN_SYSTEM §9) the same way every rig in the series does.
+ */
+export const RIG_ARCADE: RigPalette = {
+  woodLight: "#3A3A46",
+  wood: "#232330",
+  woodDark: "#131320",
+  panel: "#F4F2FF",
+  panelEdge: "#C9C2E8",
+  rod: "#8A84B0",
+  beam: "#0E0E18",
+  onTop: "#D6FF6E",
+  onBottom: "#A6E020",
+  onEdge: "#6E9A0E",
+  offTop: "#C5C7D6",
+  offBottom: "#9497AC",
+  offEdge: "#666980",
+};
+
+/**
+ * E15 · the sea-otter kelp cove. A warm sand-and-driftwood frame against cool teal water, coral-orange beads.
+ *
+ * Fifteenth distinct instrument. The world is cool (teal to aqua), so the frame goes warm — sun-bleached
+ * sand with a deep kelp beam — and the "on" beads a bright coral-orange, a hue no earlier rig uses (E03's
+ * sea glass is cool-on-warm; E13's autumn is blue-on-rust). Off beads stay a pale shell grey, so on/off is
+ * separable in greyscale (DESIGN_SYSTEM §9) the same way every rig in the series does.
+ */
+export const RIG_COVE: RigPalette = {
+  woodLight: "#F2D3A0",
+  wood: "#E0B375",
+  woodDark: "#A8793C",
+  panel: "#FFF9EC",
+  panelEdge: "#EBD3A6",
+  rod: "#9C7A4A",
+  beam: "#0E4F5C",
+  onTop: "#FFAE6B",
+  onBottom: "#F2693E",
+  onEdge: "#A8381C",
+  offTop: "#DDE6EA",
+  offBottom: "#B5C3CB",
+  offEdge: "#7C8D97",
+};
+
 // ---------------------------------------------------------------- worlds
 
 /** Every beat gets its own world, so no two stretches of the video look alike. */
@@ -276,7 +494,134 @@ export type WorldKind =
   | "stagefull" // full stage, warm and open — the trick performed
   | "encore" // deeper reds, a second run — the second sum
   | "applause" // confetti in the lights — your turn
-  | "finale"; // curtain call, everything lit — the close
+  | "finale" // curtain call, everything lit — the close
+  // --- E08 · all four small friends. A PARK, morning to evening. The episode is about PAIRS, so
+  // the world is the one place a child already knows where things come in twos and only work in
+  // twos — a see-saw. E07 ended on a dark stage under artificial light; this opens on grass and
+  // daylight, so a viewer watching both back to back walks outdoors. ---
+  | "parkgate" // morning at the gate, arch and path — the recap
+  | "seesawlawn" // open lawn, the see-saw's own world — meeting the friends
+  | "hopscotch" // chalk squares on the path — the four formulas written down
+  | "sandtoys" // the sandpit corner, buckets and spades — when we do NOT need a trick
+  | "swingset" // swings under a big tree — four plus one
+  | "slidehill" // the slide, bright and steep — four plus two
+  | "picnic" // blanket under the tree — three plus four
+  | "flowerbed" // beds of colour along the path — the pattern
+  | "bandstand" // the little bandstand — your turn
+  | "lanternpark" // evening, lanterns lit in the trees — the close
+  // --- E09 · small friends for taking away. A BOARDWALK AT DUSK, string lights coming on. The
+  // mirror of E08's daytime park: same idea, used backwards, so the world moves from afternoon
+  // into evening rather than repeating it. The signature gag is a call box on the pier where one
+  // seagull calls the other — literal, because "call a friend" says exactly that. ---
+  | "boardwalkdusk" // the pier at golden hour, gulls arriving — the recap
+  | "cartfront" // the ice-cream cart, awning down — look at the lower beads first
+  | "cartfrontclean" // same sky and pier as cartfront, no cart — the thumbnail's crop clips the
+  // cart at an odd height and it reads as debris rather than scenery; nothing in the episode
+  // itself uses this variant
+  | "emptytray" // the tray with nothing loose in it — the wall
+  | "callbox" // the red call box on the pier — "so we call a friend"
+  | "scoopdelivery" // a friend's tray slides over — the trick performed
+  | "pierstroll" // strolling past the stalls — one more
+  | "benchlights" // a bench under the string lights — the like ask
+  | "carouselglow" // a carousel turning, lit up — another one
+  | "duskdock" // the dock, sky gone violet — the pattern
+  | "ferriswheel" // the wheel turning against the sky — your turn
+  | "fireworks" // fireworks over the pier — the close
+  // --- E10 · Beat the Beads. A TV GAME SHOW, because this episode teaches nothing new — it is
+  // the recall test for everything E08 and E09 taught. Reuses the generic `curtains`/`spot`/
+  // `boards`/`bulbs` stage vocabulary E07 built, in an entirely different palette and mood: arcade
+  // gold and electric blue, not velvet and top hats. ---
+  | "showlights" // curtain closed, cool blue footlights — the hook, before the game starts
+  | "buzzerstage" // the main stage, warm gold spots, bulbs chasing — rounds one through four
+  | "greenroom" // dimmer, quieter, off to the side — the like ask
+  | "buzzerstagehot" // the same stage, brighter and hotter — rounds five through eight
+  | "confettifinale" // confetti in every spotlight — the recap and the close
+  // --- E11 · the big top circus. The first BIG FRIEND formula, and the first two-rod stage —
+  // the tens rod has to be on screen from the very first frame, so the ring itself has to feel
+  // like it has ROOM for a second act from the start. Composed from the same curtains/spot/
+  // boards/backstage/bulbs vocabulary E07 built for its magic show, in cherry-red and gold
+  // instead of plum, and pushed brighter and warmer throughout — a circus is a daytime, kids'
+  // party of a place even when the tent is lit for a show, never as moody as a magician's stage. ---
+  | "ringclosed" // the flap still down, one spotlight sneaking through the gap — the hook
+  | "sawdustring" // the main ring, spotlight hunting hard — the sum runs out of beads
+  | "secondring" // a second, cooler spotlight finds the EMPTY tens rod
+  | "bigtopnaming" // ropes and ladders backstage — the five big friends, named one by one
+  | "bigtopchant" // full reveal light, the ringmaster's top hat on the ring — saying them together
+  | "centerring" // centre ring, warm and rich — the trick explained in words
+  | "showtime" // full stage, bulbs chasing — the trick performed: nine plus one
+  | "secondact" // deeper reds, a second run — eight plus two
+  | "yourturnring" // confetti in the lights — your turn: seven plus three
+  | "finalebow" // curtain call, everything lit — the close
+  // --- E12 · all five big friends. A RAINBOW TREEHOUSE JUNGLE, morning to dusk — deliberately not
+  // E11's circus tent (indoor, artificial light) and not E06's own jungle palette (lime and coral,
+  // daytime only): this stays in the SAME jungle vocabulary (canopy/vines/ferns/godrays/blossoms)
+  // E06 built, in a brighter teal-and-toucan-orange family, because the episode's whole idea is
+  // FRIEND PAIRS — and `vines` already has a `pairs` mode built for exactly that, unused since E06
+  // only ever drew them singly. Two toucan friends live here, perched together, wingtip to wingtip. ---
+  | "canopyrise" // morning light breaking through the leaves — the recap hook
+  | "friendbranch" // five vine PAIRS hanging together — meeting the five big friends
+  | "clearingcheck" // an open sunny clearing, no vines — when we do NOT need the trick
+  | "twinvines" // two vines paired again — "it works flipped around too" (2+8)
+  | "buddyperch" // blossoms out, warm midday — the new pair taught in full (6+4)
+  | "patternleaf" // calm, uncluttered canopy — the pattern recap
+  | "flipbridge" // a rope bridge, crossable either direction — the second flip (4+6)
+  | "yourturncanopy" // confetti and a waterfall — your turn (5+5)
+  | "duskfarewell" // dusk, blossoms drifting down — the close
+  // --- E13 · big friend taking away. An AUTUMN PARK, morning to golden-hour dusk. Direct sequel
+  // to E12's jungle — same "friends that make ten" idea, run backwards — so the world has to be
+  // visibly a DIFFERENT place: E06/E12 already own the jungle (canopy/vines/ferns), E08/E09 own
+  // the park-by-day and boardwalk-by-dusk vocabularies respectively, so this reuses E08's park
+  // primitives (parkground/trees/fence/flowers/birds/blanket/bandstand) recoloured rust-and-gold,
+  // with one new prop this episode needs and no earlier one drew: falling autumn `leaves`. The
+  // signature gag is an ACORN, handed paw to paw — the two squirrels' `give` pose — on every line
+  // that TRADES something (add the friend, take one from the tens rod), mirroring E12's beak-touch. ---
+  | "parkfall" // autumn morning at the park gate — the recap hook
+  | "acornstash" // a stash of acorns tucked in a hollow — meeting friends by passing one
+  | "emptybranch" // a bare branch, nothing on it — when the ones rod has nothing
+  | "whyclearing" // an open clearing, leaves settled and still — the WhyCard explanation beat
+  | "hollowtrunk" // a hollow in the old oak — the trick performed in full
+  | "russetpath" // the leaf-strewn path — the second worked example
+  | "goldenfall" // full golden-hour canopy — the like-and-subscribe ask
+  | "duskgrove" // a deeper grove, dusk creeping in — the third example, bigger numbers
+  | "leafdrift" // calm, leaves drifting slow — the pattern recap
+  | "acornchallenge" // a pile of acorns waiting to be counted — your turn
+  | "harvestglow" // dusk, lanterns and drifting leaves — the close
+  // --- E14 · Beat the Beads: big friend recap. Direct sequel to E10's own TV-game-show format,
+  // played this time with BIG friend tricks (adding and taking away, mixed) instead of small — so
+  // the world has to visibly be a DIFFERENT show, not E10's reskinned. E10 owns velvet-curtain
+  // TV-studio night; this is a lit ARCADE at night — a ticket booth, a prize wall, a change
+  // machine's neon glow — composed from the same curtains/spot/boards/bulbs vocabulary E07/E10/E11
+  // already built, in a hue family none of them uses: near-black cabinets, neon lime and hot pink,
+  // never indigo-and-gold (E10) or cherry-and-magenta (E11). TWO HEDGEHOGS, rival contestants —
+  // the buzz-in gag E10's foxes started, reused on purpose (same game, same energy), with `curl`
+  // (not `worry`) as the stuck reaction — a hedgehog's own signature move. ---
+  | "ticketglow" // the booth shutter still down, one neon sign flickering on — the hook
+  | "arcadefloor" // the main cabinet row, neon lime and pink chasing — rounds one through four
+  | "prizewall" // dimmer, off to the side, shelves of prizes — the milestone and the like ask
+  | "arcadeneon" // the same floor, every cabinet lit and louder — rounds five through eight
+  | "jackpotfinale" // every light on the wall lit at once — the recap and the close
+
+  // --- E15 · the sea-otter KELP COVE (Family Plus). The first world that lives UNDER the waterline:
+  // deep teal to aqua with warm peach light falling from a rippling surface, kelp swaying at both
+  // gutters, bubbles, fish and starfish — morning to dusk across the episode. Nothing here shares E03's
+  // beach-from-above-the-waterline or any earlier room. No entry sets `confetti: true`: every
+  // celebration beat routes through the scene-level `celebrate` prop. ---
+  | "covedawn" // dawn mist, peach light on the surface — the hook
+  | "coveshallows" // sunny shallows, wide light shafts — the recap of the big friend and the small friend
+  | "covetidepool" // a rocky tide pool, fewer fish, quieter — the wall (the big friend gets stuck)
+  | "covereef" // a coral shelf, bright and busy — the family formula
+  | "covekelp" // sunlit kelp, schools of fish — the like ask
+  | "covedeep" // deep blue current, fish streaming past — 26 + 7
+  | "covedrift" // calm kelp drift — the pattern
+  | "covegold" // golden shallows, late light — your turn
+  | "covemoon" // a moonlit raft of otters — the close
+  // E08 · Dino Valley (the Bead Buddies pilot)
+  | "dinomorning" // misty morning valley — the recap
+  | "dinomeadow" // bright fern meadow — the friends, the tricks
+  | "dinoegg" // a nest of eggs under a big tree — when do we need it
+  | "dinovolcano" // the smiling volcano — the worked examples
+  | "dinosunset" // warm dusk — the close
+  | import("./bbworlds").BBWorldKind; // the Bead Buddies themes (E07, E09 to E14)
 
 export interface WorldTheme {
   sky: [string, string];
@@ -368,7 +713,14 @@ export interface WorldTheme {
   /** Undergrowth along the bottom: ferns and blades, in front of the ground band. */
   ferns?: string;
   /** A waterfall on one side, with a plunge pool. Bright teal, the coolest thing in a warm world. */
-  falls?: { at: number; water: string; foam: string };
+  falls?: {
+    at: number;
+    water: string;
+    foam: string;
+    /** run the column off the bottom edge with no plunge pool or spray — a sheet of water the
+     *  frame is standing in front of, not a waterfall landing in shot. E12's your-turn world. */
+    toBottom?: boolean;
+  };
   /** Coral blossoms scattered through the canopy, and a few drifting down. */
   blossoms?: string[];
   /** A rope bridge across the frame, well below the stage. TWO ropes, one deck. */
@@ -396,9 +748,82 @@ export interface WorldTheme {
   sparkle?: string[];
   /** Bulbs around the proscenium, chasing. */
   bulbs?: boolean;
+  // ---------------------------------------------------------------- park (E08)
+  /** Grass to `at`, then a lighter path band across the bottom. The base every park world stands on. */
+  parkground?: { at: number; grass: string; grassDark: string; path: string };
+  /** A row of round trees behind the stage, in two parallax depths. */
+  trees?: { far: string; near: string; trunk: string };
+  /** A picket fence along the grass line. */
+  fence?: string;
+  /** Flowers dotted in the grass, in these colours. */
+  flowers?: string[];
+  /** A swing set, left gutter — two swings, because everything in this world comes in twos. */
+  swings?: boolean;
+  /** A slide, right gutter. */
+  slide?: { rail: string; chute: string };
+  /** Kites on strings, high in the sky. Motion where nothing else is. */
+  kites?: string[];
+  /** Chalk hopscotch squares on the path. */
+  chalksquares?: boolean;
+  /** A picnic blanket on the grass, bottom-left. */
+  blanket?: [string, string];
+  /** A bandstand behind the stage — the only built thing in the park. */
+  bandstand?: boolean;
+  /** Paper lanterns strung between the trees, for the evening close. */
+  lanterns?: string[];
+  /** Two small birds, wandering the sky. The park's equivalent of E03's gulls. */
+  birds?: boolean;
+  /** Falling autumn leaves, drifting and swaying as they fall, looping from the top once they
+   *  pass the bottom edge. E13's equivalent of `kites`/`butterflies` — motion where nothing else
+   *  is, in an autumn palette. Each colour gets 2-3 individually phased leaf shapes. */
+  leaves?: string[];
+
   /** TWO banana bunches hanging from the canopy, one per gutter. Paired, like everything in this
    *  world set — and the world called `bananagrove` should have bananas in it. */
   bananas?: boolean;
+
+  // ---------------------------------------------------------------- boardwalk (E09)
+  /** Deck to `at`, then dark water below with a soft shimmer. The base every pier world stands on. */
+  pier?: { at: number; deck: string; deckDark: string; sea: string };
+  /** Background stalls: peaked-roof silhouettes in two parallax rows, lit windows. */
+  stalls?: { far: string; near: string; roof: string };
+  /** A wooden pier railing along the deck line. */
+  railing?: string;
+  /** The ice-cream cart — awning, wheels, a chalkboard sign. Left gutter. */
+  cart?: boolean;
+  /** The red call box — "so we call a friend" made literal. Right gutter, or wherever the scene
+   *  needs it; drawn distinctly enough it reads at thumbnail size. */
+  callbox?: boolean;
+  /** A carousel silhouette, turning, with warm lit canopy bulbs. */
+  carousel?: boolean;
+  /** A ferris wheel silhouette, turning, spokes lit. */
+  ferriswheel?: boolean;
+  /** Fireworks bursting over the pier, in these colours. */
+  fireworksBurst?: string[];
+
+  // ---------------------------------------------------------------- the kelp cove (E15)
+  /**
+   * An underwater cove, drawn by `CoveLayer` (src/components/e15). Every field is a knob on the SAME
+   * drawing, so nine beats are nine times of day in one place rather than nine rooms: `light` is the
+   * colour of the surface glow and the shafts that fall from it, `shafts` how many fall, `kelp` the
+   * far and near blade colours, `floor` the sand and the rock, `bubbles` and `fish` how busy the water
+   * is, `mist` a dawn haze, `night` swaps the glow for a moon. Pure function of the frame.
+   */
+  bb?: { theme: import("./bbworlds").BBTheme; mood: number };
+  dino?: { hills: [string, string]; fern: [string, string]; volcano?: boolean; glow: string; eggs?: boolean; sun?: string; dusk?: boolean };
+  cove?: {
+    light: string;
+    shafts: number;
+    kelp: [string, string];
+    floor: [string, string];
+    bubbles: number;
+    fish?: string[];
+    mist?: number;
+    night?: boolean;
+    coral?: string[];
+    rocks?: boolean;
+    stream?: boolean;
+  };
 }
 
 export const WORLDS: Record<WorldKind, WorldTheme> = {
@@ -493,7 +918,6 @@ export const WORLDS: Record<WorldKind, WorldTheme> = {
     clouds: true,
     sun: true,
     hills: true,
-    confetti: true,
   },
 
   // ---------------------------------------------------------------- E02
@@ -1103,7 +1527,6 @@ export const WORLDS: Record<WorldKind, WorldTheme> = {
     curtains: { cloth: "#B02244", shade: "#7C1230" },
     boards: { at: 0.86, face: "#8A5730", edge: "#D89A55" },
     bulbs: true,
-    confetti: true,
     sparkle: ["#FFD873", "#FFF3C4", "#FF9EC4"],
   },
   finale: {
@@ -1116,4 +1539,793 @@ export const WORLDS: Record<WorldKind, WorldTheme> = {
     bulbs: true,
     sparkle: ["#FFD873", "#FFF3C4"],
   },
+
+  // ---------------------------------------------------------------- E08 · the park
+  //
+  // Ten worlds, morning to evening. The GROUND is the constant — grass and a path — and what
+  // stands on it changes: a gate, then the lawn, then a sandpit, swings, a slide, a picnic, beds
+  // of flowers, a bandstand, and finally lanterns in the dark. The sky carries the clock, going
+  // from pale morning blue to dusk violet, so the episode reads as one afternoon rather than ten
+  // unrelated backdrops.
+  parkgate: {
+    sky: ["#BFE9FF", "#EAF7E2"],
+    ink: "#1C4A40",
+    pill: "#FFFFFF",
+    accent: "#F0741B",
+    parkground: { at: 0.78, grass: "#6FBF63", grassDark: "#4E9A46", path: "#E9D9B4" },
+    trees: { far: "#3E8E52", near: "#57B06A", trunk: "#7A5230" },
+    fence: "#FFFFFF",
+    clouds: true,
+    cloudSize: 0.9,
+    cloudAlpha: 0.9,
+    birds: true,
+    sun: true,
+  },
+  seesawlawn: {
+    sky: ["#AEE4FF", "#E7F6DC"],
+    ink: "#1C4A40",
+    pill: "#FFFFFF",
+    accent: "#F0741B",
+    parkground: { at: 0.80, grass: "#6FBF63", grassDark: "#4E9A46", path: "#E9D9B4" },
+    trees: { far: "#3E8E52", near: "#57B06A", trunk: "#7A5230" },
+    flowers: ["#FF6B8A", "#FFD23F", "#8E6BFF", "#FF9F45"],
+    clouds: true,
+    cloudSize: 0.85,
+    cloudAlpha: 0.88,
+    kites: ["#FF6B8A", "#FFD23F"],
+  },
+  hopscotch: {
+    sky: ["#CFEEFF", "#F3F8E6"],
+    ink: "#1C4A40",
+    pill: "#FFFFFF",
+    accent: "#F0741B",
+    parkground: { at: 0.72, grass: "#6FBF63", grassDark: "#4E9A46", path: "#E9D9B4" },
+    chalksquares: true,
+    trees: { far: "#3E8E52", near: "#57B06A", trunk: "#7A5230" },
+    fence: "#FFFFFF",
+    clouds: true,
+    cloudSize: 0.8,
+    cloudAlpha: 0.85,
+  },
+  sandtoys: {
+    sky: ["#B8E7FF", "#EDF7DE"],
+    ink: "#1C4A40",
+    pill: "#FFFFFF",
+    accent: "#F0741B",
+    parkground: { at: 0.78, grass: "#6FBF63", grassDark: "#4E9A46", path: "#F2E3BC" },
+    trees: { far: "#3E8E52", near: "#57B06A", trunk: "#7A5230" },
+    flowers: ["#FF6B8A", "#FFD23F", "#8E6BFF", "#FF9F45"],
+    clouds: true,
+    cloudSize: 0.9,
+    cloudAlpha: 0.9,
+    birds: true,
+  },
+  swingset: {
+    sky: ["#A6DFFF", "#E4F4DA"],
+    ink: "#1C4A40",
+    pill: "#FFFFFF",
+    accent: "#F0741B",
+    parkground: { at: 0.79, grass: "#6FBF63", grassDark: "#4E9A46", path: "#E9D9B4" },
+    trees: { far: "#3E8E52", near: "#57B06A", trunk: "#7A5230" },
+    swings: true,
+    flowers: ["#FF6B8A", "#FFD23F", "#8E6BFF", "#FF9F45"],
+    clouds: true,
+    cloudSize: 0.85,
+    cloudAlpha: 0.88,
+  },
+  slidehill: {
+    sky: ["#9FDBFF", "#E1F2D6"],
+    ink: "#1C4A40",
+    pill: "#FFFFFF",
+    accent: "#F0741B",
+    parkground: { at: 0.79, grass: "#6FBF63", grassDark: "#4E9A46", path: "#E9D9B4" },
+    trees: { far: "#3E8E52", near: "#57B06A", trunk: "#7A5230" },
+    slide: { rail: "#FF6B8A", chute: "#FFD23F" },
+    clouds: true,
+    cloudSize: 0.85,
+    cloudAlpha: 0.86,
+    kites: ["#8E6BFF"],
+  },
+  picnic: {
+    sky: ["#FFE3B8", "#F6F3D8"],
+    ink: "#1C4A40",
+    pill: "#FFFFFF",
+    accent: "#F0741B",
+    parkground: { at: 0.78, grass: "#6BB85F", grassDark: "#4A9442", path: "#E9D9B4" },
+    trees: { far: "#3E8E52", near: "#57B06A", trunk: "#7A5230" },
+    blanket: ["#FF6B8A", "#FFFFFF"],
+    flowers: ["#FF6B8A", "#FFD23F", "#8E6BFF", "#FF9F45"],
+    clouds: true,
+    cloudSize: 0.9,
+    cloudAlpha: 0.8,
+    birds: true,
+  },
+  flowerbed: {
+    sky: ["#FFD9A8", "#FBEFD2"],
+    ink: "#1C4A40",
+    pill: "#FFFFFF",
+    accent: "#F0741B",
+    parkground: { at: 0.76, grass: "#66B25B", grassDark: "#468E3F", path: "#E9D9B4" },
+    trees: { far: "#3E8E52", near: "#57B06A", trunk: "#7A5230" },
+    flowers: ["#FF6B8A", "#FFD23F", "#8E6BFF", "#FF9F45", "#FF4E78", "#6BE0C0"],
+    fence: "#FFFFFF",
+    clouds: true,
+    cloudSize: 0.85,
+    cloudAlpha: 0.72,
+  },
+  bandstand: {
+    sky: ["#FFC79A", "#FFE9C8"],
+    ink: "#1C4A40",
+    pill: "#FFFFFF",
+    accent: "#F0741B",
+    parkground: { at: 0.77, grass: "#5FA956", grassDark: "#41843B", path: "#E9D9B4" },
+    trees: { far: "#347A46", near: "#4C9E5F", trunk: "#6E4A2C" },
+    bandstand: true,
+    flowers: ["#FF6B8A", "#FFD23F", "#8E6BFF", "#FF9F45"],
+    birds: true,
+  },
+  lanternpark: {
+    sky: ["#3B2A63", "#7C4A6E"],
+    ink: "#FFF0D2",
+    pill: "#2E2050",
+    accent: "#FFAE4A",
+    parkground: { at: 0.77, grass: "#2F6B48", grassDark: "#1F4C33", path: "#8E7C5C" },
+    trees: { far: "#204A38", near: "#2C6349", trunk: "#4A3220" },
+    lanterns: ["#FFAE4A", "#FF8FA8", "#FFE08A"],
+    stars: true,
+    sparkle: ["#FFE08A", "#FFF6DC"],
+  },
+
+  // ---------------------------------------------------------------- E09 · the boardwalk at dusk
+  //
+  // Eleven worlds, afternoon into evening — the sky is the clock, same trick E04's city used,
+  // going from warm gold through pink to violet as the episode runs. The PIER is the constant
+  // (deck, railing, dark water), and what stands on it changes: the cart, the empty tray, the call
+  // box, a carousel, a ferris wheel, and fireworks for the close.
+  boardwalkdusk: {
+    sky: ["#FFCE8A", "#FFA6C0"],
+    ink: "#3A2340",
+    pill: "#FFFFFF",
+    accent: "#F5567F",
+    pier: { at: 0.74, deck: "#7A5A3C", deckDark: "#5A3F28", sea: "#3A6B8A" },
+    stalls: { far: "#9C6B8E", near: "#C98BAE", roof: "#7A4A6C" },
+    railing: "#FFF7F0",
+    gulls: true,
+    clouds: true,
+    cloudSize: 0.85,
+    cloudAlpha: 0.7,
+  },
+  cartfront: {
+    sky: ["#FFC17A", "#FF9EB8"],
+    ink: "#3A2340",
+    pill: "#FFFFFF",
+    accent: "#F5567F",
+    pier: { at: 0.76, deck: "#7A5A3C", deckDark: "#5A3F28", sea: "#3A6B8A" },
+    stalls: { far: "#9C6B8E", near: "#C98BAE", roof: "#7A4A6C" },
+    cart: true,
+    gulls: true,
+    clouds: true,
+    cloudSize: 0.8,
+    cloudAlpha: 0.65,
+  },
+  // The thumbnail's own background: cartfront with the cart dropped (a thumbnail crops the scene
+  // at an arbitrary height, and the cart landed half-cut behind the tag, reading as debris) and
+  // the sea lightened a step (a thumbnail has no scrim to soften it the way the episode's own
+  // captions and cards do, so the same sea read noticeably heavier here than the sky above it).
+  cartfrontclean: {
+    sky: ["#FFC17A", "#FF9EB8"],
+    ink: "#3A2340",
+    pill: "#FFFFFF",
+    accent: "#F5567F",
+    pier: { at: 0.76, deck: "#8A6A48", deckDark: "#6A4C34", sea: "#5B93AE" },
+    stalls: { far: "#9C6B8E", near: "#C98BAE", roof: "#7A4A6C" },
+    gulls: true,
+    clouds: true,
+    cloudSize: 0.8,
+    cloudAlpha: 0.65,
+  },
+  emptytray: {
+    sky: ["#FF9E6E", "#F06A96"],
+    ink: "#3A2340",
+    pill: "#FFFFFF",
+    accent: "#F5567F",
+    pier: { at: 0.76, deck: "#7A5A3C", deckDark: "#5A3F28", sea: "#33607E" },
+    stalls: { far: "#9C6B8E", near: "#C98BAE", roof: "#7A4A6C" },
+    cart: true,
+    vignette: true,
+  },
+  callbox: {
+    sky: ["#F0855E", "#D45C8C"],
+    ink: "#3A2340",
+    pill: "#FFFFFF",
+    accent: "#F5567F",
+    pier: { at: 0.75, deck: "#7A5A3C", deckDark: "#5A3F28", sea: "#2E5876" },
+    stalls: { far: "#9C6B8E", near: "#C98BAE", roof: "#7A4A6C" },
+    callbox: true,
+    sparkle: ["#FFE08A", "#FFD1E0"],
+  },
+  scoopdelivery: {
+    sky: ["#F0855E", "#D45C8C"],
+    ink: "#3A2340",
+    pill: "#FFFFFF",
+    accent: "#F5567F",
+    pier: { at: 0.75, deck: "#7A5A3C", deckDark: "#5A3F28", sea: "#2E5876" },
+    stalls: { far: "#9C6B8E", near: "#C98BAE", roof: "#7A4A6C" },
+    cart: true,
+    sparkle: ["#FFE08A", "#FFD1E0"],
+  },
+  pierstroll: {
+    sky: ["#E97C6E", "#C25C96"],
+    ink: "#FFF3EC",
+    pill: "#7A2A56",
+    accent: "#FFAE4A",
+    pier: { at: 0.75, deck: "#7A5A3C", deckDark: "#5A3F28", sea: "#2A4E6C" },
+    stalls: { far: "#9C6B8E", near: "#C98BAE", roof: "#7A4A6C" },
+    railing: "#FFF7F0",
+    bulbs: true,
+  },
+  benchlights: {
+    sky: ["#C86A8C", "#8A4C8E"],
+    ink: "#FFF3EC",
+    pill: "#6B2A5E",
+    accent: "#FFAE4A",
+    pier: { at: 0.76, deck: "#7A5A3C", deckDark: "#5A3F28", sea: "#254462" },
+    stalls: { far: "#9C6B8E", near: "#C98BAE", roof: "#7A4A6C" },
+    bulbs: true,
+    sparkle: ["#FFE08A", "#FFD1E0"],
+  },
+  carouselglow: {
+    sky: ["#B95E8E", "#6B3E82"],
+    ink: "#FFF3EC",
+    pill: "#5A2360",
+    accent: "#FFAE4A",
+    pier: { at: 0.76, deck: "#7A5A3C", deckDark: "#5A3F28", sea: "#203A56"},
+    carousel: true,
+    bulbs: true,
+  },
+  duskdock: {
+    sky: ["#8A4C8E", "#4A3070"],
+    ink: "#FFF3EC",
+    pill: "#3E2360",
+    accent: "#FFAE4A",
+    pier: { at: 0.76, deck: "#7A5A3C", deckDark: "#5A3F28", sea: "#1C2E4C" },
+    stalls: { far: "#5E3E68", near: "#7A4E7E", roof: "#4A2E52" },
+    stars: true,
+    bulbs: true,
+  },
+  ferriswheel: {
+    sky: ["#6B3E82", "#2E2456"],
+    ink: "#FFF3EC",
+    pill: "#2E2360",
+    accent: "#FFAE4A",
+    pier: { at: 0.77, deck: "#7A5A3C", deckDark: "#5A3F28", sea: "#16223E" },
+    ferriswheel: true,
+    stars: true,
+  },
+  fireworks: {
+    sky: ["#3A2A64", "#1A1642"],
+    ink: "#FFF3EC",
+    pill: "#241A4A",
+    accent: "#FFAE4A",
+    pier: { at: 0.78, deck: "#7A5A3C", deckDark: "#5A3F28", sea: "#101832" },
+    stars: true,
+    fireworksBurst: ["#FF6B8A", "#FFD23F", "#8E6BFF", "#6BE0C0"],
+  },
+
+  // ---------------------------------------------------------------- E10 · the game show
+  showlights: {
+    sky: ["#0E1240", "#1C2668"],
+    ink: "#FFE156",
+    pill: "#141A50",
+    accent: "#FF4D8D",
+    curtains: { cloth: "#1C2478", shade: "#10164E", closed: true },
+    boards: { at: 0.86, face: "#141A50", edge: "#2B3690" },
+    spot: { at: 0.5, colour: "#8FD8FF", width: 0.4 },
+    sparkle: ["#8FD8FF", "#C7E8FF"],
+  },
+  buzzerstage: {
+    sky: ["#1C2470", "#3A2C8E"],
+    ink: "#FFE156",
+    pill: "#1C2470",
+    accent: "#FF4D8D",
+    curtains: { cloth: "#1C2478", shade: "#10164E" },
+    boards: { at: 0.86, face: "#141A50", edge: "#2B3690" },
+    spot: { at: 0.28, colour: "#FF6B4A", width: 0.32 },
+    spot2: { at: 0.72, colour: "#4AC4FF", width: 0.3 },
+    bulbs: true,
+    sparkle: ["#FFE156", "#FFF3B0"],
+  },
+  greenroom: {
+    // Brighter and more festive than the first pass — the deep-navy backstage (ropes, a bare
+    // crate) read as flat and washed out for what is a celebratory beat ("you are on fire
+    // today!" plus the like ask), not a quiet aside.
+    sky: ["#8A2C8E", "#3E1E7A"],
+    ink: "#FFE9FF",
+    pill: "#4A1E70",
+    accent: "#FFE156",
+    boards: { at: 0.86, face: "#3A1E70", edge: "#5A2E9E" },
+    bulbs: true,
+    sparkle: ["#FFE156", "#8FD8FF", "#FF9EC4"],
+  },
+  buzzerstagehot: {
+    sky: ["#2A2C8E", "#5A2C9E"],
+    ink: "#FFE156",
+    pill: "#241F80",
+    accent: "#FF4D8D",
+    curtains: { cloth: "#2A2C8E", shade: "#1A1C60" },
+    boards: { at: 0.86, face: "#241F80", edge: "#4438B8" },
+    spot: { at: 0.28, colour: "#FF4D8D", width: 0.34 },
+    spot2: { at: 0.72, colour: "#FFE156", width: 0.32 },
+    bulbs: true,
+    sparkle: ["#FFE156", "#FF9EC4", "#8FD8FF"],
+  },
+  confettifinale: {
+    sky: ["#341F90", "#6B2CA8"],
+    ink: "#FFF6E2",
+    pill: "#301A80",
+    accent: "#FFE156",
+    curtains: { cloth: "#2A2C8E", shade: "#1A1C60" },
+    boards: { at: 0.86, face: "#241F80", edge: "#4438B8" },
+    bulbs: true,
+    sparkle: ["#FFE156", "#FF9EC4", "#8FD8FF", "#FFF3B0"],
+  },
+
+  // ---------------------------------------------------------------- E14 · the arcade
+  //
+  // Five worlds, same curtains/boards/spot/bulbs vocabulary E10's game show already built, in an
+  // electric hue family neither E10 (indigo/gold) nor E11 (cherry/magenta) uses: near-black
+  // cabinets, neon lime and hot pink. `accent` is neon lime (`#C6FF3D`) everywhere — the abacus
+  // rig's own on-bead colour — so the cards, the headline pill and the round chip all read as
+  // pulled from the same light. No entry sets `confetti: true` — every celebration beat routes
+  // through the scene-level `celebrate` prop instead, same discipline the whole series holds to.
+  ticketglow: {
+    sky: ["#0A0A16", "#161028"],
+    ink: "#C6FF3D",
+    pill: "#141024",
+    accent: "#FF3DA6",
+    curtains: { cloth: "#1A1430", shade: "#0E0A1C", closed: true },
+    boards: { at: 0.86, face: "#141024", edge: "#2C2048" },
+    spot: { at: 0.5, colour: "#FF3DA6", width: 0.4 },
+    sparkle: ["#C6FF3D", "#8FE8FF"],
+  },
+  arcadefloor: {
+    sky: ["#100C24", "#301A4A"],
+    ink: "#C6FF3D",
+    pill: "#180F30",
+    accent: "#FF3DA6",
+    curtains: { cloth: "#1A1430", shade: "#0E0A1C" },
+    boards: { at: 0.86, face: "#141024", edge: "#2C2048" },
+    spot: { at: 0.28, colour: "#C6FF3D", width: 0.32 },
+    spot2: { at: 0.72, colour: "#FF3DA6", width: 0.3 },
+    bulbs: true,
+    sparkle: ["#C6FF3D", "#8FE8FF"],
+  },
+  prizewall: {
+    sky: ["#241238", "#3A1A48"],
+    ink: "#FFF3FA",
+    pill: "#2C1440",
+    accent: "#C6FF3D",
+    boards: { at: 0.86, face: "#2C1440", edge: "#4A2460" },
+    bulbs: true,
+    sparkle: ["#C6FF3D", "#8FE8FF", "#FF9ED6"],
+  },
+  arcadeneon: {
+    sky: ["#180E30", "#4A1858"],
+    ink: "#C6FF3D",
+    pill: "#200F3C",
+    accent: "#FF3DA6",
+    curtains: { cloth: "#2A1846", shade: "#160C2E" },
+    boards: { at: 0.86, face: "#200F3C", edge: "#48246A" },
+    spot: { at: 0.28, colour: "#FF3DA6", width: 0.34 },
+    spot2: { at: 0.72, colour: "#C6FF3D", width: 0.32 },
+    bulbs: true,
+    sparkle: ["#C6FF3D", "#FF9ED6", "#8FE8FF"],
+  },
+  jackpotfinale: {
+    sky: ["#160A2C", "#4A1858"],
+    ink: "#FFF6FA",
+    pill: "#200F3C",
+    accent: "#C6FF3D",
+    curtains: { cloth: "#2A1846", shade: "#160C2E" },
+    boards: { at: 0.86, face: "#200F3C", edge: "#48246A" },
+    bulbs: true,
+    sparkle: ["#C6FF3D", "#FF9ED6", "#8FE8FF", "#FFF3B0"],
+  },
+
+  // ---------------------------------------------------------------- E11 · the big top circus
+  //
+  // Ten worlds. The palette stays in one family throughout — cherry red through hot magenta to
+  // gold — so the episode reads as one tent lit differently across an afternoon, never as ten
+  // unrelated rooms. `accent` is gold (`#FFD23F`) everywhere: it is the ring's own colour, on the
+  // bulbs and the sparkle, and it is what the headline pill and the cards borrow it for.
+  ringclosed: {
+    sky: ["#3A0E14", "#6E1B24"],
+    ink: "#FFEFD8",
+    pill: "#4A121A",
+    accent: "#FFD23F",
+    curtains: { cloth: "#B8342E", shade: "#7A1E1A", closed: true },
+    boards: { at: 0.86, face: "#6E2620", edge: "#C46A4A" },
+    bulbs: true,
+    sparkle: ["#FFD23F"],
+  },
+  sawdustring: {
+    sky: ["#4A1018", "#7A2028"],
+    ink: "#FFEFD8",
+    pill: "#551620",
+    accent: "#FFD23F",
+    curtains: { cloth: "#B8342E", shade: "#7A1E1A" },
+    spot: { at: 0.5, colour: "#FFF3D6", width: 0.46 },
+    boards: { at: 0.88, face: "#6E2620", edge: "#C46A4A" },
+    sparkle: ["#FFD23F"],
+  },
+  secondring: {
+    sky: ["#3A1030", "#6E2050"],
+    ink: "#FFEFEA",
+    pill: "#431640",
+    accent: "#FF57C0",
+    curtains: { cloth: "#B8342E", shade: "#7A1E1A" },
+    spot: { at: 0.32, colour: "#FFF3D6", width: 0.3 },
+    // the SECOND spot is COOL, not warm — the tens rod is empty, and a cool light on an empty
+    // thing reads differently from the warm one finding a full rod, before either is explained
+    spot2: { at: 0.68, colour: "#8FE3FF", width: 0.3 },
+    boards: { at: 0.88, face: "#6E2620", edge: "#C46A4A" },
+    sparkle: ["#FFD23F", "#8FE3FF"],
+  },
+  bigtopnaming: {
+    sky: ["#4A1830", "#8A2E58"],
+    ink: "#FFF3E0",
+    pill: "#551C3E",
+    accent: "#FFD23F",
+    backstage: true,
+    boards: { at: 0.88, face: "#5E2420", edge: "#96543A" },
+    sparkle: ["#FFD23F", "#FFB8E6"],
+  },
+  bigtopchant: {
+    sky: ["#5A1030", "#B8306A"],
+    ink: "#FFF3E0",
+    pill: "#63163C",
+    accent: "#FFD23F",
+    curtains: { cloth: "#B8342E", shade: "#7A1E1A" },
+    spot: { at: 0.5, colour: "#FFF6DC", width: 0.5 },
+    // the ringmaster's top hat, on the ring — the same prop field E07 used for its magician's
+    // hat, standing in here for the ring's own master of ceremonies
+    tophat: true,
+    boards: { at: 0.87, face: "#6E2620", edge: "#C46A4A" },
+    sparkle: ["#FFD23F", "#FF9EC4", "#FFF3C4"],
+  },
+  centerring: {
+    sky: ["#40102A", "#8C2454"],
+    ink: "#FFF1E4",
+    pill: "#4A1332",
+    accent: "#FF57C0",
+    curtains: { cloth: "#B8342E", shade: "#7A1E1A" },
+    spot: { at: 0.5, colour: "#FFF6DC", width: 0.4 },
+    boards: { at: 0.86, face: "#6E2620", edge: "#C46A4A" },
+    sparkle: ["#FFD23F"],
+  },
+  showtime: {
+    sky: ["#6E1626", "#C4406A"],
+    ink: "#FFF6E2",
+    pill: "#7A1B30",
+    accent: "#FFD23F",
+    curtains: { cloth: "#D23F5C", shade: "#8C1A34" },
+    boards: { at: 0.86, face: "#7A3020", edge: "#D8905A" },
+    bulbs: true,
+    sparkle: ["#FFD23F", "#FFF3C4"],
+  },
+  secondact: {
+    sky: ["#5A0F22", "#9E2A50"],
+    ink: "#FFF1E4",
+    pill: "#63132A",
+    accent: "#FFD23F",
+    curtains: { cloth: "#C4284C", shade: "#8C1636" },
+    boards: { at: 0.86, face: "#7A3020", edge: "#D8905A" },
+    spot: { at: 0.5, colour: "#FFF6DC", width: 0.54 },
+    sparkle: ["#FFD23F"],
+  },
+  yourturnring: {
+    sky: ["#7A1030", "#E8447A"],
+    ink: "#FFF6E8",
+    pill: "#7A1030",
+    accent: "#FF57C0",
+    curtains: { cloth: "#D23F5C", shade: "#8C1A34" },
+    boards: { at: 0.86, face: "#7A3020", edge: "#D8905A" },
+    bulbs: true,
+    sparkle: ["#FFD23F", "#FF9EC4", "#8FE3FF"],
+  },
+  finalebow: {
+    sky: ["#8C1438", "#D23F6A"],
+    ink: "#FFF6E8",
+    pill: "#8C1438",
+    accent: "#FFD23F",
+    curtains: { cloth: "#D23F5C", shade: "#8C1A34" },
+    boards: { at: 0.86, face: "#7A3020", edge: "#D8905A" },
+    bulbs: true,
+    sparkle: ["#FFD23F", "#FFF3C4", "#FF9EC4", "#8FE3FF"],
+  },
+
+  // ---------------------------------------------------------------- E12 · rainbow treehouse jungle
+  //
+  // Nine worlds, morning to dusk, all in the canopy/vines/ferns vocabulary E06 built. `accent`
+  // stays toucan-orange (#FF7A3D) almost throughout, the one exception being `flipbridge`'s teal
+  // (#2FE0C4) — the single beat this episode wants to visually set apart, because it is teaching
+  // the one genuinely new idea (the trick reversed).
+  canopyrise: {
+    sky: ["#0E3B2E", "#2E8B6F"],
+    ink: "#FFF8E8",
+    pill: "#123A2A",
+    accent: "#FF7A3D",
+    canopy: { far: "#1C5C42", near: "#2E8B6F", depth: 0.6 },
+    godrays: true,
+    ferns: "#1F5E3A",
+    butterflies: ["#FFD23F", "#FF7A3D"],
+  },
+  friendbranch: {
+    sky: ["#123A2A", "#3AA07C"],
+    ink: "#FFF8E8",
+    pill: "#153F2E",
+    accent: "#FF7A3D",
+    canopy: { far: "#1C5C42", near: "#3AA07C", depth: 0.6 },
+    // FIVE vine pairs — the five big-friend pairs, hanging together before the script even
+    // names the first one. `pairs` was built for E06's "two rods" and has sat unused since.
+    vines: { colour: "#2E8B6F", count: 5, pairs: true },
+    ferns: "#1F5E3A",
+  },
+  clearingcheck: {
+    sky: ["#1C5C42", "#5BC49A"],
+    ink: "#0E3B2E",
+    pill: "#FFFFFF",
+    accent: "#FF7A3D",
+    ferns: "#2E8B6F",
+    godrays: true,
+  },
+  twinvines: {
+    sky: ["#153F2E", "#3AA07C"],
+    ink: "#FFF8E8",
+    pill: "#153F2E",
+    accent: "#FF7A3D",
+    canopy: { far: "#1C5C42", near: "#3AA07C", depth: 0.55 },
+    vines: { colour: "#FFD23F", count: 2, pairs: true },
+    ferns: "#1F5E3A",
+  },
+  buddyperch: {
+    sky: ["#1F5E3A", "#6BCB9E"],
+    ink: "#0E3B2E",
+    pill: "#FFFFFF",
+    accent: "#FF7A3D",
+    canopy: { far: "#2E8B6F", near: "#6BCB9E", depth: 0.5 },
+    blossoms: ["#FF9EC4", "#FFD23F"],
+    ferns: "#2E8B6F",
+  },
+  patternleaf: {
+    sky: ["#123A2A", "#2E8B6F"],
+    ink: "#FFF8E8",
+    pill: "#123A2A",
+    accent: "#FF7A3D",
+    canopy: { far: "#1C5C42", near: "#2E8B6F", depth: 0.6 },
+    ferns: "#1F5E3A",
+  },
+  flipbridge: {
+    sky: ["#153F2E", "#3AA07C"],
+    ink: "#FFF8E8",
+    pill: "#153F2E",
+    accent: "#2FE0C4",
+    // a rope bridge you can walk either direction — the exact shape of "it works flipped too".
+    // Raised above the usual ground line, and `ferns` deliberately left off this one world: the
+    // ferns band paints over anything at the ferns' own height, which hid the bridge entirely
+    // the first time this was rendered.
+    ropebridge: { at: 0.64, rope: "#8A5A2E", plank: "#C89355" },
+    canopy: { far: "#1C5C42", near: "#3AA07C", depth: 0.5 },
+  },
+  yourturncanopy: {
+    sky: ["#7A2E50", "#E8447A"],
+    ink: "#FFF6E8",
+    pill: "#7A2E50",
+    accent: "#FFD23F",
+    canopy: { far: "#2E8B6F", near: "#5BC49A", depth: 0.4 },
+    falls: { at: 0.7, water: "#4AC4E0", foam: "#FFFFFF", toBottom: true },
+  },
+  duskfarewell: {
+    sky: ["#3A1848", "#B8497A"],
+    ink: "#FFF6E8",
+    pill: "#3A1848",
+    accent: "#FF7A3D",
+    canopy: { far: "#1C5C42", near: "#2E8B6F", depth: 0.5 },
+    blossoms: ["#FFD23F", "#FF9EC4", "#FF7A3D"],
+    butterflies: ["#FFD23F"],
+  },
+
+  // ---------------------------------------------------------------- E13 · the autumn park
+  //
+  // Eleven worlds, morning to golden-hour dusk, all in E08's park vocabulary recoloured rust,
+  // gold and chestnut. `accent` stays a warm amber (#D9791E) through most of it — the one
+  // exception is `whyclearing`'s cool plum (#6B4FA0), set apart because it is the one beat that
+  // stops the story to explain WHY the trick works rather than perform it.
+  parkfall: {
+    sky: ["#F2C879", "#FCE7B8"],
+    ink: "#5C3410",
+    pill: "#FFFFFF",
+    accent: "#D9791E",
+    parkground: { at: 0.70, grass: "#C68A3D", grassDark: "#9C6A28", path: "#EAD4A6" },
+    trees: { far: "#B5651D", near: "#D9791E", trunk: "#6E4630" },
+    fence: "#FFF6E8",
+    clouds: true,
+    cloudSize: 0.85,
+    cloudAlpha: 0.85,
+    birds: true,
+    sun: true,
+    leaves: ["#C0392B", "#D9791E", "#E8B84B"],
+  },
+  acornstash: {
+    sky: ["#EAB768", "#F6D896"],
+    ink: "#5C3410",
+    pill: "#FFFFFF",
+    accent: "#D9791E",
+    parkground: { at: 0.70, grass: "#BE813A", grassDark: "#946125", path: "#E6CE9E" },
+    trees: { far: "#A9571A", near: "#C97A3D", trunk: "#6E4630" },
+    leaves: ["#D9791E", "#B5651D"],
+  },
+  emptybranch: {
+    sky: ["#D9A85E", "#F0CE8E"],
+    ink: "#4A2E10",
+    pill: "#FFFFFF",
+    accent: "#B5651D",
+    parkground: { at: 0.70, grass: "#B27936", grassDark: "#8A5C22", path: "#E0C692" },
+    trees: { far: "#9C5218", near: "#B5651D", trunk: "#5C3410" },
+    leaves: ["#E8B84B"],
+  },
+  whyclearing: {
+    sky: ["#E8CE94", "#F6E6BE"],
+    ink: "#3A2A50",
+    pill: "#FFFFFF",
+    accent: "#6B4FA0",
+    parkground: { at: 0.70, grass: "#C79646", grassDark: "#9E7530", path: "#EEDCAE" },
+    clouds: true,
+    cloudSize: 0.8,
+    cloudAlpha: 0.9,
+  },
+  hollowtrunk: {
+    sky: ["#E8B85E", "#F6D48C"],
+    ink: "#4A2E10",
+    pill: "#FFFFFF",
+    accent: "#D9791E",
+    parkground: { at: 0.70, grass: "#C0873C", grassDark: "#966A28", path: "#E6CE9E" },
+    trees: { far: "#A9571A", near: "#D9791E", trunk: "#5C3410" },
+    fence: "#FFF6E8",
+    leaves: ["#C0392B", "#E8B84B"],
+  },
+  russetpath: {
+    sky: ["#E0AE5E", "#F0CE8E"],
+    ink: "#4A2E10",
+    pill: "#FFFFFF",
+    accent: "#D9791E",
+    parkground: { at: 0.70, grass: "#B98038", grassDark: "#8F6224", path: "#E4C88F" },
+    trees: { far: "#9C5218", near: "#C0873C", trunk: "#5C3410" },
+    flowers: ["#C0392B", "#E8B84B"],
+    leaves: ["#B5651D", "#D9791E"],
+  },
+  goldenfall: {
+    sky: ["#F2C56A", "#FCE7B8"],
+    ink: "#5C3410",
+    pill: "#FFFFFF",
+    accent: "#D9791E",
+    parkground: { at: 0.70, grass: "#CB9040", grassDark: "#A0702B", path: "#EEDCAE" },
+    trees: { far: "#B5651D", near: "#E8B84B", trunk: "#6E4630" },
+    bandstand: true,
+    leaves: ["#E8B84B", "#D9791E"],
+  },
+  duskgrove: {
+    sky: ["#8C4A2E", "#D9791E"],
+    ink: "#FFF6E8",
+    pill: "#5C2E12",
+    accent: "#F0CE8E",
+    parkground: { at: 0.70, grass: "#7A5024", grassDark: "#573A18", path: "#C69C5E" },
+    trees: { far: "#5C3410", near: "#8A5228", trunk: "#3A2410" },
+    leaves: ["#C0392B", "#8A5228"],
+  },
+  leafdrift: {
+    sky: ["#E8C078", "#F6E0A8"],
+    ink: "#4A2E10",
+    pill: "#FFFFFF",
+    accent: "#D9791E",
+    parkground: { at: 0.70, grass: "#C0873C", grassDark: "#966A28", path: "#E6CE9E" },
+    trees: { far: "#A9571A", near: "#C97A3D", trunk: "#5C3410" },
+    leaves: ["#C0392B", "#D9791E", "#E8B84B"],
+  },
+  acornchallenge: {
+    sky: ["#7A2E3A", "#E88A4A"],
+    ink: "#FFF6E8",
+    pill: "#5C2412",
+    accent: "#E8B84B",
+    parkground: { at: 0.70, grass: "#8A5C28", grassDark: "#603E18", path: "#D0A362" },
+    trees: { far: "#6E3A18", near: "#9C5218", trunk: "#3A2410" },
+    leaves: ["#E8B84B", "#C0392B"],
+  },
+  harvestglow: {
+    sky: ["#4A2018", "#B5651D"],
+    ink: "#FFF6E8",
+    pill: "#3A1810",
+    accent: "#E8B84B",
+    parkground: { at: 0.70, grass: "#5C3A1C", grassDark: "#3E2610", path: "#8A6636" },
+    trees: { far: "#3E2410", near: "#6E3A18", trunk: "#2A1A0C" },
+    lanterns: ["#E8B84B", "#D9791E", "#C0392B"],
+    leaves: ["#D9791E", "#E8B84B"],
+  },
+
+  // ---------------------------------------------------------------- E15 · the sea-otter kelp cove
+  //
+  // Nine beats, one palette family: deep teal to aqua water with a warm light falling through it,
+  // morning to dusk. `accent` is a DARK ocean teal (#0B6B7D) everywhere — white caption text sits on it as
+  // the karaoke pill, so it has to pass 4.5:1 against white; `pill` is a deep sea blue for the headline.
+  covedawn: {
+    sky: ["#FFC2A0", "#19C3D9"],
+    ink: "#0B3B4A",
+    pill: "#0B4F63",
+    accent: "#0B6B7D",
+    cove: { light: "#FFD9B8", shafts: 4, kelp: ["#17B58A", "#0A8F78"], floor: ["#E8C79B", "#6E8C8A"], bubbles: 12, fish: ["#FFB27A"], mist: 0.42, coral: ["#FF8F70", "#FFC36B"] },
+  },
+  coveshallows: {
+    sky: ["#6FF0E6", "#1BA6E0"],
+    ink: "#0B3B4A",
+    pill: "#0B4F63",
+    accent: "#0B6B7D",
+    cove: { light: "#FFF6CC", shafts: 6, kelp: ["#2BCB7F", "#12A064"], floor: ["#F2D9A6", "#7BA6A0"], bubbles: 16, fish: ["#FFC857", "#FF8F70", "#7FE0D0"], coral: ["#FF8F70", "#FFC36B", "#B58CFF"] },
+  },
+  covetidepool: {
+    sky: ["#58DCD8", "#1A86C9"],
+    ink: "#0B3B4A",
+    pill: "#0B4F63",
+    accent: "#0B6B7D",
+    cove: { light: "#FFE9C2", shafts: 3, kelp: ["#1FBF88", "#0E9A70"], floor: ["#D9BE93", "#5E7F82"], bubbles: 8, fish: ["#FFC857"], rocks: true, coral: ["#FF8F70"] },
+  },
+  covereef: {
+    sky: ["#3FE0E8", "#1470D0"],
+    ink: "#0B3B4A",
+    pill: "#0B4F63",
+    accent: "#0B6B7D",
+    cove: { light: "#FFF0C8", shafts: 5, kelp: ["#25D08A", "#0FA66C"], floor: ["#EFD3A0", "#6F9A9B"], bubbles: 14, fish: ["#FFC857", "#FF6F91", "#7FE0D0", "#B58CFF"], coral: ["#FF6F91", "#FFC36B", "#B58CFF", "#FF8F70"] },
+  },
+  covekelp: {
+    sky: ["#8FF5D8", "#17B3B0"],
+    ink: "#0B3B4A",
+    pill: "#0B4F63",
+    accent: "#0B6B7D",
+    cove: { light: "#FFF6C8", shafts: 7, kelp: ["#47D96B", "#25B050"], floor: ["#F0DBA8", "#7DAA9A"], bubbles: 18, fish: ["#FFC857", "#FF8F70", "#7FE0D0", "#FFFFFF"], coral: ["#FFC36B"] },
+  },
+  covedeep: {
+    sky: ["#2FB4F2", "#1A3FB5"],
+    ink: "#FFFFFF",
+    pill: "#0B3F6E",
+    accent: "#0B6B7D",
+    cove: { light: "#BFE8FF", shafts: 4, kelp: ["#16A5B8", "#0C7096"], floor: ["#9DB8C6", "#385E7A"], bubbles: 20, fish: ["#FFC857", "#7FE0D0", "#FFFFFF"], stream: true, coral: ["#FF8F70"] },
+  },
+  covedrift: {
+    sky: ["#5CE6D6", "#1C8FD0"],
+    ink: "#0B3B4A",
+    pill: "#0B4F63",
+    accent: "#0B6B7D",
+    cove: { light: "#E8FFE8", shafts: 5, kelp: ["#2FD08A", "#1BA278"], floor: ["#EBD7A6", "#7AA89F"], bubbles: 10, fish: ["#7FE0D0", "#FFFFFF"], coral: ["#FFC36B", "#FF8F70"] },
+  },
+  covegold: {
+    sky: ["#FFD26E", "#16B8B0"],
+    ink: "#0B3B4A",
+    pill: "#0B4F63",
+    accent: "#0B6B7D",
+    cove: { light: "#FFE6A0", shafts: 6, kelp: ["#46D18A", "#22A06A"], floor: ["#F6DDA2", "#7FB1A0"], bubbles: 14, fish: ["#FFC857", "#FF8F70", "#FFFFFF"], coral: ["#FFC36B", "#FF8F70"] },
+  },
+  covemoon: {
+    sky: ["#4B5FD0", "#14246B"],
+    ink: "#FFFFFF",
+    pill: "#13285A",
+    accent: "#0B6B7D",
+    cove: { light: "#D8E6FF", shafts: 3, kelp: ["#2C86B0", "#1B5C86"], floor: ["#5B7894", "#2A4562"], bubbles: 10, fish: ["#9DC8FF"], night: true, coral: ["#7FA6E8"] },
+  },
+  // ---------------------------------------------------------------- E08 · Dino Valley
+  dinomorning: { sky: ["#FFD27A", "#7FE0E0"], ink: "#123F2E", pill: "#14573F", accent: "#14573F", dino: { hills: ["#7FDC5E", "#3FC25A"], fern: ["#22B25A", "#128F45"], volcano: true, glow: "#FFA23D", sun: "#FFE9A8" } },
+  dinomeadow: { sky: ["#6FD6FF", "#C8F59A"], ink: "#123F2E", pill: "#14573F", accent: "#14573F", dino: { hills: ["#8CE06A", "#3FCB5C"], fern: ["#22B25A", "#12A04A"], glow: "#FFC24D", sun: "#FFF1B8" } },
+  dinoegg: { sky: ["#9AEBD0", "#FFF1A0"], ink: "#123F2E", pill: "#14573F", accent: "#14573F", dino: { hills: ["#9BE56E", "#45CC62"], fern: ["#26B85E", "#139A4C"], glow: "#FFC24D", sun: "#FFF1B8" } },
+  dinovolcano: { sky: ["#FFC27A", "#8FE3D6"], ink: "#123F2E", pill: "#14573F", accent: "#14573F", dino: { hills: ["#86DA5E", "#3DC058"], fern: ["#22B25A", "#128F45"], volcano: true, glow: "#FF7A2A", sun: "#FFE9A8" } },
+  dinosunset: { sky: ["#FF9E7A", "#9B7BE8"], ink: "#FFFFFF", pill: "#3E2A6B", accent: "#14573F", dino: { hills: ["#6CCB68", "#37AE68"], fern: ["#1EA255", "#0F7F3F"], volcano: true, glow: "#FF6A3A", dusk: true } },
+
+  ...BB_WORLDS,
 };

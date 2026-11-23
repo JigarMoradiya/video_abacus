@@ -1,0 +1,55 @@
+1
+00:00:00,000 --> 00:00:02,320
+A number pyramid stands tall...
+
+2
+00:00:02,760 --> 00:00:04,680
+but some blocks are missing!
+
+3
+00:00:06,300 --> 00:00:08,220
+This is Math Pyramid!
+
+4
+00:00:08,560 --> 00:00:12,460
+Each block equals the two blocks below it, added together!
+
+5
+00:00:13,860 --> 00:00:14,280
+Four...
+
+6
+00:00:14,280 --> 00:00:15,520
+plus six...
+
+7
+00:00:15,520 --> 00:00:16,800
+that's ten!
+
+8
+00:00:17,920 --> 00:00:20,560
+Type it in, and the block locks in!
+
+9
+00:00:21,080 --> 00:00:24,140
+Fill in every missing block, all the way to the top!
+
+10
+00:00:25,400 --> 00:00:31,060
+Every row builds on the row below — one pyramid, built block by block!
+
+11
+00:00:32,140 --> 00:00:37,900
+Parents — this builds addition fluency and pattern sense, one block at a time!
+
+12
+00:00:38,940 --> 00:00:40,400
+Ready to build one yourself?
+
+13
+00:00:41,320 --> 00:00:46,740
+Tap Math Game Zone, climb into Math Pyramid, pick your level, and start stacking!
+
+14
+00:00:46,740 --> 00:00:52,360
+Abacus Kids — free to download on the App Store and Google Play!

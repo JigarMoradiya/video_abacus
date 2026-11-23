@@ -25,7 +25,7 @@ import { Abacus } from "../components/Abacus";
 import { BeadWorth, SumBreakdown } from "../components/BeadWorth";
 import { BrandBadge, HeadlinePill, PoweredBy } from "../components/Brand";
 import { Caption } from "../components/Caption";
-import { FingerHand, chipDy, chipDx, DIGIT_TIP } from "../components/FingerHand";
+import { FingerHand, chipDy, chipDx, DIGIT_TIP, NEAT, CHIP_HALF } from "../components/FingerHand";
 import { PartArrow, samplePath } from "../components/PartArrow";
 import { Chip } from "../components/Sticker";
 import { SegPanel, cardHeight, segsLines, segsWidth } from "../components/Tooltip";
@@ -117,6 +117,8 @@ export interface SceneStageProps<S extends Scene> {
   /** narration, relative to public/ */
   narration: string;
   sfx?: SfxCue[];
+  /** Opt-in soft background bed under the narration (looped, faded in and out). `file` is relative to public/. */
+  music?: { file: string; loopFrames: number; vol: number; fadeInFrames?: number; fadeOutFrames?: number };
   /** Frame the abacus first appears on, so its arrival is a real reveal. */
   abacusFirstFrame?: number;
   /** The teaching card for a line, if it has one. */
@@ -181,6 +183,37 @@ export interface SceneStageProps<S extends Scene> {
    * still be centred, and using one figure for both left it hanging off to one side.
    */
   stageShift?: (scene: S) => SideRoom;
+  /** Opt-in: shift the abacus (and everything anchored to it) sideways by this many px, to leave a wider column for a card. */
+  stageOffset?: (scene: S) => number;
+  /**
+   * Override the band the abacus is vertically centred in (`abacusBox`'s `band` argument),
+   * per episode. Every OTHER use of `layout.band`/`layout.cardBand` (headline, caption, the
+   * portrait card band, the landscape side-card slot) is untouched — this affects only where
+   * the rig itself sits, nothing that is positioned relative to the shared layout bands
+   * directly. Opt-in and returns `null` to fall back to `layout.band`, so an episode that
+   * does not pass this prop renders byte-identical to before. Built for E13's portrait cut:
+   * its card band sat directly under a vertically-CENTRED abacus, leaving less clearance
+   * below the rig than the coexistence card layout wanted; lifting just the rig (not the
+   * shared `PORTRAIT_BANDS` constant every portrait episode reads) grows that clearance
+   * without moving anything in E11/E12's portrait cuts or in any 16:9 cut.
+   */
+  rigBand?: (scene: S, layout: Layout) => { stageTop: number; stageBottom: number } | null;
+  /** Forwarded to `Abacus`'s `placeLabelHalo` — see that prop's own doc. Opt-in per episode
+   *  (and, via `layout`, per cut) so an episode that doesn't pass this renders unchanged. */
+  placeLabelHalo?: (scene: S, layout: Layout) => boolean;
+  /** Opt-in (E15): ink for the worth chips' numerals and for the place-name labels, forwarded to `Abacus`. */
+  chipInk?: string;
+  labelInk?: readonly string[];
+  countInk?: string;
+  /** Opt-in (E-series remake): one clean place card per rod (see Abacus `placeCard`). */
+  placeCard?: boolean;
+  placeCompact?: boolean;
+  /** Opt-in (Bead Buddies): a navy "powered by" pill and a rimmed logo card, so the brand reads on any light world. */
+  brandDark?: boolean;
+  /** Opt-in: neat finger-hand name pills (see FingerHand `neat`). */
+  neatHands?: boolean;
+  /** Opt-in caption colours for the not-yet-spoken words (see Caption). */
+  captionComing?: { coming: string; keyComing: string };
 }
 
 const DEFAULT_SLOTS = [120, 265, 195, 345];
@@ -195,6 +228,7 @@ export const SceneStage = <S extends Scene>({
   sceneFor,
   narration,
   sfx = [],
+  music,
   abacusFirstFrame,
   cardFor,
   subjectFor,
@@ -211,22 +245,38 @@ export const SceneStage = <S extends Scene>({
   colorOnArrival,
   sideRoom,
   stageShift,
+  stageOffset,
+  rigBand,
+  placeLabelHalo,
+  chipInk,
+  labelInk,
+  countInk,
+  placeCard,
+  placeCompact,
+  brandDark,
+  neatHands,
+  captionComing,
 }: SceneStageProps<S>) => {
   const frame = useCurrentFrame();
-  const { width, height } = useVideoConfig();
+  const { width, height, durationInFrames: videoDuration } = useVideoConfig();
   // The layout comes from the canvas the composition was registered at, so one reel serves
   // both cuts. Nothing below reads W/H or BAND directly.
   const L = layoutFor(width, height);
   const { p, startF: phraseStart, endF: phraseEnd, beatProgress, linePop } =
     clockAt(phrases, frame, FPS);
-  const scene = sceneFor(p);
+  const scene0 = sceneFor(p);
+  // timed bead steps (see Scene.beadSteps): while a step is the latest, its hands replace the line's hands
+  const stepIdx = scene0.beadSteps ? scene0.beadSteps.reduce((k, s, i) => (frame >= s.at ? i : k), -1) : -1;
+  const scene: S =
+    stepIdx >= 0 ? { ...scene0, hand: scene0.beadSteps![stepIdx].hand, hand2: scene0.beadSteps![stepIdx].hand2, moveOn: undefined } : scene0.beadSteps ? { ...scene0, hand: undefined, hand2: undefined, moveOn: undefined } : scene0;
   // Bead travel begins on the word that commands it, not at the line's start.
   const moveF =
-    (scene.moveOn ? wordFrameIn(phrases[p], scene.moveOn, FPS) : null) ?? phraseStart;
+    (stepIdx >= 0 ? scene0.beadSteps![stepIdx].at : null) ?? (scene.moveOn ? wordFrameIn(phrases[p], scene.moveOn, FPS) : null) ?? phraseStart;
   const settle = interpolate(frame, [moveF, moveF + 10], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
+  NEAT.on = Boolean(neatHands);
   const world = WORLDS[scene.world];
   const room = sideRoom ? sideRoom(scene) : NO_ROOM;
   const shift = stageShift ? stageShift(scene) : room;
@@ -266,7 +316,7 @@ export const SceneStage = <S extends Scene>({
   const chipSideFor = (h: NonNullable<Scene["hand"]>): "auto" | "above" | "below" => {
     if (twoHands) return h.heaven ? "above" : "below";
     const dir: 1 | -1 = h.direction === "up" ? -1 : 1;
-    if (chipDy(dir, "auto") < 0) return "auto"; // already high; nothing below to hit
+    if (!NEAT.on && chipDy(dir, "auto") < 0) return "auto"; // already high; nothing below to hit
     const hs = handScaleFor(h);
     const hx = rodX(box, h.rod);
     const y = handAnchor(
@@ -279,13 +329,13 @@ export const SceneStage = <S extends Scene>({
       hs
     ).y;
     const chip = {
-      x: hx + chipDx(dir, "auto") * hs - chipOverhang(hx, h.direction, h.rod) - 108 * hs + (h.dx ?? 0),
+      x: hx + chipDx(dir, "auto") * hs - chipOverhang(hx, h.direction, h.rod) - CHIP_HALF() * hs + (h.dx ?? 0),
       y: y + chipDy(dir, "auto") * hs - 32 * hs + (h.dy ?? 0),
-      w: 216 * hs,
+      w: 2 * CHIP_HALF() * hs,
       h: 64 * hs,
     };
     const rowTop = top + abacusH + 12 * scale;
-    const row = { x: box.innerLeft, y: rowTop, w: box.innerW, h: 46 * scale };
+    const row = { x: box.innerLeft, y: rowTop, w: box.innerW, h: (placeCard ? (L.portrait ? 76 : 88) : 46) * scale };
     const hasChips = rods.some((r) => r.chipLower);
     return hasChips && intersects(chip, row, 4) ? "above" : "auto";
   };
@@ -295,6 +345,17 @@ export const SceneStage = <S extends Scene>({
   const sameRig =
     prevScene.rods.length === scene.rods.length && prevScene.stage === scene.stage;
   let rods = rodsWithFrom(scene.rods, prevScene.rods, sameRig);
+  // A STAGING RESET is not the lesson — snap to the target with no travel and no arrow, instead
+  // of animating from whatever the previous phrase happened to show.
+  if (scene.silentCut) rods = rods.map((r) => ({ ...r, from: r.value }));
+  if (scene0.beadSteps) {
+    const steps = scene0.beadSteps;
+    rods = rods.map((r, i) => ({
+      ...r,
+      value: stepIdx >= 0 ? steps[stepIdx].values[i] ?? r.value : (prevScene.rods[i]?.value ?? r.value),
+      from: stepIdx >= 1 ? steps[stepIdx - 1].values[i] ?? r.value : (prevScene.rods[i]?.value ?? r.value),
+    }));
+  }
   if (scene.sweepRods) {
     rods = applySweep(rods, scene.sweepRods, frame, phraseStart, phraseEnd);
   }
@@ -326,8 +387,8 @@ export const SceneStage = <S extends Scene>({
     width,
     frame,
     FPS,
-    L.band,
-    stageOffsetX(L, shift)
+    rigBand?.(scene, L) ?? L.band,
+    stageOffsetX(L, shift) + (stageOffset ? stageOffset(scene) : 0)
   );
   const { left, top, w: abacusW, h: abacusH } = box;
 
@@ -392,8 +453,8 @@ export const SceneStage = <S extends Scene>({
     width,
     0,
     FPS,
-    L.band,
-    stageOffsetX(L, shift)
+    rigBand?.(scene, L) ?? L.band,
+    stageOffsetX(L, shift) + (stageOffset ? stageOffset(scene) : 0)
   );
   const panelRight = scene.panelSide
     ? scene.panelSide === "right"
@@ -452,6 +513,9 @@ export const SceneStage = <S extends Scene>({
     : panelRight
     ? Math.min(L.W - EDGE - panelW, Math.max(panelXRaw, left + abacusW + CLEAR))
     : Math.max(EDGE, Math.min(panelXRaw, left - CLEAR - panelW));
+  // the bead-worth card is ~420 wide whatever the side label says, so size its box from the card and keep 28 px inside the frame
+  const bwW = Math.max(panelW, 420);
+  const bwLeft = inCardBand ? 0 : Math.min(panelX - (bwW - panelW) / 2, L.W - 28 - bwW);
   // the card's real height, so the arrow can start ON its edge instead of near it
   const cardH = cardHeight(
     card ? segsLines(card.segs) : (scene.sideLabel?.text ?? "").split("\n").length
@@ -564,8 +628,8 @@ export const SceneStage = <S extends Scene>({
     const d = direction === "up" ? -1 : 1;
     const cx = (d > 0 ? 214 : 120) * scale;
     // clear the rods to the RIGHT of the one being worked, plus half a rod of air
-    const out = rod > 0 ? -(rod + 0.5) * ROD_PITCH * scale : 0;
-    const back = Math.max(0, hx + cx - out + 108 * scale - (L.W - 16));
+    const out = rod > 0 && !NEAT.on ? -(rod + 0.5) * ROD_PITCH * scale : 0;
+    const back = Math.max(0, hx + (NEAT.on ? 236 * scale : cx) - out + CHIP_HALF() * scale - (L.W - 16));
     return out + back;
   };
 
@@ -642,7 +706,7 @@ export const SceneStage = <S extends Scene>({
         label: "beadWorth",
         r: inCardBand
           ? { x: (L.W - 420) / 2, y: L.cardBand!.top + 30, w: 420, h: 150 }
-          : { x: panelX, y: L.band.stageTop + 150, w: panelW, h: 150 },
+          : { x: bwLeft, y: L.band.stageTop + 150, w: bwW, h: 150 },
       });
     }
     for (const h of [scene.hand, scene.hand2].filter(Boolean) as NonNullable<Scene["hand"]>[]) {
@@ -680,19 +744,22 @@ export const SceneStage = <S extends Scene>({
         mayTouchAbacus: true,
         mayExitFrame: true,
       });
-      // digit chip: translate(dir>0?214:120, chipDy(dir, side)), rect 216x64
-      const chipCx = chipDx(dir, side) * handS - chipOver;
-      const chipCy = chipDy(dir, side) * handS;
-      out.push({
-        label: h === scene.hand ? "handChip" : "handChip2",
-        r: {
-          x: hx + chipCx - 108 * handS + (h.dx ?? 0),
-          y: y + chipCy - 32 * handS + (h.dy ?? 0),
-          w: 216 * handS,
-          h: 64 * handS,
-        },
-        mayTouchAbacus: true,
-      });
+      // digit chip: translate(dir>0?214:120, chipDy(dir, side)), rect 216x64 — skipped entirely
+      // (no guard box either) when this hand's chip is hidden
+      if (!h.noChip) {
+        const chipCx = chipDx(dir, side) * handS - chipOver;
+        const chipCy = chipDy(dir, side) * handS;
+        out.push({
+          label: h === scene.hand ? "handChip" : "handChip2",
+          r: {
+            x: hx + chipCx - CHIP_HALF() * handS + (h.dx ?? 0),
+            y: y + chipCy - 32 * handS + (h.dy ?? 0),
+            w: 2 * CHIP_HALF() * handS,
+            h: 64 * handS,
+          },
+          mayTouchAbacus: true,
+        });
+      }
     }
     // THE PLACE-VALUE CHIPS. `Abacus` draws them inside its own SVG, below and above the frame, so
     // they extend past `box` — and nothing outside `Abacus` knew they were there. E04 shipped a frame
@@ -705,13 +772,13 @@ export const SceneStage = <S extends Scene>({
       if (rods[i].chipLower) {
         out.push({
           label: `chip${i}`,
-          r: { x: cx - (ROD_PITCH / 2 - 5) * scale, y: top + abacusH + 12 * scale, w: (ROD_PITCH - 10) * scale, h: 46 * scale },
+          r: { x: cx - (ROD_PITCH / 2 - 5) * scale, y: top + abacusH + 12 * scale, w: (ROD_PITCH - 10) * scale, h: (placeCard ? (rods[i].placeName ? (L.portrait ? 76 : 88) : (L.portrait ? 40 : 46)) : 46) * scale },
         });
       }
       if (rods[i].chipUpper) {
         out.push({
           label: `chipUp${i}`,
-          r: { x: cx - (ROD_PITCH / 2 - 5) * scale, y: top - (58 + 46) * scale, w: (ROD_PITCH - 10) * scale, h: 46 * scale },
+          r: { x: cx - (ROD_PITCH / 2 - 5) * scale, y: top - (placeCard ? 62 : 58 + 46) * scale, w: (ROD_PITCH - 10) * scale, h: (placeCard ? 52 : 46) * scale },
         });
       }
     }
@@ -767,7 +834,8 @@ export const SceneStage = <S extends Scene>({
       }
       for (let j = i + 1; j < guardBoxes.length; j++) {
         const b = guardBoxes[j];
-        if (intersects(a.r, b.r, -6)) {
+        const ownPill = NEAT.on && ((a.label === "hand" && b.label === "handChip") || (a.label === "hand2" && b.label === "handChip2") || (a.label === "handChip" && b.label === "hand") || (a.label === "handChip2" && b.label === "hand2"));
+        if (!ownPill && intersects(a.r, b.r, -6)) {
           throw new Error(
             `"${a.label}" and "${b.label}" overlap on phrase ${p} — ` +
               `[${a.r.x.toFixed(0)},${a.r.y.toFixed(0)} ${a.r.w.toFixed(0)}x${a.r.h.toFixed(0)}] ` +
@@ -786,12 +854,17 @@ export const SceneStage = <S extends Scene>({
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      <World kind={scene.world} />
+      <div style={{ position: "absolute", inset: 0, filter: scene.worldCalm ? `saturate(${1 - 0.55 * scene.worldCalm})` : undefined }}>
+        <World kind={scene.world} />
+      </div>
+      {scene.worldCalm ? (
+        <AbsoluteFill style={{ background: scene.worldCalmTint ?? "rgba(10,70,90,0.5)", opacity: scene.worldCalm * 0.55 }} />
+      ) : null}
       {scene.worldWash !== undefined && (
         <AbsoluteFill style={{ background: `rgba(255,255,255,${scene.worldWash})` }} />
       )}
-      <BrandBadge portrait={L.portrait} />
-      <PoweredBy portrait={L.portrait} />
+      <BrandBadge portrait={L.portrait} dark={brandDark} />
+      <PoweredBy portrait={L.portrait} dark={brandDark} />
 
       {/* HEADLINE band — a pill, so it reads on both bright and dark worlds */}
       {scene.headline && (
@@ -870,6 +943,12 @@ export const SceneStage = <S extends Scene>({
             countLimit={
               scene.countOnNumbers ? spokenCount(phrases[p], frame, FPS) : undefined
             }
+            placeLabelHalo={placeLabelHalo?.(scene, L)}
+            chipInk={chipInk}
+            labelInk={labelInk}
+            countInk={countInk}
+            placeCard={placeCard}
+            placeCompact={placeCard && L.portrait}
           />
         </div>
       )}
@@ -979,11 +1058,13 @@ export const SceneStage = <S extends Scene>({
                   x={rodX(box, h.rod) + (h.dx ?? 0)}
                   y={y + (h.dy ?? 0)}
                   len={len}
+                  neat={neatHands}
                   chipShiftX={-chipOverhang(rodX(box, h.rod), h.direction, h.rod) / handS}
                   // With `beadArrows` on, every arrow in the frame comes from BeadArrow — including
                   // the one on the bead this hand is touching. Otherwise the hand drew one arrow and
                   // the other moving beads got none.
                   showArrow={!beadArrows}
+                  showChip={!h.noChip}
                 />
               );
             })()}
@@ -1207,11 +1288,11 @@ export const SceneStage = <S extends Scene>({
         <div
           style={{
             position: "absolute",
-            left: inCardBand ? 0 : panelX,
+            left: bwLeft,
             top: inCardBand
               ? L.cardBand!.top + 30
               : L.band.stageTop + 150 + bob(frame, FPS, 7, 3.6),
-            width: inCardBand ? L.W : panelW,
+            width: inCardBand ? L.W : bwW,
             display: "flex",
             justifyContent: "center",
           }}
@@ -1269,6 +1350,7 @@ export const SceneStage = <S extends Scene>({
           ink={world.ink}
           accent={world.accent}
           layout={L}
+          comingColors={captionComing}
         />
       )}
 
@@ -1280,6 +1362,22 @@ export const SceneStage = <S extends Scene>({
           <Audio src={staticFile(`audio/sfx/${c.file}`)} volume={c.vol} />
         </Sequence>
       ))}
+
+      {/* the soft bed: loops end to end, fades in at the start and out at the end of the video */}
+      {music &&
+        Array.from({ length: Math.ceil(videoDuration / music.loopFrames) }, (_, i) => (
+          <Sequence key={`music${i}`} from={i * music.loopFrames} durationInFrames={music.loopFrames}>
+            <Audio
+              src={staticFile(music.file)}
+              volume={(f) => {
+                const abs = i * music.loopFrames + f;
+                const fi = Math.min(1, abs / (music.fadeInFrames ?? 60));
+                const fo = Math.min(1, Math.max(0, (videoDuration - abs) / (music.fadeOutFrames ?? 90)));
+                return music.vol * fi * fo;
+              }}
+            />
+          </Sequence>
+        ))}
 
       {/* A wrong path here renders SILENT with no error — check every rename. */}
       <Audio src={staticFile(narration)} />

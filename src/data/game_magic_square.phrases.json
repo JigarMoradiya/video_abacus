@@ -1,0 +1,624 @@
+[
+  {
+    "index": 0,
+    "text": "A grid of boxes...",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 1.44,
+    "duration": 1.44,
+    "matched": 4,
+    "words": [
+      {
+        "word": "A",
+        "start": 0.0,
+        "end": 0.18
+      },
+      {
+        "word": "grid",
+        "start": 0.18,
+        "end": 0.5
+      },
+      {
+        "word": "of",
+        "start": 0.5,
+        "end": 0.96
+      },
+      {
+        "word": "boxes...",
+        "start": 0.96,
+        "end": 1.44
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "and every single line must add up the same!",
+    "line_index": 0,
+    "start": 2.242086,
+    "end": 5.24,
+    "duration": 3.22,
+    "matched": 9,
+    "words": [
+      {
+        "word": "and",
+        "start": 2.242086,
+        "end": 2.38
+      },
+      {
+        "word": "every",
+        "start": 2.38,
+        "end": 2.86
+      },
+      {
+        "word": "single",
+        "start": 2.86,
+        "end": 3.26
+      },
+      {
+        "word": "line",
+        "start": 3.26,
+        "end": 3.7
+      },
+      {
+        "word": "must",
+        "start": 3.7,
+        "end": 4.18
+      },
+      {
+        "word": "add",
+        "start": 4.18,
+        "end": 4.46
+      },
+      {
+        "word": "up",
+        "start": 4.46,
+        "end": 4.66
+      },
+      {
+        "word": "the",
+        "start": 4.82,
+        "end": 4.96
+      },
+      {
+        "word": "same!",
+        "start": 4.96,
+        "end": 5.24
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "This is Magic Square!",
+    "line_index": 1,
+    "start": 6.691315,
+    "end": 8.28,
+    "duration": 1.82,
+    "matched": 4,
+    "words": [
+      {
+        "word": "This",
+        "start": 6.691315,
+        "end": 6.96
+      },
+      {
+        "word": "is",
+        "start": 6.96,
+        "end": 7.4
+      },
+      {
+        "word": "Magic",
+        "start": 7.4,
+        "end": 7.84
+      },
+      {
+        "word": "Square!",
+        "start": 7.84,
+        "end": 8.28
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "Every row and column has to equal fifteen!",
+    "line_index": 1,
+    "start": 10.273288,
+    "end": 13.58,
+    "duration": 3.47,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Every",
+        "start": 10.273288,
+        "end": 10.58
+      },
+      {
+        "word": "row",
+        "start": 10.58,
+        "end": 10.9
+      },
+      {
+        "word": "and",
+        "start": 10.9,
+        "end": 11.24
+      },
+      {
+        "word": "column",
+        "start": 11.24,
+        "end": 11.62
+      },
+      {
+        "word": "has",
+        "start": 11.62,
+        "end": 12.26
+      },
+      {
+        "word": "to",
+        "start": 12.26,
+        "end": 12.5
+      },
+      {
+        "word": "equal",
+        "start": 12.5,
+        "end": 12.86
+      },
+      {
+        "word": "fifteen!",
+        "start": 12.86,
+        "end": 13.58
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Two...",
+    "line_index": 2,
+    "start": 15.540227,
+    "end": 15.86,
+    "duration": 0.68,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Two...",
+        "start": 15.540227,
+        "end": 15.86
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "plus seven...",
+    "line_index": 2,
+    "start": 15.86,
+    "end": 17.62,
+    "duration": 1.76,
+    "matched": 2,
+    "words": [
+      {
+        "word": "plus",
+        "start": 15.86,
+        "end": 17.06
+      },
+      {
+        "word": "seven...",
+        "start": 17.06,
+        "end": 17.62
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "plus six...",
+    "line_index": 2,
+    "start": 17.62,
+    "end": 19.22,
+    "duration": 1.6,
+    "matched": 2,
+    "words": [
+      {
+        "word": "plus",
+        "start": 17.62,
+        "end": 18.66
+      },
+      {
+        "word": "six...",
+        "start": 18.66,
+        "end": 19.22
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "that's fifteen!",
+    "line_index": 2,
+    "start": 19.840431,
+    "end": 20.68,
+    "duration": 0.96,
+    "matched": 2,
+    "words": [
+      {
+        "word": "that's",
+        "start": 19.840431,
+        "end": 20.16
+      },
+      {
+        "word": "fifteen!",
+        "start": 20.16,
+        "end": 20.68
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "Four...",
+    "line_index": 3,
+    "start": 22.603991,
+    "end": 23.04,
+    "duration": 0.9,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Four...",
+        "start": 22.603991,
+        "end": 23.04
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "plus three...",
+    "line_index": 3,
+    "start": 23.04,
+    "end": 24.28,
+    "duration": 1.24,
+    "matched": 2,
+    "words": [
+      {
+        "word": "plus",
+        "start": 23.04,
+        "end": 23.84
+      },
+      {
+        "word": "three...",
+        "start": 23.84,
+        "end": 24.28
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "plus eight...",
+    "line_index": 3,
+    "start": 24.28,
+    "end": 25.68,
+    "duration": 1.4,
+    "matched": 2,
+    "words": [
+      {
+        "word": "plus",
+        "start": 24.28,
+        "end": 25.22
+      },
+      {
+        "word": "eight...",
+        "start": 25.22,
+        "end": 25.68
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "fifteen again \u2014 the square is complete!",
+    "line_index": 3,
+    "start": 26.451565,
+    "end": 29.12,
+    "duration": 2.72,
+    "matched": 6,
+    "words": [
+      {
+        "word": "fifteen",
+        "start": 26.451565,
+        "end": 26.84
+      },
+      {
+        "word": "again",
+        "start": 26.84,
+        "end": 27.22
+      },
+      {
+        "word": "the",
+        "start": 27.52,
+        "end": 27.92
+      },
+      {
+        "word": "square",
+        "start": 27.92,
+        "end": 28.28
+      },
+      {
+        "word": "is",
+        "start": 28.28,
+        "end": 28.6
+      },
+      {
+        "word": "complete!",
+        "start": 28.6,
+        "end": 29.12
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Every row, every column \u2014 all fifteen.",
+    "line_index": 4,
+    "start": 30.816054,
+    "end": 33.96,
+    "duration": 3.68,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Every",
+        "start": 30.816054,
+        "end": 31.08
+      },
+      {
+        "word": "row,",
+        "start": 31.08,
+        "end": 31.42
+      },
+      {
+        "word": "every",
+        "start": 31.96,
+        "end": 32.24
+      },
+      {
+        "word": "column",
+        "start": 32.24,
+        "end": 32.62
+      },
+      {
+        "word": "all",
+        "start": 33.1,
+        "end": 33.42
+      },
+      {
+        "word": "fifteen.",
+        "start": 33.42,
+        "end": 33.96
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "That's the magic!",
+    "line_index": 4,
+    "start": 34.786508,
+    "end": 35.76,
+    "duration": 1.02,
+    "matched": 3,
+    "words": [
+      {
+        "word": "That's",
+        "start": 34.786508,
+        "end": 35.28
+      },
+      {
+        "word": "the",
+        "start": 35.28,
+        "end": 35.4
+      },
+      {
+        "word": "magic!",
+        "start": 35.4,
+        "end": 35.76
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "Parents \u2014 this builds structured thinking, the foundation for algebra later!",
+    "line_index": 5,
+    "start": 37.360113,
+    "end": 42.54,
+    "duration": 5.4,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Parents",
+        "start": 37.360113,
+        "end": 37.68
+      },
+      {
+        "word": "this",
+        "start": 38.2,
+        "end": 38.48
+      },
+      {
+        "word": "builds",
+        "start": 38.48,
+        "end": 38.8
+      },
+      {
+        "word": "structured",
+        "start": 38.8,
+        "end": 39.42
+      },
+      {
+        "word": "thinking,",
+        "start": 39.42,
+        "end": 39.96
+      },
+      {
+        "word": "the",
+        "start": 40.42,
+        "end": 40.62
+      },
+      {
+        "word": "foundation",
+        "start": 40.62,
+        "end": 41.24
+      },
+      {
+        "word": "for",
+        "start": 41.24,
+        "end": 41.56
+      },
+      {
+        "word": "algebra",
+        "start": 41.56,
+        "end": 41.98
+      },
+      {
+        "word": "later!",
+        "start": 41.98,
+        "end": 42.54
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "Tap Math Game Zone, unlock Magic Square, pick your level, and complete the square!",
+    "line_index": 6,
+    "start": 43.891474,
+    "end": 49.82,
+    "duration": 6.12,
+    "matched": 14,
+    "words": [
+      {
+        "word": "Tap",
+        "start": 43.891474,
+        "end": 44.04
+      },
+      {
+        "word": "Math",
+        "start": 44.04,
+        "end": 44.38
+      },
+      {
+        "word": "Game",
+        "start": 44.38,
+        "end": 44.66
+      },
+      {
+        "word": "Zone,",
+        "start": 44.66,
+        "end": 45.0
+      },
+      {
+        "word": "unlock",
+        "start": 45.64,
+        "end": 45.9
+      },
+      {
+        "word": "Magic",
+        "start": 45.9,
+        "end": 46.38
+      },
+      {
+        "word": "Square,",
+        "start": 46.38,
+        "end": 46.76
+      },
+      {
+        "word": "pick",
+        "start": 47.26,
+        "end": 47.6
+      },
+      {
+        "word": "your",
+        "start": 47.6,
+        "end": 47.8
+      },
+      {
+        "word": "level,",
+        "start": 47.8,
+        "end": 48.12
+      },
+      {
+        "word": "and",
+        "start": 48.62,
+        "end": 48.72
+      },
+      {
+        "word": "complete",
+        "start": 48.72,
+        "end": 49.12
+      },
+      {
+        "word": "the",
+        "start": 49.12,
+        "end": 49.44
+      },
+      {
+        "word": "square!",
+        "start": 49.44,
+        "end": 49.82
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "Abacus Kids \u2014 yours free on the App Store and Google Play!",
+    "line_index": 7,
+    "start": 49.82,
+    "end": 54.86,
+    "duration": 5.04,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Abacus",
+        "start": 49.82,
+        "end": 51.42
+      },
+      {
+        "word": "Kids",
+        "start": 51.42,
+        "end": 51.68
+      },
+      {
+        "word": "yours",
+        "start": 52.32,
+        "end": 52.46
+      },
+      {
+        "word": "free",
+        "start": 52.46,
+        "end": 52.88
+      },
+      {
+        "word": "on",
+        "start": 52.88,
+        "end": 53.2
+      },
+      {
+        "word": "the",
+        "start": 53.2,
+        "end": 53.38
+      },
+      {
+        "word": "App",
+        "start": 53.38,
+        "end": 53.6
+      },
+      {
+        "word": "Store",
+        "start": 53.6,
+        "end": 53.88
+      },
+      {
+        "word": "and",
+        "start": 53.88,
+        "end": 54.24
+      },
+      {
+        "word": "Google",
+        "start": 54.24,
+        "end": 54.52
+      },
+      {
+        "word": "Play!",
+        "start": 54.52,
+        "end": 54.86
+      }
+    ]
+  }
+]

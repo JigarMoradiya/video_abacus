@@ -1,0 +1,452 @@
+[
+  {
+    "word": "A",
+    "start": 0.0,
+    "end": 0.24
+  },
+  {
+    "word": "grid",
+    "start": 0.24,
+    "end": 0.5
+  },
+  {
+    "word": "of",
+    "start": 0.5,
+    "end": 0.86
+  },
+  {
+    "word": "cards,",
+    "start": 0.86,
+    "end": 1.16
+  },
+  {
+    "word": "all",
+    "start": 1.16,
+    "end": 2.06
+  },
+  {
+    "word": "face",
+    "start": 2.06,
+    "end": 2.36
+  },
+  {
+    "word": "down...",
+    "start": 2.36,
+    "end": 2.78
+  },
+  {
+    "word": "but",
+    "start": 3.08,
+    "end": 3.84
+  },
+  {
+    "word": "two",
+    "start": 3.84,
+    "end": 4.24
+  },
+  {
+    "word": "of",
+    "start": 4.24,
+    "end": 4.44
+  },
+  {
+    "word": "them",
+    "start": 4.44,
+    "end": 4.74
+  },
+  {
+    "word": "are",
+    "start": 4.74,
+    "end": 5.12
+  },
+  {
+    "word": "secretly",
+    "start": 5.12,
+    "end": 5.78
+  },
+  {
+    "word": "a",
+    "start": 5.78,
+    "end": 6.26
+  },
+  {
+    "word": "match!",
+    "start": 6.26,
+    "end": 6.68
+  },
+  {
+    "word": "This",
+    "start": 7.7,
+    "end": 8.02
+  },
+  {
+    "word": "is",
+    "start": 8.02,
+    "end": 8.44
+  },
+  {
+    "word": "Equation",
+    "start": 8.44,
+    "end": 9.14
+  },
+  {
+    "word": "Match!",
+    "start": 9.14,
+    "end": 9.8
+  },
+  {
+    "word": "Flip",
+    "start": 10.88,
+    "end": 11.04
+  },
+  {
+    "word": "two",
+    "start": 11.04,
+    "end": 11.28
+  },
+  {
+    "word": "cards",
+    "start": 11.28,
+    "end": 11.78
+  },
+  {
+    "word": "find",
+    "start": 12.22,
+    "end": 12.48
+  },
+  {
+    "word": "the",
+    "start": 12.48,
+    "end": 12.7
+  },
+  {
+    "word": "equation",
+    "start": 12.7,
+    "end": 13.2
+  },
+  {
+    "word": "and",
+    "start": 13.2,
+    "end": 13.66
+  },
+  {
+    "word": "its",
+    "start": 13.66,
+    "end": 13.9
+  },
+  {
+    "word": "answer!",
+    "start": 13.9,
+    "end": 14.44
+  },
+  {
+    "word": "Flip",
+    "start": 15.72,
+    "end": 15.9
+  },
+  {
+    "word": "this",
+    "start": 15.9,
+    "end": 16.2
+  },
+  {
+    "word": "one...",
+    "start": 16.2,
+    "end": 16.52
+  },
+  {
+    "word": "three",
+    "start": 17.14,
+    "end": 17.48
+  },
+  {
+    "word": "plus",
+    "start": 17.48,
+    "end": 17.82
+  },
+  {
+    "word": "four...",
+    "start": 17.82,
+    "end": 18.32
+  },
+  {
+    "word": "Flip",
+    "start": 19.62,
+    "end": 19.8
+  },
+  {
+    "word": "this",
+    "start": 19.8,
+    "end": 20.14
+  },
+  {
+    "word": "one...",
+    "start": 20.14,
+    "end": 20.58
+  },
+  {
+    "word": "seven",
+    "start": 21.2,
+    "end": 21.82
+  },
+  {
+    "word": "that's",
+    "start": 22.66,
+    "end": 23.06
+  },
+  {
+    "word": "the",
+    "start": 23.06,
+    "end": 23.18
+  },
+  {
+    "word": "match,",
+    "start": 23.18,
+    "end": 23.62
+  },
+  {
+    "word": "they",
+    "start": 23.62,
+    "end": 24.2
+  },
+  {
+    "word": "disappear!",
+    "start": 24.2,
+    "end": 24.74
+  },
+  {
+    "word": "Every",
+    "start": 25.84,
+    "end": 26.76
+  },
+  {
+    "word": "pair",
+    "start": 26.76,
+    "end": 27.12
+  },
+  {
+    "word": "is",
+    "start": 27.12,
+    "end": 27.4
+  },
+  {
+    "word": "somewhere",
+    "start": 27.4,
+    "end": 27.88
+  },
+  {
+    "word": "on",
+    "start": 27.88,
+    "end": 28.18
+  },
+  {
+    "word": "the",
+    "start": 28.18,
+    "end": 28.3
+  },
+  {
+    "word": "board",
+    "start": 28.3,
+    "end": 28.68
+  },
+  {
+    "word": "remember",
+    "start": 29.22,
+    "end": 29.72
+  },
+  {
+    "word": "where",
+    "start": 29.72,
+    "end": 30.02
+  },
+  {
+    "word": "you've",
+    "start": 30.02,
+    "end": 30.28
+  },
+  {
+    "word": "looked!",
+    "start": 30.28,
+    "end": 30.62
+  },
+  {
+    "word": "Parents",
+    "start": 31.72,
+    "end": 32.28
+  },
+  {
+    "word": "this",
+    "start": 32.86,
+    "end": 33.16
+  },
+  {
+    "word": "builds",
+    "start": 33.16,
+    "end": 33.56
+  },
+  {
+    "word": "memory",
+    "start": 33.56,
+    "end": 34.1
+  },
+  {
+    "word": "and",
+    "start": 34.1,
+    "end": 34.56
+  },
+  {
+    "word": "quick",
+    "start": 34.56,
+    "end": 34.86
+  },
+  {
+    "word": "mental",
+    "start": 34.86,
+    "end": 35.36
+  },
+  {
+    "word": "math,",
+    "start": 35.36,
+    "end": 35.84
+  },
+  {
+    "word": "together!",
+    "start": 35.84,
+    "end": 36.46
+  },
+  {
+    "word": "Tap",
+    "start": 37.84,
+    "end": 38.52
+  },
+  {
+    "word": "Math",
+    "start": 38.52,
+    "end": 38.94
+  },
+  {
+    "word": "Game",
+    "start": 38.94,
+    "end": 39.22
+  },
+  {
+    "word": "Zone,",
+    "start": 39.22,
+    "end": 39.64
+  },
+  {
+    "word": "flip",
+    "start": 40.3,
+    "end": 40.52
+  },
+  {
+    "word": "into",
+    "start": 40.52,
+    "end": 40.98
+  },
+  {
+    "word": "Equation",
+    "start": 40.98,
+    "end": 41.54
+  },
+  {
+    "word": "Match,",
+    "start": 41.54,
+    "end": 41.96
+  },
+  {
+    "word": "pick",
+    "start": 42.7,
+    "end": 42.94
+  },
+  {
+    "word": "your",
+    "start": 42.94,
+    "end": 43.18
+  },
+  {
+    "word": "level,",
+    "start": 43.18,
+    "end": 43.48
+  },
+  {
+    "word": "and",
+    "start": 43.48,
+    "end": 44.12
+  },
+  {
+    "word": "find",
+    "start": 44.12,
+    "end": 44.5
+  },
+  {
+    "word": "every",
+    "start": 44.5,
+    "end": 45.12
+  },
+  {
+    "word": "pair!",
+    "start": 45.12,
+    "end": 45.7
+  },
+  {
+    "word": "Abacus",
+    "start": 45.7,
+    "end": 47.7
+  },
+  {
+    "word": "Kids",
+    "start": 47.7,
+    "end": 47.94
+  },
+  {
+    "word": "free",
+    "start": 48.6,
+    "end": 48.84
+  },
+  {
+    "word": "to",
+    "start": 48.84,
+    "end": 49.0
+  },
+  {
+    "word": "flip,",
+    "start": 49.0,
+    "end": 49.28
+  },
+  {
+    "word": "on",
+    "start": 49.28,
+    "end": 49.78
+  },
+  {
+    "word": "the",
+    "start": 49.78,
+    "end": 49.94
+  },
+  {
+    "word": "App",
+    "start": 49.94,
+    "end": 50.12
+  },
+  {
+    "word": "Store",
+    "start": 50.12,
+    "end": 50.46
+  },
+  {
+    "word": "and",
+    "start": 50.46,
+    "end": 50.74
+  },
+  {
+    "word": "Google",
+    "start": 50.74,
+    "end": 51.04
+  },
+  {
+    "word": "Play!",
+    "start": 51.04,
+    "end": 51.44
+  }
+]

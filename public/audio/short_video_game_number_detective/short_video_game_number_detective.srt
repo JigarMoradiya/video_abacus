@@ -1,0 +1,55 @@
+1
+00:00:00,000 --> 00:00:02,900
+A secret number hides in the range...
+
+2
+00:00:03,420 --> 00:00:04,360
+can you crack it?
+
+3
+00:00:06,020 --> 00:00:07,800
+This is Number Detective!
+
+4
+00:00:09,320 --> 00:00:14,420
+Guess a number — too high or too low, the clues point the way!
+
+5
+00:00:15,800 --> 00:00:16,520
+Guess ten...
+
+6
+00:00:17,340 --> 00:00:20,460
+too low, arrow up!
+
+7
+00:00:21,980 --> 00:00:22,980
+Guess sixteen...
+
+8
+00:00:23,760 --> 00:00:26,660
+too high, arrow down!
+
+9
+00:00:27,900 --> 00:00:29,240
+Guess fourteen...
+
+10
+00:00:30,520 --> 00:00:32,800
+that's it — case cracked!
+
+11
+00:00:34,360 --> 00:00:38,980
+Narrow the range with every clue — how few guesses can you crack it in?
+
+12
+00:00:40,580 --> 00:00:46,180
+Parents — this builds number sense and logical thinking, one clue at a time!
+
+13
+00:00:47,260 --> 00:00:53,740
+Find it in the app — tap Math Game Zone, pick Number Detective, choose your level, and play!
+
+14
+00:00:54,960 --> 00:00:58,400
+Abacus Kids — free on the App Store and Google Play!

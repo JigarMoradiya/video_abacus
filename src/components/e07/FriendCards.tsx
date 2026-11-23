@@ -15,6 +15,7 @@
 // question the narration just asked, so `active` is a lookup, not decoration.
 
 import React from "react";
+import { useOverflowGuard } from "../../lib/overflowGuard";
 import { Easing, interpolate, interpolateColors } from "remotion";
 import { KID_FONT } from "../../lib/fonts";
 
@@ -53,6 +54,8 @@ export const FriendCards: React.FC<{
   accent: string;
   progress: number;
   scale?: number;
+  /** Opt-in (Bead Buddies remake): a pair not yet introduced shows a dashed "? + ? = 5" ghost so the card is never empty. */
+  ghost?: boolean;
 }> = ({
   shown,
   active,
@@ -63,6 +66,7 @@ export const FriendCards: React.FC<{
   accent,
   progress,
   scale = 1,
+  ghost = false,
 }) => {
   // EASED, not linear. A straight ramp starts and stops abruptly, which is half of why the card
   // looked like it was flicking rather than arriving.
@@ -93,8 +97,10 @@ export const FriendCards: React.FC<{
   const askness = (n: number) =>
     (prevAsking === n ? 1 : 0) * (1 - k) + (asking === n ? 1 : 0) * k;
 
+  const guardRef = React.useRef<HTMLDivElement>(null);
+  useOverflowGuard(guardRef, "FRIENDS", 6);
   return (
-    <div
+    <div ref={guardRef}
       style={{
         width: FRIENDS_NAT.w * scale,
         height: FRIENDS_NAT.h * scale,
@@ -125,7 +131,12 @@ export const FriendCards: React.FC<{
       {PAIRS.map((pair, i) => {
         // a pair that has not been introduced yet is absent; the one arriving fades up
         const on = i < shown - 1 ? 1 : i === shown - 1 ? arrive : 0;
-        if (on <= 0) return null;
+        if (on <= 0)
+          return ghost ? (
+            <div key={i} style={{ height: CARD_H * scale, width: "88%", borderRadius: 24 * scale, border: `${4 * scale}px dashed ${accent}`, opacity: 0.55, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 46 * scale, fontWeight: 700, color: accent, boxSizing: "border-box" }}>
+              ? + ? = 5
+            </div>
+          ) : null;
         const lit = litness(i);
         // anything not lit dims towards 0.34, and it gets there over the same travel
         const anyLit = active !== undefined || prevActive !== undefined;

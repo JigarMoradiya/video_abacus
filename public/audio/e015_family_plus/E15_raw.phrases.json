@@ -1,0 +1,4559 @@
+[
+  {
+    "index": 0,
+    "text": "Hello again!",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 0.7,
+    "duration": 0.7,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Hello",
+        "start": 0.0,
+        "end": 0.32
+      },
+      {
+        "word": "again!",
+        "start": 0.32,
+        "end": 0.7
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "Last time, in Beat the Beads, you remembered all eighteen formulas.",
+    "line_index": 1,
+    "start": 1.3,
+    "end": 5.58,
+    "duration": 4.28,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Last",
+        "start": 1.3,
+        "end": 1.62
+      },
+      {
+        "word": "time,",
+        "start": 1.62,
+        "end": 2.04
+      },
+      {
+        "word": "in",
+        "start": 2.26,
+        "end": 2.38
+      },
+      {
+        "word": "Beat",
+        "start": 2.38,
+        "end": 2.64
+      },
+      {
+        "word": "the",
+        "start": 2.64,
+        "end": 2.84
+      },
+      {
+        "word": "Beads,",
+        "start": 2.84,
+        "end": 3.18
+      },
+      {
+        "word": "you",
+        "start": 3.48,
+        "end": 3.64
+      },
+      {
+        "word": "remembered",
+        "start": 3.64,
+        "end": 4.04
+      },
+      {
+        "word": "all",
+        "start": 4.04,
+        "end": 4.62
+      },
+      {
+        "word": "eighteen",
+        "start": 4.62,
+        "end": 5.06
+      },
+      {
+        "word": "formulas.",
+        "start": 5.06,
+        "end": 5.58
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "I promised you a brand new kind of trick.",
+    "line_index": 2,
+    "start": 6.2,
+    "end": 8.68,
+    "duration": 2.48,
+    "matched": 9,
+    "words": [
+      {
+        "word": "I",
+        "start": 6.2,
+        "end": 6.5
+      },
+      {
+        "word": "promised",
+        "start": 6.5,
+        "end": 6.88
+      },
+      {
+        "word": "you",
+        "start": 6.88,
+        "end": 7.16
+      },
+      {
+        "word": "a",
+        "start": 7.16,
+        "end": 7.36
+      },
+      {
+        "word": "brand",
+        "start": 7.36,
+        "end": 7.74
+      },
+      {
+        "word": "new",
+        "start": 7.74,
+        "end": 8.04
+      },
+      {
+        "word": "kind",
+        "start": 8.04,
+        "end": 8.28
+      },
+      {
+        "word": "of",
+        "start": 8.28,
+        "end": 8.46
+      },
+      {
+        "word": "trick.",
+        "start": 8.46,
+        "end": 8.68
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "One that adds and takes away, both at once.",
+    "line_index": 2,
+    "start": 9.1,
+    "end": 12.02,
+    "duration": 2.92,
+    "matched": 9,
+    "words": [
+      {
+        "word": "One",
+        "start": 9.1,
+        "end": 9.4
+      },
+      {
+        "word": "that",
+        "start": 9.4,
+        "end": 9.62
+      },
+      {
+        "word": "adds",
+        "start": 9.62,
+        "end": 10.16
+      },
+      {
+        "word": "and",
+        "start": 10.16,
+        "end": 10.44
+      },
+      {
+        "word": "takes",
+        "start": 10.44,
+        "end": 10.72
+      },
+      {
+        "word": "away,",
+        "start": 10.72,
+        "end": 11.06
+      },
+      {
+        "word": "both",
+        "start": 11.06,
+        "end": 11.5
+      },
+      {
+        "word": "at",
+        "start": 11.5,
+        "end": 11.74
+      },
+      {
+        "word": "once.",
+        "start": 11.74,
+        "end": 12.02
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Today, it is here.",
+    "line_index": 3,
+    "start": 12.88,
+    "end": 14.1,
+    "duration": 1.22,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Today,",
+        "start": 12.88,
+        "end": 13.18
+      },
+      {
+        "word": "it",
+        "start": 13.56,
+        "end": 13.7
+      },
+      {
+        "word": "is",
+        "start": 13.7,
+        "end": 13.84
+      },
+      {
+        "word": "here.",
+        "start": 13.84,
+        "end": 14.1
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "It helps when the big friend gets stuck.",
+    "line_index": 3,
+    "start": 14.72,
+    "end": 16.76,
+    "duration": 2.04,
+    "matched": 8,
+    "words": [
+      {
+        "word": "It",
+        "start": 14.72,
+        "end": 14.9
+      },
+      {
+        "word": "helps",
+        "start": 14.9,
+        "end": 15.24
+      },
+      {
+        "word": "when",
+        "start": 15.24,
+        "end": 15.46
+      },
+      {
+        "word": "the",
+        "start": 15.46,
+        "end": 15.6
+      },
+      {
+        "word": "big",
+        "start": 15.6,
+        "end": 15.96
+      },
+      {
+        "word": "friend",
+        "start": 15.96,
+        "end": 16.2
+      },
+      {
+        "word": "gets",
+        "start": 16.2,
+        "end": 16.44
+      },
+      {
+        "word": "stuck.",
+        "start": 16.44,
+        "end": 16.76
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "A reminder: the big friend takes the friend off the ones rod, then carries one bead to the tens rod.",
+    "line_index": 4,
+    "start": 17.8,
+    "end": 24.32,
+    "duration": 6.52,
+    "matched": 20,
+    "words": [
+      {
+        "word": "A",
+        "start": 17.8,
+        "end": 18.0
+      },
+      {
+        "word": "reminder:",
+        "start": 18.0,
+        "end": 18.3
+      },
+      {
+        "word": "the",
+        "start": 18.94,
+        "end": 19.1
+      },
+      {
+        "word": "big",
+        "start": 19.1,
+        "end": 19.4
+      },
+      {
+        "word": "friend",
+        "start": 19.4,
+        "end": 19.7
+      },
+      {
+        "word": "takes",
+        "start": 19.7,
+        "end": 19.98
+      },
+      {
+        "word": "the",
+        "start": 19.98,
+        "end": 20.2
+      },
+      {
+        "word": "friend",
+        "start": 20.2,
+        "end": 20.46
+      },
+      {
+        "word": "off",
+        "start": 20.46,
+        "end": 20.9
+      },
+      {
+        "word": "the",
+        "start": 20.9,
+        "end": 21.04
+      },
+      {
+        "word": "ones",
+        "start": 21.04,
+        "end": 21.3
+      },
+      {
+        "word": "rod,",
+        "start": 21.3,
+        "end": 21.58
+      },
+      {
+        "word": "then",
+        "start": 21.98,
+        "end": 22.22
+      },
+      {
+        "word": "carries",
+        "start": 22.22,
+        "end": 22.66
+      },
+      {
+        "word": "one",
+        "start": 22.66,
+        "end": 23.1
+      },
+      {
+        "word": "bead",
+        "start": 23.1,
+        "end": 23.42
+      },
+      {
+        "word": "to",
+        "start": 23.42,
+        "end": 23.64
+      },
+      {
+        "word": "the",
+        "start": 23.64,
+        "end": 23.8
+      },
+      {
+        "word": "tens",
+        "start": 23.8,
+        "end": 24.02
+      },
+      {
+        "word": "rod.",
+        "start": 24.02,
+        "end": 24.32
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "You tell me.",
+    "line_index": 5,
+    "start": 24.94,
+    "end": 25.56,
+    "duration": 0.62,
+    "matched": 3,
+    "words": [
+      {
+        "word": "You",
+        "start": 24.94,
+        "end": 25.16
+      },
+      {
+        "word": "tell",
+        "start": 25.16,
+        "end": 25.36
+      },
+      {
+        "word": "me.",
+        "start": 25.36,
+        "end": 25.56
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "What is six's big friend?",
+    "line_index": 5,
+    "start": 26.06,
+    "end": 27.54,
+    "duration": 1.48,
+    "matched": 4,
+    "words": [
+      {
+        "word": "What",
+        "start": 26.06,
+        "end": 26.3
+      },
+      {
+        "word": "is",
+        "start": 26.3,
+        "end": 26.48
+      },
+      {
+        "word": "six's",
+        "start": 26.48,
+        "end": 26.96
+      },
+      {
+        "word": "big",
+        "start": 26.96,
+        "end": 27.2
+      },
+      {
+        "word": "friend?",
+        "start": 27.2,
+        "end": 27.54
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Four!",
+    "line_index": 6,
+    "start": 29.56,
+    "end": 30.2,
+    "duration": 0.64,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Four!",
+        "start": 29.56,
+        "end": 30.2
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "But here is a problem.",
+    "line_index": 7,
+    "start": 30.96,
+    "end": 32.44,
+    "duration": 1.48,
+    "matched": 5,
+    "words": [
+      {
+        "word": "But",
+        "start": 30.96,
+        "end": 31.32
+      },
+      {
+        "word": "here",
+        "start": 31.32,
+        "end": 31.8
+      },
+      {
+        "word": "is",
+        "start": 31.8,
+        "end": 31.98
+      },
+      {
+        "word": "a",
+        "start": 31.98,
+        "end": 32.08
+      },
+      {
+        "word": "problem.",
+        "start": 32.08,
+        "end": 32.44
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "Sometimes the ones rod cannot give the friend away.",
+    "line_index": 7,
+    "start": 33.16,
+    "end": 35.94,
+    "duration": 2.78,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Sometimes",
+        "start": 33.16,
+        "end": 33.6
+      },
+      {
+        "word": "the",
+        "start": 33.6,
+        "end": 33.94
+      },
+      {
+        "word": "ones",
+        "start": 33.94,
+        "end": 34.22
+      },
+      {
+        "word": "rod",
+        "start": 34.22,
+        "end": 34.48
+      },
+      {
+        "word": "cannot",
+        "start": 34.48,
+        "end": 34.96
+      },
+      {
+        "word": "give",
+        "start": 34.96,
+        "end": 35.24
+      },
+      {
+        "word": "the",
+        "start": 35.24,
+        "end": 35.4
+      },
+      {
+        "word": "friend",
+        "start": 35.4,
+        "end": 35.6
+      },
+      {
+        "word": "away.",
+        "start": 35.6,
+        "end": 35.94
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "There are not enough lower beads showing, and the upper bead is down.",
+    "line_index": 8,
+    "start": 36.56,
+    "end": 40.2,
+    "duration": 3.64,
+    "matched": 13,
+    "words": [
+      {
+        "word": "There",
+        "start": 36.56,
+        "end": 36.8
+      },
+      {
+        "word": "are",
+        "start": 36.8,
+        "end": 36.92
+      },
+      {
+        "word": "not",
+        "start": 36.92,
+        "end": 37.22
+      },
+      {
+        "word": "enough",
+        "start": 37.22,
+        "end": 37.52
+      },
+      {
+        "word": "lower",
+        "start": 37.52,
+        "end": 37.76
+      },
+      {
+        "word": "beads",
+        "start": 37.76,
+        "end": 38.06
+      },
+      {
+        "word": "showing,",
+        "start": 38.06,
+        "end": 38.44
+      },
+      {
+        "word": "and",
+        "start": 38.44,
+        "end": 38.98
+      },
+      {
+        "word": "the",
+        "start": 38.98,
+        "end": 39.1
+      },
+      {
+        "word": "upper",
+        "start": 39.1,
+        "end": 39.44
+      },
+      {
+        "word": "bead",
+        "start": 39.44,
+        "end": 39.7
+      },
+      {
+        "word": "is",
+        "start": 39.7,
+        "end": 39.86
+      },
+      {
+        "word": "down.",
+        "start": 39.86,
+        "end": 40.2
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "Then the big friend alone gets stuck.",
+    "line_index": 9,
+    "start": 40.76,
+    "end": 42.88,
+    "duration": 2.12,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Then",
+        "start": 40.76,
+        "end": 41.08
+      },
+      {
+        "word": "the",
+        "start": 41.08,
+        "end": 41.22
+      },
+      {
+        "word": "big",
+        "start": 41.22,
+        "end": 41.46
+      },
+      {
+        "word": "friend",
+        "start": 41.46,
+        "end": 41.72
+      },
+      {
+        "word": "alone",
+        "start": 41.72,
+        "end": 42.14
+      },
+      {
+        "word": "gets",
+        "start": 42.14,
+        "end": 42.54
+      },
+      {
+        "word": "stuck.",
+        "start": 42.54,
+        "end": 42.88
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "We need something more.",
+    "line_index": 9,
+    "start": 43.38,
+    "end": 44.46,
+    "duration": 1.08,
+    "matched": 4,
+    "words": [
+      {
+        "word": "We",
+        "start": 43.38,
+        "end": 43.6
+      },
+      {
+        "word": "need",
+        "start": 43.6,
+        "end": 43.84
+      },
+      {
+        "word": "something",
+        "start": 43.84,
+        "end": 44.1
+      },
+      {
+        "word": "more.",
+        "start": 44.1,
+        "end": 44.46
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "Good news.",
+    "line_index": 10,
+    "start": 45.64,
+    "end": 46.58,
+    "duration": 0.94,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Good",
+        "start": 45.64,
+        "end": 46.28
+      },
+      {
+        "word": "news.",
+        "start": 46.28,
+        "end": 46.58
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "The small friend can help.",
+    "line_index": 10,
+    "start": 47.1,
+    "end": 48.36,
+    "duration": 1.26,
+    "matched": 5,
+    "words": [
+      {
+        "word": "The",
+        "start": 47.1,
+        "end": 47.2
+      },
+      {
+        "word": "small",
+        "start": 47.2,
+        "end": 47.56
+      },
+      {
+        "word": "friend",
+        "start": 47.56,
+        "end": 47.86
+      },
+      {
+        "word": "can",
+        "start": 47.86,
+        "end": 48.06
+      },
+      {
+        "word": "help.",
+        "start": 48.06,
+        "end": 48.36
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "Four's small friend is one, and four and one make five.",
+    "line_index": 10,
+    "start": 48.36,
+    "end": 52.58,
+    "duration": 4.22,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Four's",
+        "start": 48.36,
+        "end": 49.38
+      },
+      {
+        "word": "small",
+        "start": 49.38,
+        "end": 49.64
+      },
+      {
+        "word": "friend",
+        "start": 49.64,
+        "end": 49.96
+      },
+      {
+        "word": "is",
+        "start": 49.96,
+        "end": 50.22
+      },
+      {
+        "word": "one,",
+        "start": 50.22,
+        "end": 50.5
+      },
+      {
+        "word": "and",
+        "start": 50.5,
+        "end": 51.02
+      },
+      {
+        "word": "four",
+        "start": 51.02,
+        "end": 51.4
+      },
+      {
+        "word": "and",
+        "start": 51.4,
+        "end": 51.56
+      },
+      {
+        "word": "one",
+        "start": 51.56,
+        "end": 51.84
+      },
+      {
+        "word": "make",
+        "start": 51.84,
+        "end": 52.18
+      },
+      {
+        "word": "five.",
+        "start": 52.18,
+        "end": 52.58
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "The big friend and the small friend, working together.",
+    "line_index": 11,
+    "start": 53.06,
+    "end": 56.1,
+    "duration": 3.04,
+    "matched": 9,
+    "words": [
+      {
+        "word": "The",
+        "start": 53.06,
+        "end": 53.38
+      },
+      {
+        "word": "big",
+        "start": 53.38,
+        "end": 53.72
+      },
+      {
+        "word": "friend",
+        "start": 53.72,
+        "end": 54.04
+      },
+      {
+        "word": "and",
+        "start": 54.04,
+        "end": 54.36
+      },
+      {
+        "word": "the",
+        "start": 54.36,
+        "end": 54.56
+      },
+      {
+        "word": "small",
+        "start": 54.56,
+        "end": 54.76
+      },
+      {
+        "word": "friend,",
+        "start": 54.76,
+        "end": 55.14
+      },
+      {
+        "word": "working",
+        "start": 55.14,
+        "end": 55.62
+      },
+      {
+        "word": "together.",
+        "start": 55.62,
+        "end": 56.1
+      }
+    ]
+  },
+  {
+    "index": 19,
+    "text": "That is called the family.",
+    "line_index": 11,
+    "start": 56.52,
+    "end": 58.2,
+    "duration": 1.68,
+    "matched": 5,
+    "words": [
+      {
+        "word": "That",
+        "start": 56.52,
+        "end": 56.88
+      },
+      {
+        "word": "is",
+        "start": 56.88,
+        "end": 57.14
+      },
+      {
+        "word": "called",
+        "start": 57.14,
+        "end": 57.46
+      },
+      {
+        "word": "the",
+        "start": 57.46,
+        "end": 57.78
+      },
+      {
+        "word": "family.",
+        "start": 57.78,
+        "end": 58.2
+      }
+    ]
+  },
+  {
+    "index": 20,
+    "text": "So, look at the ones rod first.",
+    "line_index": 12,
+    "start": 59.12,
+    "end": 60.98,
+    "duration": 1.86,
+    "matched": 7,
+    "words": [
+      {
+        "word": "So,",
+        "start": 59.12,
+        "end": 59.46
+      },
+      {
+        "word": "look",
+        "start": 59.68,
+        "end": 59.96
+      },
+      {
+        "word": "at",
+        "start": 59.96,
+        "end": 60.1
+      },
+      {
+        "word": "the",
+        "start": 60.1,
+        "end": 60.22
+      },
+      {
+        "word": "ones",
+        "start": 60.22,
+        "end": 60.46
+      },
+      {
+        "word": "rod",
+        "start": 60.46,
+        "end": 60.66
+      },
+      {
+        "word": "first.",
+        "start": 60.66,
+        "end": 60.98
+      }
+    ]
+  },
+  {
+    "index": 21,
+    "text": "If the big friend gets stuck like that, call the family.",
+    "line_index": 12,
+    "start": 61.54,
+    "end": 64.6,
+    "duration": 3.06,
+    "matched": 11,
+    "words": [
+      {
+        "word": "If",
+        "start": 61.54,
+        "end": 61.78
+      },
+      {
+        "word": "the",
+        "start": 61.78,
+        "end": 61.94
+      },
+      {
+        "word": "big",
+        "start": 61.94,
+        "end": 62.18
+      },
+      {
+        "word": "friend",
+        "start": 62.18,
+        "end": 62.44
+      },
+      {
+        "word": "gets",
+        "start": 62.44,
+        "end": 62.62
+      },
+      {
+        "word": "stuck",
+        "start": 62.62,
+        "end": 62.94
+      },
+      {
+        "word": "like",
+        "start": 62.94,
+        "end": 63.18
+      },
+      {
+        "word": "that,",
+        "start": 63.18,
+        "end": 63.46
+      },
+      {
+        "word": "call",
+        "start": 63.74,
+        "end": 64.06
+      },
+      {
+        "word": "the",
+        "start": 64.06,
+        "end": 64.22
+      },
+      {
+        "word": "family.",
+        "start": 64.22,
+        "end": 64.6
+      }
+    ]
+  },
+  {
+    "index": 22,
+    "text": "Let us see it.",
+    "line_index": 13,
+    "start": 65.48,
+    "end": 66.54,
+    "duration": 1.06,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Let",
+        "start": 65.48,
+        "end": 66.0
+      },
+      {
+        "word": "us",
+        "start": 66.0,
+        "end": 66.16
+      },
+      {
+        "word": "see",
+        "start": 66.16,
+        "end": 66.36
+      },
+      {
+        "word": "it.",
+        "start": 66.36,
+        "end": 66.54
+      }
+    ]
+  },
+  {
+    "index": 23,
+    "text": "Seven plus six.",
+    "line_index": 13,
+    "start": 67.16,
+    "end": 68.18,
+    "duration": 1.02,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Seven",
+        "start": 67.16,
+        "end": 67.4
+      },
+      {
+        "word": "plus",
+        "start": 67.4,
+        "end": 67.76
+      },
+      {
+        "word": "six.",
+        "start": 67.76,
+        "end": 68.18
+      }
+    ]
+  },
+  {
+    "index": 24,
+    "text": "Make seven on the ones rod.",
+    "line_index": 14,
+    "start": 68.9,
+    "end": 70.58,
+    "duration": 1.68,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Make",
+        "start": 68.9,
+        "end": 69.26
+      },
+      {
+        "word": "seven",
+        "start": 69.26,
+        "end": 69.64
+      },
+      {
+        "word": "on",
+        "start": 69.64,
+        "end": 69.92
+      },
+      {
+        "word": "the",
+        "start": 69.92,
+        "end": 70.06
+      },
+      {
+        "word": "ones",
+        "start": 70.06,
+        "end": 70.28
+      },
+      {
+        "word": "rod.",
+        "start": 70.28,
+        "end": 70.58
+      }
+    ]
+  },
+  {
+    "index": 25,
+    "text": "Push two lower beads up with your thumb.",
+    "line_index": 14,
+    "start": 71.06,
+    "end": 73.32,
+    "duration": 2.26,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Push",
+        "start": 71.06,
+        "end": 71.3
+      },
+      {
+        "word": "two",
+        "start": 71.3,
+        "end": 71.7
+      },
+      {
+        "word": "lower",
+        "start": 71.7,
+        "end": 72.02
+      },
+      {
+        "word": "beads",
+        "start": 72.02,
+        "end": 72.28
+      },
+      {
+        "word": "up",
+        "start": 72.28,
+        "end": 72.62
+      },
+      {
+        "word": "with",
+        "start": 72.62,
+        "end": 72.86
+      },
+      {
+        "word": "your",
+        "start": 72.86,
+        "end": 73.0
+      },
+      {
+        "word": "thumb.",
+        "start": 73.0,
+        "end": 73.32
+      }
+    ]
+  },
+  {
+    "index": 26,
+    "text": "Then push the upper bead down with your index finger.",
+    "line_index": 15,
+    "start": 74.02,
+    "end": 77.02,
+    "duration": 3.0,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Then",
+        "start": 74.02,
+        "end": 74.48
+      },
+      {
+        "word": "push",
+        "start": 74.48,
+        "end": 74.8
+      },
+      {
+        "word": "the",
+        "start": 74.8,
+        "end": 74.98
+      },
+      {
+        "word": "upper",
+        "start": 74.98,
+        "end": 75.28
+      },
+      {
+        "word": "bead",
+        "start": 75.28,
+        "end": 75.54
+      },
+      {
+        "word": "down",
+        "start": 75.54,
+        "end": 75.82
+      },
+      {
+        "word": "with",
+        "start": 75.82,
+        "end": 76.1
+      },
+      {
+        "word": "your",
+        "start": 76.1,
+        "end": 76.26
+      },
+      {
+        "word": "index",
+        "start": 76.26,
+        "end": 76.56
+      },
+      {
+        "word": "finger.",
+        "start": 76.56,
+        "end": 77.02
+      }
+    ]
+  },
+  {
+    "index": 27,
+    "text": "Remember: up is the thumb, and down is the index finger.",
+    "line_index": 16,
+    "start": 77.56,
+    "end": 81.44,
+    "duration": 3.88,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Remember:",
+        "start": 77.56,
+        "end": 77.92
+      },
+      {
+        "word": "up",
+        "start": 77.92,
+        "end": 78.62
+      },
+      {
+        "word": "is",
+        "start": 78.62,
+        "end": 78.96
+      },
+      {
+        "word": "the",
+        "start": 78.96,
+        "end": 79.1
+      },
+      {
+        "word": "thumb,",
+        "start": 79.1,
+        "end": 79.38
+      },
+      {
+        "word": "and",
+        "start": 79.38,
+        "end": 79.88
+      },
+      {
+        "word": "down",
+        "start": 79.88,
+        "end": 80.26
+      },
+      {
+        "word": "is",
+        "start": 80.26,
+        "end": 80.58
+      },
+      {
+        "word": "the",
+        "start": 80.58,
+        "end": 80.72
+      },
+      {
+        "word": "index",
+        "start": 80.72,
+        "end": 81.08
+      },
+      {
+        "word": "finger.",
+        "start": 81.08,
+        "end": 81.44
+      }
+    ]
+  },
+  {
+    "index": 28,
+    "text": "Six's friend is four, so take away four.",
+    "line_index": 17,
+    "start": 81.44,
+    "end": 85.22,
+    "duration": 3.78,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Six's",
+        "start": 81.44,
+        "end": 83.04
+      },
+      {
+        "word": "friend",
+        "start": 83.04,
+        "end": 83.32
+      },
+      {
+        "word": "is",
+        "start": 83.32,
+        "end": 83.56
+      },
+      {
+        "word": "four,",
+        "start": 83.56,
+        "end": 83.9
+      },
+      {
+        "word": "so",
+        "start": 84.16,
+        "end": 84.44
+      },
+      {
+        "word": "take",
+        "start": 84.44,
+        "end": 84.66
+      },
+      {
+        "word": "away",
+        "start": 84.66,
+        "end": 84.9
+      },
+      {
+        "word": "four.",
+        "start": 84.9,
+        "end": 85.22
+      }
+    ]
+  },
+  {
+    "index": 29,
+    "text": "How many lower beads can we take away?",
+    "line_index": 18,
+    "start": 85.76,
+    "end": 87.7,
+    "duration": 1.94,
+    "matched": 8,
+    "words": [
+      {
+        "word": "How",
+        "start": 85.76,
+        "end": 86.08
+      },
+      {
+        "word": "many",
+        "start": 86.08,
+        "end": 86.28
+      },
+      {
+        "word": "lower",
+        "start": 86.28,
+        "end": 86.58
+      },
+      {
+        "word": "beads",
+        "start": 86.58,
+        "end": 86.88
+      },
+      {
+        "word": "can",
+        "start": 86.88,
+        "end": 87.08
+      },
+      {
+        "word": "we",
+        "start": 87.08,
+        "end": 87.24
+      },
+      {
+        "word": "take",
+        "start": 87.24,
+        "end": 87.4
+      },
+      {
+        "word": "away?",
+        "start": 87.4,
+        "end": 87.7
+      }
+    ]
+  },
+  {
+    "index": 30,
+    "text": "Only two!",
+    "line_index": 19,
+    "start": 89.66,
+    "end": 90.74,
+    "duration": 1.08,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Only",
+        "start": 89.66,
+        "end": 90.3
+      },
+      {
+        "word": "two!",
+        "start": 90.3,
+        "end": 90.74
+      }
+    ]
+  },
+  {
+    "index": 31,
+    "text": "We need four.",
+    "line_index": 20,
+    "start": 91.32,
+    "end": 92.2,
+    "duration": 0.88,
+    "matched": 3,
+    "words": [
+      {
+        "word": "We",
+        "start": 91.32,
+        "end": 91.54
+      },
+      {
+        "word": "need",
+        "start": 91.54,
+        "end": 91.76
+      },
+      {
+        "word": "four.",
+        "start": 91.76,
+        "end": 92.2
+      }
+    ]
+  },
+  {
+    "index": 32,
+    "text": "The big friend is stuck, just like we said.",
+    "line_index": 20,
+    "start": 92.68,
+    "end": 95.12,
+    "duration": 2.44,
+    "matched": 9,
+    "words": [
+      {
+        "word": "The",
+        "start": 92.68,
+        "end": 92.82
+      },
+      {
+        "word": "big",
+        "start": 92.82,
+        "end": 93.12
+      },
+      {
+        "word": "friend",
+        "start": 93.12,
+        "end": 93.36
+      },
+      {
+        "word": "is",
+        "start": 93.36,
+        "end": 93.54
+      },
+      {
+        "word": "stuck,",
+        "start": 93.54,
+        "end": 93.94
+      },
+      {
+        "word": "just",
+        "start": 94.18,
+        "end": 94.46
+      },
+      {
+        "word": "like",
+        "start": 94.46,
+        "end": 94.66
+      },
+      {
+        "word": "we",
+        "start": 94.66,
+        "end": 94.84
+      },
+      {
+        "word": "said.",
+        "start": 94.84,
+        "end": 95.12
+      }
+    ]
+  },
+  {
+    "index": 33,
+    "text": "Plus six equals minus four, plus ten.",
+    "line_index": 21,
+    "start": 95.98,
+    "end": 99.24,
+    "duration": 3.26,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 95.98,
+        "end": 96.5
+      },
+      {
+        "word": "six",
+        "start": 96.5,
+        "end": 96.9
+      },
+      {
+        "word": "equals",
+        "start": 96.9,
+        "end": 97.4
+      },
+      {
+        "word": "minus",
+        "start": 97.4,
+        "end": 97.82
+      },
+      {
+        "word": "four,",
+        "start": 97.82,
+        "end": 98.32
+      },
+      {
+        "word": "plus",
+        "start": 98.32,
+        "end": 98.78
+      },
+      {
+        "word": "ten.",
+        "start": 98.78,
+        "end": 99.24
+      }
+    ]
+  },
+  {
+    "index": 34,
+    "text": "But the small friend can take away four.",
+    "line_index": 22,
+    "start": 99.74,
+    "end": 101.86,
+    "duration": 2.12,
+    "matched": 8,
+    "words": [
+      {
+        "word": "But",
+        "start": 99.74,
+        "end": 100.04
+      },
+      {
+        "word": "the",
+        "start": 100.04,
+        "end": 100.2
+      },
+      {
+        "word": "small",
+        "start": 100.2,
+        "end": 100.54
+      },
+      {
+        "word": "friend",
+        "start": 100.54,
+        "end": 100.86
+      },
+      {
+        "word": "can",
+        "start": 100.86,
+        "end": 101.04
+      },
+      {
+        "word": "take",
+        "start": 101.04,
+        "end": 101.28
+      },
+      {
+        "word": "away",
+        "start": 101.28,
+        "end": 101.52
+      },
+      {
+        "word": "four.",
+        "start": 101.52,
+        "end": 101.86
+      }
+    ]
+  },
+  {
+    "index": 35,
+    "text": "Add one, then take away five.",
+    "line_index": 22,
+    "start": 101.86,
+    "end": 104.28,
+    "duration": 2.42,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Add",
+        "start": 101.86,
+        "end": 102.6
+      },
+      {
+        "word": "one,",
+        "start": 102.6,
+        "end": 102.96
+      },
+      {
+        "word": "then",
+        "start": 103.18,
+        "end": 103.4
+      },
+      {
+        "word": "take",
+        "start": 103.4,
+        "end": 103.68
+      },
+      {
+        "word": "away",
+        "start": 103.68,
+        "end": 103.92
+      },
+      {
+        "word": "five.",
+        "start": 103.92,
+        "end": 104.28
+      }
+    ]
+  },
+  {
+    "index": 36,
+    "text": "Minus four equals plus one, minus five.",
+    "line_index": 23,
+    "start": 104.98,
+    "end": 108.0,
+    "duration": 3.02,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Minus",
+        "start": 104.98,
+        "end": 105.4
+      },
+      {
+        "word": "four",
+        "start": 105.4,
+        "end": 105.72
+      },
+      {
+        "word": "equals",
+        "start": 105.72,
+        "end": 106.12
+      },
+      {
+        "word": "plus",
+        "start": 106.12,
+        "end": 106.54
+      },
+      {
+        "word": "one,",
+        "start": 106.54,
+        "end": 106.98
+      },
+      {
+        "word": "minus",
+        "start": 106.98,
+        "end": 107.52
+      },
+      {
+        "word": "five.",
+        "start": 107.52,
+        "end": 108.0
+      }
+    ]
+  },
+  {
+    "index": 37,
+    "text": "Put them together.",
+    "line_index": 24,
+    "start": 108.6,
+    "end": 109.42,
+    "duration": 0.82,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Put",
+        "start": 108.6,
+        "end": 108.9
+      },
+      {
+        "word": "them",
+        "start": 108.9,
+        "end": 109.06
+      },
+      {
+        "word": "together.",
+        "start": 109.06,
+        "end": 109.42
+      }
+    ]
+  },
+  {
+    "index": 38,
+    "text": "Here is the family trick for adding.",
+    "line_index": 24,
+    "start": 109.94,
+    "end": 112.02,
+    "duration": 2.08,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Here",
+        "start": 109.94,
+        "end": 110.34
+      },
+      {
+        "word": "is",
+        "start": 110.34,
+        "end": 110.58
+      },
+      {
+        "word": "the",
+        "start": 110.58,
+        "end": 110.72
+      },
+      {
+        "word": "family",
+        "start": 110.72,
+        "end": 111.12
+      },
+      {
+        "word": "trick",
+        "start": 111.12,
+        "end": 111.48
+      },
+      {
+        "word": "for",
+        "start": 111.48,
+        "end": 111.72
+      },
+      {
+        "word": "adding.",
+        "start": 111.72,
+        "end": 112.02
+      }
+    ]
+  },
+  {
+    "index": 39,
+    "text": "Plus six equals plus one, minus five, plus ten.",
+    "line_index": 25,
+    "start": 112.82,
+    "end": 116.9,
+    "duration": 4.08,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 112.82,
+        "end": 113.02
+      },
+      {
+        "word": "six",
+        "start": 113.02,
+        "end": 113.44
+      },
+      {
+        "word": "equals",
+        "start": 113.44,
+        "end": 113.98
+      },
+      {
+        "word": "plus",
+        "start": 113.98,
+        "end": 114.36
+      },
+      {
+        "word": "one,",
+        "start": 114.36,
+        "end": 114.8
+      },
+      {
+        "word": "minus",
+        "start": 114.8,
+        "end": 115.38
+      },
+      {
+        "word": "five,",
+        "start": 115.38,
+        "end": 115.94
+      },
+      {
+        "word": "plus",
+        "start": 115.94,
+        "end": 116.42
+      },
+      {
+        "word": "ten.",
+        "start": 116.42,
+        "end": 116.9
+      }
+    ]
+  },
+  {
+    "index": 40,
+    "text": "Why?",
+    "line_index": 26,
+    "start": 117.96,
+    "end": 118.68,
+    "duration": 0.72,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Why?",
+        "start": 117.96,
+        "end": 118.68
+      }
+    ]
+  },
+  {
+    "index": 41,
+    "text": "Plus ten adds four too many, so we take four away.",
+    "line_index": 26,
+    "start": 119.32,
+    "end": 122.78,
+    "duration": 3.46,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 119.32,
+        "end": 119.64
+      },
+      {
+        "word": "ten",
+        "start": 119.64,
+        "end": 120.04
+      },
+      {
+        "word": "adds",
+        "start": 120.04,
+        "end": 120.38
+      },
+      {
+        "word": "four",
+        "start": 120.38,
+        "end": 120.74
+      },
+      {
+        "word": "too",
+        "start": 120.74,
+        "end": 121.08
+      },
+      {
+        "word": "many,",
+        "start": 121.08,
+        "end": 121.4
+      },
+      {
+        "word": "so",
+        "start": 121.6,
+        "end": 121.84
+      },
+      {
+        "word": "we",
+        "start": 121.84,
+        "end": 122.04
+      },
+      {
+        "word": "take",
+        "start": 122.04,
+        "end": 122.18
+      },
+      {
+        "word": "four",
+        "start": 122.18,
+        "end": 122.46
+      },
+      {
+        "word": "away.",
+        "start": 122.46,
+        "end": 122.78
+      }
+    ]
+  },
+  {
+    "index": 42,
+    "text": "Remember our rule.",
+    "line_index": 27,
+    "start": 123.54,
+    "end": 124.64,
+    "duration": 1.1,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Remember",
+        "start": 123.54,
+        "end": 124.08
+      },
+      {
+        "word": "our",
+        "start": 124.08,
+        "end": 124.4
+      },
+      {
+        "word": "rule.",
+        "start": 124.4,
+        "end": 124.64
+      }
+    ]
+  },
+  {
+    "index": 43,
+    "text": "Ones rod first, and lower beads before the upper bead.",
+    "line_index": 27,
+    "start": 125.22,
+    "end": 128.36,
+    "duration": 3.14,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Ones",
+        "start": 125.22,
+        "end": 125.5
+      },
+      {
+        "word": "rod",
+        "start": 125.5,
+        "end": 125.68
+      },
+      {
+        "word": "first,",
+        "start": 125.68,
+        "end": 126.06
+      },
+      {
+        "word": "and",
+        "start": 126.06,
+        "end": 126.5
+      },
+      {
+        "word": "lower",
+        "start": 126.5,
+        "end": 126.8
+      },
+      {
+        "word": "beads",
+        "start": 126.8,
+        "end": 127.16
+      },
+      {
+        "word": "before",
+        "start": 127.16,
+        "end": 127.6
+      },
+      {
+        "word": "the",
+        "start": 127.6,
+        "end": 127.88
+      },
+      {
+        "word": "upper",
+        "start": 127.88,
+        "end": 128.06
+      },
+      {
+        "word": "bead.",
+        "start": 128.06,
+        "end": 128.36
+      }
+    ]
+  },
+  {
+    "index": 44,
+    "text": "Plus one.",
+    "line_index": 28,
+    "start": 128.92,
+    "end": 129.68,
+    "duration": 0.76,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 128.92,
+        "end": 129.24
+      },
+      {
+        "word": "one.",
+        "start": 129.24,
+        "end": 129.68
+      }
+    ]
+  },
+  {
+    "index": 45,
+    "text": "Push one lower bead up.",
+    "line_index": 28,
+    "start": 130.12,
+    "end": 131.56,
+    "duration": 1.44,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Push",
+        "start": 130.12,
+        "end": 130.36
+      },
+      {
+        "word": "one",
+        "start": 130.36,
+        "end": 130.72
+      },
+      {
+        "word": "lower",
+        "start": 130.72,
+        "end": 131.02
+      },
+      {
+        "word": "bead",
+        "start": 131.02,
+        "end": 131.22
+      },
+      {
+        "word": "up.",
+        "start": 131.22,
+        "end": 131.56
+      }
+    ]
+  },
+  {
+    "index": 46,
+    "text": "Thumb!",
+    "line_index": 28,
+    "start": 132.08,
+    "end": 132.36,
+    "duration": 0.28,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Thumb!",
+        "start": 132.08,
+        "end": 132.36
+      }
+    ]
+  },
+  {
+    "index": 47,
+    "text": "Minus five.",
+    "line_index": 29,
+    "start": 133.5,
+    "end": 134.4,
+    "duration": 0.9,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Minus",
+        "start": 133.5,
+        "end": 134.1
+      },
+      {
+        "word": "five.",
+        "start": 134.1,
+        "end": 134.4
+      }
+    ]
+  },
+  {
+    "index": 48,
+    "text": "Push the upper bead up.",
+    "line_index": 29,
+    "start": 134.88,
+    "end": 136.04,
+    "duration": 1.16,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Push",
+        "start": 134.88,
+        "end": 135.08
+      },
+      {
+        "word": "the",
+        "start": 135.08,
+        "end": 135.26
+      },
+      {
+        "word": "upper",
+        "start": 135.26,
+        "end": 135.54
+      },
+      {
+        "word": "bead",
+        "start": 135.54,
+        "end": 135.78
+      },
+      {
+        "word": "up.",
+        "start": 135.78,
+        "end": 136.04
+      }
+    ]
+  },
+  {
+    "index": 49,
+    "text": "Thumb again!",
+    "line_index": 29,
+    "start": 136.5,
+    "end": 136.94,
+    "duration": 0.44,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Thumb",
+        "start": 136.5,
+        "end": 136.66
+      },
+      {
+        "word": "again!",
+        "start": 136.66,
+        "end": 136.94
+      }
+    ]
+  },
+  {
+    "index": 50,
+    "text": "Oh!",
+    "line_index": 30,
+    "start": 137.84,
+    "end": 138.34,
+    "duration": 0.5,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Oh!",
+        "start": 137.84,
+        "end": 138.34
+      }
+    ]
+  },
+  {
+    "index": 51,
+    "text": "Only three on the ones rod?",
+    "line_index": 30,
+    "start": 138.66,
+    "end": 140.1,
+    "duration": 1.44,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Only",
+        "start": 138.66,
+        "end": 138.92
+      },
+      {
+        "word": "three",
+        "start": 138.92,
+        "end": 139.3
+      },
+      {
+        "word": "on",
+        "start": 139.3,
+        "end": 139.52
+      },
+      {
+        "word": "the",
+        "start": 139.52,
+        "end": 139.62
+      },
+      {
+        "word": "ones",
+        "start": 139.62,
+        "end": 139.84
+      },
+      {
+        "word": "rod?",
+        "start": 139.84,
+        "end": 140.1
+      }
+    ]
+  },
+  {
+    "index": 52,
+    "text": "Watch what happens next.",
+    "line_index": 30,
+    "start": 140.62,
+    "end": 141.78,
+    "duration": 1.16,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Watch",
+        "start": 140.62,
+        "end": 140.92
+      },
+      {
+        "word": "what",
+        "start": 140.92,
+        "end": 141.08
+      },
+      {
+        "word": "happens",
+        "start": 141.08,
+        "end": 141.44
+      },
+      {
+        "word": "next.",
+        "start": 141.44,
+        "end": 141.78
+      }
+    ]
+  },
+  {
+    "index": 53,
+    "text": "Now carry one bead to the tens rod.",
+    "line_index": 31,
+    "start": 142.48,
+    "end": 144.82,
+    "duration": 2.34,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Now",
+        "start": 142.48,
+        "end": 142.9
+      },
+      {
+        "word": "carry",
+        "start": 142.9,
+        "end": 143.24
+      },
+      {
+        "word": "one",
+        "start": 143.24,
+        "end": 143.62
+      },
+      {
+        "word": "bead",
+        "start": 143.62,
+        "end": 143.9
+      },
+      {
+        "word": "to",
+        "start": 143.9,
+        "end": 144.12
+      },
+      {
+        "word": "the",
+        "start": 144.12,
+        "end": 144.26
+      },
+      {
+        "word": "tens",
+        "start": 144.26,
+        "end": 144.6
+      },
+      {
+        "word": "rod.",
+        "start": 144.6,
+        "end": 144.82
+      }
+    ]
+  },
+  {
+    "index": 54,
+    "text": "And there it is.",
+    "line_index": 32,
+    "start": 145.36,
+    "end": 146.24,
+    "duration": 0.88,
+    "matched": 4,
+    "words": [
+      {
+        "word": "And",
+        "start": 145.36,
+        "end": 145.64
+      },
+      {
+        "word": "there",
+        "start": 145.64,
+        "end": 145.88
+      },
+      {
+        "word": "it",
+        "start": 145.88,
+        "end": 146.0
+      },
+      {
+        "word": "is.",
+        "start": 146.0,
+        "end": 146.24
+      }
+    ]
+  },
+  {
+    "index": 55,
+    "text": "Seven plus six is thirteen!",
+    "line_index": 32,
+    "start": 146.78,
+    "end": 148.6,
+    "duration": 1.82,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Seven",
+        "start": 146.78,
+        "end": 147.02
+      },
+      {
+        "word": "plus",
+        "start": 147.02,
+        "end": 147.3
+      },
+      {
+        "word": "six",
+        "start": 147.3,
+        "end": 147.7
+      },
+      {
+        "word": "is",
+        "start": 147.7,
+        "end": 148.02
+      },
+      {
+        "word": "thirteen!",
+        "start": 148.02,
+        "end": 148.6
+      }
+    ]
+  },
+  {
+    "index": 56,
+    "text": "That is our first family formula.",
+    "line_index": 33,
+    "start": 149.18,
+    "end": 151.24,
+    "duration": 2.06,
+    "matched": 6,
+    "words": [
+      {
+        "word": "That",
+        "start": 149.18,
+        "end": 149.5
+      },
+      {
+        "word": "is",
+        "start": 149.5,
+        "end": 149.74
+      },
+      {
+        "word": "our",
+        "start": 149.74,
+        "end": 149.9
+      },
+      {
+        "word": "first",
+        "start": 149.9,
+        "end": 150.3
+      },
+      {
+        "word": "family",
+        "start": 150.3,
+        "end": 150.74
+      },
+      {
+        "word": "formula.",
+        "start": 150.74,
+        "end": 151.24
+      }
+    ]
+  },
+  {
+    "index": 57,
+    "text": "Having fun with the family?",
+    "line_index": 34,
+    "start": 152.14,
+    "end": 153.62,
+    "duration": 1.48,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Having",
+        "start": 152.14,
+        "end": 152.74
+      },
+      {
+        "word": "fun",
+        "start": 152.74,
+        "end": 153.02
+      },
+      {
+        "word": "with",
+        "start": 153.02,
+        "end": 153.18
+      },
+      {
+        "word": "the",
+        "start": 153.18,
+        "end": 153.28
+      },
+      {
+        "word": "family?",
+        "start": 153.28,
+        "end": 153.62
+      }
+    ]
+  },
+  {
+    "index": 58,
+    "text": "Give this video a like, and subscribe to meet the rest.",
+    "line_index": 35,
+    "start": 154.32,
+    "end": 157.5,
+    "duration": 3.18,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Give",
+        "start": 154.32,
+        "end": 154.6
+      },
+      {
+        "word": "this",
+        "start": 154.6,
+        "end": 154.8
+      },
+      {
+        "word": "video",
+        "start": 154.8,
+        "end": 155.1
+      },
+      {
+        "word": "a",
+        "start": 155.1,
+        "end": 155.3
+      },
+      {
+        "word": "like,",
+        "start": 155.3,
+        "end": 155.52
+      },
+      {
+        "word": "and",
+        "start": 155.52,
+        "end": 156.0
+      },
+      {
+        "word": "subscribe",
+        "start": 156.0,
+        "end": 156.38
+      },
+      {
+        "word": "to",
+        "start": 156.38,
+        "end": 156.8
+      },
+      {
+        "word": "meet",
+        "start": 156.8,
+        "end": 156.98
+      },
+      {
+        "word": "the",
+        "start": 156.98,
+        "end": 157.18
+      },
+      {
+        "word": "rest.",
+        "start": 157.18,
+        "end": 157.5
+      }
+    ]
+  },
+  {
+    "index": 59,
+    "text": "Bigger numbers now.",
+    "line_index": 36,
+    "start": 158.36,
+    "end": 159.54,
+    "duration": 1.18,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Bigger",
+        "start": 158.36,
+        "end": 158.94
+      },
+      {
+        "word": "numbers",
+        "start": 158.94,
+        "end": 159.2
+      },
+      {
+        "word": "now.",
+        "start": 159.2,
+        "end": 159.54
+      }
+    ]
+  },
+  {
+    "index": 60,
+    "text": "Make twenty-six.",
+    "line_index": 36,
+    "start": 160.02,
+    "end": 161.06,
+    "duration": 1.04,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Make",
+        "start": 160.02,
+        "end": 160.28
+      },
+      {
+        "word": "twenty-six.",
+        "start": 160.28,
+        "end": 161.06
+      }
+    ]
+  },
+  {
+    "index": 61,
+    "text": "On the ones rod, one lower bead and the upper bead.",
+    "line_index": 37,
+    "start": 161.84,
+    "end": 165.2,
+    "duration": 3.36,
+    "matched": 11,
+    "words": [
+      {
+        "word": "On",
+        "start": 161.84,
+        "end": 162.1
+      },
+      {
+        "word": "the",
+        "start": 162.1,
+        "end": 162.22
+      },
+      {
+        "word": "ones",
+        "start": 162.22,
+        "end": 162.48
+      },
+      {
+        "word": "rod,",
+        "start": 162.48,
+        "end": 162.8
+      },
+      {
+        "word": "one",
+        "start": 163.24,
+        "end": 163.44
+      },
+      {
+        "word": "lower",
+        "start": 163.44,
+        "end": 163.68
+      },
+      {
+        "word": "bead",
+        "start": 163.68,
+        "end": 164.02
+      },
+      {
+        "word": "and",
+        "start": 164.02,
+        "end": 164.48
+      },
+      {
+        "word": "the",
+        "start": 164.48,
+        "end": 164.62
+      },
+      {
+        "word": "upper",
+        "start": 164.62,
+        "end": 164.84
+      },
+      {
+        "word": "bead.",
+        "start": 164.84,
+        "end": 165.2
+      }
+    ]
+  },
+  {
+    "index": 62,
+    "text": "Then two lower beads on the tens rod.",
+    "line_index": 37,
+    "start": 165.64,
+    "end": 167.8,
+    "duration": 2.16,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Then",
+        "start": 165.64,
+        "end": 165.92
+      },
+      {
+        "word": "two",
+        "start": 165.92,
+        "end": 166.28
+      },
+      {
+        "word": "lower",
+        "start": 166.28,
+        "end": 166.58
+      },
+      {
+        "word": "beads",
+        "start": 166.58,
+        "end": 166.86
+      },
+      {
+        "word": "on",
+        "start": 166.86,
+        "end": 167.12
+      },
+      {
+        "word": "the",
+        "start": 167.12,
+        "end": 167.26
+      },
+      {
+        "word": "tens",
+        "start": 167.26,
+        "end": 167.64
+      },
+      {
+        "word": "rod.",
+        "start": 167.64,
+        "end": 167.8
+      }
+    ]
+  },
+  {
+    "index": 63,
+    "text": "Thumb up, index finger down!",
+    "line_index": 37,
+    "start": 168.34,
+    "end": 170.3,
+    "duration": 1.96,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Thumb",
+        "start": 168.34,
+        "end": 168.62
+      },
+      {
+        "word": "up,",
+        "start": 168.62,
+        "end": 168.92
+      },
+      {
+        "word": "index",
+        "start": 169.3,
+        "end": 169.5
+      },
+      {
+        "word": "finger",
+        "start": 169.5,
+        "end": 169.84
+      },
+      {
+        "word": "down!",
+        "start": 169.84,
+        "end": 170.3
+      }
+    ]
+  },
+  {
+    "index": 64,
+    "text": "Seven's friend is three.",
+    "line_index": 38,
+    "start": 170.3,
+    "end": 172.64,
+    "duration": 2.34,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Seven's",
+        "start": 170.3,
+        "end": 171.74
+      },
+      {
+        "word": "friend",
+        "start": 171.74,
+        "end": 171.98
+      },
+      {
+        "word": "is",
+        "start": 171.98,
+        "end": 172.28
+      },
+      {
+        "word": "three.",
+        "start": 172.28,
+        "end": 172.64
+      }
+    ]
+  },
+  {
+    "index": 65,
+    "text": "Can we take away three lower beads?",
+    "line_index": 38,
+    "start": 173.22,
+    "end": 175.04,
+    "duration": 1.82,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Can",
+        "start": 173.22,
+        "end": 173.4
+      },
+      {
+        "word": "we",
+        "start": 173.4,
+        "end": 173.58
+      },
+      {
+        "word": "take",
+        "start": 173.58,
+        "end": 173.78
+      },
+      {
+        "word": "away",
+        "start": 173.78,
+        "end": 174.02
+      },
+      {
+        "word": "three",
+        "start": 174.02,
+        "end": 174.36
+      },
+      {
+        "word": "lower",
+        "start": 174.36,
+        "end": 174.66
+      },
+      {
+        "word": "beads?",
+        "start": 174.66,
+        "end": 175.04
+      }
+    ]
+  },
+  {
+    "index": 66,
+    "text": "No!",
+    "line_index": 39,
+    "start": 176.92,
+    "end": 177.64,
+    "duration": 0.72,
+    "matched": 1,
+    "words": [
+      {
+        "word": "No!",
+        "start": 176.92,
+        "end": 177.64
+      }
+    ]
+  },
+  {
+    "index": 67,
+    "text": "Only one.",
+    "line_index": 39,
+    "start": 178.24,
+    "end": 179.12,
+    "duration": 0.88,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Only",
+        "start": 178.24,
+        "end": 178.7
+      },
+      {
+        "word": "one.",
+        "start": 178.7,
+        "end": 179.12
+      }
+    ]
+  },
+  {
+    "index": 68,
+    "text": "Stuck again.",
+    "line_index": 40,
+    "start": 179.76,
+    "end": 180.62,
+    "duration": 0.86,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Stuck",
+        "start": 179.76,
+        "end": 180.24
+      },
+      {
+        "word": "again.",
+        "start": 180.24,
+        "end": 180.62
+      }
+    ]
+  },
+  {
+    "index": 69,
+    "text": "Call the family.",
+    "line_index": 41,
+    "start": 181.24,
+    "end": 181.92,
+    "duration": 0.68,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Call",
+        "start": 181.24,
+        "end": 181.44
+      },
+      {
+        "word": "the",
+        "start": 181.44,
+        "end": 181.6
+      },
+      {
+        "word": "family.",
+        "start": 181.6,
+        "end": 181.92
+      }
+    ]
+  },
+  {
+    "index": 70,
+    "text": "Plus seven equals plus two, minus five, plus ten.",
+    "line_index": 41,
+    "start": 182.48,
+    "end": 186.42,
+    "duration": 3.94,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 182.48,
+        "end": 182.74
+      },
+      {
+        "word": "seven",
+        "start": 182.74,
+        "end": 183.16
+      },
+      {
+        "word": "equals",
+        "start": 183.16,
+        "end": 183.58
+      },
+      {
+        "word": "plus",
+        "start": 183.58,
+        "end": 183.98
+      },
+      {
+        "word": "two,",
+        "start": 183.98,
+        "end": 184.36
+      },
+      {
+        "word": "minus",
+        "start": 184.36,
+        "end": 184.98
+      },
+      {
+        "word": "five,",
+        "start": 184.98,
+        "end": 185.48
+      },
+      {
+        "word": "plus",
+        "start": 185.48,
+        "end": 186.0
+      },
+      {
+        "word": "ten.",
+        "start": 186.0,
+        "end": 186.42
+      }
+    ]
+  },
+  {
+    "index": 71,
+    "text": "Push two lower beads up.",
+    "line_index": 42,
+    "start": 188.0,
+    "end": 190.08,
+    "duration": 2.08,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Push",
+        "start": 188.0,
+        "end": 188.72
+      },
+      {
+        "word": "two",
+        "start": 188.72,
+        "end": 189.12
+      },
+      {
+        "word": "lower",
+        "start": 189.12,
+        "end": 189.42
+      },
+      {
+        "word": "beads",
+        "start": 189.42,
+        "end": 189.72
+      },
+      {
+        "word": "up.",
+        "start": 189.72,
+        "end": 190.08
+      }
+    ]
+  },
+  {
+    "index": 72,
+    "text": "Now push the upper bead up.",
+    "line_index": 43,
+    "start": 191.06,
+    "end": 193.1,
+    "duration": 2.04,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Now",
+        "start": 191.06,
+        "end": 191.76
+      },
+      {
+        "word": "push",
+        "start": 191.76,
+        "end": 192.1
+      },
+      {
+        "word": "the",
+        "start": 192.1,
+        "end": 192.26
+      },
+      {
+        "word": "upper",
+        "start": 192.26,
+        "end": 192.56
+      },
+      {
+        "word": "bead",
+        "start": 192.56,
+        "end": 192.84
+      },
+      {
+        "word": "up.",
+        "start": 192.84,
+        "end": 193.1
+      }
+    ]
+  },
+  {
+    "index": 73,
+    "text": "Carry one bead to the tens rod.",
+    "line_index": 44,
+    "start": 194.0,
+    "end": 196.28,
+    "duration": 2.28,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Carry",
+        "start": 194.0,
+        "end": 194.72
+      },
+      {
+        "word": "one",
+        "start": 194.72,
+        "end": 195.1
+      },
+      {
+        "word": "bead",
+        "start": 195.1,
+        "end": 195.42
+      },
+      {
+        "word": "to",
+        "start": 195.42,
+        "end": 195.62
+      },
+      {
+        "word": "the",
+        "start": 195.62,
+        "end": 195.74
+      },
+      {
+        "word": "tens",
+        "start": 195.74,
+        "end": 196.1
+      },
+      {
+        "word": "rod.",
+        "start": 196.1,
+        "end": 196.28
+      }
+    ]
+  },
+  {
+    "index": 74,
+    "text": "Thumb all the way!",
+    "line_index": 44,
+    "start": 196.76,
+    "end": 197.92,
+    "duration": 1.16,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Thumb",
+        "start": 196.76,
+        "end": 197.1
+      },
+      {
+        "word": "all",
+        "start": 197.1,
+        "end": 197.5
+      },
+      {
+        "word": "the",
+        "start": 197.5,
+        "end": 197.7
+      },
+      {
+        "word": "way!",
+        "start": 197.7,
+        "end": 197.92
+      }
+    ]
+  },
+  {
+    "index": 75,
+    "text": "Twenty-six plus seven is thirty-three!",
+    "line_index": 45,
+    "start": 198.46,
+    "end": 200.46,
+    "duration": 2.0,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Twenty-six",
+        "start": 198.46,
+        "end": 199.0
+      },
+      {
+        "word": "plus",
+        "start": 199.0,
+        "end": 199.32
+      },
+      {
+        "word": "seven",
+        "start": 199.32,
+        "end": 199.78
+      },
+      {
+        "word": "is",
+        "start": 199.78,
+        "end": 200.0
+      },
+      {
+        "word": "thirty-three!",
+        "start": 200.0,
+        "end": 200.46
+      }
+    ]
+  },
+  {
+    "index": 76,
+    "text": "Look.",
+    "line_index": 46,
+    "start": 201.5,
+    "end": 202.22,
+    "duration": 0.72,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Look.",
+        "start": 201.5,
+        "end": 202.22
+      }
+    ]
+  },
+  {
+    "index": 77,
+    "text": "Every time: plus some lower beads, minus five, plus ten.",
+    "line_index": 46,
+    "start": 202.74,
+    "end": 206.98,
+    "duration": 4.24,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Every",
+        "start": 202.74,
+        "end": 203.04
+      },
+      {
+        "word": "time:",
+        "start": 203.04,
+        "end": 203.38
+      },
+      {
+        "word": "plus",
+        "start": 203.38,
+        "end": 203.98
+      },
+      {
+        "word": "some",
+        "start": 203.98,
+        "end": 204.34
+      },
+      {
+        "word": "lower",
+        "start": 204.34,
+        "end": 204.56
+      },
+      {
+        "word": "beads,",
+        "start": 204.56,
+        "end": 204.96
+      },
+      {
+        "word": "minus",
+        "start": 205.24,
+        "end": 205.58
+      },
+      {
+        "word": "five,",
+        "start": 205.58,
+        "end": 206.04
+      },
+      {
+        "word": "plus",
+        "start": 206.04,
+        "end": 206.58
+      },
+      {
+        "word": "ten.",
+        "start": 206.58,
+        "end": 206.98
+      }
+    ]
+  },
+  {
+    "index": 78,
+    "text": "Every move went up.",
+    "line_index": 47,
+    "start": 207.48,
+    "end": 208.96,
+    "duration": 1.48,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Every",
+        "start": 207.48,
+        "end": 208.06
+      },
+      {
+        "word": "move",
+        "start": 208.06,
+        "end": 208.34
+      },
+      {
+        "word": "went",
+        "start": 208.34,
+        "end": 208.6
+      },
+      {
+        "word": "up.",
+        "start": 208.6,
+        "end": 208.96
+      }
+    ]
+  },
+  {
+    "index": 79,
+    "text": "So every move was a thumb.",
+    "line_index": 47,
+    "start": 209.38,
+    "end": 211.02,
+    "duration": 1.64,
+    "matched": 6,
+    "words": [
+      {
+        "word": "So",
+        "start": 209.38,
+        "end": 209.5
+      },
+      {
+        "word": "every",
+        "start": 209.5,
+        "end": 209.9
+      },
+      {
+        "word": "move",
+        "start": 209.9,
+        "end": 210.28
+      },
+      {
+        "word": "was",
+        "start": 210.28,
+        "end": 210.6
+      },
+      {
+        "word": "a",
+        "start": 210.6,
+        "end": 210.78
+      },
+      {
+        "word": "thumb.",
+        "start": 210.78,
+        "end": 211.02
+      }
+    ]
+  },
+  {
+    "index": 80,
+    "text": "Plus six, add one.",
+    "line_index": 48,
+    "start": 211.7,
+    "end": 213.72,
+    "duration": 2.02,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 211.7,
+        "end": 212.4
+      },
+      {
+        "word": "six,",
+        "start": 212.4,
+        "end": 212.88
+      },
+      {
+        "word": "add",
+        "start": 212.88,
+        "end": 213.44
+      },
+      {
+        "word": "one.",
+        "start": 213.44,
+        "end": 213.72
+      }
+    ]
+  },
+  {
+    "index": 81,
+    "text": "Plus seven, add two.",
+    "line_index": 48,
+    "start": 214.16,
+    "end": 215.82,
+    "duration": 1.66,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 214.16,
+        "end": 214.44
+      },
+      {
+        "word": "seven,",
+        "start": 214.44,
+        "end": 214.9
+      },
+      {
+        "word": "add",
+        "start": 214.9,
+        "end": 215.46
+      },
+      {
+        "word": "two.",
+        "start": 215.46,
+        "end": 215.82
+      }
+    ]
+  },
+  {
+    "index": 82,
+    "text": "Plus eight, add three.",
+    "line_index": 48,
+    "start": 216.32,
+    "end": 218.0,
+    "duration": 1.68,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 216.32,
+        "end": 216.62
+      },
+      {
+        "word": "eight,",
+        "start": 216.62,
+        "end": 217.1
+      },
+      {
+        "word": "add",
+        "start": 217.1,
+        "end": 217.6
+      },
+      {
+        "word": "three.",
+        "start": 217.6,
+        "end": 218.0
+      }
+    ]
+  },
+  {
+    "index": 83,
+    "text": "Plus nine, add four.",
+    "line_index": 48,
+    "start": 218.44,
+    "end": 220.2,
+    "duration": 1.76,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 218.44,
+        "end": 218.76
+      },
+      {
+        "word": "nine,",
+        "start": 218.76,
+        "end": 219.18
+      },
+      {
+        "word": "add",
+        "start": 219.18,
+        "end": 219.78
+      },
+      {
+        "word": "four.",
+        "start": 219.78,
+        "end": 220.2
+      }
+    ]
+  },
+  {
+    "index": 84,
+    "text": "But minus five, and plus ten, never change.",
+    "line_index": 49,
+    "start": 220.66,
+    "end": 224.06,
+    "duration": 3.4,
+    "matched": 8,
+    "words": [
+      {
+        "word": "But",
+        "start": 220.66,
+        "end": 220.9
+      },
+      {
+        "word": "minus",
+        "start": 220.9,
+        "end": 221.36
+      },
+      {
+        "word": "five,",
+        "start": 221.36,
+        "end": 221.84
+      },
+      {
+        "word": "and",
+        "start": 221.84,
+        "end": 222.22
+      },
+      {
+        "word": "plus",
+        "start": 222.22,
+        "end": 222.58
+      },
+      {
+        "word": "ten,",
+        "start": 222.58,
+        "end": 222.98
+      },
+      {
+        "word": "never",
+        "start": 222.98,
+        "end": 223.66
+      },
+      {
+        "word": "change.",
+        "start": 223.66,
+        "end": 224.06
+      }
+    ]
+  },
+  {
+    "index": 85,
+    "text": "Four family formulas for adding: plus six, seven, eight and nine.",
+    "line_index": 50,
+    "start": 225.46,
+    "end": 230.88,
+    "duration": 5.42,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Four",
+        "start": 225.46,
+        "end": 226.22
+      },
+      {
+        "word": "family",
+        "start": 226.22,
+        "end": 226.6
+      },
+      {
+        "word": "formulas",
+        "start": 226.6,
+        "end": 227.12
+      },
+      {
+        "word": "for",
+        "start": 227.12,
+        "end": 227.38
+      },
+      {
+        "word": "adding:",
+        "start": 227.38,
+        "end": 227.66
+      },
+      {
+        "word": "plus",
+        "start": 228.14,
+        "end": 228.42
+      },
+      {
+        "word": "six,",
+        "start": 228.42,
+        "end": 228.84
+      },
+      {
+        "word": "seven,",
+        "start": 229.14,
+        "end": 229.54
+      },
+      {
+        "word": "eight",
+        "start": 229.9,
+        "end": 230.18
+      },
+      {
+        "word": "and",
+        "start": 230.18,
+        "end": 230.58
+      },
+      {
+        "word": "nine.",
+        "start": 230.58,
+        "end": 230.88
+      }
+    ]
+  },
+  {
+    "index": 86,
+    "text": "Your turn.",
+    "line_index": 51,
+    "start": 231.82,
+    "end": 232.74,
+    "duration": 0.92,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Your",
+        "start": 231.82,
+        "end": 232.46
+      },
+      {
+        "word": "turn.",
+        "start": 232.46,
+        "end": 232.74
+      }
+    ]
+  },
+  {
+    "index": 87,
+    "text": "Make five on the ones rod.",
+    "line_index": 51,
+    "start": 233.18,
+    "end": 234.78,
+    "duration": 1.6,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Make",
+        "start": 233.18,
+        "end": 233.48
+      },
+      {
+        "word": "five",
+        "start": 233.48,
+        "end": 233.92
+      },
+      {
+        "word": "on",
+        "start": 233.92,
+        "end": 234.18
+      },
+      {
+        "word": "the",
+        "start": 234.18,
+        "end": 234.3
+      },
+      {
+        "word": "ones",
+        "start": 234.3,
+        "end": 234.52
+      },
+      {
+        "word": "rod.",
+        "start": 234.52,
+        "end": 234.78
+      }
+    ]
+  },
+  {
+    "index": 88,
+    "text": "Just the upper bead.",
+    "line_index": 51,
+    "start": 235.14,
+    "end": 236.14,
+    "duration": 1.0,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Just",
+        "start": 235.14,
+        "end": 235.46
+      },
+      {
+        "word": "the",
+        "start": 235.46,
+        "end": 235.66
+      },
+      {
+        "word": "upper",
+        "start": 235.66,
+        "end": 235.86
+      },
+      {
+        "word": "bead.",
+        "start": 235.86,
+        "end": 236.14
+      }
+    ]
+  },
+  {
+    "index": 89,
+    "text": "That is down, so use your index finger.",
+    "line_index": 51,
+    "start": 236.56,
+    "end": 238.72,
+    "duration": 2.16,
+    "matched": 8,
+    "words": [
+      {
+        "word": "That",
+        "start": 236.56,
+        "end": 236.8
+      },
+      {
+        "word": "is",
+        "start": 236.8,
+        "end": 236.94
+      },
+      {
+        "word": "down,",
+        "start": 236.94,
+        "end": 237.24
+      },
+      {
+        "word": "so",
+        "start": 237.54,
+        "end": 237.64
+      },
+      {
+        "word": "use",
+        "start": 237.64,
+        "end": 237.9
+      },
+      {
+        "word": "your",
+        "start": 237.9,
+        "end": 238.06
+      },
+      {
+        "word": "index",
+        "start": 238.06,
+        "end": 238.4
+      },
+      {
+        "word": "finger.",
+        "start": 238.4,
+        "end": 238.72
+      }
+    ]
+  },
+  {
+    "index": 90,
+    "text": "Then add nine.",
+    "line_index": 51,
+    "start": 239.18,
+    "end": 240.32,
+    "duration": 1.14,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Then",
+        "start": 239.18,
+        "end": 239.58
+      },
+      {
+        "word": "add",
+        "start": 239.58,
+        "end": 240.02
+      },
+      {
+        "word": "nine.",
+        "start": 240.02,
+        "end": 240.32
+      }
+    ]
+  },
+  {
+    "index": 91,
+    "text": "What is nine's friend?",
+    "line_index": 52,
+    "start": 240.96,
+    "end": 242.16,
+    "duration": 1.2,
+    "matched": 3,
+    "words": [
+      {
+        "word": "What",
+        "start": 240.96,
+        "end": 241.34
+      },
+      {
+        "word": "is",
+        "start": 241.34,
+        "end": 241.5
+      },
+      {
+        "word": "nine's",
+        "start": 241.5,
+        "end": 241.92
+      },
+      {
+        "word": "friend?",
+        "start": 241.92,
+        "end": 242.16
+      }
+    ]
+  },
+  {
+    "index": 92,
+    "text": "One!",
+    "line_index": 53,
+    "start": 243.7,
+    "end": 244.12,
+    "duration": 0.42,
+    "matched": 1,
+    "words": [
+      {
+        "word": "One!",
+        "start": 243.7,
+        "end": 244.12
+      }
+    ]
+  },
+  {
+    "index": 93,
+    "text": "Look at the ones rod.",
+    "line_index": 54,
+    "start": 244.78,
+    "end": 245.82,
+    "duration": 1.04,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Look",
+        "start": 244.78,
+        "end": 245.04
+      },
+      {
+        "word": "at",
+        "start": 245.04,
+        "end": 245.18
+      },
+      {
+        "word": "the",
+        "start": 245.18,
+        "end": 245.3
+      },
+      {
+        "word": "ones",
+        "start": 245.3,
+        "end": 245.54
+      },
+      {
+        "word": "rod.",
+        "start": 245.54,
+        "end": 245.82
+      }
+    ]
+  },
+  {
+    "index": 94,
+    "text": "There are no lower beads at all.",
+    "line_index": 54,
+    "start": 246.24,
+    "end": 247.94,
+    "duration": 1.7,
+    "matched": 7,
+    "words": [
+      {
+        "word": "There",
+        "start": 246.24,
+        "end": 246.36
+      },
+      {
+        "word": "are",
+        "start": 246.36,
+        "end": 246.5
+      },
+      {
+        "word": "no",
+        "start": 246.5,
+        "end": 246.82
+      },
+      {
+        "word": "lower",
+        "start": 246.82,
+        "end": 247.18
+      },
+      {
+        "word": "beads",
+        "start": 247.18,
+        "end": 247.46
+      },
+      {
+        "word": "at",
+        "start": 247.46,
+        "end": 247.64
+      },
+      {
+        "word": "all.",
+        "start": 247.64,
+        "end": 247.94
+      }
+    ]
+  },
+  {
+    "index": 95,
+    "text": "So call the family.",
+    "line_index": 54,
+    "start": 248.32,
+    "end": 249.2,
+    "duration": 0.88,
+    "matched": 4,
+    "words": [
+      {
+        "word": "So",
+        "start": 248.32,
+        "end": 248.46
+      },
+      {
+        "word": "call",
+        "start": 248.46,
+        "end": 248.7
+      },
+      {
+        "word": "the",
+        "start": 248.7,
+        "end": 248.88
+      },
+      {
+        "word": "family.",
+        "start": 248.88,
+        "end": 249.2
+      }
+    ]
+  },
+  {
+    "index": 96,
+    "text": "Nine is how many more than five?",
+    "line_index": 55,
+    "start": 249.96,
+    "end": 251.94,
+    "duration": 1.98,
+    "matched": 7,
+    "words": [
+      {
+        "word": "Nine",
+        "start": 249.96,
+        "end": 250.32
+      },
+      {
+        "word": "is",
+        "start": 250.32,
+        "end": 250.6
+      },
+      {
+        "word": "how",
+        "start": 250.6,
+        "end": 250.94
+      },
+      {
+        "word": "many",
+        "start": 250.94,
+        "end": 251.18
+      },
+      {
+        "word": "more",
+        "start": 251.18,
+        "end": 251.44
+      },
+      {
+        "word": "than",
+        "start": 251.44,
+        "end": 251.62
+      },
+      {
+        "word": "five?",
+        "start": 251.62,
+        "end": 251.94
+      }
+    ]
+  },
+  {
+    "index": 97,
+    "text": "Four!",
+    "line_index": 56,
+    "start": 253.44,
+    "end": 254.06,
+    "duration": 0.62,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Four!",
+        "start": 253.44,
+        "end": 254.06
+      }
+    ]
+  },
+  {
+    "index": 98,
+    "text": "Plus nine equals plus four, minus five, plus ten.",
+    "line_index": 56,
+    "start": 254.62,
+    "end": 258.42,
+    "duration": 3.8,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Plus",
+        "start": 254.62,
+        "end": 254.86
+      },
+      {
+        "word": "nine",
+        "start": 254.86,
+        "end": 255.24
+      },
+      {
+        "word": "equals",
+        "start": 255.24,
+        "end": 255.66
+      },
+      {
+        "word": "plus",
+        "start": 255.66,
+        "end": 256.04
+      },
+      {
+        "word": "four,",
+        "start": 256.04,
+        "end": 256.48
+      },
+      {
+        "word": "minus",
+        "start": 256.48,
+        "end": 257.06
+      },
+      {
+        "word": "five,",
+        "start": 257.06,
+        "end": 257.54
+      },
+      {
+        "word": "plus",
+        "start": 257.54,
+        "end": 258.0
+      },
+      {
+        "word": "ten.",
+        "start": 258.0,
+        "end": 258.42
+      }
+    ]
+  },
+  {
+    "index": 99,
+    "text": "Now do all three moves.",
+    "line_index": 57,
+    "start": 259.26,
+    "end": 260.76,
+    "duration": 1.5,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Now",
+        "start": 259.26,
+        "end": 259.58
+      },
+      {
+        "word": "do",
+        "start": 259.58,
+        "end": 259.78
+      },
+      {
+        "word": "all",
+        "start": 259.78,
+        "end": 260.18
+      },
+      {
+        "word": "three",
+        "start": 260.18,
+        "end": 260.42
+      },
+      {
+        "word": "moves.",
+        "start": 260.42,
+        "end": 260.76
+      }
+    ]
+  },
+  {
+    "index": 100,
+    "text": "Ones rod first, and remember, up is the thumb.",
+    "line_index": 57,
+    "start": 261.26,
+    "end": 264.26,
+    "duration": 3.0,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Ones",
+        "start": 261.26,
+        "end": 261.54
+      },
+      {
+        "word": "rod",
+        "start": 261.54,
+        "end": 261.7
+      },
+      {
+        "word": "first,",
+        "start": 261.7,
+        "end": 262.02
+      },
+      {
+        "word": "and",
+        "start": 262.48,
+        "end": 262.62
+      },
+      {
+        "word": "remember,",
+        "start": 262.62,
+        "end": 262.96
+      },
+      {
+        "word": "up",
+        "start": 263.38,
+        "end": 263.6
+      },
+      {
+        "word": "is",
+        "start": 263.6,
+        "end": 263.86
+      },
+      {
+        "word": "the",
+        "start": 263.86,
+        "end": 264.02
+      },
+      {
+        "word": "thumb.",
+        "start": 264.02,
+        "end": 264.26
+      }
+    ]
+  },
+  {
+    "index": 101,
+    "text": "What number is showing now?",
+    "line_index": 58,
+    "start": 265.22,
+    "end": 266.88,
+    "duration": 1.66,
+    "matched": 5,
+    "words": [
+      {
+        "word": "What",
+        "start": 265.22,
+        "end": 265.78
+      },
+      {
+        "word": "number",
+        "start": 265.78,
+        "end": 266.12
+      },
+      {
+        "word": "is",
+        "start": 266.12,
+        "end": 266.32
+      },
+      {
+        "word": "showing",
+        "start": 266.32,
+        "end": 266.52
+      },
+      {
+        "word": "now?",
+        "start": 266.52,
+        "end": 266.88
+      }
+    ]
+  },
+  {
+    "index": 102,
+    "text": "Five plus nine is fourteen!",
+    "line_index": 59,
+    "start": 268.32,
+    "end": 270.36,
+    "duration": 2.04,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Five",
+        "start": 268.32,
+        "end": 268.86
+      },
+      {
+        "word": "plus",
+        "start": 268.86,
+        "end": 269.14
+      },
+      {
+        "word": "nine",
+        "start": 269.14,
+        "end": 269.58
+      },
+      {
+        "word": "is",
+        "start": 269.58,
+        "end": 269.88
+      },
+      {
+        "word": "fourteen!",
+        "start": 269.88,
+        "end": 270.36
+      }
+    ]
+  },
+  {
+    "index": 103,
+    "text": "Well done!",
+    "line_index": 60,
+    "start": 270.88,
+    "end": 271.74,
+    "duration": 0.86,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Well",
+        "start": 270.88,
+        "end": 271.3
+      },
+      {
+        "word": "done!",
+        "start": 271.3,
+        "end": 271.74
+      }
+    ]
+  },
+  {
+    "index": 104,
+    "text": "You did the family trick all by yourself.",
+    "line_index": 60,
+    "start": 272.2,
+    "end": 274.44,
+    "duration": 2.24,
+    "matched": 8,
+    "words": [
+      {
+        "word": "You",
+        "start": 272.2,
+        "end": 272.44
+      },
+      {
+        "word": "did",
+        "start": 272.44,
+        "end": 272.6
+      },
+      {
+        "word": "the",
+        "start": 272.6,
+        "end": 272.76
+      },
+      {
+        "word": "family",
+        "start": 272.76,
+        "end": 273.04
+      },
+      {
+        "word": "trick",
+        "start": 273.04,
+        "end": 273.34
+      },
+      {
+        "word": "all",
+        "start": 273.34,
+        "end": 273.78
+      },
+      {
+        "word": "by",
+        "start": 273.78,
+        "end": 274.06
+      },
+      {
+        "word": "yourself.",
+        "start": 274.06,
+        "end": 274.44
+      }
+    ]
+  },
+  {
+    "index": 105,
+    "text": "So now you know the family trick for adding.",
+    "line_index": 61,
+    "start": 275.48,
+    "end": 278.02,
+    "duration": 2.54,
+    "matched": 9,
+    "words": [
+      {
+        "word": "So",
+        "start": 275.48,
+        "end": 275.88
+      },
+      {
+        "word": "now",
+        "start": 275.88,
+        "end": 276.2
+      },
+      {
+        "word": "you",
+        "start": 276.2,
+        "end": 276.44
+      },
+      {
+        "word": "know",
+        "start": 276.44,
+        "end": 276.62
+      },
+      {
+        "word": "the",
+        "start": 276.62,
+        "end": 276.8
+      },
+      {
+        "word": "family",
+        "start": 276.8,
+        "end": 277.18
+      },
+      {
+        "word": "trick",
+        "start": 277.18,
+        "end": 277.5
+      },
+      {
+        "word": "for",
+        "start": 277.5,
+        "end": 277.74
+      },
+      {
+        "word": "adding.",
+        "start": 277.74,
+        "end": 278.02
+      }
+    ]
+  },
+  {
+    "index": 106,
+    "text": "Try them at home on your own abacus.",
+    "line_index": 62,
+    "start": 278.48,
+    "end": 280.34,
+    "duration": 1.86,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Try",
+        "start": 278.48,
+        "end": 278.76
+      },
+      {
+        "word": "them",
+        "start": 278.76,
+        "end": 278.96
+      },
+      {
+        "word": "at",
+        "start": 278.96,
+        "end": 279.1
+      },
+      {
+        "word": "home",
+        "start": 279.1,
+        "end": 279.38
+      },
+      {
+        "word": "on",
+        "start": 279.38,
+        "end": 279.62
+      },
+      {
+        "word": "your",
+        "start": 279.62,
+        "end": 279.74
+      },
+      {
+        "word": "own",
+        "start": 279.74,
+        "end": 279.96
+      },
+      {
+        "word": "abacus.",
+        "start": 279.96,
+        "end": 280.34
+      }
+    ]
+  },
+  {
+    "index": 107,
+    "text": "To meet the whole family, search for Abacus Kids on the Apple App Store or Google Play.",
+    "line_index": 63,
+    "start": 280.82,
+    "end": 285.78,
+    "duration": 4.96,
+    "matched": 17,
+    "words": [
+      {
+        "word": "To",
+        "start": 280.82,
+        "end": 281.16
+      },
+      {
+        "word": "meet",
+        "start": 281.16,
+        "end": 281.32
+      },
+      {
+        "word": "the",
+        "start": 281.32,
+        "end": 281.5
+      },
+      {
+        "word": "whole",
+        "start": 281.5,
+        "end": 281.76
+      },
+      {
+        "word": "family,",
+        "start": 281.76,
+        "end": 282.18
+      },
+      {
+        "word": "search",
+        "start": 282.62,
+        "end": 282.8
+      },
+      {
+        "word": "for",
+        "start": 282.8,
+        "end": 283.04
+      },
+      {
+        "word": "Abacus",
+        "start": 283.04,
+        "end": 283.46
+      },
+      {
+        "word": "Kids",
+        "start": 283.46,
+        "end": 283.68
+      },
+      {
+        "word": "on",
+        "start": 283.68,
+        "end": 283.94
+      },
+      {
+        "word": "the",
+        "start": 283.94,
+        "end": 284.08
+      },
+      {
+        "word": "Apple",
+        "start": 284.08,
+        "end": 284.4
+      },
+      {
+        "word": "App",
+        "start": 284.4,
+        "end": 284.64
+      },
+      {
+        "word": "Store",
+        "start": 284.64,
+        "end": 284.9
+      },
+      {
+        "word": "or",
+        "start": 284.9,
+        "end": 285.18
+      },
+      {
+        "word": "Google",
+        "start": 285.18,
+        "end": 285.42
+      },
+      {
+        "word": "Play.",
+        "start": 285.42,
+        "end": 285.78
+      }
+    ]
+  },
+  {
+    "index": 108,
+    "text": "Download it free.",
+    "line_index": 64,
+    "start": 286.14,
+    "end": 286.98,
+    "duration": 0.84,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Download",
+        "start": 286.14,
+        "end": 286.48
+      },
+      {
+        "word": "it",
+        "start": 286.48,
+        "end": 286.72
+      },
+      {
+        "word": "free.",
+        "start": 286.72,
+        "end": 286.98
+      }
+    ]
+  },
+  {
+    "index": 109,
+    "text": "Next time, the family works the other way round.",
+    "line_index": 65,
+    "start": 287.58,
+    "end": 290.34,
+    "duration": 2.76,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Next",
+        "start": 287.58,
+        "end": 287.9
+      },
+      {
+        "word": "time,",
+        "start": 287.9,
+        "end": 288.24
+      },
+      {
+        "word": "the",
+        "start": 288.5,
+        "end": 288.62
+      },
+      {
+        "word": "family",
+        "start": 288.62,
+        "end": 288.94
+      },
+      {
+        "word": "works",
+        "start": 288.94,
+        "end": 289.3
+      },
+      {
+        "word": "the",
+        "start": 289.3,
+        "end": 289.48
+      },
+      {
+        "word": "other",
+        "start": 289.48,
+        "end": 289.82
+      },
+      {
+        "word": "way",
+        "start": 289.82,
+        "end": 290.04
+      },
+      {
+        "word": "round.",
+        "start": 290.04,
+        "end": 290.34
+      }
+    ]
+  },
+  {
+    "index": 110,
+    "text": "We will learn the family trick for taking away.",
+    "line_index": 65,
+    "start": 290.68,
+    "end": 292.98,
+    "duration": 2.3,
+    "matched": 9,
+    "words": [
+      {
+        "word": "We",
+        "start": 290.68,
+        "end": 290.86
+      },
+      {
+        "word": "will",
+        "start": 290.86,
+        "end": 291.04
+      },
+      {
+        "word": "learn",
+        "start": 291.04,
+        "end": 291.24
+      },
+      {
+        "word": "the",
+        "start": 291.24,
+        "end": 291.38
+      },
+      {
+        "word": "family",
+        "start": 291.38,
+        "end": 291.72
+      },
+      {
+        "word": "trick",
+        "start": 291.72,
+        "end": 292.06
+      },
+      {
+        "word": "for",
+        "start": 292.06,
+        "end": 292.3
+      },
+      {
+        "word": "taking",
+        "start": 292.3,
+        "end": 292.66
+      },
+      {
+        "word": "away.",
+        "start": 292.66,
+        "end": 292.98
+      }
+    ]
+  },
+  {
+    "index": 111,
+    "text": "See you next time!",
+    "line_index": 66,
+    "start": 293.44,
+    "end": 294.3,
+    "duration": 0.86,
+    "matched": 4,
+    "words": [
+      {
+        "word": "See",
+        "start": 293.44,
+        "end": 293.68
+      },
+      {
+        "word": "you",
+        "start": 293.68,
+        "end": 293.8
+      },
+      {
+        "word": "next",
+        "start": 293.8,
+        "end": 293.98
+      },
+      {
+        "word": "time!",
+        "start": 293.98,
+        "end": 294.3
+      }
+    ]
+  }
+]

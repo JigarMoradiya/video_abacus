@@ -1,0 +1,392 @@
+[
+  {
+    "word": "Want",
+    "start": 0.0,
+    "end": 0.32
+  },
+  {
+    "word": "to",
+    "start": 0.32,
+    "end": 0.54
+  },
+  {
+    "word": "move",
+    "start": 0.54,
+    "end": 0.7
+  },
+  {
+    "word": "beads",
+    "start": 0.9,
+    "end": 1.12
+  },
+  {
+    "word": "like",
+    "start": 1.12,
+    "end": 1.44
+  },
+  {
+    "word": "a",
+    "start": 1.44,
+    "end": 1.62
+  },
+  {
+    "word": "pro?",
+    "start": 1.62,
+    "end": 1.86
+  },
+  {
+    "word": "Let's",
+    "start": 2.66,
+    "end": 3.14
+  },
+  {
+    "word": "learn",
+    "start": 3.14,
+    "end": 3.38
+  },
+  {
+    "word": "the",
+    "start": 3.38,
+    "end": 3.64
+  },
+  {
+    "word": "secret",
+    "start": 3.64,
+    "end": 4.0
+  },
+  {
+    "word": "fingers!",
+    "start": 4.0,
+    "end": 4.56
+  },
+  {
+    "word": "Going",
+    "start": 5.66,
+    "end": 6.06
+  },
+  {
+    "word": "up",
+    "start": 6.06,
+    "end": 6.44
+  },
+  {
+    "word": "always",
+    "start": 6.44,
+    "end": 7.0
+  },
+  {
+    "word": "uses",
+    "start": 7.0,
+    "end": 7.42
+  },
+  {
+    "word": "your",
+    "start": 7.42,
+    "end": 7.64
+  },
+  {
+    "word": "thumb.",
+    "start": 7.64,
+    "end": 7.86
+  },
+  {
+    "word": "Watch",
+    "start": 9.06,
+    "end": 9.22
+  },
+  {
+    "word": "thumb",
+    "start": 9.64,
+    "end": 10.14
+  },
+  {
+    "word": "pushes",
+    "start": 10.14,
+    "end": 10.54
+  },
+  {
+    "word": "this",
+    "start": 10.54,
+    "end": 10.86
+  },
+  {
+    "word": "lower",
+    "start": 10.86,
+    "end": 11.24
+  },
+  {
+    "word": "bead",
+    "start": 11.24,
+    "end": 11.52
+  },
+  {
+    "word": "up!",
+    "start": 11.52,
+    "end": 11.96
+  },
+  {
+    "word": "Going",
+    "start": 13.1,
+    "end": 13.5
+  },
+  {
+    "word": "down",
+    "start": 13.5,
+    "end": 13.88
+  },
+  {
+    "word": "always",
+    "start": 13.88,
+    "end": 14.52
+  },
+  {
+    "word": "uses",
+    "start": 14.52,
+    "end": 15.04
+  },
+  {
+    "word": "your",
+    "start": 15.04,
+    "end": 15.32
+  },
+  {
+    "word": "index",
+    "start": 15.32,
+    "end": 15.7
+  },
+  {
+    "word": "finger.",
+    "start": 15.7,
+    "end": 16.12
+  },
+  {
+    "word": "Watch",
+    "start": 17.26,
+    "end": 17.58
+  },
+  {
+    "word": "index",
+    "start": 18.14,
+    "end": 18.62
+  },
+  {
+    "word": "finger",
+    "start": 18.62,
+    "end": 19.06
+  },
+  {
+    "word": "brings",
+    "start": 19.06,
+    "end": 19.38
+  },
+  {
+    "word": "the",
+    "start": 19.38,
+    "end": 19.66
+  },
+  {
+    "word": "upper",
+    "start": 19.66,
+    "end": 19.94
+  },
+  {
+    "word": "bead",
+    "start": 19.94,
+    "end": 20.2
+  },
+  {
+    "word": "down!",
+    "start": 20.2,
+    "end": 20.62
+  },
+  {
+    "word": "It's",
+    "start": 21.96,
+    "end": 22.34
+  },
+  {
+    "word": "the",
+    "start": 22.34,
+    "end": 22.46
+  },
+  {
+    "word": "same",
+    "start": 22.46,
+    "end": 22.76
+  },
+  {
+    "word": "rule",
+    "start": 22.76,
+    "end": 23.08
+  },
+  {
+    "word": "for",
+    "start": 23.08,
+    "end": 23.32
+  },
+  {
+    "word": "taking",
+    "start": 23.32,
+    "end": 23.62
+  },
+  {
+    "word": "away",
+    "start": 23.62,
+    "end": 24.02
+  },
+  {
+    "word": "index",
+    "start": 24.68,
+    "end": 25.08
+  },
+  {
+    "word": "finger",
+    "start": 25.08,
+    "end": 25.48
+  },
+  {
+    "word": "going",
+    "start": 25.66,
+    "end": 25.9
+  },
+  {
+    "word": "down,",
+    "start": 25.9,
+    "end": 26.28
+  },
+  {
+    "word": "thumb",
+    "start": 26.78,
+    "end": 27.04
+  },
+  {
+    "word": "going",
+    "start": 27.3,
+    "end": 27.5
+  },
+  {
+    "word": "up!",
+    "start": 27.5,
+    "end": 27.82
+  },
+  {
+    "word": "Up",
+    "start": 27.82,
+    "end": 27.94
+  },
+  {
+    "word": "is",
+    "start": 27.94,
+    "end": 29.48
+  },
+  {
+    "word": "thumb.",
+    "start": 29.48,
+    "end": 29.78
+  },
+  {
+    "word": "Down",
+    "start": 30.44,
+    "end": 30.76
+  },
+  {
+    "word": "is",
+    "start": 30.76,
+    "end": 31.12
+  },
+  {
+    "word": "index",
+    "start": 31.12,
+    "end": 31.54
+  },
+  {
+    "word": "finger.",
+    "start": 31.54,
+    "end": 31.96
+  },
+  {
+    "word": "Every",
+    "start": 32.56,
+    "end": 32.98
+  },
+  {
+    "word": "single",
+    "start": 32.98,
+    "end": 33.5
+  },
+  {
+    "word": "time!",
+    "start": 33.5,
+    "end": 34.04
+  },
+  {
+    "word": "Learn",
+    "start": 35.18,
+    "end": 35.6
+  },
+  {
+    "word": "it",
+    "start": 35.6,
+    "end": 35.84
+  },
+  {
+    "word": "all",
+    "start": 35.84,
+    "end": 36.1
+  },
+  {
+    "word": "with",
+    "start": 36.1,
+    "end": 36.38
+  },
+  {
+    "word": "Abacus",
+    "start": 36.38,
+    "end": 36.9
+  },
+  {
+    "word": "Kids",
+    "start": 36.9,
+    "end": 37.14
+  },
+  {
+    "word": "free",
+    "start": 37.72,
+    "end": 37.94
+  },
+  {
+    "word": "on",
+    "start": 37.94,
+    "end": 38.28
+  },
+  {
+    "word": "the",
+    "start": 38.28,
+    "end": 38.46
+  },
+  {
+    "word": "App",
+    "start": 38.46,
+    "end": 38.66
+  },
+  {
+    "word": "Store",
+    "start": 38.66,
+    "end": 38.98
+  },
+  {
+    "word": "and",
+    "start": 38.98,
+    "end": 39.44
+  },
+  {
+    "word": "Google",
+    "start": 39.44,
+    "end": 39.7
+  },
+  {
+    "word": "Play!",
+    "start": 39.7,
+    "end": 40.04
+  }
+]

@@ -1,0 +1,716 @@
+[
+  {
+    "index": 0,
+    "text": "When a number gets stuck, Math Heroes save the day!",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 4.1,
+    "duration": 4.1,
+    "matched": 10,
+    "words": [
+      {
+        "word": "When",
+        "start": 0.0,
+        "end": 0.28
+      },
+      {
+        "word": "a",
+        "start": 0.28,
+        "end": 0.44
+      },
+      {
+        "word": "number",
+        "start": 0.44,
+        "end": 0.76
+      },
+      {
+        "word": "gets",
+        "start": 0.76,
+        "end": 1.06
+      },
+      {
+        "word": "stuck,",
+        "start": 1.06,
+        "end": 1.46
+      },
+      {
+        "word": "Math",
+        "start": 2.0,
+        "end": 2.3
+      },
+      {
+        "word": "Heroes",
+        "start": 2.3,
+        "end": 2.76
+      },
+      {
+        "word": "save",
+        "start": 2.76,
+        "end": 3.34
+      },
+      {
+        "word": "the",
+        "start": 3.34,
+        "end": 3.62
+      },
+      {
+        "word": "day!",
+        "start": 3.62,
+        "end": 4.1
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "Alert!",
+    "line_index": 1,
+    "start": 4.74,
+    "end": 5.54,
+    "duration": 0.8,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Alert!",
+        "start": 4.74,
+        "end": 5.54
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Three plus two, and it's stuck!",
+    "line_index": 1,
+    "start": 5.54,
+    "end": 8.42,
+    "duration": 2.88,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Three",
+        "start": 5.54,
+        "end": 6.56
+      },
+      {
+        "word": "plus",
+        "start": 6.56,
+        "end": 6.94
+      },
+      {
+        "word": "two,",
+        "start": 6.94,
+        "end": 7.36
+      },
+      {
+        "word": "and",
+        "start": 7.36,
+        "end": 7.88
+      },
+      {
+        "word": "it's",
+        "start": 7.88,
+        "end": 8.18
+      },
+      {
+        "word": "stuck!",
+        "start": 8.18,
+        "end": 8.42
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "There's no room to add two.",
+    "line_index": 2,
+    "start": 8.92,
+    "end": 10.58,
+    "duration": 1.66,
+    "matched": 6,
+    "words": [
+      {
+        "word": "There's",
+        "start": 8.92,
+        "end": 9.38
+      },
+      {
+        "word": "no",
+        "start": 9.38,
+        "end": 9.56
+      },
+      {
+        "word": "room",
+        "start": 9.56,
+        "end": 9.84
+      },
+      {
+        "word": "to",
+        "start": 9.84,
+        "end": 10.06
+      },
+      {
+        "word": "add",
+        "start": 10.06,
+        "end": 10.24
+      },
+      {
+        "word": "two.",
+        "start": 10.24,
+        "end": 10.58
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Let's call a friend!",
+    "line_index": 2,
+    "start": 11.38,
+    "end": 12.38,
+    "duration": 1.0,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 11.38,
+        "end": 11.6
+      },
+      {
+        "word": "call",
+        "start": 11.6,
+        "end": 11.78
+      },
+      {
+        "word": "a",
+        "start": 11.78,
+        "end": 11.94
+      },
+      {
+        "word": "friend!",
+        "start": 11.94,
+        "end": 12.38
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "Two's friend is three!",
+    "line_index": 3,
+    "start": 14.61,
+    "end": 16.12,
+    "duration": 1.51,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Two's",
+        "start": 14.61,
+        "end": 14.98
+      },
+      {
+        "word": "friend",
+        "start": 14.98,
+        "end": 15.28
+      },
+      {
+        "word": "is",
+        "start": 15.28,
+        "end": 15.68
+      },
+      {
+        "word": "three!",
+        "start": 15.68,
+        "end": 16.12
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Take away three, then add five!",
+    "line_index": 4,
+    "start": 16.96,
+    "end": 19.64,
+    "duration": 2.68,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Take",
+        "start": 16.96,
+        "end": 17.26
+      },
+      {
+        "word": "away",
+        "start": 17.26,
+        "end": 17.48
+      },
+      {
+        "word": "three,",
+        "start": 17.48,
+        "end": 17.88
+      },
+      {
+        "word": "then",
+        "start": 17.88,
+        "end": 18.48
+      },
+      {
+        "word": "add",
+        "start": 18.48,
+        "end": 18.88
+      },
+      {
+        "word": "five!",
+        "start": 18.88,
+        "end": 19.64
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "Three plus two is five!",
+    "line_index": 5,
+    "start": 20.6,
+    "end": 22.44,
+    "duration": 1.84,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Three",
+        "start": 20.6,
+        "end": 20.98
+      },
+      {
+        "word": "plus",
+        "start": 20.98,
+        "end": 21.3
+      },
+      {
+        "word": "two",
+        "start": 21.3,
+        "end": 21.7
+      },
+      {
+        "word": "is",
+        "start": 21.7,
+        "end": 21.92
+      },
+      {
+        "word": "five!",
+        "start": 21.92,
+        "end": 22.44
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "Mission solved!",
+    "line_index": 5,
+    "start": 23.04,
+    "end": 24.08,
+    "duration": 1.04,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Mission",
+        "start": 23.04,
+        "end": 23.32
+      },
+      {
+        "word": "solved!",
+        "start": 23.32,
+        "end": 24.08
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Another alert!",
+    "line_index": 6,
+    "start": 25.14,
+    "end": 26.16,
+    "duration": 1.02,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Another",
+        "start": 25.14,
+        "end": 25.7
+      },
+      {
+        "word": "alert!",
+        "start": 25.7,
+        "end": 26.16
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Four plus one, and it's stuck!",
+    "line_index": 6,
+    "start": 27.0,
+    "end": 29.04,
+    "duration": 2.04,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Four",
+        "start": 27.0,
+        "end": 27.18
+      },
+      {
+        "word": "plus",
+        "start": 27.18,
+        "end": 27.56
+      },
+      {
+        "word": "one,",
+        "start": 27.56,
+        "end": 27.98
+      },
+      {
+        "word": "and",
+        "start": 27.98,
+        "end": 28.48
+      },
+      {
+        "word": "it's",
+        "start": 28.48,
+        "end": 28.76
+      },
+      {
+        "word": "stuck!",
+        "start": 28.76,
+        "end": 29.04
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "There's no room to add one.",
+    "line_index": 7,
+    "start": 29.04,
+    "end": 31.3,
+    "duration": 2.26,
+    "matched": 6,
+    "words": [
+      {
+        "word": "There's",
+        "start": 29.04,
+        "end": 30.1
+      },
+      {
+        "word": "no",
+        "start": 30.1,
+        "end": 30.26
+      },
+      {
+        "word": "room",
+        "start": 30.26,
+        "end": 30.56
+      },
+      {
+        "word": "to",
+        "start": 30.56,
+        "end": 30.76
+      },
+      {
+        "word": "add",
+        "start": 30.76,
+        "end": 31.0
+      },
+      {
+        "word": "one.",
+        "start": 31.0,
+        "end": 31.3
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Let's call a friend again!",
+    "line_index": 7,
+    "start": 32.1,
+    "end": 33.34,
+    "duration": 1.24,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 32.1,
+        "end": 32.4
+      },
+      {
+        "word": "call",
+        "start": 32.4,
+        "end": 32.54
+      },
+      {
+        "word": "a",
+        "start": 32.54,
+        "end": 32.68
+      },
+      {
+        "word": "friend",
+        "start": 32.68,
+        "end": 32.9
+      },
+      {
+        "word": "again!",
+        "start": 32.9,
+        "end": 33.34
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "One's friend is four!",
+    "line_index": 8,
+    "start": 35.16,
+    "end": 36.8,
+    "duration": 1.64,
+    "matched": 4,
+    "words": [
+      {
+        "word": "One's",
+        "start": 35.16,
+        "end": 35.68
+      },
+      {
+        "word": "friend",
+        "start": 35.68,
+        "end": 36.0
+      },
+      {
+        "word": "is",
+        "start": 36.0,
+        "end": 36.32
+      },
+      {
+        "word": "four!",
+        "start": 36.32,
+        "end": 36.8
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "Take away four, then add five!",
+    "line_index": 9,
+    "start": 37.7,
+    "end": 40.46,
+    "duration": 2.76,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Take",
+        "start": 37.7,
+        "end": 38.04
+      },
+      {
+        "word": "away",
+        "start": 38.04,
+        "end": 38.3
+      },
+      {
+        "word": "four,",
+        "start": 38.3,
+        "end": 38.78
+      },
+      {
+        "word": "then",
+        "start": 38.78,
+        "end": 39.28
+      },
+      {
+        "word": "add",
+        "start": 39.28,
+        "end": 39.7
+      },
+      {
+        "word": "five!",
+        "start": 39.7,
+        "end": 40.46
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "Four plus one is five!",
+    "line_index": 10,
+    "start": 41.0,
+    "end": 43.24,
+    "duration": 2.24,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Four",
+        "start": 41.0,
+        "end": 41.62
+      },
+      {
+        "word": "plus",
+        "start": 41.62,
+        "end": 41.9
+      },
+      {
+        "word": "one",
+        "start": 41.9,
+        "end": 42.36
+      },
+      {
+        "word": "is",
+        "start": 42.36,
+        "end": 42.66
+      },
+      {
+        "word": "five!",
+        "start": 42.66,
+        "end": 43.24
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "Heroes win again!",
+    "line_index": 10,
+    "start": 43.8,
+    "end": 44.94,
+    "duration": 1.14,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Heroes",
+        "start": 43.8,
+        "end": 44.2
+      },
+      {
+        "word": "win",
+        "start": 44.2,
+        "end": 44.54
+      },
+      {
+        "word": "again!",
+        "start": 44.54,
+        "end": 44.94
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "Every stuck number has a trick.",
+    "line_index": 11,
+    "start": 46.3,
+    "end": 48.4,
+    "duration": 2.1,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Every",
+        "start": 46.3,
+        "end": 46.62
+      },
+      {
+        "word": "stuck",
+        "start": 46.62,
+        "end": 46.96
+      },
+      {
+        "word": "number",
+        "start": 46.96,
+        "end": 47.44
+      },
+      {
+        "word": "has",
+        "start": 47.44,
+        "end": 47.84
+      },
+      {
+        "word": "a",
+        "start": 47.84,
+        "end": 48.0
+      },
+      {
+        "word": "trick.",
+        "start": 48.0,
+        "end": 48.4
+      }
+    ]
+  },
+  {
+    "index": 18,
+    "text": "Learn them all with Abacus Kids \u2014 free on the App Store and Google Play!",
+    "line_index": 11,
+    "start": 49.12,
+    "end": 53.72,
+    "duration": 4.6,
+    "matched": 14,
+    "words": [
+      {
+        "word": "Learn",
+        "start": 49.12,
+        "end": 49.28
+      },
+      {
+        "word": "them",
+        "start": 49.28,
+        "end": 49.52
+      },
+      {
+        "word": "all",
+        "start": 49.52,
+        "end": 49.88
+      },
+      {
+        "word": "with",
+        "start": 49.88,
+        "end": 50.22
+      },
+      {
+        "word": "Abacus",
+        "start": 50.22,
+        "end": 50.66
+      },
+      {
+        "word": "Kids",
+        "start": 50.66,
+        "end": 51.04
+      },
+      {
+        "word": "free",
+        "start": 51.62,
+        "end": 51.86
+      },
+      {
+        "word": "on",
+        "start": 51.86,
+        "end": 52.06
+      },
+      {
+        "word": "the",
+        "start": 52.06,
+        "end": 52.24
+      },
+      {
+        "word": "App",
+        "start": 52.24,
+        "end": 52.4
+      },
+      {
+        "word": "Store",
+        "start": 52.4,
+        "end": 52.7
+      },
+      {
+        "word": "and",
+        "start": 52.7,
+        "end": 53.1
+      },
+      {
+        "word": "Google",
+        "start": 53.1,
+        "end": 53.36
+      },
+      {
+        "word": "Play!",
+        "start": 53.36,
+        "end": 53.72
+      }
+    ]
+  }
+]

@@ -1,0 +1,511 @@
+1
+00:00:00,000 --> 00:00:00,680
+Hello again!
+
+2
+00:00:00,680 --> 00:00:04,640
+Last time, we got completely stuck.
+
+3
+00:00:04,640 --> 00:00:07,580
+Do you remember what saved us?
+
+4
+00:00:07,580 --> 00:00:10,280
+The big friend trick!
+
+5
+00:00:10,280 --> 00:00:14,280
+Take away the friend, and carry to the tens rod.
+
+6
+00:00:14,280 --> 00:00:18,560
+This video is all about big friend adding.
+
+7
+00:00:18,560 --> 00:00:21,080
+Today we learn all five.
+
+8
+00:00:21,080 --> 00:00:22,280
+Ready?
+
+9
+00:00:22,280 --> 00:00:23,440
+Let us go.
+
+10
+00:00:23,440 --> 00:00:27,120
+First, let us meet them all.
+
+11
+00:00:27,120 --> 00:00:30,920
+Every number that needs a big friend has one.
+
+12
+00:00:30,920 --> 00:00:34,560
+Five pairs that make ten together.
+
+13
+00:00:34,560 --> 00:00:35,680
+Look.
+
+14
+00:00:35,680 --> 00:00:37,460
+One and nine.
+
+15
+00:00:37,460 --> 00:00:40,040
+One and nine make ten.
+
+16
+00:00:40,040 --> 00:00:41,680
+So they are friends.
+
+17
+00:00:41,680 --> 00:00:45,180
+Two and eight make ten as well.
+
+18
+00:00:45,180 --> 00:00:48,180
+Three and seven make ten.
+
+19
+00:00:48,180 --> 00:00:51,660
+Four and six make ten.
+
+20
+00:00:51,660 --> 00:00:54,220
+And five and...
+
+21
+00:00:54,220 --> 00:00:55,060
+five!
+
+22
+00:00:55,060 --> 00:00:58,380
+A number can be its own friend.
+
+23
+00:00:58,380 --> 00:01:00,920
+Now you tell me.
+
+24
+00:01:00,920 --> 00:01:02,580
+Who is two's friend?
+
+25
+00:01:02,580 --> 00:01:05,080
+Eight!
+
+26
+00:01:05,080 --> 00:01:06,180
+Well done.
+
+27
+00:01:06,180 --> 00:01:08,740
+And six's friend?
+
+28
+00:01:08,740 --> 00:01:10,880
+Four!
+
+29
+00:01:10,880 --> 00:01:12,220
+You have got it.
+
+30
+00:01:12,220 --> 00:01:14,840
+So four's friend is six.
+
+31
+00:01:15,580 --> 00:01:17,840
+And six's friend is four.
+
+32
+00:01:17,840 --> 00:01:21,120
+Now, careful here.
+
+33
+00:01:21,120 --> 00:01:23,000
+This part is important.
+
+34
+00:01:23,000 --> 00:01:26,820
+We do not always need the big friend.
+
+35
+00:01:26,820 --> 00:01:30,400
+Always look at the whole rod first.
+
+36
+00:01:30,400 --> 00:01:34,200
+If there is still room, just push the beads.
+
+37
+00:01:34,200 --> 00:01:35,420
+Watch.
+
+38
+00:01:35,420 --> 00:01:37,620
+Six plus two.
+
+39
+00:01:37,620 --> 00:01:42,580
+Push one lower bead up, then the upper bead down.
+
+40
+00:01:42,580 --> 00:01:44,840
+That makes six.
+
+41
+00:01:44,840 --> 00:01:48,120
+Now push two more lower beads.
+
+42
+00:01:48,120 --> 00:01:49,360
+Done!
+
+43
+00:01:49,360 --> 00:01:51,080
+That was easy.
+
+44
+00:01:51,080 --> 00:01:52,540
+No trick at all.
+
+45
+00:01:52,540 --> 00:01:54,700
+The rod still had room.
+
+46
+00:01:54,700 --> 00:01:58,500
+But do you remember nine plus one?
+
+47
+00:01:59,460 --> 00:02:01,460
+We pushed, and pushed...
+
+48
+00:02:01,460 --> 00:02:03,940
+and there was nothing left.
+
+49
+00:02:03,940 --> 00:02:07,440
+Not one bead, anywhere on the rod.
+
+50
+00:02:07,440 --> 00:02:11,200
+And that is when we call a big friend.
+
+51
+00:02:11,200 --> 00:02:16,300
+Now, you already met three of these friends last time.
+
+52
+00:02:16,300 --> 00:02:18,700
+Nine and one.
+
+53
+00:02:18,700 --> 00:02:20,660
+Eight and two.
+
+54
+00:02:20,660 --> 00:02:22,920
+Seven and three.
+
+55
+00:02:22,920 --> 00:02:27,520
+Take away the friend, then carry to the tens rod.
+
+56
+00:02:27,520 --> 00:02:31,060
+Every one of those made ten.
+
+57
+00:02:31,900 --> 00:02:33,880
+And here is something neat.
+
+58
+00:02:33,880 --> 00:02:36,500
+It works flipped around too.
+
+59
+00:02:36,500 --> 00:02:39,100
+Two and eight.
+
+60
+00:02:39,100 --> 00:02:41,700
+Make two on your abacus.
+
+61
+00:02:41,700 --> 00:02:44,000
+Just two lower beads.
+
+62
+00:02:44,000 --> 00:02:50,420
+Eight's friend is two — and that is exactly what is already there.
+
+63
+00:02:50,420 --> 00:02:55,720
+Take away two, then carry one bead to the tens rod.
+
+64
+00:02:55,720 --> 00:02:58,780
+Two plus eight is ten.
+
+65
+00:02:58,780 --> 00:03:02,060
+Same trick, just flipped.
+
+66
+00:03:02,060 --> 00:03:06,400
+So today, let us learn the last two.
+
+67
+00:03:06,400 --> 00:03:09,480
+Four's friend is six.
+
+68
+00:03:09,480 --> 00:03:12,100
+Let us make six.
+
+69
+00:03:12,100 --> 00:03:16,760
+Push one lower bead up, then the upper bead down.
+
+70
+00:03:16,760 --> 00:03:20,280
+Now we want to add four.
+
+71
+00:03:20,280 --> 00:03:22,560
+Remember our rule.
+
+72
+00:03:22,560 --> 00:03:28,720
+The ones rod goes first, and lower beads move before the upper bead.
+
+73
+00:03:28,720 --> 00:03:31,360
+So take away six.
+
+74
+00:03:31,360 --> 00:03:36,700
+Down comes one lower bead, then up goes the upper bead.
+
+75
+00:03:36,700 --> 00:03:40,300
+Now the ones rod shows zero.
+
+76
+00:03:40,300 --> 00:03:41,580
+Oh!
+
+77
+00:03:41,580 --> 00:03:43,020
+Zero already?
+
+78
+00:03:43,020 --> 00:03:44,940
+Do not worry.
+
+79
+00:03:44,940 --> 00:03:46,960
+Watch what happens next.
+
+80
+00:03:46,960 --> 00:03:50,460
+Now the tens rod gets its turn.
+
+81
+00:03:50,460 --> 00:03:52,700
+Carry one bead.
+
+82
+00:03:53,260 --> 00:03:54,400
+And there it is.
+
+83
+00:03:54,400 --> 00:03:55,140
+Ten!
+
+84
+00:03:55,140 --> 00:03:58,180
+Six plus four is ten.
+
+85
+00:03:58,180 --> 00:04:02,360
+We wanted four more, and we got it.
+
+86
+00:04:02,360 --> 00:04:04,540
+Enjoying this?
+
+87
+00:04:04,540 --> 00:04:08,300
+Give this video a like, and subscribe for more.
+
+88
+00:04:08,300 --> 00:04:11,020
+Now stop and look.
+
+89
+00:04:11,020 --> 00:04:12,980
+Did you see it?
+
+90
+00:04:12,980 --> 00:04:17,680
+Every single time, we did the same two things.
+
+91
+00:04:17,680 --> 00:04:21,720
+Take away the friend, on the ones rod first.
+
+92
+00:04:21,720 --> 00:04:25,240
+Then carry one bead to the tens rod.
+
+93
+00:04:25,240 --> 00:04:26,940
+That is all.
+
+94
+00:04:26,940 --> 00:04:29,000
+The friend changes.
+
+95
+00:04:29,000 --> 00:04:31,560
+But ten never does.
+
+96
+00:04:31,560 --> 00:04:34,420
+Here is something neat.
+
+97
+00:04:34,420 --> 00:04:38,500
+It works the other way round too.
+
+98
+00:04:38,500 --> 00:04:40,680
+Let us flip it.
+
+99
+00:04:40,680 --> 00:04:42,020
+Four plus six.
+
+100
+00:04:42,020 --> 00:04:45,140
+Make four on your abacus.
+
+101
+00:04:45,140 --> 00:04:47,440
+Just four lower beads.
+
+102
+00:04:47,440 --> 00:04:55,400
+Six's friend is four — and look, that is exactly what is already there.
+
+103
+00:04:55,400 --> 00:05:01,060
+So take away four, then carry one bead to the tens rod.
+
+104
+00:05:02,160 --> 00:05:04,540
+Four plus six is ten.
+
+105
+00:05:04,540 --> 00:05:06,800
+Same trick.
+
+106
+00:05:06,800 --> 00:05:08,480
+Just flipped around.
+
+107
+00:05:08,480 --> 00:05:11,000
+Now it is your turn.
+
+108
+00:05:11,000 --> 00:05:12,440
+All on your own.
+
+109
+00:05:12,440 --> 00:05:15,520
+Make five on your abacus.
+
+110
+00:05:15,520 --> 00:05:17,600
+Just the upper bead.
+
+111
+00:05:17,600 --> 00:05:20,300
+Then add five.
+
+112
+00:05:20,300 --> 00:05:21,620
+Think.
+
+113
+00:05:21,620 --> 00:05:23,780
+What is five's friend?
+
+114
+00:05:23,780 --> 00:05:25,940
+Five!
+
+115
+00:05:25,940 --> 00:05:29,440
+A number really can be its own friend.
+
+116
+00:05:29,440 --> 00:05:34,640
+Take it away, then carry one bead to the tens rod.
+
+117
+00:05:34,640 --> 00:05:37,660
+What number is showing now?
+
+118
+00:05:39,600 --> 00:05:41,720
+Five plus five is ten.
+
+119
+00:05:41,720 --> 00:05:43,620
+Did you get it?
+
+120
+00:05:43,620 --> 00:05:44,860
+Well done!
+
+121
+00:05:44,860 --> 00:05:49,600
+That was the fifth friend, and you did it by yourself.
+
+122
+00:05:50,420 --> 00:05:54,280
+So now you know all five big friends for adding.
+
+123
+00:05:54,280 --> 00:05:59,220
+That is a real abacus formula, and it is yours.
+
+124
+00:06:00,040 --> 00:06:03,160
+Try them at home on your own abacus.
+
+125
+00:06:03,160 --> 00:06:08,780
+Search for abacus kids on the Apple App Store or Google Play.
+
+126
+00:06:09,360 --> 00:06:10,620
+Download it free.
+
+127
+00:06:10,620 --> 00:06:15,720
+Next time, we will learn the big friends for taking away.
+
+128
+00:06:15,720 --> 00:06:17,780
+See you next time!

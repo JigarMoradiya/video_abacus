@@ -1,0 +1,32 @@
+# Quick Subtraction on Rod 1 — recording script (9:16 short reel, ~45-50s)
+# Lines starting with # are notes and are NOT read aloud. Everything else IS read aloud,
+# exactly as written.
+#
+# Revised: the first draft only ever removed lower beads OR the upper bead alone, never
+# both together — user caught that gap ("what about 8-6 or 9-6?"). Two of the four examples
+# below now genuinely move both bead types in the SAME action. All four are still "it just
+# fits" — no complement/friend trick, because that trick is exactly what the Math Heroes
+# reels exist to pay off:
+#
+#   3 - 2 = 1   lower beads only
+#   7 - 5 = 2   upper bead only, lower beads untouched
+#   9 - 6 = 3   upper bead AND one lower bead together (5+1=6)
+#   8 - 7 = 1   upper bead AND two lower beads together (5+2=7)
+#
+# Both compound examples move lower beads first, then the upper bead — same order as the
+# tip line states, and the same order reel_quicksum_lines.txt (Adding) uses.
+#
+# Between each example the rod resets to empty before the next one starts — the short
+# transition line is the beat where that reset happens on screen.
+
+Taking away on one rod is super quick — check out these examples!
+Three beads are up. Pull two down — three take away two is one!
+Let's try another!
+Two lower beads, plus the upper bead — that's seven. Lift the upper bead — seven take away five is two!
+Next one!
+Four lower beads, plus the upper bead — that's nine. Pull one lower bead down, and lift the upper bead — nine take away six is three!
+One more!
+Three lower beads, plus the upper bead — that's eight. Pull two lower beads down, and lift the upper bead — eight take away seven is one!
+Here's one tip: lower beads always move first, then the upper bead!
+Lower beads or the upper bead — taking away is always quick!
+Learn it all with Abacus Kids — free on the App Store and Google Play!

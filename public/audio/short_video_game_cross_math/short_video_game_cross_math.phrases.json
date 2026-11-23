@@ -1,0 +1,810 @@
+[
+  {
+    "index": 0,
+    "text": "This puzzle looks like a crossword...",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 2.14,
+    "duration": 2.14,
+    "matched": 6,
+    "words": [
+      {
+        "word": "This",
+        "start": 0.0,
+        "end": 0.44
+      },
+      {
+        "word": "puzzle",
+        "start": 0.44,
+        "end": 0.84
+      },
+      {
+        "word": "looks",
+        "start": 0.84,
+        "end": 1.3
+      },
+      {
+        "word": "like",
+        "start": 1.3,
+        "end": 1.52
+      },
+      {
+        "word": "a",
+        "start": 1.52,
+        "end": 1.66
+      },
+      {
+        "word": "crossword...",
+        "start": 1.66,
+        "end": 2.14
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "but it's made of MATH!",
+    "line_index": 0,
+    "start": 2.42,
+    "end": 4.1,
+    "duration": 1.68,
+    "matched": 5,
+    "words": [
+      {
+        "word": "but",
+        "start": 2.42,
+        "end": 3.22
+      },
+      {
+        "word": "it's",
+        "start": 3.22,
+        "end": 3.44
+      },
+      {
+        "word": "made",
+        "start": 3.44,
+        "end": 3.58
+      },
+      {
+        "word": "of",
+        "start": 3.58,
+        "end": 3.76
+      },
+      {
+        "word": "MATH!",
+        "start": 3.76,
+        "end": 4.1
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Cross Math!",
+    "line_index": 0,
+    "start": 4.84,
+    "end": 5.82,
+    "duration": 0.98,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Cross",
+        "start": 4.84,
+        "end": 5.18
+      },
+      {
+        "word": "Math!",
+        "start": 5.18,
+        "end": 5.82
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "Equations go across...",
+    "line_index": 1,
+    "start": 7.5,
+    "end": 9.06,
+    "duration": 1.56,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Equations",
+        "start": 7.5,
+        "end": 8.18
+      },
+      {
+        "word": "go",
+        "start": 8.18,
+        "end": 8.5
+      },
+      {
+        "word": "across...",
+        "start": 8.5,
+        "end": 9.06
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "and down...",
+    "line_index": 1,
+    "start": 9.72,
+    "end": 10.56,
+    "duration": 0.84,
+    "matched": 2,
+    "words": [
+      {
+        "word": "and",
+        "start": 9.72,
+        "end": 10.12
+      },
+      {
+        "word": "down...",
+        "start": 10.12,
+        "end": 10.56
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "and they cross each other!",
+    "line_index": 1,
+    "start": 11.06,
+    "end": 12.36,
+    "duration": 1.3,
+    "matched": 5,
+    "words": [
+      {
+        "word": "and",
+        "start": 11.06,
+        "end": 11.32
+      },
+      {
+        "word": "they",
+        "start": 11.32,
+        "end": 11.46
+      },
+      {
+        "word": "cross",
+        "start": 11.46,
+        "end": 11.68
+      },
+      {
+        "word": "each",
+        "start": 11.68,
+        "end": 12.0
+      },
+      {
+        "word": "other!",
+        "start": 12.0,
+        "end": 12.36
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "See an empty box?",
+    "line_index": 2,
+    "start": 13.59,
+    "end": 14.74,
+    "duration": 2.38,
+    "matched": 2,
+    "words": [
+      {
+        "word": "See",
+        "start": 13.59,
+        "end": 13.75
+      },
+      {
+        "word": "an",
+        "start": 13.75,
+        "end": 13.9
+      },
+      {
+        "word": "empty",
+        "start": 13.9,
+        "end": 14.28
+      },
+      {
+        "word": "box?",
+        "start": 14.28,
+        "end": 14.74
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "Tap it!",
+    "line_index": 2,
+    "start": 15.12,
+    "end": 15.66,
+    "duration": 0.54,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Tap",
+        "start": 15.12,
+        "end": 15.34
+      },
+      {
+        "word": "it!",
+        "start": 15.34,
+        "end": 15.66
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "Now tap a number tile below — it jumps right in!",
+    "line_index": 3,
+    "start": 17.24,
+    "end": 20.86,
+    "duration": 3.62,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Now",
+        "start": 17.24,
+        "end": 17.52
+      },
+      {
+        "word": "tap",
+        "start": 17.52,
+        "end": 17.84
+      },
+      {
+        "word": "a",
+        "start": 17.84,
+        "end": 18.14
+      },
+      {
+        "word": "number",
+        "start": 18.14,
+        "end": 18.44
+      },
+      {
+        "word": "tile",
+        "start": 18.44,
+        "end": 18.8
+      },
+      {
+        "word": "below",
+        "start": 18.8,
+        "end": 19.2
+      },
+      {
+        "word": "it",
+        "start": 19.76,
+        "end": 19.86
+      },
+      {
+        "word": "jumps",
+        "start": 19.86,
+        "end": 20.18
+      },
+      {
+        "word": "right",
+        "start": 20.18,
+        "end": 20.46
+      },
+      {
+        "word": "in!",
+        "start": 20.46,
+        "end": 20.86
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "When a whole line is correct, it glows green!",
+    "line_index": 4,
+    "start": 21.96,
+    "end": 24.74,
+    "duration": 2.78,
+    "matched": 9,
+    "words": [
+      {
+        "word": "When",
+        "start": 21.96,
+        "end": 22.26
+      },
+      {
+        "word": "a",
+        "start": 22.26,
+        "end": 22.44
+      },
+      {
+        "word": "whole",
+        "start": 22.44,
+        "end": 22.64
+      },
+      {
+        "word": "line",
+        "start": 22.64,
+        "end": 22.96
+      },
+      {
+        "word": "is",
+        "start": 22.96,
+        "end": 23.22
+      },
+      {
+        "word": "correct,",
+        "start": 23.22,
+        "end": 23.58
+      },
+      {
+        "word": "it",
+        "start": 23.96,
+        "end": 24.06
+      },
+      {
+        "word": "glows",
+        "start": 24.06,
+        "end": 24.42
+      },
+      {
+        "word": "green!",
+        "start": 24.42,
+        "end": 24.74
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "But careful — every tile can be used only once!",
+    "line_index": 5,
+    "start": 25.56,
+    "end": 30.0,
+    "duration": 4.44,
+    "matched": 9,
+    "words": [
+      {
+        "word": "But",
+        "start": 25.56,
+        "end": 26.0
+      },
+      {
+        "word": "careful",
+        "start": 26.0,
+        "end": 26.5
+      },
+      {
+        "word": "every",
+        "start": 27.02,
+        "end": 27.52
+      },
+      {
+        "word": "tile",
+        "start": 27.52,
+        "end": 27.92
+      },
+      {
+        "word": "can",
+        "start": 27.92,
+        "end": 28.18
+      },
+      {
+        "word": "be",
+        "start": 28.18,
+        "end": 28.36
+      },
+      {
+        "word": "used",
+        "start": 28.36,
+        "end": 28.7
+      },
+      {
+        "word": "only",
+        "start": 28.7,
+        "end": 29.28
+      },
+      {
+        "word": "once!",
+        "start": 29.28,
+        "end": 30.0
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "Fill every box to finish the level — three stars!",
+    "line_index": 6,
+    "start": 31.58,
+    "end": 34.7,
+    "duration": 3.12,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Fill",
+        "start": 31.58,
+        "end": 31.72
+      },
+      {
+        "word": "every",
+        "start": 31.72,
+        "end": 32.2
+      },
+      {
+        "word": "box",
+        "start": 32.2,
+        "end": 32.48
+      },
+      {
+        "word": "to",
+        "start": 32.48,
+        "end": 32.78
+      },
+      {
+        "word": "finish",
+        "start": 32.78,
+        "end": 33.04
+      },
+      {
+        "word": "the",
+        "start": 33.04,
+        "end": 33.26
+      },
+      {
+        "word": "level",
+        "start": 33.26,
+        "end": 33.56
+      },
+      {
+        "word": "three",
+        "start": 34.02,
+        "end": 34.32
+      },
+      {
+        "word": "stars!",
+        "start": 34.32,
+        "end": 34.7
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Stuck?",
+    "line_index": 7,
+    "start": 36.06,
+    "end": 36.66,
+    "duration": 0.6,
+    "matched": 1,
+    "words": [
+      {
+        "word": "Stuck?",
+        "start": 36.06,
+        "end": 36.66
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "No problem — you get three hints on every level!",
+    "line_index": 7,
+    "start": 37.1,
+    "end": 40.68,
+    "duration": 3.58,
+    "matched": 9,
+    "words": [
+      {
+        "word": "No",
+        "start": 37.1,
+        "end": 37.42
+      },
+      {
+        "word": "problem",
+        "start": 37.42,
+        "end": 37.9
+      },
+      {
+        "word": "you",
+        "start": 38.4,
+        "end": 38.56
+      },
+      {
+        "word": "get",
+        "start": 38.56,
+        "end": 38.74
+      },
+      {
+        "word": "three",
+        "start": 38.74,
+        "end": 39.1
+      },
+      {
+        "word": "hints",
+        "start": 39.1,
+        "end": 39.48
+      },
+      {
+        "word": "on",
+        "start": 39.48,
+        "end": 39.76
+      },
+      {
+        "word": "every",
+        "start": 39.76,
+        "end": 40.24
+      },
+      {
+        "word": "level!",
+        "start": 40.24,
+        "end": 40.68
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "And there are two hundred levels to conquer!",
+    "line_index": 8,
+    "start": 41.38,
+    "end": 44.04,
+    "duration": 2.66,
+    "matched": 6,
+    "words": [
+      {
+        "word": "And",
+        "start": 41.38,
+        "end": 41.78
+      },
+      {
+        "word": "there",
+        "start": 41.78,
+        "end": 41.94
+      },
+      {
+        "word": "are",
+        "start": 41.94,
+        "end": 42.06
+      },
+      {
+        "word": "two",
+        "start": 42.06,
+        "end": 42.43
+      },
+      {
+        "word": "hundred",
+        "start": 42.06,
+        "end": 42.8
+      },
+      {
+        "word": "levels",
+        "start": 42.8,
+        "end": 43.3
+      },
+      {
+        "word": "to",
+        "start": 43.3,
+        "end": 43.58
+      },
+      {
+        "word": "conquer!",
+        "start": 43.58,
+        "end": 44.04
+      }
+    ]
+  },
+  {
+    "index": 15,
+    "text": "Parents — this builds math fluency and logic together, in one puzzle!",
+    "line_index": 9,
+    "start": 45.82,
+    "end": 51.34,
+    "duration": 5.52,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Parents",
+        "start": 45.82,
+        "end": 46.34
+      },
+      {
+        "word": "this",
+        "start": 46.82,
+        "end": 47.08
+      },
+      {
+        "word": "builds",
+        "start": 47.08,
+        "end": 47.56
+      },
+      {
+        "word": "math",
+        "start": 47.56,
+        "end": 47.98
+      },
+      {
+        "word": "fluency",
+        "start": 47.98,
+        "end": 48.62
+      },
+      {
+        "word": "and",
+        "start": 48.62,
+        "end": 49.04
+      },
+      {
+        "word": "logic",
+        "start": 49.04,
+        "end": 49.42
+      },
+      {
+        "word": "together,",
+        "start": 49.42,
+        "end": 50.02
+      },
+      {
+        "word": "in",
+        "start": 50.02,
+        "end": 50.56
+      },
+      {
+        "word": "one",
+        "start": 50.56,
+        "end": 50.86
+      },
+      {
+        "word": "puzzle!",
+        "start": 50.86,
+        "end": 51.34
+      }
+    ]
+  },
+  {
+    "index": 16,
+    "text": "Find it in the app — tap Math Game Zone, pick Cross Math, choose your level, and play!",
+    "line_index": 10,
+    "start": 52.29,
+    "end": 58.9,
+    "duration": 6.61,
+    "matched": 17,
+    "words": [
+      {
+        "word": "Find",
+        "start": 52.29,
+        "end": 52.62
+      },
+      {
+        "word": "it",
+        "start": 52.62,
+        "end": 52.8
+      },
+      {
+        "word": "in",
+        "start": 52.8,
+        "end": 53.02
+      },
+      {
+        "word": "the",
+        "start": 53.02,
+        "end": 53.16
+      },
+      {
+        "word": "app",
+        "start": 53.16,
+        "end": 53.5
+      },
+      {
+        "word": "tap",
+        "start": 53.86,
+        "end": 54.14
+      },
+      {
+        "word": "Math",
+        "start": 54.14,
+        "end": 54.54
+      },
+      {
+        "word": "Game",
+        "start": 54.54,
+        "end": 54.84
+      },
+      {
+        "word": "Zone,",
+        "start": 54.84,
+        "end": 55.36
+      },
+      {
+        "word": "pick",
+        "start": 55.82,
+        "end": 55.98
+      },
+      {
+        "word": "Cross",
+        "start": 55.98,
+        "end": 56.34
+      },
+      {
+        "word": "Math,",
+        "start": 56.34,
+        "end": 56.74
+      },
+      {
+        "word": "choose",
+        "start": 57.24,
+        "end": 57.54
+      },
+      {
+        "word": "your",
+        "start": 57.54,
+        "end": 57.78
+      },
+      {
+        "word": "level,",
+        "start": 57.78,
+        "end": 58.1
+      },
+      {
+        "word": "and",
+        "start": 58.48,
+        "end": 58.56
+      },
+      {
+        "word": "play!",
+        "start": 58.56,
+        "end": 58.9
+      }
+    ]
+  },
+  {
+    "index": 17,
+    "text": "Abacus Kids — free on the App Store and Google Play!",
+    "line_index": 11,
+    "start": 60.35,
+    "end": 64.02,
+    "duration": 5.12,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Abacus",
+        "start": 60.35,
+        "end": 61.0
+      },
+      {
+        "word": "Kids",
+        "start": 60.82,
+        "end": 61.14
+      },
+      {
+        "word": "free",
+        "start": 61.74,
+        "end": 61.94
+      },
+      {
+        "word": "on",
+        "start": 61.94,
+        "end": 62.28
+      },
+      {
+        "word": "the",
+        "start": 62.28,
+        "end": 62.44
+      },
+      {
+        "word": "App",
+        "start": 62.44,
+        "end": 62.64
+      },
+      {
+        "word": "Store",
+        "start": 62.64,
+        "end": 62.96
+      },
+      {
+        "word": "and",
+        "start": 62.96,
+        "end": 63.36
+      },
+      {
+        "word": "Google",
+        "start": 63.36,
+        "end": 63.66
+      },
+      {
+        "word": "Play!",
+        "start": 63.66,
+        "end": 64.02
+      }
+    ]
+  }
+]

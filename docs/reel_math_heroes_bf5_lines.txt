@@ -1,0 +1,90 @@
+# Math Heroes · Big Friend 5 — recording script (9:16 short reel)
+# Lines starting with # are notes and are NOT read aloud. Everything else IS read aloud.
+#
+# THIS SHORT'S HOOK: NOT a crisis — a calm "check-up" speed drill (drill one/two/three/last drill).
+# A different KIND of episode from shorts 1-4, so it is not a 5th crisis in a row.
+#
+# FORMULA SPLIT (revision 9): MIXED, random add/subtract order. +7 is the one add formula no other
+# short teaches (NEW this set); −4, −8 and +2 are recall formulas (first taught in shorts 4, 3 and 1)
+# on BRAND NEW starting numbers.
+#
+#   Mission 1:  18 + 7   friend 3   -> 25
+#   Mission 2:  82 − 4   friend 6   -> 78
+#   Mission 3:  75 − 8   friend 2   -> 67
+#   Mission 4:  88 + 2   friend 8   -> 90
+
+# NARRATOR
+Remember our big friends? Two numbers that make ten together, like five and five.
+They help when the ones rod has no room to add, or not enough to take away!
+Time for a friendly speed drill!
+
+# BLAZE
+Drill one, eighteen plus seven!
+
+# SPARK
+No room to add seven. Friend time, same as always!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# SPARK
+Seven's friend is three!
+
+# BLAZE
+Take away three, then add ten!
+
+# BOTH
+Eighteen plus seven is twenty-five! Check!
+
+# SPARK
+Drill two, a take-away this time, eighty-two take away four!
+
+# BLAZE
+Not enough. Friend!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# BLAZE
+Four's friend is six!
+
+# SPARK
+Add six, then take away ten!
+
+# BOTH
+Eighty-two take away four is seventy-eight! Check!
+
+# BLAZE
+Drill three, take-away again, seventy-five take away eight!
+
+# SPARK
+Not enough. Friend, quick!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# SPARK
+Eight's friend is two!
+
+# BLAZE
+Add two, then take away ten!
+
+# BOTH
+Seventy-five take away eight is sixty-seven! Check!
+
+# SPARK
+Last drill, back to adding, eighty-eight plus two!
+
+# BLAZE
+Still no room. One more friend!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# BLAZE
+Two's friend is eight!
+
+# SPARK
+Take away eight, then add ten!
+
+# BOTH
+Eighty-eight plus two is ninety! Full check, no misses!
+
+# NARRATOR
+Drill complete, Blaze and Spark are ready for anything. Keep sharp with Abacus Kids — free on the App Store and Google Play!

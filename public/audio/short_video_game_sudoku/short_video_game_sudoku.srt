@@ -1,0 +1,47 @@
+1
+00:00:00,000 --> 00:00:01,620
+A grid full of numbers...
+
+2
+00:00:01,620 --> 00:00:05,200
+with a few missing — can you fill them in?
+
+3
+00:00:07,360 --> 00:00:08,460
+This is Sudoku!
+
+4
+00:00:09,280 --> 00:00:13,920
+Every row, column, and box needs the same numbers, no repeats!
+
+5
+00:00:15,300 --> 00:00:16,640
+One, two...
+
+6
+00:00:16,640 --> 00:00:21,880
+and four are here — so the missing box must be three!
+
+7
+00:00:22,800 --> 00:00:26,900
+Tap the cell, tap the number, and the row locks into place!
+
+8
+00:00:27,800 --> 00:00:32,900
+No repeats in any row, column, or box — that's the whole puzzle!
+
+9
+00:00:34,080 --> 00:00:39,300
+Parents — this builds logic and careful thinking — smart, not fast!
+
+10
+00:00:40,620 --> 00:00:41,960
+Ready to test your logic?
+
+11
+00:00:42,760 --> 00:00:47,920
+Tap Math Game Zone, dig into Sudoku, pick your level, and get solving!
+
+12
+00:00:49,040 --> 00:00:52,980
+Abacus Kids — it's free on the App Store and Google Play!

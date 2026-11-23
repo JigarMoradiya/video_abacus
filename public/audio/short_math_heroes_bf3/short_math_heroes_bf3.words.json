@@ -1,0 +1,1017 @@
+[
+  {
+    "word": "Here's",
+    "start": 0.0,
+    "end": 0.42
+  },
+  {
+    "word": "a",
+    "start": 0.42,
+    "end": 0.5
+  },
+  {
+    "word": "number",
+    "start": 0.5,
+    "end": 0.86
+  },
+  {
+    "word": "secret!",
+    "start": 0.86,
+    "end": 1.32
+  },
+  {
+    "word": "Big",
+    "start": 1.94,
+    "end": 2.2
+  },
+  {
+    "word": "friends",
+    "start": 2.2,
+    "end": 2.58
+  },
+  {
+    "word": "are",
+    "start": 2.58,
+    "end": 2.84
+  },
+  {
+    "word": "pairs",
+    "start": 2.84,
+    "end": 3.14
+  },
+  {
+    "word": "that",
+    "start": 3.14,
+    "end": 3.4
+  },
+  {
+    "word": "make",
+    "start": 3.4,
+    "end": 3.58
+  },
+  {
+    "word": "ten",
+    "start": 3.58,
+    "end": 3.96
+  },
+  {
+    "word": "together.",
+    "start": 3.96,
+    "end": 4.38
+  },
+  {
+    "word": "One",
+    "start": 5.06,
+    "end": 5.26
+  },
+  {
+    "word": "and",
+    "start": 5.26,
+    "end": 5.56
+  },
+  {
+    "word": "nine.",
+    "start": 5.56,
+    "end": 5.92
+  },
+  {
+    "word": "Two",
+    "start": 6.4,
+    "end": 6.68
+  },
+  {
+    "word": "and",
+    "start": 6.68,
+    "end": 6.98
+  },
+  {
+    "word": "eight.",
+    "start": 6.98,
+    "end": 7.3
+  },
+  {
+    "word": "Three",
+    "start": 7.8,
+    "end": 8.16
+  },
+  {
+    "word": "and",
+    "start": 8.16,
+    "end": 8.44
+  },
+  {
+    "word": "seven.",
+    "start": 8.44,
+    "end": 8.84
+  },
+  {
+    "word": "Four",
+    "start": 9.3,
+    "end": 9.68
+  },
+  {
+    "word": "and",
+    "start": 9.68,
+    "end": 9.94
+  },
+  {
+    "word": "six.",
+    "start": 9.94,
+    "end": 10.28
+  },
+  {
+    "word": "Five",
+    "start": 10.82,
+    "end": 11.16
+  },
+  {
+    "word": "and",
+    "start": 11.16,
+    "end": 11.48
+  },
+  {
+    "word": "five.",
+    "start": 11.48,
+    "end": 11.88
+  },
+  {
+    "word": "When",
+    "start": 12.38,
+    "end": 12.54
+  },
+  {
+    "word": "the",
+    "start": 12.54,
+    "end": 12.68
+  },
+  {
+    "word": "ones",
+    "start": 12.68,
+    "end": 12.96
+  },
+  {
+    "word": "rod",
+    "start": 12.96,
+    "end": 13.24
+  },
+  {
+    "word": "does",
+    "start": 13.24,
+    "end": 13.48
+  },
+  {
+    "word": "not",
+    "start": 13.48,
+    "end": 13.78
+  },
+  {
+    "word": "have",
+    "start": 13.78,
+    "end": 14.02
+  },
+  {
+    "word": "enough",
+    "start": 14.02,
+    "end": 14.22
+  },
+  {
+    "word": "beads",
+    "start": 14.22,
+    "end": 14.5
+  },
+  {
+    "word": "to",
+    "start": 14.5,
+    "end": 14.72
+  },
+  {
+    "word": "take",
+    "start": 14.72,
+    "end": 14.9
+  },
+  {
+    "word": "away,",
+    "start": 14.9,
+    "end": 15.2
+  },
+  {
+    "word": "a",
+    "start": 15.66,
+    "end": 15.82
+  },
+  {
+    "word": "big",
+    "start": 15.82,
+    "end": 16.1
+  },
+  {
+    "word": "friend",
+    "start": 16.1,
+    "end": 16.44
+  },
+  {
+    "word": "comes",
+    "start": 16.44,
+    "end": 16.72
+  },
+  {
+    "word": "to",
+    "start": 16.72,
+    "end": 16.92
+  },
+  {
+    "word": "help!",
+    "start": 16.92,
+    "end": 17.26
+  },
+  {
+    "word": "Alert",
+    "start": 17.72,
+    "end": 18.06
+  },
+  {
+    "word": "at",
+    "start": 18.06,
+    "end": 18.32
+  },
+  {
+    "word": "the",
+    "start": 18.32,
+    "end": 18.4
+  },
+  {
+    "word": "prize",
+    "start": 18.4,
+    "end": 18.78
+  },
+  {
+    "word": "wall!",
+    "start": 18.78,
+    "end": 19.08
+  },
+  {
+    "word": "Eighty-five",
+    "start": 19.52,
+    "end": 19.94
+  },
+  {
+    "word": "take",
+    "start": 19.94,
+    "end": 20.28
+  },
+  {
+    "word": "away",
+    "start": 20.28,
+    "end": 20.5
+  },
+  {
+    "word": "six",
+    "start": 20.5,
+    "end": 20.88
+  },
+  {
+    "word": "is",
+    "start": 20.88,
+    "end": 21.16
+  },
+  {
+    "word": "stuck!",
+    "start": 21.16,
+    "end": 21.52
+  },
+  {
+    "word": "There's",
+    "start": 22.08,
+    "end": 22.3
+  },
+  {
+    "word": "not",
+    "start": 22.3,
+    "end": 22.5
+  },
+  {
+    "word": "enough",
+    "start": 22.5,
+    "end": 22.78
+  },
+  {
+    "word": "to",
+    "start": 22.78,
+    "end": 22.94
+  },
+  {
+    "word": "take",
+    "start": 22.94,
+    "end": 23.14
+  },
+  {
+    "word": "away",
+    "start": 23.14,
+    "end": 23.34
+  },
+  {
+    "word": "six.",
+    "start": 23.34,
+    "end": 23.68
+  },
+  {
+    "word": "Let's",
+    "start": 24.1,
+    "end": 24.34
+  },
+  {
+    "word": "call",
+    "start": 24.34,
+    "end": 24.5
+  },
+  {
+    "word": "a",
+    "start": 24.5,
+    "end": 24.64
+  },
+  {
+    "word": "friend!",
+    "start": 24.64,
+    "end": 24.94
+  },
+  {
+    "word": "Six's",
+    "start": 27.94,
+    "end": 28.58
+  },
+  {
+    "word": "friend",
+    "start": 28.58,
+    "end": 28.84
+  },
+  {
+    "word": "is",
+    "start": 28.84,
+    "end": 29.12
+  },
+  {
+    "word": "four!",
+    "start": 29.12,
+    "end": 29.54
+  },
+  {
+    "word": "Add",
+    "start": 30.02,
+    "end": 30.34
+  },
+  {
+    "word": "four,",
+    "start": 30.34,
+    "end": 30.7
+  },
+  {
+    "word": "then",
+    "start": 30.96,
+    "end": 31.32
+  },
+  {
+    "word": "take",
+    "start": 31.32,
+    "end": 31.64
+  },
+  {
+    "word": "away",
+    "start": 31.64,
+    "end": 31.88
+  },
+  {
+    "word": "ten!",
+    "start": 31.88,
+    "end": 32.24
+  },
+  {
+    "word": "Eighty-five",
+    "start": 32.86,
+    "end": 33.3
+  },
+  {
+    "word": "take",
+    "start": 33.3,
+    "end": 33.68
+  },
+  {
+    "word": "away",
+    "start": 33.68,
+    "end": 33.94
+  },
+  {
+    "word": "six",
+    "start": 33.94,
+    "end": 34.28
+  },
+  {
+    "word": "is",
+    "start": 34.28,
+    "end": 34.6
+  },
+  {
+    "word": "seventy-nine!",
+    "start": 34.6,
+    "end": 35.26
+  },
+  {
+    "word": "Counter's",
+    "start": 35.72,
+    "end": 36.32
+  },
+  {
+    "word": "good!",
+    "start": 36.32,
+    "end": 36.62
+  },
+  {
+    "word": "Sixty",
+    "start": 37.24,
+    "end": 37.62
+  },
+  {
+    "word": "take",
+    "start": 37.62,
+    "end": 37.84
+  },
+  {
+    "word": "away",
+    "start": 37.84,
+    "end": 38.06
+  },
+  {
+    "word": "one",
+    "start": 38.06,
+    "end": 38.46
+  },
+  {
+    "word": "is",
+    "start": 38.46,
+    "end": 38.72
+  },
+  {
+    "word": "stuck!",
+    "start": 38.72,
+    "end": 39.08
+  },
+  {
+    "word": "There's",
+    "start": 39.64,
+    "end": 39.86
+  },
+  {
+    "word": "not",
+    "start": 39.86,
+    "end": 40.06
+  },
+  {
+    "word": "enough",
+    "start": 40.06,
+    "end": 40.34
+  },
+  {
+    "word": "to",
+    "start": 40.34,
+    "end": 40.5
+  },
+  {
+    "word": "take",
+    "start": 40.5,
+    "end": 40.7
+  },
+  {
+    "word": "away",
+    "start": 40.7,
+    "end": 40.92
+  },
+  {
+    "word": "one.",
+    "start": 40.92,
+    "end": 41.22
+  },
+  {
+    "word": "Friend,",
+    "start": 41.62,
+    "end": 41.9
+  },
+  {
+    "word": "Spark!",
+    "start": 42.18,
+    "end": 42.48
+  },
+  {
+    "word": "One's",
+    "start": 45.44,
+    "end": 46.08
+  },
+  {
+    "word": "friend",
+    "start": 46.08,
+    "end": 46.3
+  },
+  {
+    "word": "is",
+    "start": 46.3,
+    "end": 46.6
+  },
+  {
+    "word": "nine!",
+    "start": 46.6,
+    "end": 46.96
+  },
+  {
+    "word": "Add",
+    "start": 47.6,
+    "end": 47.82
+  },
+  {
+    "word": "nine,",
+    "start": 47.82,
+    "end": 48.2
+  },
+  {
+    "word": "then",
+    "start": 48.46,
+    "end": 48.74
+  },
+  {
+    "word": "take",
+    "start": 48.74,
+    "end": 49.06
+  },
+  {
+    "word": "away",
+    "start": 49.06,
+    "end": 49.3
+  },
+  {
+    "word": "ten!",
+    "start": 49.3,
+    "end": 49.68
+  },
+  {
+    "word": "Sixty",
+    "start": 50.22,
+    "end": 50.72
+  },
+  {
+    "word": "take",
+    "start": 50.72,
+    "end": 50.96
+  },
+  {
+    "word": "away",
+    "start": 50.96,
+    "end": 51.18
+  },
+  {
+    "word": "one",
+    "start": 51.18,
+    "end": 51.5
+  },
+  {
+    "word": "is",
+    "start": 51.5,
+    "end": 51.84
+  },
+  {
+    "word": "fifty-nine!",
+    "start": 51.84,
+    "end": 52.46
+  },
+  {
+    "word": "Ticket",
+    "start": 52.9,
+    "end": 53.2
+  },
+  {
+    "word": "wall's",
+    "start": 53.2,
+    "end": 53.42
+  },
+  {
+    "word": "steady!",
+    "start": 53.42,
+    "end": 53.88
+  },
+  {
+    "word": "Ninety-six",
+    "start": 54.46,
+    "end": 54.8
+  },
+  {
+    "word": "take",
+    "start": 54.8,
+    "end": 55.4
+  },
+  {
+    "word": "away",
+    "start": 55.4,
+    "end": 55.64
+  },
+  {
+    "word": "eight",
+    "start": 55.64,
+    "end": 55.98
+  },
+  {
+    "word": "is",
+    "start": 55.98,
+    "end": 56.24
+  },
+  {
+    "word": "stuck!",
+    "start": 56.24,
+    "end": 56.6
+  },
+  {
+    "word": "Not",
+    "start": 57.12,
+    "end": 57.4
+  },
+  {
+    "word": "enough",
+    "start": 57.4,
+    "end": 57.66
+  },
+  {
+    "word": "there.",
+    "start": 57.66,
+    "end": 57.96
+  },
+  {
+    "word": "One",
+    "start": 58.28,
+    "end": 58.48
+  },
+  {
+    "word": "more",
+    "start": 58.48,
+    "end": 58.66
+  },
+  {
+    "word": "friend!",
+    "start": 58.66,
+    "end": 59.04
+  },
+  {
+    "word": "Eight's",
+    "start": 61.74,
+    "end": 62.42
+  },
+  {
+    "word": "friend",
+    "start": 62.42,
+    "end": 62.62
+  },
+  {
+    "word": "is",
+    "start": 62.62,
+    "end": 62.88
+  },
+  {
+    "word": "two!",
+    "start": 62.88,
+    "end": 63.24
+  },
+  {
+    "word": "Add",
+    "start": 63.72,
+    "end": 64.0
+  },
+  {
+    "word": "two,",
+    "start": 64.0,
+    "end": 64.34
+  },
+  {
+    "word": "then",
+    "start": 64.6,
+    "end": 64.94
+  },
+  {
+    "word": "take",
+    "start": 64.94,
+    "end": 65.24
+  },
+  {
+    "word": "away",
+    "start": 65.24,
+    "end": 65.48
+  },
+  {
+    "word": "ten!",
+    "start": 65.48,
+    "end": 65.82
+  },
+  {
+    "word": "Ninety-six",
+    "start": 66.42,
+    "end": 66.92
+  },
+  {
+    "word": "take",
+    "start": 66.92,
+    "end": 67.32
+  },
+  {
+    "word": "away",
+    "start": 67.32,
+    "end": 67.58
+  },
+  {
+    "word": "eight",
+    "start": 67.58,
+    "end": 67.92
+  },
+  {
+    "word": "is",
+    "start": 67.92,
+    "end": 68.22
+  },
+  {
+    "word": "eighty-eight!",
+    "start": 68.22,
+    "end": 68.66
+  },
+  {
+    "word": "Hang",
+    "start": 69.12,
+    "end": 69.36
+  },
+  {
+    "word": "in",
+    "start": 69.36,
+    "end": 69.52
+  },
+  {
+    "word": "there!",
+    "start": 69.52,
+    "end": 69.8
+  },
+  {
+    "word": "Last",
+    "start": 70.3,
+    "end": 70.54
+  },
+  {
+    "word": "one!",
+    "start": 70.54,
+    "end": 70.86
+  },
+  {
+    "word": "Seventy-two",
+    "start": 71.32,
+    "end": 71.78
+  },
+  {
+    "word": "take",
+    "start": 71.78,
+    "end": 72.16
+  },
+  {
+    "word": "away",
+    "start": 72.16,
+    "end": 72.4
+  },
+  {
+    "word": "three",
+    "start": 72.4,
+    "end": 72.74
+  },
+  {
+    "word": "is",
+    "start": 72.74,
+    "end": 73.04
+  },
+  {
+    "word": "stuck!",
+    "start": 73.04,
+    "end": 73.4
+  },
+  {
+    "word": "Still",
+    "start": 73.94,
+    "end": 74.28
+  },
+  {
+    "word": "not",
+    "start": 74.28,
+    "end": 74.48
+  },
+  {
+    "word": "enough.",
+    "start": 74.48,
+    "end": 74.82
+  },
+  {
+    "word": "Final",
+    "start": 75.16,
+    "end": 75.46
+  },
+  {
+    "word": "friend!",
+    "start": 75.46,
+    "end": 75.86
+  },
+  {
+    "word": "Three's",
+    "start": 78.66,
+    "end": 79.34
+  },
+  {
+    "word": "friend",
+    "start": 79.34,
+    "end": 79.58
+  },
+  {
+    "word": "is",
+    "start": 79.58,
+    "end": 79.86
+  },
+  {
+    "word": "seven!",
+    "start": 79.86,
+    "end": 80.28
+  },
+  {
+    "word": "Add",
+    "start": 80.82,
+    "end": 81.08
+  },
+  {
+    "word": "seven,",
+    "start": 81.08,
+    "end": 81.5
+  },
+  {
+    "word": "then",
+    "start": 81.74,
+    "end": 82.06
+  },
+  {
+    "word": "take",
+    "start": 82.06,
+    "end": 82.36
+  },
+  {
+    "word": "away",
+    "start": 82.36,
+    "end": 82.62
+  },
+  {
+    "word": "ten!",
+    "start": 82.62,
+    "end": 82.98
+  },
+  {
+    "word": "Seventy-two",
+    "start": 83.54,
+    "end": 83.94
+  },
+  {
+    "word": "take",
+    "start": 83.94,
+    "end": 84.48
+  },
+  {
+    "word": "away",
+    "start": 84.48,
+    "end": 84.74
+  },
+  {
+    "word": "three",
+    "start": 84.74,
+    "end": 85.06
+  },
+  {
+    "word": "is",
+    "start": 85.06,
+    "end": 85.42
+  },
+  {
+    "word": "sixty-nine!",
+    "start": 85.42,
+    "end": 86.08
+  },
+  {
+    "word": "Prize",
+    "start": 86.48,
+    "end": 86.8
+  },
+  {
+    "word": "wall's",
+    "start": 86.8,
+    "end": 87.08
+  },
+  {
+    "word": "open,",
+    "start": 87.08,
+    "end": 87.54
+  },
+  {
+    "word": "jackpot!",
+    "start": 87.96,
+    "end": 88.38
+  },
+  {
+    "word": "Every",
+    "start": 88.92,
+    "end": 89.24
+  },
+  {
+    "word": "stuck",
+    "start": 89.24,
+    "end": 89.52
+  },
+  {
+    "word": "number",
+    "start": 89.52,
+    "end": 89.88
+  },
+  {
+    "word": "has",
+    "start": 89.88,
+    "end": 90.18
+  },
+  {
+    "word": "a",
+    "start": 90.18,
+    "end": 90.32
+  },
+  {
+    "word": "trick.",
+    "start": 90.32,
+    "end": 90.54
+  },
+  {
+    "word": "Learn",
+    "start": 91.02,
+    "end": 91.16
+  },
+  {
+    "word": "them",
+    "start": 91.16,
+    "end": 91.34
+  },
+  {
+    "word": "all",
+    "start": 91.34,
+    "end": 91.6
+  },
+  {
+    "word": "with",
+    "start": 91.6,
+    "end": 91.8
+  },
+  {
+    "word": "Abacus",
+    "start": 91.8,
+    "end": 92.28
+  },
+  {
+    "word": "Kids",
+    "start": 92.28,
+    "end": 92.52
+  },
+  {
+    "word": "free",
+    "start": 92.92,
+    "end": 93.22
+  },
+  {
+    "word": "on",
+    "start": 93.22,
+    "end": 93.44
+  },
+  {
+    "word": "the",
+    "start": 93.44,
+    "end": 93.56
+  },
+  {
+    "word": "App",
+    "start": 93.56,
+    "end": 93.82
+  },
+  {
+    "word": "Store",
+    "start": 93.82,
+    "end": 94.06
+  },
+  {
+    "word": "and",
+    "start": 94.06,
+    "end": 94.32
+  },
+  {
+    "word": "Google",
+    "start": 94.32,
+    "end": 94.56
+  },
+  {
+    "word": "Play!",
+    "start": 94.56,
+    "end": 94.9
+  }
+]

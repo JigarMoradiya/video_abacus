@@ -1,0 +1,35 @@
+[reading note: every "[pause N seconds]" below is a REAL held silence — count it out at full length before continuing, do not rush past it.]
+
+[bright] Do you know a big friend? It's a pair of numbers that make ten!
+[excited] Six and four. Seven and three. Eight and two. Nine and one. Five and five!
+[encouraging] When the ones rod is too full to add, a big friend lets us use the tens rod!
+
+[urgent] Alert, the closing bell is near! Twenty-six plus nine is stuck!
+[encouraging] There's no room to add nine. Call the friend, Spark!
+[pause 3 seconds]
+[excited] Nine's friend is one!
+[emphasis] Take away one, then add ten!
+[triumphant] Twenty-six plus nine is thirty-five! Scoreboard's back!
+
+[worried] Another one! Sixty-five plus five is stuck!
+[encouraging] There's no room to add five. Friend, quick!
+[pause 3 seconds]
+[excited] Five's friend is five!
+[emphasis] Take away five, then add ten!
+[triumphant] Sixty-five plus five is seventy! Keep it moving!
+
+[urgent] Sixty-seven plus eight is stuck!
+[encouraging] There's no room to add eight. Friend time!
+[pause 3 seconds]
+[excited] Eight's friend is two!
+[emphasis] Take away two, then add ten!
+[triumphant] Sixty-seven plus eight is seventy-five! Almost there!
+
+[tense] Last one before the bell! Seventy-nine plus six is stuck!
+[encouraging] There's no room to add six. One more friend!
+[pause 3 seconds]
+[excited] Six's friend is four!
+[emphasis] Take away four, then add ten!
+[triumphant] Seventy-nine plus six is eighty-five! Bell's ringing, we made it!
+
+[cheerful] Every stuck number has a trick. Learn them all with Abacus Kids — free on the App Store and Google Play!

@@ -1,0 +1,200 @@
+# E08 · All four small friends — narration, one continuous take.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+#
+# E07's take ends "Next time, we will learn all four small friends for adding." This pays it.
+#
+# ═══ READ THIS BEFORE RECORDING — the voice of this episode ═══
+#
+# TEACH, DO NOT READ. The first draft of this script was correct and lifeless: eighty-seven
+# statements in a row, every one delivered at the same pitch. A real teacher does four things a
+# narrator never does, and all four are built into the lines below:
+#
+#   1. ASKS, then WAITS. Every ⏸ is a real silence. Do not fill it. The child is answering.
+#      Then say their answer back to them as if you heard it — "Four. Well done!"
+#   2. REACTS. "Oh no. Zero?" is not information, it is a face. Play the worry, then the rescue.
+#   3. TALKS TO ONE CHILD. "You tell me", "your abacus", "you are getting fast at this."
+#      Never "we can observe that". One child, sitting next to you.
+#   4. CHANGES SPEED. Slow and careful on a new rule. Quick and light on "Done!" and "Friends!"
+#      A flat pace is what made the first draft sound like a manual.
+#
+# The ⏸ marks are part of the script. There are eight. If they are read through, the episode
+# becomes a lecture again no matter how warmly the lines are said.
+#
+# ═══ CONTENT ═══
+#
+# What is actually new here is not "three more formulas" — E07 taught the trick but never taught
+# WHEN to use it. A child who takes E07 literally will use the friend on two plus two. So the
+# spine is the TRIGGER (section 3: look at the lower beads first) and the friends hang off it.
+#
+# ONE ROD ONLY, same as E07. Every result stays under ten, so nothing touches the tens rod.
+# THE ORDER RULE FROM E06 STILL HOLDS: lower beads move first, then the upper bead.
+#
+# The worked sums, every one checked digit by digit:
+#   2 + 2 = 4   DIRECT — the contrast case, no trick, this is the point of section 3
+#   4 + 1 = 5   friend 4   take away four, then five     WE SHOW
+#   4 + 2 = 6   friend 3   take away three, then five    WE SHOW
+#   3 + 4 = 7   friend 1   take away one, then five      WE SHOW
+#   2 + 3 = 5   friend 2   take away two, then five      THEY DO
+#
+# ALL FOUR FORMULAS ARE COVERED, and +3 is the one the child does alone. That is deliberate and it
+# is the right way round: +3 is the formula E07 already taught, so the your-turn asks them to use
+# something they OWN rather than something they watched once four lines ago.
+#
+# NOTATION: `+n = −(5−n) +5` — FRIEND FIRST, then five. This is a correction from the first draft,
+# which wrote it `+n = +5 − (5−n)` and then said "add five, take away four" in the four-tricks
+# recap — five-first in speech and in symbols, while every worked example in sections 4-8 said
+# "take away four, and add five" — friend-first, matching the bead order (lower beads move first,
+# then the upper bead, per E06's rule). Two different orders for one idea in the same script is
+# exactly the kind of inconsistency that makes a formula feel arbitrary instead of learnable.
+# FRIEND FIRST IS WHAT THE HANDS ACTUALLY DO, so it is what BOTH the speech and the symbols say
+# from here on — in this script, and in the card/board text that renders it.
+
+
+# --- 1 · RECAP HOOK ---
+Hello again!
+Last time, we got stuck.
+Do you remember what saved us?
+# ⏸ hold 2s — let them answer
+The trick!
+Take away a friend, and add five.
+Today we learn all four.
+Ready? Let us go.
+
+
+# --- 2 · MEET THE FRIENDS ---
+First, meet the friends.
+Every small number has one.
+Two friends that make five together.
+Look. One and four.
+One and four make five.
+So they are friends.
+And two and three.
+Two and three make five as well.
+Friends!
+And that is all of them. Just two pairs.
+Now you tell me.
+Who is one's friend?
+# ⏸ hold 2s
+Four. Well done!
+And two's friend?
+# ⏸ hold 2s
+Three. You have got it.
+So three's friend is two.
+And four's friend is one.
+
+# The four formulas. Line 4 of these is DELIBERATELY handed to the child — a teacher stops
+# reciting the moment the pattern is guessable, and lets them finish it.
+Now watch what the friends do for us.
+To add one, take away four and add five.
+To add two, take away three and add five.
+To add three, take away two and add five.
+Now you guess the last one.
+# ⏸ hold 3s — the biggest pause in the episode
+To add four, take away one and add five.
+Did you spot it?
+The number we take away is always the friend.
+Every single time.
+
+
+# --- 3 · WHEN DO WE NEED IT? ---
+Now, careful here. This part is important.
+We do not always need a trick.
+Always look at the lower beads first.
+If there are enough, just push them up.
+Watch. Two plus two.
+Push two lower beads up.
+Now push two more.
+Done!
+That was easy. No trick at all.
+But now try four plus one.
+Push all four lower beads up.
+We want just one more.
+Have a look. Is there a bead left?
+# ⏸ hold 2s
+No. Not one.
+And that is when we call a friend.
+
+
+# --- 4 · ADD ONE ---
+So. One's friend is four.
+That means take away four, and add five.
+Remember our rule. Lower beads move first.
+So down they come. All four of them.
+Now the rod shows zero.
+Oh no. Zero?
+Do not worry. Watch this.
+Push the upper bead down.
+And there it is. Five!
+Four plus one is five.
+We wanted one more, and we got it.
+
+
+# --- 5 · ADD TWO ---
+Your turn to think. Four plus two.
+Clear the rod, and make four again.
+Now, who is two's friend?
+# ⏸ hold 2s
+Three!
+So take away three, and add five.
+Down go three lower beads.
+The rod shows one.
+Now bring the upper bead down.
+Six! Four plus two is six.
+
+
+# --- 6 · ADD FOUR ---
+One more. Three plus four.
+Clear the rod.
+Push three lower beads up.
+Now we add four.
+And four's friend is...
+# ⏸ hold 2s
+One!
+So take away one bead.
+The rod shows two.
+Bring the upper bead down.
+Seven! Three plus four is seven.
+You are getting fast at this.
+
+# --- THE LIKE ASK — MID-ROLL, NOT AT THE END ---
+# It sat at 94-96% in every episode from E02 to E07. Two things wrong with that: it is the same
+# place every single time, and it is the place where the fewest people are still watching.
+# Here it lands on the praise beat, right after the child's third win — which is what the rule
+# always MEANT by "while the viewer is feeling good". Keep it to two lines and keep it quick;
+# a long ask in the middle costs more momentum than it earns.
+Enjoying this?
+Give this video a like, and subscribe for more.
+
+
+# --- 7 · THE PATTERN ---
+Now stop and look.
+Did you see it?
+Every single time, we did the same two things.
+Take away the friend.
+Then bring the upper bead down.
+That is all.
+The friend changes.
+But the five never does.
+
+
+# --- 8 · YOUR TURN ---
+Now it is your turn. All on your own.
+Make two on your abacus.
+Then add three.
+Think. What is three's friend?
+Take it away, then bring the upper bead down.
+What number is showing now?
+# ⏸ hold 3s — the recall gap, same as E07
+Two plus three is five.
+Did you get it? Well done!
+That was the fourth friend, and you did it by yourself.
+
+
+# --- 9 · CLOSE ---
+So now you know all four small friends for adding.
+That is a real abacus formula, and it is yours.
+Try them at home on your own abacus.
+Search for abacus kids on the Apple App Store or Google Play.
+Download it free.
+Next time, we will learn the small friends for taking away.
+See you next time!

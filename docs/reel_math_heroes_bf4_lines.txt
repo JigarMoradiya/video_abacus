@@ -1,0 +1,91 @@
+# Math Heroes · Big Friend 4 — recording script (9:16 short reel)
+# Lines starting with # are notes and are NOT read aloud. Everything else IS read aloud.
+#
+# THIS SHORT'S HOOK: A storm is rolling in and a stuck number blocks the rescue chopper. Highest
+# urgency of the set. Alert/celebration lines carry the setting; every math line is plain wording
+# ("stuck" / "not enough to take away" / "add ___, then take away ten").
+#
+# FORMULA SPLIT (revision 9): BIG FRIEND TAKING AWAY, the other random half: −2, −4, −7, −9 (mix of
+# small and big numbers). Short 3 has −1, −3, −6, −8; −5 is in short 6. Friend-first: −n = +friend − 10.
+#
+#   Mission 1:  37 − 9   friend 1   -> 28
+#   Mission 2:  23 − 4   friend 6   -> 19
+#   Mission 3:  36 − 7   friend 3   -> 29
+#   Mission 4:  41 − 2   friend 8   -> 39
+
+# BLAZE
+Big friends make ten together! Six and four. Seven and three. Eight and two. Nine and one. Five and five!
+
+# SPARK
+If the ones rod can't take away enough, we ask a big friend to help through the tens rod!
+
+# SPARK
+Alert, a storm is coming! Thirty-seven take away nine is stuck!
+
+# BLAZE
+There's not enough to take away nine. Call the friend!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# BLAZE
+Nine's friend is one!
+
+# SPARK
+Add one, then take away ten!
+
+# BOTH
+Thirty-seven take away nine is twenty-eight! Chopper's free!
+
+# BLAZE
+Twenty-three take away four is stuck!
+
+# SPARK
+Not enough. Friend, fast!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# SPARK
+Four's friend is six!
+
+# BLAZE
+Add six, then take away ten!
+
+# BOTH
+Twenty-three take away four is nineteen! Keep climbing!
+
+# SPARK
+Thirty-six take away seven is stuck!
+
+# BLAZE
+Still not enough. One more friend!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# BLAZE
+Seven's friend is three!
+
+# SPARK
+Add three, then take away ten!
+
+# BOTH
+Thirty-six take away seven is twenty-nine! Almost through the storm!
+
+# BLAZE
+Last one before we land! Forty-one take away two is stuck!
+
+# SPARK
+Still not enough. Final friend!
+
+# hold silent ~3s here for the mission-timer countdown (3, 2, 1) — nothing spoken
+
+# SPARK
+Two's friend is eight!
+
+# BLAZE
+Add eight, then take away ten!
+
+# BOTH
+Forty-one take away two is thirty-nine! We landed, everyone's safe!
+
+# NARRATOR
+Every stuck number has a trick. Learn them all with Abacus Kids — free on the App Store and Google Play!

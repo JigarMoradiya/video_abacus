@@ -1,0 +1,624 @@
+[
+  {
+    "index": 0,
+    "text": "A crossword of numbers...",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 1.52,
+    "duration": 1.52,
+    "matched": 4,
+    "words": [
+      {
+        "word": "A",
+        "start": 0.0,
+        "end": 0.18
+      },
+      {
+        "word": "crossword",
+        "start": 0.18,
+        "end": 0.82
+      },
+      {
+        "word": "of",
+        "start": 0.82,
+        "end": 1.1
+      },
+      {
+        "word": "numbers...",
+        "start": 1.1,
+        "end": 1.52
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "but every clue is a sum, not a word!",
+    "line_index": 0,
+    "start": 2.233107,
+    "end": 5.4,
+    "duration": 3.36,
+    "matched": 9,
+    "words": [
+      {
+        "word": "but",
+        "start": 2.233107,
+        "end": 2.38
+      },
+      {
+        "word": "every",
+        "start": 2.38,
+        "end": 2.84
+      },
+      {
+        "word": "clue",
+        "start": 2.84,
+        "end": 3.16
+      },
+      {
+        "word": "is",
+        "start": 3.16,
+        "end": 3.64
+      },
+      {
+        "word": "a",
+        "start": 3.64,
+        "end": 3.76
+      },
+      {
+        "word": "sum,",
+        "start": 3.76,
+        "end": 4.2
+      },
+      {
+        "word": "not",
+        "start": 4.555442,
+        "end": 4.8
+      },
+      {
+        "word": "a",
+        "start": 4.8,
+        "end": 5.02
+      },
+      {
+        "word": "word!",
+        "start": 5.02,
+        "end": 5.4
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "This is Kakuro!",
+    "line_index": 1,
+    "start": 7.22,
+    "end": 8.12,
+    "duration": 0.9,
+    "matched": 3,
+    "words": [
+      {
+        "word": "This",
+        "start": 7.22,
+        "end": 7.38
+      },
+      {
+        "word": "is",
+        "start": 7.38,
+        "end": 7.6
+      },
+      {
+        "word": "Kakuro!",
+        "start": 7.6,
+        "end": 8.12
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "Fill the blanks so each run adds up to its clue!",
+    "line_index": 1,
+    "start": 9.06,
+    "end": 12.7,
+    "duration": 3.64,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Fill",
+        "start": 9.06,
+        "end": 9.2
+      },
+      {
+        "word": "the",
+        "start": 9.2,
+        "end": 9.44
+      },
+      {
+        "word": "blanks",
+        "start": 9.44,
+        "end": 10.06
+      },
+      {
+        "word": "so",
+        "start": 10.297891,
+        "end": 10.46
+      },
+      {
+        "word": "each",
+        "start": 10.46,
+        "end": 10.8
+      },
+      {
+        "word": "run",
+        "start": 10.8,
+        "end": 11.16
+      },
+      {
+        "word": "adds",
+        "start": 11.16,
+        "end": 11.74
+      },
+      {
+        "word": "up",
+        "start": 11.74,
+        "end": 11.94
+      },
+      {
+        "word": "to",
+        "start": 12.102925,
+        "end": 12.2
+      },
+      {
+        "word": "its",
+        "start": 12.2,
+        "end": 12.36
+      },
+      {
+        "word": "clue!",
+        "start": 12.36,
+        "end": 12.7
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Down says nine...",
+    "line_index": 2,
+    "start": 14.2,
+    "end": 15.38,
+    "duration": 1.18,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Down",
+        "start": 14.2,
+        "end": 14.44
+      },
+      {
+        "word": "says",
+        "start": 14.44,
+        "end": 14.8
+      },
+      {
+        "word": "nine...",
+        "start": 14.8,
+        "end": 15.38
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "three plus six makes nine!",
+    "line_index": 2,
+    "start": 16.18,
+    "end": 18.2,
+    "duration": 2.02,
+    "matched": 5,
+    "words": [
+      {
+        "word": "three",
+        "start": 16.18,
+        "end": 16.38
+      },
+      {
+        "word": "plus",
+        "start": 16.38,
+        "end": 16.64
+      },
+      {
+        "word": "six",
+        "start": 16.64,
+        "end": 17.04
+      },
+      {
+        "word": "makes",
+        "start": 17.04,
+        "end": 17.5
+      },
+      {
+        "word": "nine!",
+        "start": 17.5,
+        "end": 18.2
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Across says twelve...",
+    "line_index": 3,
+    "start": 18.2,
+    "end": 21.28,
+    "duration": 3.08,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Across",
+        "start": 18.2,
+        "end": 20.08
+      },
+      {
+        "word": "says",
+        "start": 20.08,
+        "end": 20.6
+      },
+      {
+        "word": "twelve...",
+        "start": 20.6,
+        "end": 21.28
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "three plus nine makes twelve \u2014 both runs solved!",
+    "line_index": 3,
+    "start": 22.036349,
+    "end": 26.04,
+    "duration": 4.12,
+    "matched": 8,
+    "words": [
+      {
+        "word": "three",
+        "start": 22.036349,
+        "end": 22.22
+      },
+      {
+        "word": "plus",
+        "start": 22.22,
+        "end": 22.5
+      },
+      {
+        "word": "nine",
+        "start": 22.5,
+        "end": 23.02
+      },
+      {
+        "word": "makes",
+        "start": 23.02,
+        "end": 23.4
+      },
+      {
+        "word": "twelve",
+        "start": 23.4,
+        "end": 23.88
+      },
+      {
+        "word": "both",
+        "start": 24.66,
+        "end": 24.84
+      },
+      {
+        "word": "runs",
+        "start": 24.84,
+        "end": 25.32
+      },
+      {
+        "word": "solved!",
+        "start": 25.32,
+        "end": 26.04
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "No repeats in a run \u2014 every number from one to nine, used just once!",
+    "line_index": 4,
+    "start": 27.47746,
+    "end": 33.42,
+    "duration": 6.54,
+    "matched": 14,
+    "words": [
+      {
+        "word": "No",
+        "start": 27.47746,
+        "end": 27.68
+      },
+      {
+        "word": "repeats",
+        "start": 27.68,
+        "end": 28.06
+      },
+      {
+        "word": "in",
+        "start": 28.06,
+        "end": 28.44
+      },
+      {
+        "word": "a",
+        "start": 28.44,
+        "end": 28.56
+      },
+      {
+        "word": "run",
+        "start": 28.56,
+        "end": 28.78
+      },
+      {
+        "word": "every",
+        "start": 29.5,
+        "end": 29.76
+      },
+      {
+        "word": "number",
+        "start": 29.76,
+        "end": 30.2
+      },
+      {
+        "word": "from",
+        "start": 30.2,
+        "end": 30.46
+      },
+      {
+        "word": "one",
+        "start": 30.46,
+        "end": 30.76
+      },
+      {
+        "word": "to",
+        "start": 30.76,
+        "end": 30.98
+      },
+      {
+        "word": "nine,",
+        "start": 30.98,
+        "end": 31.34
+      },
+      {
+        "word": "used",
+        "start": 31.34,
+        "end": 32.06
+      },
+      {
+        "word": "just",
+        "start": 32.06,
+        "end": 32.76
+      },
+      {
+        "word": "once!",
+        "start": 32.76,
+        "end": 33.42
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Parents \u2014 this builds sum decomposition, seeing numbers as parts of a whole!",
+    "line_index": 5,
+    "start": 34.918095,
+    "end": 41.04,
+    "duration": 6.26,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Parents",
+        "start": 34.918095,
+        "end": 35.22
+      },
+      {
+        "word": "this",
+        "start": 35.783515,
+        "end": 36.06
+      },
+      {
+        "word": "builds",
+        "start": 36.06,
+        "end": 36.5
+      },
+      {
+        "word": "sum",
+        "start": 36.5,
+        "end": 37.06
+      },
+      {
+        "word": "decomposition,",
+        "start": 37.06,
+        "end": 37.9
+      },
+      {
+        "word": "seeing",
+        "start": 38.82,
+        "end": 38.96
+      },
+      {
+        "word": "numbers",
+        "start": 38.96,
+        "end": 39.42
+      },
+      {
+        "word": "as",
+        "start": 39.42,
+        "end": 39.86
+      },
+      {
+        "word": "parts",
+        "start": 39.86,
+        "end": 40.12
+      },
+      {
+        "word": "of",
+        "start": 40.12,
+        "end": 40.44
+      },
+      {
+        "word": "a",
+        "start": 40.44,
+        "end": 40.56
+      },
+      {
+        "word": "whole!",
+        "start": 40.56,
+        "end": 41.04
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Tap Math Game Zone, take on Kakuro, pick your level, and start summing!",
+    "line_index": 6,
+    "start": 42.729138,
+    "end": 48.2,
+    "duration": 5.68,
+    "matched": 13,
+    "words": [
+      {
+        "word": "Tap",
+        "start": 42.729138,
+        "end": 42.9
+      },
+      {
+        "word": "Math",
+        "start": 42.9,
+        "end": 43.26
+      },
+      {
+        "word": "Game",
+        "start": 43.26,
+        "end": 43.58
+      },
+      {
+        "word": "Zone,",
+        "start": 43.58,
+        "end": 43.98
+      },
+      {
+        "word": "take",
+        "start": 44.68,
+        "end": 44.84
+      },
+      {
+        "word": "on",
+        "start": 44.84,
+        "end": 45.06
+      },
+      {
+        "word": "Kakuro,",
+        "start": 45.06,
+        "end": 45.54
+      },
+      {
+        "word": "pick",
+        "start": 46.233787,
+        "end": 46.32
+      },
+      {
+        "word": "your",
+        "start": 46.32,
+        "end": 46.54
+      },
+      {
+        "word": "level,",
+        "start": 46.54,
+        "end": 46.84
+      },
+      {
+        "word": "and",
+        "start": 46.84,
+        "end": 47.28
+      },
+      {
+        "word": "start",
+        "start": 47.28,
+        "end": 47.68
+      },
+      {
+        "word": "summing!",
+        "start": 47.68,
+        "end": 48.2
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "Abacus Kids \u2014 always free to try, on the App Store and Google Play!",
+    "line_index": 7,
+    "start": 49.550748,
+    "end": 54.7,
+    "duration": 5.3,
+    "matched": 13,
+    "words": [
+      {
+        "word": "Abacus",
+        "start": 49.550748,
+        "end": 50.0
+      },
+      {
+        "word": "Kids",
+        "start": 50.0,
+        "end": 50.3
+      },
+      {
+        "word": "always",
+        "start": 51.067279,
+        "end": 51.36
+      },
+      {
+        "word": "free",
+        "start": 51.36,
+        "end": 51.78
+      },
+      {
+        "word": "to",
+        "start": 51.78,
+        "end": 51.98
+      },
+      {
+        "word": "try,",
+        "start": 51.98,
+        "end": 52.44
+      },
+      {
+        "word": "on",
+        "start": 52.44,
+        "end": 52.98
+      },
+      {
+        "word": "the",
+        "start": 52.98,
+        "end": 53.18
+      },
+      {
+        "word": "App",
+        "start": 53.18,
+        "end": 53.38
+      },
+      {
+        "word": "Store",
+        "start": 53.38,
+        "end": 53.66
+      },
+      {
+        "word": "and",
+        "start": 53.66,
+        "end": 54.08
+      },
+      {
+        "word": "Google",
+        "start": 54.08,
+        "end": 54.34
+      },
+      {
+        "word": "Play!",
+        "start": 54.34,
+        "end": 54.7
+      }
+    ]
+  }
+]

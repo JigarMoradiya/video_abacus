@@ -1231,11 +1231,11 @@
   },
   {
     "index": 30,
-    "text": "So instead of adding three we add five and take away two.",
+    "text": "So instead of adding three we take away two and add five.",
     "line_index": 30,
     "start": 82.5,
-    "end": 87.22,
-    "duration": 4.72,
+    "end": 86.95,
+    "duration": 4.45,
     "matched": 12,
     "words": [
       {
@@ -1269,80 +1269,90 @@
         "end": 85.2
       },
       {
-        "word": "add",
-        "start": 85.2,
-        "end": 85.44
-      },
-      {
-        "word": "five",
-        "start": 85.44,
-        "end": 85.88
-      },
-      {
-        "word": "and",
-        "start": 85.88,
-        "end": 86.32
-      },
-      {
         "word": "take",
-        "start": 86.32,
-        "end": 86.62
+        "start": 85.31,
+        "end": 85.445
       },
       {
         "word": "away",
-        "start": 86.62,
-        "end": 86.86
+        "start": 85.515,
+        "end": 85.765
       },
       {
-        "word": "two.",
-        "start": 86.86,
-        "end": 87.22
+        "word": "two",
+        "start": 85.875,
+        "end": 86.065
+      },
+      {
+        "word": "and",
+        "start": 86.12,
+        "end": 86.26
+      },
+      {
+        "word": "add",
+        "start": 86.333,
+        "end": 86.523
+      },
+      {
+        "word": "five.",
+        "start": 86.598,
+        "end": 86.923
       }
     ]
   },
   {
     "index": 31,
-    "text": "Because five take away two is three.",
+    "text": "Because take away two and add five is three.",
     "line_index": 31,
-    "start": 87.96,
-    "end": 90.44,
-    "duration": 2.48,
-    "matched": 7,
+    "start": 87.3,
+    "end": 90.6,
+    "duration": 3.3,
+    "matched": 9,
     "words": [
       {
         "word": "Because",
-        "start": 87.96,
-        "end": 88.48
-      },
-      {
-        "word": "five",
-        "start": 88.48,
-        "end": 88.88
+        "start": 87.528,
+        "end": 87.933
       },
       {
         "word": "take",
-        "start": 88.88,
-        "end": 89.24
+        "start": 88.063,
+        "end": 88.198
       },
       {
         "word": "away",
-        "start": 89.24,
-        "end": 89.5
+        "start": 88.268,
+        "end": 88.518
       },
       {
         "word": "two",
-        "start": 89.5,
-        "end": 89.8
+        "start": 88.628,
+        "end": 88.818
+      },
+      {
+        "word": "and",
+        "start": 88.873,
+        "end": 89.013
+      },
+      {
+        "word": "add",
+        "start": 89.086,
+        "end": 89.276
+      },
+      {
+        "word": "five",
+        "start": 89.476,
+        "end": 89.811
       },
       {
         "word": "is",
-        "start": 89.8,
-        "end": 90.08
+        "start": 89.956,
+        "end": 90.126
       },
       {
         "word": "three.",
-        "start": 90.08,
-        "end": 90.44
+        "start": 90.226,
+        "end": 90.571
       }
     ]
   },

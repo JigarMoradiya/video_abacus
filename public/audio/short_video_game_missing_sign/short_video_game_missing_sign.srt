@@ -1,0 +1,47 @@
+1
+00:00:00,000 --> 00:00:01,360
+An equation pops up...
+
+2
+00:00:02,140 --> 00:00:03,560
+one sign is missing!
+
+3
+00:00:05,380 --> 00:00:07,600
+This is Missing Sign!
+
+4
+00:00:08,120 --> 00:00:10,620
+Pick the operator that makes the equation true!
+
+5
+00:00:12,180 --> 00:00:17,620
+Twelve, question mark, three, equals four — that's divide!
+
+6
+00:00:18,480 --> 00:00:21,340
+Twelve divided by three is four!
+
+7
+00:00:22,820 --> 00:00:28,220
+Nine, question mark, two, equals eleven — that's plus!
+
+8
+00:00:28,220 --> 00:00:31,160
+Nine plus two is eleven!
+
+9
+00:00:31,720 --> 00:00:37,000
+Get it right, the sign locks in, and a new equation pops up fast!
+
+10
+00:00:37,800 --> 00:00:43,880
+Parents — this builds real operation sense, so kids see how the four operations connect!
+
+11
+00:00:44,800 --> 00:00:51,280
+Find it in the app — tap Math Game Zone, pick Missing Sign, choose your level, and play!
+
+12
+00:00:51,280 --> 00:00:55,600
+Abacus Kids — free on the App Store and Google Play!

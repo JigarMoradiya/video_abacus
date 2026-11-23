@@ -1,0 +1,154 @@
+# E13 · Big friend taking away — narration, one continuous take.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+# The expression-tagged recording version is docs/E13_lines_expressive.txt.
+#
+# E12 ends "Next time, we will learn the big friends for taking away." This pays it.
+# "TAKING AWAY" throughout — never "subtraction" or "negative" (series convention, E05/E09).
+#
+# ═══ BEAD ORDER — THE ONE THING TO CONFIRM BEFORE RECORDING ═══
+#   FRIEND FIRST, on the ONES rod, then ONE bead off the TENS rod.
+#     −n = +friend − 10        e.g.  −1 = +9 − 10
+#   This matches: the user's rule ("always first move on the ones rod, bottom beads first"),
+#   E11/E12's corrected adding order (+1 = −9 + 10, ones rod first), and Small Friend taking
+#   away (−1 = +4 − 5, friend first). On the ones rod: lower beads before the upper bead.
+#   The abacus briefly shows a bigger number mid-move (10 → 19 → 9), exactly as Small Friend
+#   taking away does (5 → 9 → 4). The narration does NOT call that middle number out.
+#   NOTE: reference_abacus_formulas still says "borrow from tens, add 9" — the same wording the
+#   adding table had before the user corrected it. Fix that note once the order is confirmed.
+#
+# ═══ CONTENT ═══
+#   Only TAKING AWAY. Nine formulas, −1 … −9 — never "all five".
+#   Every worked example is a PURE big friend (adding the friend needs no small friend).
+#
+#   18 − 5 = 13   DIRECT — ones rod has enough, no trick (section 2)
+#   10 − 1 = 9    friend 9   THE WALL, worked in full          WE SHOW
+#   12 − 3 = 9    friend 7   ones rod not empty, still stuck   WE SHOW
+#   11 − 7 = 4    friend 3   taking away a BIG number (−6…−9)  WE SHOW
+#   13 − 9 = 4    friend 1   your turn                         THEY DO
+#
+#   Questions never show their answer on screen: formula strip and sum total appear on the
+#   ANSWER line, not during "who is …'s friend?" or "what number is showing now?".
+#
+# ⏸ marks are real silences — the child is answering.
+
+
+# --- 1 · RECAP HOOK ---
+Hello again!
+Last time, we learned big friend adding.
+Do you remember the trick?
+# ⏸ hold 2s
+Take away the friend, then carry to the tens rod.
+This video is all about big friend taking away.
+Same friends. Same idea. Just the other way round.
+Ready? Let us go!
+
+
+# --- 2 · WHEN DO WE NEED IT? ---
+First, always look at the ones rod.
+If there are enough beads, just take them away.
+Watch. Eighteen take away five.
+Push the upper bead up.
+Done! Thirteen.
+That was easy. The ones rod had enough.
+
+
+# --- 3 · THE WALL ---
+Now let us try ten take away one.
+Make ten. One bead on the tens rod, and nothing on the ones rod.
+Look at the ones rod. How many beads can we take away?
+# ⏸ hold 2s
+None! The ones rod is empty.
+Oh no. We are stuck.
+
+
+# --- 4 · THE BIG FRIEND HELPS: 10 − 1 ---
+Do not worry. A big friend can help us.
+We want to take away one.
+Who is one's friend?
+# ⏸ hold 2s
+Nine! One and nine make ten.
+
+# THE FORMULA COMES FIRST — first taking-away episode, so the rule is taught and explained
+# before a single bead moves (user call). The formula strip appears on "Minus one equals plus
+# nine, minus ten" and stays up through the bead work.
+So here is the big friend trick for taking away.
+Take away one is the same as add nine, then take away ten.
+Minus one equals plus nine, minus ten.
+Why does it work?
+Taking away ten takes away too much. It takes away nine extra.
+So we add the nine back first. And we are left with taking away one.
+Let us do it on the abacus.
+
+Remember our rule. The ones rod goes first, and lower beads move before the upper bead.
+First, add nine on the ones rod. Push four lower beads up, then the upper bead down.
+Now the tens rod gets its turn. Take away ten. Take one bead away from the tens rod.
+And there it is. Nine!
+Ten take away one is nine.
+Plus nine, minus ten. That is our first big friend formula for taking away.
+
+
+# --- 5 · NOT EMPTY, STILL STUCK: 12 − 3 ---
+Let us try twelve take away three.
+Make twelve. One bead on the tens rod, and two lower beads on the ones rod.
+Can we take away three from the ones rod?
+# ⏸ hold 2s
+No! There are only two beads there.
+So we call a big friend. Three's friend is seven.
+Minus three equals plus seven, minus ten.
+Ones rod first. Add seven. Push two lower beads up, then the upper bead down.
+Now take one bead away from the tens rod.
+Twelve take away three is nine!
+
+# --- THE LIKE ASK — MID-ROLL, RIGHT AFTER A WIN ---
+You are doing so well!
+Give this video a like, and subscribe for more.
+
+
+# --- 6 · A BIG NUMBER: 11 − 7 ---
+Now, what about taking away a big number, like seven?
+Let us try eleven take away seven.
+Make eleven. One bead on the tens rod, and one lower bead on the ones rod.
+Can we take away seven from just one bead?
+# ⏸ hold 2s
+No way!
+Seven's friend is three.
+Minus seven equals plus three, minus ten.
+Ones rod first. Push three lower beads up.
+Then take one bead away from the tens rod.
+Eleven take away seven is four!
+The big numbers work the same way.
+
+
+# --- 7 · THE PATTERN ---
+Now stop and look. Did you see it?
+Every single time, we did the same two things.
+Add the friend on the ones rod first.
+Then take one bead away from the tens rod.
+The friend changes.
+But ten never does.
+There is one for every number, from take away one to take away nine.
+That is nine big friend formulas for taking away.
+
+
+# --- 8 · YOUR TURN: 13 − 9 ---
+Now it is your turn. All on your own.
+Make thirteen. One bead on the tens rod, and three lower beads on the ones rod.
+Take away nine.
+Think. What is nine's friend?
+# ⏸ hold 2s
+One! Minus nine equals plus one, minus ten.
+Add one lower bead on the ones rod, then take one bead away from the tens rod.
+What number is showing now?
+# ⏸ hold 3s
+Thirteen take away nine is four!
+Did you get it? Well done!
+
+
+# --- 9 · CLOSE ---
+So now you know big friend taking away.
+Nine formulas, and they are all yours.
+Try them at home on your own abacus.
+Search for Abacus Kids on the Apple App Store or Google Play.
+Download it free.
+Next time, we will mix everything together in one big game.
+See you next time!

@@ -1,0 +1,8 @@
+A crossword of numbers... but every clue is a sum, not a word!
+This is Kakuro! Fill the blanks so each run adds up to its clue!
+Down says nine... three plus six makes nine!
+Across says twelve... three plus nine makes twelve — both runs solved!
+No repeats in a run — every number from one to nine, used just once!
+Parents — this builds sum decomposition, seeing numbers as parts of a whole!
+Tap Math Game Zone, take on Kakuro, pick your level, and start summing!
+Abacus Kids — always free to try, on the App Store and Google Play!

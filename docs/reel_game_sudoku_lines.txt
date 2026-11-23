@@ -1,0 +1,8 @@
+A grid full of numbers... with a few missing — can you fill them in?
+This is Sudoku! Every row, column, and box needs the same numbers, no repeats!
+One, two... and four are here — so the missing box must be three!
+Tap the cell, tap the number, and the row locks into place!
+No repeats in any row, column, or box — that's the whole puzzle!
+Parents — this builds logic and careful thinking — smart, not fast!
+Ready to test your logic? Tap Math Game Zone, dig into Sudoku, pick your level, and get solving!
+Abacus Kids — it's free on the App Store and Google Play!

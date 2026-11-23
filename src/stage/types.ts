@@ -39,13 +39,22 @@ export interface Scene {
   /** Answers and prompts sit ABOVE the abacus; part labels sit beside it. */
   labelPos?: "side" | "above";
 
-  hand?: { digit: "thumb" | "index"; direction: "up" | "down"; rod: number; heaven: boolean; /** nudge, for the rare line with two hands on one rod */ dx?: number; dy?: number };
+  /**
+   * This line's rod change is a STAGING RESET, not a taught move — snap instantly with no arrow
+   * and no hand. `rodsWithFrom` otherwise always animates from the PREVIOUS phrase's value, which
+   * is correct for a real move but wrong for "clear the rod" between two worked examples: the
+   * clear got an arrow and a travelling bead exactly as if it were the lesson.
+   *
+   * Additive and opt-in — every existing episode keeps its current frames unless it sets this.
+   */
+  silentCut?: boolean;
+  hand?: { digit: "thumb" | "index"; direction: "up" | "down"; rod: number; heaven: boolean; /** nudge, for the rare line with two hands on one rod */ dx?: number; dy?: number; /** hide the "thumb"/"index finger" name chip — two hands on two DIFFERENT rods each naming their own digit reads as clutter, not teaching, so a line with both may drop one or both chips */ noChip?: boolean };
   /**
    * A SECOND hand, for a line where both kinds of bead move at once — "push the upper bead down and
    * all four lower beads up" is one instruction with two techniques in it, and showing one finger
    * teaches half of it. Optional, so every episode before this renders exactly as before.
    */
-  hand2?: { digit: "thumb" | "index"; direction: "up" | "down"; rod: number; heaven: boolean; /** nudge, for the rare line with two hands on one rod */ dx?: number; dy?: number };
+  hand2?: { digit: "thumb" | "index"; direction: "up" | "down"; rod: number; heaven: boolean; /** nudge, for the rare line with two hands on one rod */ dx?: number; dy?: number; noChip?: boolean };
   count?: "upper" | "lower" | "active" | null;
   /** Show the bead being valued next to what it is worth. */
   beadWorth?: { which: "upper" | "lower"; worth: number };
@@ -126,8 +135,24 @@ export interface Scene {
     values?: number[];
   };
 
+  /**
+   * TIMED BEAD STEPS INSIDE ONE LINE. A line whose beads move on their own beat (the child's turn: the voice
+   * says "now do all three moves" and the moves happen in the hold that follows) cannot be told in phrase
+   * frames alone. Each step is an ABSOLUTE frame and the digit values every rod shows from then on; the first
+   * step travels from the previous line's values. `hand`/`hand2` replace the line's hands while a step is the
+   * latest one. Opt-in: undefined renders exactly as before. The line's own `rods` should be the FINAL values,
+   * so the next line travels from where the last step left them.
+   */
+  beadSteps?: { at: number; values: number[]; hand?: Scene["hand"]; hand2?: Scene["hand2"] }[];
   /** Pull the world back behind a foreground that has to carry the frame. 0..1 */
   worldWash?: number;
+  /**
+   * FOCUS: step the world back while a lesson part carries the frame, 0..1. Desaturates it (up to 55%) and
+   * lays a soft tinted wash over it (`worldCalmTint`), WITHOUT washing it white the way `worldWash` does, so a
+   * colourful world stays colourful but quiet. Opt-in: undefined renders exactly as before.
+   */
+  worldCalm?: number;
+  worldCalmTint?: string;
   /** The abacus steps aside for an episode-specific closing composition. */
   closing?: boolean;
   /** Which closing composition. Interpreted only by the episode's slot. */

@@ -1,0 +1,644 @@
+[
+  {
+    "index": 0,
+    "text": "An equation pops up...",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 1.36,
+    "duration": 1.36,
+    "matched": 4,
+    "words": [
+      {
+        "word": "An",
+        "start": 0.0,
+        "end": 0.28
+      },
+      {
+        "word": "equation",
+        "start": 0.28,
+        "end": 0.68
+      },
+      {
+        "word": "pops",
+        "start": 0.68,
+        "end": 1.08
+      },
+      {
+        "word": "up...",
+        "start": 1.08,
+        "end": 1.36
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "one sign is missing!",
+    "line_index": 0,
+    "start": 2.14,
+    "end": 3.56,
+    "duration": 1.42,
+    "matched": 4,
+    "words": [
+      {
+        "word": "one",
+        "start": 2.14,
+        "end": 2.38
+      },
+      {
+        "word": "sign",
+        "start": 2.38,
+        "end": 2.78
+      },
+      {
+        "word": "is",
+        "start": 2.78,
+        "end": 3.12
+      },
+      {
+        "word": "missing!",
+        "start": 3.12,
+        "end": 3.56
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "This is Missing Sign!",
+    "line_index": 1,
+    "start": 5.81,
+    "end": 7.6,
+    "duration": 2.22,
+    "matched": 4,
+    "words": [
+      {
+        "word": "This",
+        "start": 5.38,
+        "end": 6.02
+      },
+      {
+        "word": "is",
+        "start": 6.02,
+        "end": 6.36
+      },
+      {
+        "word": "Missing",
+        "start": 6.36,
+        "end": 6.9
+      },
+      {
+        "word": "Sign!",
+        "start": 6.9,
+        "end": 7.6
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "Pick the operator that makes the equation true!",
+    "line_index": 1,
+    "start": 8.26,
+    "end": 10.62,
+    "duration": 2.5,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Pick",
+        "start": 8.12,
+        "end": 8.36
+      },
+      {
+        "word": "the",
+        "start": 8.36,
+        "end": 8.6
+      },
+      {
+        "word": "operator",
+        "start": 8.6,
+        "end": 9.02
+      },
+      {
+        "word": "that",
+        "start": 9.02,
+        "end": 9.24
+      },
+      {
+        "word": "makes",
+        "start": 9.24,
+        "end": 9.44
+      },
+      {
+        "word": "the",
+        "start": 9.44,
+        "end": 9.68
+      },
+      {
+        "word": "equation",
+        "start": 9.68,
+        "end": 10.1
+      },
+      {
+        "word": "true!",
+        "start": 10.1,
+        "end": 10.62
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Twelve, question mark, three, equals four \u2014 that's divide!",
+    "line_index": 2,
+    "start": 12.18,
+    "end": 17.62,
+    "duration": 5.44,
+    "matched": 8,
+    "words": [
+      {
+        "word": "Twelve,",
+        "start": 12.18,
+        "end": 12.18
+      },
+      {
+        "word": "question",
+        "start": 12.18,
+        "end": 12.78
+      },
+      {
+        "word": "mark,",
+        "start": 12.78,
+        "end": 13.02
+      },
+      {
+        "word": "three,",
+        "start": 13.02,
+        "end": 13.46
+      },
+      {
+        "word": "equals",
+        "start": 13.46,
+        "end": 14.36
+      },
+      {
+        "word": "four",
+        "start": 14.36,
+        "end": 15.0
+      },
+      {
+        "word": "that's",
+        "start": 16.5,
+        "end": 17.22
+      },
+      {
+        "word": "divide!",
+        "start": 17.22,
+        "end": 17.62
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "Twelve divided by three is four!",
+    "line_index": 2,
+    "start": 18.61,
+    "end": 21.34,
+    "duration": 2.86,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Twelve",
+        "start": 18.48,
+        "end": 18.82
+      },
+      {
+        "word": "divided",
+        "start": 18.82,
+        "end": 19.32
+      },
+      {
+        "word": "by",
+        "start": 19.32,
+        "end": 19.6
+      },
+      {
+        "word": "three",
+        "start": 19.6,
+        "end": 20.0
+      },
+      {
+        "word": "is",
+        "start": 20.0,
+        "end": 20.62
+      },
+      {
+        "word": "four!",
+        "start": 20.62,
+        "end": 21.34
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Nine, question mark, two, equals eleven \u2014 that's plus!",
+    "line_index": 3,
+    "start": 22.87,
+    "end": 28.22,
+    "duration": 5.4,
+    "matched": 6,
+    "words": [
+      {
+        "word": "Nine,",
+        "start": 22.82,
+        "end": 23.24
+      },
+      {
+        "word": "question",
+        "start": 23.24,
+        "end": 23.72
+      },
+      {
+        "word": "mark,",
+        "start": 23.72,
+        "end": 24.02
+      },
+      {
+        "word": "two,",
+        "start": 24.02,
+        "end": 24.4
+      },
+      {
+        "word": "equals",
+        "start": 24.4,
+        "end": 25.18
+      },
+      {
+        "word": "eleven",
+        "start": 25.18,
+        "end": 25.72
+      },
+      {
+        "word": "that's",
+        "start": 25.72,
+        "end": 26.97
+      },
+      {
+        "word": "plus!",
+        "start": 25.72,
+        "end": 28.22
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "Nine plus two is eleven!",
+    "line_index": 3,
+    "start": 28.75,
+    "end": 31.16,
+    "duration": 2.94,
+    "matched": 5,
+    "words": [
+      {
+        "word": "Nine",
+        "start": 28.22,
+        "end": 28.9
+      },
+      {
+        "word": "plus",
+        "start": 28.9,
+        "end": 29.26
+      },
+      {
+        "word": "two",
+        "start": 29.26,
+        "end": 29.7
+      },
+      {
+        "word": "is",
+        "start": 29.7,
+        "end": 30.28
+      },
+      {
+        "word": "eleven!",
+        "start": 30.28,
+        "end": 31.16
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "Get it right, the sign locks in, and a new equation pops up fast!",
+    "line_index": 4,
+    "start": 32.29,
+    "end": 37.0,
+    "duration": 5.28,
+    "matched": 14,
+    "words": [
+      {
+        "word": "Get",
+        "start": 31.72,
+        "end": 32.4
+      },
+      {
+        "word": "it",
+        "start": 32.4,
+        "end": 32.56
+      },
+      {
+        "word": "right,",
+        "start": 32.56,
+        "end": 32.78
+      },
+      {
+        "word": "the",
+        "start": 33.1,
+        "end": 33.22
+      },
+      {
+        "word": "sign",
+        "start": 33.22,
+        "end": 33.56
+      },
+      {
+        "word": "locks",
+        "start": 33.56,
+        "end": 33.78
+      },
+      {
+        "word": "in,",
+        "start": 33.78,
+        "end": 34.18
+      },
+      {
+        "word": "and",
+        "start": 34.18,
+        "end": 34.74
+      },
+      {
+        "word": "a",
+        "start": 34.74,
+        "end": 34.88
+      },
+      {
+        "word": "new",
+        "start": 34.88,
+        "end": 35.08
+      },
+      {
+        "word": "equation",
+        "start": 35.08,
+        "end": 35.64
+      },
+      {
+        "word": "pops",
+        "start": 35.64,
+        "end": 36.06
+      },
+      {
+        "word": "up",
+        "start": 36.06,
+        "end": 36.26
+      },
+      {
+        "word": "fast!",
+        "start": 36.26,
+        "end": 37.0
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "Parents \u2014 this builds real operation sense, so kids see how the four operations connect!",
+    "line_index": 5,
+    "start": 38.03,
+    "end": 43.88,
+    "duration": 6.08,
+    "matched": 14,
+    "words": [
+      {
+        "word": "Parents",
+        "start": 37.8,
+        "end": 38.34
+      },
+      {
+        "word": "this",
+        "start": 38.84,
+        "end": 39.1
+      },
+      {
+        "word": "builds",
+        "start": 39.1,
+        "end": 39.42
+      },
+      {
+        "word": "real",
+        "start": 39.42,
+        "end": 39.76
+      },
+      {
+        "word": "operation",
+        "start": 39.76,
+        "end": 40.42
+      },
+      {
+        "word": "sense,",
+        "start": 40.42,
+        "end": 40.92
+      },
+      {
+        "word": "so",
+        "start": 40.92,
+        "end": 41.5
+      },
+      {
+        "word": "kids",
+        "start": 41.5,
+        "end": 41.76
+      },
+      {
+        "word": "see",
+        "start": 41.76,
+        "end": 42.1
+      },
+      {
+        "word": "how",
+        "start": 42.1,
+        "end": 42.3
+      },
+      {
+        "word": "the",
+        "start": 42.3,
+        "end": 42.44
+      },
+      {
+        "word": "four",
+        "start": 42.44,
+        "end": 42.72
+      },
+      {
+        "word": "operations",
+        "start": 42.72,
+        "end": 43.34
+      },
+      {
+        "word": "connect!",
+        "start": 43.34,
+        "end": 43.88
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Find it in the app \u2014 tap Math Game Zone, pick Missing Sign, choose your level, and play!",
+    "line_index": 6,
+    "start": 45.04,
+    "end": 51.28,
+    "duration": 6.48,
+    "matched": 17,
+    "words": [
+      {
+        "word": "Find",
+        "start": 44.8,
+        "end": 45.28
+      },
+      {
+        "word": "it",
+        "start": 45.28,
+        "end": 45.48
+      },
+      {
+        "word": "in",
+        "start": 45.48,
+        "end": 45.64
+      },
+      {
+        "word": "the",
+        "start": 45.64,
+        "end": 45.8
+      },
+      {
+        "word": "app",
+        "start": 45.8,
+        "end": 46.08
+      },
+      {
+        "word": "tap",
+        "start": 46.36,
+        "end": 46.5
+      },
+      {
+        "word": "Math",
+        "start": 46.5,
+        "end": 46.82
+      },
+      {
+        "word": "Game",
+        "start": 46.82,
+        "end": 47.14
+      },
+      {
+        "word": "Zone,",
+        "start": 47.14,
+        "end": 47.64
+      },
+      {
+        "word": "pick",
+        "start": 48.08,
+        "end": 48.28
+      },
+      {
+        "word": "Missing",
+        "start": 48.28,
+        "end": 48.6
+      },
+      {
+        "word": "Sign,",
+        "start": 48.6,
+        "end": 49.12
+      },
+      {
+        "word": "choose",
+        "start": 49.64,
+        "end": 49.88
+      },
+      {
+        "word": "your",
+        "start": 49.88,
+        "end": 50.1
+      },
+      {
+        "word": "level,",
+        "start": 50.1,
+        "end": 50.4
+      },
+      {
+        "word": "and",
+        "start": 50.4,
+        "end": 50.88
+      },
+      {
+        "word": "play!",
+        "start": 50.88,
+        "end": 51.28
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "Abacus Kids \u2014 free on the App Store and Google Play!",
+    "line_index": 7,
+    "start": 51.28,
+    "end": 55.6,
+    "duration": 4.32,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Abacus",
+        "start": 51.28,
+        "end": 52.68
+      },
+      {
+        "word": "Kids",
+        "start": 52.68,
+        "end": 53.2
+      },
+      {
+        "word": "free",
+        "start": 53.6,
+        "end": 53.84
+      },
+      {
+        "word": "on",
+        "start": 53.84,
+        "end": 54.0
+      },
+      {
+        "word": "the",
+        "start": 54.0,
+        "end": 54.12
+      },
+      {
+        "word": "App",
+        "start": 54.12,
+        "end": 54.32
+      },
+      {
+        "word": "Store",
+        "start": 54.32,
+        "end": 54.54
+      },
+      {
+        "word": "and",
+        "start": 54.54,
+        "end": 54.9
+      },
+      {
+        "word": "Google",
+        "start": 54.9,
+        "end": 55.22
+      },
+      {
+        "word": "Play!",
+        "start": 55.22,
+        "end": 55.6
+      }
+    ]
+  }
+]

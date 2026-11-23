@@ -1,0 +1,737 @@
+[
+  {
+    "index": 0,
+    "text": "Adding on one rod is super quick — check out these examples!",
+    "line_index": 0,
+    "start": 0.0,
+    "end": 3.9,
+    "duration": 3.9,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Adding",
+        "start": 0.0,
+        "end": 0.36
+      },
+      {
+        "word": "on",
+        "start": 0.36,
+        "end": 0.62
+      },
+      {
+        "word": "one",
+        "start": 0.62,
+        "end": 0.98
+      },
+      {
+        "word": "rod",
+        "start": 0.98,
+        "end": 1.26
+      },
+      {
+        "word": "is",
+        "start": 1.26,
+        "end": 1.56
+      },
+      {
+        "word": "super",
+        "start": 1.56,
+        "end": 1.96
+      },
+      {
+        "word": "quick",
+        "start": 1.96,
+        "end": 2.42
+      },
+      {
+        "word": "check",
+        "start": 2.72,
+        "end": 2.9
+      },
+      {
+        "word": "out",
+        "start": 2.9,
+        "end": 3.12
+      },
+      {
+        "word": "these",
+        "start": 3.12,
+        "end": 3.36
+      },
+      {
+        "word": "examples!",
+        "start": 3.36,
+        "end": 3.9
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "text": "One bead is up.",
+    "line_index": 1,
+    "start": 5.32,
+    "end": 6.46,
+    "duration": 1.14,
+    "matched": 4,
+    "words": [
+      {
+        "word": "One",
+        "start": 5.32,
+        "end": 5.82
+      },
+      {
+        "word": "bead",
+        "start": 5.82,
+        "end": 6.0
+      },
+      {
+        "word": "is",
+        "start": 6.0,
+        "end": 6.24
+      },
+      {
+        "word": "up.",
+        "start": 6.24,
+        "end": 6.46
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "text": "Push two more up — one plus two is three!",
+    "line_index": 1,
+    "start": 6.92,
+    "end": 9.86,
+    "duration": 2.94,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Push",
+        "start": 6.92,
+        "end": 7.04
+      },
+      {
+        "word": "two",
+        "start": 7.04,
+        "end": 7.36
+      },
+      {
+        "word": "more",
+        "start": 7.36,
+        "end": 7.58
+      },
+      {
+        "word": "up",
+        "start": 7.58,
+        "end": 7.84
+      },
+      {
+        "word": "one",
+        "start": 8.28,
+        "end": 8.58
+      },
+      {
+        "word": "plus",
+        "start": 8.58,
+        "end": 8.82
+      },
+      {
+        "word": "two",
+        "start": 8.82,
+        "end": 9.16
+      },
+      {
+        "word": "is",
+        "start": 9.16,
+        "end": 9.54
+      },
+      {
+        "word": "three!",
+        "start": 9.54,
+        "end": 9.86
+      }
+    ]
+  },
+  {
+    "index": 3,
+    "text": "Let's try another!",
+    "line_index": 2,
+    "start": 11.74,
+    "end": 12.88,
+    "duration": 1.14,
+    "matched": 3,
+    "words": [
+      {
+        "word": "Let's",
+        "start": 11.74,
+        "end": 12.34
+      },
+      {
+        "word": "try",
+        "start": 12.34,
+        "end": 12.52
+      },
+      {
+        "word": "another!",
+        "start": 12.52,
+        "end": 12.88
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "text": "Two beads are up.",
+    "line_index": 3,
+    "start": 14.22,
+    "end": 15.22,
+    "duration": 1.0,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Two",
+        "start": 14.22,
+        "end": 14.48
+      },
+      {
+        "word": "beads",
+        "start": 14.48,
+        "end": 14.68
+      },
+      {
+        "word": "are",
+        "start": 14.68,
+        "end": 14.94
+      },
+      {
+        "word": "up.",
+        "start": 14.94,
+        "end": 15.22
+      }
+    ]
+  },
+  {
+    "index": 5,
+    "text": "Push two more up — two plus two is four!",
+    "line_index": 3,
+    "start": 15.72,
+    "end": 18.7,
+    "duration": 2.98,
+    "matched": 9,
+    "words": [
+      {
+        "word": "Push",
+        "start": 15.72,
+        "end": 15.86
+      },
+      {
+        "word": "two",
+        "start": 15.86,
+        "end": 16.14
+      },
+      {
+        "word": "more",
+        "start": 16.14,
+        "end": 16.38
+      },
+      {
+        "word": "up",
+        "start": 16.38,
+        "end": 16.78
+      },
+      {
+        "word": "two",
+        "start": 17.28,
+        "end": 17.44
+      },
+      {
+        "word": "plus",
+        "start": 17.44,
+        "end": 17.68
+      },
+      {
+        "word": "two",
+        "start": 17.68,
+        "end": 18.02
+      },
+      {
+        "word": "is",
+        "start": 18.02,
+        "end": 18.42
+      },
+      {
+        "word": "four!",
+        "start": 18.42,
+        "end": 18.7
+      }
+    ]
+  },
+  {
+    "index": 6,
+    "text": "Next one!",
+    "line_index": 4,
+    "start": 20.94,
+    "end": 21.78,
+    "duration": 0.84,
+    "matched": 2,
+    "words": [
+      {
+        "word": "Next",
+        "start": 20.94,
+        "end": 21.54
+      },
+      {
+        "word": "one!",
+        "start": 21.54,
+        "end": 21.78
+      }
+    ]
+  },
+  {
+    "index": 7,
+    "text": "Two beads are up.",
+    "line_index": 5,
+    "start": 22.82,
+    "end": 23.88,
+    "duration": 1.06,
+    "matched": 4,
+    "words": [
+      {
+        "word": "Two",
+        "start": 22.82,
+        "end": 23.06
+      },
+      {
+        "word": "beads",
+        "start": 23.06,
+        "end": 23.28
+      },
+      {
+        "word": "are",
+        "start": 23.28,
+        "end": 23.56
+      },
+      {
+        "word": "up.",
+        "start": 23.56,
+        "end": 23.88
+      }
+    ]
+  },
+  {
+    "index": 8,
+    "text": "Bring the upper bead down — two plus five is seven!",
+    "line_index": 5,
+    "start": 24.24,
+    "end": 27.84,
+    "duration": 3.6,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Bring",
+        "start": 24.24,
+        "end": 24.38
+      },
+      {
+        "word": "the",
+        "start": 24.38,
+        "end": 24.62
+      },
+      {
+        "word": "upper",
+        "start": 24.62,
+        "end": 24.86
+      },
+      {
+        "word": "bead",
+        "start": 24.86,
+        "end": 25.12
+      },
+      {
+        "word": "down",
+        "start": 25.12,
+        "end": 25.52
+      },
+      {
+        "word": "two",
+        "start": 26.2,
+        "end": 26.36
+      },
+      {
+        "word": "plus",
+        "start": 26.36,
+        "end": 26.62
+      },
+      {
+        "word": "five",
+        "start": 26.62,
+        "end": 27.06
+      },
+      {
+        "word": "is",
+        "start": 27.06,
+        "end": 27.48
+      },
+      {
+        "word": "seven!",
+        "start": 27.48,
+        "end": 27.84
+      }
+    ]
+  },
+  {
+    "index": 9,
+    "text": "One more!",
+    "line_index": 6,
+    "start": 30.0,
+    "end": 30.9,
+    "duration": 0.9,
+    "matched": 2,
+    "words": [
+      {
+        "word": "One",
+        "start": 30.0,
+        "end": 30.6
+      },
+      {
+        "word": "more!",
+        "start": 30.6,
+        "end": 30.9
+      }
+    ]
+  },
+  {
+    "index": 10,
+    "text": "Six is up — one lower bead, plus the upper bead.",
+    "line_index": 7,
+    "start": 31.7,
+    "end": 35.46,
+    "duration": 3.76,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Six",
+        "start": 31.7,
+        "end": 32.14
+      },
+      {
+        "word": "is",
+        "start": 32.14,
+        "end": 32.44
+      },
+      {
+        "word": "up",
+        "start": 32.44,
+        "end": 32.62
+      },
+      {
+        "word": "one",
+        "start": 33.08,
+        "end": 33.34
+      },
+      {
+        "word": "lower",
+        "start": 33.34,
+        "end": 33.6
+      },
+      {
+        "word": "bead,",
+        "start": 33.6,
+        "end": 33.94
+      },
+      {
+        "word": "plus",
+        "start": 33.94,
+        "end": 34.56
+      },
+      {
+        "word": "the",
+        "start": 34.56,
+        "end": 34.86
+      },
+      {
+        "word": "upper",
+        "start": 34.86,
+        "end": 35.04
+      },
+      {
+        "word": "bead.",
+        "start": 35.04,
+        "end": 35.46
+      }
+    ]
+  },
+  {
+    "index": 11,
+    "text": "Add three more lower beads — six plus three is nine!",
+    "line_index": 7,
+    "start": 36.04,
+    "end": 39.82,
+    "duration": 3.78,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Add",
+        "start": 36.04,
+        "end": 36.36
+      },
+      {
+        "word": "three",
+        "start": 36.36,
+        "end": 36.72
+      },
+      {
+        "word": "more",
+        "start": 36.72,
+        "end": 36.98
+      },
+      {
+        "word": "lower",
+        "start": 36.98,
+        "end": 37.24
+      },
+      {
+        "word": "beads",
+        "start": 37.24,
+        "end": 37.56
+      },
+      {
+        "word": "six",
+        "start": 38.24,
+        "end": 38.44
+      },
+      {
+        "word": "plus",
+        "start": 38.44,
+        "end": 38.74
+      },
+      {
+        "word": "three",
+        "start": 38.74,
+        "end": 39.1
+      },
+      {
+        "word": "is",
+        "start": 39.1,
+        "end": 39.52
+      },
+      {
+        "word": "nine!",
+        "start": 39.52,
+        "end": 39.82
+      }
+    ]
+  },
+  {
+    "index": 12,
+    "text": "Here's one tip: lower beads always move first, then the upper bead!",
+    "line_index": 8,
+    "start": 41.82,
+    "end": 47.4,
+    "duration": 5.58,
+    "matched": 11,
+    "words": [
+      {
+        "word": "Here's",
+        "start": 41.82,
+        "end": 42.54
+      },
+      {
+        "word": "one",
+        "start": 42.54,
+        "end": 42.72
+      },
+      {
+        "word": "tip:",
+        "start": 42.72,
+        "end": 42.98
+      },
+      {
+        "word": "lower",
+        "start": 43.86,
+        "end": 44.04
+      },
+      {
+        "word": "beads",
+        "start": 44.04,
+        "end": 44.36
+      },
+      {
+        "word": "always",
+        "start": 44.36,
+        "end": 44.92
+      },
+      {
+        "word": "move",
+        "start": 44.92,
+        "end": 45.32
+      },
+      {
+        "word": "first,",
+        "start": 45.32,
+        "end": 45.82
+      },
+      {
+        "word": "then",
+        "start": 45.82,
+        "end": 46.48
+      },
+      {
+        "word": "the",
+        "start": 46.48,
+        "end": 46.74
+      },
+      {
+        "word": "upper",
+        "start": 46.74,
+        "end": 46.98
+      },
+      {
+        "word": "bead!",
+        "start": 46.98,
+        "end": 47.4
+      }
+    ]
+  },
+  {
+    "index": 13,
+    "text": "Lower beads or the upper bead — adding is always quick!",
+    "line_index": 9,
+    "start": 48.42,
+    "end": 52.46,
+    "duration": 4.04,
+    "matched": 10,
+    "words": [
+      {
+        "word": "Lower",
+        "start": 48.42,
+        "end": 48.84
+      },
+      {
+        "word": "beads",
+        "start": 48.84,
+        "end": 49.34
+      },
+      {
+        "word": "or",
+        "start": 49.34,
+        "end": 49.7
+      },
+      {
+        "word": "the",
+        "start": 49.7,
+        "end": 49.9
+      },
+      {
+        "word": "upper",
+        "start": 49.9,
+        "end": 50.14
+      },
+      {
+        "word": "bead",
+        "start": 50.14,
+        "end": 50.56
+      },
+      {
+        "word": "adding",
+        "start": 50.9,
+        "end": 51.26
+      },
+      {
+        "word": "is",
+        "start": 51.26,
+        "end": 51.52
+      },
+      {
+        "word": "always",
+        "start": 51.52,
+        "end": 51.84
+      },
+      {
+        "word": "quick!",
+        "start": 51.84,
+        "end": 52.46
+      }
+    ]
+  },
+  {
+    "index": 14,
+    "text": "Learn it all with Abacus Kids — free on the App Store and Google Play!",
+    "line_index": 10,
+    "start": 53.38,
+    "end": 58.42,
+    "duration": 5.04,
+    "matched": 12,
+    "words": [
+      {
+        "word": "Learn",
+        "start": 53.38,
+        "end": 53.94
+      },
+      {
+        "word": "it",
+        "start": 53.94,
+        "end": 54.22
+      },
+      {
+        "word": "all",
+        "start": 54.22,
+        "end": 54.42
+      },
+      {
+        "word": "with",
+        "start": 54.42,
+        "end": 54.7
+      },
+      {
+        "word": "Abacus",
+        "start": 54.7,
+        "end": 55.36
+      },
+      {
+        "word": "Kids",
+        "start": 55.36,
+        "end": 55.73
+      },
+      {
+        "word": "free",
+        "start": 56.02,
+        "end": 56.24
+      },
+      {
+        "word": "on",
+        "start": 56.24,
+        "end": 56.56
+      },
+      {
+        "word": "the",
+        "start": 56.56,
+        "end": 56.72
+      },
+      {
+        "word": "App",
+        "start": 56.72,
+        "end": 56.94
+      },
+      {
+        "word": "Store",
+        "start": 56.94,
+        "end": 57.28
+      },
+      {
+        "word": "and",
+        "start": 57.28,
+        "end": 57.78
+      },
+      {
+        "word": "Google",
+        "start": 57.78,
+        "end": 58.06
+      },
+      {
+        "word": "Play!",
+        "start": 58.06,
+        "end": 58.42
+      }
+    ]
+  }
+]

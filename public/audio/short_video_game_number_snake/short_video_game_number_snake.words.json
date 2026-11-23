@@ -1,0 +1,547 @@
+[
+  {
+    "word": "A",
+    "start": 0.0,
+    "end": 0.2
+  },
+  {
+    "word": "trail",
+    "start": 0.2,
+    "end": 0.66
+  },
+  {
+    "word": "of",
+    "start": 0.66,
+    "end": 1.02
+  },
+  {
+    "word": "numbers,",
+    "start": 1.02,
+    "end": 1.5
+  },
+  {
+    "word": "winding",
+    "start": 1.5,
+    "end": 2.48
+  },
+  {
+    "word": "across",
+    "start": 2.48,
+    "end": 3.0
+  },
+  {
+    "word": "the",
+    "start": 3.0,
+    "end": 3.34
+  },
+  {
+    "word": "grid...",
+    "start": 3.34,
+    "end": 3.62
+  },
+  {
+    "word": "but",
+    "start": 3.9,
+    "end": 4.62
+  },
+  {
+    "word": "most",
+    "start": 4.62,
+    "end": 4.98
+  },
+  {
+    "word": "of",
+    "start": 4.98,
+    "end": 5.18
+  },
+  {
+    "word": "them",
+    "start": 5.18,
+    "end": 5.34
+  },
+  {
+    "word": "are",
+    "start": 5.34,
+    "end": 5.48
+  },
+  {
+    "word": "missing!",
+    "start": 5.48,
+    "end": 5.84
+  },
+  {
+    "word": "This",
+    "start": 7.02,
+    "end": 7.3
+  },
+  {
+    "word": "is",
+    "start": 7.3,
+    "end": 7.52
+  },
+  {
+    "word": "Number",
+    "start": 7.52,
+    "end": 7.86
+  },
+  {
+    "word": "Snake!",
+    "start": 7.86,
+    "end": 8.22
+  },
+  {
+    "word": "Place",
+    "start": 9.14,
+    "end": 9.4
+  },
+  {
+    "word": "each",
+    "start": 9.4,
+    "end": 9.82
+  },
+  {
+    "word": "number",
+    "start": 9.82,
+    "end": 10.24
+  },
+  {
+    "word": "so",
+    "start": 10.24,
+    "end": 10.46
+  },
+  {
+    "word": "it",
+    "start": 10.46,
+    "end": 10.6
+  },
+  {
+    "word": "lands",
+    "start": 10.6,
+    "end": 10.84
+  },
+  {
+    "word": "right",
+    "start": 10.84,
+    "end": 11.3
+  },
+  {
+    "word": "next",
+    "start": 11.3,
+    "end": 11.58
+  },
+  {
+    "word": "to",
+    "start": 11.58,
+    "end": 11.88
+  },
+  {
+    "word": "the",
+    "start": 11.88,
+    "end": 12.0
+  },
+  {
+    "word": "one",
+    "start": 12.0,
+    "end": 12.18
+  },
+  {
+    "word": "before",
+    "start": 12.18,
+    "end": 12.58
+  },
+  {
+    "word": "it!",
+    "start": 12.58,
+    "end": 12.96
+  },
+  {
+    "word": "Six",
+    "start": 14.08,
+    "end": 14.4
+  },
+  {
+    "word": "is",
+    "start": 14.4,
+    "end": 14.66
+  },
+  {
+    "word": "already",
+    "start": 14.66,
+    "end": 14.94
+  },
+  {
+    "word": "there...",
+    "start": 14.94,
+    "end": 15.3
+  },
+  {
+    "word": "so",
+    "start": 15.84,
+    "end": 16.0
+  },
+  {
+    "word": "seven",
+    "start": 16.0,
+    "end": 16.38
+  },
+  {
+    "word": "goes",
+    "start": 16.38,
+    "end": 16.62
+  },
+  {
+    "word": "right",
+    "start": 16.62,
+    "end": 16.98
+  },
+  {
+    "word": "beside",
+    "start": 16.98,
+    "end": 17.4
+  },
+  {
+    "word": "it...",
+    "start": 17.4,
+    "end": 17.74
+  },
+  {
+    "word": "Then",
+    "start": 18.58,
+    "end": 18.88
+  },
+  {
+    "word": "eight",
+    "start": 18.88,
+    "end": 19.28
+  },
+  {
+    "word": "goes",
+    "start": 19.28,
+    "end": 19.54
+  },
+  {
+    "word": "next",
+    "start": 19.54,
+    "end": 19.8
+  },
+  {
+    "word": "to",
+    "start": 19.8,
+    "end": 20.06
+  },
+  {
+    "word": "seven",
+    "start": 20.06,
+    "end": 20.36
+  },
+  {
+    "word": "the",
+    "start": 21.42,
+    "end": 21.62
+  },
+  {
+    "word": "trail",
+    "start": 21.62,
+    "end": 21.9
+  },
+  {
+    "word": "keeps",
+    "start": 21.9,
+    "end": 22.22
+  },
+  {
+    "word": "connecting,",
+    "start": 22.22,
+    "end": 22.86
+  },
+  {
+    "word": "number",
+    "start": 23.26,
+    "end": 23.62
+  },
+  {
+    "word": "by",
+    "start": 23.62,
+    "end": 23.88
+  },
+  {
+    "word": "number!",
+    "start": 23.88,
+    "end": 24.26
+  },
+  {
+    "word": "Every",
+    "start": 25.02,
+    "end": 25.78
+  },
+  {
+    "word": "number",
+    "start": 25.78,
+    "end": 26.18
+  },
+  {
+    "word": "from",
+    "start": 26.18,
+    "end": 26.44
+  },
+  {
+    "word": "one",
+    "start": 26.44,
+    "end": 26.72
+  },
+  {
+    "word": "to",
+    "start": 26.72,
+    "end": 26.9
+  },
+  {
+    "word": "sixteen,",
+    "start": 26.9,
+    "end": 27.4
+  },
+  {
+    "word": "each",
+    "start": 28.12,
+    "end": 28.42
+  },
+  {
+    "word": "one",
+    "start": 28.42,
+    "end": 28.6
+  },
+  {
+    "word": "touching",
+    "start": 28.6,
+    "end": 29.0
+  },
+  {
+    "word": "the",
+    "start": 29.0,
+    "end": 29.22
+  },
+  {
+    "word": "next",
+    "start": 29.22,
+    "end": 29.5
+  },
+  {
+    "word": "that's",
+    "start": 30.12,
+    "end": 30.66
+  },
+  {
+    "word": "the",
+    "start": 30.66,
+    "end": 30.78
+  },
+  {
+    "word": "whole",
+    "start": 30.78,
+    "end": 30.98
+  },
+  {
+    "word": "trail!",
+    "start": 30.98,
+    "end": 31.4
+  },
+  {
+    "word": "Parents",
+    "start": 32.82,
+    "end": 33.42
+  },
+  {
+    "word": "this",
+    "start": 33.94,
+    "end": 34.08
+  },
+  {
+    "word": "builds",
+    "start": 34.08,
+    "end": 34.44
+  },
+  {
+    "word": "sequencing",
+    "start": 34.44,
+    "end": 35.08
+  },
+  {
+    "word": "and",
+    "start": 35.08,
+    "end": 35.48
+  },
+  {
+    "word": "spatial",
+    "start": 35.48,
+    "end": 35.86
+  },
+  {
+    "word": "thinking,",
+    "start": 35.86,
+    "end": 36.38
+  },
+  {
+    "word": "one",
+    "start": 37.06,
+    "end": 37.22
+  },
+  {
+    "word": "step",
+    "start": 37.22,
+    "end": 37.54
+  },
+  {
+    "word": "at",
+    "start": 37.54,
+    "end": 37.76
+  },
+  {
+    "word": "a",
+    "start": 37.76,
+    "end": 37.86
+  },
+  {
+    "word": "time!",
+    "start": 37.86,
+    "end": 38.32
+  },
+  {
+    "word": "Tap",
+    "start": 39.44,
+    "end": 39.72
+  },
+  {
+    "word": "Math",
+    "start": 39.72,
+    "end": 40.08
+  },
+  {
+    "word": "Game",
+    "start": 40.08,
+    "end": 40.34
+  },
+  {
+    "word": "Zone,",
+    "start": 40.34,
+    "end": 40.74
+  },
+  {
+    "word": "wind",
+    "start": 41.52,
+    "end": 41.72
+  },
+  {
+    "word": "through",
+    "start": 41.72,
+    "end": 42.12
+  },
+  {
+    "word": "Number",
+    "start": 42.12,
+    "end": 42.5
+  },
+  {
+    "word": "Snake,",
+    "start": 42.5,
+    "end": 42.8
+  },
+  {
+    "word": "pick",
+    "start": 43.44,
+    "end": 43.6
+  },
+  {
+    "word": "your",
+    "start": 43.6,
+    "end": 43.82
+  },
+  {
+    "word": "level,",
+    "start": 43.82,
+    "end": 44.12
+  },
+  {
+    "word": "and",
+    "start": 44.12,
+    "end": 44.7
+  },
+  {
+    "word": "complete",
+    "start": 44.7,
+    "end": 45.04
+  },
+  {
+    "word": "the",
+    "start": 45.04,
+    "end": 45.3
+  },
+  {
+    "word": "trail!",
+    "start": 45.3,
+    "end": 45.72
+  },
+  {
+    "word": "Abacus",
+    "start": 45.72,
+    "end": 47.52
+  },
+  {
+    "word": "Kids",
+    "start": 47.52,
+    "end": 47.88
+  },
+  {
+    "word": "no",
+    "start": 48.66,
+    "end": 48.9
+  },
+  {
+    "word": "charge",
+    "start": 48.9,
+    "end": 49.22
+  },
+  {
+    "word": "to",
+    "start": 49.22,
+    "end": 49.46
+  },
+  {
+    "word": "play,",
+    "start": 49.46,
+    "end": 49.76
+  },
+  {
+    "word": "on",
+    "start": 49.76,
+    "end": 50.44
+  },
+  {
+    "word": "the",
+    "start": 50.44,
+    "end": 50.64
+  },
+  {
+    "word": "App",
+    "start": 50.64,
+    "end": 50.78
+  },
+  {
+    "word": "Store",
+    "start": 50.78,
+    "end": 51.08
+  },
+  {
+    "word": "and",
+    "start": 51.08,
+    "end": 51.52
+  },
+  {
+    "word": "Google",
+    "start": 51.52,
+    "end": 51.86
+  },
+  {
+    "word": "Play!",
+    "start": 51.86,
+    "end": 52.24
+  }
+]
