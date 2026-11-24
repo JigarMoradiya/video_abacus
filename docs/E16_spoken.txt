@@ -1,0 +1,279 @@
+# E16 AS RECORDED: the take ends the teaser; spoken teaser cut (it promised a mix-every-trick challenge, which is not E17). Else identical to E16_lines.txt.
+# E16 · Family trick for taking away — narration, one continuous take.
+# Lines starting with # are notes and are ignored by the aligner. Do not read them.
+# The expression-tagged recording version is docs/E16_lines_expressive.txt.
+#
+# E15 ends "Next time, the family works the other way round. We will learn the family trick for
+# taking away." Section 1 echoes that wording ("the family works the other way round", "the family
+# trick for taking away"). Because the teaser itself names the family, the hook may say the word; the
+# NEED (why we need it) still comes before the NAME for a cold viewer in section 2, which re-introduces
+# the family as the answer to a problem. "TAKING AWAY" throughout — never "subtraction" or "negative".
+# SCRIPT ONLY — no code, audio or render. Audited against docs/SCRIPT_CHECKLIST.md.
+#
+# ═══ VOICE — WHAT E15 AND E16 SHARED BEFORE, AND WHAT IS DIFFERENT NOW (rev 3, user asked for a real rewrite) ═══
+#  SHARED BEFORE (the first E16 draft was E15 flipped word for word): same hook shape (recap line, then
+#  promise), same order (problem, helper, name, when), same wall (a "how many lower beads can we ... ?"
+#  question, "Only ...!", "Stuck again"), the same "Call the family." refrain before every formula,
+#  the same celebration words ("And there it is", "Well done! You did the family trick all by yourself"),
+#  the same finger phrasing ("Thumb!" / "Index finger again!"), the same recap ("Look. Every time: ...",
+#  "Four family formulas for ...") and the same close shape.
+#  DIFFERENT NOW:
+#   HOOK     opens on a PUZZLE (11 − 6 posed, the wall shown FIRST), not on a recap and a promise.
+#   SPINE    THE MIRROR: E16 is E15 flipped — plus became minus, up became down, thumb became index
+#            finger, minus five became plus five. Taught with two guess-first questions ("What changed
+#            today?", "which finger now, thumb or index?"), each with a 3 s hold and no answer in the
+#            question.
+#   ROUTINE  a 3-step routine with its own words: LOOK (room on the ones rod?), CALL (no room: call
+#            the family), MOVE (ones rod first, then the tens rod). Every example runs Look, Call, Move
+#            in that order, and E17 can reuse it.
+#   WORDS    reactions are "Nope!", "Whoa.", "Boom!", "Mirror master!", "Mirror fans"; no "stuck again",
+#            "And there it is", "Well done", "Having fun". Celebration is "Boom!".
+#   RHYTHM   shorter lines, more question and answer; the host sometimes quotes a plain guess and then
+#            checks it on the beads.
+#   RECAP    "Flip it": plus family = up = thumb, minus family = down = index finger, with both formula
+#            shapes said side by side, then "Same numbers. Mirror moves." No "four family formulas for ...".
+#   CLOSE    "Try Look, Call, Move on your own abacus", a new CTA wording, a "family game / find the missing step" teaser (E17).
+#   Sentences shared with E15 are only unavoidable facts and series sign-offs ("Hello again!",
+#   "See you next time!", "What number is showing now?", friend facts such as "Seven's friend is three").
+#
+# ═══ DERIVED FACTS (brute-forced, not copied) ═══
+#
+#  1. THE TRICK. Big friend taking away is −n = +friend −10 (E13): ADD the friend f = 10−n to the
+#     ones digit d, then take one bead off the tens rod. Needed when d < n (not enough to take away).
+#     Because d < n, d + f ≤ 9, so the ones rod never overflows — the only question is whether
+#     "add f" is a PLAIN move (only beads that switch on: lower beads up, upper bead down).
+#     "Add f" is plain when f fits in the free lower beads (f ≤ 4 − d), or f ≥ 5 and the upper bead is
+#     up and the rest fit. It is NOT plain when the upper bead is up (d < 5), f ≤ 4, and f > 4 − d:
+#     there are not enough free lower beads. Then the SMALL friend adds f for us:
+#         +f = −(5−f) +5        (E08/E09 small friend adding: e.g. +4 = −1 +5)
+#     So Family Minus = big friend + small friend:
+#         −6 = +4 −10, and +4 = −1 +5   →  −6 = −1 +5 −10
+#         −7 = +3 −10, and +3 = −2 +5   →  −7 = −2 +5 −10
+#         −8 = +2 −10, and +2 = −3 +5   →  −8 = −3 +5 −10
+#         −9 = +1 −10, and +1 = −4 +5   →  −9 = −4 +5 −10
+#     Lower beads taken off first are always n − 5 (= 5 − friend).
+#
+#  2. WHEN (exact; brute force over every ones digit d for every n; trigger d < n):
+#         formula   friend   FAMILY when ones digit d is     pure big friend when d is
+#         −6        4        1, 2, 3, 4                       0, 5
+#         −7        3        2, 3, 4                          0, 1, 5, 6
+#         −8        2        3, 4                             0, 1, 2, 5, 6, 7
+#         −9        1        4                                0, 1, 2, 3, 5, 6, 7, 8
+#         −1 … −5   —        NEVER (friend ≥ 5 fits, or enough free lower beads)
+#     Your claim was right: Family only when d < 5 and 4 − d < f ≤ 4. 10 (d, n) pairs — exactly the
+#     app's familySubPairs() (iOS Level2Content.swift:249: 11−6 12−6 13−6 14−6, 12−7 13−7 14−7,
+#     13−8 14−8, 14−9). The pure-big-friend column matches the ranges already used for the Math
+#     Heroes taking-away shorts. In kid words: "the ones rod has no room to add the friend."
+#     The mirror of E15: Family PLUS needed d ≥ 5 (upper bead down); Family MINUS needs d < 5 (upper
+#     bead UP) — so the upper bead is up, and the free lower beads run out.
+#
+#  3. NOTATION / ORDER. The app (iOS Level2FormulaView.swift "Family − (+5−10)", rows
+#     "−6 = −1+5−10" … "−9 = −4+5−10", Android the same) writes the formula in exactly the series order:
+#     ones rod first, LOWER beads before the upper bead, tens rod last. E16 speaks it that way: "Minus
+#     six equals minus one, plus five, minus ten." FLAG: the app's beadMoves TEXT for the same rows
+#     reads "Borrow → heaven down → remove 1 earth" (borrow FIRST), and its learn step says "Borrow from
+#     tens (−10), push heaven DOWN (+5), remove 1 earth (−1)". That is the wrong order for the series
+#     (the formula notation is right, the move text is not). Physically the lower-first order is legal
+#     because the lowers removed (5−f) never exceed d exactly when f > 4−d (the Family condition).
+#
+#  4. DIRECTION OF EVERY MOVE (finger rule: UP = thumb, DOWN = index finger, decided by direction):
+#         "minus <k> lower beads"  → lower beads pushed DOWN (away from the beam)  → INDEX finger
+#         "plus five"              → upper bead pushed DOWN toward the beam         → INDEX finger
+#         "minus ten" (the borrow) → one bead on the tens rod pushed DOWN           → INDEX finger
+#     All Family Minus MOVES are DOWN moves: the mirror of E15 (all UP, thumb). Number MAKEUP is the
+#     usual mix: lower beads pushed UP (thumb), the upper bead pushed DOWN (index finger).
+#
+# ═══ EXAMPLES (4: one per Family formula, -6 -7 -8 -9; the -8 one is short) — every one passes ALL THREE checks ═══
+#   (a) ONES rod: trigger d < n holds; upper bead up (d < 5); friend > free lower beads (f > 4−d); the
+#       k = 5−f lowers to remove exist (d ≥ k), so every sub-step is a legal physical move;
+#   (b) TENS rod: the borrow is ONE plain bead — tens digit t in 1,2,3,4,6,7,8,9, NEVER 5;
+#   (c) not 50-shaped (no start or result of 50); all numbers distinct, and distinct from the
+#       E12–E15 worked numbers (E15 used 7, 6, 13, 26, 33, 5, 9, 14; E14 used 37, 81, 63, 96, 29, 62,
+#       91, 68 and 80, 42, 27, 19 and their answers; E13 used 18, 10, 12, 11, 13).
+#
+#   ex.         t d  free lower  friend  (a) ones rod                                       (b) tens   (c)
+#   ──────────  ─ ─  ──────────  ──────  ─────────────────────────────────────────────────  ─────────  ──
+#   11 − 6=5    1 1  3           4       4 > 3 ✓. −1 lower (1→0), upper down (5)            1→0 direct ok
+#   22 − 7=15   2 2  2           3       3 > 2 ✓. −2 lowers (2→0), upper down (5)           2→1 direct ok
+#   93 − 8=85   9 3  1           2       2 > 1 ✓. −3 lowers (3→0), upper down (5)           9→8 direct ok
+#   84 − 9=75   8 4  0           1       1 > 0 ✓. −4 lowers (4→0), upper down (5)           8→7 direct ok
+#   Numbers used: 11, 6, 5, 22, 7, 15, 93, 8, 85, 84, 9, 75 — all distinct, and none appears in
+#   E12–E15 (93 − 8 added in rev 2: d = 3 is Family for −8; 33 − 8 was rejected because 33 is E15's answer). 84 − 9 is the your-turn on purpose:
+#   the hardest case (the ones rod is full of lower beads, so ALL four come off first).
+#   Questions never show their answer: formula card and the answer appear on the ANSWER line, never
+#   on "how many more lower beads can we add?", "nine is how many more than five?" or "what number is
+#   showing now?".
+#
+# ═══ NARRATION RULES ═══  Making a number: ONES rod first, then the tens rod, lower beads before the
+#   upper bead on every rod, "on the ones rod" said. Moves: ones rod first, lower beads before the upper bead, tens
+#   rod last.
+#
+# ═══ FINGER-HINT SPOTS (for the build — animate the finger on these words) ═══
+#     1. 11−6 make-eleven: "Thumb pushes them up." (thumb, up)
+#     2. 11−6 guess-first question: "So which finger now, thumb or index?" [3 s] then "Index finger! Up is
+#        the thumb. Down is the index finger." (the rule once, answer given only AFTER the hold)
+#     3. 11−6 moves: "Minus one. The lower bead goes down." / "Plus five. The upper bead goes down." /
+#        "Tens rod last. One bead goes down." (all down = index finger; the build shows the index finger
+#        on each)
+#     4. 22−7 make: "Thumb up!" and moves ending "Index finger, every time!"
+#     5. 93−8 make: "Thumb for the lower beads, index finger for the upper bead."
+#     6. Flip-it recap: "Plus family: up, thumb. Minus family: down, index finger."
+#     7. Your go 84−9, BEFORE the moves, answer not given: make-eighty-four "Choose your fingers!" and
+#        "Move. All down, so all index finger. Ones rod first."
+#
+# ═══ WORLD + MASCOTS (concept only, nothing built) ═══
+#   NEW WORLD SET: A DESERT CANYON AT DUSK — terracotta and apricot light fading to violet, sand
+#   dunes, a rock burrow, a lone cactus. Nothing in E01–E15 is a desert (meadow/harbour/city/space/
+#   jungle/magic stage/park/pier/game show/circus/rainforest/autumn park/arcade/kelp cove).
+#   NEW MASCOTS: A FAMILY OF THREE MEERKATS (big, middle, little). E15's otters FLOATED and held
+#   paws; meerkats STAND UP on lookout and swap places — the "other way round" in motion. Little
+#   meerkat = "minus the lower beads", middle = "plus five", big = "minus ten"; they stack up on each
+#   other's shoulders as the formula is said and each lights up on its own part. Not used before:
+#   otters (E15), hedgehogs (E14), squirrels (E13), toucans (E12), elephant (E11), foxes (E10), seagull
+#   (E09), puppies (E08), rabbit/magic (E07), ninja (E01–E05).
+#   Beats: dusk at the burrow (hook) · the meerkats on lookout (problem + name) · the sand wall (stuck)
+#   · the rock ledge, formula card · lit burrow, like-ask · moonrise dunes (22−7) · starry canyon
+#   (pattern) · golden dune (your turn) · campfire glow, family huddle (close).
+#
+# ═══ LIKE-ASK PLACEMENT (EPISODE_RULES §3.9a — NEW SPOT, log this row) ═══
+#   | E16 | right after the SECOND worked sum's win ("Twenty-two take away seven is fifteen!"), before the short minus-eight example | ~58% |
+#   Logged/known spots: E08 after the third sum (~72%), E13 after its second sum (~50%), E14 after
+#   round four (~54%), E15 after the first win (~53%). HONEST NOTE: E16's ask also follows a second win,
+#   like E13's, but at ~58% (E13 ~50%, E14 ~54%, E15 ~53%), and in E16 a further worked example (minus
+#   eight) still follows it, so the viewer is not yet near the recap. If a strictly unused beat is wanted,
+#   the alternative is right after the pattern recap, before the your-turn (~77%) — say the word.
+#   Two lines, new wording, includes a subscribe beat. Not in the close.
+#
+# ═══ STRUCTURE (new spine — NOT the E12/E13/E15 shape) ═══
+#   1 hook (E15 echo, then a puzzle)  2 the puzzle and the wall FIRST (11−6)  3 WHY, then the NAME, then
+#   the routine Look/Call/Move (need before name kept)  4 the formula, the MIRROR comparison, the finger
+#   guess, then the beads (11−6)  5 22−7 (Look, Call, Move) — like ask —  6 93−8 quick  7 "Flip it" recap
+#   8 your go (84−9)  9 close + E17 teaser. All four Family formulas (−6, −7, −8, −9) are worked.
+#   TEASER (rev 5): the close now says "Next time, we play a family game. Can you find the missing step?"
+#   — it used to promise a "mix every trick" challenge, which is a later episode (Mixed Practice, now E19), not E17.
+#   Callbacks: E13/E15 (mirror of "plus one, minus five, plus ten"), E08/E09 (the small friend adds with
+#   five), E15's teaser (hook).
+#   RUNTIME ESTIMATE: ~667 spoken words + ~65 s of scripted holds. Calibrated against E13 (673 words recorded at 351 s,
+#   ~0.49 s per word, holds included) that is ~6.5 min; at a normal read ~5.5 min.
+#
+# ⏸ marks are real silences — the child is answering. 3 s after every question, 1–2 s between
+# steps, 3 s hold after each formula card. The expressive file carries them as [pause N seconds].
+
+# --- 1 · HOOK — echoes E15's teaser, then a puzzle ---
+Hello again!
+Last time, I said the family works the other way round.
+Today, we learn the family trick for taking away.
+But first, a puzzle. Eleven take away six.
+# ⏸ hold 1s
+
+# --- 2 · THE PUZZLE — the wall comes first: 11 − 6 ---
+Make eleven. One lower bead on the ones rod, and one lower bead on the tens rod. Thumb pushes them up.
+Six's friend is four. The big friend says: add four to the ones rod, then take ten off the tens rod.
+Quick guess. Is there room for four more lower beads on the ones rod?
+# ⏸ hold 3s
+Nope! Only three fit.
+Whoa. The big friend is stuck.
+# ⏸ hold 2s
+
+# --- 3 · WHY, THEN THE NAME, THEN THE ROUTINE — need before name ---
+Why? The upper bead is up, and the lower beads are almost full. No room to add four.
+Who can help?
+# ⏸ hold 3s
+The small friend! Four's small friend is one.
+To add four: take away one, then add five.
+The big friend and the small friend, side by side. That team is called the family.
+# ⏸ hold 1s
+Here is our routine. Look. Call. Move.
+Look: room on the ones rod? Call: no room, call the family. Move: ones rod first.
+# ⏸ hold 2s
+
+# --- 4 · THE FORMULA, THE MIRROR, THEN THE BEADS: 11 − 6 ---
+The big friend says: minus six equals plus four, minus ten.
+The small friend swaps plus four for minus one, plus five.
+So the family says: minus six equals minus one, plus five, minus ten.
+# ⏸ hold 3s
+Why? Minus ten takes four too many. So we add four back first.
+# ⏸ hold 1s
+Now remember last time. Plus six was plus one, minus five, plus ten. What changed today?
+# ⏸ hold 3s
+Every sign flipped! It is a mirror.
+So which finger now, thumb or index?
+# ⏸ hold 3s
+Index finger! Adding went up. Taking away goes down. Up is the thumb. Down is the index finger.
+# ⏸ hold 2s
+Move. Lower beads first, then the upper bead.
+Minus one. The lower bead goes down.
+# ⏸ hold 1s
+Plus five. The upper bead goes down.
+# ⏸ hold 1s
+Tens rod last. One bead goes down.
+Boom! Eleven take away six is five.
+# ⏸ hold 2s
+
+# --- 5 · A BIGGER ONE: 22 − 7 ---
+Next: twenty-two take away seven. Make it.
+Two lower beads on the ones rod, and two lower beads on the tens rod. Thumb up!
+Look. Seven's friend is three. Room for three more lower beads?
+# ⏸ hold 3s
+No! Just two fit.
+Call. Minus seven equals minus two, plus five, minus ten.
+# ⏸ hold 3s
+Move. Minus two. Two lower beads go down.
+# ⏸ hold 1s
+Now plus five. Upper bead down.
+# ⏸ hold 1s
+Tens rod. One bead goes down. Index finger, every time!
+Boom! Twenty-two take away seven is fifteen!
+# ⏸ hold 1s
+
+# --- THE LIKE ASK — MID-ROLL, RIGHT AFTER THE SECOND WIN ---
+Mirror fans, tap like!
+And subscribe, the next trick is a big one.
+# ⏸ hold 1s
+
+# --- 6 · MINUS EIGHT, QUICK: 93 − 8 ---
+Minus eight. Make ninety-three.
+On the ones rod, three lower beads. Then on the tens rod, four lower beads and the upper bead. Thumb for the lower beads, index finger for the upper bead.
+Look. Eight's friend is two. How many more lower beads fit?
+# ⏸ hold 3s
+Only one!
+Call. Minus eight equals minus three, plus five, minus ten.
+# ⏸ hold 3s
+Move. Minus three. Three lower beads go down.
+# ⏸ hold 1s
+Then plus five. Down goes the upper bead.
+# ⏸ hold 1s
+Tens rod. One bead goes down.
+Boom! Ninety-three take away eight is eighty-five!
+# ⏸ hold 1s
+
+# --- 7 · THE PATTERN — flip it ---
+Flip it. Plus family: up, thumb. Minus family: down, index finger.
+Plus family: plus lower beads, minus five, plus ten. Minus family: minus lower beads, plus five, minus ten.
+Same numbers. Mirror moves.
+# ⏸ hold 3s
+Minus six, minus seven, minus eight, minus nine. Four mirror formulas.
+# ⏸ hold 1s
+
+# --- 8 · YOUR GO: 84 − 9 ---
+Your go. Make eighty-four. On the ones rod, four lower beads. Then on the tens rod, three lower beads and the upper bead. Choose your fingers!
+Look. What is nine's friend?
+# ⏸ hold 3s
+One!
+Check the ones rod. Four lower beads already. No room at all!
+Call. Nine is five and four more. So how many lower beads come off first?
+# ⏸ hold 3s
+Four! Minus nine equals minus four, plus five, minus ten.
+# ⏸ hold 2s
+Move. All down, so all index finger. Ones rod first.
+# ⏸ hold 2s
+What number is showing now?
+# ⏸ hold 3s
+Eighty-four take away nine is seventy-five!
+Mirror master! You did Look, Call, Move all by yourself.
+# ⏸ hold 1s
+
+# --- 9 · CLOSE ---
+Try Look, Call, Move on your own abacus.
+Get Abacus Kids on the Apple App Store or Google Play. It is free.
+See you next time!

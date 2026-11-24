@@ -52,6 +52,7 @@ import {
   BIG_FORMULA_GRID_NAT,
 } from "../components/e11/BigFriendFormulaList";
 import { ColumnSum, COL_NAT, type SumStep } from "../components/e06/ColumnSum";
+import { FormulaStrip, STRIP_NAT } from "../components/e07/FormulaStrip";
 import { Card, StickerText } from "../components/Sticker";
 import { bob } from "../lib/motion";
 import { SceneStage, type SfxCue } from "../stage/SceneStage";
@@ -129,6 +130,8 @@ interface Scene extends BaseScene {
   /** the per-round formula card — one row lit, add or take depending on the round's own sign */
   formulas?: { active: number; take: boolean };
   formulasArriving?: boolean;
+  /** the BIG FRIEND formula card: plain when the friend is named, then lights the friend move and the ten move as their words are read aloud */
+  doing?: { n: number; step: 0 | 1 | 2; mode: "add" | "sub"; marks?: number[] };
   sum?: { a: number; b: number; op: string; total?: number; step: SumStep };
   big?: string;
   valueChip?: boolean;
@@ -345,6 +348,38 @@ const FORMULA_FLASH: Record<number, { word: string; part: FormulaPart; nth?: num
   return out;
 })();
 
+/** where the nth occurrence of a word starts inside its line, as a 0..1 share of the line (drives the lit move on the formula card) */
+const markNth = (p: number, w: string, n = 1) => {
+  const ph = PHRASES[p];
+  const hits = ph.words.filter((k) => k.word.toLowerCase().replace(/[^a-z]/g, "") === w);
+  const x = hits[n - 1];
+  return x ? Math.max(0, Math.min(0.95, (x.start - ph.start) / (ph.end - ph.start))) : 0.5;
+};
+
+/**
+ * THE BIG FRIEND FORMULA CARD (same card and behaviour as E07-E13, titled BIG FRIEND), one per round: plain when the friend is named (`reveal`),
+ * then on the line that reads the formula aloud ("Plus four equals minus six, plus ten.") the friend move lights as the friend word is spoken and the
+ * ten move as "ten" is spoken. Friend first: adding rounds +n = −friend +10, taking-away rounds −n = +friend −10. It steps off when the big answer
+ * takes over, as before.
+ */
+const DOING: Record<number, NonNullable<Scene["doing"]>> = (() => {
+  const out: Record<number, NonNullable<Scene["doing"]>> = {};
+  ROUNDS.forEach((r, i) => {
+    const c = CONTENT[i];
+    const mode = c.op === "+" ? ("add" as const) : ("sub" as const);
+    out[r.reveal] = { n: c.b, step: 0, mode };
+    const fl = FORMULA_FLASH[r.formula];
+    const friend = fl.find((f) => f.part === "friend")!;
+    out[r.formula] = {
+      n: c.b,
+      step: 0,
+      mode,
+      marks: [markNth(r.formula, friend.word, (friend.nth ?? 0) + 1), markNth(r.formula, "ten", 1)],
+    };
+  });
+  return out;
+})();
+
 /** The sum, in column form, up from `make` through `formula`, gone the instant the big answer
  *  card takes over — same convention E10 uses. `step` picks which row is highlighted: "first"
  *  while the line is about the STARTING number (`make`), "second" while it is about the number
@@ -548,7 +583,8 @@ const sceneFor = (p: number): Scene => {
     celebrate: BURST_FROM.has(p) ? ("burst" as const) : undefined,
     celebrateFrom: BURST_FROM.get(p),
     sum: onAbacus && !ANSWER_TEXT[p] ? SUMS[p] : undefined,
-    formulas: onAbacus ? FORMULAS[p] : undefined,
+    formulas: undefined,
+    doing: onAbacus ? DOING[p] : undefined,
     formulasArriving: Boolean(FORMULAS[p]) && !FORMULAS[p - 1],
     big: ANSWER_TEXT[p],
     valueChip: onAbacus && isWorking(p) && !ANSWER_TEXT[p],
@@ -744,6 +780,17 @@ const SFX_CUES: SfxCue[] = (() => {
   }
 
   add(on(14, "stuck"), "boing.mp3", 26, 0.2);
+
+  // ---- NEW SOUNDS (same set as E07-E13): headline chips, the BIG FRIEND card and its lit moves
+  const span = (i: number) => sec(PHRASES[i].end, FPS) - at(i);
+  for (const i of [0, 2, 3, 5, 7, 9, 16, 87]) add(at(i) + 2, "swipe.mp3", 11, 0.2);
+  for (const i of Object.keys(DOING).map(Number).sort((a, b) => a - b)) {
+    const d = DOING[i];
+    const q = DOING[i - 1];
+    if (!(q && q.n === d.n && q.mode === d.mode)) add(at(i) + 3, "cta_pop.mp3", 10, 0.26);
+    for (const m of d.marks ?? []) if (m > 0.05) add(at(i) + span(i) * m, "tick.mp3", 6, 0.34);
+  }
+
   const rate = STORE_FRAMES / 136;
   add(STORE_START + 50 * rate, "btn_click.mp3", 20, 0.28);
   add(STORE_START + 92 * rate, "btn_click.mp3", 20, 0.3);
@@ -775,10 +822,10 @@ const hedgehogsAt = (
 ) => {
   if (closing) {
     const scale = L.portrait ? 0.85 : 1.1;
-    return { x: L.W - (HEDGE_GAP + HEDGEHOG_BOX.half) * scale - 40, y: L.H * (L.portrait ? 0.8 : 0.79), scale };
+    return { x: L.W - (HEDGE_GAP + HEDGEHOG_BOX.half) * scale - 40, y: L.portrait ? L.H * 0.79 : 826, scale }; // landscape feet at 826 (tags clear the caption by 24 px)
   }
   if (L.portrait) {
-    return { x: 790, y: 1165, scale: 0.5 };
+    return { x: 790, y: 1182, scale: 0.44 }; // lower and a touch smaller: Tenzo's number crown touched the ones chip under the abacus at 0.5
   }
   const scale = castFit(box, L, box.scale * 0.95, HEDGE_HALF, 40);
   return {
@@ -889,6 +936,15 @@ const DIM_CARD: React.CSSProperties = {
   transformOrigin: "top left",
 };
 
+const STRIP_S = (portrait: boolean) => (portrait ? 0.95 : 1.1);
+/** The BIG FRIEND card sits directly under the sum card (4:5: beside it), in one place for every round. */
+const stripSlotE14 = (L: { portrait: boolean; band: { stageTop: number }; cardBand: { top: number } | null }) => {
+  const s = STRIP_S(L.portrait);
+  const w = STRIP_NAT.w * s;
+  const h = STRIP_NAT.h * s;
+  if (L.portrait) return { x: 30 + COL_NAT.w * SUM_S(true) + 16, y: L.cardBand!.top + 8, w, h };
+  return { x: 40, y: L.band.stageTop + 24 + COL_NAT.h * SUM_S(false) + 18, w, h };
+};
 const FORMULA_S = 0.82;
 const formulaSlot = (L: { portrait: boolean; W: number; band: { stageTop: number } }) => {
   const w = BIG_FORMULA_ONE.w * FORMULA_S;
@@ -942,6 +998,7 @@ export const E14StarlightFunfair: React.FC = () => (
     sceneFor={sceneFor}
     narration="audio/e014_big_friend_recap/E14.mp3"
     sfx={SFX_CUES}
+    music={{ file: "lesson_bed.wav", loopFrames: 800, vol: 0.12 }}
     abacusFirstFrame={0}
     subjectFor={() => undefined}
     guardOverlap
@@ -966,7 +1023,7 @@ export const E14StarlightFunfair: React.FC = () => (
         const w = bigW(scene.big);
         out.push({ label: "number", r: { x: (L.W - w) / 2, y: BIG_TOP, w, h: BIG_H } });
       }
-      if (scene.valueChip && !scene.big && !scene.headline && !(L.portrait && scene.formulas)) {
+      if (scene.valueChip && !scene.big && !scene.headline && true) {
         out.push({ label: "valueChip", r: { x: (L.W - 260) / 2, y: 24, w: 260, h: 108 } });
       }
       if (scene.sum) {
@@ -974,7 +1031,7 @@ export const E14StarlightFunfair: React.FC = () => (
         const at = sumSlot(L);
         out.push({ label: "sumCard", r: { ...at, w: COL_NAT.w * s, h: COL_NAT.h * s } });
       }
-      if (scene.formulas) out.push({ label: "formulaCard", r: formulaSlot(L) });
+      if (scene.doing) out.push({ label: "doing", r: stripSlotE14(L) });
       if (scene.showcase) {
         if (scene.showcase.side === "both") {
           const slot = showcaseBothSlot(L);
@@ -1137,7 +1194,7 @@ export const E14StarlightFunfair: React.FC = () => (
           return (
             <svg width={L.W} height={L.H} style={{ position: "absolute", inset: 0, overflow: "visible", pointerEvents: "none" }}>
               <Pieces mood={mood} frame={ctx.frame} fps={FPS} pieces={[
-                { kind: "bear", x: 190, y: 905, scale: 1.2, show: !L.portrait },
+                { kind: "bear", x: 190, y: 905, scale: 1.2, show: !L.portrait && !scene.sum },
                 { kind: "balloon", x: 170 + Math.sin(ctx.frame / FPS * 0.5) * 40, y: 262, scale: 0.7, show: !L.portrait },
               ]} />
             </svg>
@@ -1159,39 +1216,15 @@ export const E14StarlightFunfair: React.FC = () => (
           </svg>
         )}
 
-        {/* THE FORMULA CARD — one row lit, switching between the add/take tables per round.
-            FORMULA_FOCUS (the exact phrase that SPEAKS the formula, "Plus four equals minus
-            six, plus ten.") gets its own scale-pop emphasis — not a new glow effect (a diffuse
-            wash was tried elsewhere in this episode and the user explicitly rejected it for
-            washing out what it was meant to focus), just a brief pop-in on arrival, the same
-            idiom the milestone card's own reveal already uses (`pop = min(1, beatProgress*k)`). */}
-        {scene.formulas && (() => {
-          const slot = formulaSlot(ctx.layout);
-          const focus = FORMULA_FOCUS.has(ctx.p);
-          const pop = focus ? Math.min(1, ctx.beatProgress * 6) : 1;
-          const scaleUp = 0.86 + pop * 0.14;
+        {/* THE BIG FRIEND FORMULA CARD: plain when the friend is named, then each move lights as its words are read aloud */}
+        {scene.doing && (() => {
+          const L = ctx.layout;
+          const slot = stripSlotE14(L);
+          const d = scene.doing;
+          const step = Math.min(2, d.step + (d.marks ?? []).filter((m) => ctx.beatProgress >= m).length);
           return (
-            <div
-              style={{
-                position: "absolute",
-                left: slot.x,
-                top: slot.y,
-                transform: focus ? `scale(${scaleUp})` : undefined,
-                transformOrigin: "center",
-              }}
-            >
-              <BigFriendFormulaList
-                only
-                all
-                active={scene.formulas!.active}
-                take={scene.formulas!.take}
-                arriving={scene.formulasArriving}
-                flashPart={formulaFlashFor(ctx.p, ctx.frame)?.part}
-                flashK={formulaFlashFor(ctx.p, ctx.frame)?.k}
-                accent="#9E0A55"
-                progress={ctx.beatProgress}
-                scale={FORMULA_S}
-              />
+            <div style={{ position: "absolute", left: slot.x, top: slot.y }}>
+              <FormulaStrip n={d.n} step={step as 0 | 1 | 2} mode={d.mode} base={10} accent="#7A1F5C" scale={STRIP_S(L.portrait)} />
             </div>
           );
         })()}
@@ -1204,7 +1237,7 @@ export const E14StarlightFunfair: React.FC = () => (
           const L = ctx.layout;
           const at = sumSlot(L);
           const prev = SUMS[ctx.p - 1];
-          const dimmed = FORMULA_FOCUS.has(ctx.p);
+          const dimmed = false;
           return (
             <div style={{ position: "absolute", left: at.x, top: at.y, ...(dimmed ? DIM_CARD : {}) }}>
               <ColumnSum
@@ -1359,7 +1392,7 @@ export const E14StarlightFunfair: React.FC = () => (
         })()}
 
         {/* the live value */}
-        {scene.valueChip && !scene.big && !scene.headline && !(ctx.layout.portrait && scene.formulas) && (
+        {scene.valueChip && !scene.big && !scene.headline && true && (
           <div style={{ position: "absolute", left: 0, top: 24, width: ctx.layout.W, display: "flex", justifyContent: "center" }}>
             <div
               style={{

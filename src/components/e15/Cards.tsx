@@ -23,14 +23,14 @@ import { INK, PART_COLOURS } from "../cast/Otter";
 import { useOverflowGuard } from "../../lib/overflowGuard";
 
 export const ACCENT = "#0B6B7D";
-const FRIEND = "#C9B8FF";
-const NEUTRAL = "#FFFFFF";
-const SHADOW = "rgba(8,60,80,0.32)";
+export const FRIEND = "#C9B8FF";
+export const NEUTRAL = "#FFFFFF";
+export const SHADOW = "rgba(8,60,80,0.32)";
 
 const clamp01 = (x: number) => Math.max(0, Math.min(1, x));
 
 /** The card shell: white, a dark-teal rim, a shadow, and a title pill that overlaps the top edge. */
-const Shell: React.FC<{ w: number; h: number; scale: number; title: string; titleColour?: string; children: React.ReactNode }> = ({ w, h, scale, title, titleColour = ACCENT, children }) => {
+export const Shell: React.FC<{ w: number; h: number; scale: number; title: string; titleColour?: string; children: React.ReactNode }> = ({ w, h, scale, title, titleColour = ACCENT, children }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   useOverflowGuard(ref, title, 7 * scale + 4);
   return (
@@ -80,7 +80,7 @@ const Shell: React.FC<{ w: number; h: number; scale: number; title: string; titl
 };
 
 /** A chip: rounded, bright, with dark ink; `flash` (0..1) lifts it and rings it white. */
-const Chip: React.FC<{ text: string; fill: string; w: number; h: number; size: number; k?: number; flash?: number; dim?: number; scale: number }> = ({ text, fill, w, h, size, k = 1, flash = 0, dim = 0, scale }) => (
+export const Chip: React.FC<{ text: string; fill: string; w: number; h: number; size: number; k?: number; flash?: number; dim?: number; scale: number }> = ({ text, fill, w, h, size, k = 1, flash = 0, dim = 0, scale }) => (
   <div
     style={{
       width: w * scale,
@@ -135,7 +135,7 @@ const Ghosted: React.FC<{ k: number; scale: number; children: React.ReactNode }>
 );
 
 /** A tiny otter head: the visual tie between a chip and its otter. */
-const MiniHead: React.FC<{ role: "little" | "middle" | "big"; size: number }> = ({ role, size }) => {
+export const MiniHead: React.FC<{ role: "little" | "middle" | "big"; size: number }> = ({ role, size }) => {
   const f = { little: ["#C98F5A", "#FBEBD2"], middle: ["#A8703F", "#F8E2C4"], big: ["#7E4D2B", "#F2D9B8"] }[role];
   const col = PART_COLOURS[role];
   return (
@@ -170,9 +170,22 @@ interface CellDef {
 }
 
 /** n = the number being added (6..9); the friend is 10−n and the small friend is n−5. */
-export const familyCells = (mode: FamilyMode, n: number): CellDef[] => {
+export type FamilyDir = "plus" | "minus";
+
+export const familyCells = (mode: FamilyMode, n: number, dir: FamilyDir = "plus"): CellDef[] => {
   const f = 10 - n;
   const s = n - 5;
+  // E16, taking away: the mirror image. −n = +friend −10 · +friend = −small +5 · −n = −small +5 −10.
+  if (dir === "minus") {
+    if (mode === "big") return [{ text: `−${n}`, fill: NEUTRAL }, { text: `+${f}`, fill: FRIEND }, { text: "−10", fill: PART_COLOURS.big, role: "big" }];
+    if (mode === "small") return [{ text: `+${f}`, fill: NEUTRAL }, { text: `−${s}`, fill: PART_COLOURS.little, role: "little" }, { text: "+5", fill: PART_COLOURS.middle, role: "middle" }];
+    return [
+      { text: `−${n}`, fill: NEUTRAL },
+      { text: `−${s}`, fill: PART_COLOURS.little, role: "little" },
+      { text: "+5", fill: PART_COLOURS.middle, role: "middle" },
+      { text: "−10", fill: PART_COLOURS.big, role: "big" },
+    ];
+  }
   if (mode === "big") return [{ text: `+${n}`, fill: NEUTRAL }, { text: `−${f}`, fill: FRIEND }, { text: "+10", fill: PART_COLOURS.big, role: "big" }];
   if (mode === "small") return [{ text: `−${f}`, fill: NEUTRAL }, { text: `+${s}`, fill: PART_COLOURS.little, role: "little" }, { text: "−5", fill: PART_COLOURS.middle, role: "middle" }];
   return [
@@ -198,13 +211,17 @@ export const FamilyFormula: React.FC<{
   link?: number;
   scale?: number;
   frame: number;
-}> = ({ mode, n, cellK, flash, lit, link = 0, scale = 1, frame }) => {
-  const cells = familyCells(mode, n);
+  /** "minus" = the taking-away family (E16); default is the adding family */
+  dir?: FamilyDir;
+  /** override the card's title pill */
+  title?: string;
+}> = ({ mode, n, cellK, flash, lit, link = 0, scale = 1, frame, dir = "plus", title }) => {
+  const cells = familyCells(mode, n, dir);
   const CW = mode === "family" ? 104 : 124;
   const CH = 96;
   const eqW = 40;
   return (
-    <Shell w={FAMILY_NAT.w} h={FAMILY_NAT.h} scale={scale} title={FAMILY_TITLE[mode]}>
+    <Shell w={FAMILY_NAT.w} h={FAMILY_NAT.h} scale={scale} title={title ?? FAMILY_TITLE[mode]}>
       <div
         style={{
           position: "absolute",
@@ -366,7 +383,11 @@ export const PatternTable: React.FC<{
   arriving?: number;
   scale?: number;
   frame: number;
-}> = ({ rows, active, flash, constants = 0, generic = false, arriving = 1, scale = 1, frame }) => {
+  dir?: FamilyDir;
+}> = ({ rows, active, flash, constants = 0, generic = false, arriving = 1, scale = 1, frame, dir = "plus" }) => {
+  const sg = dir === "minus" ? "−" : "+";
+  const fiveT = dir === "minus" ? "+5" : "−5";
+  const tenT = dir === "minus" ? "−10" : "+10";
   const ns = [6, 7, 8, 9];
   const CW = 104;
   const CH = 58;
@@ -376,11 +397,11 @@ export const PatternTable: React.FC<{
       <div style={{ position: "absolute", left: 0, right: 0, top: 62 * scale, display: "flex", flexDirection: "column", alignItems: "center", gap: 8 * scale }}>
         {generic && (
           <div style={{ display: "flex", alignItems: "center", gap: 8 * scale }}>
-            <Chip text="+n" fill={NEUTRAL} w={CW} h={CH} size={40} scale={scale} k={arriving} />
+            <Chip text={`${sg}n`} fill={NEUTRAL} w={CW} h={CH} size={40} scale={scale} k={arriving} />
             <div style={{ fontSize: 40 * scale, fontWeight: 700, color: ACCENT }}>=</div>
-            <Chip text="+ ?" fill={PART_COLOURS.little} w={CW} h={CH} size={40} scale={scale} k={arriving} />
-            <Chip text="−5" fill={PART_COLOURS.middle} w={CW} h={CH} size={40} scale={scale} k={arriving} flash={pulse} />
-            <Chip text="+10" fill={PART_COLOURS.big} w={CW} h={CH} size={40} scale={scale} k={arriving} flash={pulse} />
+            <Chip text={`${sg} ?`} fill={PART_COLOURS.little} w={CW} h={CH} size={40} scale={scale} k={arriving} />
+            <Chip text={fiveT} fill={PART_COLOURS.middle} w={CW} h={CH} size={40} scale={scale} k={arriving} flash={pulse} />
+            <Chip text={tenT} fill={PART_COLOURS.big} w={CW} h={CH} size={40} scale={scale} k={arriving} flash={pulse} />
           </div>
         )}
         {ns.map((n, i) => {
@@ -391,14 +412,14 @@ export const PatternTable: React.FC<{
             <div key={n} style={{ position: "relative" }}>
               {/* the ghost of a row still to come */}
               <div style={{ position: "absolute", left: 4 * scale, right: 4 * scale, top: 0, bottom: 0, borderRadius: 24 * scale, border: `${4 * scale}px dashed ${ACCENT}`, opacity: 0.35 * (1 - clamp01(k * 3)), display: "flex", alignItems: "center", justifyContent: "center", fontSize: 34 * scale, fontWeight: 700, color: ACCENT }}>
-                {`+${n} = ?`}
+                {`${sg}${n} = ?`}
               </div>
             <div style={{ display: "flex", alignItems: "center", gap: 8 * scale, opacity: clamp01(k * 3), transform: `translateX(${(1 - k) * -40 * scale}px)` }}>
-              <Chip text={`+${n}`} fill={NEUTRAL} w={CW} h={CH} size={44} scale={scale} k={1} flash={flash && flash.row === i && flash.cell === 0 ? flash.k : 0} dim={dim * 0.7} />
+              <Chip text={`${sg}${n}`} fill={NEUTRAL} w={CW} h={CH} size={44} scale={scale} k={1} flash={flash && flash.row === i && flash.cell === 0 ? flash.k : 0} dim={dim * 0.7} />
               <div style={{ fontSize: 40 * scale, fontWeight: 700, color: ACCENT, opacity: 1 - dim * 0.5 }}>=</div>
-              <Chip text={`+${n - 5}`} fill={PART_COLOURS.little} w={CW} h={CH} size={44} scale={scale} k={1} flash={flash && flash.row === i && flash.cell === 1 ? flash.k : 0} dim={dim * 0.7} />
-              <Chip text="−5" fill={PART_COLOURS.middle} w={CW} h={CH} size={44} scale={scale} k={1} flash={pulse} dim={dim * 0.7} />
-              <Chip text="+10" fill={PART_COLOURS.big} w={CW} h={CH} size={44} scale={scale} k={1} flash={pulse} dim={dim * 0.7} />
+              <Chip text={`${sg}${n - 5}`} fill={PART_COLOURS.little} w={CW} h={CH} size={44} scale={scale} k={1} flash={flash && flash.row === i && flash.cell === 1 ? flash.k : 0} dim={dim * 0.7} />
+              <Chip text={fiveT} fill={PART_COLOURS.middle} w={CW} h={CH} size={44} scale={scale} k={1} flash={pulse} dim={dim * 0.7} />
+              <Chip text={tenT} fill={PART_COLOURS.big} w={CW} h={CH} size={44} scale={scale} k={1} flash={pulse} dim={dim * 0.7} />
             </div>
             </div>
           );

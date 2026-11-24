@@ -48,6 +48,7 @@ import {
   BIG_FRIEND_FORMULAS,
 } from "../components/e11/BigFriendFormulaList";
 import { ColumnSum, COL_NAT, type SumStep } from "../components/e06/ColumnSum";
+import { FormulaStrip, STRIP_NAT } from "../components/e07/FormulaStrip";
 import { Card, StickerText } from "../components/Sticker";
 import { bob } from "../lib/motion";
 import { SceneStage, type SfxCue } from "../stage/SceneStage";
@@ -75,6 +76,8 @@ interface Scene extends BaseScene {
   friendsPrev?: { shown: number; active?: number };
   formulas?: { active?: number; stagger?: boolean; only?: boolean; all?: boolean };
   formulasArriving?: boolean;
+  /** the BIG FRIEND formula card while it is said and done: first −friend (take away), then +10 (carry); advances at `marks` */
+  doing?: { n: number; step: 0 | 1 | 2; marks?: number[] };
   big?: string;
   valueChip?: boolean;
   sum?: { a: number; b: number; op: string; total?: number; step: SumStep };
@@ -417,22 +420,49 @@ const sumFlashFor = (p: number, frame: number): { row: SumRow; k: number } | und
 const FORMULAS: Record<number, NonNullable<Scene["formulas"]>> = (() => {
   const out: Record<number, NonNullable<Scene["formulas"]>> = {};
   const put = (ps: number[], v: NonNullable<Scene["formulas"]>) => ps.forEach((p) => (out[p] = v));
-  const range = (from: number, to: number) => Array.from({ length: to - from + 1 }, (_, i) => from + i);
-  // The strip appears only once the TRICK is in play — from "now we want to add four" / "then add
-  // five" through the answer. Building the starting number ("let us make six", "make five on
-  // your abacus") is plain bead work with no formula behind it, so no strip there.
-  put(range(69, 84), { active: 4, only: true }); // +4 = −6 + 10
-  // NOT from "then add five" — the script then asks "Think. What is five's friend?", and a strip
-  // reading "−5" on screen answers the question for the child. It appears on "Five!", the answer.
-  put(range(113, 120), { active: 5, only: true }); // +5 = −5 + 10
   // the pattern recap (p92-94: "That is all. The friend changes. But ten never does.") — the full
-  // card IS that sentence: five rows where the friend column changes and "+ 10" never does.
-  // Revealed once on 92 (stagger), then held still through 93-94.
-  // ALL NINE rows, not five: "the friend changes, but ten never does" is only true of the whole
-  // set, and +6..+9 are their own moves even though they reuse the pairs.
+  // card IS that sentence: ALL NINE rows where the friend column changes and "+ 10" never does.
   put([92], { stagger: true, all: true });
   put([93, 94], { all: true });
   put([122], { stagger: true, all: true }); // the closing recap — all nine, none lit
+  return out;
+})();
+
+/** where a word starts inside its line, as a 0..1 share of the line (drives the lit move on the formula card) */
+const markAt = (p: number, w: string) => {
+  const ph = PHRASES[p];
+  const x = ph.words.find((k) => k.word.toLowerCase().replace(/[^a-z]/g, "") === w);
+  return x ? Math.max(0, Math.min(0.95, (x.start - ph.start) / (ph.end - ph.start))) : 0.5;
+};
+
+/**
+ * THE BIG FRIEND FORMULA CARD, said and DONE (same card and behaviour as E07-E11, titled BIG FRIEND). Friend first: +n = −friend +10. It comes up
+ * plain when the friend is NAMED, lights "−friend" while the friend is taken away and "+10" while the bead is carried, and goes plain on the
+ * answer lines. All four worked examples get it, including the two flipped ones (+8 = −2 +10, +6 = −4 +10): they are real big-friend formulas,
+ * and the card is the one place a child sees which formula the line is using.
+ */
+const DOING: Record<number, NonNullable<Scene["doing"]>> = (() => {
+  const out: Record<number, NonNullable<Scene["doing"]>> = {};
+  const put = (ps: number[], v: NonNullable<Scene["doing"]>) => ps.forEach((p) => (out[p] = v));
+  // the recap of last time's trick, lit as it is said ("Take away the friend, and carry to the tens rod.")
+  put([4], { n: 0, step: 0, marks: [markAt(4, "take"), markAt(4, "carry")] });
+  // 6 + 4: four's friend is six
+  put([66, 67, 68, 69, 70, 71], { n: 4, step: 0 });
+  put([72, 73, 74, 75, 76, 77, 78], { n: 4, step: 1 });
+  put([79, 80, 81], { n: 4, step: 2 });
+  put([82, 83, 84], { n: 4, step: 0 });
+  // 2 + 8 (flipped): eight's friend is two
+  put([61], { n: 8, step: 0 });
+  put([62], { n: 8, step: 0, marks: [markAt(62, "take"), markAt(62, "carry")] });
+  put([63, 64], { n: 8, step: 0 });
+  // 4 + 6 (flipped): six's friend is four
+  put([101], { n: 6, step: 0 });
+  put([102], { n: 6, step: 0, marks: [markAt(102, "take"), markAt(102, "carry")] });
+  put([103, 104, 105], { n: 6, step: 0 });
+  // 5 + 5 (your turn): five is its own friend, named at "Five!"
+  put([113, 114], { n: 5, step: 0 });
+  put([115], { n: 5, step: 0, marks: [markAt(115, "take"), markAt(115, "carry")] });
+  put([116, 117, 118, 119, 120], { n: 5, step: 0 });
   return out;
 })();
 
@@ -546,7 +576,6 @@ const HEADLINE: Record<number, string> = {
   37: "do we need the trick?",
   45: "remember this?",
   56: "it flips, too!",
-  66: "six plus four",
   87: "the pattern",
   95: "flip it: four and six",
   106: "your turn",
@@ -673,6 +702,7 @@ const sceneFor = (p: number): Scene => {
     celebrateFrom: BURST_FROM.get(p),
     friends: FRIENDS[p],
     formulas: FORMULAS[p],
+    doing: DOING[p],
     friendsArriving: FRIENDS[p] !== undefined && FRIENDS[p - 1]?.shown !== FRIENDS[p]?.shown,
     friendsPrev: FRIENDS[p - 1],
     formulasArriving: FORMULAS[p] !== undefined && FORMULAS[p - 1] === undefined,
@@ -701,6 +731,7 @@ const sceneFor = (p: number): Scene => {
       worldWash: 0.55,
       sum: undefined,
       formulas: undefined,
+      doing: undefined,
       friends: undefined,
       toucan: undefined,
       valueChip: false,
@@ -740,6 +771,8 @@ const sceneFor = (p: number): Scene => {
       valueChip: false,
       friends: undefined,
       formulas: undefined,
+      doing: undefined,
+      toucan: undefined, // the store phone + badges own the frame: the friends stood on top of the App Store / Google Play badges
       noCaption: p === 124 || p === 125,
     };
   }
@@ -752,6 +785,7 @@ const sceneFor = (p: number): Scene => {
     valueChip: false,
     friends: undefined,
     formulas: undefined,
+    doing: undefined,
     toucan: undefined,
   };
 };
@@ -765,6 +799,11 @@ const STORE_FRAMES = (() => {
   if (!idx.length) return 1;
   return sec(PHRASES[idx[idx.length - 1]].end, FPS) - STORE_START;
 })();
+
+/** the phrase where the big friend is first mentioned ("The big friend trick!"): Tenzo, his tag and crown are off stage until then; only Pip (ME) before */
+const FRIEND_INTRO = 3;
+const friendEnter = (p: number, bp: number) => (p < FRIEND_INTRO ? 0 : p === FRIEND_INTRO ? Math.min(1, bp * 4) : 1);
+const friendCrown = (p: number, bp: number) => (p < FRIEND_INTRO ? 0 : p === FRIEND_INTRO ? Math.max(0, Math.min(1, (bp - 0.3) * 3)) : 1);
 
 const SFX_CUES: SfxCue[] = (() => {
   const cues: SfxCue[] = [];
@@ -839,6 +878,20 @@ const SFX_CUES: SfxCue[] = (() => {
     add(st + 30, "bell.mp3", 46, 0.3);
   }
 
+  // ---- NEW SOUNDS (same set as E07-E11): Tenzo's arrival, the BIG FRIEND card and its lit moves
+  const span = (i: number) => sec(PHRASES[i].end, FPS) - at(i);
+  add(at(FRIEND_INTRO) + 4, "cta_pop.mp3", 10, 0.3);
+  add(at(FRIEND_INTRO) + span(FRIEND_INTRO) * 0.34, "friend_sparkle.mp3", 18, 0.3);
+  for (const i of [0, 9, 33, 37, 45, 56, 87, 95, 106, 121]) add(at(i) + 2, "swipe.mp3", 11, 0.2);
+  for (const i of Object.keys(DOING).map(Number).sort((a, b) => a - b)) {
+    const d = DOING[i];
+    const q = DOING[i - 1];
+    const final = q && q.n === d.n ? Math.min(2, q.step + (q.marks?.length ?? 0)) : -1;
+    if (final === -1) add(at(i) + 3, "cta_pop.mp3", 10, 0.26);
+    else if (d.step !== final && d.step > 0) add(at(i) + 3, "tick.mp3", 6, 0.34);
+    for (const m of d.marks ?? []) if (m > 0.05) add(at(i) + span(i) * m, "tick.mp3", 6, 0.34);
+  }
+
   // standard close SFX
   add(at(2) + 6, "boing.mp3", 26, 0.2);
 
@@ -860,7 +913,8 @@ const toucanPairAt = (
   L: { W: number; H: number; portrait: boolean },
   closing = false,
   aside = false,
-  crowded = false
+  crowded = false,
+  nextVideo = false
 ) => {
   // gap is tuned against the beak geometry in Toucan.tsx: each beak reaches ~70 local units from
   // its own anchor at rest and ~122 at full `highfive` reach, so a half-gap around 85 leaves a
@@ -871,7 +925,7 @@ const toucanPairAt = (
   // but kept in step with E13 for whenever it does.
   if (closing) {
     const scale = L.portrait ? 0.9 : 1.15;
-    return { x: L.W - pairHalf(2) * scale - 40, y: L.H * (L.portrait ? 0.74 : 0.79), scale, gap: 0 };
+    return { x: L.W - pairHalf(2) * scale - 40, y: L.portrait ? L.H * (nextVideo ? 0.86 : 0.79) : 826, scale, gap: 0 }; // landscape feet at 826 (tags clear the caption by 24 px)
   }
   if (L.portrait) {
     const scale = box.scale * (aside ? 0.45 : 0.5);
@@ -939,11 +993,6 @@ const cardSize = (scene: Scene, portrait: boolean) => {
   // in the usual slot — the friends card gets its own independent slot below, not this one.
   if (scene.sum && coexist(scene, portrait)) return { nat: COL_NAT, scale: SUM_S(portrait) };
   if (scene.friends) return { nat: BIG_FRIENDS_NAT, scale: portrait ? 0.68 : 0.84 };
-  if (scene.sum && scene.formulas?.only) {
-    const s = SUM_S(portrait);
-    return { nat: { w: COL_NAT.w + CARD_GAP + BIG_FORMULA_ONE.w, h: COL_NAT.h }, scale: s };
-  }
-  if (scene.formulas?.only) return { nat: BIG_FORMULA_ONE, scale: portrait ? 0.85 : 0.9 };
   if (scene.formulas?.all) {
     return portrait
       ? { nat: BIG_FORMULA_GRID_NAT, scale: 1.05 }
@@ -963,6 +1012,24 @@ const cardSlot = (
     ? { x: (L.W - w) / 2, y: L.cardBand!.top + 8 }
     : { x: 44, y: L.band.stageTop + (L.band.stageBottom - L.band.stageTop - h) / 2 };
 
+/** THE SUM CARD ALWAYS SITS IN ONE PLACE (top of the left column; 4:5: left of the card band) and the BIG FRIEND card goes directly under it
+ *  (4:5: beside it), so neither jumps between lines. The teaching tables (friends / full formulas) keep the old centred slot. */
+const sumFixedSlot = (L: { portrait: boolean; band: { stageTop: number }; cardBand: { top: number } | null }) =>
+  L.portrait ? { x: 34, y: L.cardBand!.top + 8 } : { x: 44, y: L.band.stageTop + 34 };
+const STRIP_S = (portrait: boolean) => (portrait ? 0.95 : 1.1);
+const stripSlotE12 = (
+  L: { portrait: boolean; band: { stageTop: number; stageBottom: number }; cardBand: { top: number } | null },
+  withSum: boolean
+) => {
+  const s = STRIP_S(L.portrait);
+  const w = STRIP_NAT.w * s;
+  const h = STRIP_NAT.h * s;
+  // 4:5: beside the sum card when there is one; with no sum (the recap line) the card takes the left of the band
+  if (L.portrait) return { x: withSum ? 34 + COL_NAT.w * SUM_S(true) + 16 : 34, y: L.cardBand!.top + 8, w, h };
+  if (withSum) return { x: 44, y: L.band.stageTop + 34 + COL_NAT.h * SUM_S(false) + 18, w, h };
+  return { x: 44, y: L.band.stageTop + (L.band.stageBottom - L.band.stageTop - h) / 2, w, h };
+};
+
 export const E12FarmMarket: React.FC = () => (
   <>
   <HideTextStyle />
@@ -972,6 +1039,7 @@ export const E12FarmMarket: React.FC = () => (
     sceneFor={sceneFor}
     narration="audio/e012_all_five_big_friends/E12.mp3"
     sfx={SFX_CUES}
+    music={{ file: "lesson_bed.wav", loopFrames: 800, vol: 0.12 }}
     abacusFirstFrame={0}
     subjectFor={() => undefined}
     guardOverlap
@@ -1003,8 +1071,10 @@ export const E12FarmMarket: React.FC = () => (
       if (card) {
         const w = card.nat.w * card.scale;
         const h = card.nat.h * card.scale;
-        out.push({ label: "teachCard", r: { ...cardSlot(L, w, h), w, h } });
+        const sumOnly = Boolean(scene.sum && !scene.friends && !scene.formulas);
+        out.push({ label: "teachCard", r: { ...(sumOnly ? sumFixedSlot(L) : cardSlot(L, w, h)), w, h } });
       }
+      if (scene.doing) out.push({ label: "doing", r: stripSlotE12(L, scene.doing.n > 0) });
       const crowded = coexist(scene, L.portrait);
       if (crowded) {
         const slot = friendsAsideSlot(L);
@@ -1015,7 +1085,7 @@ export const E12FarmMarket: React.FC = () => (
       }
       const toucanAside = Boolean(L.portrait && !scene.closing && card);
       if (toucansOn(scene, L.portrait)) {
-        const m = toucanPairAt(ctx.box, L, Boolean(scene.closing), toucanAside, crowded);
+        const m = toucanPairAt(ctx.box, L, Boolean(scene.closing), toucanAside, crowded, scene.closeBeat === "next");
         out.push({
           label: "toucans",
           r: toucanPairRect(m),
@@ -1160,8 +1230,8 @@ export const E12FarmMarket: React.FC = () => (
           return (
             <svg width={L.W} height={L.H} style={{ position: "absolute", inset: 0, overflow: "visible", pointerEvents: "none" }}>
               <Pieces mood={mood} frame={ctx.frame} fps={FPS} pieces={[
-                { kind: "pig", x: 190, y: 905, scale: 0.9, show: !L.portrait },
-                { kind: "chick", x: 1880, y: 915, scale: 0.85, facing: -1, show: !L.portrait && !scene.closing },
+                { kind: "pig", x: 190, y: 905, scale: 0.9, show: !L.portrait && !scene.doing && !scene.sum },
+                { kind: "chick", x: 1850, y: 915, scale: 0.7, facing: -1, show: !L.portrait && !scene.closing },
                 { kind: "chick", x: 130, y: 300, scale: 0.8, show: L.portrait },
               ]} />
             </svg>
@@ -1182,11 +1252,12 @@ export const E12FarmMarket: React.FC = () => (
                 ctx.layout,
                 Boolean(scene.closing),
                 Boolean(ctx.layout.portrait && !scene.closing && card),
-                coexist(scene, ctx.layout.portrait)
+                coexist(scene, ctx.layout.portrait),
+                scene.closeBeat === "next"
               );
               return (
                 <>
-                  <CastGroup x={m.x} y={m.y} scale={m.scale} actors={[{ role: "little", mood: MOOD[scene.toucan!] }, { role: "big", mood: MOOD[scene.toucan!] }]} costume="farmer" look={ctx.layout.portrait ? 1 : -1} progress={ctx.beatProgress} frame={ctx.frame} fps={FPS} />
+                  <CastGroup x={m.x} y={m.y} scale={m.scale} actors={[{ role: "little", mood: MOOD[scene.toucan!] }, { role: "big", mood: MOOD[scene.toucan!], enter: friendEnter(ctx.p, ctx.beatProgress), crown: friendCrown(ctx.p, ctx.beatProgress) }]} costume="farmer" look={ctx.layout.portrait ? 1 : -1} progress={ctx.beatProgress} frame={ctx.frame} fps={FPS} />
                 </>
               );
             })()}
@@ -1212,7 +1283,7 @@ export const E12FarmMarket: React.FC = () => (
           }
           return (
             <div style={{ position: "absolute", left: at.x, top: at.y }}>
-              <BigFriendCards dimFloor={0.72}
+              <BigFriendCards ghost dimFloor={0.72}
                 shown={scene.friends.shown}
                 active={scene.friends.active}
                 arriving={scene.friendsArriving}
@@ -1231,15 +1302,13 @@ export const E12FarmMarket: React.FC = () => (
           const L = ctx.layout;
           const card = cardSize(scene, L.portrait)!;
           const at = cardSlot(L, card.nat.w * card.scale, card.nat.h * card.scale);
-          const besideSum = Boolean(scene.sum && scene.formulas!.only);
-          const left = besideSum ? at.x + (COL_NAT.w + CARD_GAP) * card.scale : at.x;
-          const top = besideSum ? at.y + ((COL_NAT.h - BIG_FORMULA_ONE.h) / 2) * card.scale : at.y;
+          const left = at.x;
+          const top = at.y;
           return (
             <div style={{ position: "absolute", left, top }}>
               <BigFriendFormulaList
                 active={scene.formulas.active}
                 stagger={scene.formulas.stagger}
-                only={scene.formulas.only}
                 all={scene.formulas.all}
                 grid={Boolean(scene.formulas.all && ctx.layout.portrait)}
                 arriving={scene.formulasArriving}
@@ -1253,10 +1322,22 @@ export const E12FarmMarket: React.FC = () => (
 
         {/* THE COLUMN SUM — dimmed while the friends card is beside it and IS the thing the
             line is currently about (see `coexist`/`DIM_CARD`), same treatment as E13. */}
+        {scene.doing && (() => {
+          const L = ctx.layout;
+          const slot = stripSlotE12(L, scene.doing.n > 0);
+          const d = scene.doing;
+          const step = Math.min(2, d.step + (d.marks ?? []).filter((m) => ctx.beatProgress >= m).length);
+          return (
+            <div style={{ position: "absolute", left: slot.x, top: slot.y }}>
+              <FormulaStrip n={d.n} step={step as 0 | 1 | 2} base={10} accent="#7A1F5C" scale={STRIP_S(L.portrait)} />
+            </div>
+          );
+        })()}
+
         {scene.sum && (() => {
           const L = ctx.layout;
           const card = cardSize(scene, L.portrait)!;
-          const at = cardSlot(L, card.nat.w * card.scale, card.nat.h * card.scale);
+          const at = coexist(scene, L.portrait) ? cardSlot(L, card.nat.w * card.scale, card.nat.h * card.scale) : scene.friends || scene.formulas ? cardSlot(L, card.nat.w * card.scale, card.nat.h * card.scale) : sumFixedSlot(L);
           const dimmed = coexist(scene, L.portrait);
           return (
             <div style={{ position: "absolute", left: at.x, top: at.y, ...(dimmed ? DIM_CARD : {}) }}>

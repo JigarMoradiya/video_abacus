@@ -36,6 +36,7 @@ import type { OtterMood } from "../components/cast";
 type SquirrelMood = "sit" | "wave" | "think" | "worry" | "point" | "cheer" | "give";
 const MOOD: Record<SquirrelMood, OtterMood> = { sit: "float", wave: "wave", think: "think", worry: "worry", point: "point", cheer: "cheer", give: "present" };
 const SQUIRREL_BOX = { up: CAST_BOX.up * OT_K, down: CAST_BOX.down, half: pairHalf(2) };
+import { FormulaStrip, STRIP_NAT } from "../components/e07/FormulaStrip";
 import { WhyCard, WHY_NAT } from "../components/e13/WhyCard";
 import { BigFriendCards, BIG_FRIENDS_NAT } from "../components/e11/BigFriendCards";
 import {
@@ -73,6 +74,8 @@ interface Scene extends BaseScene {
   friendsPrev?: { shown: number; active?: number };
   formulas?: { active?: number; stagger?: boolean; only?: boolean; all?: boolean };
   formulasArriving?: boolean;
+  /** the BIG FRIEND formula card (taking away) while it is said and done: first +friend (add it), then −10 (take the ten); advances at `marks` */
+  doing?: { n: number; step: 0 | 1 | 2; mode: "add" | "sub"; marks?: number[] };
   why?: number;
   whyPrev?: number;
   big?: string;
@@ -192,7 +195,8 @@ const handFor = (p: number): Scene["hand"] => {
   const from = digits(valueAt(p - 1))[rod];
   const lowerFrom = from % 5;
   const lowerTo = to % 5;
-  if (lowerTo > lowerFrom) return { digit: "thumb", direction: "up", rod, heaven: false };
+  // 4:5 p66 (two hands on one rod): the thumb pill sat on the ones/tens place chip, so that one hand is nudged up clear of it
+  if (lowerTo > lowerFrom) return { digit: "thumb", direction: "up", rod, heaven: false, dy: p === 66 ? -46 : undefined };
   if (from >= 5 !== to >= 5) {
     const down = to >= 5;
     // A lone heaven-only "up" removal (the upper bead comes off with no lower-bead change in the
@@ -390,7 +394,8 @@ const SUMS: Record<number, NonNullable<Scene["sum"]>> = (() => {
   // performed on the abacus, still withholding the answer (prevSumStep below walks back
   // through THAT gap to the real last B step, p33, so the row resumes already-lit instead of
   // fading through "none").
-  put([28, 29, 30, 31, 32, 33], { ...B, step: "second" });
+  put([28, 29, 30, 31, 32, 33, 34, 35, 36], { ...B, step: "second" }); // 34-36: the rule being spoken, with the sum still up beside the BIG FRIEND card
+  put([42], { ...B, step: "second" });
   put([43, 44, 45, 46, 47, 48, 49, 50, 51], { ...B, step: "second" });
   put([52, 53, 54], { ...B, total: 9, step: "answer" });
 
@@ -409,7 +414,7 @@ const SUMS: Record<number, NonNullable<Scene["sum"]>> = (() => {
   // "three" as row second). These were "first" before; that was the bug.
   // p61-62 (the friends card, "so we call a big friend... three's friend is seven") now sits
   // BESIDE the sum card instead of replacing it — still "second", same reasoning as B's 28-33.
-  put([58, 59, 60, 61, 62], { ...C, step: "second" });
+  put([58, 59, 60, 61, 62, 63], { ...C, step: "second" }); // 63: the rule spoken, sum still up beside the BIG FRIEND card
   put([64, 65, 66, 67], { ...C, step: "second" });
   put([68], { ...C, total: 9, step: "answer" });
 
@@ -423,7 +428,7 @@ const SUMS: Record<number, NonNullable<Scene["sum"]>> = (() => {
   // story (SUM_FLASH[75] tags "seven" as row second). Was "first" before; that was the bug.
   // p76-77 (the friends card, "no way!... seven's friend is three") now sits BESIDE the sum
   // card too — still "second", same reasoning as B's 28-33 and C's 61-62.
-  put([75, 76, 77], { ...E, step: "second" });
+  put([75, 76, 77, 78], { ...E, step: "second" }); // 78: the rule spoken, sum still up beside the BIG FRIEND card
   put([79, 80, 81], { ...E, step: "second" });
   put([82, 83], { ...E, total: 4, step: "answer" });
 
@@ -478,15 +483,60 @@ const prevSumStep = (p: number): SumStep => {
 const FORMULAS: Record<number, NonNullable<Scene["formulas"]>> = (() => {
   const out: Record<number, NonNullable<Scene["formulas"]>> = {};
   const put = (ps: number[], v: NonNullable<Scene["formulas"]>) => ps.forEach((p) => (out[p] = v));
-  const range = (from: number, to: number) => Array.from({ length: to - from + 1 }, (_, i) => from + i);
-  put(range(36, 54), { active: 1, only: true }); // beside the sum from p36; WHY_SET below hides it p37-41
-  put(range(63, 68), { active: 3, only: true });
-  put(range(78, 82), { active: 7, only: true });
-  put(range(101, 104), { active: 9, only: true }); // NOT before p100 — the answer is spoken there
   // the pattern recap: "the friend changes, but ten never does" IS the whole nine-row card
   put([89], { stagger: true, all: true });
   put([90, 91, 92], { all: true });
   put([108], { stagger: true, all: true }); // the closing recap — all nine, none lit
+  return out;
+})();
+
+/** where the nth occurrence of a word starts inside its line, as a 0..1 share of the line (drives the lit move on the formula card) */
+const markNth = (p: number, w: string, n = 1) => {
+  const ph = PHRASES[p];
+  const hits = ph.words.filter((k) => k.word.toLowerCase().replace(/[^a-z]/g, "") === w);
+  const x = hits[n - 1];
+  return x ? Math.max(0, Math.min(0.95, (x.start - ph.start) / (ph.end - ph.start))) : 0.5;
+};
+
+/**
+ * THE BIG FRIEND FORMULA CARD for taking away, said and DONE (same card and behaviour as E07-E12, titled BIG FRIEND). Friend first:
+ * −n = +friend −10. It comes up plain when the rule is spoken for that number (never before the friend is named: a question never shows its
+ * answer), lights "+friend" while the friend is added on the ones rod and "−10" while the ten is taken away, and goes plain on the answer lines.
+ * The "why does it work" lines (p37-41) keep their own card in the slot. Under the sum card in 16:9, beside it in 4:5.
+ */
+const DOING: Record<number, NonNullable<Scene["doing"]>> = (() => {
+  const out: Record<number, NonNullable<Scene["doing"]>> = {};
+  const put = (ps: number[], v: NonNullable<Scene["doing"]>) => ps.forEach((p) => (out[p] = v));
+  // the recap of last time's trick, lit as it is said ("Take away the friend, then carry to the tens rod.")
+  put([3], { n: 0, step: 0, mode: "add", marks: [markNth(3, "take"), markNth(3, "carry")] });
+  // 10 − 1: one's friend is nine
+  put([34], { n: 1, step: 0, mode: "sub" });
+  put([35], { n: 1, step: 0, mode: "sub", marks: [markNth(35, "add"), markNth(35, "then")] });
+  put([36], { n: 1, step: 0, mode: "sub", marks: [markNth(36, "plus"), markNth(36, "minus", 2)] });
+  put([42, 43, 44], { n: 1, step: 0, mode: "sub" });
+  put([45, 46], { n: 1, step: 1, mode: "sub" });
+  put([47, 48, 49, 50], { n: 1, step: 2, mode: "sub" });
+  put([51, 52, 53, 54], { n: 1, step: 0, mode: "sub" });
+  // 12 − 3: three's friend is seven
+  put([63], { n: 3, step: 0, mode: "sub", marks: [markNth(63, "plus"), markNth(63, "minus", 2)] });
+  put([64], { n: 3, step: 0, mode: "sub" });
+  put([65, 66], { n: 3, step: 1, mode: "sub" });
+  put([67], { n: 3, step: 2, mode: "sub" });
+  put([68], { n: 3, step: 0, mode: "sub" });
+  // 11 − 7: seven's friend is three
+  put([78], { n: 7, step: 0, mode: "sub", marks: [markNth(78, "plus"), markNth(78, "minus", 2)] });
+  put([79], { n: 7, step: 0, mode: "sub" });
+  put([80], { n: 7, step: 1, mode: "sub" });
+  put([81], { n: 7, step: 2, mode: "sub" });
+  put([82], { n: 7, step: 0, mode: "sub" });
+  // the pattern recap: the same two things every time
+  put([86], { n: 0, step: 0, mode: "sub" });
+  put([87], { n: 0, step: 1, mode: "sub" });
+  put([88], { n: 0, step: 2, mode: "sub" });
+  // 13 − 9 (your turn): named at "One!"
+  put([101], { n: 9, step: 0, mode: "sub", marks: [markNth(101, "plus"), markNth(101, "minus", 2)] });
+  put([102], { n: 9, step: 0, mode: "sub", marks: [markNth(102, "add"), markNth(102, "then")] });
+  put([103, 104], { n: 9, step: 0, mode: "sub" });
   return out;
 })();
 
@@ -498,7 +548,6 @@ const HEADLINE: Record<number, string> = {
   0: "welcome back, friends!",
   10: "look at the ones rod",
   19: "uh oh — nothing there!",
-  34: "the big friend trick, reversed",
   37: "why does it work?",
   42: "let us try it",
   55: "twelve take away three",
@@ -625,6 +674,7 @@ const sceneFor = (p: number): Scene => {
     celebrateFrom: BURST_FROM.get(p),
     friends: whyStep === undefined ? FRIENDS[p] : undefined,
     formulas: whyStep === undefined ? FORMULAS[p] : undefined,
+    doing: whyStep === undefined ? DOING[p] : undefined,
     why: whyStep,
     whyPrev: WHY[p - 1],
     friendsArriving: FRIENDS[p] !== undefined && FRIENDS[p - 1]?.shown !== FRIENDS[p]?.shown,
@@ -658,6 +708,7 @@ const sceneFor = (p: number): Scene => {
       worldWash: 0.55,
       sum: undefined,
       formulas: undefined,
+    doing: undefined,
       friends: undefined,
       why: undefined,
       squirrel: undefined,
@@ -692,6 +743,8 @@ const sceneFor = (p: number): Scene => {
       valueChip: false,
       friends: undefined,
       formulas: undefined,
+      doing: undefined,
+      squirrel: undefined, // the store phone + badges own the frame: the friends stood on top of the App Store / Google Play badges
       noCaption: p === 110 || p === 111,
     };
   }
@@ -704,6 +757,7 @@ const sceneFor = (p: number): Scene => {
     valueChip: false,
     friends: undefined,
     formulas: undefined,
+    doing: undefined,
     squirrel: undefined,
   };
 };
@@ -717,6 +771,11 @@ const STORE_FRAMES = (() => {
   if (!idx.length) return 1;
   return sec(PHRASES[idx[idx.length - 1]].end, FPS) - STORE_START;
 })();
+
+/** the phrase where the big friend is first mentioned ("Last time, we learned big friend adding"): Tenzo, his tag and crown are off stage until then; only Pip (ME) before */
+const FRIEND_INTRO = 1;
+const friendEnter = (p: number, bp: number) => (p < FRIEND_INTRO ? 0 : p === FRIEND_INTRO ? Math.min(1, bp * 4) : 1);
+const friendCrown = (p: number, bp: number) => (p < FRIEND_INTRO ? 0 : p === FRIEND_INTRO ? Math.max(0, Math.min(1, (bp - 0.3) * 3)) : 1);
 
 const SFX_CUES: SfxCue[] = (() => {
   const cues: SfxCue[] = [];
@@ -782,6 +841,21 @@ const SFX_CUES: SfxCue[] = (() => {
   // standard close SFX
   add(at(26) + 4, "boing.mp3", 26, 0.2);
   add(at(3) + 6, "boing.mp3", 26, 0.2);
+
+  // ---- NEW SOUNDS (same set as E07-E12): Tenzo's arrival, headline chips, the BIG FRIEND card and its lit moves
+  const span = (i: number) => sec(PHRASES[i].end, FPS) - at(i);
+  add(at(FRIEND_INTRO) + 4, "cta_pop.mp3", 10, 0.3);
+  add(at(FRIEND_INTRO) + span(FRIEND_INTRO) * 0.34, "friend_sparkle.mp3", 18, 0.3);
+  for (const i of [0, 10, 19, 37, 42, 55, 71, 84, 93, 107]) add(at(i) + 2, "swipe.mp3", 11, 0.2);
+  for (const i of Object.keys(DOING).map(Number).sort((a, b) => a - b)) {
+    const d = DOING[i];
+    const q = DOING[i - 1];
+    const final = q && q.n === d.n && q.mode === d.mode ? Math.min(2, q.step + (q.marks?.length ?? 0)) : -1;
+    if (final === -1) add(at(i) + 3, "cta_pop.mp3", 10, 0.26);
+    else if (d.step !== final && d.step > 0) add(at(i) + 3, "tick.mp3", 6, 0.34);
+    for (const m of d.marks ?? []) if (m > 0.05) add(at(i) + span(i) * m, "tick.mp3", 6, 0.34);
+  }
+
   const rate = STORE_FRAMES / 136;
   add(STORE_START + 50 * rate, "btn_click.mp3", 20, 0.28);
   add(STORE_START + 92 * rate, "btn_click.mp3", 20, 0.3);
@@ -811,11 +885,12 @@ const squirrelPairAt = (
    *  stay put while the abacus lift, the full-size coexist cards, and the label-halo fix all
    *  stayed; this is that: everything ELSE here (the `crowded` shrink itself, unchanged since
    *  the round that first built portrait coexistence) is untouched. */
-  portraitLift = 0
+  portraitLift = 0,
+  nextVideo = false
 ) => {
   if (closing) {
     const scale = L.portrait ? 0.9 : 1.15;
-    return { x: L.W - pairHalf(2) * scale - 40, y: L.H * (L.portrait ? 0.74 : 0.79), scale, gap: 0 };
+    return { x: L.W - pairHalf(2) * scale - 40, y: L.portrait ? L.H * (nextVideo ? 0.86 : 0.79) : 826, scale, gap: 0 }; // landscape feet at 826 (tags clear the caption by 24 px)
   }
   if (L.portrait) {
     // Portrait's card band has no vertical room to drop the pair into (the caption band starts
@@ -915,11 +990,6 @@ const cardSize = (scene: Scene, portrait: boolean) => {
     return { nat: COL_NAT, scale: portrait ? PORTRAIT_COEXIST_SUM_SCALE : SUM_S(portrait) };
   }
   if (scene.friends) return { nat: BIG_FRIENDS_NAT, scale: portrait ? 0.68 : 0.84 };
-  if (scene.sum && scene.formulas?.only) {
-    const s = SUM_S(portrait);
-    return { nat: { w: COL_NAT.w + CARD_GAP + BIG_FORMULA_ONE.w, h: COL_NAT.h }, scale: s };
-  }
-  if (scene.formulas?.only) return { nat: BIG_FORMULA_ONE, scale: portrait ? 0.85 : 0.9 };
   if (scene.formulas?.all) {
     return portrait
       ? { nat: BIG_FORMULA_GRID_NAT, scale: 1.05 }
@@ -937,6 +1007,24 @@ const cardSlot = (
   L.portrait
     ? { x: (L.W - w) / 2, y: L.cardBand!.top + 8 }
     : { x: 44, y: L.band.stageTop + (L.band.stageBottom - L.band.stageTop - h) / 2 };
+
+/** THE SUM CARD ALWAYS SITS IN ONE PLACE (top of the left column; 4:5: left of the card band) and the BIG FRIEND card goes directly under it
+ *  (4:5: beside it), so neither jumps between lines. The why card and the teaching tables keep the old centred slot. */
+const sumFixedSlot = (L: { portrait: boolean; band: { stageTop: number }; cardBand: { top: number } | null }) =>
+  L.portrait ? { x: 34, y: L.cardBand!.top + 8 } : { x: 44, y: L.band.stageTop + 34 };
+const STRIP_S = (portrait: boolean) => (portrait ? 0.95 : 1.1);
+const stripSlotE13 = (
+  L: { portrait: boolean; band: { stageTop: number; stageBottom: number }; cardBand: { top: number } | null },
+  withSum: boolean
+) => {
+  const s = STRIP_S(L.portrait);
+  const w = STRIP_NAT.w * s;
+  const h = STRIP_NAT.h * s;
+  // 4:5: beside the sum card when there is one; with no sum (the recap line) the card takes the left of the band
+  if (L.portrait) return { x: withSum ? 34 + COL_NAT.w * SUM_S(true) + 16 : 34, y: L.cardBand!.top + 8, w, h };
+  if (withSum) return { x: 44, y: L.band.stageTop + 34 + COL_NAT.h * SUM_S(false) + 18, w, h };
+  return { x: 44, y: L.band.stageTop + (L.band.stageBottom - L.band.stageTop - h) / 2, w, h };
+};
 
 // Portrait ONLY (see `rigBand` below — landscape always gets `null` back, i.e. the shared
 // `layout.band` unchanged, so the 16:9 cut is byte-identical to before this constant existed).
@@ -975,6 +1063,7 @@ export const E13TrainValley: React.FC = () => (
     sceneFor={sceneFor}
     narration="audio/e013_big_friend_taking_away/E13.mp3"
     sfx={SFX_CUES}
+    music={{ file: "lesson_bed.wav", loopFrames: 800, vol: 0.12 }}
     abacusFirstFrame={0}
     subjectFor={() => undefined}
     guardOverlap
@@ -1024,9 +1113,12 @@ export const E13TrainValley: React.FC = () => (
                 const slot = friendsAsideSlot(L);
                 return { x: slot.sumX!, y: slot.sumY! };
               })()
+            : scene.sum && !scene.friends && !scene.formulas && scene.why === undefined
+            ? sumFixedSlot(L)
             : cardSlot(L, w, h);
         out.push({ label: "teachCard", r: { ...at, w, h } });
       }
+      if (scene.doing) out.push({ label: "doing", r: stripSlotE13(L, scene.doing.n > 0) });
       if (crowded) {
         const slot = friendsAsideSlot(L);
         out.push({
@@ -1036,7 +1128,7 @@ export const E13TrainValley: React.FC = () => (
       }
       const squirrelAside = Boolean(L.portrait && !scene.closing && card);
       if (toucansOn(scene, L.portrait)) {
-        const m = squirrelPairAt(ctx.box, L, Boolean(scene.closing), squirrelAside, crowded, portraitLiftFor(scene, L.portrait));
+        const m = squirrelPairAt(ctx.box, L, Boolean(scene.closing), squirrelAside, crowded, portraitLiftFor(scene, L.portrait), scene.closeBeat === "next");
         out.push({
           label: "squirrels",
           r: squirrelPairRect(m),
@@ -1157,8 +1249,8 @@ export const E13TrainValley: React.FC = () => (
           return (
             <svg width={L.W} height={L.H} style={{ position: "absolute", inset: 0, overflow: "visible", pointerEvents: "none" }}>
               <Pieces mood={mood} frame={ctx.frame} fps={FPS} pieces={[
-                { kind: "engine", x: 200, y: 905, scale: 0.9, facing: 1, show: !L.portrait },
-                { kind: "carriage", x: 1870, y: 905, scale: 0.85, show: !L.portrait && !scene.closing },
+                { kind: "engine", x: 200, y: 905, scale: 0.9, facing: 1, show: !L.portrait && !scene.doing && !scene.sum },
+                { kind: "carriage", x: 1850, y: 905, scale: 0.7, show: !L.portrait && !scene.closing },
                 { kind: "engine", x: 150, y: 300, scale: 0.55, show: L.portrait },
               ]} />
             </svg>
@@ -1180,11 +1272,12 @@ export const E13TrainValley: React.FC = () => (
                 Boolean(scene.closing),
                 Boolean(ctx.layout.portrait && !scene.closing && card),
                 coexist(scene, ctx.layout.portrait),
-                portraitLiftFor(scene, ctx.layout.portrait)
+                portraitLiftFor(scene, ctx.layout.portrait),
+                scene.closeBeat === "next"
               );
               return (
                 <>
-                  <CastGroup x={m.x} y={m.y} scale={m.scale} actors={[{ role: "little", mood: MOOD[scene.squirrel!] }, { role: "big", mood: MOOD[scene.squirrel!] }]} costume="conductor" look={ctx.layout.portrait ? 1 : -1} progress={ctx.beatProgress} frame={ctx.frame} fps={FPS} />
+                  <CastGroup x={m.x} y={m.y} scale={m.scale} actors={[{ role: "little", mood: MOOD[scene.squirrel!] }, { role: "big", mood: MOOD[scene.squirrel!], enter: friendEnter(ctx.p, ctx.beatProgress), crown: friendCrown(ctx.p, ctx.beatProgress) }]} costume="conductor" look={ctx.layout.portrait ? 1 : -1} progress={ctx.beatProgress} frame={ctx.frame} fps={FPS} />
                 </>
               );
             })()}
@@ -1210,7 +1303,7 @@ export const E13TrainValley: React.FC = () => (
           }
           return (
             <div style={{ position: "absolute", left: at.x, top: at.y }}>
-              <BigFriendCards dimFloor={0.72}
+              <BigFriendCards ghost dimFloor={0.72}
                 shown={scene.friends.shown}
                 active={scene.friends.active}
                 arriving={scene.friendsArriving}
@@ -1248,15 +1341,13 @@ export const E13TrainValley: React.FC = () => (
           const L = ctx.layout;
           const card = cardSize(scene, L.portrait)!;
           const at = cardSlot(L, card.nat.w * card.scale, card.nat.h * card.scale);
-          const besideSum = Boolean(scene.sum && scene.formulas!.only);
-          const left = besideSum ? at.x + (COL_NAT.w + CARD_GAP) * card.scale : at.x;
-          const top = besideSum ? at.y + ((COL_NAT.h - BIG_FORMULA_ONE.h) / 2) * card.scale : at.y;
+          const left = at.x;
+          const top = at.y;
           return (
             <div style={{ position: "absolute", left, top }}>
               <BigFriendFormulaList
                 active={scene.formulas.active}
                 stagger={scene.formulas.stagger}
-                only={scene.formulas.only}
                 all={scene.formulas.all}
                 grid={Boolean(scene.formulas.all && ctx.layout.portrait)}
                 take
@@ -1265,6 +1356,18 @@ export const E13TrainValley: React.FC = () => (
                 progress={ctx.beatProgress}
                 scale={card.scale}
               />
+            </div>
+          );
+        })()}
+
+        {scene.doing && (() => {
+          const L = ctx.layout;
+          const slot = stripSlotE13(L, scene.doing.n > 0);
+          const d = scene.doing;
+          const step = Math.min(2, d.step + (d.marks ?? []).filter((m) => ctx.beatProgress >= m).length);
+          return (
+            <div style={{ position: "absolute", left: slot.x, top: slot.y }}>
+              <FormulaStrip n={d.n} step={step as 0 | 1 | 2} mode={d.mode} base={10} accent="#7A1F5C" scale={STRIP_S(L.portrait)} />
             </div>
           );
         })()}
@@ -1285,7 +1388,9 @@ export const E13TrainValley: React.FC = () => (
                   const slot = friendsAsideSlot(L);
                   return { x: slot.sumX!, y: slot.sumY! };
                 })()
-              : cardSlot(L, card.nat.w * card.scale, card.nat.h * card.scale);
+              : scene.friends || scene.formulas || scene.why !== undefined
+              ? cardSlot(L, card.nat.w * card.scale, card.nat.h * card.scale)
+              : sumFixedSlot(L);
           return (
             <div style={{ position: "absolute", left: at.x, top: at.y, ...(dimmed ? DIM_CARD : {}) }}>
               <ColumnSum

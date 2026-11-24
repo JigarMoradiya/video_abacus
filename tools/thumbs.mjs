@@ -27,7 +27,10 @@ const EPISODES = [
   { n: 10, dir: "e10_small_friend_game", frame: 128 },
   // E11's files predate this list and are named thumb_e11_16x9.png / thumb_e11_9x16.png: stated, not inferred
   { n: 11, dir: "e11_big_friend_intro", frame: 128, files: ["thumb_e11_16x9.png", "thumb_e11_9x16.png"] },
+  { n: 12, dir: "e12_all_five_big_friends", frame: 128, files: ["thumb_e12_16x9.png", "thumb_e12_9x16.png"] },
+  { n: 13, dir: "e13_big_friend_taking_away", frame: 128, files: ["e13_thumb_16x9.png", "e13_thumb_9x16.png"] },
   { n: 14, dir: "e14_big_friend_recap", frame: 128 },
+  { n: 15, dir: "e15_family_plus", frame: 128, files: ["e15_thumb_16x9.png", "e15_thumb_9x16.png"] },
 ];
 
 // ONLY=7 renders just that episode. Re-rendering all fourteen stills to add one is not free, and

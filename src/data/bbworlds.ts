@@ -2,7 +2,7 @@
 // or calm to lively). A theme is drawn by src/components/cast/ThemeLayer.tsx. All are calm: soft gradient, detail only at the edges.
 import type { RigPalette, WorldTheme } from "./theme";
 
-export type BBTheme = "cloud" | "snow" | "space" | "pirate" | "farm" | "train" | "fair";
+export type BBTheme = "cloud" | "snow" | "space" | "pirate" | "farm" | "train" | "fair" | "canyon";
 export type BBMood = "A" | "B" | "C" | "D";
 export type BBWorldKind = `${BBTheme}${BBMood}`;
 
@@ -20,6 +20,7 @@ const DEFS: Record<BBTheme, Def> = {
   pirate: { sky: [["#FFE08A", "#6FE0F0"], ["#7FDCFF", "#B8F0FF"], ["#FFC27A", "#6FD0E8"], ["#FF9E6A", "#7A6FD8"]], ink: ["#0F3B5A", "#0F3B5A", "#0F3B5A", "#FFFFFF"], pill: "#0F4F7A", accent: "#0F4F7A" },
   farm: { sky: [["#FFE3A0", "#9AE6F0"], ["#8FDCFF", "#D8F6C0"], ["#FFD08A", "#9BE0D0"], ["#FFA880", "#A890E0"]], ink: ["#4A2A12", "#4A2A12", "#4A2A12", "#FFFFFF"], pill: "#7A3F12", accent: "#7A3F12" },
   train: { sky: [["#FFC27A", "#9AD8E8"], ["#FFB07A", "#C9A8F0"], ["#FF9A7A", "#8F78D8"], ["#6A4AB8", "#F09A8A"]], ink: ["#3A1A4A", "#3A1A4A", "#3A1A4A", "#FFFFFF"], pill: "#4A1F6B", accent: "#4A1F6B" },
+  canyon: { sky: [["#FFD08A", "#FF9A7A"], ["#FFB27A", "#D98BC8"], ["#F0907A", "#9A6FD0"], ["#4A3A9A", "#D0708A"]], ink: ["#4A1F2A", "#4A1F2A", "#3A1A3A", "#FFFFFF"], pill: "#6B2A3A", accent: "#7A3A2A" },
   fair: { sky: [["#2A2A7A", "#C04F9A"], ["#1B2A7A", "#8A4FD8"], ["#3A1B6A", "#FF6FA8"], ["#1B1B5A", "#5A3FC0"]], ink: ["#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"], pill: "#2A1B6A", accent: "#2A1B6A" },
 };
 
@@ -43,5 +44,6 @@ export const BB_RIGS: Record<BBTheme, RigPalette> = {
   pirate: rig("#C79A5B", "#9C6B34", "#6B4420", "#FFF7E2", "#FFD23F", "#FF9F1C", "#B25F08"),
   farm: rig("#D98A5B", "#B2582F", "#7A3515", "#FFF9EC", "#7FDB5F", "#3FB84A", "#1F7A2A"),
   train: rig("#8F78D8", "#6A4AB8", "#3A2478", "#FFF8F0", "#FF9A5B", "#F0602B", "#A0360F"),
+  canyon: rig("#E0A06A", "#BC6B3C", "#7A3A1F", "#FFF6E6", "#5FF0DA", "#1FC8B4", "#0A7A6C"),
   fair: rig("#FF7FC0", "#E04A9A", "#8A1F5F", "#FFF6FB", "#FFE066", "#FFB020", "#B26F08"),
 };

@@ -411,7 +411,11 @@ export const OtterFamily: React.FC<{
   costume?: Costume;
   tags?: boolean;
   tagPx?: number;
-}> = ({ x, y, scale, mood, moods, link = 0, lit = [0, 0, 0], badges, progress, frame, fps, look = 0, water = true, costume, tags = false, tagPx }) => {
+  /** per-otter entrance [little, middle, big]: 0 = not on stage yet, 0..1 pops in, 1 = present (default all present) */
+  enter?: [number, number, number];
+  /** per-otter number crown [little, middle, big] 0..1 (default all worn) */
+  crowns?: [number, number, number];
+}> = ({ x, y, scale, mood, moods, link = 0, lit = [0, 0, 0], badges, progress, frame, fps, look = 0, water = true, costume, tags = false, tagPx, enter = [1, 1, 1], crowns = [1, 1, 1] }) => {
   const t = frame / fps;
   const roles: OtterRole[] = ["little", "middle", "big"];
   const xs = [-FAMILY_GAP, 0, FAMILY_GAP];
@@ -446,9 +450,15 @@ export const OtterFamily: React.FC<{
       {[2, 1, 0].map((i) => {
         const role = roles[i];
         const m = moods ? moods[i] : mood;
+        const en = enter[i];
+        if (en <= 0.001) return null;
+        const ez = en >= 1 ? 1 : 1 - Math.pow(1 - en, 3);
+        const sp = en >= 1 ? 1 : 0.3 + 0.7 * ez + Math.sin(ez * Math.PI) * 0.12;
         return (
+          <g key={role} opacity={Math.min(1, en * 3)} transform={`translate(${xs[i]} 0) scale(${sp}) translate(${-xs[i]} 0)`}>
           <Otter
             key={role}
+            crown={crowns[i]}
             x={xs[i]}
             y={0}
             scale={1}
@@ -468,6 +478,7 @@ export const OtterFamily: React.FC<{
             tag={tags}
             tagPx={tagPx}
           />
+          </g>
         );
       })}
       {/* the water: a soft band across the lower bodies with a bright rippling edge and rings; it fades out sideways and downward so it never reads as a box */}

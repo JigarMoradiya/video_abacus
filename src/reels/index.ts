@@ -9,7 +9,7 @@ import {
   ThumbE01, ThumbE02, ThumbE03, ThumbE04, ThumbE05, ThumbE06, ThumbE07, ThumbE08, ThumbE09, ThumbE10, ThumbE11,
   ThumbE01V, ThumbE02V, ThumbE03V, ThumbE04V, ThumbE05V, ThumbE06V, ThumbE07V, ThumbE08V, ThumbE09V, ThumbE10V, ThumbE11V, ThumbE12, ThumbE12V,
   ThumbE13, ThumbE13V,
-  ThumbE14, ThumbE14V,
+  ThumbE14, ThumbE14V, ThumbE15, ThumbE15V,
 } from "./thumbnails";
 import { E05TakingAway, E05_DURATION } from "./e05_taking_away";
 import { E06TwoRods, E06_DURATION } from "./e06_two_rods";
@@ -23,6 +23,7 @@ import { E12FarmMarket, E12_FARM_DURATION } from "./e12_farm_market";
 import { E13TrainValley, E13_TRAIN_DURATION } from "./e13_train_valley";
 import { E14StarlightFunfair, E14_FAIR_DURATION } from "./e14_starlight_funfair";
 import { E15FamilyPlus, E15_DURATION } from "./e15_family_plus";
+import { E16FamilyMinus, E16_DURATION } from "./e16_desert_canyon";
 import { ShortMathHeroes, MATH_HEROES_DURATION } from "./short_math_heroes";
 import { ShortMathHeroes2, MATH_HEROES_2_DURATION } from "./short_math_heroes_2";
 import { ShortMathHeroesBF1, BF1_DURATION } from "./short_math_heroes_bf1";
@@ -293,6 +294,20 @@ export const REELS: ReelEntry[] = [
     id: "family-plus-4x5",
     component: E15FamilyPlus,
     durationInFrames: E15_DURATION,
+    width: 1080,
+    height: 1350,
+  },
+  {
+    id: "family-minus",
+    component: E16FamilyMinus,
+    durationInFrames: E16_DURATION,
+    width: W,
+    height: H,
+  },
+  {
+    id: "family-minus-4x5",
+    component: E16FamilyMinus,
+    durationInFrames: E16_DURATION,
     width: 1080,
     height: 1350,
   },
@@ -719,6 +734,20 @@ export const REELS: ReelEntry[] = [
   {
     id: "thumb-e14-9x16",
     component: ThumbE14V,
+    durationInFrames: 200,
+    width: 1080,
+    height: 1920,
+  },
+  {
+    id: "thumb-e15",
+    component: ThumbE15,
+    durationInFrames: 200,
+    width: 1280,
+    height: 720,
+  },
+  {
+    id: "thumb-e15-9x16",
+    component: ThumbE15V,
     durationInFrames: 200,
     width: 1080,
     height: 1920,

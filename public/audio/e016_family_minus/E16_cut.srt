@@ -1,0 +1,551 @@
+1
+00:00:00,000 --> 00:00:00,740
+Hello again!
+
+2
+00:00:01,340 --> 00:00:04,500
+Last time, I said the family works the other way round.
+
+3
+00:00:04,980 --> 00:00:08,080
+Today, we learn the family trick for taking away.
+
+4
+00:00:08,620 --> 00:00:10,020
+But first, a puzzle.
+
+5
+00:00:10,880 --> 00:00:12,360
+Eleven take away six.
+
+6
+00:00:13,220 --> 00:00:14,220
+Make eleven.
+
+7
+00:00:14,800 --> 00:00:19,220
+One lower bead on the ones rod, and one lower bead on the tens rod.
+
+8
+00:00:19,960 --> 00:00:21,220
+Thumb pushes them up.
+
+9
+00:00:21,220 --> 00:00:23,520
+Six's friend is four.
+
+10
+00:00:24,000 --> 00:00:29,560
+The big friend says: add four to the ones rod, then take ten off the tens rod.
+
+11
+00:00:30,480 --> 00:00:30,800
+Quick guess.
+
+12
+00:00:31,480 --> 00:00:34,340
+Is there room for four more lower beads on the ones rod?
+
+13
+00:00:36,340 --> 00:00:36,840
+Nope!
+
+14
+00:00:37,320 --> 00:00:38,300
+Only three fit.
+
+15
+00:00:38,940 --> 00:00:39,520
+Whoa.
+
+16
+00:00:39,820 --> 00:00:41,160
+The big friend is stuck.
+
+17
+00:00:42,180 --> 00:00:42,660
+Why?
+
+18
+00:00:43,340 --> 00:00:47,100
+The upper bead is up, and the lower beads are almost full.
+
+19
+00:00:47,620 --> 00:00:48,980
+No room to add four.
+
+20
+00:00:49,420 --> 00:00:50,340
+Who can help?
+
+21
+00:00:52,360 --> 00:00:53,380
+The small friend!
+
+22
+00:00:53,380 --> 00:00:55,640
+Four's small friend is one.
+
+23
+00:00:56,100 --> 00:00:59,620
+To add four: take away one, then add five.
+
+24
+00:01:00,120 --> 00:01:03,100
+The big friend and the small friend, side by side.
+
+25
+00:01:03,480 --> 00:01:05,360
+That team is called the family.
+
+26
+00:01:06,380 --> 00:01:07,380
+Here is our routine.
+
+27
+00:01:08,100 --> 00:01:08,100
+Look.
+
+28
+00:01:08,620 --> 00:01:09,040
+Call.
+
+29
+00:01:09,400 --> 00:01:09,800
+Move.
+
+30
+00:01:10,500 --> 00:01:12,500
+Look: room on the ones rod?
+
+31
+00:01:13,140 --> 00:01:15,760
+Call: no room, call the family.
+
+32
+00:01:16,320 --> 00:01:18,140
+Move: ones rod first.
+
+33
+00:01:18,140 --> 00:01:23,940
+The big friend says: minus six equals plus four, minus ten.
+
+34
+00:01:24,580 --> 00:01:28,760
+The small friend swaps plus four for minus one, plus five.
+
+35
+00:01:29,300 --> 00:01:35,000
+So the family says: minus six equals minus one, plus five, minus ten.
+
+36
+00:01:36,720 --> 00:01:37,520
+Why?
+
+37
+00:01:38,360 --> 00:01:40,300
+Minus ten takes four too many.
+
+38
+00:01:40,680 --> 00:01:42,540
+So we add four back first.
+
+39
+00:01:43,500 --> 00:01:45,080
+Now remember last time.
+
+40
+00:01:45,580 --> 00:01:48,840
+Plus six was plus one, minus five, plus ten.
+
+41
+00:01:49,440 --> 00:01:50,420
+What changed today?
+
+42
+00:01:52,760 --> 00:01:53,820
+Every sign flipped!
+
+43
+00:01:54,280 --> 00:01:55,000
+It is a mirror.
+
+44
+00:01:55,620 --> 00:01:58,240
+So which finger now, thumb or index?
+
+45
+00:02:00,600 --> 00:02:01,480
+Index finger!
+
+46
+00:02:02,180 --> 00:02:03,000
+Adding went up.
+
+47
+00:02:03,440 --> 00:02:04,960
+Taking away goes down.
+
+48
+00:02:05,620 --> 00:02:06,540
+Up is the thumb.
+
+49
+00:02:07,060 --> 00:02:08,280
+Down is the index finger.
+
+50
+00:02:09,800 --> 00:02:10,440
+Move.
+
+51
+00:02:11,420 --> 00:02:13,400
+Lower beads first, then the upper bead.
+
+52
+00:02:13,880 --> 00:02:14,680
+Minus one.
+
+53
+00:02:15,140 --> 00:02:16,600
+The lower bead goes down.
+
+54
+00:02:17,420 --> 00:02:18,180
+Plus five.
+
+55
+00:02:18,700 --> 00:02:20,100
+The upper bead goes down.
+
+56
+00:02:21,060 --> 00:02:21,820
+Tens rod last.
+
+57
+00:02:22,400 --> 00:02:23,640
+One bead goes down.
+
+58
+00:02:24,380 --> 00:02:24,700
+Boom!
+
+59
+00:02:25,200 --> 00:02:27,400
+Eleven take away six is five.
+
+60
+00:02:29,760 --> 00:02:32,020
+Next: twenty-two take away seven.
+
+61
+00:02:32,500 --> 00:02:33,040
+Make it.
+
+62
+00:02:33,900 --> 00:02:37,880
+Two lower beads on the ones rod, and two lower beads on the tens rod.
+
+63
+00:02:37,880 --> 00:02:39,000
+Thumb up!
+
+64
+00:02:39,940 --> 00:02:40,120
+Look.
+
+65
+00:02:40,120 --> 00:02:42,020
+Seven's friend is three.
+
+66
+00:02:42,520 --> 00:02:43,940
+Room for three more lower beads?
+
+67
+00:02:45,980 --> 00:02:46,720
+No!
+
+68
+00:02:47,240 --> 00:02:48,060
+Just two fit.
+
+69
+00:02:48,900 --> 00:02:49,000
+Call.
+
+70
+00:02:49,780 --> 00:02:53,480
+Minus seven equals minus two, plus five, minus ten.
+
+71
+00:02:55,800 --> 00:02:55,940
+Move.
+
+72
+00:02:56,720 --> 00:02:57,260
+Minus two.
+
+73
+00:02:57,720 --> 00:02:59,080
+Two lower beads go down.
+
+74
+00:02:59,640 --> 00:03:00,800
+Now plus five.
+
+75
+00:03:01,380 --> 00:03:02,120
+Upper bead down.
+
+76
+00:03:02,860 --> 00:03:03,660
+Tens rod.
+
+77
+00:03:04,160 --> 00:03:05,360
+One bead goes down.
+
+78
+00:03:06,080 --> 00:03:07,360
+Index finger, every time!
+
+79
+00:03:08,040 --> 00:03:08,160
+Boom!
+
+80
+00:03:08,580 --> 00:03:10,720
+Twenty-two take away seven is fifteen!
+
+81
+00:03:11,440 --> 00:03:12,960
+Mirror fans, tap like!
+
+82
+00:03:12,960 --> 00:03:16,940
+And subscribe, the next trick is a big one.
+
+83
+00:03:17,380 --> 00:03:17,920
+Minus eight.
+
+84
+00:03:18,440 --> 00:03:19,300
+Make ninety-three.
+
+85
+00:03:20,140 --> 00:03:22,200
+On the ones rod, three lower beads.
+
+86
+00:03:22,900 --> 00:03:26,380
+Then on the tens rod, four lower beads and the upper bead.
+
+87
+00:03:27,140 --> 00:03:30,040
+Thumb for the lower beads, index finger for the upper bead.
+
+88
+00:03:30,740 --> 00:03:30,900
+Look.
+
+89
+00:03:30,900 --> 00:03:32,860
+Eight's friend is two.
+
+90
+00:03:33,360 --> 00:03:34,960
+How many more lower beads fit?
+
+91
+00:03:37,060 --> 00:03:37,840
+Only one!
+
+92
+00:03:38,440 --> 00:03:38,540
+Call.
+
+93
+00:03:39,320 --> 00:03:42,800
+Minus eight equals minus three, plus five, minus ten.
+
+94
+00:03:44,240 --> 00:03:44,360
+Move.
+
+95
+00:03:44,860 --> 00:03:45,680
+Minus three.
+
+96
+00:03:46,260 --> 00:03:47,600
+Three lower beads go down.
+
+97
+00:03:48,460 --> 00:03:49,640
+Then plus five.
+
+98
+00:03:50,080 --> 00:03:51,400
+Down goes the upper bead.
+
+99
+00:03:52,520 --> 00:03:52,900
+Tens rod.
+
+100
+00:03:53,340 --> 00:03:54,400
+One bead goes down.
+
+101
+00:03:55,020 --> 00:03:55,260
+Boom!
+
+102
+00:03:55,820 --> 00:03:57,960
+Ninety-three take away eight is eighty-five!
+
+103
+00:03:59,040 --> 00:03:59,700
+Flip it.
+
+104
+00:04:00,300 --> 00:04:02,180
+Plus family: up, thumb.
+
+105
+00:04:02,980 --> 00:04:05,300
+Minus family: down, index finger.
+
+106
+00:04:06,020 --> 00:04:10,180
+Plus family: plus lower beads, minus five, plus ten.
+
+107
+00:04:10,820 --> 00:04:15,180
+Minus family: minus lower beads, plus five, minus ten.
+
+108
+00:04:15,800 --> 00:04:16,480
+Same numbers.
+
+109
+00:04:16,480 --> 00:04:17,900
+Mirror moves.
+
+110
+00:04:19,660 --> 00:04:23,480
+Minus six, minus seven, minus eight, minus nine.
+
+111
+00:04:23,880 --> 00:04:25,040
+Four mirror formulas.
+
+112
+00:04:26,080 --> 00:04:26,440
+Your go.
+
+113
+00:04:26,880 --> 00:04:27,680
+Make eighty-four.
+
+114
+00:04:28,320 --> 00:04:30,260
+On the ones rod, four lower beads.
+
+115
+00:04:30,860 --> 00:04:34,120
+Then on the tens rod, three lower beads and the upper bead.
+
+116
+00:04:34,500 --> 00:04:35,220
+Choose your fingers!
+
+117
+00:04:36,380 --> 00:04:36,500
+Look.
+
+118
+00:04:37,100 --> 00:04:38,220
+What is nine's friend?
+
+119
+00:04:39,980 --> 00:04:40,300
+One!
+
+120
+00:04:40,860 --> 00:04:41,760
+Check the ones rod.
+
+121
+00:04:42,160 --> 00:04:43,240
+Four lower beads already.
+
+122
+00:04:43,660 --> 00:04:44,740
+No room at all!
+
+123
+00:04:45,200 --> 00:04:45,560
+Call.
+
+124
+00:04:46,040 --> 00:04:48,020
+Nine is five and four more.
+
+125
+00:04:48,360 --> 00:04:50,300
+So how many lower beads come off first?
+
+126
+00:04:52,240 --> 00:04:52,380
+Four!
+
+127
+00:04:52,380 --> 00:04:56,540
+Minus nine equals minus four, plus five, minus ten.
+
+128
+00:04:57,780 --> 00:04:57,860
+Move.
+
+129
+00:04:58,320 --> 00:05:00,440
+All down, so all index finger.
+
+130
+00:05:00,800 --> 00:05:01,760
+Ones rod first.
+
+131
+00:05:03,000 --> 00:05:04,320
+What number is showing now?
+
+132
+00:05:05,760 --> 00:05:08,440
+Eighty-four take away nine is seventy-five!
+
+133
+00:05:09,260 --> 00:05:09,920
+Mirror master!
+
+134
+00:05:10,540 --> 00:05:13,260
+You did Look, Call, Move all by yourself.
+
+135
+00:05:14,520 --> 00:05:16,560
+Try Look, Call, Move on your own abacus.
+
+136
+00:05:17,140 --> 00:05:20,100
+Get Abacus Kids on the Apple App Store or Google Play.
+
+137
+00:05:20,420 --> 00:05:21,020
+It is free.
+
+138
+00:05:21,600 --> 00:05:22,360
+See you next time!

@@ -614,6 +614,15 @@ const STORE_FRAMES = (() => {
 })();
 
 // ------------------------------------------------------------------------------------------------ SFX
+/** WHO IS ON STAGE WHEN: Pip ("ME") from the start; Tenzo when the big friend is first named (p5 "It helps when the big friend gets stuck"); Fifi when the
+ *  small friend is first named (p16 "The small friend can help"). Each pops in with its tag, and the number crown drops on a moment later. */
+const BIG_INTRO = 5;
+const SMALL_INTRO = 16;
+const enterFor = (intro: number, p: number, bp: number) => (p < intro ? 0 : p === intro ? Math.min(1, bp * 4) : 1);
+const crownFor = (intro: number, p: number, bp: number) => (p < intro ? 0 : p === intro ? Math.max(0, Math.min(1, (bp - 0.3) * 3)) : 1);
+const castEnter = (p: number, bp: number): [number, number, number] => [1, enterFor(SMALL_INTRO, p, bp), enterFor(BIG_INTRO, p, bp)];
+const castCrowns = (p: number, bp: number): [number, number, number] => [1, crownFor(SMALL_INTRO, p, bp), crownFor(BIG_INTRO, p, bp)];
+
 const SFX_CUES: SfxCue[] = (() => {
   const cues: SfxCue[] = [];
   const at = (i: number) => startF(i);
@@ -677,6 +686,11 @@ const SFX_CUES: SfxCue[] = (() => {
   for (const i of [80, 81, 82, 83]) add(at(i), "e15_bubble.mp3", 20, 0.22);
   add(on(84, "never"), "bead_recap_sting.mp3", 50, 0.24);
   add(on(85, "formulas"), "count_fanfare.mp3", 60, 0.24);
+  // ---- NEW SOUNDS (same set as E07-E14): each friend's arrival (pop + crown sparkle)
+  for (const intro of [BIG_INTRO, SMALL_INTRO]) {
+    add(at(intro) + 4, "cta_pop.mp3", 10, 0.3);
+    add(at(intro) + (sec(PHRASES[intro].end, FPS) - at(intro)) * 0.34, "friend_sparkle.mp3", 18, 0.3);
+  }
   add(at(86), "e15_chirp.mp3", 40, 0.28);
   add(on(95, "family"), "e15_link.mp3", 44, 0.3);
   add(on(98, "ten"), "friend_sparkle.mp3", 50, 0.3);
@@ -753,7 +767,7 @@ const OTTER_LOOK = 1;
  *  (caption box top is y 886 in 16:9; feet + water ring + 24 px gap must stay above it). */
 const CLOSE_FEET_Y = 826;
 const closingY = (portrait: boolean) => (portrait ? 1010 : CLOSE_FEET_Y);
-const closingScale = (p: number, portrait: boolean) => (p === 57 ? 1.0 : 0.8) * (portrait ? 0.75 : 1);
+const closingScale = (p: number, portrait: boolean) => (p === 57 ? 1.0 : 0.8) * (portrait ? 1.0 : 1);
 const closingX = (p: number, W: number, portrait: boolean) => (portrait ? W / 2 : p >= NEXT_FROM || isLike(p) ? W / 2 : 300);
 const NEXT_CARD_TOP = 150;
 const NEXT_CARD = { w: 880, h: 280 };
@@ -773,6 +787,7 @@ export const E15FamilyPlus: React.FC = () => (
     sceneFor={sceneFor}
     narration="audio/e015_family_plus/E15.mp3"
     sfx={SFX_CUES}
+    music={{ file: "lesson_bed.wav", loopFrames: 800, vol: 0.12 }}
     abacusFirstFrame={startF(6)}
     subjectFor={() => undefined}
     guardOverlap
@@ -887,7 +902,9 @@ export const E15FamilyPlus: React.FC = () => (
                   y={L.portrait ? 1000 : 860}
                   scale={p >= 4 ? (L.portrait ? 0.95 : 1.12) : (L.portrait ? 1.1 : 1.4)}
                   mood={HOOK_MOOD[p]}
-                  link={p === 3 ? ramp(frame, wf(3, "once"), 12) : p === 4 ? 1 : 0}
+                  link={p >= SMALL_INTRO ? (p === 3 ? ramp(frame, wf(3, "once"), 12) : p === 4 ? 1 : 0) : 0}
+                  enter={castEnter(p, progress)}
+                  crowns={castCrowns(p, progress)}
                   progress={progress}
                   frame={frame}
                   fps={FPS}
@@ -902,13 +919,15 @@ export const E15FamilyPlus: React.FC = () => (
               {(() => {
                 const m = ottersAt(scene, L);
                 return (
-                  <OtterFamily tags tagPx={L.portrait ? 21 : undefined}
+                  <OtterFamily tags tagPx={L.portrait ? 15 : undefined}
                     x={m.x + FAMILY_BOX.half * m.s * 0 + (FAMILY_BOX.half * m.s) * 0}
                     y={m.y}
                     scale={m.s}
                     mood={scene.otters!.mood}
                     link={card?.kind === "family" ? linkK : scene.otters!.mood === "link" ? 1 : 0}
                     lit={litOtters}
+                    enter={castEnter(p, progress)}
+                    crowns={castCrowns(p, progress)}
                     badges={BADGES[exampleOfLine(p)]}
                     progress={progress}
                     frame={frame}
@@ -1075,7 +1094,7 @@ export const E15FamilyPlus: React.FC = () => (
           {/* ---------------------------------------------------------------- the like ask: the otters come forward, only the buttons */}
           {isLike(p) && (
             <svg width={L.W} height={L.H} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
-              <OtterFamily tags x={L.W / 2} y={closingY(L.portrait)} scale={closingScale(p, L.portrait)} mood={scene.otters!.mood} link={p === 58 ? 1 : 0} progress={progress} frame={frame} fps={FPS} water={false} />
+              <OtterFamily tags tagPx={L.portrait ? 17 : undefined} x={L.W / 2} y={closingY(L.portrait)} scale={closingScale(p, L.portrait)} mood={scene.otters!.mood} link={p === 58 ? 1 : 0} progress={progress} frame={frame} fps={FPS} water={false} />
             </svg>
           )}
           {scene.midSubscribe && (
@@ -1089,7 +1108,7 @@ export const E15FamilyPlus: React.FC = () => (
           {/* ---------------------------------------------------------------- the close */}
           {scene.closing && p >= STORE_FROM && (
             <svg width={L.W} height={L.H} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
-              <OtterFamily tags x={closingX(p, L.W, L.portrait)} y={closingY(L.portrait)} scale={closingScale(p, L.portrait)} mood={scene.otters!.mood} link={p === 111 ? 0 : 1} progress={progress} frame={frame} fps={FPS} water={false} />
+              <OtterFamily tags tagPx={L.portrait ? 17 : undefined} x={closingX(p, L.W, L.portrait)} y={closingY(L.portrait)} scale={closingScale(p, L.portrait)} mood={scene.otters!.mood} link={p === 111 ? 0 : 1} progress={progress} frame={frame} fps={FPS} water={false} />
             </svg>
           )}
           {scene.closeBeat === "store" && (

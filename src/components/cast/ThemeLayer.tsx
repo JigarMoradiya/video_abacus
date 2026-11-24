@@ -181,6 +181,39 @@ export const ThemeLayer: React.FC<{ theme: BBTheme; mood: number; t: number; W: 
       </g>
     );
   }
+  if (theme === "canyon") {
+    const night = mood >= 2;
+    const cactus = (x: number, y: number, k: number, key: string) => (
+      <g key={key} transform={`translate(${x} ${y}) scale(${k})`}>
+        <rect x={-12} y={-130} width={24} height={130} rx={12} fill="#3FA06A" />
+        <path d="M -12 -70 H -38 V -104" stroke="#3FA06A" strokeWidth={20} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M 12 -50 H 36 V -88" stroke="#3FA06A" strokeWidth={20} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      </g>
+    );
+    return (
+      <g>
+        {night && Array.from({ length: 30 }, (_, i) => <circle key={i} cx={rand(i) * W} cy={rand(i + 50) * H * 0.55} r={1.6} fill="#FFFFFF" opacity={(mood === 3 ? 0.85 : 0.45) * (0.6 + 0.4 * Math.sin(t * 1.2 + i))} />)}
+        <circle cx={W * 0.8} cy={H * (night ? 0.2 : 0.3)} r={night ? 62 : 96} fill={night ? "#FFF3CF" : "#FFF0C0"} opacity={night ? 0.85 : 0.6} style={soft(night ? 2 : 8)} />
+        <g style={soft(3)} opacity={0.6}>
+          <path d={`M 0 ${floor} V ${H * 0.52} H ${W * 0.07} L ${W * 0.09} ${H * 0.44} H ${W * 0.2} L ${W * 0.22} ${floor} Z`} fill={night ? "#7A4A8A" : "#D9805A"} />
+          <path d={`M ${W * 0.58} ${floor} L ${W * 0.62} ${H * 0.5} H ${W * 0.76} L ${W * 0.8} ${H * 0.44} H ${W * 0.9} L ${W * 0.93} ${floor} Z`} fill={night ? "#6A3F80" : "#C8704A"} />
+        </g>
+        <Edge id="cn" W={W} H={H} edge={edge} floor={H * 0.94}>
+          <g style={soft(1.5)}>
+            <path d={`M 0 ${floor + 20} V ${H * 0.4} H ${W * 0.045} L ${W * 0.06} ${H * 0.3} H ${W * 0.09} L ${W * 0.1} ${floor + 20} Z`} fill={night ? "#8A4F6A" : "#C25F3A"} />
+            <path d={`M 0 ${H * 0.4} H ${W * 0.045} M 0 ${H * 0.5} H ${W * 0.075} M 0 ${H * 0.62} H ${W * 0.085}`} stroke={night ? "#B26F8A" : "#E08A5A"} strokeWidth={6} opacity={0.7} />
+            {cactus(W * 0.13 + sway * 2, floor + 28, 1.1, "c1")}
+            <path d={`M ${W} ${floor + 20} V ${H * 0.36} H ${W * 0.955} L ${W * 0.94} ${H * 0.28} H ${W * 0.905} L ${W * 0.895} ${floor + 20} Z`} fill={night ? "#8A4F6A" : "#C25F3A"} />
+            <path d={`M ${W} ${H * 0.36} H ${W * 0.955} M ${W} ${H * 0.48} H ${W * 0.925} M ${W} ${H * 0.6} H ${W * 0.915}`} stroke={night ? "#B26F8A" : "#E08A5A"} strokeWidth={6} opacity={0.7} />
+            <g transform={`translate(${W * 0.9} ${floor + 30})`}><path d="M -70 0 Q -66 -64 0 -70 Q 66 -64 70 0 Z" fill="#9A5A3A" /><path d="M -34 0 Q -32 -42 0 -44 Q 32 -42 34 0 Z" fill="#2A1428" /></g>
+            {cactus(W * 0.87 - sway * 2, floor + 30, 0.9, "c2")}
+          </g>
+        </Edge>
+        <path d={`M 0 ${floor + 22} Q ${W * 0.22} ${floor - 18} ${W * 0.45} ${floor + 16} T ${W * 0.9} ${floor + 6} T ${W} ${floor + 14} V ${H} H 0 Z`} fill={night ? "#C27A6A" : "#F0B27A"} style={soft(1)} />
+        <path d={`M 0 ${floor + 52} Q ${W * 0.3} ${floor + 26} ${W * 0.6} ${floor + 50} T ${W} ${floor + 44} V ${H} H 0 Z`} fill={night ? "#9A5A7A" : "#E09A62"} opacity={0.9} />
+      </g>
+    );
+  }
   // fair
   return (
     <g>

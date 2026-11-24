@@ -38,6 +38,7 @@ import { Otter, type OtterRole, type Costume, type OtterProp } from "../componen
 import { Dino, type DinoKind } from "../components/e08/Dino";
 import { Critter, type CritterKind } from "../components/cast/Critters";
 import { BB_RIGS } from "../data/bbworlds";
+import { RIG_COVE } from "../data/theme";
 import { Wheel as WheelE14 } from "../components/e14/Wheel";
 import { KID_FONT } from "../lib/fonts";
 import {
@@ -305,6 +306,9 @@ export const THUMBS: Record<string, ThumbSpec> = {
     hook: "Big Friend Adding!",
     subtitle: "+1 to +9",
     sub: "all 9 formulas!",
+    formula: "+1 = −9 +10",
+    formulaTitle: "BIG FRIEND",
+    subtitleInk: "#7A2F0A",
     // the episode's own jungle — canopy, godrays, butterflies — no fixed prop to collide with text
     world: "farmB",
     palette: BB_RIGS.farm,
@@ -322,6 +326,9 @@ export const THUMBS: Record<string, ThumbSpec> = {
     hook: "Big Friend Taking Away!",
     subtitle: "−1 to −9",
     sub: "all 9 formulas!",
+    formula: "−1 = +9 −10",
+    formulaTitle: "BIG FRIEND",
+    subtitleInk: "#7A3A0A",
     // the episode's own autumn park, at its "your turn" quiz beat — warm and legible, no fixed
     // prop in this particular world to collide with the text column
     world: "trainB",
@@ -356,6 +363,23 @@ export const THUMBS: Record<string, ThumbSpec> = {
     // E10's own recall-game precedent: the wheel is the more honest "what is this video" image
     // than the abacus for a recap episode.
     hero: "wheel",
+  },
+  e15: {
+    ep: 15,
+    // THE FAMILY: Pip, Fifi and Tenzo together. The sum is the lesson's own first family example, 7 + 6 (the big friend alone gets stuck).
+    hook: "The Family Trick!",
+    subtitle: "7 + 6 = ?",
+    sub: "big friend + small friend",
+    formula: "+6 = +1 −5 +10",
+    formulaTitle: "FAMILY",
+    subtitleInk: "#0B5560",
+    world: "covereef",
+    palette: RIG_COVE,
+    rods: [7, 0, 0, 0, 0],
+    rodCount: 5,
+    ink: "#FFF6E0",
+    band: "#E85A3C",
+    buddies: { cast: ["little", "middle", "big"], props: { little: "binoculars" } },
   },
 };
 
@@ -659,11 +683,11 @@ export const Thumbnail: React.FC<{ spec: ThumbSpec; portrait?: boolean }> = ({
             const n = spec.buddies!.cast.length;
             const roles0 = spec.buddies!.cast;
             // smaller + lower than before: the number crowns made the cast taller, and a crown tip must not poke into the abacus above
-            const sc = portrait ? (roles0.includes("big") ? 0.92 : 1.1) : 0.7;
+            const sc = portrait ? (roles0.includes("big") ? (spec.formula ? 0.78 : 0.92) : 1.1) : 0.7;
             // name tags keep a fixed pixel size, so the pair needs a fixed centre spacing (~165 px) whatever the scale
-            const gap = portrait ? 150 : 165 / sc;
-            const cx = portrait ? 720 : 1030;
-            const y = portrait ? 1810 : 708;
+            const gap = portrait ? (n === 3 ? 228 / sc : 150) : n === 3 ? 195 / sc : 165 / sc;
+            const cx = portrait ? (n === 3 ? 700 : 720) : n === 3 ? 955 : 1030;
+            const y = portrait ? (roles0.includes("big") && spec.formula ? 1850 : 1810) : 708;
             const roles = spec.buddies!.cast;
             const d = spec.buddies!.dino;
             return (
@@ -908,3 +932,5 @@ export const ThumbE13: React.FC = () => <Thumbnail spec={THUMBS.e13} />;
 export const ThumbE13V: React.FC = () => <Thumbnail spec={THUMBS.e13} portrait />;
 export const ThumbE14: React.FC = () => <Thumbnail spec={THUMBS.e14} />;
 export const ThumbE14V: React.FC = () => <Thumbnail spec={THUMBS.e14} portrait />;
+export const ThumbE15: React.FC = () => <Thumbnail spec={THUMBS.e15} />;
+export const ThumbE15V: React.FC = () => <Thumbnail spec={THUMBS.e15} portrait />;
