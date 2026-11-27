@@ -343,28 +343,41 @@ export const StoreFlow: React.FC<{
                   treatment though, the cut card reads as a broken layout rather than as more content
                   off-screen, and it is cut mid-word. A soft fade at both ends is the standard fix and
                   says "there is more this way" in the same gesture. */}
-              <div
-                style={{
-                  marginTop: 14,
-                  overflow: "hidden",
-                  WebkitMaskImage:
-                    "linear-gradient(to right, transparent 0px, #000 22px, #000 calc(100% - 22px), transparent 100%)",
-                  maskImage:
-                    "linear-gradient(to right, transparent 0px, #000 22px, #000 calc(100% - 22px), transparent 100%)",
-                }}
-              >
-                <div style={{ display: "flex", gap: 8, transform: `translateX(${shotScroll}px)` }}>
-                  {[1, 2, 3, 4].map((k) => (
-                    <Img
-                      key={k}
-                      src={staticFile(`brand/shots/s${k}.jpg`)}
-                      style={{
-                        width: shotW,
-                        borderRadius: 10,
-                        border: "1px solid rgba(0,0,0,0.10)",
-                        flex: "0 0 auto",
-                      }}
-                    />
+              {/* 2026-11-25: only the first store screenshot (the new landscape hero), full width, natural shape */}
+              <div style={{ marginTop: 14 }}>
+                <Img
+                  src={staticFile("brand/shots/s1.jpg")}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    display: "block",
+                    borderRadius: 10,
+                    border: "1px solid rgba(0,0,0,0.10)",
+                  }}
+                />
+              </div>
+
+              {/* the landscape screenshot is short in a portrait frame, so the room under it holds what is inside the app */}
+              <div style={{ marginTop: 14 }}>
+                <span style={label(13, 700, "#1C1C1E")}>What&apos;s inside</span>
+                <div style={{ marginTop: 8, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                  {[
+                    { icon: "🧮", t: "Free Mode", s: "explore the beads" },
+                    { icon: "📚", t: "Step-by-step", s: "Learn, Practice, Quiz" },
+                    { icon: "⚡", t: "Speed Math", s: "times tables too" },
+                    { icon: "🎮", t: "Math games", s: "Sudoku and puzzles" },
+                  ].map((c) => (
+                    <div
+                      key={c.t}
+                      style={{ display: "flex", alignItems: "center", gap: 8, background: "#F6F6F8", borderRadius: 12, padding: "9px 10px" }}
+                    >
+                      <span style={{ fontSize: 18 }}>{c.icon}</span>
+                      <span>
+                        <span style={label(11, 700, "#1C1C1E")}>{c.t}</span>
+                        <br />
+                        <span style={label(9, 600, "#8A8A8E")}>{c.s}</span>
+                      </span>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -389,8 +402,7 @@ export const StoreFlow: React.FC<{
               <div style={{ marginTop: 12, display: "flex", gap: 8 }}>
                 {[
                   { icon: "🎓", k: "CATEGORY", v: "Education" },
-                  { icon: "🔞", k: "AGE", v: "4+" },
-                  { icon: "🌐", k: "LANGUAGES", v: "EN +6" },
+                  { icon: "🌐", k: "LANGUAGES", v: "EN +more" },
                 ].map((c) => (
                   <div
                     key={c.k}
@@ -413,6 +425,24 @@ export const StoreFlow: React.FC<{
                   </div>
                 ))}
               </div>
+
+              {height >= 740 && (
+              <div style={{ marginTop: 12, display: "flex", gap: 8 }}>
+                {[
+                  { icon: "🚫", t: "No ads" },
+                  { icon: "🛡️", t: "Safe for kids" },
+                  { icon: "👧", t: "Ages 4–14+" },
+                ].map((c) => (
+                  <div
+                    key={c.t}
+                    style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, background: "#EAF7EE", borderRadius: 12, padding: "9px 6px" }}
+                  >
+                    <span style={{ fontSize: 13 }}>{c.icon}</span>
+                    <span style={label(10.5, 700, "#1E7A3C")}>{c.t}</span>
+                  </div>
+                ))}
+              </div>
+              )}
 
               {/* NO rating number, review count or review quote anywhere: the real store changes them with its users, so a video must not state them (12 Oct) */}
             </div>
